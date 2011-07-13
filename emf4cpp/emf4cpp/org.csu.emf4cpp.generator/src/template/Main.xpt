@@ -1,0 +1,45 @@
+«REM»
+Main.xpt
+Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«DEFINE main FOR EPackage»
+    «EXPAND package FOR this»
+    «EXPAND template::CMakeLists::MainCMake FOR this»
+    «REM»«EXPAND template::Makefile::MainMakefile FOR this»«ENDREM»
+«ENDDEFINE»
+
+«DEFINE package FOR EPackage»
+    «EXPAND template::EPackageHPP::hpp FOR this»
+    «EXPAND template::EPackageCPP::cpp FOR this»
+    
+    «EXPAND template::EClassHPP::hpp FOREACH EClassifiers.typeSelect(EClass)»
+    «EXPAND template::EClassCPP::cpp FOREACH EClassifiers.typeSelect(EClass)»
+    «EXPAND template::EClassImplCPP::cpp FOREACH EClassifiers.typeSelect(EClass)»
+    
+    «EXPAND template::Factory::hppcpp FOR this»
+    «EXPAND template::FactoryImpl::hppcpp FOR this»
+    «EXPAND template::Package::hppcpp FOR this»
+    «EXPAND template::PackageImpl::hppcpp FOR this»
+    
+    «REM»«EXPAND template::Makefile::Makefile FOR this»«ENDREM»
+    «EXPAND template::CMakeLists::CMake FOR this»
+    
+    «EXPAND package FOREACH ESubpackages»
+«ENDDEFINE»
+

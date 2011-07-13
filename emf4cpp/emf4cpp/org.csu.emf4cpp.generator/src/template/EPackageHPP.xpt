@@ -1,0 +1,116 @@
+«REM»
+EPackageHPP.xpt
+Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Mapping»
+
+«DEFINE hpp FOR EPackage»
+«FILE getFQN("/")+".hpp"-»
+«EXPAND template::License::License FOR getFQN("/")+".hpp"-»
+#ifndef «getHeaderDef()»_HPP
+#define «getHeaderDef()»_HPP
+
+#include "«name»_forward.hpp"
+#include <ecorecpp/mapping.hpp>
+
+// EPackage
+«FOREACH ESubpackages AS subpkg-»
+#include <«subpkg.getFQN("/")».hpp>
+«ENDFOREACH»
+
+// EClass
+«FOREACH EClassifiers.typeSelect(EClass) AS class-»
+#include "«name»/«class.name».hpp"
+«ENDFOREACH-»
+
+// Package & Factory
+#include "«getPackagePrefix()».hpp"
+#include "«getFactoryPrefix()».hpp"
+
+«REM»
+// EClassImpl
+«FOREACH EClassifiers.typeSelect(EClass) AS class-»
+#include "«name»/«class.name»Impl.hpp"
+«ENDFOREACH-»
+
+// PackageImpl & FactoryImpl
+#include "«getPackagePrefix()»Impl.hpp"
+#include "«getFactoryPrefix()»Impl.hpp"
+«ENDREM»
+
+#endif // «getHeaderDef()»_HPP
+«ENDFILE»
+
+«FILE getFQN("/")+"_forward.hpp"-»
+«EXPAND template::License::License FOR getFQN("/")+"_forward.hpp"-»
+#ifndef _«getHeaderDef()»_FORWARD_HPP
+#define _«getHeaderDef()»_FORWARD_HPP
+
+#include <ecorecpp/mapping_forward.hpp>
+
+«PROTECT CSTART '/*' CEND '*/' ID getFQN("_")+"_forward" DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+// Additional headers here
+«ENDPROTECT»
+
+// EPackage
+«FOREACH ESubpackages AS subpkg-»
+#include <«subpkg.getFQN("/")»_forward.hpp>
+«ENDFOREACH»
+
+#include <ecore_forward.hpp> // for EDataTypes
+
+«EXPAND template::EClassHPP::namespaces_begin FOR this»
+
+// EDataType
+«FOREACH EClassifiers.typeSelect(EDataType).select(e|e.ETypeParameters.isEmpty) AS type-»
+«PROTECT CSTART '/*' CEND '*/' ID type.getFQN("_") DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+typedef «getEDataTypeMap(type)» «type.name»;
+«ENDPROTECT»
+«ENDFOREACH»
+
+// EClass
+«FOREACH EClassifiers.typeSelect(EClass) AS class»
+// «class.name»
+class «class.name»;
+typedef «class.name»* «class.name»_ptr;
+«ENDFOREACH»
+
+// Package & Factory
+class «getFactoryName()»;
+typedef «getFactoryName()» * «getFactoryName()»_ptr;
+class «getPackageName()»;
+typedef «getPackageName()» * «getPackageName()»_ptr;
+
+template<typename T, typename S>
+inline T* instanceOf(S* _s)
+{
+    return dynamic_cast<T*>(_s);
+}
+
+«EXPAND template::EClassHPP::namespaces_end FOR this»
+
+#endif // _«getHeaderDef()»_FORWARD_HPP
+
+«ENDFILE»
+«ENDDEFINE»

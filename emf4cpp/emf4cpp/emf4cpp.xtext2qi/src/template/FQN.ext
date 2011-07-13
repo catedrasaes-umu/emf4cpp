@@ -1,0 +1,78 @@
+import ecore;
+import xtext;
+
+cached String fileName(Grammar this):
+	name.replaceAll("\\.","_");
+
+cached String header(Grammar this):
+	fileName().toUpperCase()+"_HPP";
+	
+cached String parserHeader(Grammar this):
+	getName().toUpperCase()+"_QIPARSER_HPP";
+
+String getFQN(EPackage this, String separator) : 
+	this.eSuperPackage != null ? 
+		this.eSuperPackage.getFQN(separator) + separator + this.name
+	: 
+		this.name;
+// prefix & suffix for normal classifiers
+String getFQNPrefix(EClassifier this, String separator) : 
+	this.ePackage != null ? this.ePackage.getFQN(separator) + separator : "";
+String getFQNSuffix(EClassifier this, String separator) :
+	this.name;
+// prefix & suffix for packages
+String getFQNPrefix(EPackage this, String separator) : 
+	this.eSuperPackage != null ?
+		this.eSuperPackage.getFQN(separator) + separator 
+	: 
+		"";
+String getFQNSuffix(EPackage this, String separator) : 
+	this.name;
+String getFQN(EClassifier this, String separator) : 
+	this.getFQNPrefix(separator) + this.getFQNSuffix(separator);
+String getFQN(EOperation this, String separator) : 
+	this.eContainingClass.getFQN(separator) + separator + this.name ;
+String getFQN(EPackage this) : 
+	this.getFQN("::");
+String getFQN(EOperation this) : 
+	this.getFQN("::");
+String getFQN(EClassifier this) : 
+	this.getFQN("::");
+	
+	
+String getReturnType(EClassifier this) :
+	if EClass.isInstance(this) then
+		getFQN() + "_ptr"
+	else
+		getFQN();
+
+cached List[String] getNamespaces(Grammar this) :
+	name.split("\\.").withoutLast()
+;
+
+String getName(Grammar this) :
+	name.split("\\.").last()
+;
+
+String parseMethod(Grammar this, String prefix) :
+	rules.first().type.classifier.getReturnType() + " " + prefix + "parse(const std::string& _file)"
+;
+
+String parseMethod(Grammar this) :
+	parseMethod("")
+;
+
+String usingNamespaceImpl(List[String] this):
+	if size > 1 then
+		first() + "::" + withoutFirst().usingNamespaceImpl()
+	else
+		first()
+;
+
+String usingNamespace(Grammar this) :
+	let ns = getNamespaces():
+	if ns.size > 0 then
+		"using namespace " + ns.usingNamespaceImpl() + ";"
+	else
+		""
+;

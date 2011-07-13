@@ -1,0 +1,24 @@
+<workflow>
+	<!-- PARAMETERS(default value):-->
+	<property name="modelFile" value="platform:/resource/emf4cpp.tests/mydsl/antlr/MyDsl.xtext"/>
+	<property name="targetDir" value="../emf4cpp.tests/mydsl/antlr"/>
+
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" platformUri="..">
+		<registerGeneratedEPackage value="org.eclipse.xtext.XtextPackage"/>
+	</bean>
+	
+	<component class="org.eclipse.xtext.MweReader" uri="${modelFile}">
+		<outputSlot value="model"/>
+		<register class="org.eclipse.xtext.XtextStandaloneSetup"/>
+	</component>
+	
+	<!--  generate code -->
+	<component class="org.eclipse.xpand2.Generator">
+		<metaModel class="org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel"/>
+		<expand	value="template::Main::main FOR model" />
+        <outlet path="${targetDir}" />
+        <outlet name="NOOVERWRITE" path="${targetDir}" overwrite="false" />
+        <prSrcPaths value="${targetDir}"/>
+	</component>
+
+</workflow>

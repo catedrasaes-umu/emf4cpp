@@ -1,0 +1,1578 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xtext:Grammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext" xsi:schemaLocation="http://www.eclipse.org/emf/2002/Ecore java://org.eclipse.emf.ecore.EcorePackage http://www.eclipse.org/2008/Xtext java://org.eclipse.xtext.XtextPackage" name="xtext.IDL">
+  <usedGrammars href="classpath:/org/eclipse/xtext/common/Terminals.xtext#/"/>
+  <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="IDL">
+    <ePackage href="classpath:/examples/IDLMM.ecore#/"/>
+  </metamodelDeclarations>
+  <rules xsi:type="xtext:ParserRule" name="specification">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TranslationUnit"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Assignment" cardinality="*" feature="includes" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="+" feature="contains" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.2"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="include_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//Include"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="#include"/>
+      <tokens xsi:type="xtext:Assignment" feature="importURI" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="definition">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//Contained"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.14"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.13"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.4"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.5"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.3"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="module">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ModuleDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="module"/>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="{"/>
+      <tokens xsi:type="xtext:Assignment" cardinality="+" feature="contains" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.2"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="interface_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//InterfaceDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Alternatives" cardinality="?">
+        <groups xsi:type="xtext:Assignment" feature="isAbstract" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="abstract"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="isCustom" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="local"/>
+        </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="interface"/>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value=":"/>
+        <tokens xsi:type="xtext:Assignment" feature="derivesFrom" operator="+=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//InterfaceDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="derivesFrom" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//InterfaceDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </tokens>
+        </tokens>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="{"/>
+      <tokens xsi:type="xtext:Assignment" cardinality="*" feature="contains" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.6"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="interface_fwd">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Alternatives" cardinality="?">
+        <groups xsi:type="xtext:Keyword" value="abstract"/>
+        <groups xsi:type="xtext:Keyword" value="local"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="interface"/>
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="export">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//Contained"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.14"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.29"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.13"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.10"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.7"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="op_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//OperationDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="isOneway" operator="?=">
+        <terminal xsi:type="xtext:Keyword" value="oneway"/>
+      </tokens>
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.8"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="("/>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Assignment" feature="parameters" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.9"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="parameters" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.9"/>
+          </tokens>
+        </tokens>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value=")"/>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="raises"/>
+        <tokens xsi:type="xtext:Keyword" value="("/>
+        <tokens xsi:type="xtext:Assignment" feature="canRaise" operator="+=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="canRaise" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=")"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="context"/>
+        <tokens xsi:type="xtext:Keyword" value="("/>
+        <tokens xsi:type="xtext:Assignment" feature="contexts" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="contexts" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=")"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="op_type_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//IDLType"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+          </type>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="kind" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.58"/>
+        </tokens>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="param_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ParameterDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Assignment" feature="direction" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.36"/>
+      </tokens>
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="attr_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//AttributeDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.11"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.12"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="readonly_attr_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//AttributeDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="isReadonly" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="readonly"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="attribute"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="raises"/>
+        <tokens xsi:type="xtext:Keyword" value="("/>
+        <tokens xsi:type="xtext:Assignment" feature="getRaises" operator="+=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="getRaises" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=")"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="isReadonly" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="readonly"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="attribute"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="attr_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//AttributeDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="attribute"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="getraises"/>
+            <tokens xsi:type="xtext:Keyword" value="("/>
+            <tokens xsi:type="xtext:Assignment" feature="getRaises" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="//@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+              </terminal>
+            </tokens>
+            <tokens xsi:type="xtext:Group" cardinality="*">
+              <tokens xsi:type="xtext:Keyword" value=","/>
+              <tokens xsi:type="xtext:Assignment" feature="getRaises" operator="+=">
+                <terminal xsi:type="xtext:CrossReference">
+                  <type metamodel="//@metamodelDeclarations.0">
+                    <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+                  </type>
+                  <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+                </terminal>
+              </tokens>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=")"/>
+            <tokens xsi:type="xtext:Group" cardinality="?">
+              <tokens xsi:type="xtext:Keyword" value="setraises"/>
+              <tokens xsi:type="xtext:Keyword" value="("/>
+              <tokens xsi:type="xtext:Assignment" feature="setRaises" operator="+=">
+                <terminal xsi:type="xtext:CrossReference">
+                  <type metamodel="//@metamodelDeclarations.0">
+                    <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+                  </type>
+                  <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+                </terminal>
+              </tokens>
+              <tokens xsi:type="xtext:Group" cardinality="*">
+                <tokens xsi:type="xtext:Keyword" value=","/>
+                <tokens xsi:type="xtext:Assignment" feature="setRaises" operator="+=">
+                  <terminal xsi:type="xtext:CrossReference">
+                    <type metamodel="//@metamodelDeclarations.0">
+                      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+                    </type>
+                    <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+                  </terminal>
+                </tokens>
+              </tokens>
+              <tokens xsi:type="xtext:Keyword" value=")"/>
+            </tokens>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="setraises"/>
+            <tokens xsi:type="xtext:Keyword" value="("/>
+            <tokens xsi:type="xtext:Assignment" feature="setRaises" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="//@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+              </terminal>
+            </tokens>
+            <tokens xsi:type="xtext:Group" cardinality="*">
+              <tokens xsi:type="xtext:Keyword" value=","/>
+              <tokens xsi:type="xtext:Assignment" feature="setRaises" operator="+=">
+                <terminal xsi:type="xtext:CrossReference">
+                  <type metamodel="//@metamodelDeclarations.0">
+                    <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+                  </type>
+                  <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+                </terminal>
+              </tokens>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=")"/>
+          </groups>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="attribute"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="except_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ExceptionDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="exception"/>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="{"/>
+      <tokens xsi:type="xtext:Assignment" cardinality="*" feature="members" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.23"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="type_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.15"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.22"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.27"/>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="native"/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </groups>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.28"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="alias_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//AliasDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="typedef"/>
+        <tokens xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.17"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.16"/>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="typedef"/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.18"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="id_array">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      <tokens xsi:type="xtext:Group" cardinality="+">
+        <tokens xsi:type="xtext:Keyword" value="["/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+        <tokens xsi:type="xtext:Keyword" value="]"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="array_type_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ArrayDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.18"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="//@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </terminal>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="simple_type_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//IDLType"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.20"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="base_type_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.57"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="template_type_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//IDLType"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.32"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.33"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.35"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="constr_type_spec">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.22"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.27"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="struct_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//StructDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="struct"/>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="{"/>
+      <tokens xsi:type="xtext:Assignment" cardinality="+" feature="members" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.23"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="member">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//Field"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.17"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.16"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.18"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="union_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//UnionDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="union"/>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="switch"/>
+      <tokens xsi:type="xtext:Keyword" value="("/>
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="containedDiscrim" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.25"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="sharedDiscrim" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//EnumDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value=")"/>
+      <tokens xsi:type="xtext:Keyword" value="{"/>
+      <tokens xsi:type="xtext:Assignment" cardinality="+" feature="unionMembers" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.26"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="switch_type_spec_cont">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//IDLType"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.41"/>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+          </type>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="kind" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.49"/>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.0">
+            <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+          </type>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="kind" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.54"/>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.27"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="case_stmt">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//UnionField"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Alternatives" cardinality="+">
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="case"/>
+            <tokens xsi:type="xtext:Assignment" feature="label" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=":"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Assignment" feature="label" operator="+=">
+              <terminal xsi:type="xtext:Keyword" value="default"/>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=":"/>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.17"/>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.16"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Alternatives" cardinality="+">
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="case"/>
+            <tokens xsi:type="xtext:Assignment" feature="label" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=":"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Assignment" feature="label" operator="+=">
+              <terminal xsi:type="xtext:Keyword" value="default"/>
+            </tokens>
+            <tokens xsi:type="xtext:Keyword" value=":"/>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.18"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+            </terminal>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="enum_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//EnumDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="enum"/>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="{"/>
+      <tokens xsi:type="xtext:Assignment" feature="members" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="+">
+        <tokens xsi:type="xtext:Keyword" value=","/>
+        <tokens xsi:type="xtext:Assignment" feature="members" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+        </tokens>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="}"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="constr_forward_decl">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="struct"/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="union"/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="const_decl">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//ConstantDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="const"/>
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.30"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//AliasDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" feature="identifier" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="="/>
+      <tokens xsi:type="xtext:Assignment" feature="constValue" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="const_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//IDLType"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.31"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.33"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.34"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="primitive_def">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.41"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.37"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.48"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.53"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="sequence_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//SequenceDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="sequence"/>
+      <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:Assignment" feature="containedType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.18"/>
+        </groups>
+        <groups xsi:type="xtext:Assignment" feature="sharedType" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//TypedefDef"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+          </terminal>
+        </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value=","/>
+        <tokens xsi:type="xtext:Assignment" feature="bound" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+        </tokens>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value=">"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="stringdef_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//StringDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="string"/>
+      <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+      <tokens xsi:type="xtext:Assignment" feature="bound" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value=">"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="wide_stringdef_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//WstringDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="wstring"/>
+      <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+      <tokens xsi:type="xtext:Assignment" feature="bound" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value=">"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="fixed_pt_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//FixedDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="fixed"/>
+      <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+      <tokens xsi:type="xtext:Assignment" feature="digits" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value=","/>
+      <tokens xsi:type="xtext:Assignment" feature="scale" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value=">"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="param_attribute">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//ParameterMode"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="classpath:/examples/IDLMM.ecore#//ParameterMode/PARAM_IN"/>
+        <literal value="in"/>
+      </groups>
+      <groups xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="classpath:/examples/IDLMM.ecore#//ParameterMode/PARAM_OUT"/>
+        <literal value="out"/>
+      </groups>
+      <groups xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="classpath:/examples/IDLMM.ecore#//ParameterMode/PARAM_INOUT"/>
+        <literal value="inout"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="floating_pt_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.38"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.39"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.40"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="float_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_FLOAT"/>
+      <literal value="float"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="double_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_DOUBLE"/>
+      <literal value="double"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="longdouble_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="long"/>
+      <tokens xsi:type="xtext:Keyword" value="double"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="integer_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.42"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.43"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.45"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.47"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="short_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_SHORT"/>
+      <literal value="short"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="long_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_LONG"/>
+      <literal value="long"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="longlong_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="long"/>
+      <tokens xsi:type="xtext:Keyword" value="long"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ushort_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="unsigned"/>
+      <tokens xsi:type="xtext:Keyword" value="short"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ulong_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="unsigned"/>
+      <tokens xsi:type="xtext:Keyword" value="long"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="ulonglong_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="unsigned"/>
+      <tokens xsi:type="xtext:Keyword" value="long"/>
+      <tokens xsi:type="xtext:Keyword" value="long"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="charstr_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.49"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.50"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.51"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.52"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="char_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_CHAR"/>
+      <literal value="char"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="wide_char_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_WCHAR"/>
+      <literal value="wchar"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="string_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_STRING"/>
+      <literal value="string"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="wide_string_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_WSTRING"/>
+      <literal value="wstring"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="other_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//PrimitiveDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.54"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
+      </groups>
+      <groups xsi:type="xtext:Assignment" feature="kind" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.56"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="boolean_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_BOOLEAN"/>
+      <literal value="boolean"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="octet_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_OCTET"/>
+      <literal value="octet"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="any_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_ANY"/>
+      <literal value="any"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="object_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_OBJREF"/>
+      <literal value="Object"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="void_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EEnum" href="classpath:/examples/IDLMM.ecore#//PrimitiveKind"/>
+    </type>
+    <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+      <enumLiteral href="classpath:/examples/IDLMM.ecore#//PrimitiveKind/PK_VOID"/>
+      <literal value="void"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="fixed_pt_const_type">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="classpath:/examples/IDLMM.ecore#//FixedDef"/>
+    </type>
+    <alternatives xsi:type="xtext:Assignment" feature="scale" operator="=">
+      <terminal xsi:type="xtext:Keyword" value="fixed"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="const_exp">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="or_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      <tokens xsi:type="xtext:Group" cardinality="*">
+        <tokens xsi:type="xtext:Keyword" value="|"/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="xor_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.63"/>
+      <tokens xsi:type="xtext:Group" cardinality="*">
+        <tokens xsi:type="xtext:Keyword" value="^"/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.63"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="and_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+      <tokens xsi:type="xtext:Group" cardinality="*">
+        <tokens xsi:type="xtext:Keyword" value="&amp;"/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="shift_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.65"/>
+      <tokens xsi:type="xtext:Group" cardinality="*">
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value=">>"/>
+          <groups xsi:type="xtext:Keyword" value="&lt;&lt;"/>
+        </tokens>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.65"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="add_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.66"/>
+      <tokens xsi:type="xtext:Group" cardinality="*">
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value="+"/>
+          <groups xsi:type="xtext:Keyword" value="-"/>
+        </tokens>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.66"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="mult_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.67"/>
+      <tokens xsi:type="xtext:Group" cardinality="*">
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value="*"/>
+          <groups xsi:type="xtext:Keyword" value="/"/>
+          <groups xsi:type="xtext:Keyword" value="%"/>
+        </tokens>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.67"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="unary_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.68"/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.69"/>
+      </groups>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.69"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="unary_operator">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Keyword" value="-"/>
+      <groups xsi:type="xtext:Keyword" value="+"/>
+      <groups xsi:type="xtext:Keyword" value="~"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="primary_expr">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.75"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.70"/>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="("/>
+        <tokens xsi:type="xtext:RuleCall" rule="//@rules.60"/>
+        <tokens xsi:type="xtext:Keyword" value=")"/>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:ParserRule" name="literal">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:RuleCall">
+        <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+      </groups>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.71"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.72"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.73"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.74"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="WIDE_STRING_LITERAL">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="L"/>
+      <tokens xsi:type="xtext:RuleCall" rule="//@rules.76"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="FIXED_PT_LITERAL">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="."/>
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="e"/>
+            <groups xsi:type="xtext:Keyword" value="E"/>
+          </tokens>
+          <tokens xsi:type="xtext:Alternatives" cardinality="?">
+            <groups xsi:type="xtext:Keyword" value="+"/>
+            <groups xsi:type="xtext:Keyword" value="-"/>
+          </tokens>
+          <tokens xsi:type="xtext:RuleCall">
+            <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+          </tokens>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="."/>
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="e"/>
+            <groups xsi:type="xtext:Keyword" value="E"/>
+          </tokens>
+          <tokens xsi:type="xtext:Alternatives" cardinality="?">
+            <groups xsi:type="xtext:Keyword" value="+"/>
+            <groups xsi:type="xtext:Keyword" value="-"/>
+          </tokens>
+          <tokens xsi:type="xtext:RuleCall">
+            <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+          </tokens>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="e"/>
+            <groups xsi:type="xtext:Keyword" value="E"/>
+          </tokens>
+          <tokens xsi:type="xtext:Alternatives" cardinality="?">
+            <groups xsi:type="xtext:Keyword" value="+"/>
+            <groups xsi:type="xtext:Keyword" value="-"/>
+          </tokens>
+          <tokens xsi:type="xtext:RuleCall">
+            <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+          </tokens>
+        </tokens>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="FLOATING_PT_LITERAL">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="."/>
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value="d"/>
+          <groups xsi:type="xtext:Keyword" value="D"/>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value="d"/>
+          <groups xsi:type="xtext:Keyword" value="D"/>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="."/>
+        <tokens xsi:type="xtext:RuleCall">
+          <rule href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Keyword" value="d"/>
+          <groups xsi:type="xtext:Keyword" value="D"/>
+        </tokens>
+      </groups>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="BOOLEAN_LITERAL">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Keyword" value="TRUE"/>
+      <groups xsi:type="xtext:Keyword" value="FALSE"/>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="ID">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Alternatives">
+        <groups xsi:type="xtext:CharacterRange">
+          <left value="a"/>
+          <right value="z"/>
+        </groups>
+        <groups xsi:type="xtext:CharacterRange">
+          <left value="A"/>
+          <right value="Z"/>
+        </groups>
+        <groups xsi:type="xtext:Keyword" value="_"/>
+        <groups xsi:type="xtext:Keyword" value="::"/>
+      </tokens>
+      <tokens xsi:type="xtext:Alternatives" cardinality="*">
+        <groups xsi:type="xtext:CharacterRange">
+          <left value="a"/>
+          <right value="z"/>
+        </groups>
+        <groups xsi:type="xtext:CharacterRange">
+          <left value="A"/>
+          <right value="Z"/>
+        </groups>
+        <groups xsi:type="xtext:Keyword" value="_"/>
+        <groups xsi:type="xtext:CharacterRange">
+          <left value="0"/>
+          <right value="9"/>
+        </groups>
+        <groups xsi:type="xtext:Keyword" value="::"/>
+      </tokens>
+    </alternatives>
+  </rules>
+  <rules xsi:type="xtext:TerminalRule" name="STRING">
+    <type>
+      <metamodel href="classpath:/org/eclipse/xtext/common/Terminals.xtext#//@metamodelDeclarations.0"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Keyword" value="&quot;"/>
+      <tokens xsi:type="xtext:Alternatives" cardinality="*">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="\"/>
+          <tokens xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="b"/>
+            <groups xsi:type="xtext:Keyword" value="t"/>
+            <groups xsi:type="xtext:Keyword" value="n"/>
+            <groups xsi:type="xtext:Keyword" value="f"/>
+            <groups xsi:type="xtext:Keyword" value="r"/>
+            <groups xsi:type="xtext:Keyword" value="&quot;"/>
+            <groups xsi:type="xtext:Keyword" value="'"/>
+            <groups xsi:type="xtext:Keyword" value="\"/>
+          </tokens>
+        </groups>
+        <groups xsi:type="xtext:NegatedToken">
+          <terminal xsi:type="xtext:Alternatives">
+            <groups xsi:type="xtext:Keyword" value="\"/>
+            <groups xsi:type="xtext:Keyword" value="&quot;"/>
+          </terminal>
+        </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Keyword" value="&quot;"/>
+    </alternatives>
+  </rules>
+</xtext:Grammar>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="idlmm"
+    nsURI="http://idlmm/1.0" nsPrefix="idlmm">
+  <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" eSuperTypes="#//Contained">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
+        eType="#//Contained" containment="true" eOpposite="#//Contained/definedIn"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contained" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="absoluteName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definedIn" eType="#//Container"
+        eOpposite="#//Container/contains"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InterfaceDef" eSuperTypes="#//Container #//TypedefDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCustom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTruncatable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="derivesFrom" upperBound="-1"
+        eType="#//InterfaceDef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleDef" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IDLType" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCode" eType="#//ETypeCode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationDef" eSuperTypes="#//Contained #//Typed">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//ParameterDef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOneway" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contexts" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="canRaise" upperBound="-1"
+        eType="#//ExceptionDef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeDef" eSuperTypes="#//Contained #//Typed">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="getRaises" upperBound="-1"
+        eType="#//ExceptionDef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="setRaises" upperBound="-1"
+        eType="#//ExceptionDef"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isReadonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantDef" eSuperTypes="#//Contained #//Typed">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constValue" eType="#//EAny"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Typed" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedType" eType="#//IDLType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedType" eType="#//TypedefDef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterDef" eSuperTypes="#//Typed">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//ParameterMode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParameterMode">
+    <eLiterals name="PARAM_IN"/>
+    <eLiterals name="PARAM_OUT" value="1"/>
+    <eLiterals name="PARAM_INOUT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDef" eSuperTypes="#//IDLType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//PrimitiveKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveKind">
+    <eLiterals name="PK_NULL"/>
+    <eLiterals name="PK_VOID" value="1"/>
+    <eLiterals name="PK_SHORT" value="2"/>
+    <eLiterals name="PK_LONG" value="3"/>
+    <eLiterals name="PK_USHORT" value="4"/>
+    <eLiterals name="PK_ULONG" value="5"/>
+    <eLiterals name="PK_FLOAT" value="6"/>
+    <eLiterals name="PK_DOUBLE" value="7"/>
+    <eLiterals name="PK_BOOLEAN" value="8"/>
+    <eLiterals name="PK_CHAR" value="9"/>
+    <eLiterals name="PK_OCTET" value="10"/>
+    <eLiterals name="PK_ANY" value="11"/>
+    <eLiterals name="PK_LONGDOUBLE" value="12"/>
+    <eLiterals name="PK_WSTRING" value="13"/>
+    <eLiterals name="PK_TYPECODE" value="14"/>
+    <eLiterals name="PK_WCHAR" value="15"/>
+    <eLiterals name="PK_PRINCIPAL" value="16"/>
+    <eLiterals name="PK_STRING" value="17"/>
+    <eLiterals name="PK_ULONGLONG" value="18"/>
+    <eLiterals name="PK_OBJREF" value="19"/>
+    <eLiterals name="PK_LONGLONG" value="20"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExceptionDef" eSuperTypes="#//Contained">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeCode" eType="#//ETypeCode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Field" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EAny" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ETypeCode" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//Typed">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedDef" eSuperTypes="#//IDLType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="digits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WstringDef" eSuperTypes="#//IDLType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringDef" eSuperTypes="#//IDLType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AliasDef" eSuperTypes="#//Typed #//TypedefDef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayDef" eSuperTypes="#//Typed #//IDLType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceDef" eSuperTypes="#//Typed #//IDLType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnionField" eSuperTypes="#//Typed">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" upperBound="-1"
+        eType="#//EAny"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedefDef" abstract="true" eSuperTypes="#//IDLType #//Contained"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnionDef" eSuperTypes="#//TypedefDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unionMembers" upperBound="-1"
+        eType="#//UnionField" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedDiscrim" eType="#//IDLType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedDiscrim" eType="#//TypedefDef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumDef" eSuperTypes="#//TypedefDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="members" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructDef" eSuperTypes="#//TypedefDef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Field" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TranslationUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
+        eType="#//Contained" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+        eType="#//Include" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Include">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

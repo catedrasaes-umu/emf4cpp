@@ -1,0 +1,76 @@
+/*
+ * Mapping.ext
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * 
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import org::eclipse::emf::ecore;
+
+// EDataType/C++ type map
+String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
+{
+	case "EBigDecimal": "long double" // Will change. See http://beta.boost.org/community/sandbox.html for BigDecimal and BigInt
+	case "EBigInteger": "long long int" // Will change for GMP
+	case "EBoolean": "bool"
+	case "EBooleanObject": "bool" // See if we have to implement some different classes for object-types
+	case "EByte": "unsigned char"
+	case "EByteArray": "std::vector<unsigned char>"
+	case "EByteObject": "unsigned char"
+	case "EChar": "char" // Maybe int, as you should consider UTF-8
+	case "ECharacterObject": "char"
+	case "EDate": "time_t"
+	case "EDiagnosticChain": "int" // ?? Need class
+	case "EDouble": "double"
+	case "EDoubleObject": "double" // Object/value?
+	case "EEList": "std::list<" + type_parameters +" >"
+	case "EEnumerator": "int" // ?? Need class
+	case "EFeatureMap": "int" // ?? Need class
+	case "EFeatureMapEntry": "int" // ?? Need class
+	case "EFloat": "float" 
+	case "EFloatObject": "float" // Object/value?
+	case "EInt": "int"
+	case "EIntegerObject": "int" // Object/value?
+	case "EJavaClass": "int" // ?? Need class
+	case "EJavaObject": "::ecorecpp::mapping::any"
+	case "ELong": "long"
+	case "ELongObject": "long" // Object/value?
+	case "EMap": "int" // TODO: As in EList, we should look for type parameters, in this case K,V.
+	                    // maybe std::map<std::string, ecore::EObject> ó la versión con shared_ptr 
+	case "EResource": "int" // ?? Need class
+	case "EResourceSet": "int" // ?? Need class
+	case "EShort": "short"
+	case "EShortObject": "short" // Object/value?
+	case "EString": "::ecorecpp::mapping::type_traits::string_t"
+	case "ETreeIterator": "int" // ?? Need class
+	case "EInvocationTargetException": "int" // ?? Need class
+	default: // fallback
+		"int"
+};
+
+String getEDataTypeMap(EDataType d) :
+	getEDataTypeMap(d, "")
+;
+
+// C++ complex type? (i.e. not primitive, passed by const reference)
+boolean cppComplexType (EDataType d) : switch (d.name)
+{
+	case "EByteArray": true
+	case "EEList": true
+	case "EJavaObject": true
+	case "EString": true
+	default: // fallback
+		false
+};
+

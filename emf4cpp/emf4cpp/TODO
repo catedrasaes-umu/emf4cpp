@@ -1,0 +1,12 @@
+* Add ChangeLog
+* EAnnotations support
+* Embedded Ruby
+* Separate interface and implementation
+* hrefs between XMI documents
+* DSL to models (something like xtend)
+* M2T language (like xpand)
+* Create EClass instances from Name/Value pairs
+* JSON parser
+* Metamodel repository using couchdb
+* Suppress unused variable warnings
+

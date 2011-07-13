@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="emof" name="emof" nsURI="http:///emof.ecore" nsPrefix="emof">
+  <eClassifiers xsi:type="ecore:EDataType" xmi:id="emof.Boolean" name="Boolean" instanceClassName="java.lang.Boolean"/>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Class" name="Class" eSuperTypes="emof.Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Class.isAbstract" name="isAbstract" eType="emof.Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Class.ownedAttribute" name="ownedAttribute" ordered="false" upperBound="-1" eType="emof.Property" containment="true" resolveProxies="false" eOpposite="emof.Property.class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Class.ownedOperation" name="ownedOperation" ordered="false" upperBound="-1" eType="emof.Operation" containment="true" resolveProxies="false" eOpposite="emof.Operation.class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Class.superClass" name="superClass" ordered="false" upperBound="-1" eType="emof.Class">
+      <eAnnotations source="http://schema.omg.org/spec/MOF/2.0/emof.xml#Property.oppositeRoleName">
+        <details key="body" value="derivedClass"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Comment" name="Comment" eSuperTypes="emof.Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Comment.annotatedElement" name="annotatedElement" ordered="false" upperBound="-1" eType="emof.NamedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.DataType" name="DataType" eSuperTypes="emof.Type"/>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Element" name="Element" abstract="true" eSuperTypes="emof.Object">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Element.ownedComment" name="ownedComment" ordered="false" upperBound="-1" eType="emof.Comment" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Element.tag" name="tag" ordered="false" upperBound="-1" eType="emof.Tag" eOpposite="emof.Tag.element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Enumeration" name="Enumeration" eSuperTypes="emof.DataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Enumeration.ownedLiteral" name="ownedLiteral" upperBound="-1" eType="emof.EnumerationLiteral" containment="true" resolveProxies="false" eOpposite="emof.EnumerationLiteral.enumeration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.EnumerationLiteral" name="EnumerationLiteral" eSuperTypes="emof.NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.EnumerationLiteral.enumeration" name="enumeration" eType="emof.Enumeration" transient="true" resolveProxies="false" eOpposite="emof.Enumeration.ownedLiteral"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Extent" name="Extent" eSuperTypes="emof.Object"/>
+  <eClassifiers xsi:type="ecore:EDataType" xmi:id="emof.Integer" name="Integer" instanceClassName="java.lang.Integer"/>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.MultiplicityElement" name="MultiplicityElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.MultiplicityElement.isOrdered" name="isOrdered" eType="emof.Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.MultiplicityElement.isUnique" name="isUnique" eType="emof.Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.MultiplicityElement.lower" name="lower" eType="emof.Integer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.MultiplicityElement.upper" name="upper" eType="emof.UnlimitedNatural"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.NamedElement" name="NamedElement" abstract="true" eSuperTypes="emof.Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.NamedElement.name" name="name" eType="emof.String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Object" name="Object"/>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Operation" name="Operation" eSuperTypes="emof.TypedElement emof.MultiplicityElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Operation.class" name="class" lowerBound="1" eType="emof.Class" transient="true" resolveProxies="false" eOpposite="emof.Class.ownedOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Operation.ownedParameter" name="ownedParameter" ordered="false" upperBound="-1" eType="emof.Parameter" containment="true" resolveProxies="false" eOpposite="emof.Parameter.operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Operation.raisedException" name="raisedException" ordered="false" upperBound="-1" eType="emof.Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Package" name="Package" eSuperTypes="emof.NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Package.nestedPackage" name="nestedPackage" ordered="false" upperBound="-1" eType="emof.Package" containment="true" resolveProxies="false">
+      <eAnnotations source="http://schema.omg.org/spec/MOF/2.0/emof.xml#Property.oppositeRoleName">
+        <details key="body" value="nestingPackage"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Package.ownedType" name="ownedType" ordered="false" upperBound="-1" eType="emof.Type" containment="true" resolveProxies="false" eOpposite="emof.Type.package"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Package.uri" name="uri" eType="emof.String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Parameter" name="Parameter" eSuperTypes="emof.TypedElement emof.MultiplicityElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Parameter.operation" name="operation" eType="emof.Operation" transient="true" resolveProxies="false" eOpposite="emof.Operation.ownedParameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.PrimitiveType" name="PrimitiveType" eSuperTypes="emof.DataType"/>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Property" name="Property" eSuperTypes="emof.TypedElement emof.MultiplicityElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Property.class" name="class" lowerBound="1" eType="emof.Class" transient="true" resolveProxies="false" eOpposite="emof.Class.ownedAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Property.default" name="default" eType="emof.String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Property.isComposite" name="isComposite" eType="emof.Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Property.isDerived" name="isDerived" eType="emof.Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Property.isId" name="isId" eType="emof.Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Property.isReadOnly" name="isReadOnly" eType="emof.Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Property.opposite" name="opposite" eType="emof.Property">
+      <eAnnotations source="http://schema.omg.org/spec/MOF/2.0/emof.xml#Property.oppositeRoleName">
+        <details key="body" value="invOpposite"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" xmi:id="emof.Real" name="Real" instanceClassName="java.lang.Float"/>
+  <eClassifiers xsi:type="ecore:EDataType" xmi:id="emof.String" name="String" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Tag" name="Tag" eSuperTypes="emof.Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Tag.element" name="element" ordered="false" upperBound="-1" eType="emof.Element" eOpposite="emof.Element.tag"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Tag.name" name="name" eType="emof.String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="emof.Tag.value" name="value" eType="emof.String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.Type" name="Type" abstract="true" eSuperTypes="emof.NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.Type.package" name="package" lowerBound="1" eType="emof.Package" transient="true" resolveProxies="false" eOpposite="emof.Package.ownedType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.TypedElement" name="TypedElement" abstract="true" eSuperTypes="emof.NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="emof.TypedElement.type" name="type" eType="emof.Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="emof.URIExtent" name="URIExtent" eSuperTypes="emof.Extent"/>
+  <eClassifiers xsi:type="ecore:EDataType" xmi:id="emof.UnlimitedNatural" name="UnlimitedNatural" instanceClassName="java.lang.Integer"/>
+</ecore:EPackage>

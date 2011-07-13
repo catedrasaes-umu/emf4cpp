@@ -1,0 +1,80 @@
+«REM»
+Factory.xpt
+Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Mapping»
+
+«DEFINE hppcpp FOR EPackage»
+«FILE getFactoryPrefix()+".hpp"-»
+«EXPAND template::License::License FOR getFactoryPrefix()+".hpp"-»
+#ifndef _«getHeaderDef()»FACTORY_HPP
+#define _«getHeaderDef()»FACTORY_HPP
+
+#include <ecore/EFactory.hpp>
+#include <«getFQN("/")».hpp>
+
+«EXPAND template::EClassHPP::namespaces_begin FOR this-»
+
+class «name.toFirstUpper()»Factory : public virtual ::ecore::EFactory
+{
+public:
+
+    static «name.toFirstUpper()»Factory_ptr _instance();
+
+«FOREACH this.EClassifiers.typeSelect(EClass) AS class-»
+    virtual «class.name»_ptr create«class.name»();
+«ENDFOREACH-»
+
+    virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);    
+    virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);    
+    virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
+
+protected:
+
+    static std::auto_ptr< «name.toFirstUpper()»Factory > s_instance;
+
+    «name.toFirstUpper()»Factory();
+    
+};
+
+«EXPAND template::EClassHPP::namespaces_end FOR this»
+
+#endif // _«getHeaderDef()»FACTORY_HPP
+
+«ENDFILE»
+
+«FILE getFactoryPrefix()+".cpp"-»
+«EXPAND template::License::License FOR getFactoryPrefix()+".cpp"-»
+#include <«getFactoryPrefix()».hpp>
+
+using namespace ::«getFQN()»;
+
+std::auto_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_instance;
+
+::«getFactoryPrefix("::")»_ptr «name.toFirstUpper()»Factory::_instance()
+{
+    if (!s_instance.get())
+        new «name.toFirstUpper()»Factory();
+    return s_instance.get();
+}
+
+«ENDFILE»
+
+«ENDDEFINE»

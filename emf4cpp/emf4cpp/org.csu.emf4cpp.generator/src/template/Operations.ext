@@ -1,0 +1,52 @@
+/*
+ * Operations.ext
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * 
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+import org::eclipse::emf::ecore;
+
+extension template::Types;
+
+cached String getCPPParameterSignature(EParameter this) : 
+	getCPPParameterType() + " _" + this.name
+;
+
+String getCPPSignature(List[EParameter] this) :
+	if isEmpty then 
+		""
+	else
+		if size == 1 then
+			" " + first().getCPPParameterSignature()
+		else
+			" " + first().getCPPParameterSignature()+ "," + withoutFirst().getCPPSignature()
+;
+
+String getCPPSignature(EOperation this, String preffix) :
+	getCPPTypeSignature() + " " + preffix + name + " (" + getCPPSignature(EParameters) + ")"
+;
+	
+String getCPPSignature(EOperation this) : 
+	getCPPSignature("")
+;
+
+String getIPPFileUniqueName(EOperation this):
+	let ops = EContainingClass.EOperations.select(e|e.name == name):
+	if ops.size == 1 then
+		name
+	else
+		let oops = ops.sortBy(e|e.getCPPSignature()):
+		name + "_" + oops.indexOf(this)
+;

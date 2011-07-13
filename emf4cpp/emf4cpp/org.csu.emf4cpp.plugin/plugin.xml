@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.csu.emf4cpp.plugin.contribution1"
+            nameFilter="*.ecore"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               label="EMF4CPP"
+               path="additions"
+               id="org.csu.emf4cpp.plugin.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="Generate C++ code"
+               class="org.csu.emf4cpp.plugin.popup.actions.Generate"
+               menubarPath="org.csu.emf4cpp.plugin.menu1/group1"
+               enablesFor="1"
+               id="org.csu.emf4cpp.plugin.generate">
+         </action>
+         <action
+               label="Generate C++ code with wizard"
+               class="org.csu.emf4cpp.plugin.popup.actions.GenerateWithWizard"
+               menubarPath="org.csu.emf4cpp.plugin.menu1/group1"
+               enablesFor="1"
+               id="org.csu.emf4cpp.plugin.generateWithWizard">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

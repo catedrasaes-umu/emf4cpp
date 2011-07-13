@@ -1,0 +1,126 @@
+/*
+ * Types.ext
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ *
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+import org::eclipse::emf::ecore;
+
+extension template::FQN;
+extension template::Mapping;
+
+String getCPP(EClassifier this, String type_paremeters) :
+	if EDataType.isInstance(this) then
+		((EDataType) this).getEDataTypeMap(type_paremeters)
+	else
+		"::" + this.getFQN("::") + "_ptr"
+;
+
+String getCPP(EClassifier this) :
+	if EDataType.isInstance(this) then
+		"::" + this.getFQN("::")
+	else
+		"::" + this.getFQN("::") + "_ptr"
+;
+
+String getCPP(List[EGenericType] this):
+	if isEmpty then
+		"" // TODO: assert
+	else
+		if size == 1 then
+			" " + first().getCPP()
+		else
+			" " + first().getCPP() + "," + withoutFirst().getCPP()
+;
+
+String getCPPImpl(EGenericType this):
+	if this.EClassifier != null then
+		EClassifier.getCPP()
+	else
+		"::ecorecpp::mapping::any"
+;
+
+String getCPP(EGenericType this):
+	if this.ETypeArguments.isEmpty then
+		getCPPImpl()
+	else
+		EClassifier.getCPP(ETypeArguments.getCPP())
+;
+
+// auxiliar: is multiple? -> A list should be provided
+boolean isMultiple(ETypedElement this) :
+	upperBound != 1
+;
+
+boolean isList(ETypedElement this):
+	EType != null && EType.getFQN() == "ecore::EEList"
+;
+
+boolean isComplexType(ETypedElement this) :
+	EType != null && EDataType.isInstance(EType) &&
+		((EDataType)EType).cppComplexType()
+;
+
+boolean isBoolean(ETypedElement this):
+	EType != null && EType.getFQN() == "ecore::EBoolean" // FIXME: Also EBooleanObject?
+;
+
+String getCPPTypeSignatureImpl(ETypedElement this):
+	if EGenericType != null then
+		EGenericType.getCPP()
+	else
+		if EType != null then
+			EType.getCPP()
+		else
+			"void"
+;
+
+String getCPPTypeSignatureImplConst(ETypedElement this):
+	getCPPTypeSignatureImpl() + " const&"
+;
+
+String getCPPTypeSignature(ETypedElement this):
+ 	if isMultiple() then
+		"std::vector< " + getCPPTypeSignatureImpl() + " >"
+	else
+		getCPPTypeSignatureImpl()
+;
+
+String getCPPReturnType(ETypedElement this):
+	if isMultiple() || isList() then
+		getCPPTypeSignature() // + "&"
+	else
+		getCPPTypeSignature()
+;
+
+// Similar to above, but for the const getter method
+String getCPPReturnTypeConst(ETypedElement this):
+	if isMultiple() || isList() || isComplexType() then
+		getCPPTypeSignature() + " const&"
+	else
+		getCPPTypeSignature() // Simple types can be returned by value
+;
+
+
+String getCPPParameterType(ETypedElement this):
+	if isList() then
+		getCPPTypeSignature() + " const&"
+	else
+		if isComplexType() then
+			getCPPTypeSignature() + " const&"
+		else
+			getCPPTypeSignature()
+;
+

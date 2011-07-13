@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bintree"
+    nsURI="http://bintree/1.0" nsPrefix="bintree">
+  <eClassifiers xsi:type="ecore:EClass" name="BinTreeNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BinTreeNode"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//BinTreeNode"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//BinTreeNode"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

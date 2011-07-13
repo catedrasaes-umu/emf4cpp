@@ -1,0 +1,14 @@
+type String
+
+entity Composable {
+}
+
+entity Leaf extends Composable {
+  property name: String
+}
+
+entity Composite extends Composable {
+  property content: Composable[]
+}
+
+

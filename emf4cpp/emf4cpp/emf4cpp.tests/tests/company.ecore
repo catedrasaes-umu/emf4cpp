@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="company" nsPrefix="company" nsURI="http:///com.example.company.ecore" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <eClassifiers name="Employee" xsi:type="ecore:EClass">
+    <eStructuralFeatures eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="name" xsi:type="ecore:EAttribute"/>
+  </eClassifiers>
+
+  <eClassifiers name="Department" xsi:type="ecore:EClass">
+    <eStructuralFeatures eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" name="number" xsi:type="ecore:EAttribute"/>
+    <eStructuralFeatures containment="true" eType="#//Employee" name="employees" upperBound="-2" xsi:type="ecore:EReference"/>
+    <eStructuralFeatures eType="#//Employee" lowerBound="1" name="manager" xsi:type="ecore:EReference"/>
+  </eClassifiers>
+
+  <eClassifiers name="Company" xsi:type="ecore:EClass">
+    <eStructuralFeatures eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" name="name" xsi:type="ecore:EAttribute"/>
+    <eStructuralFeatures containment="true" eType="#//Department" name="department" upperBound="-2" xsi:type="ecore:EReference"/>
+  </eClassifiers>
+
+</ecore:EPackage>

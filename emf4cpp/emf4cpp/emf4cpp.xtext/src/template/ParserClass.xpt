@@ -1,0 +1,76 @@
+«IMPORT xtext»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Rules»
+
+«DEFINE class FOR Grammar»
+«FILE getName()+"Parser.hpp"-»
+#ifndef «parserHeader()»
+#define «parserHeader()»
+
+	«FOREACH metamodelDeclarations.ePackage AS pkg-»
+#include <«pkg.getFQN()».hpp>
+	«ENDFOREACH-»
+
+«FOREACH getNamespaces() AS e-»
+namespace «e»
+{
+«ENDFOREACH-»
+
+class «getName()»Parser
+{
+public:
+
+	«getName()»Parser();
+	virtual ~«getName()»Parser();
+   
+    «parseMethod()»;
+};
+
+«FOREACH getNamespaces().reverse() AS e-»
+} // «e»
+«ENDFOREACH-»
+
+#endif // «parserHeader()»
+
+«ENDFILE»
+
+«FILE getName()+"Parser.cpp"-»
+#include "«getName()»Parser.hpp"
+#include "«fileName()»Parser.h"
+#include "«fileName()»Lexer.h"
+
+«usingNamespace()»
+
+«getName()»Parser::«getName()»Parser()
+{
+}
+
+«getName()»Parser::~«getName()»Parser()
+{
+}
+
+«parseMethod(getName()+"Parser::")»
+{
+    pANTLR3_INPUT_STREAM input;
+    p«fileName()»Lexer lex;
+    pANTLR3_COMMON_TOKEN_STREAM tokens;
+    p«fileName()»Parser parser;
+
+    input = antlr3AsciiFileStreamNew ((pANTLR3_UINT8)_file.c_str());
+    lex = «fileName()»LexerNew (input);
+    tokens = antlr3CommonTokenStreamSourceNew (ANTLR3_SIZE_HINT, TOKENSOURCE(lex));
+    parser = «fileName()»ParserNew (tokens);
+
+    «rules.first().type.classifier.getReturnType()» model = parser->«rules.first().getName()»(parser);
+
+    parser->free(parser);
+    tokens->free(tokens);
+    lex->free(lex);
+    input->close(input);
+    
+    return model;
+}
+
+«ENDFILE»
+«ENDDEFINE»

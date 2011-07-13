@@ -1,0 +1,154 @@
+«REM»
+EClassHPP.xpt
+Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Classes»
+«EXTENSION template::Operations»
+«EXTENSION template::Attributes»
+«EXTENSION template::References»
+«EXTENSION template::Types»
+
+«DEFINE hpp FOR EClass»
+«FILE getFQN("/")+".hpp"-»
+«EXPAND template::License::License FOR getFQN("/")+".hpp"-»
+#ifndef «getHeaderDef()»_HPP
+#define «getHeaderDef()»_HPP
+
+#include <«EPackage.getFQN("/")»_forward.hpp>
+#include <ecorecpp/mapping_forward.hpp>
+
+«FOREACH getNeededPackages() AS pkg-»
+#include <«pkg.getFQN("/")»_forward.hpp>
+«ENDFOREACH-»
+«FOREACH getHPPIncludeFiles() AS include-»
+#include <«include».hpp>
+«ENDFOREACH-»
+
+«IF ESuperTypes.isEmpty && "::"+this.getFQN() != "::ecore::EObject"-»
+#include <ecore/EObject.hpp>
+«ENDIF-»
+
+«PROTECT CSTART '/*' CEND '*/' ID name + "_pre" DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+«ENDPROTECT»
+
+«EXPAND namespaces_begin FOR EPackage-»
+
+class «name» «IF !ESuperTypes.isEmpty-»: «FOREACH ESuperTypes AS supertype SEPARATOR ", "-»public virtual ::«supertype.getFQN()»«ENDFOREACH-»
+        «ELSE-»«IF "::"+this.getFQN() != "::ecore::EObject"»: public virtual ::ecore::EObject
+        «ENDIF»«ENDIF»
+{
+public:
+    «name»();
+
+    virtual ~«name»();
+
+    virtual void _initialize();
+
+    // Operations
+    «FOREACH this.EOperations AS op»
+    virtual «op.getCPPSignature()»;
+    «ENDFOREACH»
+    
+    // Attributes
+    «FOREACH this.EAttributes AS at-»
+    «at.getGetCPPSignatureConst()»;
+    «at.getSetCPPSignature()-»;
+    «IF at.isList() || at.isMultiple()»
+    «at.getAddCPPSignature()»;
+    «at.getSetAtCPPSignature()»;
+    «at.getDeleteAtCPPSignature()»;
+    «ENDIF»
+    «ENDFOREACH-»
+    
+    // References
+    «FOREACH this.EReferences AS ref-»
+    «ref.getGetCPPSignature()»;
+       «IF !ref.isMultiple()-»
+    «ref.getSetCPPSignature()»;
+       «ENDIF-»
+       
+    «ENDFOREACH-»
+    
+    «IF "::"+this.getFQN() == "::ecore::EObject"-»
+    «REM»This is a special case for EObject...«ENDREM»
+    // Special EObject C++ mapping internal helper operation
+    template<typename T>
+    inline T* as()
+    {
+        return dynamic_cast<T*>(this);
+    }
+    «ENDIF-»
+    
+    «REM»«EXPAND template::boost_serialization::serialize FOR this»«ENDREM»
+    
+    «PROTECT CSTART '/*' CEND '*/' ID name DISABLE»
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    «ENDPROTECT»
+    
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);    
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    
+    «PROTECT CSTART '/*' CEND '*/' ID name+"Impl" DISABLE»
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    «ENDPROTECT»
+    
+protected:
+    // Attributes
+    «FOREACH this.EAttributes AS at»
+    «at.getCPPDeclaration()»;
+    «ENDFOREACH»
+    
+    // References
+    «FOREACH this.EReferences AS ref»
+    «ref.getCPPDeclaration()»;
+    «ENDFOREACH»
+};
+
+«EXPAND namespaces_end FOR EPackage-»
+
+#endif // «getHeaderDef()»_HPP
+
+«ENDFILE-»
+«ENDDEFINE»
+
+«DEFINE namespaces_begin FOR EPackage-»
+«IF this != null-»
+«EXPAND namespaces_begin FOR ESuperPackage-»
+namespace «name»
+{
+«ENDIF-»
+«ENDDEFINE»
+
+
+
+«DEFINE namespaces_end FOR EPackage-»
+«IF this != null-»
+} // «name»
+«EXPAND namespaces_end FOR ESuperPackage-»
+«ENDIF-»
+«ENDDEFINE»

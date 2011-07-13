@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ASCII"?>
+<idlmm:TranslationUnit xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:idlmm="http://idlmm/1.0" xsi:schemaLocation="http://idlmm/1.0 java://idlmm.IdlmmPackage">
+  <contains xsi:type="idlmm:ModuleDef" identifier="CosNaming">
+    <contains xsi:type="idlmm:AliasDef" identifier="Istring">
+      <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_STRING"/>
+    </contains>
+    <contains xsi:type="idlmm:StructDef" identifier="NameComponent">
+      <members sharedType="//@contains.0/@contains.0" identifier="id"/>
+      <members sharedType="//@contains.0/@contains.0" identifier="kind"/>
+    </contains>
+    <contains xsi:type="idlmm:AliasDef" identifier="Name">
+      <containedType xsi:type="idlmm:SequenceDef" sharedType="//@contains.0/@contains.1"/>
+    </contains>
+    <contains xsi:type="idlmm:EnumDef" identifier="BindingType">
+      <members>nobject</members>
+      <members>ncontext</members>
+    </contains>
+    <contains xsi:type="idlmm:StructDef" identifier="Binding">
+      <members sharedType="//@contains.0/@contains.2" identifier="binding_name"/>
+      <members sharedType="//@contains.0/@contains.3" identifier="binding_type"/>
+    </contains>
+    <contains xsi:type="idlmm:AliasDef" identifier="BindingList">
+      <containedType xsi:type="idlmm:SequenceDef" sharedType="//@contains.0/@contains.4"/>
+    </contains>
+    <contains xsi:type="idlmm:InterfaceDef" identifier="NamingContext">
+      <contains xsi:type="idlmm:EnumDef" identifier="NotFoundReason">
+        <members>missing_node</members>
+        <members>not_context</members>
+        <members>not_object</members>
+      </contains>
+      <contains xsi:type="idlmm:ExceptionDef" identifier="NotFound">
+        <members sharedType="//@contains.0/@contains.6/@contains.0" identifier="why"/>
+        <members sharedType="//@contains.0/@contains.2" identifier="rest_of_name"/>
+      </contains>
+      <contains xsi:type="idlmm:ExceptionDef" identifier="CannotProceed">
+        <members sharedType="//@contains.0/@contains.6" identifier="cxt"/>
+        <members sharedType="//@contains.0/@contains.2" identifier="rest_of_name"/>
+      </contains>
+      <contains xsi:type="idlmm:ExceptionDef" identifier="InvalidName"/>
+      <contains xsi:type="idlmm:ExceptionDef" identifier="AlreadyBound"/>
+      <contains xsi:type="idlmm:ExceptionDef" identifier="NotEmpty"/>
+      <contains xsi:type="idlmm:OperationDef" identifier="bind" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3 //@contains.0/@contains.6/@contains.4">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+        <parameters identifier="obj">
+          <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_OBJREF"/>
+        </parameters>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="rebind" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+        <parameters identifier="obj">
+          <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_OBJREF"/>
+        </parameters>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="bind_context" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3 //@contains.0/@contains.6/@contains.4">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+        <parameters sharedType="//@contains.0/@contains.6" identifier="nc"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="rebind_context" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+        <parameters sharedType="//@contains.0/@contains.6" identifier="nc"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="resolve" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_OBJREF"/>
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="unbind" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="new_context" sharedType="//@contains.0/@contains.6"/>
+      <contains xsi:type="idlmm:OperationDef" identifier="bind_new_context" sharedType="//@contains.0/@contains.6" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.4 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3">
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="destroy" canRaise="//@contains.0/@contains.6/@contains.5">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="list">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+        <parameters identifier="how_many">
+          <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_ULONG"/>
+        </parameters>
+        <parameters sharedType="//@contains.0/@contains.5" identifier="bl" direction="PARAM_OUT"/>
+        <parameters sharedType="//@contains.0/@contains.7" identifier="bi" direction="PARAM_OUT"/>
+      </contains>
+    </contains>
+    <contains xsi:type="idlmm:InterfaceDef" identifier="BindingIterator">
+      <contains xsi:type="idlmm:OperationDef" identifier="next_one">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_BOOLEAN"/>
+        <parameters sharedType="//@contains.0/@contains.4" identifier="b" direction="PARAM_OUT"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="next_n">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_BOOLEAN"/>
+        <parameters identifier="how_many">
+          <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_ULONG"/>
+        </parameters>
+        <parameters sharedType="//@contains.0/@contains.5" identifier="bl" direction="PARAM_OUT"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="destroy">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_VOID"/>
+      </contains>
+    </contains>
+    <contains xsi:type="idlmm:InterfaceDef" identifier="NamingContextExt" derivesFrom="//@contains.0/@contains.6">
+      <contains xsi:type="idlmm:AliasDef" identifier="StringName">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_STRING"/>
+      </contains>
+      <contains xsi:type="idlmm:AliasDef" identifier="Address">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_STRING"/>
+      </contains>
+      <contains xsi:type="idlmm:AliasDef" identifier="URLString">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_STRING"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="to_string" sharedType="//@contains.0/@contains.8/@contains.0" canRaise="//@contains.0/@contains.6/@contains.3">
+        <parameters sharedType="//@contains.0/@contains.2" identifier="n"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="to_name" sharedType="//@contains.0/@contains.2" canRaise="//@contains.0/@contains.6/@contains.3">
+        <parameters sharedType="//@contains.0/@contains.8/@contains.0" identifier="sn"/>
+      </contains>
+      <contains xsi:type="idlmm:ExceptionDef" identifier="InvalidAddress"/>
+      <contains xsi:type="idlmm:OperationDef" identifier="to_url" sharedType="//@contains.0/@contains.8/@contains.2" canRaise="//@contains.0/@contains.8/@contains.5 //@contains.0/@contains.6/@contains.3">
+        <parameters sharedType="//@contains.0/@contains.8/@contains.1" identifier="addr"/>
+        <parameters sharedType="//@contains.0/@contains.8/@contains.0" identifier="sn"/>
+      </contains>
+      <contains xsi:type="idlmm:OperationDef" identifier="resolve_str" canRaise="//@contains.0/@contains.6/@contains.1 //@contains.0/@contains.6/@contains.2 //@contains.0/@contains.6/@contains.3 //@contains.0/@contains.6/@contains.4">
+        <containedType xsi:type="idlmm:PrimitiveDef" kind="PK_OBJREF"/>
+        <parameters sharedType="//@contains.0/@contains.8/@contains.0" identifier="n"/>
+      </contains>
+    </contains>
+  </contains>
+</idlmm:TranslationUnit>

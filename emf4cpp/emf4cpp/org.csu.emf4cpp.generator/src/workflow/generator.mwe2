@@ -1,0 +1,36 @@
+module workflow.generator
+
+var metamodel = "src/metamodel/Ecore.ecore"
+var targetDir = "src-gen"
+var fileEncoding = "UTF-8"
+
+Workflow {
+	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
+		platformUri = ".."
+	}
+	
+	component = org.eclipse.emf.mwe.utils.Reader {
+		uri = metamodel
+		modelSlot = "model"
+	}
+	
+	component = org.eclipse.xpand2.Generator {
+		expand = "template::Main::main FOR model"
+		
+		metaModel = org.eclipse.xtend.type.impl.java.JavaBeansMetaModel {}
+		outlet = {
+			path = targetDir
+			postprocessor = org.csu.cpp.output.CppBeautifier {}
+		}
+		outlet = {
+			name = "NOOVERWRITE"
+			overwrite = false
+			path = targetDir
+			postprocessor = org.csu.cpp.output.CppBeautifier {}
+		}
+		fileEncoding = fileEncoding
+
+		// Regiones protegidas
+		prSrcPaths = "${targetDir}"
+	}
+}
