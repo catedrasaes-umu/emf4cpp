@@ -2,17 +2,17 @@
 /*
  * MetaModelRepository.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * 
+ *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * EMF4CPP is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -43,17 +43,23 @@ MetaModelRepository::~MetaModelRepository()
 ::ecore::EPackage_ptr MetaModelRepository::getByNSPrefix(
         ::ecore::EString const & _prefix) const
 {
-    return m_by_nsPrefix.at(_prefix);
+    // TODO: Throw a proper exception. Return NULL by now.
+    by_nsPrefix_t::const_iterator it = m_by_nsPrefix.find (_prefix);
+    return it != m_by_nsPrefix.end() ? it->second : 0;
 }
 
 ::ecore::EPackage_ptr MetaModelRepository::getByNSURI(::ecore::EString const& _uri) const
 {
-    return m_by_nsURI.at(_uri);
+    // TODO: Throw a proper exception. Return NULL by now.
+    by_nsURI_t::const_iterator it = m_by_nsURI.find (_uri);
+    return it != m_by_nsURI.end() ? it->second : 0;
 }
 
 ::ecore::EPackage_ptr MetaModelRepository::getByName(::ecore::EString const& _name) const
 {
-    return m_by_name.at(_name);
+    // TODO: Throw a proper exception. Return NULL by now.
+    by_name_t::const_iterator it = m_by_name.find (_name);
+    return it != m_by_name.end() ? it->second : 0;
 }
 
 void MetaModelRepository::load(::ecore::EPackage_ptr _mm)
