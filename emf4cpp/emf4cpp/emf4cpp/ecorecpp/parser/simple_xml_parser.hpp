@@ -18,7 +18,7 @@
  */
 
 #ifndef _ECORECPPSIMPLEXMLPARSER_HPP
-#define    _ECORECPPSIMPLEXMLPARSER_HPP
+#define _ECORECPPSIMPLEXMLPARSER_HPP
 
 #include <deque>
 #include <cassert>
@@ -116,7 +116,16 @@ struct space // hand made supposed to be fast.
             return false;
 
         type_traits::char_t c = state.char_at_pos();
-        bool ret = c == ' ' || c == '\n' || c == '\r' || c == '\t';
+
+        // Try to speed up this check by the assumption that spaces
+        // are less common than normal characters
+        // eval: (logior ?\t ?\n ?\r ?\  ) => 47
+        bool ret = c & ~47; // ~(' ' | '\n' | '\r' | '\t')
+        if (EXPECT_TRUE (ret))
+            return !ret;
+
+        // Normal case
+        ret = c == ' ' || c == '\n' || c == '\r' || c == '\t';
         if (ret)
             state.advance();
 
