@@ -120,7 +120,7 @@ struct space // hand made supposed to be fast.
         // Try to speed up this check by the assumption that spaces
         // are less common than normal characters
         // eval: (logior ?\t ?\n ?\r ?\  ) => 47
-        bool ret = c & ~47; // ~(' ' | '\n' | '\r' | '\t')
+        bool ret = (c & ~47) != 0; // ~(' ' | '\n' | '\r' | '\t')
         if (EXPECT_TRUE (ret))
             return !ret;
 
