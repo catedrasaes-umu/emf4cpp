@@ -122,7 +122,7 @@ struct space // hand made supposed to be fast.
         // eval: (logior ?\t ?\n ?\r ?\  ) => 47
         bool ret = (c & ~47) != 0; // ~(' ' | '\n' | '\r' | '\t')
         if (EXPECT_TRUE (ret))
-            return !ret;
+            return false;
 
         // Normal case
         ret = c == ' ' || c == '\n' || c == '\r' || c == '\t';
