@@ -73,13 +73,13 @@ String expandSubType(AbstractElement this) :
 	else if Assignment.isInstance(this) then
 		'(' + asAssignment().feature + '=' + asAssignment().terminal.expand() + asAssignment().process() + ')'
 	else if Group.isInstance(this) then
-		"(" + asGroup().tokens.expandGroup() + ")"
+		"(" + asGroup().elements.expandGroup() + ")"
 	else if CrossReference.isInstance(this) then
 		"RULE_ID"
 	else if CharacterRange.isInstance(this) then
 		asCharacterRange().left.expand() + ".." + asCharacterRange().right.expand() 
 	else if Alternatives.isInstance(this) then
-		"(" + asAlternatives().groups.expandGroup(" | ") + ")"
+		"(" + asAlternatives().asGroup().elements.expandGroup(" | ") + ")"
 	else if NegatedToken.isInstance(this) then
 		"~" + asNegatedToken().terminal.expand()
 	else if UntilToken.isInstance(this) then
