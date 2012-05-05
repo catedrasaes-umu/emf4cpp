@@ -119,7 +119,7 @@ struct any
     }
 
     template< typename T >
-    static T&
+    static bool
     is_a(any const& a)
     {
         return type_id< T >::id() == a.type();

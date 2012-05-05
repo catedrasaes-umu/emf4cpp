@@ -338,14 +338,14 @@ void handler::resolveReferences()
 
                     ::ecorecpp::mapping::type_traits::string_t const& _current_id = _path[j].get_id();
 
-                    if (pkg)
+                    if (pkg) // package
                     {
                         // Is it a subpackage?
                         bool is_subpackage = false;
                         ::ecorecpp::mapping::EList< EPackage > const& subpkgs =
                                 pkg->getESubpackages();
 
-                        for (size_t k = 0; k < subpkgs.size(); k++)
+                        for (size_t k = 0; k < subpkgs.size() && !is_subpackage; ++k)
                             if (subpkgs[k]->getName() == _current_id)
                             {
                                 _current = subpkgs[k];
@@ -353,11 +353,9 @@ void handler::resolveReferences()
                             }
 
                         if (!is_subpackage)
-                        {
                             _current = pkg->getEClassifier(_current_id);
-                        }
                     }
-                    else if (cl)
+                    else if (cl) // class
                     {
                         _current = cl->getEStructuralFeature(_current_id);
                     }
@@ -365,13 +363,13 @@ void handler::resolveReferences()
                     {
                         cl = _current->eClass();
                         EStructuralFeature_ptr sesf =
-                                cl->getEStructuralFeature(_current_id);
+                            cl->getEStructuralFeature(_current_id);
 
                         _any = _current->eGet(sesf);
 
 #if 0
                         DEBUG_MSG(cout, _current_id << " " << cl->getName()
-                                << " " << _path[j].get_index());
+                                  << " " << _path[j].get_index());
                         DEBUG_MSG(cout, _any.type().name());
 #endif
                         if (_path[j].is_collection())
