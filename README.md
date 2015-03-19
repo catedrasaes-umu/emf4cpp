@@ -36,20 +36,20 @@ Two direct advantages can be that C++ programmers can write their data model usi
 
 ## Installation from binary distribution ##
 
-The EMF4CPP binary distribution contains the source code generator and the runtime libraries. To install it, you only have to extract the tarball file you can download from [here](http://emf4cpp.googlecode.com/files/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz). Or simply, as follows:
+The EMF4CPP binary distribution contains the source code generator and the runtime libraries. To install it, you only have to extract the tarball file you can download from [here](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/downloads/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz). Or simply, as follows:
 
 ```
-wget http://emf4cpp.googlecode.com/files/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
+wget https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/downloads/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
 tar xzf emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
 ```
 
 ## Installation from source distribution ##
 
-1. Download the latest snapshot from [here](http://emf4cpp.googlecode.com/files/emf4cpp-source-1012011253.tgz).
+1. Download the latest snapshot from [here](https://github.com/catedrasaes-umu/emf4cpp/archive/master.zip).
 
 ```
-wget http://emf4cpp.googlecode.com/files/emf4cpp-source-1012011253.tgz
-tar xzf emf4cpp-source-1012011253.tgz
+wget https://github.com/catedrasaes-umu/emf4cpp/archive/master.zip
+unzip master.zip
 ```
 
 2. Create a build directory and run CMake as follows:
@@ -119,7 +119,7 @@ Optionally, you can install it doing _sudo make install_. By default, EMF4CPP is
 
 There is another way for generating C++ code from an Ecore metamodel using the EMF4CPP Eclipse plug-in.
 This plug-in requires Eclipse Helios and the C/C++ Development Tools.
-For installing it, close Eclipse, extract [this package](http://emf4cpp.googlecode.com/files/emf4cpp-plugins-0.0.2.tar.gz) into your Eclipse plugins directory and re-run Eclipse.
+For installing it, close Eclipse, extract [this package](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/downloads/emf4cpp-plugins-0.0.2.tar.gz) into your Eclipse plugins directory and re-run Eclipse.
 
 This plug-in adds a submenu called _EMF4CPP_ on the Ecore metamodels right click menu. You can use the option _Generate C++ with wizard_ from this menu as the next screenshot shows.
 
@@ -143,7 +143,7 @@ The process folllowed by this metamodel (and by any metamodel conforming to Ecor
 
 ![](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/images/images/company-workflow.png)
 
-This process consists in next three main steps. You can follow them downloading the example source from [here](http://emf4cpp.googlecode.com/svn/trunk/images/emf4cpp-0.0.1-Example1.tgz) and uncompressing it as follows:
+This process consists in next three main steps. You can follow them downloading the example source from [here](/https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/downloads/emf4cpp-0.0.1-Example1.tgz) and uncompressing it as follows:
 
 
 ```
