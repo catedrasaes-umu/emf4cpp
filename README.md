@@ -36,36 +36,36 @@ Two direct advantages can be that C++ programmers can write their data model usi
 
 ## Installation from binary distribution ##
 
-The EMF4CPP binary distribution contains the source code generator and the runtime libraries. To install it, you only have to extract the tarball file you can download from [http://emf4cpp.googlecode.com/files/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz here]. Or simply, as follows:
+The EMF4CPP binary distribution contains the source code generator and the runtime libraries. To install it, you only have to extract the tarball file you can download from [here](http://emf4cpp.googlecode.com/files/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz). Or simply, as follows:
 
-{{{
+```
 wget http://emf4cpp.googlecode.com/files/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
 tar xzf emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
-}}}
+```
 
 ## Installation from source distribution ##
 
-1. Download the latest snapshot from [http://emf4cpp.googlecode.com/files/emf4cpp-source-1012011253.tgz here].
+1. Download the latest snapshot from [here](http://emf4cpp.googlecode.com/files/emf4cpp-source-1012011253.tgz).
 
-{{{
+```
 wget http://emf4cpp.googlecode.com/files/emf4cpp-source-1012011253.tgz
 tar xzf emf4cpp-source-1012011253.tgz
-}}}
+```
 
 2. Create a build directory and run CMake as follows:
 
-{{{
+```
 mkdir build
 cd build
 cmake ../emf4cpp-source-1012011253 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/emf4cpp-0.0.2/
-}}}
+```
 
 3. Compile and install. EMF4CPP is installed by default at /opt/emf4cpp-0.0.2/
 
-{{{
+```
 make
 sudo make install
-}}}
+```
 
 ## EMF4CPP development distribution ##
 
@@ -78,7 +78,7 @@ The third one is a bootstrap implementation of a ANTLR3 grammars generator from 
 an under development Boost Sprit Qi grammars generator from Xtext grammars.
 
 You can download the latest development snapshot from 
-[http://emf4cpp.googlecode.com/files/emf4cpp-snapshot-1012011253.tgz here].
+[here](http://emf4cpp.googlecode.com/files/emf4cpp-snapshot-1012011253.tgz).
 
 There is an additional requeriment for this distribution:
 
@@ -88,26 +88,26 @@ There is an additional requeriment for this distribution:
 
 1. Download the tarball file, extract it and change to _builds_ directory.
 
-{{{
+```
 wget http://emf4cpp.googlecode.com/files/emf4cpp-snapshot-1012011253.tgz
 tar xzf emf4cpp-snapshot-1012011253.tgz
 cd emf4cpp-snapshot-1012011253/builds
-}}}
+```
 
 2. Run the bootstrap script.
 
-{{{
+```
 ./bootstrap.sh
-}}}
+```
 
 It creates two build directories: _debug_ and _release_.
 
 3. Build the workspace
 
-{{{
+```
 cd release
 make
-}}}
+```
 
 Also, you can build executables and libraries with debug information and debug symbols doing _make_ at _debug_ directory.
 
@@ -146,18 +146,18 @@ The process folllowed by this metamodel (and by any metamodel conforming to Ecor
 This process consists in next three main steps. You can follow them downloading the example source from [http://emf4cpp.googlecode.com/svn/trunk/images/emf4cpp-0.0.1-Example1.tgz here] and uncompressing it as follows:
 
 
-{{{
+```
 tar xzf emf4cpp-0.0.1-Example1.tgz
-}}}
+```
 
 
 ### 1. Generate C++ source files from the metamodel (in Ecore XML format). ###
 
 
-{{{
+```
 cd emf4cpp-0.0.1-Example1
 ${EMF4CPP_PATH}/bin/emf4cpp.generator.sh company.ecore
-}}}
+```
 
 
 ### 2. Build the metamodel shared library. ###
@@ -165,10 +165,10 @@ ${EMF4CPP_PATH}/bin/emf4cpp.generator.sh company.ecore
 The produced C++ source code from a metamodel is built as a shared library. To build it, you need use CMake:
 
 
-{{{
+```
 cmake .
 make
-}}}
+```
 
 
 ### 3. Manipulate entities of the types defined in the metamodel in an application linked with the metamodel library and the Ecore2CPP runtime support libraries. ###
@@ -176,16 +176,16 @@ make
 In this example, there is an example application that creates a _company_ model, using the library built, above into the _test_ directory. To build it, simply type:
 
 
-{{{
+```
 cd test
 make
-}}}
+```
 
 ## Example 2: Creating a metamodel using EMF4CPP at runtime ##
 
 In this example, we create the metamodel above using EMF4CPP.
 
-{{{
+```cpp
 #include <ecore.hpp> // Ecore metamodel
 #include <ecorecpp/ecorecpp.hpp> // EMF4CPP utils
 #include <iostream>
@@ -297,22 +297,22 @@ int main(int argc, char* argv[])
     // Delete the parsed metamodel
     delete pkg;
 }
-}}}
+```
 
 To build this example you must link it with EMF4CPP runtime libraries.
 
-{{{
+```
 g++ -o company -I${EMF4CPP_PATH}/include/emf4cpp -L${EMF4CPP_PATH}/lib -lemf4cpp-ecore -lemf4cpp-ecorecpp example2.cpp
-}}}
+```
 
 Example's output:
 
-{{{
+```
 EPackage: company
   EClassifier: Employee (EClass)
   EClassifier: Department (EClass)
   EClassifier: Company (EClass)
-}}}
+```
 
 ## Example 3: The Reflective API ##
 
@@ -332,9 +332,9 @@ EMF4CPP is released under the LGPL License.
 
 # Related publications #
 
-Andrés Senac González, Diego Sevilla Ruiz, Gregorio Martinez Perez, "_EMF4CPP: a C++ Ecore Implementation_", DSDM 2010 - Desarrollo de Software Dirigido por Modelos, Jornadas de Ingenieria del Software y Bases de Datos (JISBD 2010), Valencia, Spain, September 2010. [http://www.sistedes.es/TJISBD/Vol-4/No-2/articles/DSDM-articulo-13.pdf PDF]
+Andrés Senac González, Diego Sevilla Ruiz, Gregorio Martinez Perez, "_EMF4CPP: a C++ Ecore Implementation_", DSDM 2010 - Desarrollo de Software Dirigido por Modelos, Jornadas de Ingenieria del Software y Bases de Datos (JISBD 2010), Valencia, Spain, September 2010. [PDF](http://www.sistedes.es/TJISBD/Vol-4/No-2/articles/DSDM-articulo-13.pdf)
 
 # Contact #
 
-The code is still being actively developed, but we encourage all programmers that want a port of the great EMF tooling to C++ to contact us and test the tools, provide feedback or even code. We hope this utility to be of help to the community. If you want further information, or collaborate with the code or ideas, you can contact either [mailto:andres@senac.es Andrés Senac] or [mailto:dsevilla@um.es Diego Sevilla].
+The code is still being actively developed, but we encourage all programmers that want a port of the great EMF tooling to C++ to contact us and test the tools, provide feedback or even code. We hope this utility to be of help to the community. If you want further information, or collaborate with the code or ideas, you can contact either [Andrés Senac](mailto:andres@senac.es) or [Diego Sevilla](mailto:dsevilla@um.es).
 
