@@ -143,7 +143,7 @@ The process folllowed by this metamodel (and by any metamodel conforming to Ecor
 
 ![](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/images/images/company-workflow.png)
 
-This process consists in next three main steps. You can follow them downloading the example source from [http://emf4cpp.googlecode.com/svn/trunk/images/emf4cpp-0.0.1-Example1.tgz here] and uncompressing it as follows:
+This process consists in next three main steps. You can follow them downloading the example source from [here](http://emf4cpp.googlecode.com/svn/trunk/images/emf4cpp-0.0.1-Example1.tgz) and uncompressing it as follows:
 
 
 ```
