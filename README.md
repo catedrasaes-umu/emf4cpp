@@ -82,7 +82,7 @@ You can download the latest development snapshot from
 
 There is an additional requeriment for this distribution:
 
-· Antlr v3 C runtime library (3.2 or greater, [http://www.antlr.org/download/C download])
+· Antlr v3 C runtime library (3.2 or greater, [download](http://www.antlr.org/download/C download))
 
 ### Build workspace ###
 
@@ -119,7 +119,7 @@ Optionally, you can install it doing _sudo make install_. By default, EMF4CPP is
 
 There is another way for generating C++ code from an Ecore metamodel using the EMF4CPP Eclipse plug-in.
 This plug-in requires Eclipse Helios and the C/C++ Development Tools.
-For installing it, close Eclipse, extract [http://emf4cpp.googlecode.com/files/emf4cpp-plugins-0.0.2.tar.gz this package] into your Eclipse plugins directory and re-run Eclipse.
+For installing it, close Eclipse, extract [this package](http://emf4cpp.googlecode.com/files/emf4cpp-plugins-0.0.2.tar.gz) into your Eclipse plugins directory and re-run Eclipse.
 
 This plug-in adds a submenu called _EMF4CPP_ on the Ecore metamodels right click menu. You can use the option _Generate C++ with wizard_ from this menu as the next screenshot shows.
 
