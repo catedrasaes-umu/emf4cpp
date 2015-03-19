@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<company:Company xmlns:company="http:///com.example.company.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0" name="UMU">
-<departments number="8515" manager="//@departments.0/@employees.1">
-<employees name="Andres Senac"/>
-<employees name="Diego Sevilla"/>
-</departments>
-</company:Company>

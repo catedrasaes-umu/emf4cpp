@@ -1,7 +1,0 @@
-package abc {
-datatype string;
-}
-
-package cdef {
-datatype string;
-}
