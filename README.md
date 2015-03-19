@@ -1,4 +1,4 @@
-= What is EMF4CPP? =
+# What is EMF4CPP? #
 
 EMF4CPP (formerly Ecore2CPP) is a C++ implementation and type mapping for the Eclipse Modeling Framework (EMF) core, the Ecore metamodel.
 
@@ -11,19 +11,19 @@ This is our first step at providing a set of tools for MDD (Model-Driven Develop
 Two direct advantages can be that C++ programmers can write their data model using Ecore and the Eclipse tools to finally generate code with EMF4CPP, and also, memory consumption and efficiency is usually better in EMF4CPP than in Java, as our preliminary results show.
 
 
-= Installation =
+# Installation #
 
-== Change Log ==
+## Change Log ##
 
-=== 12/01/2010 ===
+### 12/01/2010 ###
 
 · Releases updated fixing an error at XMI parser.
 
-=== 11/29/2010 ===
+### 11/29/2010 ###
 
 · Releases updated fixing an installation problem with the ECORECPP library's headers.
 
-== Requeriments ==
+## Requeriments ##
 
 · Boost C++ libraries (1.35 or greater)
 
@@ -34,7 +34,7 @@ Two direct advantages can be that C++ programmers can write their data model usi
 · CMake (version 2.6 at least)
 
 
-== Installation from binary distribution ==
+## Installation from binary distribution ##
 
 The EMF4CPP binary distribution contains the source code generator and the runtime libraries. To install it, you only have to extract the tarball file you can download from [http://emf4cpp.googlecode.com/files/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz here]. Or simply, as follows:
 
@@ -43,7 +43,7 @@ wget http://emf4cpp.googlecode.com/files/emf4cpp-generator-0.0.2-Linux-x86_64.ta
 tar xzf emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
 }}}
 
-== Installation from source distribution ==
+## Installation from source distribution ##
 
 1. Download the latest snapshot from [http://emf4cpp.googlecode.com/files/emf4cpp-source-1012011253.tgz here].
 
@@ -67,7 +67,7 @@ make
 sudo make install
 }}}
 
-== EMF4CPP development distribution ==
+## EMF4CPP development distribution ##
 
 The EMF4CPP development distribution tarball file consists of four Eclipse projects: emf4cpp.generator,
 emf4cpp.tests, emf4cpp.xtext and emf4cpp.xtext2qi. The first one contains a C++ source code generator 
@@ -84,7 +84,7 @@ There is an additional requeriment for this distribution:
 
 · Antlr v3 C runtime library (3.2 or greater, [http://www.antlr.org/download/C download])
 
-=== Build workspace ===
+### Build workspace ###
 
 1. Download the tarball file, extract it and change to _builds_ directory.
 
@@ -115,7 +115,7 @@ Also, you can build executables and libraries with debug information and debug s
 
 Optionally, you can install it doing _sudo make install_. By default, EMF4CPP is installed at /opt/emf4cpp-0.0.2
 
-== EMF4CPP Eclipse plug-in ==
+## EMF4CPP Eclipse plug-in ##
 
 There is another way for generating C++ code from an Ecore metamodel using the EMF4CPP Eclipse plug-in.
 This plug-in requires Eclipse Helios and the C/C++ Development Tools.
@@ -129,19 +129,19 @@ Clicking _finish_ the generated code appears into the selected directory, as the
 
 ![](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/images/images/emf4cpp-plugin2.png)
 
-= Examples =
+# Examples #
 
 In this examples we use the _EMF4CPP_PATH_ environment variable with the path in which the EMF4CPP source code generator is installed.
 
-== Example 1: The Company metamodel ==
+## Example 1: The Company metamodel ##
 
 This example shows the basic usage of EMF4CPP, in which, we generate C++ code from the _company_ metamodel showed in the next figure.
 
-![](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/images/company-metamodel.png)
+![](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/images/images/company-metamodel.png)
 
 The process folllowed by this metamodel (and by any metamodel conforming to Ecore) is showed in the next figure.
 
-![](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/images/company-workflow.png)
+![](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/images/images/company-workflow.png)
 
 This process consists in next three main steps. You can follow them downloading the example source from [http://emf4cpp.googlecode.com/svn/trunk/images/emf4cpp-0.0.1-Example1.tgz here] and uncompressing it as follows:
 
@@ -151,7 +151,7 @@ tar xzf emf4cpp-0.0.1-Example1.tgz
 }}}
 
 
-=== 1. Generate C++ source files from the metamodel (in Ecore XML format). ===
+### 1. Generate C++ source files from the metamodel (in Ecore XML format). ###
 
 
 {{{
@@ -160,7 +160,7 @@ ${EMF4CPP_PATH}/bin/emf4cpp.generator.sh company.ecore
 }}}
 
 
-=== 2. Build the metamodel shared library. ===
+### 2. Build the metamodel shared library. ###
 
 The produced C++ source code from a metamodel is built as a shared library. To build it, you need use CMake:
 
@@ -171,7 +171,7 @@ make
 }}}
 
 
-=== 3. Manipulate entities of the types defined in the metamodel in an application linked with the metamodel library and the Ecore2CPP runtime support libraries. ===
+### 3. Manipulate entities of the types defined in the metamodel in an application linked with the metamodel library and the Ecore2CPP runtime support libraries. ###
 
 In this example, there is an example application that creates a _company_ model, using the library built, above into the _test_ directory. To build it, simply type:
 
@@ -181,7 +181,7 @@ cd test
 make
 }}}
 
-== Example 2: Creating a metamodel using EMF4CPP at runtime ==
+## Example 2: Creating a metamodel using EMF4CPP at runtime ##
 
 In this example, we create the metamodel above using EMF4CPP.
 
@@ -314,27 +314,27 @@ EPackage: company
   EClassifier: Company (EClass)
 }}}
 
-== Example 3: The Reflective API ==
+## Example 3: The Reflective API ##
 
 _Comming soon_
 
-= Performance comparison with Java =
+# Performance comparison with Java #
 
 _Comming soon_
 
-= License =
+# License #
 
 EMF4CPP is released under the LGPL License.
 
-= Acknowledgements =
+# Acknowledgements #
 
 · Till Steinbach for finding bugs.
 
-= Related publications =
+# Related publications #
 
 Andrés Senac González, Diego Sevilla Ruiz, Gregorio Martinez Perez, "_EMF4CPP: a C++ Ecore Implementation_", DSDM 2010 - Desarrollo de Software Dirigido por Modelos, Jornadas de Ingenieria del Software y Bases de Datos (JISBD 2010), Valencia, Spain, September 2010. [http://www.sistedes.es/TJISBD/Vol-4/No-2/articles/DSDM-articulo-13.pdf PDF]
 
-= Contact =
+# Contact #
 
 The code is still being actively developed, but we encourage all programmers that want a port of the great EMF tooling to C++ to contact us and test the tools, provide feedback or even code. We hope this utility to be of help to the community. If you want further information, or collaborate with the code or ideas, you can contact either [mailto:andres@senac.es Andrés Senac] or [mailto:dsevilla@um.es Diego Sevilla].
 
