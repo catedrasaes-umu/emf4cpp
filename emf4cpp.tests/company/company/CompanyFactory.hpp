@@ -54,5 +54,5 @@ namespace company
 
 } // company
 
-
 #endif // _COMPANYFACTORY_HPP
+

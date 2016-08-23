@@ -49,7 +49,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EBoolean isIsPrivate() const;
             void setIsPrivate(::ecore::EBoolean _isPrivate);
@@ -58,8 +57,7 @@ namespace xpand3
             ::xpand3::File_ptr getOwner();
             void setOwner(::xpand3::File_ptr _owner);
 
-            ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >
-                    & getParams();
+            ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams();
 
             ::xpand3::expression::AbstractExpression_ptr getGuard();
             void setGuard(::xpand3::expression::AbstractExpression_ptr _guard);
@@ -92,8 +90,8 @@ namespace xpand3
 
             ::xpand3::File_ptr m_owner;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::xpand3::DeclaredParameter > > m_params;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter > > m_params;
 
             ::xpand3::expression::AbstractExpression_ptr m_guard;
 
@@ -103,3 +101,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_ABSTRACTDECLARATION_HPP
+

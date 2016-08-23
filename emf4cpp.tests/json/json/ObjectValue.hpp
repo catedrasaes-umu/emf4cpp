@@ -44,7 +44,6 @@ namespace json
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -72,14 +71,14 @@ namespace json
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::json::NVPair > > m_members;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::json::NVPair > > m_members;
 
     };
 
 } // json
 
 #endif // JSON_OBJECTVALUE_HPP
+

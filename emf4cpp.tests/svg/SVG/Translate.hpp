@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getTx() const;
         void setTx(::PrimitiveTypes::Double _tx);
@@ -54,7 +53,6 @@ namespace SVG
         void setTy(::PrimitiveTypes::Double _ty);
 
         // References
-
 
         /*PROTECTED REGION ID(Translate) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_TRANSLATE_HPP
+

@@ -38,12 +38,12 @@ ExtensionFamily::ExtensionFamily()
 {
 
     m_stereotype.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::Stereotype, -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
+                    -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(ExtensionFamilyImpl__ExtensionFamilyImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ ExtensionFamily::~ExtensionFamily()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String ExtensionFamily::getName() const
 {
     return m_name;

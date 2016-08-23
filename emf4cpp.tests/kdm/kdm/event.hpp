@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "event/EventModel.hpp"
 #include "event/AbstractEventElement.hpp"

@@ -63,7 +63,6 @@ void File::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject File::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -73,33 +72,34 @@ void File::_initialize()
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_start);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_end);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_fileName);
     }
         return _any;
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
     {
-        _any = m_imports->asEListOf< ::ecore::EObject > ();
+        _any = m_imports->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
     {
-        _any = m_declarations->asEListOf< ::ecore::EObject > ();
+        _any = m_declarations->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -113,42 +113,40 @@ void File::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_start);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_end);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_fileName);
     }
         return;
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::xpand3::File::getImports().clear();
         ::xpand3::File::getImports().insert_all(*_t0);
     }
         return;
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::xpand3::File::getDeclarations().clear();
         ::xpand3::File::getDeclarations().insert_all(*_t0);
     }
@@ -163,14 +161,16 @@ void File::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     switch (_featureID)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_start);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_start);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_end);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_end);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_fileName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_fileName);
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
         return m_imports && m_imports->size();
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
@@ -191,9 +191,8 @@ void File::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr File::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::xpand3::Xpand3Package_ptr > (::xpand3::Xpand3Package::_instance())->getFile();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::xpand3::Xpand3Package_ptr >(::xpand3::Xpand3Package::_instance())->getFile();
     return _eclass;
 }
 

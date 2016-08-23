@@ -43,8 +43,8 @@ Circle::Circle()
 {
 
     /*PROTECTED REGION ID(CircleImpl__CircleImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,6 +62,4 @@ Circle::~Circle()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

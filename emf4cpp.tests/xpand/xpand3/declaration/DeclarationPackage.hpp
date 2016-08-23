@@ -200,8 +200,7 @@ namespace xpand3
             static const int CREATEEXTENSION__FILENAME =
                     ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME;
 
-            static const int CREATEEXTENSION__OWNER =
-                    ABSTRACTDECLARATION__OWNER;
+            static const int CREATEEXTENSION__OWNER = ABSTRACTDECLARATION__OWNER;
 
             static const int CREATEEXTENSION__PARAMS =
                     ABSTRACTDECLARATION__PARAMS;
@@ -209,8 +208,7 @@ namespace xpand3
             static const int CREATEEXTENSION__ISPRIVATE =
                     ABSTRACTDECLARATION__ISPRIVATE;
 
-            static const int CREATEEXTENSION__GUARD =
-                    ABSTRACTDECLARATION__GUARD;
+            static const int CREATEEXTENSION__GUARD = ABSTRACTDECLARATION__GUARD;
 
             static const int CREATEEXTENSION__NAME =
                     ABSTRACTNAMEDDECLARATION__NAME;
@@ -219,8 +217,7 @@ namespace xpand3
 
             static const int CREATEEXTENSION__BODY = EXTENSION__BODY;
 
-            static const int CREATEEXTENSION__RETURNTYPE =
-                    EXTENSION__RETURNTYPE;
+            static const int CREATEEXTENSION__RETURNTYPE = EXTENSION__RETURNTYPE;
 
             // IDs for classifiers for class Definition 
 
@@ -318,8 +315,7 @@ namespace xpand3
             static const int EXTENSIONASPECT__FILENAME =
                     ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME;
 
-            static const int EXTENSIONASPECT__OWNER =
-                    ABSTRACTDECLARATION__OWNER;
+            static const int EXTENSIONASPECT__OWNER = ABSTRACTDECLARATION__OWNER;
 
             static const int EXTENSIONASPECT__PARAMS =
                     ABSTRACTDECLARATION__PARAMS;
@@ -327,8 +323,7 @@ namespace xpand3
             static const int EXTENSIONASPECT__ISPRIVATE =
                     ABSTRACTDECLARATION__ISPRIVATE;
 
-            static const int EXTENSIONASPECT__GUARD =
-                    ABSTRACTDECLARATION__GUARD;
+            static const int EXTENSIONASPECT__GUARD = ABSTRACTDECLARATION__GUARD;
 
             static const int EXTENSIONASPECT__POINTCUT =
                     ABSTRACTASPECT__POINTCUT;
@@ -352,8 +347,7 @@ namespace xpand3
 
             static const int JAVAEXTENSION__OWNER = ABSTRACTDECLARATION__OWNER;
 
-            static const int JAVAEXTENSION__PARAMS =
-                    ABSTRACTDECLARATION__PARAMS;
+            static const int JAVAEXTENSION__PARAMS = ABSTRACTDECLARATION__PARAMS;
 
             static const int JAVAEXTENSION__ISPRIVATE =
                     ABSTRACTDECLARATION__ISPRIVATE;
@@ -467,9 +461,7 @@ namespace xpand3
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -528,5 +520,5 @@ namespace xpand3
     } // declaration
 } // xpand3
 
-
 #endif // _XPAND3_DECLARATIONPACKAGE_HPP
+

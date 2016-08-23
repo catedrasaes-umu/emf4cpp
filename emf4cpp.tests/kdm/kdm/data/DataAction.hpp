@@ -50,17 +50,14 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getKind() const;
             void setKind(::kdm::core::String _kind);
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >
-                    & getImplementation();
+            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getImplementation();
 
-            ::ecorecpp::mapping::EList< ::kdm::data::DataEvent >
-                    & getDataElement();
+            ::ecorecpp::mapping::EList< ::kdm::data::DataEvent >& getDataElement();
 
             /*PROTECTED REGION ID(DataAction) START*/
             // Please, enable the protected region if you add manually written code.
@@ -88,11 +85,11 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::action::ActionElement > > m_implementation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::action::ActionElement > > m_implementation;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::data::DataEvent > > m_dataElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::data::DataEvent > > m_dataElement;
 
         };
 
@@ -100,3 +97,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_DATAACTION_HPP
+

@@ -38,8 +38,7 @@ namespace xpand3
             virtual ExpandStatement_ptr createExpandStatement();
             virtual ExpressionStatement_ptr createExpressionStatement();
             virtual ErrorStatement_ptr createErrorStatement();
-            virtual AbstractStatementWithBody_ptr
-                    createAbstractStatementWithBody();
+            virtual AbstractStatementWithBody_ptr createAbstractStatementWithBody();
             virtual FileStatement_ptr createFileStatement();
             virtual ForEachStatement_ptr createForEachStatement();
             virtual IfStatement_ptr createIfStatement();
@@ -66,5 +65,5 @@ namespace xpand3
     } // statement
 } // xpand3
 
-
 #endif // _XPAND3_STATEMENTFACTORY_HPP
+

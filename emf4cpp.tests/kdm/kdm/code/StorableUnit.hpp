@@ -49,13 +49,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::code::StorableKind getKind() const;
             void setKind(::kdm::code::StorableKind _kind);
 
             // References
-
 
             /*PROTECTED REGION ID(StorableUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_STORABLEUNIT_HPP
+

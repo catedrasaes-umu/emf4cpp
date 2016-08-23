@@ -30,49 +30,48 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace core
     {
 
-        // EDataType
+// EDataType
         /*PROTECTED REGION ID(kdm_core_String) ENABLED START*/
         typedef std::string String;
         /*PROTECTED REGION END*/
         /*PROTECTED REGION ID(kdm_core_Integer) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
         typedef int Integer;
         /*PROTECTED REGION END*/
         /*PROTECTED REGION ID(kdm_core_Boolean) ENABLED START*/
         typedef bool Boolean;
         /*PROTECTED REGION END*/
 
-        // EClass
-
-        // Element
+// EClass
+// Element
         class Element;
         typedef Element* Element_ptr;
 
-        // ModelElement
+// ModelElement
         class ModelElement;
         typedef ModelElement* ModelElement_ptr;
 
-        // KDMEntity
+// KDMEntity
         class KDMEntity;
         typedef KDMEntity* KDMEntity_ptr;
 
-        // KDMRelationship
+// KDMRelationship
         class KDMRelationship;
         typedef KDMRelationship* KDMRelationship_ptr;
 
-        // AggregatedRelationship
+// AggregatedRelationship
         class AggregatedRelationship;
         typedef AggregatedRelationship* AggregatedRelationship_ptr;
 
-        // Package & Factory
+// Package & Factory
         class CoreFactory;
         typedef CoreFactory * CoreFactory_ptr;
         class CorePackage;
@@ -81,11 +80,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // core
 } // kdm
 
-
 #endif // _KDM_CORE_FORWARD_HPP
+

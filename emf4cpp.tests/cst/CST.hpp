@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "CST/Tree.hpp"
 #include "CST/Element.hpp"

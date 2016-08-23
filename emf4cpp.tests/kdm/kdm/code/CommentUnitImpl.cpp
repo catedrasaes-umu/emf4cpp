@@ -53,7 +53,6 @@ void CommentUnit::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject CommentUnit::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -63,28 +62,28 @@ void CommentUnit::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject > ();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::code::CodePackage::COMMENTUNIT__TEXT:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_text);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_text);
     }
         return _any;
 
@@ -99,44 +98,40 @@ void CommentUnit::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::code::CodePackage::COMMENTUNIT__TEXT:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_text);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_text);
     }
         return;
 
@@ -157,8 +152,8 @@ void CommentUnit::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
         return m_taggedValue && m_taggedValue->size();
     case ::kdm::code::CodePackage::COMMENTUNIT__TEXT:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_text);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_text);
 
     }
     throw "Error";
@@ -175,9 +170,8 @@ void CommentUnit::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr CommentUnit::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::code::CodePackage_ptr > (::kdm::code::CodePackage::_instance())->getCommentUnit();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::code::CodePackage_ptr >(::kdm::code::CodePackage::_instance())->getCommentUnit();
     return _eclass;
 }
 

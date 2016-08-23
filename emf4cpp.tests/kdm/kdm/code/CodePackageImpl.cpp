@@ -119,12 +119,14 @@ CodePackage::CodePackage()
     m_MethodUnitEClass->setEPackage(this);
     getEClassifiers().push_back(m_MethodUnitEClass);
     m_MethodUnit__kind = new ::ecore::EAttribute();
-    m_MethodUnit__kind->setFeatureID(::kdm::code::CodePackage::METHODUNIT__KIND);
+    m_MethodUnit__kind->setFeatureID(
+            ::kdm::code::CodePackage::METHODUNIT__KIND);
     m_MethodUnitEClass->getEStructuralFeatures().push_back(m_MethodUnit__kind);
     m_MethodUnit__export = new ::ecore::EAttribute();
     m_MethodUnit__export->setFeatureID(
             ::kdm::code::CodePackage::METHODUNIT__EXPORT);
-    m_MethodUnitEClass->getEStructuralFeatures().push_back(m_MethodUnit__export);
+    m_MethodUnitEClass->getEStructuralFeatures().push_back(
+            m_MethodUnit__export);
 
     // Module
     m_ModuleEClass = new ::ecore::EClass();
@@ -191,7 +193,8 @@ CodePackage::CodePackage()
     m_InstanceOf__to->setFeatureID(::kdm::code::CodePackage::INSTANCEOF__TO);
     m_InstanceOfEClass->getEStructuralFeatures().push_back(m_InstanceOf__to);
     m_InstanceOf__from = new ::ecore::EReference();
-    m_InstanceOf__from->setFeatureID(::kdm::code::CodePackage::INSTANCEOF__FROM);
+    m_InstanceOf__from->setFeatureID(
+            ::kdm::code::CodePackage::INSTANCEOF__FROM);
     m_InstanceOfEClass->getEStructuralFeatures().push_back(m_InstanceOf__from);
 
     // CompilationUnit
@@ -359,7 +362,8 @@ CodePackage::CodePackage()
     m_Implements__to->setFeatureID(::kdm::code::CodePackage::IMPLEMENTS__TO);
     m_ImplementsEClass->getEStructuralFeatures().push_back(m_Implements__to);
     m_Implements__from = new ::ecore::EReference();
-    m_Implements__from->setFeatureID(::kdm::code::CodePackage::IMPLEMENTS__FROM);
+    m_Implements__from->setFeatureID(
+            ::kdm::code::CodePackage::IMPLEMENTS__FROM);
     m_ImplementsEClass->getEStructuralFeatures().push_back(m_Implements__from);
 
     // IntegerType
@@ -393,7 +397,8 @@ CodePackage::CodePackage()
     m_DefinedType__type = new ::ecore::EReference();
     m_DefinedType__type->setFeatureID(
             ::kdm::code::CodePackage::DEFINEDTYPE__TYPE);
-    m_DefinedTypeEClass->getEStructuralFeatures().push_back(m_DefinedType__type);
+    m_DefinedTypeEClass->getEStructuralFeatures().push_back(
+            m_DefinedType__type);
     m_DefinedType__codeElement = new ::ecore::EReference();
     m_DefinedType__codeElement->setFeatureID(
             ::kdm::code::CodePackage::DEFINEDTYPE__CODEELEMENT);
@@ -412,10 +417,12 @@ CodePackage::CodePackage()
     m_RangeTypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_RangeTypeEClass);
     m_RangeType__lower = new ::ecore::EAttribute();
-    m_RangeType__lower->setFeatureID(::kdm::code::CodePackage::RANGETYPE__LOWER);
+    m_RangeType__lower->setFeatureID(
+            ::kdm::code::CodePackage::RANGETYPE__LOWER);
     m_RangeTypeEClass->getEStructuralFeatures().push_back(m_RangeType__lower);
     m_RangeType__upper = new ::ecore::EAttribute();
-    m_RangeType__upper->setFeatureID(::kdm::code::CodePackage::RANGETYPE__UPPER);
+    m_RangeType__upper->setFeatureID(
+            ::kdm::code::CodePackage::RANGETYPE__UPPER);
     m_RangeTypeEClass->getEStructuralFeatures().push_back(m_RangeType__upper);
 
     // Signature
@@ -435,16 +442,19 @@ CodePackage::CodePackage()
     m_DataElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_DataElementEClass);
     m_DataElement__ext = new ::ecore::EAttribute();
-    m_DataElement__ext->setFeatureID(::kdm::code::CodePackage::DATAELEMENT__EXT);
+    m_DataElement__ext->setFeatureID(
+            ::kdm::code::CodePackage::DATAELEMENT__EXT);
     m_DataElementEClass->getEStructuralFeatures().push_back(m_DataElement__ext);
     m_DataElement__size = new ::ecore::EAttribute();
     m_DataElement__size->setFeatureID(
             ::kdm::code::CodePackage::DATAELEMENT__SIZE);
-    m_DataElementEClass->getEStructuralFeatures().push_back(m_DataElement__size);
+    m_DataElementEClass->getEStructuralFeatures().push_back(
+            m_DataElement__size);
     m_DataElement__type = new ::ecore::EReference();
     m_DataElement__type->setFeatureID(
             ::kdm::code::CodePackage::DATAELEMENT__TYPE);
-    m_DataElementEClass->getEStructuralFeatures().push_back(m_DataElement__type);
+    m_DataElementEClass->getEStructuralFeatures().push_back(
+            m_DataElement__type);
     m_DataElement__codeElement = new ::ecore::EReference();
     m_DataElement__codeElement->setFeatureID(
             ::kdm::code::CodePackage::DATAELEMENT__CODEELEMENT);
@@ -494,7 +504,8 @@ CodePackage::CodePackage()
     m_CommentUnit__text = new ::ecore::EAttribute();
     m_CommentUnit__text->setFeatureID(
             ::kdm::code::CodePackage::COMMENTUNIT__TEXT);
-    m_CommentUnitEClass->getEStructuralFeatures().push_back(m_CommentUnit__text);
+    m_CommentUnitEClass->getEStructuralFeatures().push_back(
+            m_CommentUnit__text);
 
     // SharedUnit
     m_SharedUnitEClass = new ::ecore::EClass();
@@ -568,7 +579,8 @@ CodePackage::CodePackage()
     m_MemberUnit__export = new ::ecore::EAttribute();
     m_MemberUnit__export->setFeatureID(
             ::kdm::code::CodePackage::MEMBERUNIT__EXPORT);
-    m_MemberUnitEClass->getEStructuralFeatures().push_back(m_MemberUnit__export);
+    m_MemberUnitEClass->getEStructuralFeatures().push_back(
+            m_MemberUnit__export);
 
     // ParameterUnit
     m_ParameterUnitEClass = new ::ecore::EClass();
@@ -720,7 +732,8 @@ CodePackage::CodePackage()
     m_ParameterTo__from = new ::ecore::EReference();
     m_ParameterTo__from->setFeatureID(
             ::kdm::code::CodePackage::PARAMETERTO__FROM);
-    m_ParameterToEClass->getEStructuralFeatures().push_back(m_ParameterTo__from);
+    m_ParameterToEClass->getEStructuralFeatures().push_back(
+            m_ParameterTo__from);
 
     // TemplateType
     m_TemplateTypeEClass = new ::ecore::EClass();
@@ -876,7 +889,6 @@ CodePackage::CodePackage()
 
     // Create data types
 
-
     // Initialize package
     setName("code");
     setNsPrefix("");
@@ -886,7 +898,7 @@ CodePackage::CodePackage()
 
     // Add supertypes to classes
     m_AbstractCodeElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_CodeItemEClass->getESuperTypes().push_back(m_AbstractCodeElementEClass);
     m_ComputationalObjectEClass->getESuperTypes().push_back(m_CodeItemEClass);
     m_ControlElementEClass->getESuperTypes().push_back(
@@ -899,12 +911,12 @@ CodePackage::CodePackage()
     m_TemplateUnitEClass->getESuperTypes().push_back(m_DatatypeEClass);
     m_TemplateParameterEClass->getESuperTypes().push_back(m_DatatypeEClass);
     m_AbstractCodeRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_InstanceOfEClass->getESuperTypes().push_back(
             m_AbstractCodeRelationshipEClass);
     m_CompilationUnitEClass->getESuperTypes().push_back(m_ModuleEClass);
     m_CodeModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_DerivedTypeEClass->getESuperTypes().push_back(m_DatatypeEClass);
     m_ArrayTypeEClass->getESuperTypes().push_back(m_DerivedTypeEClass);
     m_PrimitiveTypeEClass->getESuperTypes().push_back(m_DatatypeEClass);
@@ -931,14 +943,15 @@ CodePackage::CodePackage()
     m_TypeUnitEClass->getESuperTypes().push_back(m_DefinedTypeEClass);
     m_RangeTypeEClass->getESuperTypes().push_back(m_DerivedTypeEClass);
     m_SignatureEClass->getESuperTypes().push_back(m_DatatypeEClass);
-    m_DataElementEClass->getESuperTypes().push_back(m_ComputationalObjectEClass);
+    m_DataElementEClass->getESuperTypes().push_back(
+            m_ComputationalObjectEClass);
     m_StringTypeEClass->getESuperTypes().push_back(m_PrimitiveTypeEClass);
     m_ChoiceTypeEClass->getESuperTypes().push_back(m_CompositeTypeEClass);
     m_NamespaceUnitEClass->getESuperTypes().push_back(m_CodeItemEClass);
     m_VisibleInEClass->getESuperTypes().push_back(
             m_AbstractCodeRelationshipEClass);
     m_CommentUnitEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getModelElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getModelElement());
     m_SharedUnitEClass->getESuperTypes().push_back(m_CompilationUnitEClass);
     m_DecimalTypeEClass->getESuperTypes().push_back(m_PrimitiveTypeEClass);
     m_DateTypeEClass->getESuperTypes().push_back(m_PrimitiveTypeEClass);
@@ -975,7 +988,8 @@ CodePackage::CodePackage()
             m_AbstractCodeElementEClass);
     m_MacroDirectiveEClass->getESuperTypes().push_back(
             m_PreprocessorDirectiveEClass);
-    m_MacroUnitEClass->getESuperTypes().push_back(m_PreprocessorDirectiveEClass);
+    m_MacroUnitEClass->getESuperTypes().push_back(
+            m_PreprocessorDirectiveEClass);
     m_ConditionalDirectiveEClass->getESuperTypes().push_back(
             m_PreprocessorDirectiveEClass);
     m_IncludeDirectiveEClass->getESuperTypes().push_back(
@@ -1000,7 +1014,7 @@ CodePackage::CodePackage()
     m_AbstractCodeElementEClass->setAbstract(true);
     m_AbstractCodeElementEClass->setInterface(false);
     m_AbstractCodeElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
     m_AbstractCodeElement__source->setName("source");
     m_AbstractCodeElement__source->setDefaultValueLiteral("");
     m_AbstractCodeElement__source->setLowerBound(0);
@@ -1066,7 +1080,7 @@ CodePackage::CodePackage()
     m_ControlElement__type->setDerived(false);
     m_ControlElement__type->setOrdered(false);
     m_ControlElement__entryFlow->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getEntryFlow());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getEntryFlow());
     m_ControlElement__entryFlow->setName("entryFlow");
     m_ControlElement__entryFlow->setDefaultValueLiteral("");
     m_ControlElement__entryFlow->setLowerBound(0);
@@ -1262,7 +1276,7 @@ CodePackage::CodePackage()
     m_ArrayTypeEClass->setAbstract(false);
     m_ArrayTypeEClass->setInterface(false);
     m_ArrayType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_ArrayType__size->setName("size");
     m_ArrayType__size->setDefaultValueLiteral("");
     m_ArrayType__size->setLowerBound(0);
@@ -1305,7 +1319,7 @@ CodePackage::CodePackage()
     m_ClassUnitEClass->setAbstract(false);
     m_ClassUnitEClass->setInterface(false);
     m_ClassUnit__isAbstract->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getBoolean());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getBoolean());
     m_ClassUnit__isAbstract->setName("isAbstract");
     m_ClassUnit__isAbstract->setDefaultValueLiteral("");
     m_ClassUnit__isAbstract->setLowerBound(0);
@@ -1561,7 +1575,7 @@ CodePackage::CodePackage()
     m_RangeTypeEClass->setAbstract(false);
     m_RangeTypeEClass->setInterface(false);
     m_RangeType__lower->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_RangeType__lower->setName("lower");
     m_RangeType__lower->setDefaultValueLiteral("");
     m_RangeType__lower->setLowerBound(0);
@@ -1575,7 +1589,7 @@ CodePackage::CodePackage()
     m_RangeType__lower->setDerived(false);
     m_RangeType__lower->setOrdered(false);
     m_RangeType__upper->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_RangeType__upper->setName("upper");
     m_RangeType__upper->setDefaultValueLiteral("");
     m_RangeType__upper->setLowerBound(0);
@@ -1610,7 +1624,7 @@ CodePackage::CodePackage()
     m_DataElementEClass->setAbstract(false);
     m_DataElementEClass->setInterface(false);
     m_DataElement__ext->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_DataElement__ext->setName("ext");
     m_DataElement__ext->setDefaultValueLiteral("");
     m_DataElement__ext->setLowerBound(0);
@@ -1624,7 +1638,7 @@ CodePackage::CodePackage()
     m_DataElement__ext->setDerived(false);
     m_DataElement__ext->setOrdered(false);
     m_DataElement__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_DataElement__size->setName("size");
     m_DataElement__size->setDefaultValueLiteral("");
     m_DataElement__size->setLowerBound(0);
@@ -1723,7 +1737,7 @@ CodePackage::CodePackage()
     m_CommentUnitEClass->setAbstract(false);
     m_CommentUnitEClass->setInterface(false);
     m_CommentUnit__text->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_CommentUnit__text->setName("text");
     m_CommentUnit__text->setDefaultValueLiteral("");
     m_CommentUnit__text->setLowerBound(0);
@@ -1833,7 +1847,7 @@ CodePackage::CodePackage()
     m_ParameterUnit__kind->setDerived(false);
     m_ParameterUnit__kind->setOrdered(false);
     m_ParameterUnit__pos->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_ParameterUnit__pos->setName("pos");
     m_ParameterUnit__pos->setDefaultValueLiteral("");
     m_ParameterUnit__pos->setLowerBound(0);
@@ -1863,7 +1877,7 @@ CodePackage::CodePackage()
     m_SequenceTypeEClass->setAbstract(false);
     m_SequenceTypeEClass->setInterface(false);
     m_SequenceType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_SequenceType__size->setName("size");
     m_SequenceType__size->setDefaultValueLiteral("");
     m_SequenceType__size->setLowerBound(0);
@@ -1881,7 +1895,7 @@ CodePackage::CodePackage()
     m_BagTypeEClass->setAbstract(false);
     m_BagTypeEClass->setInterface(false);
     m_BagType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_BagType__size->setName("size");
     m_BagType__size->setDefaultValueLiteral("");
     m_BagType__size->setLowerBound(0);
@@ -1899,7 +1913,7 @@ CodePackage::CodePackage()
     m_SetTypeEClass->setAbstract(false);
     m_SetTypeEClass->setInterface(false);
     m_SetType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_SetType__size->setName("size");
     m_SetType__size->setDefaultValueLiteral("");
     m_SetType__size->setLowerBound(0);
@@ -1921,7 +1935,7 @@ CodePackage::CodePackage()
     m_CodeRelationshipEClass->setAbstract(false);
     m_CodeRelationshipEClass->setInterface(false);
     m_CodeRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_CodeRelationship__to->setName("to");
     m_CodeRelationship__to->setDefaultValueLiteral("");
     m_CodeRelationship__to->setLowerBound(1);
@@ -2267,7 +2281,6 @@ CodePackage::CodePackage()
     m_HasValue__from->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     // MethodKind
     m_MethodKindEEnum->setName("MethodKind");

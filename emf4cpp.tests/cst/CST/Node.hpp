@@ -45,7 +45,6 @@ namespace CST
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -73,14 +72,14 @@ namespace CST
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::CST::Element > > m_children;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::CST::Element > > m_children;
 
     };
 
 } // CST
 
 #endif // CST_NODE_HPP
+

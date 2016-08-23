@@ -29,7 +29,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «DEFINE cpp FOR EClass»
 «FILE getFQN("/")+".cpp"-»
+«IF (boolean) GLOBALVAR internalLicense»
 «EXPAND template::License::License FOR getFQN("/")+".cpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFQN("/")+".cpp"-»
+«ENDIF»
 #include "«name».hpp"
 «FOREACH getAllIncludeFiles() AS include-»
 #include <«include».hpp>

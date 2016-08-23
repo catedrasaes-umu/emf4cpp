@@ -45,8 +45,7 @@ namespace kdm
             virtual Datatype_ptr createDatatype();
             virtual TemplateUnit_ptr createTemplateUnit();
             virtual TemplateParameter_ptr createTemplateParameter();
-            virtual AbstractCodeRelationship_ptr
-                    createAbstractCodeRelationship();
+            virtual AbstractCodeRelationship_ptr createAbstractCodeRelationship();
             virtual InstanceOf_ptr createInstanceOf();
             virtual CompilationUnit_ptr createCompilationUnit();
             virtual CodeModel_ptr createCodeModel();
@@ -138,5 +137,5 @@ namespace kdm
     } // code
 } // kdm
 
-
 #endif // _KDM_CODEFACTORY_HPP
+

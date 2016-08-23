@@ -38,8 +38,7 @@ namespace kdm
             virtual BuildResource_ptr createBuildResource();
             virtual BuildDescription_ptr createBuildDescription();
             virtual SymbolicLink_ptr createSymbolicLink();
-            virtual AbstractBuildRelationship_ptr
-                    createAbstractBuildRelationship();
+            virtual AbstractBuildRelationship_ptr createAbstractBuildRelationship();
             virtual LinksTo_ptr createLinksTo();
             virtual Consumes_ptr createConsumes();
             virtual BuildModel_ptr createBuildModel();
@@ -75,5 +74,5 @@ namespace kdm
     } // build
 } // kdm
 
-
 #endif // _KDM_BUILDFACTORY_HPP
+

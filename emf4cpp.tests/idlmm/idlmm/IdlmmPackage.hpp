@@ -244,7 +244,6 @@ namespace idlmm
 
         // IDs for classifiers for class Contained 
 
-
         // IDs for classifiers for class Container 
 
         static const int CONTAINER__IDENTIFIER = CONTAINED__IDENTIFIER;
@@ -295,9 +294,7 @@ namespace idlmm
 
         // IDs for classifiers for class IDLType 
 
-
         // IDs for classifiers for class Include 
-
 
         // IDs for classifiers for class InterfaceDef 
 
@@ -383,9 +380,7 @@ namespace idlmm
 
         // IDs for classifiers for class TranslationUnit 
 
-
         // IDs for classifiers for class Typed 
-
 
         // IDs for classifiers for class TypedefDef 
 
@@ -747,5 +742,5 @@ namespace idlmm
 
 } // idlmm
 
-
 #endif // _IDLMMPACKAGE_HPP
+

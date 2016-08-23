@@ -50,8 +50,8 @@ Segment::Segment()
                     -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(SegmentImpl__SegmentImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -69,7 +69,6 @@ Segment::~Segment()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& Segment::getSegment()
 {

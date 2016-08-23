@@ -30,91 +30,90 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace event
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // EventModel
+// EventModel
         class EventModel;
         typedef EventModel* EventModel_ptr;
 
-        // AbstractEventElement
+// AbstractEventElement
         class AbstractEventElement;
         typedef AbstractEventElement* AbstractEventElement_ptr;
 
-        // Event
+// Event
         class Event;
         typedef Event* Event_ptr;
 
-        // AbstractEventRelationship
+// AbstractEventRelationship
         class AbstractEventRelationship;
         typedef AbstractEventRelationship* AbstractEventRelationship_ptr;
 
-        // EventRelationship
+// EventRelationship
         class EventRelationship;
         typedef EventRelationship* EventRelationship_ptr;
 
-        // EventResource
+// EventResource
         class EventResource;
         typedef EventResource* EventResource_ptr;
 
-        // State
+// State
         class State;
         typedef State* State_ptr;
 
-        // Transition
+// Transition
         class Transition;
         typedef Transition* Transition_ptr;
 
-        // OnEntry
+// OnEntry
         class OnEntry;
         typedef OnEntry* OnEntry_ptr;
 
-        // OnExit
+// OnExit
         class OnExit;
         typedef OnExit* OnExit_ptr;
 
-        // EventAction
+// EventAction
         class EventAction;
         typedef EventAction* EventAction_ptr;
 
-        // ReadsState
+// ReadsState
         class ReadsState;
         typedef ReadsState* ReadsState_ptr;
 
-        // ProducesEvent
+// ProducesEvent
         class ProducesEvent;
         typedef ProducesEvent* ProducesEvent_ptr;
 
-        // ConsumesEvent
+// ConsumesEvent
         class ConsumesEvent;
         typedef ConsumesEvent* ConsumesEvent_ptr;
 
-        // NextState
+// NextState
         class NextState;
         typedef NextState* NextState_ptr;
 
-        // InitialState
+// InitialState
         class InitialState;
         typedef InitialState* InitialState_ptr;
 
-        // EventElement
+// EventElement
         class EventElement;
         typedef EventElement* EventElement_ptr;
 
-        // HasState
+// HasState
         class HasState;
         typedef HasState* HasState_ptr;
 
-        // Package & Factory
+// Package & Factory
         class EventFactory;
         typedef EventFactory * EventFactory_ptr;
         class EventPackage;
@@ -123,11 +122,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // event
 } // kdm
 
-
 #endif // _KDM_EVENT_FORWARD_HPP
+

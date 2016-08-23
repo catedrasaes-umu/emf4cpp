@@ -48,7 +48,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -56,9 +55,8 @@ namespace kdm
             void setTo(::kdm::core::KDMEntity_ptr _to);
 
             ::kdm::conceptual::AbstractConceptualElement_ptr getFrom();
-            void
-                    setFrom(
-                            ::kdm::conceptual::AbstractConceptualElement_ptr _from);
+            void setFrom(
+                    ::kdm::conceptual::AbstractConceptualElement_ptr _from);
 
             /*PROTECTED REGION ID(ConceptualRelationship) START*/
             // Please, enable the protected region if you add manually written code.
@@ -82,7 +80,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::core::KDMEntity_ptr m_to;
@@ -95,3 +92,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CONCEPTUAL_CONCEPTUALRELATIONSHIP_HPP
+

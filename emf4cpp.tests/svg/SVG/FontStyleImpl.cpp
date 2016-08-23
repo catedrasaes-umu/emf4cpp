@@ -50,7 +50,6 @@ void FontStyle::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject FontStyle::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -60,13 +59,13 @@ void FontStyle::_initialize()
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        _any = m_attOwner->asEListOf< ::ecore::EObject > ();
+        _any = m_attOwner->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::SVG::SVGPackage::FONTSTYLE__ITALIC:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Boolean >::toAny(
-                _any, m_italic);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Boolean
+                > ::toAny(_any, m_italic);
     }
         return _any;
 
@@ -81,17 +80,16 @@ void FontStyle::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::Attribute::getAttOwner().clear();
         ::SVG::Attribute::getAttOwner().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::FONTSTYLE__ITALIC:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Boolean >::fromAny(
-                _newValue, m_italic);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Boolean
+                > ::fromAny(_newValue, m_italic);
     }
         return;
 
@@ -106,8 +104,8 @@ void FontStyle::eSet(::ecore::EInt _featureID,
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
         return m_attOwner && m_attOwner->size();
     case ::SVG::SVGPackage::FONTSTYLE__ITALIC:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Boolean >::is_set(
-                m_italic);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Boolean
+                > ::is_set(m_italic);
 
     }
     throw "Error";
@@ -124,9 +122,8 @@ void FontStyle::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr FontStyle::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getFontStyle();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getFontStyle();
     return _eclass;
 }
 

@@ -47,7 +47,6 @@ void Element::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Element::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -57,7 +56,8 @@ void Element::_initialize()
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_kind);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_kind);
     }
         return _any;
 
@@ -72,8 +72,8 @@ void Element::eSet(::ecore::EInt _featureID,
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_kind);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_kind);
     }
         return;
 
@@ -86,8 +86,8 @@ void Element::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_kind);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_kind);
 
     }
     throw "Error";
@@ -104,9 +104,8 @@ void Element::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Element::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::CST::CSTPackage_ptr > (::CST::CSTPackage::_instance())->getElement();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getElement();
     return _eclass;
 }
 

@@ -173,7 +173,8 @@ EventPackage::EventPackage()
     m_EventAction__kind = new ::ecore::EAttribute();
     m_EventAction__kind->setFeatureID(
             ::kdm::event::EventPackage::EVENTACTION__KIND);
-    m_EventActionEClass->getEStructuralFeatures().push_back(m_EventAction__kind);
+    m_EventActionEClass->getEStructuralFeatures().push_back(
+            m_EventAction__kind);
     m_EventAction__eventElement = new ::ecore::EReference();
     m_EventAction__eventElement->setFeatureID(
             ::kdm::event::EventPackage::EVENTACTION__EVENTELEMENT);
@@ -234,7 +235,8 @@ EventPackage::EventPackage()
     m_NextState__to->setFeatureID(::kdm::event::EventPackage::NEXTSTATE__TO);
     m_NextStateEClass->getEStructuralFeatures().push_back(m_NextState__to);
     m_NextState__from = new ::ecore::EReference();
-    m_NextState__from->setFeatureID(::kdm::event::EventPackage::NEXTSTATE__FROM);
+    m_NextState__from->setFeatureID(
+            ::kdm::event::EventPackage::NEXTSTATE__FROM);
     m_NextStateEClass->getEStructuralFeatures().push_back(m_NextState__from);
 
     // InitialState
@@ -263,9 +265,7 @@ EventPackage::EventPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("event");
@@ -276,12 +276,12 @@ EventPackage::EventPackage()
 
     // Add supertypes to classes
     m_EventModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_AbstractEventElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_EventEClass->getESuperTypes().push_back(m_AbstractEventElementEClass);
     m_AbstractEventRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_EventRelationshipEClass->getESuperTypes().push_back(
             m_AbstractEventRelationshipEClass);
     m_EventResourceEClass->getESuperTypes().push_back(
@@ -293,9 +293,9 @@ EventPackage::EventPackage()
     m_EventActionEClass->getESuperTypes().push_back(
             m_AbstractEventElementEClass);
     m_ReadsStateEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_ProducesEventEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_ConsumesEventEClass->getESuperTypes().push_back(
             m_AbstractEventRelationshipEClass);
     m_NextStateEClass->getESuperTypes().push_back(
@@ -304,7 +304,7 @@ EventPackage::EventPackage()
     m_EventElementEClass->getESuperTypes().push_back(
             m_AbstractEventElementEClass);
     m_HasStateEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
@@ -330,7 +330,7 @@ EventPackage::EventPackage()
     m_AbstractEventElementEClass->setAbstract(true);
     m_AbstractEventElementEClass->setInterface(false);
     m_AbstractEventElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
     m_AbstractEventElement__source->setName("source");
     m_AbstractEventElement__source->setDefaultValueLiteral("");
     m_AbstractEventElement__source->setLowerBound(0);
@@ -358,7 +358,7 @@ EventPackage::EventPackage()
     m_AbstractEventElement__eventRelation->setDerived(false);
     m_AbstractEventElement__eventRelation->setOrdered(false);
     m_AbstractEventElement__abstraction->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_AbstractEventElement__abstraction->setName("abstraction");
     m_AbstractEventElement__abstraction->setDefaultValueLiteral("");
     m_AbstractEventElement__abstraction->setLowerBound(0);
@@ -372,7 +372,7 @@ EventPackage::EventPackage()
     m_AbstractEventElement__abstraction->setDerived(false);
     m_AbstractEventElement__abstraction->setOrdered(true);
     m_AbstractEventElement__implementation->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
     m_AbstractEventElement__implementation->setName("implementation");
     m_AbstractEventElement__implementation->setDefaultValueLiteral("");
     m_AbstractEventElement__implementation->setLowerBound(0);
@@ -390,7 +390,7 @@ EventPackage::EventPackage()
     m_EventEClass->setAbstract(false);
     m_EventEClass->setInterface(false);
     m_Event__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Event__kind->setName("kind");
     m_Event__kind->setDefaultValueLiteral("");
     m_Event__kind->setLowerBound(0);
@@ -412,7 +412,7 @@ EventPackage::EventPackage()
     m_EventRelationshipEClass->setAbstract(false);
     m_EventRelationshipEClass->setInterface(false);
     m_EventRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_EventRelationship__to->setName("to");
     m_EventRelationship__to->setDefaultValueLiteral("");
     m_EventRelationship__to->setLowerBound(1);
@@ -476,7 +476,7 @@ EventPackage::EventPackage()
     m_EventActionEClass->setAbstract(false);
     m_EventActionEClass->setInterface(false);
     m_EventAction__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_EventAction__kind->setName("kind");
     m_EventAction__kind->setDefaultValueLiteral("");
     m_EventAction__kind->setLowerBound(0);
@@ -520,7 +520,7 @@ EventPackage::EventPackage()
     m_ReadsState__to->setDerived(false);
     m_ReadsState__to->setOrdered(false);
     m_ReadsState__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ReadsState__from->setName("from");
     m_ReadsState__from->setDefaultValueLiteral("");
     m_ReadsState__from->setLowerBound(1);
@@ -551,7 +551,7 @@ EventPackage::EventPackage()
     m_ProducesEvent__to->setDerived(false);
     m_ProducesEvent__to->setOrdered(false);
     m_ProducesEvent__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ProducesEvent__from->setName("from");
     m_ProducesEvent__from->setDefaultValueLiteral("");
     m_ProducesEvent__from->setLowerBound(1);
@@ -650,7 +650,7 @@ EventPackage::EventPackage()
     m_HasState__to->setDerived(false);
     m_HasState__to->setOrdered(false);
     m_HasState__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_HasState__from->setName("from");
     m_HasState__from->setDefaultValueLiteral("");
     m_HasState__from->setLowerBound(1);
@@ -665,7 +665,6 @@ EventPackage::EventPackage()
     m_HasState__from->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

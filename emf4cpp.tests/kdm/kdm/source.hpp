@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "source/SourceRef.hpp"
 #include "source/SourceRegion.hpp"

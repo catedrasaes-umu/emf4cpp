@@ -34,8 +34,8 @@ Coordinates::Coordinates()
 {
 
     /*PROTECTED REGION ID(CoordinatesImpl__CoordinatesImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -53,7 +53,6 @@ Coordinates::~Coordinates()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::Double Coordinates::getX() const
 {
     return m_x;

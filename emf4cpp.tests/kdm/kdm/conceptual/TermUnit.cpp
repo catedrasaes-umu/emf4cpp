@@ -46,8 +46,8 @@ TermUnit::TermUnit()
 {
 
     /*PROTECTED REGION ID(TermUnitImpl__TermUnitImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,6 +65,4 @@ TermUnit::~TermUnit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

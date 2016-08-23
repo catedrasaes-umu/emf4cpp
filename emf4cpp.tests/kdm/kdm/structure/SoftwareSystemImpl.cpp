@@ -58,7 +58,6 @@ void SoftwareSystem::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject SoftwareSystem::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -68,48 +67,48 @@ void SoftwareSystem::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject > ();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__AGGREGATED:
     {
-        _any = m_aggregated->asEListOf< ::ecore::EObject > ();
+        _any = m_aggregated->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__IMPLEMENTATION:
     {
-        _any = m_implementation->asEListOf< ::ecore::EObject > ();
+        _any = m_implementation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTUREELEMENT:
     {
-        _any = m_structureElement->asEListOf< ::ecore::EObject > ();
+        _any = m_structureElement->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTURERELATIONSHIP:
     {
-        _any = m_structureRelationship->asEListOf< ::ecore::EObject > ();
+        _any = m_structureRelationship->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -124,51 +123,46 @@ void SoftwareSystem::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__AGGREGATED:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::structure::AbstractStructureElement::getAggregated().clear();
         ::kdm::structure::AbstractStructureElement::getAggregated().insert_all(
                 *_t0);
@@ -176,9 +170,8 @@ void SoftwareSystem::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__IMPLEMENTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::structure::AbstractStructureElement::getImplementation().clear();
         ::kdm::structure::AbstractStructureElement::getImplementation().insert_all(
                 *_t0);
@@ -186,9 +179,8 @@ void SoftwareSystem::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTUREELEMENT:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::structure::AbstractStructureElement::getStructureElement().clear();
         ::kdm::structure::AbstractStructureElement::getStructureElement().insert_all(
                 *_t0);
@@ -196,9 +188,8 @@ void SoftwareSystem::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTURERELATIONSHIP:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::structure::AbstractStructureElement::getStructureRelationship().clear();
         ::kdm::structure::AbstractStructureElement::getStructureRelationship().insert_all(
                 *_t0);
@@ -222,8 +213,8 @@ void SoftwareSystem::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
         return m_taggedValue && m_taggedValue->size();
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_name);
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__AGGREGATED:
         return m_aggregated && m_aggregated->size();
     case ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__IMPLEMENTATION:
@@ -248,9 +239,8 @@ void SoftwareSystem::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr SoftwareSystem::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::structure::StructurePackage_ptr > (::kdm::structure::StructurePackage::_instance())->getSoftwareSystem();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::structure::StructurePackage_ptr >(::kdm::structure::StructurePackage::_instance())->getSoftwareSystem();
     return _eclass;
 }
 

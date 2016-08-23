@@ -64,7 +64,6 @@ void Marker::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Marker::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -74,107 +73,107 @@ void Marker::_initialize()
     {
     case ::SVG::SVGPackage::ELEMENT__OWNER:
     {
-        _any = m_owner->asEListOf< ::ecore::EObject > ();
+        _any = m_owner->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__TARGET:
     {
-        _any = m_target->asEListOf< ::ecore::EObject > ();
+        _any = m_target->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__POSITION:
     {
-        _any = static_cast< ::ecore::EObject* > (m_position);
+        _any = static_cast< ::ecore::EObject* >(m_position);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__SIZE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_size);
+        _any = static_cast< ::ecore::EObject* >(m_size);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__ROOT:
     {
-        _any = static_cast< ::ecore::EObject* > (m_root);
+        _any = static_cast< ::ecore::EObject* >(m_root);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__FILL:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_fill);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_fill);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_viewBox);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_viewBox);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
     {
-        _any = static_cast< ::ecore::EObject* > (m_group);
+        _any = static_cast< ::ecore::EObject* >(m_group);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_identifier);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_identifier);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
     {
-        _any = static_cast< ::ecore::EObject* > (m_drawsMarker);
+        _any = static_cast< ::ecore::EObject* >(m_drawsMarker);
     }
         return _any;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_stroke);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_stroke);
     }
         return _any;
     case ::SVG::SVGPackage::MARKER__MARKERUNITS:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_markerUnits);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_markerUnits);
     }
         return _any;
     case ::SVG::SVGPackage::MARKER__REFX:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_refX);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_refX);
     }
         return _any;
     case ::SVG::SVGPackage::MARKER__REFY:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_refY);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_refY);
     }
         return _any;
     case ::SVG::SVGPackage::MARKER__MARKERWIDTH:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_markerWidth);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_markerWidth);
     }
         return _any;
     case ::SVG::SVGPackage::MARKER__MARKERHEIGHT:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_markerHeight);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_markerHeight);
     }
         return _any;
     case ::SVG::SVGPackage::MARKER__ORIENT:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_orient);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_orient);
     }
         return _any;
     case ::SVG::SVGPackage::MARKER__DRAWING:
     {
-        _any = m_drawing->asEListOf< ::ecore::EObject > ();
+        _any = m_drawing->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -189,138 +188,133 @@ void Marker::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::ELEMENT__OWNER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::Element::getOwner().clear();
         ::SVG::Element::getOwner().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__TARGET:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::Element::getTarget().clear();
         ::SVG::Element::getTarget().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::Element::getAttribute().clear();
         ::SVG::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__POSITION:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::SVG::Coordinates_ptr _t1 =
-                dynamic_cast< ::SVG::Coordinates_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Coordinates_ptr _t1 = dynamic_cast< ::SVG::Coordinates_ptr >(_t0);
         ::SVG::Element::setPosition(_t1);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__SIZE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::SVG::Dimension_ptr _t1 = dynamic_cast< ::SVG::Dimension_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Dimension_ptr _t1 = dynamic_cast< ::SVG::Dimension_ptr >(_t0);
         ::SVG::Element::setSize(_t1);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__ROOT:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr >(_t0);
         ::SVG::Element::setRoot(_t1);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__FILL:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_fill);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_fill);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_viewBox);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_viewBox);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::SVG::GroupingElement_ptr _t1 =
-                dynamic_cast< ::SVG::GroupingElement_ptr > (_t0);
+                dynamic_cast< ::SVG::GroupingElement_ptr >(_t0);
         ::SVG::Element::setGroup(_t1);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_identifier);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_identifier);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker_ptr >(_t0);
         ::SVG::Element::setDrawsMarker(_t1);
     }
         return;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_stroke);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_stroke);
     }
         return;
     case ::SVG::SVGPackage::MARKER__MARKERUNITS:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_markerUnits);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_markerUnits);
     }
         return;
     case ::SVG::SVGPackage::MARKER__REFX:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_refX);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_refX);
     }
         return;
     case ::SVG::SVGPackage::MARKER__REFY:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_refY);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_refY);
     }
         return;
     case ::SVG::SVGPackage::MARKER__MARKERWIDTH:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_markerWidth);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_markerWidth);
     }
         return;
     case ::SVG::SVGPackage::MARKER__MARKERHEIGHT:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_markerHeight);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_markerHeight);
     }
         return;
     case ::SVG::SVGPackage::MARKER__ORIENT:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_orient);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_orient);
     }
         return;
     case ::SVG::SVGPackage::MARKER__DRAWING:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::Marker::getDrawing().clear();
         ::SVG::Marker::getDrawing().insert_all(*_t0);
     }
@@ -347,39 +341,39 @@ void Marker::eSet(::ecore::EInt _featureID,
     case ::SVG::SVGPackage::ELEMENT__ROOT:
         return m_root;
     case ::SVG::SVGPackage::ELEMENT__FILL:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_fill);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_fill);
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_viewBox);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_viewBox);
     case ::SVG::SVGPackage::ELEMENT__GROUP:
         return m_group;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_identifier);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_identifier);
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
         return m_drawsMarker;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_stroke);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_stroke);
     case ::SVG::SVGPackage::MARKER__MARKERUNITS:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_markerUnits);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_markerUnits);
     case ::SVG::SVGPackage::MARKER__REFX:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_refX);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_refX);
     case ::SVG::SVGPackage::MARKER__REFY:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_refY);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_refY);
     case ::SVG::SVGPackage::MARKER__MARKERWIDTH:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_markerWidth);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_markerWidth);
     case ::SVG::SVGPackage::MARKER__MARKERHEIGHT:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_markerHeight);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_markerHeight);
     case ::SVG::SVGPackage::MARKER__ORIENT:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_orient);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_orient);
     case ::SVG::SVGPackage::MARKER__DRAWING:
         return m_drawing && m_drawing->size();
 
@@ -398,9 +392,8 @@ void Marker::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Marker::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getMarker();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getMarker();
     return _eclass;
 }
 

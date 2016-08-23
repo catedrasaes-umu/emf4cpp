@@ -33,12 +33,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 UnaryOperation::UnaryOperation() :
-    m_operator(0), m_operand(0)
+        m_operator(0), m_operand(0)
 {
 
     /*PROTECTED REGION ID(UnaryOperationImpl__UnaryOperationImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -60,7 +60,6 @@ UnaryOperation::~UnaryOperation()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr UnaryOperation::getOperator()
 {

@@ -49,7 +49,6 @@ void WstringDef::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject WstringDef::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,14 +58,14 @@ void WstringDef::_initialize()
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::toAny(_any,
-                m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::toAny(_any, m_typeCode);
     }
         return _any;
     case ::idlmm::IdlmmPackage::WSTRINGDEF__BOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_bound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_bound);
     }
         return _any;
 
@@ -81,14 +80,14 @@ void WstringDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::fromAny(
-                _newValue, m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::fromAny(_newValue, m_typeCode);
     }
         return;
     case ::idlmm::IdlmmPackage::WSTRINGDEF__BOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_bound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_bound);
     }
         return;
 
@@ -101,11 +100,11 @@ void WstringDef::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
-        return ::ecorecpp::mapping::set_traits< ::idlmm::ETypeCode >::is_set(
-                m_typeCode);
+        return ::ecorecpp::mapping::set_traits < ::idlmm::ETypeCode
+                > ::is_set(m_typeCode);
     case ::idlmm::IdlmmPackage::WSTRINGDEF__BOUND:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_bound);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_bound);
 
     }
     throw "Error";
@@ -122,9 +121,8 @@ void WstringDef::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr WstringDef::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getWstringDef();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getWstringDef();
     return _eclass;
 }
 

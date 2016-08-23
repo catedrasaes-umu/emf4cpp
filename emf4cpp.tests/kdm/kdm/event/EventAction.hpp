@@ -51,14 +51,12 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getKind() const;
             void setKind(::kdm::core::String _kind);
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::event::Event >
-                    & getEventElement();
+            ::ecorecpp::mapping::EList< ::kdm::event::Event >& getEventElement();
 
             /*PROTECTED REGION ID(EventAction) START*/
             // Please, enable the protected region if you add manually written code.
@@ -86,8 +84,8 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::event::Event > > m_eventElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::event::Event > > m_eventElement;
 
         };
 
@@ -95,3 +93,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_EVENT_EVENTACTION_HPP
+

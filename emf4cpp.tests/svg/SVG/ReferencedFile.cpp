@@ -39,8 +39,8 @@ ReferencedFile::ReferencedFile()
                     false, true >(this, NULL));
 
     /*PROTECTED REGION ID(ReferencedFileImpl__ReferencedFileImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -58,7 +58,6 @@ ReferencedFile::~ReferencedFile()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String ReferencedFile::getName() const
 {
     return m_name;

@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         std::vector< ::ecore::EString > const& getMembers() const;
         void setMembers(std::vector< ::ecore::EString > const& _members);
@@ -56,7 +55,6 @@ namespace idlmm
         void deleteMembersAt(size_t _position);
 
         // References
-
 
         /*PROTECTED REGION ID(EnumDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_ENUMDEF_HPP
+

@@ -36,8 +36,8 @@ Rotate::Rotate()
 {
 
     /*PROTECTED REGION ID(RotateImpl__RotateImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,7 +55,6 @@ Rotate::~Rotate()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::Double Rotate::getAngle() const
 {
     return m_angle;

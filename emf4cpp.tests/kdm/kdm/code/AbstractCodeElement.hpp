@@ -49,17 +49,14 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource();
 
-            ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >
-                    & getComment();
+            ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& getComment();
 
-            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >
-                    & getCodeRelation();
+            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& getCodeRelation();
 
             /*PROTECTED REGION ID(AbstractCodeElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -83,17 +80,17 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::source::SourceRef > > m_source;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::CommentUnit > > m_comment;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit > > m_comment;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::AbstractCodeRelationship > > m_codeRelation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::code::AbstractCodeRelationship > > m_codeRelation;
 
         };
 
@@ -101,3 +98,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_ABSTRACTCODEELEMENT_HPP
+

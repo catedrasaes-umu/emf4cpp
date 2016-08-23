@@ -45,11 +45,11 @@ AbstractStructureElement::AbstractStructureElement()
 
     m_aggregated.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::AggregatedRelationship, -1, true, false >(
-                    this, NULL));
+                    ::kdm::core::AggregatedRelationship, -1, true, false >(this,
+                    NULL));
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::KDMEntity, -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
+                    -1, false, false >(this, NULL));
     m_structureElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::structure::AbstractStructureElement, -1, true, false >(
@@ -60,8 +60,8 @@ AbstractStructureElement::AbstractStructureElement()
                     false >(this, NULL));
 
     /*PROTECTED REGION ID(AbstractStructureElementImpl__AbstractStructureElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -79,7 +79,6 @@ AbstractStructureElement::~AbstractStructureElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& AbstractStructureElement::getAggregated()
 {

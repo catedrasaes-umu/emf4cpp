@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getName() const;
             void setName(::kdm::core::String _name);
@@ -86,8 +85,8 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::TagDefinition > > m_tag;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition > > m_tag;
 
         };
 
@@ -95,3 +94,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_STEREOTYPE_HPP
+

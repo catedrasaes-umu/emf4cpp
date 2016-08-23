@@ -113,7 +113,8 @@ PlatformPackage::PlatformPackage()
     m_RequiresEClass->setEPackage(this);
     getEClassifiers().push_back(m_RequiresEClass);
     m_Requires__to = new ::ecore::EReference();
-    m_Requires__to->setFeatureID(::kdm::platform::PlatformPackage::REQUIRES__TO);
+    m_Requires__to->setFeatureID(
+            ::kdm::platform::PlatformPackage::REQUIRES__TO);
     m_RequiresEClass->getEStructuralFeatures().push_back(m_Requires__to);
     m_Requires__from = new ::ecore::EReference();
     m_Requires__from->setFeatureID(
@@ -311,7 +312,8 @@ PlatformPackage::PlatformPackage()
     m_Spawns__to->setFeatureID(::kdm::platform::PlatformPackage::SPAWNS__TO);
     m_SpawnsEClass->getEStructuralFeatures().push_back(m_Spawns__to);
     m_Spawns__from = new ::ecore::EReference();
-    m_Spawns__from->setFeatureID(::kdm::platform::PlatformPackage::SPAWNS__FROM);
+    m_Spawns__from->setFeatureID(
+            ::kdm::platform::PlatformPackage::SPAWNS__FROM);
     m_SpawnsEClass->getEStructuralFeatures().push_back(m_Spawns__from);
 
     // RuntimeResource
@@ -402,9 +404,7 @@ PlatformPackage::PlatformPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("platform");
@@ -415,17 +415,18 @@ PlatformPackage::PlatformPackage()
 
     // Add supertypes to classes
     m_AbstractPlatformElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_PlatformModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_AbstractPlatformRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_RequiresEClass->getESuperTypes().push_back(
             m_AbstractPlatformRelationshipEClass);
     m_ResourceTypeEClass->getESuperTypes().push_back(
             m_AbstractPlatformElementEClass);
     m_NamingResourceEClass->getESuperTypes().push_back(m_ResourceTypeEClass);
-    m_MarshalledResourceEClass->getESuperTypes().push_back(m_ResourceTypeEClass);
+    m_MarshalledResourceEClass->getESuperTypes().push_back(
+            m_ResourceTypeEClass);
     m_MessagingResourceEClass->getESuperTypes().push_back(m_ResourceTypeEClass);
     m_FileResourceEClass->getESuperTypes().push_back(m_ResourceTypeEClass);
     m_ExecutionResourceEClass->getESuperTypes().push_back(m_ResourceTypeEClass);
@@ -444,7 +445,8 @@ PlatformPackage::PlatformPackage()
     m_LockResourceEClass->getESuperTypes().push_back(m_ResourceTypeEClass);
     m_DeployedSoftwareSystemEClass->getESuperTypes().push_back(
             m_AbstractPlatformElementEClass);
-    m_MachineEClass->getESuperTypes().push_back(m_AbstractPlatformElementEClass);
+    m_MachineEClass->getESuperTypes().push_back(
+            m_AbstractPlatformElementEClass);
     m_DeployedComponentEClass->getESuperTypes().push_back(
             m_AbstractPlatformElementEClass);
     m_DeployedResourceEClass->getESuperTypes().push_back(
@@ -457,13 +459,13 @@ PlatformPackage::PlatformPackage()
     m_ThreadEClass->getESuperTypes().push_back(m_RuntimeResourceEClass);
     m_ProcessEClass->getESuperTypes().push_back(m_RuntimeResourceEClass);
     m_ReadsResourceEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_WritesResourceEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_ManagesResourceEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_DefinedByEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_StreamResourceEClass->getESuperTypes().push_back(m_ResourceTypeEClass);
 
     // TODO: Initialize classes and features; add operations and parameters
@@ -473,7 +475,7 @@ PlatformPackage::PlatformPackage()
     m_AbstractPlatformElementEClass->setAbstract(true);
     m_AbstractPlatformElementEClass->setInterface(false);
     m_AbstractPlatformElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
     m_AbstractPlatformElement__source->setName("source");
     m_AbstractPlatformElement__source->setDefaultValueLiteral("");
     m_AbstractPlatformElement__source->setLowerBound(0);
@@ -501,7 +503,7 @@ PlatformPackage::PlatformPackage()
     m_AbstractPlatformElement__relation->setDerived(false);
     m_AbstractPlatformElement__relation->setOrdered(false);
     m_AbstractPlatformElement__abstraction->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_AbstractPlatformElement__abstraction->setName("abstraction");
     m_AbstractPlatformElement__abstraction->setDefaultValueLiteral("");
     m_AbstractPlatformElement__abstraction->setLowerBound(0);
@@ -515,7 +517,7 @@ PlatformPackage::PlatformPackage()
     m_AbstractPlatformElement__abstraction->setDerived(false);
     m_AbstractPlatformElement__abstraction->setOrdered(true);
     m_AbstractPlatformElement__implementation->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
     m_AbstractPlatformElement__implementation->setName("implementation");
     m_AbstractPlatformElement__implementation->setDefaultValueLiteral("");
     m_AbstractPlatformElement__implementation->setLowerBound(0);
@@ -622,7 +624,7 @@ PlatformPackage::PlatformPackage()
     m_PlatformActionEClass->setAbstract(false);
     m_PlatformActionEClass->setInterface(false);
     m_PlatformAction__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_PlatformAction__kind->setName("kind");
     m_PlatformAction__kind->setDefaultValueLiteral("");
     m_PlatformAction__kind->setLowerBound(0);
@@ -695,7 +697,7 @@ PlatformPackage::PlatformPackage()
     m_PlatformRelationshipEClass->setAbstract(false);
     m_PlatformRelationshipEClass->setInterface(false);
     m_PlatformRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_PlatformRelationship__to->setName("to");
     m_PlatformRelationship__to->setDefaultValueLiteral("");
     m_PlatformRelationship__to->setLowerBound(1);
@@ -726,7 +728,7 @@ PlatformPackage::PlatformPackage()
     m_PlatformEventEClass->setAbstract(false);
     m_PlatformEventEClass->setInterface(false);
     m_PlatformEvent__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_PlatformEvent__kind->setName("kind");
     m_PlatformEvent__kind->setDefaultValueLiteral("");
     m_PlatformEvent__kind->setLowerBound(0);
@@ -796,7 +798,7 @@ PlatformPackage::PlatformPackage()
     m_DeployedComponentEClass->setAbstract(false);
     m_DeployedComponentEClass->setInterface(false);
     m_DeployedComponent__groupedCode->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getModule());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getModule());
     m_DeployedComponent__groupedCode->setName("groupedCode");
     m_DeployedComponent__groupedCode->setDefaultValueLiteral("");
     m_DeployedComponent__groupedCode->setLowerBound(0);
@@ -844,7 +846,7 @@ PlatformPackage::PlatformPackage()
     m_Loads__to->setDerived(false);
     m_Loads__to->setOrdered(false);
     m_Loads__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_Loads__from->setName("from");
     m_Loads__from->setDefaultValueLiteral("");
     m_Loads__from->setLowerBound(1);
@@ -875,7 +877,7 @@ PlatformPackage::PlatformPackage()
     m_Spawns__to->setDerived(false);
     m_Spawns__to->setOrdered(false);
     m_Spawns__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_Spawns__from->setName("from");
     m_Spawns__from->setDefaultValueLiteral("");
     m_Spawns__from->setLowerBound(1);
@@ -918,7 +920,7 @@ PlatformPackage::PlatformPackage()
     m_ReadsResource__to->setDerived(false);
     m_ReadsResource__to->setOrdered(false);
     m_ReadsResource__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ReadsResource__from->setName("from");
     m_ReadsResource__from->setDefaultValueLiteral("");
     m_ReadsResource__from->setLowerBound(1);
@@ -949,7 +951,7 @@ PlatformPackage::PlatformPackage()
     m_WritesResource__to->setDerived(false);
     m_WritesResource__to->setOrdered(false);
     m_WritesResource__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_WritesResource__from->setName("from");
     m_WritesResource__from->setDefaultValueLiteral("");
     m_WritesResource__from->setLowerBound(1);
@@ -980,7 +982,7 @@ PlatformPackage::PlatformPackage()
     m_ManagesResource__to->setDerived(false);
     m_ManagesResource__to->setOrdered(false);
     m_ManagesResource__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ManagesResource__from->setName("from");
     m_ManagesResource__from->setDefaultValueLiteral("");
     m_ManagesResource__from->setLowerBound(1);
@@ -998,7 +1000,7 @@ PlatformPackage::PlatformPackage()
     m_DefinedByEClass->setAbstract(false);
     m_DefinedByEClass->setInterface(false);
     m_DefinedBy__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getCodeItem());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getCodeItem());
     m_DefinedBy__to->setName("to");
     m_DefinedBy__to->setDefaultValueLiteral("");
     m_DefinedBy__to->setLowerBound(1);
@@ -1012,7 +1014,7 @@ PlatformPackage::PlatformPackage()
     m_DefinedBy__to->setDerived(false);
     m_DefinedBy__to->setOrdered(false);
     m_DefinedBy__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_DefinedBy__from->setName("from");
     m_DefinedBy__from->setDefaultValueLiteral("");
     m_DefinedBy__from->setLowerBound(1);
@@ -1031,7 +1033,6 @@ PlatformPackage::PlatformPackage()
     m_StreamResourceEClass->setInterface(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

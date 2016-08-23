@@ -46,12 +46,9 @@ KdmPackage::KdmPackage()
 
     // Create classes and their features
 
-
     // Create enums
 
-
     // Create data types
-
 
     getESubpackages().push_back(::kdm::action::ActionPackage::_instance());
     getESubpackages().push_back(::kdm::build::BuildPackage::_instance());
@@ -63,7 +60,8 @@ KdmPackage::KdmPackage()
     getESubpackages().push_back(::kdm::event::EventPackage::_instance());
     getESubpackages().push_back(::kdm::source::SourcePackage::_instance());
     getESubpackages().push_back(::kdm::platform::PlatformPackage::_instance());
-    getESubpackages().push_back(::kdm::structure::StructurePackage::_instance());
+    getESubpackages().push_back(
+            ::kdm::structure::StructurePackage::_instance());
     getESubpackages().push_back(::kdm::kdm::KdmPackage::_instance());
     getESubpackages().push_back(::kdm::ui::UiPackage::_instance());
 
@@ -79,9 +77,7 @@ KdmPackage::KdmPackage()
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
 
-
     // TODO: Initialize data types
-
 
     _initialize();
 }

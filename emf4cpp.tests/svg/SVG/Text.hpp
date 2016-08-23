@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getLengthAdjust() const;
         void setLengthAdjust(::PrimitiveTypes::String _lengthAdjust);
@@ -54,7 +53,6 @@ namespace SVG
         void setContent(::PrimitiveTypes::String _content);
 
         // References
-
 
         /*PROTECTED REGION ID(Text) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_TEXT_HPP
+

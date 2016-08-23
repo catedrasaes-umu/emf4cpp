@@ -123,7 +123,8 @@ UiPackage::UiPackage()
     m_UIModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIModelEClass);
     m_UIModel__UIElement = new ::ecore::EReference();
-    m_UIModel__UIElement->setFeatureID(::kdm::ui::UiPackage::UIMODEL__UIELEMENT);
+    m_UIModel__UIElement->setFeatureID(
+            ::kdm::ui::UiPackage::UIMODEL__UIELEMENT);
     m_UIModelEClass->getEStructuralFeatures().push_back(m_UIModel__UIElement);
 
     // AbstractUIRelationship
@@ -201,7 +202,8 @@ UiPackage::UiPackage()
     m_UIRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIRelationshipEClass);
     m_UIRelationship__to = new ::ecore::EReference();
-    m_UIRelationship__to->setFeatureID(::kdm::ui::UiPackage::UIRELATIONSHIP__TO);
+    m_UIRelationship__to->setFeatureID(
+            ::kdm::ui::UiPackage::UIRELATIONSHIP__TO);
     m_UIRelationshipEClass->getEStructuralFeatures().push_back(
             m_UIRelationship__to);
     m_UIRelationship__from = new ::ecore::EReference();
@@ -270,9 +272,7 @@ UiPackage::UiPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("ui");
@@ -283,20 +283,22 @@ UiPackage::UiPackage()
 
     // Add supertypes to classes
     m_AbstractUIElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_UIResourceEClass->getESuperTypes().push_back(m_AbstractUIElementEClass);
     m_UIDisplayEClass->getESuperTypes().push_back(m_UIResourceEClass);
     m_ScreenEClass->getESuperTypes().push_back(m_UIDisplayEClass);
     m_ReportEClass->getESuperTypes().push_back(m_UIDisplayEClass);
     m_UIModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_AbstractUIRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
-    m_UILayoutEClass->getESuperTypes().push_back(m_AbstractUIRelationshipEClass);
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
+    m_UILayoutEClass->getESuperTypes().push_back(
+            m_AbstractUIRelationshipEClass);
     m_UIFieldEClass->getESuperTypes().push_back(m_UIResourceEClass);
     m_DisplaysImageEClass->getESuperTypes().push_back(
             m_AbstractUIRelationshipEClass);
-    m_DisplaysEClass->getESuperTypes().push_back(m_AbstractUIRelationshipEClass);
+    m_DisplaysEClass->getESuperTypes().push_back(
+            m_AbstractUIRelationshipEClass);
     m_UIFlowEClass->getESuperTypes().push_back(m_AbstractUIRelationshipEClass);
     m_UIElementEClass->getESuperTypes().push_back(m_AbstractUIElementEClass);
     m_UIRelationshipEClass->getESuperTypes().push_back(
@@ -304,11 +306,11 @@ UiPackage::UiPackage()
     m_UIActionEClass->getESuperTypes().push_back(m_AbstractUIElementEClass);
     m_UIEventEClass->getESuperTypes().push_back(m_AbstractUIElementEClass);
     m_ReadsUIEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_WritesUIEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_ManagesUIEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
@@ -317,7 +319,7 @@ UiPackage::UiPackage()
     m_AbstractUIElementEClass->setAbstract(true);
     m_AbstractUIElementEClass->setInterface(false);
     m_AbstractUIElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
     m_AbstractUIElement__source->setName("source");
     m_AbstractUIElement__source->setDefaultValueLiteral("");
     m_AbstractUIElement__source->setLowerBound(0);
@@ -344,7 +346,7 @@ UiPackage::UiPackage()
     m_AbstractUIElement__UIRelation->setDerived(false);
     m_AbstractUIElement__UIRelation->setOrdered(false);
     m_AbstractUIElement__implementation->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
     m_AbstractUIElement__implementation->setName("implementation");
     m_AbstractUIElement__implementation->setDefaultValueLiteral("");
     m_AbstractUIElement__implementation->setLowerBound(0);
@@ -358,7 +360,7 @@ UiPackage::UiPackage()
     m_AbstractUIElement__implementation->setDerived(false);
     m_AbstractUIElement__implementation->setOrdered(false);
     m_AbstractUIElement__abstraction->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_AbstractUIElement__abstraction->setName("abstraction");
     m_AbstractUIElement__abstraction->setDefaultValueLiteral("");
     m_AbstractUIElement__abstraction->setLowerBound(0);
@@ -460,7 +462,7 @@ UiPackage::UiPackage()
     m_DisplaysImageEClass->setAbstract(false);
     m_DisplaysImageEClass->setInterface(false);
     m_DisplaysImage__to->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getImage());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getImage());
     m_DisplaysImage__to->setName("to");
     m_DisplaysImage__to->setDefaultValueLiteral("");
     m_DisplaysImage__to->setLowerBound(1);
@@ -474,7 +476,7 @@ UiPackage::UiPackage()
     m_DisplaysImage__to->setDerived(false);
     m_DisplaysImage__to->setOrdered(false);
     m_DisplaysImage__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_DisplaysImage__from->setName("from");
     m_DisplaysImage__from->setDefaultValueLiteral("");
     m_DisplaysImage__from->setLowerBound(1);
@@ -505,7 +507,7 @@ UiPackage::UiPackage()
     m_Displays__to->setDerived(false);
     m_Displays__to->setOrdered(false);
     m_Displays__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_Displays__from->setName("from");
     m_Displays__from->setDefaultValueLiteral("");
     m_Displays__from->setLowerBound(1);
@@ -557,7 +559,7 @@ UiPackage::UiPackage()
     m_UIRelationshipEClass->setAbstract(false);
     m_UIRelationshipEClass->setInterface(false);
     m_UIRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_UIRelationship__to->setName("to");
     m_UIRelationship__to->setDefaultValueLiteral("");
     m_UIRelationship__to->setLowerBound(1);
@@ -588,7 +590,7 @@ UiPackage::UiPackage()
     m_UIActionEClass->setAbstract(false);
     m_UIActionEClass->setInterface(false);
     m_UIAction__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_UIAction__kind->setName("kind");
     m_UIAction__kind->setDefaultValueLiteral("");
     m_UIAction__kind->setLowerBound(0);
@@ -619,7 +621,7 @@ UiPackage::UiPackage()
     m_UIEventEClass->setAbstract(false);
     m_UIEventEClass->setInterface(false);
     m_UIEvent__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_UIEvent__kind->setName("kind");
     m_UIEvent__kind->setDefaultValueLiteral("");
     m_UIEvent__kind->setLowerBound(0);
@@ -650,7 +652,7 @@ UiPackage::UiPackage()
     m_ReadsUI__to->setDerived(false);
     m_ReadsUI__to->setOrdered(false);
     m_ReadsUI__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ReadsUI__from->setName("from");
     m_ReadsUI__from->setDefaultValueLiteral("");
     m_ReadsUI__from->setLowerBound(1);
@@ -681,7 +683,7 @@ UiPackage::UiPackage()
     m_WritesUI__to->setDerived(false);
     m_WritesUI__to->setOrdered(false);
     m_WritesUI__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_WritesUI__from->setName("from");
     m_WritesUI__from->setDefaultValueLiteral("");
     m_WritesUI__from->setLowerBound(1);
@@ -712,7 +714,7 @@ UiPackage::UiPackage()
     m_ManagesUI__to->setDerived(false);
     m_ManagesUI__to->setOrdered(false);
     m_ManagesUI__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ManagesUI__from->setName("from");
     m_ManagesUI__from->setDefaultValueLiteral("");
     m_ManagesUI__from->setLowerBound(1);
@@ -727,7 +729,6 @@ UiPackage::UiPackage()
     m_ManagesUI__from->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

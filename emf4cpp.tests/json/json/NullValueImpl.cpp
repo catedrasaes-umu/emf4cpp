@@ -49,7 +49,6 @@ void NullValue::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject NullValue::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -92,9 +91,8 @@ void NullValue::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr NullValue::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::json::JsonPackage_ptr > (::json::JsonPackage::_instance())->getNullValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getNullValue();
     return _eclass;
 }
 

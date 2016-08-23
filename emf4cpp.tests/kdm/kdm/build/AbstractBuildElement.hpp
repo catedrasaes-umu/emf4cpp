@@ -48,12 +48,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >
-                    & getBuildRelation();
+            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation();
 
             /*PROTECTED REGION ID(AbstractBuildElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -77,11 +75,11 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::build::AbstractBuildRelationship > > m_buildRelation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::build::AbstractBuildRelationship > > m_buildRelation;
 
         };
 
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_BUILD_ABSTRACTBUILDELEMENT_HPP
+

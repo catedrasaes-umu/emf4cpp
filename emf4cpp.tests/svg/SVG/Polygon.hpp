@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getMarkerEnd() const;
         void setMarkerEnd(::PrimitiveTypes::String _markerEnd);
@@ -84,11 +83,11 @@ namespace SVG
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Point > >
-                m_waypoints;
+        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Point > > m_waypoints;
 
     };
 
 } // SVG
 
 #endif // SVG_POLYGON_HPP
+

@@ -59,7 +59,6 @@ void BuildStep::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject BuildStep::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -69,48 +68,48 @@ void BuildStep::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject > ();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::kdm::build::BuildPackage::ABSTRACTBUILDELEMENT__BUILDRELATION:
     {
-        _any = m_buildRelation->asEListOf< ::ecore::EObject > ();
+        _any = m_buildRelation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::build::BuildPackage::BUILDRESOURCE__IMPLEMENTATION:
     {
-        _any = m_implementation->asEListOf< ::ecore::EObject > ();
+        _any = m_implementation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::build::BuildPackage::BUILDRESOURCE__GROUPEDBUILD:
     {
-        _any = m_groupedBuild->asEListOf< ::ecore::EObject > ();
+        _any = m_groupedBuild->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::build::BuildPackage::BUILDRESOURCE__BUILDELEMENT:
     {
-        _any = m_buildElement->asEListOf< ::ecore::EObject > ();
+        _any = m_buildElement->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -125,78 +124,70 @@ void BuildStep::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::kdm::build::BuildPackage::ABSTRACTBUILDELEMENT__BUILDRELATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::build::AbstractBuildElement::getBuildRelation().clear();
         ::kdm::build::AbstractBuildElement::getBuildRelation().insert_all(*_t0);
     }
         return;
     case ::kdm::build::BuildPackage::BUILDRESOURCE__IMPLEMENTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::build::BuildResource::getImplementation().clear();
         ::kdm::build::BuildResource::getImplementation().insert_all(*_t0);
     }
         return;
     case ::kdm::build::BuildPackage::BUILDRESOURCE__GROUPEDBUILD:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::build::BuildResource::getGroupedBuild().clear();
         ::kdm::build::BuildResource::getGroupedBuild().insert_all(*_t0);
     }
         return;
     case ::kdm::build::BuildPackage::BUILDRESOURCE__BUILDELEMENT:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::build::BuildResource::getBuildElement().clear();
         ::kdm::build::BuildResource::getBuildElement().insert_all(*_t0);
     }
@@ -219,8 +210,8 @@ void BuildStep::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
         return m_taggedValue && m_taggedValue->size();
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_name);
     case ::kdm::build::BuildPackage::ABSTRACTBUILDELEMENT__BUILDRELATION:
         return m_buildRelation && m_buildRelation->size();
     case ::kdm::build::BuildPackage::BUILDRESOURCE__IMPLEMENTATION:
@@ -245,9 +236,8 @@ void BuildStep::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr BuildStep::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::build::BuildPackage_ptr > (::kdm::build::BuildPackage::_instance())->getBuildStep();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::build::BuildPackage_ptr >(::kdm::build::BuildPackage::_instance())->getBuildStep();
     return _eclass;
 }
 

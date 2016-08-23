@@ -52,5 +52,5 @@ namespace bintree
 
 } // bintree
 
-
 #endif // _BINTREEFACTORY_HPP
+

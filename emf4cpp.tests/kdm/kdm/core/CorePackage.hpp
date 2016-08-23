@@ -86,7 +86,6 @@ namespace kdm
 
             // IDs for classifiers for class Element 
 
-
             // IDs for classifiers for class KDMEntity 
 
             static const int KDMENTITY__ATTRIBUTE = ELEMENT__ATTRIBUTE;
@@ -149,11 +148,9 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getAggregatedRelationship__to();
 
-            virtual ::ecore::EReference_ptr
-                    getAggregatedRelationship__relation();
+            virtual ::ecore::EReference_ptr getAggregatedRelationship__relation();
 
-            virtual ::ecore::EAttribute_ptr
-                    getAggregatedRelationship__density();
+            virtual ::ecore::EAttribute_ptr getAggregatedRelationship__density();
 
         protected:
 
@@ -174,7 +171,6 @@ namespace kdm
             ::ecore::EClass_ptr m_AggregatedRelationshipEClass;
 
             // EEnuminstances 
-
 
             // EDataType instances 
 
@@ -209,5 +205,5 @@ namespace kdm
     } // core
 } // kdm
 
-
 #endif // _KDM_COREPACKAGE_HPP
+

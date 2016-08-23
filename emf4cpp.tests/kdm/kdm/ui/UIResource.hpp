@@ -51,12 +51,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >
-                    & getUIElement();
+            ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement();
 
             /*PROTECTED REGION ID(UIResource) START*/
             // Please, enable the protected region if you add manually written code.
@@ -80,11 +78,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::ui::AbstractUIElement > > m_UIElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement > > m_UIElement;
 
         };
 
@@ -92,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_UI_UIRESOURCE_HPP
+

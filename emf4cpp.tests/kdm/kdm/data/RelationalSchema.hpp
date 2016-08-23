@@ -51,12 +51,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >
-                    & getCodeElement();
+            ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement();
 
             /*PROTECTED REGION ID(RelationalSchema) START*/
             // Please, enable the protected region if you add manually written code.
@@ -80,11 +78,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::CodeItem > > m_codeElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::CodeItem > > m_codeElement;
 
         };
 
@@ -92,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_RELATIONALSCHEMA_HPP
+

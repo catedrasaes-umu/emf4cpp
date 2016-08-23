@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getRotate() const;
         void setRotate(::PrimitiveTypes::Double _rotate);
@@ -57,7 +56,6 @@ namespace SVG
         void setFontSize(::PrimitiveTypes::String _fontSize);
 
         // References
-
 
         /*PROTECTED REGION ID(TextElement) START*/
         // Please, enable the protected region if you add manually written code.
@@ -94,3 +92,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_TEXTELEMENT_HPP
+

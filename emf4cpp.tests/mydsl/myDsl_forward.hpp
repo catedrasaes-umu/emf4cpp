@@ -30,41 +30,40 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace myDsl
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // Model
+// Model
     class Model;
     typedef Model* Model_ptr;
 
-    // Import
+// Import
     class Import;
     typedef Import* Import_ptr;
 
-    // Type
+// Type
     class Type;
     typedef Type* Type_ptr;
 
-    // SimpleType
+// SimpleType
     class SimpleType;
     typedef SimpleType* SimpleType_ptr;
 
-    // Entity
+// Entity
     class Entity;
     typedef Entity* Entity_ptr;
 
-    // Property
+// Property
     class Property;
     typedef Property* Property_ptr;
 
-    // Package & Factory
+// Package & Factory
     class MyDslFactory;
     typedef MyDslFactory * MyDslFactory_ptr;
     class MyDslPackage;
@@ -73,10 +72,10 @@ namespace myDsl
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // myDsl
 
-
 #endif // _MYDSL_FORWARD_HPP
+

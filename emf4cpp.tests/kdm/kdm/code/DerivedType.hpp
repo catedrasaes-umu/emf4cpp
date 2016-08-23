@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -78,7 +77,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::code::ItemUnit_ptr m_itemUnit;
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_DERIVEDTYPE_HPP
+

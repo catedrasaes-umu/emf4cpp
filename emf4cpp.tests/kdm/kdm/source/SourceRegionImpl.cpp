@@ -52,7 +52,6 @@ void SourceRegion::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject SourceRegion::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -62,53 +61,53 @@ void SourceRegion::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_file);
+        _any = static_cast< ::ecore::EObject* >(m_file);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::toAny(_any,
-                m_startLine);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::toAny(_any, m_startLine);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTPOSITION:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::toAny(_any,
-                m_startPosition);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::toAny(_any, m_startPosition);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDLINE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::toAny(_any,
-                m_endLine);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::toAny(_any, m_endLine);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDPOSITION:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::toAny(_any,
-                m_endPosition);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::toAny(_any, m_endPosition);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__LANGUAGE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_language);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_language);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__PATH:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_path);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_path);
     }
         return _any;
 
@@ -123,65 +122,63 @@ void SourceRegion::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::kdm::source::SourceFile_ptr _t1 =
-                dynamic_cast< ::kdm::source::SourceFile_ptr > (_t0);
+                dynamic_cast< ::kdm::source::SourceFile_ptr >(_t0);
         ::kdm::source::SourceRegion::setFile(_t1);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::fromAny(
-                _newValue, m_startLine);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::fromAny(_newValue, m_startLine);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTPOSITION:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::fromAny(
-                _newValue, m_startPosition);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::fromAny(_newValue, m_startPosition);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDLINE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::fromAny(
-                _newValue, m_endLine);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::fromAny(_newValue, m_endLine);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDPOSITION:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Integer >::fromAny(
-                _newValue, m_endPosition);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
+                > ::fromAny(_newValue, m_endPosition);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__LANGUAGE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_language);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_language);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__PATH:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_path);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_path);
     }
         return;
 
@@ -200,23 +197,23 @@ void SourceRegion::eSet(::ecore::EInt _featureID,
     case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
         return m_file;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::Integer >::is_set(
-                m_startLine);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::Integer
+                > ::is_set(m_startLine);
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTPOSITION:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::Integer >::is_set(
-                m_startPosition);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::Integer
+                > ::is_set(m_startPosition);
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDLINE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::Integer >::is_set(
-                m_endLine);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::Integer
+                > ::is_set(m_endLine);
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDPOSITION:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::Integer >::is_set(
-                m_endPosition);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::Integer
+                > ::is_set(m_endPosition);
     case ::kdm::source::SourcePackage::SOURCEREGION__LANGUAGE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_language);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_language);
     case ::kdm::source::SourcePackage::SOURCEREGION__PATH:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_path);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_path);
 
     }
     throw "Error";
@@ -233,9 +230,8 @@ void SourceRegion::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr SourceRegion::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::source::SourcePackage_ptr > (::kdm::source::SourcePackage::_instance())->getSourceRegion();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::source::SourcePackage_ptr >(::kdm::source::SourcePackage::_instance())->getSourceRegion();
     return _eclass;
 }
 

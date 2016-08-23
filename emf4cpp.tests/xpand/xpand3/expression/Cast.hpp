@@ -48,7 +48,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -56,9 +55,8 @@ namespace xpand3
             void setType(::xpand3::Identifier_ptr _type);
 
             ::xpand3::expression::AbstractExpression_ptr getTarget();
-            void
-                    setTarget(
-                            ::xpand3::expression::AbstractExpression_ptr _target);
+            void setTarget(
+                    ::xpand3::expression::AbstractExpression_ptr _target);
 
             /*PROTECTED REGION ID(Cast) START*/
             // Please, enable the protected region if you add manually written code.
@@ -82,7 +80,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::Identifier_ptr m_type;
@@ -95,3 +92,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_EXPRESSION_CAST_HPP
+

@@ -54,7 +54,6 @@ namespace PrimitiveTypes
 
         // EStructuralFeatures methods
 
-
     protected:
 
         static std::auto_ptr< PrimitiveTypesPackage > s_instance;
@@ -63,9 +62,7 @@ namespace PrimitiveTypes
 
         // EClass instances 
 
-
         // EEnuminstances 
-
 
         // EDataType instances 
 
@@ -83,5 +80,5 @@ namespace PrimitiveTypes
 
 } // PrimitiveTypes
 
-
 #endif // _PRIMITIVETYPESPACKAGE_HPP
+

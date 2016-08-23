@@ -104,7 +104,8 @@ ActionPackage::ActionPackage()
     m_ControlFlow__from = new ::ecore::EReference();
     m_ControlFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::CONTROLFLOW__FROM);
-    m_ControlFlowEClass->getEStructuralFeatures().push_back(m_ControlFlow__from);
+    m_ControlFlowEClass->getEStructuralFeatures().push_back(
+            m_ControlFlow__from);
 
     // Calls
     m_CallsEClass = new ::ecore::EClass();
@@ -160,7 +161,8 @@ ActionPackage::ActionPackage()
     m_CompliesToEClass->setEPackage(this);
     getEClassifiers().push_back(m_CompliesToEClass);
     m_CompliesTo__to = new ::ecore::EReference();
-    m_CompliesTo__to->setFeatureID(::kdm::action::ActionPackage::COMPLIESTO__TO);
+    m_CompliesTo__to->setFeatureID(
+            ::kdm::action::ActionPackage::COMPLIESTO__TO);
     m_CompliesToEClass->getEStructuralFeatures().push_back(m_CompliesTo__to);
     m_CompliesTo__from = new ::ecore::EReference();
     m_CompliesTo__from->setFeatureID(
@@ -200,7 +202,8 @@ ActionPackage::ActionPackage()
     m_UsesType__to->setFeatureID(::kdm::action::ActionPackage::USESTYPE__TO);
     m_UsesTypeEClass->getEStructuralFeatures().push_back(m_UsesType__to);
     m_UsesType__from = new ::ecore::EReference();
-    m_UsesType__from->setFeatureID(::kdm::action::ActionPackage::USESTYPE__FROM);
+    m_UsesType__from->setFeatureID(
+            ::kdm::action::ActionPackage::USESTYPE__FROM);
     m_UsesTypeEClass->getEStructuralFeatures().push_back(m_UsesType__from);
 
     // Addresses
@@ -250,7 +253,8 @@ ActionPackage::ActionPackage()
     m_DispatchesEClass->setEPackage(this);
     getEClassifiers().push_back(m_DispatchesEClass);
     m_Dispatches__to = new ::ecore::EReference();
-    m_Dispatches__to->setFeatureID(::kdm::action::ActionPackage::DISPATCHES__TO);
+    m_Dispatches__to->setFeatureID(
+            ::kdm::action::ActionPackage::DISPATCHES__TO);
     m_DispatchesEClass->getEStructuralFeatures().push_back(m_Dispatches__to);
     m_Dispatches__from = new ::ecore::EReference();
     m_Dispatches__from->setFeatureID(
@@ -309,7 +313,8 @@ ActionPackage::ActionPackage()
     m_ExitFlow__to->setFeatureID(::kdm::action::ActionPackage::EXITFLOW__TO);
     m_ExitFlowEClass->getEStructuralFeatures().push_back(m_ExitFlow__to);
     m_ExitFlow__from = new ::ecore::EReference();
-    m_ExitFlow__from->setFeatureID(::kdm::action::ActionPackage::EXITFLOW__FROM);
+    m_ExitFlow__from->setFeatureID(
+            ::kdm::action::ActionPackage::EXITFLOW__FROM);
     m_ExitFlowEClass->getEStructuralFeatures().push_back(m_ExitFlow__from);
 
     // ExceptionFlow
@@ -330,9 +335,7 @@ ActionPackage::ActionPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("action");
@@ -343,9 +346,9 @@ ActionPackage::ActionPackage()
 
     // Add supertypes to classes
     m_ActionElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
     m_AbstractActionRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_ControlFlowEClass->getESuperTypes().push_back(
             m_AbstractActionRelationshipEClass);
     m_CallsEClass->getESuperTypes().push_back(
@@ -391,7 +394,7 @@ ActionPackage::ActionPackage()
     m_ActionElementEClass->setAbstract(false);
     m_ActionElementEClass->setInterface(false);
     m_ActionElement__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_ActionElement__kind->setName("kind");
     m_ActionElement__kind->setDefaultValueLiteral("");
     m_ActionElement__kind->setLowerBound(0);
@@ -405,7 +408,7 @@ ActionPackage::ActionPackage()
     m_ActionElement__kind->setDerived(false);
     m_ActionElement__kind->setOrdered(false);
     m_ActionElement__codeElement->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
     m_ActionElement__codeElement->setName("codeElement");
     m_ActionElement__codeElement->setDefaultValueLiteral("");
     m_ActionElement__codeElement->setLowerBound(0);
@@ -471,7 +474,7 @@ ActionPackage::ActionPackage()
     m_CallsEClass->setAbstract(false);
     m_CallsEClass->setInterface(false);
     m_Calls__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getControlElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getControlElement());
     m_Calls__to->setName("to");
     m_Calls__to->setDefaultValueLiteral("");
     m_Calls__to->setLowerBound(1);
@@ -502,7 +505,7 @@ ActionPackage::ActionPackage()
     m_CreatesEClass->setAbstract(false);
     m_CreatesEClass->setInterface(false);
     m_Creates__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getDatatype());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDatatype());
     m_Creates__to->setName("to");
     m_Creates__to->setDefaultValueLiteral("");
     m_Creates__to->setLowerBound(1);
@@ -533,7 +536,7 @@ ActionPackage::ActionPackage()
     m_ReadsEClass->setAbstract(false);
     m_ReadsEClass->setInterface(false);
     m_Reads__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
     m_Reads__to->setName("to");
     m_Reads__to->setDefaultValueLiteral("");
     m_Reads__to->setLowerBound(1);
@@ -564,7 +567,7 @@ ActionPackage::ActionPackage()
     m_WritesEClass->setAbstract(false);
     m_WritesEClass->setInterface(false);
     m_Writes__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
     m_Writes__to->setName("to");
     m_Writes__to->setDefaultValueLiteral("");
     m_Writes__to->setLowerBound(1);
@@ -595,7 +598,7 @@ ActionPackage::ActionPackage()
     m_CompliesToEClass->setAbstract(false);
     m_CompliesToEClass->setInterface(false);
     m_CompliesTo__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getCodeItem());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getCodeItem());
     m_CompliesTo__to->setName("to");
     m_CompliesTo__to->setDefaultValueLiteral("");
     m_CompliesTo__to->setLowerBound(1);
@@ -642,7 +645,7 @@ ActionPackage::ActionPackage()
     m_UsesTypeEClass->setAbstract(false);
     m_UsesTypeEClass->setInterface(false);
     m_UsesType__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getDatatype());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDatatype());
     m_UsesType__to->setName("to");
     m_UsesType__to->setDefaultValueLiteral("");
     m_UsesType__to->setLowerBound(1);
@@ -673,7 +676,7 @@ ActionPackage::ActionPackage()
     m_AddressesEClass->setAbstract(false);
     m_AddressesEClass->setInterface(false);
     m_Addresses__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getComputationalObject());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getComputationalObject());
     m_Addresses__to->setName("to");
     m_Addresses__to->setDefaultValueLiteral("");
     m_Addresses__to->setLowerBound(1);
@@ -704,7 +707,7 @@ ActionPackage::ActionPackage()
     m_ActionRelationshipEClass->setAbstract(false);
     m_ActionRelationshipEClass->setInterface(false);
     m_ActionRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_ActionRelationship__to->setName("to");
     m_ActionRelationship__to->setDefaultValueLiteral("");
     m_ActionRelationship__to->setLowerBound(1);
@@ -735,7 +738,7 @@ ActionPackage::ActionPackage()
     m_ThrowsEClass->setAbstract(false);
     m_ThrowsEClass->setInterface(false);
     m_Throws__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
     m_Throws__to->setName("to");
     m_Throws__to->setDefaultValueLiteral("");
     m_Throws__to->setLowerBound(1);
@@ -766,7 +769,7 @@ ActionPackage::ActionPackage()
     m_DispatchesEClass->setAbstract(false);
     m_DispatchesEClass->setInterface(false);
     m_Dispatches__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
     m_Dispatches__to->setName("to");
     m_Dispatches__to->setDefaultValueLiteral("");
     m_Dispatches__to->setLowerBound(1);
@@ -810,7 +813,7 @@ ActionPackage::ActionPackage()
     m_EntryFlow__to->setDerived(false);
     m_EntryFlow__to->setOrdered(false);
     m_EntryFlow__from->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getControlElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getControlElement());
     m_EntryFlow__from->setName("from");
     m_EntryFlow__from->setDefaultValueLiteral("");
     m_EntryFlow__from->setLowerBound(1);
@@ -905,7 +908,6 @@ ActionPackage::ActionPackage()
     m_ExceptionFlow__from->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

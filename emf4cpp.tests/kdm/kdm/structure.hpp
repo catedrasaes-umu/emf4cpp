@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "structure/AbstractStructureElement.hpp"
 #include "structure/Subsystem.hpp"

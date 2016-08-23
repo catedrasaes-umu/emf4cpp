@@ -49,12 +49,12 @@ DeployedSoftwareSystem::DeployedSoftwareSystem()
 
     m_groupedComponent.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::DeployedComponent, -1, false, false >(
-                    this, NULL));
+                    ::kdm::platform::DeployedComponent, -1, false, false >(this,
+                    NULL));
 
     /*PROTECTED REGION ID(DeployedSoftwareSystemImpl__DeployedSoftwareSystemImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -72,7 +72,6 @@ DeployedSoftwareSystem::~DeployedSoftwareSystem()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& DeployedSoftwareSystem::getGroupedComponent()
 {

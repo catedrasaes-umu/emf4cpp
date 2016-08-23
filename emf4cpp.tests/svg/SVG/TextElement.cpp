@@ -43,8 +43,8 @@ TextElement::TextElement()
 {
 
     /*PROTECTED REGION ID(TextElementImpl__TextElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ TextElement::~TextElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::Double TextElement::getRotate() const
 {
     return m_rotate;

@@ -45,7 +45,6 @@ namespace xpand3
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isExported() const;
         void setExported(::ecore::EBoolean _exported);
@@ -87,3 +86,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_IMPORTSTATEMENT_HPP
+

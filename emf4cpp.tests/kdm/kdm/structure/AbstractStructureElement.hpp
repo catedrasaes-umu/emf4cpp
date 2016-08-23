@@ -48,23 +48,18 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >
-                    & getAggregated();
+            ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated();
 
-            ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >
-                    & getImplementation();
+            ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation();
 
             ::ecorecpp::mapping::EList<
-                    ::kdm::structure::AbstractStructureElement >
-                    & getStructureElement();
+                    ::kdm::structure::AbstractStructureElement >& getStructureElement();
 
             ::ecorecpp::mapping::EList<
-                    ::kdm::structure::AbstractStructureRelationship >
-                    & getStructureRelationship();
+                    ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship();
 
             /*PROTECTED REGION ID(AbstractStructureElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -88,22 +83,22 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::core::AggregatedRelationship > > m_aggregated;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::core::AggregatedRelationship > > m_aggregated;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::core::KDMEntity > > m_implementation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity > > m_implementation;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::structure::AbstractStructureElement > >
-                    m_structureElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::structure::AbstractStructureElement > > m_structureElement;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::structure::AbstractStructureRelationship > >
-                    m_structureRelationship;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::structure::AbstractStructureRelationship > > m_structureRelationship;
 
         };
 
@@ -111,3 +106,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_STRUCTURE_ABSTRACTSTRUCTUREELEMENT_HPP
+

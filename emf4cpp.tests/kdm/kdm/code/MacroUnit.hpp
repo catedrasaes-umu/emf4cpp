@@ -49,13 +49,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::code::MacroKind getKind() const;
             void setKind(::kdm::code::MacroKind _kind);
 
             // References
-
 
             /*PROTECTED REGION ID(MacroUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_MACROUNIT_HPP
+

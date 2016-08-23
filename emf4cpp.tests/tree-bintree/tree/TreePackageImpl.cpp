@@ -78,9 +78,7 @@ TreePackage::TreePackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("tree");
@@ -100,7 +98,7 @@ TreePackage::TreePackage()
     m_TreeNodeEClass->setAbstract(true);
     m_TreeNodeEClass->setInterface(false);
     m_TreeNode__data->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_TreeNode__data->setName("data");
     m_TreeNode__data->setDefaultValueLiteral("");
     m_TreeNode__data->setLowerBound(0);
@@ -149,7 +147,6 @@ TreePackage::TreePackage()
     m_NonTerminal__children->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

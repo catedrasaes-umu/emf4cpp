@@ -52,7 +52,6 @@ void TaggedValue::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject TaggedValue::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -62,23 +61,23 @@ void TaggedValue::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
     {
-        _any = static_cast< ::ecore::EObject* > (m_tag);
+        _any = static_cast< ::ecore::EObject* >(m_tag);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_value);
     }
         return _any;
 
@@ -93,35 +92,33 @@ void TaggedValue::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::kdm::kdm::TagDefinition_ptr _t1 =
-                dynamic_cast< ::kdm::kdm::TagDefinition_ptr > (_t0);
+                dynamic_cast< ::kdm::kdm::TagDefinition_ptr >(_t0);
         ::kdm::kdm::ExtendedValue::setTag(_t1);
     }
         return;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_value);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_value);
     }
         return;
 
@@ -140,8 +137,8 @@ void TaggedValue::eSet(::ecore::EInt _featureID,
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
         return m_tag;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_value);
 
     }
     throw "Error";
@@ -158,9 +155,8 @@ void TaggedValue::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr TaggedValue::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::kdm::KdmPackage_ptr > (::kdm::kdm::KdmPackage::_instance())->getTaggedValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getTaggedValue();
     return _eclass;
 }
 

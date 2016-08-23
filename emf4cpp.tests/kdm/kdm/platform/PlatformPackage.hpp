@@ -1040,17 +1040,13 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getKDMEntity__name();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractPlatformElement__source();
+            virtual ::ecore::EReference_ptr getAbstractPlatformElement__source();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractPlatformElement__relation();
+            virtual ::ecore::EReference_ptr getAbstractPlatformElement__relation();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractPlatformElement__abstraction();
+            virtual ::ecore::EReference_ptr getAbstractPlatformElement__abstraction();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractPlatformElement__implementation();
+            virtual ::ecore::EReference_ptr getAbstractPlatformElement__implementation();
 
             virtual ::ecore::EReference_ptr getKDMFramework__audit();
 
@@ -1068,8 +1064,7 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getPlatformAction__kind();
 
-            virtual ::ecore::EReference_ptr
-                    getPlatformAction__platformElement();
+            virtual ::ecore::EReference_ptr getPlatformAction__platformElement();
 
             virtual ::ecore::EReference_ptr getBindsTo__to();
 
@@ -1081,8 +1076,7 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getPlatformEvent__kind();
 
-            virtual ::ecore::EReference_ptr
-                    getDeployedSoftwareSystem__groupedComponent();
+            virtual ::ecore::EReference_ptr getDeployedSoftwareSystem__groupedComponent();
 
             virtual ::ecore::EReference_ptr getMachine__deployedComponent();
 
@@ -1090,8 +1084,7 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getDeployedComponent__groupedCode();
 
-            virtual ::ecore::EReference_ptr
-                    getDeployedResource__platformElement();
+            virtual ::ecore::EReference_ptr getDeployedResource__platformElement();
 
             virtual ::ecore::EReference_ptr getLoads__to();
 
@@ -1191,9 +1184,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -1282,5 +1273,5 @@ namespace kdm
     } // platform
 } // kdm
 
-
 #endif // _KDM_PLATFORMPACKAGE_HPP
+

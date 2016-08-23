@@ -64,7 +64,8 @@ CompanyPackage::CompanyPackage()
     m_Department__number = new ::ecore::EAttribute();
     m_Department__number->setFeatureID(
             ::company::CompanyPackage::DEPARTMENT__NUMBER);
-    m_DepartmentEClass->getEStructuralFeatures().push_back(m_Department__number);
+    m_DepartmentEClass->getEStructuralFeatures().push_back(
+            m_Department__number);
     m_Department__employees = new ::ecore::EReference();
     m_Department__employees->setFeatureID(
             ::company::CompanyPackage::DEPARTMENT__EMPLOYEES);
@@ -91,9 +92,7 @@ CompanyPackage::CompanyPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("company");
@@ -111,7 +110,7 @@ CompanyPackage::CompanyPackage()
     m_EmployeeEClass->setAbstract(false);
     m_EmployeeEClass->setInterface(false);
     m_Employee__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Employee__name->setName("name");
     m_Employee__name->setDefaultValueLiteral("");
     m_Employee__name->setLowerBound(0);
@@ -129,7 +128,7 @@ CompanyPackage::CompanyPackage()
     m_DepartmentEClass->setAbstract(false);
     m_DepartmentEClass->setInterface(false);
     m_Department__number->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
     m_Department__number->setName("number");
     m_Department__number->setDefaultValueLiteral("");
     m_Department__number->setLowerBound(0);
@@ -173,7 +172,7 @@ CompanyPackage::CompanyPackage()
     m_CompanyEClass->setAbstract(false);
     m_CompanyEClass->setInterface(false);
     m_Company__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Company__name->setName("name");
     m_Company__name->setDefaultValueLiteral("");
     m_Company__name->setLowerBound(0);
@@ -201,7 +200,6 @@ CompanyPackage::CompanyPackage()
     m_Company__departments->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

@@ -66,5 +66,5 @@ namespace kdm
     } // kdm
 } // kdm
 
-
 #endif // _KDM_KDMFACTORY_HPP
+

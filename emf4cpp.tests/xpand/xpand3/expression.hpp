@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "expression/AbstractExpression.hpp"
 #include "expression/BooleanOperation.hpp"

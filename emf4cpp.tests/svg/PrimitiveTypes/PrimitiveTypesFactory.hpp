@@ -50,5 +50,5 @@ namespace PrimitiveTypes
 
 } // PrimitiveTypes
 
-
 #endif // _PRIMITIVETYPESFACTORY_HPP
+

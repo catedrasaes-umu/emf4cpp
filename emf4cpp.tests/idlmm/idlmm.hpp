@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "idlmm/Container.hpp"
 #include "idlmm/Contained.hpp"

@@ -38,16 +38,17 @@ using namespace ::kdm::core;
 
 // Default constructor
 AggregatedRelationship::AggregatedRelationship() :
-    m_from(0), m_to(0)
+        m_from(0), m_to(0)
 {
 
     m_relation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::KDMRelationship, -1, false, false >(this, NULL));
+                    ::kdm::core::KDMRelationship, -1, false, false >(this,
+                    NULL));
 
     /*PROTECTED REGION ID(AggregatedRelationshipImpl__AggregatedRelationshipImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,7 +66,6 @@ AggregatedRelationship::~AggregatedRelationship()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::Integer AggregatedRelationship::getDensity() const
 {
     return m_density;

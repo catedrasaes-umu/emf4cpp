@@ -48,7 +48,6 @@ void Attribute::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Attribute::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -58,7 +57,7 @@ void Attribute::_initialize()
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        _any = m_attOwner->asEListOf< ::ecore::EObject > ();
+        _any = m_attOwner->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -73,9 +72,8 @@ void Attribute::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::Attribute::getAttOwner().clear();
         ::SVG::Attribute::getAttOwner().insert_all(*_t0);
     }
@@ -107,9 +105,8 @@ void Attribute::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Attribute::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getAttribute();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getAttribute();
     return _eclass;
 }
 

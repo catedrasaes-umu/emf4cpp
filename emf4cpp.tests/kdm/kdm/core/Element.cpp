@@ -39,12 +39,12 @@ Element::Element()
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Attribute,
                     -1, true, false >(this, NULL));
     m_annotation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::Annotation, -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Annotation,
+                    -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ Element::~Element()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& Element::getAttribute()
 {

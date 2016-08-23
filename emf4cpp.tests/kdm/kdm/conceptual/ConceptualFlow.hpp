@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -79,7 +78,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::conceptual::ConceptualContainer_ptr m_to;
@@ -92,3 +90,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CONCEPTUAL_CONCEPTUALFLOW_HPP
+

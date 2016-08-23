@@ -43,12 +43,12 @@ using namespace ::kdm::code;
 
 // Default constructor
 DefinedType::DefinedType() :
-    m_type(0), m_codeElement(0)
+        m_type(0), m_codeElement(0)
 {
 
     /*PROTECTED REGION ID(DefinedTypeImpl__DefinedTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -70,7 +70,6 @@ DefinedType::~DefinedType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::code::Datatype_ptr DefinedType::getType()
 {

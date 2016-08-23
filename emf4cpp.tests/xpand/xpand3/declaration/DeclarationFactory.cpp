@@ -21,8 +21,7 @@
 
 using namespace ::xpand3::declaration;
 
-std::auto_ptr< ::xpand3::declaration::DeclarationFactory >
-        DeclarationFactory::s_instance;
+std::auto_ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory::s_instance;
 
 ::xpand3::declaration::DeclarationFactory_ptr DeclarationFactory::_instance()
 {

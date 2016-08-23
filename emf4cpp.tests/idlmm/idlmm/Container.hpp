@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -73,14 +72,14 @@ namespace idlmm
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::Contained > > m_contains;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::Contained > > m_contains;
 
     };
 
 } // idlmm
 
 #endif // IDLMM_CONTAINER_HPP
+

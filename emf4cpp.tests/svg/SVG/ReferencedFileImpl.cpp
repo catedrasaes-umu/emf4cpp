@@ -48,7 +48,6 @@ void ReferencedFile::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ReferencedFile::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -58,13 +57,13 @@ void ReferencedFile::_initialize()
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        _any = m_referer->asEListOf< ::ecore::EObject > ();
+        _any = m_referer->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_name);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_name);
     }
         return _any;
 
@@ -79,17 +78,16 @@ void ReferencedFile::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::ReferencedFile::getReferer().clear();
         ::SVG::ReferencedFile::getReferer().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_name);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_name);
     }
         return;
 
@@ -104,8 +102,8 @@ void ReferencedFile::eSet(::ecore::EInt _featureID,
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
         return m_referer && m_referer->size();
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_name);
 
     }
     throw "Error";
@@ -122,9 +120,8 @@ void ReferencedFile::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ReferencedFile::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getReferencedFile();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getReferencedFile();
     return _eclass;
 }
 

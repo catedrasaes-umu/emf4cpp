@@ -236,12 +236,14 @@ BuildPackage::BuildPackage()
     m_SupportedByEClass->setEPackage(this);
     getEClassifiers().push_back(m_SupportedByEClass);
     m_SupportedBy__to = new ::ecore::EReference();
-    m_SupportedBy__to->setFeatureID(::kdm::build::BuildPackage::SUPPORTEDBY__TO);
+    m_SupportedBy__to->setFeatureID(
+            ::kdm::build::BuildPackage::SUPPORTEDBY__TO);
     m_SupportedByEClass->getEStructuralFeatures().push_back(m_SupportedBy__to);
     m_SupportedBy__from = new ::ecore::EReference();
     m_SupportedBy__from->setFeatureID(
             ::kdm::build::BuildPackage::SUPPORTEDBY__FROM);
-    m_SupportedByEClass->getEStructuralFeatures().push_back(m_SupportedBy__from);
+    m_SupportedByEClass->getEStructuralFeatures().push_back(
+            m_SupportedBy__from);
 
     // BuildProduct
     m_BuildProductEClass = new ::ecore::EClass();
@@ -255,18 +257,18 @@ BuildPackage::BuildPackage()
     m_DescribedByEClass->setEPackage(this);
     getEClassifiers().push_back(m_DescribedByEClass);
     m_DescribedBy__to = new ::ecore::EReference();
-    m_DescribedBy__to->setFeatureID(::kdm::build::BuildPackage::DESCRIBEDBY__TO);
+    m_DescribedBy__to->setFeatureID(
+            ::kdm::build::BuildPackage::DESCRIBEDBY__TO);
     m_DescribedByEClass->getEStructuralFeatures().push_back(m_DescribedBy__to);
     m_DescribedBy__from = new ::ecore::EReference();
     m_DescribedBy__from->setFeatureID(
             ::kdm::build::BuildPackage::DESCRIBEDBY__FROM);
-    m_DescribedByEClass->getEStructuralFeatures().push_back(m_DescribedBy__from);
+    m_DescribedByEClass->getEStructuralFeatures().push_back(
+            m_DescribedBy__from);
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("build");
@@ -277,20 +279,20 @@ BuildPackage::BuildPackage()
 
     // Add supertypes to classes
     m_AbstractBuildElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_BuildResourceEClass->getESuperTypes().push_back(
             m_AbstractBuildElementEClass);
     m_BuildDescriptionEClass->getESuperTypes().push_back(m_BuildResourceEClass);
     m_SymbolicLinkEClass->getESuperTypes().push_back(
             m_AbstractBuildElementEClass);
     m_AbstractBuildRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_LinksToEClass->getESuperTypes().push_back(
             m_AbstractBuildRelationshipEClass);
     m_ConsumesEClass->getESuperTypes().push_back(
             m_AbstractBuildRelationshipEClass);
     m_BuildModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_BuildComponentEClass->getESuperTypes().push_back(m_BuildResourceEClass);
     m_SupplierEClass->getESuperTypes().push_back(m_AbstractBuildElementEClass);
     m_ToolEClass->getESuperTypes().push_back(m_AbstractBuildElementEClass);
@@ -335,7 +337,7 @@ BuildPackage::BuildPackage()
     m_BuildResourceEClass->setAbstract(false);
     m_BuildResourceEClass->setInterface(false);
     m_BuildResource__implementation->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_BuildResource__implementation->setName("implementation");
     m_BuildResource__implementation->setDefaultValueLiteral("");
     m_BuildResource__implementation->setLowerBound(0);
@@ -379,7 +381,7 @@ BuildPackage::BuildPackage()
     m_BuildDescriptionEClass->setAbstract(false);
     m_BuildDescriptionEClass->setInterface(false);
     m_BuildDescription__text->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_BuildDescription__text->setName("text");
     m_BuildDescription__text->setDefaultValueLiteral("");
     m_BuildDescription__text->setLowerBound(0);
@@ -393,7 +395,7 @@ BuildPackage::BuildPackage()
     m_BuildDescription__text->setDerived(false);
     m_BuildDescription__text->setOrdered(false);
     m_BuildDescription__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
     m_BuildDescription__source->setName("source");
     m_BuildDescription__source->setDefaultValueLiteral("");
     m_BuildDescription__source->setLowerBound(0);
@@ -512,7 +514,7 @@ BuildPackage::BuildPackage()
     m_BuildRelationshipEClass->setAbstract(false);
     m_BuildRelationshipEClass->setInterface(false);
     m_BuildRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_BuildRelationship__to->setName("to");
     m_BuildRelationship__to->setDefaultValueLiteral("");
     m_BuildRelationship__to->setLowerBound(1);
@@ -672,7 +674,6 @@ BuildPackage::BuildPackage()
     m_DescribedBy__from->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

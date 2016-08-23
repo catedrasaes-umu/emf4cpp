@@ -50,17 +50,14 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource();
 
-            ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >
-                    & getDataRelation();
+            ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& getDataRelation();
 
-            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >
-                    & getAbstraction();
+            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction();
 
             /*PROTECTED REGION ID(AbstractDataElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -84,17 +81,17 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::source::SourceRef > > m_source;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::data::AbstractDataRelationship > > m_dataRelation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::data::AbstractDataRelationship > > m_dataRelation;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::action::ActionElement > > m_abstraction;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::action::ActionElement > > m_abstraction;
 
         };
 
@@ -102,3 +99,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_ABSTRACTDATAELEMENT_HPP
+

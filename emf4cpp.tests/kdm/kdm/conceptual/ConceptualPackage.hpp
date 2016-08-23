@@ -71,8 +71,7 @@ namespace kdm
 
             static const int ABSTRACTCONCEPTUALELEMENT__IMPLEMENTATION = 125;
 
-            static const int ABSTRACTCONCEPTUALELEMENT__CONCEPTUALRELATION =
-                    126;
+            static const int ABSTRACTCONCEPTUALELEMENT__CONCEPTUALRELATION = 126;
 
             static const int ABSTRACTCONCEPTUALELEMENT__ABSTRACTION = 127;
 
@@ -458,25 +457,19 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getKDMFramework__name();
 
-            virtual ::ecore::EReference_ptr
-                    getConceptualModel__conceptualElement();
+            virtual ::ecore::EReference_ptr getConceptualModel__conceptualElement();
 
             virtual ::ecore::EAttribute_ptr getKDMEntity__name();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractConceptualElement__source();
+            virtual ::ecore::EReference_ptr getAbstractConceptualElement__source();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractConceptualElement__implementation();
+            virtual ::ecore::EReference_ptr getAbstractConceptualElement__implementation();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractConceptualElement__conceptualRelation();
+            virtual ::ecore::EReference_ptr getAbstractConceptualElement__conceptualRelation();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractConceptualElement__abstraction();
+            virtual ::ecore::EReference_ptr getAbstractConceptualElement__abstraction();
 
-            virtual ::ecore::EReference_ptr
-                    getConceptualContainer__conceptualElement();
+            virtual ::ecore::EReference_ptr getConceptualContainer__conceptualElement();
 
             virtual ::ecore::EReference_ptr getConceptualRelationship__to();
 
@@ -486,8 +479,7 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getConceptualFlow__from();
 
-            virtual ::ecore::EReference_ptr
-                    getConceptualRole__conceptualElement();
+            virtual ::ecore::EReference_ptr getConceptualRole__conceptualElement();
 
         protected:
 
@@ -525,9 +517,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -553,8 +543,7 @@ namespace kdm
 
             ::ecore::EReference_ptr m_AbstractConceptualElement__implementation;
 
-            ::ecore::EReference_ptr
-                    m_AbstractConceptualElement__conceptualRelation;
+            ::ecore::EReference_ptr m_AbstractConceptualElement__conceptualRelation;
 
             ::ecore::EReference_ptr m_AbstractConceptualElement__abstraction;
 
@@ -575,5 +564,5 @@ namespace kdm
     } // conceptual
 } // kdm
 
-
 #endif // _KDM_CONCEPTUALPACKAGE_HPP
+

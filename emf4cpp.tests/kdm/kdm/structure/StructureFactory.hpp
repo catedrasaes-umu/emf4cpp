@@ -34,15 +34,13 @@ namespace kdm
 
             static StructureFactory_ptr _instance();
 
-            virtual AbstractStructureElement_ptr
-                    createAbstractStructureElement();
+            virtual AbstractStructureElement_ptr createAbstractStructureElement();
             virtual Subsystem_ptr createSubsystem();
             virtual Layer_ptr createLayer();
             virtual StructureModel_ptr createStructureModel();
             virtual Component_ptr createComponent();
             virtual SoftwareSystem_ptr createSoftwareSystem();
-            virtual AbstractStructureRelationship_ptr
-                    createAbstractStructureRelationship();
+            virtual AbstractStructureRelationship_ptr createAbstractStructureRelationship();
             virtual StructureRelationship_ptr createStructureRelationship();
             virtual ArchitectureView_ptr createArchitectureView();
             virtual StructureElement_ptr createStructureElement();
@@ -66,5 +64,5 @@ namespace kdm
     } // structure
 } // kdm
 
-
 #endif // _KDM_STRUCTUREFACTORY_HPP
+

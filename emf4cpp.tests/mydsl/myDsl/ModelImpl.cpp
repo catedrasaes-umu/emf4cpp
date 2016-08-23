@@ -61,7 +61,6 @@ void Model::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Model::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -71,12 +70,12 @@ void Model::_initialize()
     {
     case ::myDsl::MyDslPackage::MODEL__IMPORTS:
     {
-        _any = m_imports->asEListOf< ::ecore::EObject > ();
+        _any = m_imports->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::myDsl::MyDslPackage::MODEL__ELEMENTS:
     {
-        _any = m_elements->asEListOf< ::ecore::EObject > ();
+        _any = m_elements->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -91,18 +90,16 @@ void Model::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::MODEL__IMPORTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::myDsl::Model::getImports().clear();
         ::myDsl::Model::getImports().insert_all(*_t0);
     }
         return;
     case ::myDsl::MyDslPackage::MODEL__ELEMENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::myDsl::Model::getElements().clear();
         ::myDsl::Model::getElements().insert_all(*_t0);
     }
@@ -136,9 +133,8 @@ void Model::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Model::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::myDsl::MyDslPackage_ptr > (::myDsl::MyDslPackage::_instance())->getModel();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getModel();
     return _eclass;
 }
 

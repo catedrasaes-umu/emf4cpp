@@ -50,13 +50,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList<
-                    ::kdm::conceptual::AbstractConceptualElement >
-                    & getConceptualElement();
+                    ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement();
 
             /*PROTECTED REGION ID(ConceptualContainer) START*/
             // Please, enable the protected region if you add manually written code.
@@ -80,12 +78,11 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::conceptual::AbstractConceptualElement > >
-                    m_conceptualElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::conceptual::AbstractConceptualElement > > m_conceptualElement;
 
         };
 
@@ -93,3 +90,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CONCEPTUAL_CONCEPTUALCONTAINER_HPP
+

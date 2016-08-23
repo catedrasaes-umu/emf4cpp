@@ -1,3 +1,4 @@
+
 #
 # kdm_kdm.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
@@ -16,6 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
+
 
 set(CMAKE_CXX_FLAGS "")
 set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -DDEBUG")

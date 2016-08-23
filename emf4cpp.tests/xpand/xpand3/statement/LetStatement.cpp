@@ -35,12 +35,12 @@ using namespace ::xpand3::statement;
 
 // Default constructor
 LetStatement::LetStatement() :
-    m_varName(0), m_varValue(0)
+        m_varName(0), m_varValue(0)
 {
 
     /*PROTECTED REGION ID(LetStatementImpl__LetStatementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ LetStatement::~LetStatement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr LetStatement::getVarName()
 {

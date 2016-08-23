@@ -396,11 +396,9 @@ namespace kdm
             static const int LIBRARY__IMPLEMENTATION =
                     BUILDRESOURCE__IMPLEMENTATION;
 
-            static const int LIBRARY__GROUPEDBUILD =
-                    BUILDRESOURCE__GROUPEDBUILD;
+            static const int LIBRARY__GROUPEDBUILD = BUILDRESOURCE__GROUPEDBUILD;
 
-            static const int LIBRARY__BUILDELEMENT =
-                    BUILDRESOURCE__BUILDELEMENT;
+            static const int LIBRARY__BUILDELEMENT = BUILDRESOURCE__BUILDELEMENT;
 
             // IDs for classifiers for class LinksTo 
 
@@ -572,8 +570,7 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getKDMEntity__name();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractBuildElement__buildRelation();
+            virtual ::ecore::EReference_ptr getAbstractBuildElement__buildRelation();
 
             virtual ::ecore::EReference_ptr getBuildResource__implementation();
 
@@ -671,9 +668,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -740,5 +735,5 @@ namespace kdm
     } // build
 } // kdm
 
-
 #endif // _KDM_BUILDPACKAGE_HPP
+

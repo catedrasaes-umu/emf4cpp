@@ -35,12 +35,12 @@ using namespace ::xpand3::declaration;
 
 // Default constructor
 Check::Check() :
-    m_msg(0), m_constraint(0)
+        m_msg(0), m_constraint(0)
 {
 
     /*PROTECTED REGION ID(CheckImpl__CheckImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ Check::~Check()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean Check::isErrorSeverity() const
 {
     return m_errorSeverity;

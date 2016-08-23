@@ -47,11 +47,9 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
 
         // References
-
 
         /*PROTECTED REGION ID(AliasDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -75,7 +73,6 @@ namespace idlmm
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -83,3 +80,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_ALIASDEF_HPP
+

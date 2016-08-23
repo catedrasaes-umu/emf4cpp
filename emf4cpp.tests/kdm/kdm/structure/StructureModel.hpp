@@ -48,13 +48,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList<
-                    ::kdm::structure::AbstractStructureElement >
-                    & getStructureElement();
+                    ::kdm::structure::AbstractStructureElement >& getStructureElement();
 
             /*PROTECTED REGION ID(StructureModel) START*/
             // Please, enable the protected region if you add manually written code.
@@ -78,12 +76,11 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::structure::AbstractStructureElement > >
-                    m_structureElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::structure::AbstractStructureElement > > m_structureElement;
 
         };
 
@@ -91,3 +88,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_STRUCTURE_STRUCTUREMODEL_HPP
+

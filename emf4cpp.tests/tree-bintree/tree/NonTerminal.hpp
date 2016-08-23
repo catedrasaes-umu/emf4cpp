@@ -45,7 +45,6 @@ namespace tree
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -73,14 +72,14 @@ namespace tree
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::tree::TreeNode > > m_children;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::tree::TreeNode > > m_children;
 
     };
 
 } // tree
 
 #endif // TREE_NONTERMINAL_HPP
+

@@ -45,7 +45,6 @@ namespace myDsl
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -76,16 +75,16 @@ namespace myDsl
     protected:
         // Attributes
 
-
         // References
 
         ::myDsl::Entity_ptr m_extends;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::myDsl::Property > > m_properties;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::myDsl::Property > > m_properties;
 
     };
 
 } // myDsl
 
 #endif // MYDSL_ENTITY_HPP
+

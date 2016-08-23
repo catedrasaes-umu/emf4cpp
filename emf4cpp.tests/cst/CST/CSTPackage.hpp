@@ -54,7 +54,6 @@ namespace CST
 
         // IDs for classifiers for class Element 
 
-
         // IDs for classifiers for class Leaf 
 
         static const int LEAF__KIND = ELEMENT__KIND;
@@ -109,9 +108,7 @@ namespace CST
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -129,5 +126,5 @@ namespace CST
 
 } // CST
 
-
 #endif // _CSTPACKAGE_HPP
+

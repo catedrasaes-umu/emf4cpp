@@ -55,7 +55,6 @@ void Node::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Node::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -65,12 +64,13 @@ void Node::_initialize()
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_kind);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_kind);
     }
         return _any;
     case ::CST::CSTPackage::NODE__CHILDREN:
     {
-        _any = m_children->asEListOf< ::ecore::EObject > ();
+        _any = m_children->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -84,15 +84,14 @@ void Node::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_kind);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_kind);
     }
         return;
     case ::CST::CSTPackage::NODE__CHILDREN:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::CST::Node::getChildren().clear();
         ::CST::Node::getChildren().insert_all(*_t0);
     }
@@ -107,8 +106,8 @@ void Node::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     switch (_featureID)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_kind);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_kind);
     case ::CST::CSTPackage::NODE__CHILDREN:
         return m_children && m_children->size();
 
@@ -127,9 +126,8 @@ void Node::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Node::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::CST::CSTPackage_ptr > (::CST::CSTPackage::_instance())->getNode();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getNode();
     return _eclass;
 }
 

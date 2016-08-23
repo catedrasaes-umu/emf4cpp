@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -79,11 +78,10 @@ namespace idlmm
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::UnionField > > m_unionMembers;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::UnionField > > m_unionMembers;
 
         ::idlmm::IDLType_ptr m_containedDiscrim;
 
@@ -94,3 +92,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_UNIONDEF_HPP
+

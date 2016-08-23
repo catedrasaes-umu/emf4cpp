@@ -49,7 +49,6 @@ void StringValue::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject StringValue::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,8 +58,8 @@ void StringValue::_initialize()
     {
     case ::json::JsonPackage::STRINGVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_value);
     }
         return _any;
 
@@ -75,8 +74,8 @@ void StringValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::STRINGVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_value);
     }
         return;
 
@@ -89,8 +88,8 @@ void StringValue::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::json::JsonPackage::STRINGVALUE__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_value);
 
     }
     throw "Error";
@@ -107,9 +106,8 @@ void StringValue::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr StringValue::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::json::JsonPackage_ptr > (::json::JsonPackage::_instance())->getStringValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getStringValue();
     return _eclass;
 }
 

@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "SVG/Element.hpp"
 #include "SVG/StructuralElement.hpp"

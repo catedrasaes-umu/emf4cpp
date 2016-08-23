@@ -47,13 +47,11 @@ namespace myDsl
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getImportURI() const;
         void setImportURI(::ecore::EString const& _importURI);
 
         // References
-
 
         /*PROTECTED REGION ID(Import) START*/
         // Please, enable the protected region if you add manually written code.
@@ -86,3 +84,4 @@ namespace myDsl
 } // myDsl
 
 #endif // MYDSL_IMPORT_HPP
+

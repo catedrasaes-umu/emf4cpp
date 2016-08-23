@@ -367,7 +367,8 @@ SVGPackage::SVGPackage()
     getEClassifiers().push_back(m_AttributeEClass);
     m_Attribute__attOwner = new ::ecore::EReference();
     m_Attribute__attOwner->setFeatureID(::SVG::SVGPackage::ATTRIBUTE__ATTOWNER);
-    m_AttributeEClass->getEStructuralFeatures().push_back(m_Attribute__attOwner);
+    m_AttributeEClass->getEStructuralFeatures().push_back(
+            m_Attribute__attOwner);
 
     // Transform
     m_TransformEClass = new ::ecore::EClass();
@@ -508,9 +509,7 @@ SVGPackage::SVGPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("SVG");
@@ -562,7 +561,7 @@ SVGPackage::SVGPackage()
     m_ElementEClass->setAbstract(true);
     m_ElementEClass->setInterface(false);
     m_Element__fill->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Element__fill->setName("fill");
     m_Element__fill->setDefaultValueLiteral("");
     m_Element__fill->setLowerBound(0);
@@ -576,7 +575,7 @@ SVGPackage::SVGPackage()
     m_Element__fill->setDerived(false);
     m_Element__fill->setOrdered(false);
     m_Element__viewBox->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Element__viewBox->setName("viewBox");
     m_Element__viewBox->setDefaultValueLiteral("");
     m_Element__viewBox->setLowerBound(0);
@@ -590,7 +589,7 @@ SVGPackage::SVGPackage()
     m_Element__viewBox->setDerived(false);
     m_Element__viewBox->setOrdered(false);
     m_Element__identifier->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Element__identifier->setName("identifier");
     m_Element__identifier->setDefaultValueLiteral("");
     m_Element__identifier->setLowerBound(0);
@@ -617,8 +616,8 @@ SVGPackage::SVGPackage()
     m_Element__owner->setDerived(false);
     m_Element__owner->setOrdered(false);
     m_Element__owner->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_SvgFileEClass->getEStructuralFeatures()[1]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_SvgFileEClass->getEStructuralFeatures()[1]));
     m_Element__target->setEType(m_UseEClass);
     m_Element__target->setName("target");
     m_Element__target->setDefaultValueLiteral("");
@@ -633,8 +632,8 @@ SVGPackage::SVGPackage()
     m_Element__target->setDerived(false);
     m_Element__target->setOrdered(false);
     m_Element__target->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_UseEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_UseEClass->getEStructuralFeatures()[0]));
     m_Element__attribute->setEType(m_AttributeEClass);
     m_Element__attribute->setName("attribute");
     m_Element__attribute->setDefaultValueLiteral("");
@@ -649,8 +648,8 @@ SVGPackage::SVGPackage()
     m_Element__attribute->setDerived(false);
     m_Element__attribute->setOrdered(false);
     m_Element__attribute->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_AttributeEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_AttributeEClass->getEStructuralFeatures()[0]));
     m_Element__position->setEType(m_CoordinatesEClass);
     m_Element__position->setName("position");
     m_Element__position->setDefaultValueLiteral("");
@@ -691,8 +690,8 @@ SVGPackage::SVGPackage()
     m_Element__root->setDerived(false);
     m_Element__root->setOrdered(false);
     m_Element__root->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_SvgEClass->getEStructuralFeatures()[4]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_SvgEClass->getEStructuralFeatures()[4]));
     m_Element__group->setEType(m_GroupingElementEClass);
     m_Element__group->setName("group");
     m_Element__group->setDefaultValueLiteral("");
@@ -707,8 +706,8 @@ SVGPackage::SVGPackage()
     m_Element__group->setDerived(false);
     m_Element__group->setOrdered(false);
     m_Element__group->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_GroupingElementEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_GroupingElementEClass->getEStructuralFeatures()[0]));
     m_Element__drawsMarker->setEType(m_MarkerEClass);
     m_Element__drawsMarker->setName("drawsMarker");
     m_Element__drawsMarker->setDefaultValueLiteral("");
@@ -723,8 +722,8 @@ SVGPackage::SVGPackage()
     m_Element__drawsMarker->setDerived(false);
     m_Element__drawsMarker->setOrdered(false);
     m_Element__drawsMarker->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_MarkerEClass->getEStructuralFeatures()[6]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_MarkerEClass->getEStructuralFeatures()[6]));
     // StructuralElement
     m_StructuralElementEClass->setName("StructuralElement");
     m_StructuralElementEClass->setAbstract(true);
@@ -747,14 +746,14 @@ SVGPackage::SVGPackage()
     m_Image__referee->setDerived(false);
     m_Image__referee->setOrdered(false);
     m_Image__referee->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ReferencedFileEClass->getEStructuralFeatures()[1]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ReferencedFileEClass->getEStructuralFeatures()[1]));
     // Svg
     m_SvgEClass->setName("Svg");
     m_SvgEClass->setAbstract(false);
     m_SvgEClass->setInterface(false);
     m_Svg__namespace->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Svg__namespace->setName("namespace");
     m_Svg__namespace->setDefaultValueLiteral("");
     m_Svg__namespace->setLowerBound(0);
@@ -768,7 +767,7 @@ SVGPackage::SVGPackage()
     m_Svg__namespace->setDerived(false);
     m_Svg__namespace->setOrdered(false);
     m_Svg__version->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Svg__version->setName("version");
     m_Svg__version->setDefaultValueLiteral("");
     m_Svg__version->setLowerBound(0);
@@ -782,7 +781,7 @@ SVGPackage::SVGPackage()
     m_Svg__version->setDerived(false);
     m_Svg__version->setOrdered(false);
     m_Svg__baseProfile->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Svg__baseProfile->setName("baseProfile");
     m_Svg__baseProfile->setDefaultValueLiteral("");
     m_Svg__baseProfile->setLowerBound(0);
@@ -809,8 +808,8 @@ SVGPackage::SVGPackage()
     m_Svg__owner_SVG->setDerived(false);
     m_Svg__owner_SVG->setOrdered(false);
     m_Svg__owner_SVG->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_SvgFileEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_SvgFileEClass->getEStructuralFeatures()[0]));
     m_Svg__children->setEType(m_ElementEClass);
     m_Svg__children->setName("children");
     m_Svg__children->setDefaultValueLiteral("");
@@ -825,8 +824,8 @@ SVGPackage::SVGPackage()
     m_Svg__children->setDerived(false);
     m_Svg__children->setOrdered(true);
     m_Svg__children->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ElementEClass->getEStructuralFeatures()[8]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ElementEClass->getEStructuralFeatures()[8]));
     // GroupingElement
     m_GroupingElementEClass->setName("GroupingElement");
     m_GroupingElementEClass->setAbstract(true);
@@ -845,14 +844,14 @@ SVGPackage::SVGPackage()
     m_GroupingElement__groupContent->setDerived(false);
     m_GroupingElement__groupContent->setOrdered(true);
     m_GroupingElement__groupContent->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ElementEClass->getEStructuralFeatures()[9]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ElementEClass->getEStructuralFeatures()[9]));
     // G
     m_GEClass->setName("G");
     m_GEClass->setAbstract(false);
     m_GEClass->setInterface(false);
     m_G__name->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_G__name->setName("name");
     m_G__name->setDefaultValueLiteral("");
     m_G__name->setLowerBound(0);
@@ -891,14 +890,14 @@ SVGPackage::SVGPackage()
     m_Use__use->setDerived(false);
     m_Use__use->setOrdered(false);
     m_Use__use->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ElementEClass->getEStructuralFeatures()[4]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ElementEClass->getEStructuralFeatures()[4]));
     // GraphicalElement
     m_GraphicalElementEClass->setName("GraphicalElement");
     m_GraphicalElementEClass->setAbstract(true);
     m_GraphicalElementEClass->setInterface(false);
     m_GraphicalElement__stroke->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_GraphicalElement__stroke->setName("stroke");
     m_GraphicalElement__stroke->setDefaultValueLiteral("");
     m_GraphicalElement__stroke->setLowerBound(0);
@@ -920,7 +919,7 @@ SVGPackage::SVGPackage()
     m_TextElementEClass->setAbstract(true);
     m_TextElementEClass->setInterface(false);
     m_TextElement__rotate->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_TextElement__rotate->setName("rotate");
     m_TextElement__rotate->setDefaultValueLiteral("");
     m_TextElement__rotate->setLowerBound(0);
@@ -934,7 +933,7 @@ SVGPackage::SVGPackage()
     m_TextElement__rotate->setDerived(false);
     m_TextElement__rotate->setOrdered(false);
     m_TextElement__textLength->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_TextElement__textLength->setName("textLength");
     m_TextElement__textLength->setDefaultValueLiteral("");
     m_TextElement__textLength->setLowerBound(0);
@@ -948,7 +947,7 @@ SVGPackage::SVGPackage()
     m_TextElement__textLength->setDerived(false);
     m_TextElement__textLength->setOrdered(false);
     m_TextElement__fontSize->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_TextElement__fontSize->setName("fontSize");
     m_TextElement__fontSize->setDefaultValueLiteral("");
     m_TextElement__fontSize->setLowerBound(0);
@@ -966,7 +965,7 @@ SVGPackage::SVGPackage()
     m_RectEClass->setAbstract(false);
     m_RectEClass->setInterface(false);
     m_Rect__rx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Rect__rx->setName("rx");
     m_Rect__rx->setDefaultValueLiteral("");
     m_Rect__rx->setLowerBound(0);
@@ -980,7 +979,7 @@ SVGPackage::SVGPackage()
     m_Rect__rx->setDerived(false);
     m_Rect__rx->setOrdered(false);
     m_Rect__ry->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Rect__ry->setName("ry");
     m_Rect__ry->setDefaultValueLiteral("");
     m_Rect__ry->setLowerBound(0);
@@ -1006,7 +1005,7 @@ SVGPackage::SVGPackage()
     m_LineEClass->setAbstract(false);
     m_LineEClass->setInterface(false);
     m_Line__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Line__markerEnd->setName("markerEnd");
     m_Line__markerEnd->setDefaultValueLiteral("");
     m_Line__markerEnd->setLowerBound(0);
@@ -1020,7 +1019,7 @@ SVGPackage::SVGPackage()
     m_Line__markerEnd->setDerived(false);
     m_Line__markerEnd->setOrdered(false);
     m_Line__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Line__markerStart->setName("markerStart");
     m_Line__markerStart->setDefaultValueLiteral("");
     m_Line__markerStart->setLowerBound(0);
@@ -1051,7 +1050,7 @@ SVGPackage::SVGPackage()
     m_PolylineEClass->setAbstract(false);
     m_PolylineEClass->setInterface(false);
     m_Polyline__strokeDashArray->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Polyline__strokeDashArray->setName("strokeDashArray");
     m_Polyline__strokeDashArray->setDefaultValueLiteral("");
     m_Polyline__strokeDashArray->setLowerBound(0);
@@ -1065,7 +1064,7 @@ SVGPackage::SVGPackage()
     m_Polyline__strokeDashArray->setDerived(false);
     m_Polyline__strokeDashArray->setOrdered(false);
     m_Polyline__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Polyline__markerEnd->setName("markerEnd");
     m_Polyline__markerEnd->setDefaultValueLiteral("");
     m_Polyline__markerEnd->setLowerBound(0);
@@ -1079,7 +1078,7 @@ SVGPackage::SVGPackage()
     m_Polyline__markerEnd->setDerived(false);
     m_Polyline__markerEnd->setOrdered(false);
     m_Polyline__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Polyline__markerStart->setName("markerStart");
     m_Polyline__markerStart->setDefaultValueLiteral("");
     m_Polyline__markerStart->setLowerBound(0);
@@ -1110,7 +1109,7 @@ SVGPackage::SVGPackage()
     m_PolygonEClass->setAbstract(false);
     m_PolygonEClass->setInterface(false);
     m_Polygon__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Polygon__markerEnd->setName("markerEnd");
     m_Polygon__markerEnd->setDefaultValueLiteral("");
     m_Polygon__markerEnd->setLowerBound(0);
@@ -1124,7 +1123,7 @@ SVGPackage::SVGPackage()
     m_Polygon__markerEnd->setDerived(false);
     m_Polygon__markerEnd->setOrdered(false);
     m_Polygon__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Polygon__markerStart->setName("markerStart");
     m_Polygon__markerStart->setDefaultValueLiteral("");
     m_Polygon__markerStart->setLowerBound(0);
@@ -1155,7 +1154,7 @@ SVGPackage::SVGPackage()
     m_PathEClass->setAbstract(false);
     m_PathEClass->setInterface(false);
     m_Path__pathLength->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Path__pathLength->setName("pathLength");
     m_Path__pathLength->setDefaultValueLiteral("");
     m_Path__pathLength->setLowerBound(0);
@@ -1169,7 +1168,7 @@ SVGPackage::SVGPackage()
     m_Path__pathLength->setDerived(false);
     m_Path__pathLength->setOrdered(false);
     m_Path__d->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Path__d->setName("d");
     m_Path__d->setDefaultValueLiteral("");
     m_Path__d->setLowerBound(1);
@@ -1183,7 +1182,7 @@ SVGPackage::SVGPackage()
     m_Path__d->setDerived(false);
     m_Path__d->setOrdered(false);
     m_Path__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Path__markerEnd->setName("markerEnd");
     m_Path__markerEnd->setDefaultValueLiteral("");
     m_Path__markerEnd->setLowerBound(0);
@@ -1197,7 +1196,7 @@ SVGPackage::SVGPackage()
     m_Path__markerEnd->setDerived(false);
     m_Path__markerEnd->setOrdered(false);
     m_Path__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Path__markerStart->setName("markerStart");
     m_Path__markerStart->setDefaultValueLiteral("");
     m_Path__markerStart->setLowerBound(0);
@@ -1219,7 +1218,7 @@ SVGPackage::SVGPackage()
     m_MarkerEClass->setAbstract(false);
     m_MarkerEClass->setInterface(false);
     m_Marker__markerUnits->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Marker__markerUnits->setName("markerUnits");
     m_Marker__markerUnits->setDefaultValueLiteral("");
     m_Marker__markerUnits->setLowerBound(0);
@@ -1233,7 +1232,7 @@ SVGPackage::SVGPackage()
     m_Marker__markerUnits->setDerived(false);
     m_Marker__markerUnits->setOrdered(false);
     m_Marker__refX->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Marker__refX->setName("refX");
     m_Marker__refX->setDefaultValueLiteral("");
     m_Marker__refX->setLowerBound(0);
@@ -1247,7 +1246,7 @@ SVGPackage::SVGPackage()
     m_Marker__refX->setDerived(false);
     m_Marker__refX->setOrdered(false);
     m_Marker__refY->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Marker__refY->setName("refY");
     m_Marker__refY->setDefaultValueLiteral("");
     m_Marker__refY->setLowerBound(0);
@@ -1261,7 +1260,7 @@ SVGPackage::SVGPackage()
     m_Marker__refY->setDerived(false);
     m_Marker__refY->setOrdered(false);
     m_Marker__markerWidth->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Marker__markerWidth->setName("markerWidth");
     m_Marker__markerWidth->setDefaultValueLiteral("");
     m_Marker__markerWidth->setLowerBound(0);
@@ -1275,7 +1274,7 @@ SVGPackage::SVGPackage()
     m_Marker__markerWidth->setDerived(false);
     m_Marker__markerWidth->setOrdered(false);
     m_Marker__markerHeight->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Marker__markerHeight->setName("markerHeight");
     m_Marker__markerHeight->setDefaultValueLiteral("");
     m_Marker__markerHeight->setLowerBound(0);
@@ -1289,7 +1288,7 @@ SVGPackage::SVGPackage()
     m_Marker__markerHeight->setDerived(false);
     m_Marker__markerHeight->setOrdered(false);
     m_Marker__orient->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Marker__orient->setName("orient");
     m_Marker__orient->setDefaultValueLiteral("");
     m_Marker__orient->setLowerBound(0);
@@ -1316,14 +1315,14 @@ SVGPackage::SVGPackage()
     m_Marker__drawing->setDerived(false);
     m_Marker__drawing->setOrdered(false);
     m_Marker__drawing->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ElementEClass->getEStructuralFeatures()[10]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ElementEClass->getEStructuralFeatures()[10]));
     // Text
     m_TextEClass->setName("Text");
     m_TextEClass->setAbstract(false);
     m_TextEClass->setInterface(false);
     m_Text__lengthAdjust->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Text__lengthAdjust->setName("lengthAdjust");
     m_Text__lengthAdjust->setDefaultValueLiteral("");
     m_Text__lengthAdjust->setLowerBound(0);
@@ -1337,7 +1336,7 @@ SVGPackage::SVGPackage()
     m_Text__lengthAdjust->setDerived(false);
     m_Text__lengthAdjust->setOrdered(false);
     m_Text__content->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Text__content->setName("content");
     m_Text__content->setDefaultValueLiteral("");
     m_Text__content->setLowerBound(1);
@@ -1355,7 +1354,7 @@ SVGPackage::SVGPackage()
     m_TspanEClass->setAbstract(false);
     m_TspanEClass->setInterface(false);
     m_Tspan__content->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_Tspan__content->setName("content");
     m_Tspan__content->setDefaultValueLiteral("");
     m_Tspan__content->setLowerBound(0);
@@ -1403,8 +1402,8 @@ SVGPackage::SVGPackage()
     m_Attribute__attOwner->setDerived(false);
     m_Attribute__attOwner->setOrdered(false);
     m_Attribute__attOwner->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ElementEClass->getEStructuralFeatures()[5]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ElementEClass->getEStructuralFeatures()[5]));
     // Transform
     m_TransformEClass->setName("Transform");
     m_TransformEClass->setAbstract(true);
@@ -1414,7 +1413,7 @@ SVGPackage::SVGPackage()
     m_ScaleEClass->setAbstract(false);
     m_ScaleEClass->setInterface(false);
     m_Scale__sx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Scale__sx->setName("sx");
     m_Scale__sx->setDefaultValueLiteral("");
     m_Scale__sx->setLowerBound(1);
@@ -1428,7 +1427,7 @@ SVGPackage::SVGPackage()
     m_Scale__sx->setDerived(false);
     m_Scale__sx->setOrdered(false);
     m_Scale__sy->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Scale__sy->setName("sy");
     m_Scale__sy->setDefaultValueLiteral("");
     m_Scale__sy->setLowerBound(1);
@@ -1446,7 +1445,7 @@ SVGPackage::SVGPackage()
     m_TranslateEClass->setAbstract(false);
     m_TranslateEClass->setInterface(false);
     m_Translate__tx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Translate__tx->setName("tx");
     m_Translate__tx->setDefaultValueLiteral("");
     m_Translate__tx->setLowerBound(1);
@@ -1460,7 +1459,7 @@ SVGPackage::SVGPackage()
     m_Translate__tx->setDerived(false);
     m_Translate__tx->setOrdered(false);
     m_Translate__ty->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Translate__ty->setName("ty");
     m_Translate__ty->setDefaultValueLiteral("");
     m_Translate__ty->setLowerBound(1);
@@ -1478,7 +1477,7 @@ SVGPackage::SVGPackage()
     m_RotateEClass->setAbstract(false);
     m_RotateEClass->setInterface(false);
     m_Rotate__angle->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Rotate__angle->setName("angle");
     m_Rotate__angle->setDefaultValueLiteral("");
     m_Rotate__angle->setLowerBound(1);
@@ -1492,7 +1491,7 @@ SVGPackage::SVGPackage()
     m_Rotate__angle->setDerived(false);
     m_Rotate__angle->setOrdered(false);
     m_Rotate__cx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Rotate__cx->setName("cx");
     m_Rotate__cx->setDefaultValueLiteral("");
     m_Rotate__cx->setLowerBound(1);
@@ -1506,7 +1505,7 @@ SVGPackage::SVGPackage()
     m_Rotate__cx->setDerived(false);
     m_Rotate__cx->setOrdered(false);
     m_Rotate__cy->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Rotate__cy->setName("cy");
     m_Rotate__cy->setDefaultValueLiteral("");
     m_Rotate__cy->setLowerBound(1);
@@ -1524,7 +1523,7 @@ SVGPackage::SVGPackage()
     m_VisibilityEClass->setAbstract(false);
     m_VisibilityEClass->setInterface(false);
     m_Visibility__visible->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
     m_Visibility__visible->setName("visible");
     m_Visibility__visible->setDefaultValueLiteral("");
     m_Visibility__visible->setLowerBound(1);
@@ -1542,7 +1541,7 @@ SVGPackage::SVGPackage()
     m_FontWeightEClass->setAbstract(false);
     m_FontWeightEClass->setInterface(false);
     m_FontWeight__bold->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
     m_FontWeight__bold->setName("bold");
     m_FontWeight__bold->setDefaultValueLiteral("");
     m_FontWeight__bold->setLowerBound(1);
@@ -1560,7 +1559,7 @@ SVGPackage::SVGPackage()
     m_FontStyleEClass->setAbstract(false);
     m_FontStyleEClass->setInterface(false);
     m_FontStyle__italic->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
     m_FontStyle__italic->setName("italic");
     m_FontStyle__italic->setDefaultValueLiteral("");
     m_FontStyle__italic->setLowerBound(1);
@@ -1578,7 +1577,7 @@ SVGPackage::SVGPackage()
     m_DimensionEClass->setAbstract(false);
     m_DimensionEClass->setInterface(false);
     m_Dimension__width->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Dimension__width->setName("width");
     m_Dimension__width->setDefaultValueLiteral("");
     m_Dimension__width->setLowerBound(1);
@@ -1592,7 +1591,7 @@ SVGPackage::SVGPackage()
     m_Dimension__width->setDerived(false);
     m_Dimension__width->setOrdered(false);
     m_Dimension__height->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Dimension__height->setName("height");
     m_Dimension__height->setDefaultValueLiteral("");
     m_Dimension__height->setLowerBound(1);
@@ -1610,7 +1609,7 @@ SVGPackage::SVGPackage()
     m_CoordinatesEClass->setAbstract(true);
     m_CoordinatesEClass->setInterface(false);
     m_Coordinates__x->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Coordinates__x->setName("x");
     m_Coordinates__x->setDefaultValueLiteral("");
     m_Coordinates__x->setLowerBound(1);
@@ -1624,7 +1623,7 @@ SVGPackage::SVGPackage()
     m_Coordinates__x->setDerived(false);
     m_Coordinates__x->setOrdered(false);
     m_Coordinates__y->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
     m_Coordinates__y->setName("y");
     m_Coordinates__y->setDefaultValueLiteral("");
     m_Coordinates__y->setLowerBound(1);
@@ -1650,7 +1649,7 @@ SVGPackage::SVGPackage()
     m_ReferencedFileEClass->setAbstract(true);
     m_ReferencedFileEClass->setInterface(false);
     m_ReferencedFile__name->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* > (::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
     m_ReferencedFile__name->setName("name");
     m_ReferencedFile__name->setDefaultValueLiteral("");
     m_ReferencedFile__name->setLowerBound(1);
@@ -1677,8 +1676,8 @@ SVGPackage::SVGPackage()
     m_ReferencedFile__referer->setDerived(false);
     m_ReferencedFile__referer->setOrdered(false);
     m_ReferencedFile__referer->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ImageEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ImageEClass->getEStructuralFeatures()[0]));
     // SvgFile
     m_SvgFileEClass->setName("SvgFile");
     m_SvgFileEClass->setAbstract(false);
@@ -1697,8 +1696,8 @@ SVGPackage::SVGPackage()
     m_SvgFile__tag->setDerived(false);
     m_SvgFile__tag->setOrdered(false);
     m_SvgFile__tag->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_SvgEClass->getEStructuralFeatures()[3]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_SvgEClass->getEStructuralFeatures()[3]));
     m_SvgFile__elements->setEType(m_ElementEClass);
     m_SvgFile__elements->setName("elements");
     m_SvgFile__elements->setDefaultValueLiteral("");
@@ -1713,11 +1712,10 @@ SVGPackage::SVGPackage()
     m_SvgFile__elements->setDerived(false);
     m_SvgFile__elements->setOrdered(false);
     m_SvgFile__elements->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ElementEClass->getEStructuralFeatures()[3]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ElementEClass->getEStructuralFeatures()[3]));
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

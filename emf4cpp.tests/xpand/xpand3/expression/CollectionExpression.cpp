@@ -34,12 +34,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 CollectionExpression::CollectionExpression() :
-    m_closure(0), m_eleName(0)
+        m_closure(0), m_eleName(0)
 {
 
     /*PROTECTED REGION ID(CollectionExpressionImpl__CollectionExpressionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,7 +65,6 @@ CollectionExpression::~CollectionExpression()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::expression::AbstractExpression_ptr CollectionExpression::getClosure()
 {

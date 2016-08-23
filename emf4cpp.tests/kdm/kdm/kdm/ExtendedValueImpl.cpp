@@ -52,7 +52,6 @@ void ExtendedValue::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ExtendedValue::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -62,17 +61,17 @@ void ExtendedValue::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
     {
-        _any = static_cast< ::ecore::EObject* > (m_tag);
+        _any = static_cast< ::ecore::EObject* >(m_tag);
     }
         return _any;
 
@@ -87,28 +86,26 @@ void ExtendedValue::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::kdm::kdm::TagDefinition_ptr _t1 =
-                dynamic_cast< ::kdm::kdm::TagDefinition_ptr > (_t0);
+                dynamic_cast< ::kdm::kdm::TagDefinition_ptr >(_t0);
         ::kdm::kdm::ExtendedValue::setTag(_t1);
     }
         return;
@@ -143,9 +140,8 @@ void ExtendedValue::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ExtendedValue::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::kdm::KdmPackage_ptr > (::kdm::kdm::KdmPackage::_instance())->getExtendedValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getExtendedValue();
     return _eclass;
 }
 

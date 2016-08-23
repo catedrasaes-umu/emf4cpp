@@ -55,7 +55,8 @@ BintreePackage::BintreePackage()
     m_BinTreeNode__data = new ::ecore::EAttribute();
     m_BinTreeNode__data->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__DATA);
-    m_BinTreeNodeEClass->getEStructuralFeatures().push_back(m_BinTreeNode__data);
+    m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
+            m_BinTreeNode__data);
     m_BinTreeNode__parent = new ::ecore::EReference();
     m_BinTreeNode__parent->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__PARENT);
@@ -64,7 +65,8 @@ BintreePackage::BintreePackage()
     m_BinTreeNode__left = new ::ecore::EReference();
     m_BinTreeNode__left->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__LEFT);
-    m_BinTreeNodeEClass->getEStructuralFeatures().push_back(m_BinTreeNode__left);
+    m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
+            m_BinTreeNode__left);
     m_BinTreeNode__right = new ::ecore::EReference();
     m_BinTreeNode__right->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__RIGHT);
@@ -73,9 +75,7 @@ BintreePackage::BintreePackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("bintree");
@@ -93,7 +93,7 @@ BintreePackage::BintreePackage()
     m_BinTreeNodeEClass->setAbstract(false);
     m_BinTreeNodeEClass->setInterface(false);
     m_BinTreeNode__data->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_BinTreeNode__data->setName("data");
     m_BinTreeNode__data->setDefaultValueLiteral("");
     m_BinTreeNode__data->setLowerBound(0);
@@ -147,7 +147,6 @@ BintreePackage::BintreePackage()
     m_BinTreeNode__right->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

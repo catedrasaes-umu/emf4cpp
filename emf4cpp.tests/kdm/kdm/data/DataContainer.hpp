@@ -50,12 +50,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::data::DataResource >
-                    & getDataElement();
+            ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& getDataElement();
 
             /*PROTECTED REGION ID(DataContainer) START*/
             // Please, enable the protected region if you add manually written code.
@@ -79,11 +77,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::data::DataResource > > m_dataElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::data::DataResource > > m_dataElement;
 
         };
 
@@ -91,3 +88,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_DATACONTAINER_HPP
+

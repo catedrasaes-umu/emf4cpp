@@ -43,11 +43,12 @@ UIModel::UIModel()
 
     m_UIElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::ui::AbstractUIElement, -1, true, false >(this, NULL));
+                    ::kdm::ui::AbstractUIElement, -1, true, false >(this,
+                    NULL));
 
     /*PROTECTED REGION ID(UIModelImpl__UIModelImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,7 +66,6 @@ UIModel::~UIModel()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIModel::getUIElement()
 {

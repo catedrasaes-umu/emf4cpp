@@ -47,7 +47,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EString const& getValue() const;
             void setValue(::ecore::EString const& _value);
@@ -56,7 +55,6 @@ namespace xpand3
             void setDeleteLine(::ecore::EBoolean _deleteLine);
 
             // References
-
 
             /*PROTECTED REGION ID(TextStatement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -92,3 +90,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_STATEMENT_TEXTSTATEMENT_HPP
+

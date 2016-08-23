@@ -36,7 +36,7 @@ using namespace ::xpand3::declaration;
 
 // Default constructor
 JavaExtension::JavaExtension() :
-    m_javaType(0), m_javaMethod(0)
+        m_javaType(0), m_javaMethod(0)
 {
 
     m_javaParamTypes.reset(
@@ -44,8 +44,8 @@ JavaExtension::JavaExtension() :
                     -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(JavaExtensionImpl__JavaExtensionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +71,6 @@ JavaExtension::~JavaExtension()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr JavaExtension::getJavaType()
 {

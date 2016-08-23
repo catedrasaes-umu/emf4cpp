@@ -45,13 +45,11 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::idlmm::ETypeCode getTypeCode() const;
         void setTypeCode(::idlmm::ETypeCode _typeCode);
 
         // References
-
 
         /*PROTECTED REGION ID(IDLType) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_IDLTYPE_HPP
+

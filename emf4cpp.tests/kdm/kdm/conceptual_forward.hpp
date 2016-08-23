@@ -30,72 +30,70 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace conceptual
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // ConceptualModel
+// ConceptualModel
         class ConceptualModel;
         typedef ConceptualModel* ConceptualModel_ptr;
 
-        // AbstractConceptualElement
+// AbstractConceptualElement
         class AbstractConceptualElement;
         typedef AbstractConceptualElement* AbstractConceptualElement_ptr;
 
-        // TermUnit
+// TermUnit
         class TermUnit;
         typedef TermUnit* TermUnit_ptr;
 
-        // ConceptualContainer
+// ConceptualContainer
         class ConceptualContainer;
         typedef ConceptualContainer* ConceptualContainer_ptr;
 
-        // FactUnit
+// FactUnit
         class FactUnit;
         typedef FactUnit* FactUnit_ptr;
 
-        // AbstractConceptualRelationship
+// AbstractConceptualRelationship
         class AbstractConceptualRelationship;
-        typedef AbstractConceptualRelationship
-                * AbstractConceptualRelationship_ptr;
+        typedef AbstractConceptualRelationship* AbstractConceptualRelationship_ptr;
 
-        // ConceptualRelationship
+// ConceptualRelationship
         class ConceptualRelationship;
         typedef ConceptualRelationship* ConceptualRelationship_ptr;
 
-        // BehaviorUnit
+// BehaviorUnit
         class BehaviorUnit;
         typedef BehaviorUnit* BehaviorUnit_ptr;
 
-        // RuleUnit
+// RuleUnit
         class RuleUnit;
         typedef RuleUnit* RuleUnit_ptr;
 
-        // ScenarioUnit
+// ScenarioUnit
         class ScenarioUnit;
         typedef ScenarioUnit* ScenarioUnit_ptr;
 
-        // ConceptualFlow
+// ConceptualFlow
         class ConceptualFlow;
         typedef ConceptualFlow* ConceptualFlow_ptr;
 
-        // ConceptualElement
+// ConceptualElement
         class ConceptualElement;
         typedef ConceptualElement* ConceptualElement_ptr;
 
-        // ConceptualRole
+// ConceptualRole
         class ConceptualRole;
         typedef ConceptualRole* ConceptualRole_ptr;
 
-        // Package & Factory
+// Package & Factory
         class ConceptualFactory;
         typedef ConceptualFactory * ConceptualFactory_ptr;
         class ConceptualPackage;
@@ -104,11 +102,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // conceptual
 } // kdm
 
-
 #endif // _KDM_CONCEPTUAL_FORWARD_HPP
+

@@ -51,14 +51,12 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getKind() const;
             void setKind(::kdm::core::String _kind);
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >
-                    & getPlatformElement();
+            ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& getPlatformElement();
 
             /*PROTECTED REGION ID(PlatformAction) START*/
             // Please, enable the protected region if you add manually written code.
@@ -86,8 +84,8 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::platform::PlatformEvent > > m_platformElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent > > m_platformElement;
 
         };
 
@@ -95,3 +93,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_PLATFORM_PLATFORMACTION_HPP
+

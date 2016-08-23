@@ -26,5 +26,5 @@ ECORECPP_PATH="${GENERATOR_DIR}/../include/emf4cpp"
 
 
 # Go go go
-JAR="${BASEDIR}/org.csu.emf4cpp.generator_1.0.0.jar"
+JAR="${BASEDIR}/org.csu.emf4cpp.generator_1.1.0.jar"
 java -jar ${JAR} -e ${ECORECPP_PATH} -o ${DEST_DIR} $@

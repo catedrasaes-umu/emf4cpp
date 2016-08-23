@@ -45,13 +45,11 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Boolean getVisible() const;
         void setVisible(::PrimitiveTypes::Boolean _visible);
 
         // References
-
 
         /*PROTECTED REGION ID(Visibility) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_VISIBILITY_HPP
+

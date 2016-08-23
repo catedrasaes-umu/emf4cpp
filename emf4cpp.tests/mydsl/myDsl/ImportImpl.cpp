@@ -47,7 +47,6 @@ void Import::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Import::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -57,8 +56,8 @@ void Import::_initialize()
     {
     case ::myDsl::MyDslPackage::IMPORT__IMPORTURI:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_importURI);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_importURI);
     }
         return _any;
 
@@ -73,8 +72,8 @@ void Import::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::IMPORT__IMPORTURI:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_importURI);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_importURI);
     }
         return;
 
@@ -87,8 +86,8 @@ void Import::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::myDsl::MyDslPackage::IMPORT__IMPORTURI:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_importURI);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_importURI);
 
     }
     throw "Error";
@@ -105,9 +104,8 @@ void Import::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Import::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::myDsl::MyDslPackage_ptr > (::myDsl::MyDslPackage::_instance())->getImport();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getImport();
     return _eclass;
 }
 

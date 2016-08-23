@@ -51,12 +51,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >
-                    & getPlatformElement();
+            ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& getPlatformElement();
 
             /*PROTECTED REGION ID(DeployedResource) START*/
             // Please, enable the protected region if you add manually written code.
@@ -80,11 +78,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::platform::ResourceType > > m_platformElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType > > m_platformElement;
 
         };
 
@@ -92,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_PLATFORM_DEPLOYEDRESOURCE_HPP
+

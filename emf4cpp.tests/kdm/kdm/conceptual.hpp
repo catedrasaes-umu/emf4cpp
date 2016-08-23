@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "conceptual/ConceptualModel.hpp"
 #include "conceptual/AbstractConceptualElement.hpp"

@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "platform/AbstractPlatformElement.hpp"
 #include "platform/PlatformModel.hpp"

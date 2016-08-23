@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "build/AbstractBuildElement.hpp"
 #include "build/BuildResource.hpp"

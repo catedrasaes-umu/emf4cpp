@@ -36,12 +36,12 @@ using namespace ::xpand3::declaration;
 
 // Default constructor
 Extension::Extension() :
-    m_body(0), m_returnType(0)
+        m_body(0), m_returnType(0)
 {
 
     /*PROTECTED REGION ID(ExtensionImpl__ExtensionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -67,7 +67,6 @@ Extension::~Extension()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean Extension::isCached() const
 {
     return m_cached;

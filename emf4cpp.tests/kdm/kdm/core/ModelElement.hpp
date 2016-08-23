@@ -47,15 +47,12 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >
-                    & getStereotype();
+            ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype();
 
-            ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >
-                    & getTaggedValue();
+            ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& getTaggedValue();
 
             /*PROTECTED REGION ID(ModelElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -79,14 +76,13 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::Stereotype > > m_stereotype;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype > > m_stereotype;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::ExtendedValue > > m_taggedValue;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue > > m_taggedValue;
 
         };
 
@@ -94,3 +90,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CORE_MODELELEMENT_HPP
+

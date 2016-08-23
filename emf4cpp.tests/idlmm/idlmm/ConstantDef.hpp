@@ -47,13 +47,11 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::idlmm::EAny getConstValue() const;
         void setConstValue(::idlmm::EAny _constValue);
 
         // References
-
 
         /*PROTECTED REGION ID(ConstantDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -86,3 +84,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_CONSTANTDEF_HPP
+

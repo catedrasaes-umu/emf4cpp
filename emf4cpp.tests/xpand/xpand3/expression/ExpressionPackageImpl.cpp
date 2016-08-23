@@ -116,7 +116,8 @@ ExpressionPackage::ExpressionPackage()
     m_FeatureCall__name = new ::ecore::EReference();
     m_FeatureCall__name->setFeatureID(
             ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME);
-    m_FeatureCallEClass->getEStructuralFeatures().push_back(m_FeatureCall__name);
+    m_FeatureCallEClass->getEStructuralFeatures().push_back(
+            m_FeatureCall__name);
 
     // CollectionExpression
     m_CollectionExpressionEClass = new ::ecore::EClass();
@@ -228,7 +229,8 @@ ExpressionPackage::ExpressionPackage()
     m_Literal__literalValue = new ::ecore::EReference();
     m_Literal__literalValue->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE);
-    m_LiteralEClass->getEStructuralFeatures().push_back(m_Literal__literalValue);
+    m_LiteralEClass->getEStructuralFeatures().push_back(
+            m_Literal__literalValue);
 
     // BooleanLiteral
     m_BooleanLiteralEClass = new ::ecore::EClass();
@@ -334,9 +336,7 @@ ExpressionPackage::ExpressionPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("expression");
@@ -347,7 +347,7 @@ ExpressionPackage::ExpressionPackage()
 
     // Add supertypes to classes
     m_AbstractExpressionEClass->getESuperTypes().push_back(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getSyntaxElement());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getSyntaxElement());
     m_BooleanOperationEClass->getESuperTypes().push_back(
             m_BinaryOperationEClass);
     m_CastEClass->getESuperTypes().push_back(m_AbstractExpressionEClass);
@@ -363,7 +363,8 @@ ExpressionPackage::ExpressionPackage()
             m_FeatureCallEClass);
     m_GlobalVarExpressionEClass->getESuperTypes().push_back(
             m_AbstractExpressionEClass);
-    m_IfExpressionEClass->getESuperTypes().push_back(m_AbstractExpressionEClass);
+    m_IfExpressionEClass->getESuperTypes().push_back(
+            m_AbstractExpressionEClass);
     m_LetExpressionEClass->getESuperTypes().push_back(
             m_AbstractExpressionEClass);
     m_ListLiteralEClass->getESuperTypes().push_back(m_AbstractExpressionEClass);
@@ -376,7 +377,7 @@ ExpressionPackage::ExpressionPackage()
     m_SwitchExpressionEClass->getESuperTypes().push_back(
             m_AbstractExpressionEClass);
     m_CaseEClass->getESuperTypes().push_back(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getSyntaxElement());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getSyntaxElement());
     m_BinaryOperationEClass->getESuperTypes().push_back(
             m_AbstractExpressionEClass);
     m_UnaryOperationEClass->getESuperTypes().push_back(
@@ -397,7 +398,7 @@ ExpressionPackage::ExpressionPackage()
     m_CastEClass->setAbstract(false);
     m_CastEClass->setInterface(false);
     m_Cast__type->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_Cast__type->setName("type");
     m_Cast__type->setDefaultValueLiteral("");
     m_Cast__type->setLowerBound(0);
@@ -458,7 +459,7 @@ ExpressionPackage::ExpressionPackage()
     m_ConstructorCallExpressionEClass->setAbstract(false);
     m_ConstructorCallExpressionEClass->setInterface(false);
     m_ConstructorCallExpression__type->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_ConstructorCallExpression__type->setName("type");
     m_ConstructorCallExpression__type->setDefaultValueLiteral("");
     m_ConstructorCallExpression__type->setLowerBound(0);
@@ -489,7 +490,7 @@ ExpressionPackage::ExpressionPackage()
     m_FeatureCall__target->setDerived(false);
     m_FeatureCall__target->setOrdered(true);
     m_FeatureCall__name->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_FeatureCall__name->setName("name");
     m_FeatureCall__name->setDefaultValueLiteral("");
     m_FeatureCall__name->setLowerBound(0);
@@ -520,7 +521,7 @@ ExpressionPackage::ExpressionPackage()
     m_CollectionExpression__closure->setDerived(false);
     m_CollectionExpression__closure->setOrdered(true);
     m_CollectionExpression__eleName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_CollectionExpression__eleName->setName("eleName");
     m_CollectionExpression__eleName->setDefaultValueLiteral("");
     m_CollectionExpression__eleName->setLowerBound(0);
@@ -555,7 +556,7 @@ ExpressionPackage::ExpressionPackage()
     m_TypeSelectExpressionEClass->setAbstract(false);
     m_TypeSelectExpressionEClass->setInterface(false);
     m_TypeSelectExpression__typeLiteral->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_TypeSelectExpression__typeLiteral->setName("typeLiteral");
     m_TypeSelectExpression__typeLiteral->setDefaultValueLiteral("");
     m_TypeSelectExpression__typeLiteral->setLowerBound(0);
@@ -573,7 +574,7 @@ ExpressionPackage::ExpressionPackage()
     m_GlobalVarExpressionEClass->setAbstract(false);
     m_GlobalVarExpressionEClass->setInterface(false);
     m_GlobalVarExpression__globalVarName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_GlobalVarExpression__globalVarName->setName("globalVarName");
     m_GlobalVarExpression__globalVarName->setDefaultValueLiteral("");
     m_GlobalVarExpression__globalVarName->setLowerBound(0);
@@ -660,7 +661,7 @@ ExpressionPackage::ExpressionPackage()
     m_LetExpression__targetExpression->setDerived(false);
     m_LetExpression__targetExpression->setOrdered(true);
     m_LetExpression__varName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_LetExpression__varName->setName("varName");
     m_LetExpression__varName->setDefaultValueLiteral("");
     m_LetExpression__varName->setLowerBound(0);
@@ -695,7 +696,7 @@ ExpressionPackage::ExpressionPackage()
     m_LiteralEClass->setAbstract(true);
     m_LiteralEClass->setInterface(false);
     m_Literal__literalValue->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_Literal__literalValue->setName("literalValue");
     m_Literal__literalValue->setDefaultValueLiteral("");
     m_Literal__literalValue->setLowerBound(0);
@@ -832,7 +833,7 @@ ExpressionPackage::ExpressionPackage()
     m_BinaryOperation__right->setDerived(false);
     m_BinaryOperation__right->setOrdered(true);
     m_BinaryOperation__operator->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_BinaryOperation__operator->setName("operator");
     m_BinaryOperation__operator->setDefaultValueLiteral("");
     m_BinaryOperation__operator->setLowerBound(0);
@@ -850,7 +851,7 @@ ExpressionPackage::ExpressionPackage()
     m_UnaryOperationEClass->setAbstract(false);
     m_UnaryOperationEClass->setInterface(false);
     m_UnaryOperation__operator->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_UnaryOperation__operator->setName("operator");
     m_UnaryOperation__operator->setDefaultValueLiteral("");
     m_UnaryOperation__operator->setLowerBound(0);
@@ -878,7 +879,6 @@ ExpressionPackage::ExpressionPackage()
     m_UnaryOperation__operand->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

@@ -51,7 +51,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getKind() const;
             void setKind(::kdm::core::String _kind);
@@ -85,8 +84,8 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::ui::UIEvent > > m_UIElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent > > m_UIElement;
 
         };
 
@@ -94,3 +93,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_UI_UIACTION_HPP
+

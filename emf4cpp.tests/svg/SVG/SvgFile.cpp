@@ -35,7 +35,7 @@ using namespace ::SVG;
 
 // Default constructor
 SvgFile::SvgFile() :
-    m_tag(0)
+        m_tag(0)
 {
 
     m_elements.reset(
@@ -43,8 +43,8 @@ SvgFile::SvgFile() :
                     false, true >(this, NULL));
 
     /*PROTECTED REGION ID(SvgFileImpl__SvgFileImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ SvgFile::~SvgFile()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::SVG::Svg_ptr SvgFile::getTag()
 {

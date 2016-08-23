@@ -37,8 +37,7 @@ namespace kdm
             virtual EventModel_ptr createEventModel();
             virtual AbstractEventElement_ptr createAbstractEventElement();
             virtual Event_ptr createEvent();
-            virtual AbstractEventRelationship_ptr
-                    createAbstractEventRelationship();
+            virtual AbstractEventRelationship_ptr createAbstractEventRelationship();
             virtual EventRelationship_ptr createEventRelationship();
             virtual EventResource_ptr createEventResource();
             virtual State_ptr createState();
@@ -73,5 +72,5 @@ namespace kdm
     } // event
 } // kdm
 
-
 #endif // _KDM_EVENTFACTORY_HPP
+

@@ -42,8 +42,8 @@ InterfaceDef::InterfaceDef()
                     -1, false, false >(this, NULL));
 
     /*PROTECTED REGION ID(InterfaceDefImpl__InterfaceDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ InterfaceDef::~InterfaceDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean InterfaceDef::isIsAbstract() const
 {
     return m_isAbstract;

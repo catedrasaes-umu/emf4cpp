@@ -350,17 +350,13 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getKDMEntity__name();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractStructureElement__aggregated();
+            virtual ::ecore::EReference_ptr getAbstractStructureElement__aggregated();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractStructureElement__implementation();
+            virtual ::ecore::EReference_ptr getAbstractStructureElement__implementation();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractStructureElement__structureElement();
+            virtual ::ecore::EReference_ptr getAbstractStructureElement__structureElement();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractStructureElement__structureRelationship();
+            virtual ::ecore::EReference_ptr getAbstractStructureElement__structureRelationship();
 
             virtual ::ecore::EReference_ptr getKDMFramework__audit();
 
@@ -368,8 +364,7 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getKDMFramework__name();
 
-            virtual ::ecore::EReference_ptr
-                    getStructureModel__structureElement();
+            virtual ::ecore::EReference_ptr getStructureModel__structureElement();
 
             virtual ::ecore::EReference_ptr getStructureRelationship__to();
 
@@ -405,9 +400,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -425,11 +418,9 @@ namespace kdm
 
             ::ecore::EReference_ptr m_AbstractStructureElement__implementation;
 
-            ::ecore::EReference_ptr
-                    m_AbstractStructureElement__structureElement;
+            ::ecore::EReference_ptr m_AbstractStructureElement__structureElement;
 
-            ::ecore::EReference_ptr
-                    m_AbstractStructureElement__structureRelationship;
+            ::ecore::EReference_ptr m_AbstractStructureElement__structureRelationship;
 
             ::ecore::EReference_ptr m_KDMFramework__audit;
 
@@ -448,5 +439,5 @@ namespace kdm
     } // structure
 } // kdm
 
-
 #endif // _KDM_STRUCTUREPACKAGE_HPP
+

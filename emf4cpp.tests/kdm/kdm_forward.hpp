@@ -43,16 +43,15 @@
 #include <kdm/ui_forward.hpp>
 
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-
-    // Package & Factory
+// Package & Factory
     class KdmFactory;
     typedef KdmFactory * KdmFactory_ptr;
     class KdmPackage;
@@ -61,10 +60,10 @@ namespace kdm
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // kdm
 
-
 #endif // _KDM_FORWARD_HPP
+

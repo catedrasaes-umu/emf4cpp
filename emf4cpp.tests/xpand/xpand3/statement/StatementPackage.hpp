@@ -228,8 +228,7 @@ namespace xpand3
             static const int IFSTATEMENT__FILENAME =
                     ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME;
 
-            static const int IFSTATEMENT__BODY =
-                    ABSTRACTSTATEMENTWITHBODY__BODY;
+            static const int IFSTATEMENT__BODY = ABSTRACTSTATEMENTWITHBODY__BODY;
 
             // IDs for classifiers for class LetStatement 
 
@@ -323,19 +322,15 @@ namespace xpand3
 
             virtual ::ecore::EReference_ptr getExpandStatement__definition();
 
-            virtual ::ecore::EReference_ptr
-                    getExpressionStatement__expression();
+            virtual ::ecore::EReference_ptr getExpressionStatement__expression();
 
             virtual ::ecore::EReference_ptr getErrorStatement__message();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractStatementWithBody__body();
+            virtual ::ecore::EReference_ptr getAbstractStatementWithBody__body();
 
-            virtual ::ecore::EReference_ptr
-                    getFileStatement__fileNameExpression();
+            virtual ::ecore::EReference_ptr getFileStatement__fileNameExpression();
 
-            virtual ::ecore::EReference_ptr
-                    getFileStatement__outletNameIdentifier();
+            virtual ::ecore::EReference_ptr getFileStatement__outletNameIdentifier();
 
             virtual ::ecore::EAttribute_ptr getFileStatement__once();
 
@@ -399,9 +394,7 @@ namespace xpand3
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -468,5 +461,5 @@ namespace xpand3
     } // statement
 } // xpand3
 
-
 #endif // _XPAND3_STATEMENTPACKAGE_HPP
+

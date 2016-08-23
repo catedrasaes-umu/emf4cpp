@@ -49,7 +49,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -79,7 +78,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::expression::AbstractExpression_ptr m_expression;
@@ -90,3 +88,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_EXTENSIONASPECT_HPP
+

@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "myDsl/Model.hpp"
 #include "myDsl/Import.hpp"

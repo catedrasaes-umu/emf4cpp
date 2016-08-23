@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getTag() const;
             void setTag(::kdm::core::String _tag);
@@ -56,7 +55,6 @@ namespace kdm
             void setType(::kdm::core::String _type);
 
             // References
-
 
             /*PROTECTED REGION ID(TagDefinition) START*/
             // Please, enable the protected region if you add manually written code.
@@ -92,3 +90,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_TAGDEFINITION_HPP
+

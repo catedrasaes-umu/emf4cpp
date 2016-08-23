@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getNamespace() const;
         void setNamespace(::PrimitiveTypes::String _namespace);
@@ -91,14 +90,15 @@ namespace SVG
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::SVG::SvgFile > > m_owner_SVG;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner_SVG;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::SVG::Element > > m_children;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::SVG::Element > > m_children;
 
     };
 
 } // SVG
 
 #endif // SVG_SVG_HPP
+

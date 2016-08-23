@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getSx() const;
         void setSx(::PrimitiveTypes::Double _sx);
@@ -54,7 +53,6 @@ namespace SVG
         void setSy(::PrimitiveTypes::Double _sy);
 
         // References
-
 
         /*PROTECTED REGION ID(Scale) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_SCALE_HPP
+

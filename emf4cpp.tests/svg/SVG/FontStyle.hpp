@@ -45,13 +45,11 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Boolean getItalic() const;
         void setItalic(::PrimitiveTypes::Boolean _italic);
 
         // References
-
 
         /*PROTECTED REGION ID(FontStyle) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_FONTSTYLE_HPP
+

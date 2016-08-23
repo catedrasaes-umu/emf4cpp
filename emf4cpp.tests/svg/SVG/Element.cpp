@@ -39,7 +39,7 @@ using namespace ::SVG;
 
 // Default constructor
 Element::Element() :
-    m_position(0), m_size(0), m_root(0), m_group(0), m_drawsMarker(0)
+        m_position(0), m_size(0), m_root(0), m_group(0), m_drawsMarker(0)
 {
 
     m_owner.reset(
@@ -53,8 +53,8 @@ Element::Element() :
                     false, true >(this, NULL));
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -80,7 +80,6 @@ Element::~Element()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String Element::getFill() const
 {
     return m_fill;

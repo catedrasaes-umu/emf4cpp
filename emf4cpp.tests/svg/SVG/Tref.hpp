@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -74,7 +73,6 @@ namespace SVG
     protected:
         // Attributes
 
-
         // References
 
         ::SVG::TextElement_ptr m_xlinkHref;
@@ -84,3 +82,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_TREF_HPP
+

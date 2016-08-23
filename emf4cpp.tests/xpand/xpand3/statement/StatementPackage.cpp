@@ -21,8 +21,7 @@
 
 using namespace ::xpand3::statement;
 
-std::auto_ptr< ::xpand3::statement::StatementPackage >
-        StatementPackage::s_instance;
+std::auto_ptr< ::xpand3::statement::StatementPackage > StatementPackage::s_instance;
 
 ::xpand3::statement::StatementPackage_ptr StatementPackage::_instance()
 {

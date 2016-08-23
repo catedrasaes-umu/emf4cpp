@@ -56,7 +56,6 @@ void ProducesEvent::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ProducesEvent::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -66,32 +65,32 @@ void ProducesEvent::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject > ();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::event::EventPackage::PRODUCESEVENT__TO:
     {
-        _any = static_cast< ::ecore::EObject* > (m_to);
+        _any = static_cast< ::ecore::EObject* >(m_to);
     }
         return _any;
     case ::kdm::event::EventPackage::PRODUCESEVENT__FROM:
     {
-        _any = static_cast< ::ecore::EObject* > (m_from);
+        _any = static_cast< ::ecore::EObject* >(m_from);
     }
         return _any;
 
@@ -106,55 +105,51 @@ void ProducesEvent::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::event::EventPackage::PRODUCESEVENT__TO:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::kdm::event::Event_ptr _t1 =
-                dynamic_cast< ::kdm::event::Event_ptr > (_t0);
+                dynamic_cast< ::kdm::event::Event_ptr >(_t0);
         ::kdm::event::ProducesEvent::setTo(_t1);
     }
         return;
     case ::kdm::event::EventPackage::PRODUCESEVENT__FROM:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::kdm::action::ActionElement_ptr _t1 =
-                dynamic_cast< ::kdm::action::ActionElement_ptr > (_t0);
+                dynamic_cast< ::kdm::action::ActionElement_ptr >(_t0);
         ::kdm::event::ProducesEvent::setFrom(_t1);
     }
         return;
@@ -195,9 +190,8 @@ void ProducesEvent::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ProducesEvent::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::event::EventPackage_ptr > (::kdm::event::EventPackage::_instance())->getProducesEvent();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::event::EventPackage_ptr >(::kdm::event::EventPackage::_instance())->getProducesEvent();
     return _eclass;
 }
 

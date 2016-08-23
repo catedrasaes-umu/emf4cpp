@@ -45,13 +45,11 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getContent() const;
         void setContent(::PrimitiveTypes::String _content);
 
         // References
-
 
         /*PROTECTED REGION ID(Tspan) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_TSPAN_HPP
+

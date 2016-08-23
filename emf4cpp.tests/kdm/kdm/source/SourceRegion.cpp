@@ -35,12 +35,12 @@ using namespace ::kdm::source;
 
 // Default constructor
 SourceRegion::SourceRegion() :
-    m_file(0)
+        m_file(0)
 {
 
     /*PROTECTED REGION ID(SourceRegionImpl__SourceRegionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -58,7 +58,6 @@ SourceRegion::~SourceRegion()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::Integer SourceRegion::getStartLine() const
 {
     return m_startLine;

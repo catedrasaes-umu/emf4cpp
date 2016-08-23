@@ -33,12 +33,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 ConstructorCallExpression::ConstructorCallExpression() :
-    m_type(0)
+        m_type(0)
 {
 
     /*PROTECTED REGION ID(ConstructorCallExpressionImpl__ConstructorCallExpressionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -60,7 +60,6 @@ ConstructorCallExpression::~ConstructorCallExpression()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr ConstructorCallExpression::getType()
 {

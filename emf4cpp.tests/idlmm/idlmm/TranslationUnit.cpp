@@ -36,15 +36,15 @@ TranslationUnit::TranslationUnit()
 {
 
     m_contains.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained, -1,
+                    true, false >(this, NULL));
     m_includes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Include, -1,
                     true, false >(this, NULL));
 
     /*PROTECTED REGION ID(TranslationUnitImpl__TranslationUnitImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ TranslationUnit::~TranslationUnit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& TranslationUnit::getIdentifier() const
 {
     return m_identifier;

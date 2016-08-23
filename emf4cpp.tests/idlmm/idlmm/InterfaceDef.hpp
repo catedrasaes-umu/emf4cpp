@@ -47,7 +47,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isIsAbstract() const;
         void setIsAbstract(::ecore::EBoolean _isAbstract);
@@ -91,11 +90,12 @@ namespace idlmm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::InterfaceDef > > m_derivesFrom;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef > > m_derivesFrom;
 
     };
 
 } // idlmm
 
 #endif // IDLMM_INTERFACEDEF_HPP
+

@@ -114,7 +114,8 @@ JsonPackage::JsonPackage()
     getEClassifiers().push_back(m_ArrayValueEClass);
     m_ArrayValue__values = new ::ecore::EReference();
     m_ArrayValue__values->setFeatureID(::json::JsonPackage::ARRAYVALUE__VALUES);
-    m_ArrayValueEClass->getEStructuralFeatures().push_back(m_ArrayValue__values);
+    m_ArrayValueEClass->getEStructuralFeatures().push_back(
+            m_ArrayValue__values);
 
     // NullValue
     m_NullValueEClass = new ::ecore::EClass();
@@ -124,9 +125,7 @@ JsonPackage::JsonPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("json");
@@ -167,7 +166,7 @@ JsonPackage::JsonPackage()
     m_NVPairEClass->setAbstract(false);
     m_NVPairEClass->setInterface(false);
     m_NVPair__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_NVPair__name->setName("name");
     m_NVPair__name->setDefaultValueLiteral("");
     m_NVPair__name->setLowerBound(0);
@@ -202,7 +201,7 @@ JsonPackage::JsonPackage()
     m_StringValueEClass->setAbstract(false);
     m_StringValueEClass->setInterface(false);
     m_StringValue__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_StringValue__value->setName("value");
     m_StringValue__value->setDefaultValueLiteral("");
     m_StringValue__value->setLowerBound(0);
@@ -220,7 +219,7 @@ JsonPackage::JsonPackage()
     m_NumberValueEClass->setAbstract(false);
     m_NumberValueEClass->setInterface(false);
     m_NumberValue__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEDouble());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEDouble());
     m_NumberValue__value->setName("value");
     m_NumberValue__value->setDefaultValueLiteral("");
     m_NumberValue__value->setLowerBound(0);
@@ -238,7 +237,7 @@ JsonPackage::JsonPackage()
     m_BooleanValueEClass->setAbstract(false);
     m_BooleanValueEClass->setInterface(false);
     m_BooleanValue__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_BooleanValue__value->setName("value");
     m_BooleanValue__value->setDefaultValueLiteral("");
     m_BooleanValue__value->setLowerBound(0);
@@ -274,7 +273,6 @@ JsonPackage::JsonPackage()
     m_NullValueEClass->setInterface(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

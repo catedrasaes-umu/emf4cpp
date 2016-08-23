@@ -46,9 +46,7 @@ PrimitiveTypesPackage::PrimitiveTypesPackage()
 
     // Create classes and their features
 
-
     // Create enums
-
 
     // Create data types
 
@@ -83,7 +81,6 @@ PrimitiveTypesPackage::PrimitiveTypesPackage()
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
-
 
     // TODO: Initialize data types
 

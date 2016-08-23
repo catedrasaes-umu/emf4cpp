@@ -108,7 +108,6 @@ namespace xpand3
 
         // IDs for classifiers for class SyntaxElement 
 
-
         // EClassifiers methods
 
         virtual ::ecore::EClass_ptr getSyntaxElement();
@@ -165,9 +164,7 @@ namespace xpand3
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -197,5 +194,5 @@ namespace xpand3
 
 } // xpand3
 
-
 #endif // _XPAND3PACKAGE_HPP
+

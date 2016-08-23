@@ -55,7 +55,8 @@ IdlmmPackage::IdlmmPackage()
     m_Container__contains = new ::ecore::EReference();
     m_Container__contains->setFeatureID(
             ::idlmm::IdlmmPackage::CONTAINER__CONTAINS);
-    m_ContainerEClass->getEStructuralFeatures().push_back(m_Container__contains);
+    m_ContainerEClass->getEStructuralFeatures().push_back(
+            m_Container__contains);
 
     // Contained
     m_ContainedEClass = new ::ecore::EClass();
@@ -483,14 +484,14 @@ IdlmmPackage::IdlmmPackage()
     m_Container__contains->setDerived(false);
     m_Container__contains->setOrdered(true);
     m_Container__contains->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ContainedEClass->getEStructuralFeatures()[4]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ContainedEClass->getEStructuralFeatures()[4]));
     // Contained
     m_ContainedEClass->setName("Contained");
     m_ContainedEClass->setAbstract(true);
     m_ContainedEClass->setInterface(false);
     m_Contained__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Contained__identifier->setName("identifier");
     m_Contained__identifier->setDefaultValueLiteral("");
     m_Contained__identifier->setLowerBound(0);
@@ -504,7 +505,7 @@ IdlmmPackage::IdlmmPackage()
     m_Contained__identifier->setDerived(false);
     m_Contained__identifier->setOrdered(true);
     m_Contained__repositoryId->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Contained__repositoryId->setName("repositoryId");
     m_Contained__repositoryId->setDefaultValueLiteral("");
     m_Contained__repositoryId->setLowerBound(0);
@@ -518,7 +519,7 @@ IdlmmPackage::IdlmmPackage()
     m_Contained__repositoryId->setDerived(false);
     m_Contained__repositoryId->setOrdered(true);
     m_Contained__version->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Contained__version->setName("version");
     m_Contained__version->setDefaultValueLiteral("");
     m_Contained__version->setLowerBound(0);
@@ -532,7 +533,7 @@ IdlmmPackage::IdlmmPackage()
     m_Contained__version->setDerived(false);
     m_Contained__version->setOrdered(true);
     m_Contained__absoluteName->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Contained__absoluteName->setName("absoluteName");
     m_Contained__absoluteName->setDefaultValueLiteral("");
     m_Contained__absoluteName->setLowerBound(0);
@@ -559,14 +560,14 @@ IdlmmPackage::IdlmmPackage()
     m_Contained__definedIn->setDerived(false);
     m_Contained__definedIn->setOrdered(true);
     m_Contained__definedIn->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_ContainerEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_ContainerEClass->getEStructuralFeatures()[0]));
     // InterfaceDef
     m_InterfaceDefEClass->setName("InterfaceDef");
     m_InterfaceDefEClass->setAbstract(false);
     m_InterfaceDefEClass->setInterface(false);
     m_InterfaceDef__isAbstract->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_InterfaceDef__isAbstract->setName("isAbstract");
     m_InterfaceDef__isAbstract->setDefaultValueLiteral("");
     m_InterfaceDef__isAbstract->setLowerBound(0);
@@ -580,7 +581,7 @@ IdlmmPackage::IdlmmPackage()
     m_InterfaceDef__isAbstract->setDerived(false);
     m_InterfaceDef__isAbstract->setOrdered(true);
     m_InterfaceDef__isCustom->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_InterfaceDef__isCustom->setName("isCustom");
     m_InterfaceDef__isCustom->setDefaultValueLiteral("");
     m_InterfaceDef__isCustom->setLowerBound(0);
@@ -594,7 +595,7 @@ IdlmmPackage::IdlmmPackage()
     m_InterfaceDef__isCustom->setDerived(false);
     m_InterfaceDef__isCustom->setOrdered(true);
     m_InterfaceDef__isTruncatable->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_InterfaceDef__isTruncatable->setName("isTruncatable");
     m_InterfaceDef__isTruncatable->setDefaultValueLiteral("");
     m_InterfaceDef__isTruncatable->setLowerBound(0);
@@ -625,7 +626,7 @@ IdlmmPackage::IdlmmPackage()
     m_ModuleDefEClass->setAbstract(false);
     m_ModuleDefEClass->setInterface(false);
     m_ModuleDef__prefix->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_ModuleDef__prefix->setName("prefix");
     m_ModuleDef__prefix->setDefaultValueLiteral("");
     m_ModuleDef__prefix->setLowerBound(0);
@@ -660,7 +661,7 @@ IdlmmPackage::IdlmmPackage()
     m_OperationDefEClass->setAbstract(false);
     m_OperationDefEClass->setInterface(false);
     m_OperationDef__isOneway->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_OperationDef__isOneway->setName("isOneway");
     m_OperationDef__isOneway->setDefaultValueLiteral("");
     m_OperationDef__isOneway->setLowerBound(0);
@@ -674,7 +675,7 @@ IdlmmPackage::IdlmmPackage()
     m_OperationDef__isOneway->setDerived(false);
     m_OperationDef__isOneway->setOrdered(true);
     m_OperationDef__contexts->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_OperationDef__contexts->setName("contexts");
     m_OperationDef__contexts->setDefaultValueLiteral("");
     m_OperationDef__contexts->setLowerBound(0);
@@ -718,7 +719,7 @@ IdlmmPackage::IdlmmPackage()
     m_AttributeDefEClass->setAbstract(false);
     m_AttributeDefEClass->setInterface(false);
     m_AttributeDef__isReadonly->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_AttributeDef__isReadonly->setName("isReadonly");
     m_AttributeDef__isReadonly->setDefaultValueLiteral("");
     m_AttributeDef__isReadonly->setLowerBound(0);
@@ -809,7 +810,7 @@ IdlmmPackage::IdlmmPackage()
     m_ParameterDefEClass->setAbstract(false);
     m_ParameterDefEClass->setInterface(false);
     m_ParameterDef__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_ParameterDef__identifier->setName("identifier");
     m_ParameterDef__identifier->setDefaultValueLiteral("");
     m_ParameterDef__identifier->setLowerBound(0);
@@ -887,7 +888,7 @@ IdlmmPackage::IdlmmPackage()
     m_FieldEClass->setAbstract(false);
     m_FieldEClass->setInterface(false);
     m_Field__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Field__identifier->setName("identifier");
     m_Field__identifier->setDefaultValueLiteral("");
     m_Field__identifier->setLowerBound(0);
@@ -905,7 +906,7 @@ IdlmmPackage::IdlmmPackage()
     m_FixedDefEClass->setAbstract(false);
     m_FixedDefEClass->setInterface(false);
     m_FixedDef__digits->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_FixedDef__digits->setName("digits");
     m_FixedDef__digits->setDefaultValueLiteral("");
     m_FixedDef__digits->setLowerBound(0);
@@ -919,7 +920,7 @@ IdlmmPackage::IdlmmPackage()
     m_FixedDef__digits->setDerived(false);
     m_FixedDef__digits->setOrdered(true);
     m_FixedDef__scale->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_FixedDef__scale->setName("scale");
     m_FixedDef__scale->setDefaultValueLiteral("");
     m_FixedDef__scale->setLowerBound(0);
@@ -937,7 +938,7 @@ IdlmmPackage::IdlmmPackage()
     m_WstringDefEClass->setAbstract(false);
     m_WstringDefEClass->setInterface(false);
     m_WstringDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_WstringDef__bound->setName("bound");
     m_WstringDef__bound->setDefaultValueLiteral("");
     m_WstringDef__bound->setLowerBound(0);
@@ -955,7 +956,7 @@ IdlmmPackage::IdlmmPackage()
     m_StringDefEClass->setAbstract(false);
     m_StringDefEClass->setInterface(false);
     m_StringDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_StringDef__bound->setName("bound");
     m_StringDef__bound->setDefaultValueLiteral("");
     m_StringDef__bound->setLowerBound(0);
@@ -977,7 +978,7 @@ IdlmmPackage::IdlmmPackage()
     m_ArrayDefEClass->setAbstract(false);
     m_ArrayDefEClass->setInterface(false);
     m_ArrayDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_ArrayDef__bound->setName("bound");
     m_ArrayDef__bound->setDefaultValueLiteral("");
     m_ArrayDef__bound->setLowerBound(0);
@@ -995,7 +996,7 @@ IdlmmPackage::IdlmmPackage()
     m_SequenceDefEClass->setAbstract(false);
     m_SequenceDefEClass->setInterface(false);
     m_SequenceDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_SequenceDef__bound->setName("bound");
     m_SequenceDef__bound->setDefaultValueLiteral("");
     m_SequenceDef__bound->setLowerBound(0);
@@ -1013,7 +1014,7 @@ IdlmmPackage::IdlmmPackage()
     m_UnionFieldEClass->setAbstract(false);
     m_UnionFieldEClass->setInterface(false);
     m_UnionField__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_UnionField__identifier->setName("identifier");
     m_UnionField__identifier->setDefaultValueLiteral("");
     m_UnionField__identifier->setLowerBound(0);
@@ -1091,7 +1092,7 @@ IdlmmPackage::IdlmmPackage()
     m_EnumDefEClass->setAbstract(false);
     m_EnumDefEClass->setInterface(false);
     m_EnumDef__members->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_EnumDef__members->setName("members");
     m_EnumDef__members->setDefaultValueLiteral("");
     m_EnumDef__members->setLowerBound(0);
@@ -1126,7 +1127,7 @@ IdlmmPackage::IdlmmPackage()
     m_TranslationUnitEClass->setAbstract(false);
     m_TranslationUnitEClass->setInterface(false);
     m_TranslationUnit__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_TranslationUnit__identifier->setName("identifier");
     m_TranslationUnit__identifier->setDefaultValueLiteral("");
     m_TranslationUnit__identifier->setLowerBound(0);
@@ -1170,7 +1171,7 @@ IdlmmPackage::IdlmmPackage()
     m_IncludeEClass->setAbstract(false);
     m_IncludeEClass->setInterface(false);
     m_Include__importURI->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Include__importURI->setName("importURI");
     m_Include__importURI->setDefaultValueLiteral("");
     m_Include__importURI->setLowerBound(0);

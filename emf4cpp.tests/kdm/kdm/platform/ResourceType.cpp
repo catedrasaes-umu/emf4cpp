@@ -52,8 +52,8 @@ ResourceType::ResourceType()
                     this, NULL));
 
     /*PROTECTED REGION ID(ResourceTypeImpl__ResourceTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +71,6 @@ ResourceType::~ResourceType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& ResourceType::getPlatformElement()
 {

@@ -36,8 +36,7 @@ namespace kdm
 
             virtual AbstractPlatformElement_ptr createAbstractPlatformElement();
             virtual PlatformModel_ptr createPlatformModel();
-            virtual AbstractPlatformRelationship_ptr
-                    createAbstractPlatformRelationship();
+            virtual AbstractPlatformRelationship_ptr createAbstractPlatformRelationship();
             virtual Requires_ptr createRequires();
             virtual ResourceType_ptr createResourceType();
             virtual NamingResource_ptr createNamingResource();
@@ -87,5 +86,5 @@ namespace kdm
     } // platform
 } // kdm
 
-
 #endif // _KDM_PLATFORMFACTORY_HPP
+

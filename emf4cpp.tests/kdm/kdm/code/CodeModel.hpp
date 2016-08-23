@@ -48,12 +48,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >
-                    & getCodeElement();
+            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement();
 
             /*PROTECTED REGION ID(CodeModel) START*/
             // Please, enable the protected region if you add manually written code.
@@ -77,11 +75,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::AbstractCodeElement > > m_codeElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement > > m_codeElement;
 
         };
 
@@ -89,3 +86,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_CODEMODEL_HPP
+

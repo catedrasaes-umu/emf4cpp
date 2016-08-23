@@ -44,7 +44,6 @@ namespace json
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -72,7 +71,6 @@ namespace json
     protected:
         // Attributes
 
-
         // References
 
         ::ecorecpp::mapping::out_ptr<
@@ -83,3 +81,4 @@ namespace json
 } // json
 
 #endif // JSON_ARRAYVALUE_HPP
+

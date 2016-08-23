@@ -45,8 +45,8 @@ Directory::Directory()
 {
 
     /*PROTECTED REGION ID(DirectoryImpl__DirectoryImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -64,7 +64,6 @@ Directory::~Directory()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String Directory::getPath() const
 {
     return m_path;

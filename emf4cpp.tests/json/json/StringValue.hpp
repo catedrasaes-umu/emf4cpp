@@ -45,13 +45,11 @@ namespace json
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getValue() const;
         void setValue(::ecore::EString const& _value);
 
         // References
-
 
         /*PROTECTED REGION ID(StringValue) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace json
 } // json
 
 #endif // JSON_STRINGVALUE_HPP
+

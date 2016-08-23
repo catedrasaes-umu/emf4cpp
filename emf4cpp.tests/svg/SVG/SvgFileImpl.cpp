@@ -52,7 +52,6 @@ void SvgFile::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject SvgFile::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -62,23 +61,23 @@ void SvgFile::_initialize()
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        _any = m_referer->asEListOf< ::ecore::EObject > ();
+        _any = m_referer->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::toAny(
-                _any, m_name);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::SVG::SVGPackage::SVGFILE__TAG:
     {
-        _any = static_cast< ::ecore::EObject* > (m_tag);
+        _any = static_cast< ::ecore::EObject* >(m_tag);
     }
         return _any;
     case ::SVG::SVGPackage::SVGFILE__ELEMENTS:
     {
-        _any = m_elements->asEListOf< ::ecore::EObject > ();
+        _any = m_elements->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -93,32 +92,30 @@ void SvgFile::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::ReferencedFile::getReferer().clear();
         ::SVG::ReferencedFile::getReferer().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::String >::fromAny(
-                _newValue, m_name);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::SVG::SVGPackage::SVGFILE__TAG:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr >(_t0);
         ::SVG::SvgFile::setTag(_t1);
     }
         return;
     case ::SVG::SVGPackage::SVGFILE__ELEMENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::SvgFile::getElements().clear();
         ::SVG::SvgFile::getElements().insert_all(*_t0);
     }
@@ -135,8 +132,8 @@ void SvgFile::eSet(::ecore::EInt _featureID,
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
         return m_referer && m_referer->size();
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::String >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
+                > ::is_set(m_name);
     case ::SVG::SVGPackage::SVGFILE__TAG:
         return m_tag;
     case ::SVG::SVGPackage::SVGFILE__ELEMENTS:
@@ -157,9 +154,8 @@ void SvgFile::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr SvgFile::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getSvgFile();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getSvgFile();
     return _eclass;
 }
 

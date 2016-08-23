@@ -48,11 +48,9 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
-
 
             /*PROTECTED REGION ID(BooleanLiteral) START*/
             // Please, enable the protected region if you add manually written code.
@@ -76,7 +74,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
         };
@@ -85,3 +82,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_EXPRESSION_BOOLEANLITERAL_HPP
+

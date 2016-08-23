@@ -53,7 +53,6 @@ void InterfaceDef::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject InterfaceDef::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -63,65 +62,65 @@ void InterfaceDef::_initialize()
     {
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_identifier);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_repositoryId);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_repositoryId);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_version);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_version);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_absoluteName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_absoluteName);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
-        _any = static_cast< ::ecore::EObject* > (m_definedIn);
+        _any = static_cast< ::ecore::EObject* >(m_definedIn);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
     {
-        _any = m_contains->asEListOf< ::ecore::EObject > ();
+        _any = m_contains->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::toAny(_any,
-                m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::toAny(_any, m_typeCode);
     }
         return _any;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISABSTRACT:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_isAbstract);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_isAbstract);
     }
         return _any;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISCUSTOM:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_isCustom);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_isCustom);
     }
         return _any;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISTRUNCATABLE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_isTruncatable);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_isTruncatable);
     }
         return _any;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__DERIVESFROM:
     {
-        _any = m_derivesFrom->asEListOf< ::ecore::EObject > ();
+        _any = m_derivesFrom->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -136,75 +135,72 @@ void InterfaceDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_identifier);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_repositoryId);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_repositoryId);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_version);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_version);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_absoluteName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_absoluteName);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::idlmm::Container_ptr _t1 =
-                dynamic_cast< ::idlmm::Container_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
         ::idlmm::Contained::setDefinedIn(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::idlmm::Container::getContains().clear();
         ::idlmm::Container::getContains().insert_all(*_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::fromAny(
-                _newValue, m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::fromAny(_newValue, m_typeCode);
     }
         return;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISABSTRACT:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_isAbstract);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_isAbstract);
     }
         return;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISCUSTOM:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_isCustom);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_isCustom);
     }
         return;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISTRUNCATABLE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_isTruncatable);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_isTruncatable);
     }
         return;
     case ::idlmm::IdlmmPackage::INTERFACEDEF__DERIVESFROM:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::idlmm::InterfaceDef::getDerivesFrom().clear();
         ::idlmm::InterfaceDef::getDerivesFrom().insert_all(*_t0);
     }
@@ -219,33 +215,33 @@ void InterfaceDef::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_identifier);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_identifier);
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_repositoryId);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_repositoryId);
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_version);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_version);
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_absoluteName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_absoluteName);
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
         return m_definedIn;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
         return m_contains && m_contains->size();
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
-        return ::ecorecpp::mapping::set_traits< ::idlmm::ETypeCode >::is_set(
-                m_typeCode);
+        return ::ecorecpp::mapping::set_traits < ::idlmm::ETypeCode
+                > ::is_set(m_typeCode);
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISABSTRACT:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_isAbstract);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_isAbstract);
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISCUSTOM:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_isCustom);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_isCustom);
     case ::idlmm::IdlmmPackage::INTERFACEDEF__ISTRUNCATABLE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_isTruncatable);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_isTruncatable);
     case ::idlmm::IdlmmPackage::INTERFACEDEF__DERIVESFROM:
         return m_derivesFrom && m_derivesFrom->size();
 
@@ -264,9 +260,8 @@ void InterfaceDef::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr InterfaceDef::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getInterfaceDef();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getInterfaceDef();
     return _eclass;
 }
 

@@ -30,49 +30,48 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace json
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // ObjectValue
+// ObjectValue
     class ObjectValue;
     typedef ObjectValue* ObjectValue_ptr;
 
-    // NVPair
+// NVPair
     class NVPair;
     typedef NVPair* NVPair_ptr;
 
-    // Value
+// Value
     class Value;
     typedef Value* Value_ptr;
 
-    // StringValue
+// StringValue
     class StringValue;
     typedef StringValue* StringValue_ptr;
 
-    // NumberValue
+// NumberValue
     class NumberValue;
     typedef NumberValue* NumberValue_ptr;
 
-    // BooleanValue
+// BooleanValue
     class BooleanValue;
     typedef BooleanValue* BooleanValue_ptr;
 
-    // ArrayValue
+// ArrayValue
     class ArrayValue;
     typedef ArrayValue* ArrayValue_ptr;
 
-    // NullValue
+// NullValue
     class NullValue;
     typedef NullValue* NullValue_ptr;
 
-    // Package & Factory
+// Package & Factory
     class JsonFactory;
     typedef JsonFactory * JsonFactory_ptr;
     class JsonPackage;
@@ -81,10 +80,10 @@ namespace json
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // json
 
-
 #endif // _JSON_FORWARD_HPP
+

@@ -45,7 +45,6 @@ namespace CST
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getValue() const;
         void setValue(::ecore::EString const& _value);
@@ -57,7 +56,6 @@ namespace CST
         void setLine(::ecore::EInt _line);
 
         // References
-
 
         /*PROTECTED REGION ID(Leaf) START*/
         // Please, enable the protected region if you add manually written code.
@@ -94,3 +92,4 @@ namespace CST
 } // CST
 
 #endif // CST_LEAF_HPP
+

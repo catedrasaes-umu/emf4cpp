@@ -34,8 +34,8 @@ Element::Element()
 {
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -53,7 +53,6 @@ Element::~Element()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& Element::getKind() const
 {
     return m_kind;

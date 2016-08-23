@@ -51,7 +51,6 @@ void Attribute::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Attribute::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -61,24 +60,24 @@ void Attribute::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__TAG:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_tag);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_tag);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_value);
     }
         return _any;
 
@@ -93,32 +92,30 @@ void Attribute::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__TAG:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_tag);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_tag);
     }
         return;
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_value);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_value);
     }
         return;
 
@@ -135,11 +132,11 @@ void Attribute::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
         return m_annotation && m_annotation->size();
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__TAG:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_tag);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_tag);
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_value);
 
     }
     throw "Error";
@@ -156,9 +153,8 @@ void Attribute::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Attribute::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::kdm::KdmPackage_ptr > (::kdm::kdm::KdmPackage::_instance())->getAttribute();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getAttribute();
     return _eclass;
 }
 

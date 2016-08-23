@@ -50,5 +50,5 @@ namespace kdm
 
 } // kdm
 
-
 #endif // _KDMFACTORY_HPP
+

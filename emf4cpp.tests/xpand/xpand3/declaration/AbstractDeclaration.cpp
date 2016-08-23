@@ -35,7 +35,7 @@ using namespace ::xpand3::declaration;
 
 // Default constructor
 AbstractDeclaration::AbstractDeclaration() :
-    m_owner(0), m_guard(0)
+        m_owner(0), m_guard(0)
 {
 
     m_params.reset(
@@ -43,8 +43,8 @@ AbstractDeclaration::AbstractDeclaration() :
                     ::xpand3::DeclaredParameter, -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(AbstractDeclarationImpl__AbstractDeclarationImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -70,7 +70,6 @@ AbstractDeclaration::~AbstractDeclaration()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean AbstractDeclaration::isIsPrivate() const
 {
     return m_isPrivate;

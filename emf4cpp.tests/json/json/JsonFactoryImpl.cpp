@@ -74,8 +74,7 @@ JsonFactory::JsonFactory()
     }
 }
 
-::ecore::EString JsonFactory::convertToString(
-        ::ecore::EDataType_ptr _eDataType,
+::ecore::EString JsonFactory::convertToString(::ecore::EDataType_ptr _eDataType,
         ::ecore::EJavaObject const& _instanceValue)
 {
     switch (_eDataType->getClassifierID())

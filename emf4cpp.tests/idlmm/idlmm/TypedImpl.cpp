@@ -55,7 +55,6 @@ void Typed::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Typed::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -65,12 +64,12 @@ void Typed::_initialize()
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_containedType);
+        _any = static_cast< ::ecore::EObject* >(m_containedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_sharedType);
+        _any = static_cast< ::ecore::EObject* >(m_sharedType);
     }
         return _any;
 
@@ -85,18 +84,18 @@ void Typed::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr >(_t0);
         ::idlmm::Typed::setContainedType(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::idlmm::TypedefDef_ptr _t1 =
-                dynamic_cast< ::idlmm::TypedefDef_ptr > (_t0);
+                dynamic_cast< ::idlmm::TypedefDef_ptr >(_t0);
         ::idlmm::Typed::setSharedType(_t1);
     }
         return;
@@ -129,9 +128,8 @@ void Typed::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Typed::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getTyped();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getTyped();
     return _eclass;
 }
 

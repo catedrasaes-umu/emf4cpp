@@ -34,7 +34,7 @@ using namespace ::myDsl;
 
 // Default constructor
 Entity::Entity() :
-    m_extends(0)
+        m_extends(0)
 {
 
     m_properties.reset(
@@ -42,8 +42,8 @@ Entity::Entity() :
                     true, false >(this, NULL));
 
     /*PROTECTED REGION ID(EntityImpl__EntityImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ Entity::~Entity()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::myDsl::Entity_ptr Entity::getExtends()
 {

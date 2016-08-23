@@ -30,29 +30,28 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace tree
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // TreeNode
+// TreeNode
     class TreeNode;
     typedef TreeNode* TreeNode_ptr;
 
-    // Leaf
+// Leaf
     class Leaf;
     typedef Leaf* Leaf_ptr;
 
-    // NonTerminal
+// NonTerminal
     class NonTerminal;
     typedef NonTerminal* NonTerminal_ptr;
 
-    // Package & Factory
+// Package & Factory
     class TreeFactory;
     typedef TreeFactory * TreeFactory_ptr;
     class TreePackage;
@@ -61,10 +60,10 @@ namespace tree
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // tree
 
-
 #endif // _TREE_FORWARD_HPP
+

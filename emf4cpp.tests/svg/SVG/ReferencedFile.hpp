@@ -47,7 +47,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getName() const;
         void setName(::PrimitiveTypes::String _name);
@@ -81,11 +80,11 @@ namespace SVG
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Image > >
-                m_referer;
+        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Image > > m_referer;
 
     };
 
 } // SVG
 
 #endif // SVG_REFERENCEDFILE_HPP
+

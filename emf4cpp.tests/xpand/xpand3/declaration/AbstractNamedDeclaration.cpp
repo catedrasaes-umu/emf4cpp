@@ -36,12 +36,12 @@ using namespace ::xpand3::declaration;
 
 // Default constructor
 AbstractNamedDeclaration::AbstractNamedDeclaration() :
-    m_name(0)
+        m_name(0)
 {
 
     /*PROTECTED REGION ID(AbstractNamedDeclarationImpl__AbstractNamedDeclarationImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -63,7 +63,6 @@ AbstractNamedDeclaration::~AbstractNamedDeclaration()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr AbstractNamedDeclaration::getName()
 {

@@ -30,92 +30,90 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace source
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // SourceRef
+// SourceRef
         class SourceRef;
         typedef SourceRef* SourceRef_ptr;
 
-        // SourceRegion
+// SourceRegion
         class SourceRegion;
         typedef SourceRegion* SourceRegion_ptr;
 
-        // InventoryModel
+// InventoryModel
         class InventoryModel;
         typedef InventoryModel* InventoryModel_ptr;
 
-        // AbstractInventoryElement
+// AbstractInventoryElement
         class AbstractInventoryElement;
         typedef AbstractInventoryElement* AbstractInventoryElement_ptr;
 
-        // InventoryItem
+// InventoryItem
         class InventoryItem;
         typedef InventoryItem* InventoryItem_ptr;
 
-        // SourceFile
+// SourceFile
         class SourceFile;
         typedef SourceFile* SourceFile_ptr;
 
-        // Image
+// Image
         class Image;
         typedef Image* Image_ptr;
 
-        // ResourceDescription
+// ResourceDescription
         class ResourceDescription;
         typedef ResourceDescription* ResourceDescription_ptr;
 
-        // Configuration
+// Configuration
         class Configuration;
         typedef Configuration* Configuration_ptr;
 
-        // InventoryContainer
+// InventoryContainer
         class InventoryContainer;
         typedef InventoryContainer* InventoryContainer_ptr;
 
-        // Directory
+// Directory
         class Directory;
         typedef Directory* Directory_ptr;
 
-        // Project
+// Project
         class Project;
         typedef Project* Project_ptr;
 
-        // AbstractInventoryRelationship
+// AbstractInventoryRelationship
         class AbstractInventoryRelationship;
-        typedef AbstractInventoryRelationship
-                * AbstractInventoryRelationship_ptr;
+        typedef AbstractInventoryRelationship* AbstractInventoryRelationship_ptr;
 
-        // BinaryFile
+// BinaryFile
         class BinaryFile;
         typedef BinaryFile* BinaryFile_ptr;
 
-        // ExecutableFile
+// ExecutableFile
         class ExecutableFile;
         typedef ExecutableFile* ExecutableFile_ptr;
 
-        // DependsOn
+// DependsOn
         class DependsOn;
         typedef DependsOn* DependsOn_ptr;
 
-        // InventoryElement
+// InventoryElement
         class InventoryElement;
         typedef InventoryElement* InventoryElement_ptr;
 
-        // InventoryRelationship
+// InventoryRelationship
         class InventoryRelationship;
         typedef InventoryRelationship* InventoryRelationship_ptr;
 
-        // Package & Factory
+// Package & Factory
         class SourceFactory;
         typedef SourceFactory * SourceFactory_ptr;
         class SourcePackage;
@@ -124,11 +122,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // source
 } // kdm
 
-
 #endif // _KDM_SOURCE_FORWARD_HPP
+

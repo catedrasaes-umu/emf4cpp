@@ -51,7 +51,6 @@ void Annotation::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Annotation::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -61,18 +60,18 @@ void Annotation::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::ANNOTATION__TEXT:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_text);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_text);
     }
         return _any;
 
@@ -87,26 +86,24 @@ void Annotation::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::ANNOTATION__TEXT:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_text);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_text);
     }
         return;
 
@@ -123,8 +120,8 @@ void Annotation::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
         return m_annotation && m_annotation->size();
     case ::kdm::kdm::KdmPackage::ANNOTATION__TEXT:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_text);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_text);
 
     }
     throw "Error";
@@ -141,9 +138,8 @@ void Annotation::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Annotation::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::kdm::KdmPackage_ptr > (::kdm::kdm::KdmPackage::_instance())->getAnnotation();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getAnnotation();
     return _eclass;
 }
 

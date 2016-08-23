@@ -47,13 +47,11 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getBound() const;
         void setBound(::ecore::EString const& _bound);
 
         // References
-
 
         /*PROTECTED REGION ID(SequenceDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -86,3 +84,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_SEQUENCEDEF_HPP
+

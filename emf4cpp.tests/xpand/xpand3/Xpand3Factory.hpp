@@ -56,5 +56,5 @@ namespace xpand3
 
 } // xpand3
 
-
 #endif // _XPAND3FACTORY_HPP
+

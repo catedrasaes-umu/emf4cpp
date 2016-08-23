@@ -30,63 +30,62 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace xpand3
 {
     namespace statement
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // AbstractStatement
+// AbstractStatement
         class AbstractStatement;
         typedef AbstractStatement* AbstractStatement_ptr;
 
-        // ExpandStatement
+// ExpandStatement
         class ExpandStatement;
         typedef ExpandStatement* ExpandStatement_ptr;
 
-        // ExpressionStatement
+// ExpressionStatement
         class ExpressionStatement;
         typedef ExpressionStatement* ExpressionStatement_ptr;
 
-        // ErrorStatement
+// ErrorStatement
         class ErrorStatement;
         typedef ErrorStatement* ErrorStatement_ptr;
 
-        // AbstractStatementWithBody
+// AbstractStatementWithBody
         class AbstractStatementWithBody;
         typedef AbstractStatementWithBody* AbstractStatementWithBody_ptr;
 
-        // FileStatement
+// FileStatement
         class FileStatement;
         typedef FileStatement* FileStatement_ptr;
 
-        // ForEachStatement
+// ForEachStatement
         class ForEachStatement;
         typedef ForEachStatement* ForEachStatement_ptr;
 
-        // IfStatement
+// IfStatement
         class IfStatement;
         typedef IfStatement* IfStatement_ptr;
 
-        // LetStatement
+// LetStatement
         class LetStatement;
         typedef LetStatement* LetStatement_ptr;
 
-        // ProtectStatement
+// ProtectStatement
         class ProtectStatement;
         typedef ProtectStatement* ProtectStatement_ptr;
 
-        // TextStatement
+// TextStatement
         class TextStatement;
         typedef TextStatement* TextStatement_ptr;
 
-        // Package & Factory
+// Package & Factory
         class StatementFactory;
         typedef StatementFactory * StatementFactory_ptr;
         class StatementPackage;
@@ -95,11 +94,11 @@ namespace xpand3
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // statement
 } // xpand3
 
-
 #endif // _XPAND3_STATEMENT_FORWARD_HPP
+

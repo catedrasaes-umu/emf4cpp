@@ -51,7 +51,6 @@ void Field::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Field::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -61,18 +60,18 @@ void Field::_initialize()
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_containedType);
+        _any = static_cast< ::ecore::EObject* >(m_containedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_sharedType);
+        _any = static_cast< ::ecore::EObject* >(m_sharedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::FIELD__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_identifier);
     }
         return _any;
 
@@ -87,25 +86,25 @@ void Field::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr >(_t0);
         ::idlmm::Typed::setContainedType(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::idlmm::TypedefDef_ptr _t1 =
-                dynamic_cast< ::idlmm::TypedefDef_ptr > (_t0);
+                dynamic_cast< ::idlmm::TypedefDef_ptr >(_t0);
         ::idlmm::Typed::setSharedType(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::FIELD__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_identifier);
     }
         return;
 
@@ -122,8 +121,8 @@ void Field::eSet(::ecore::EInt _featureID,
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
         return m_sharedType;
     case ::idlmm::IdlmmPackage::FIELD__IDENTIFIER:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_identifier);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_identifier);
 
     }
     throw "Error";
@@ -140,9 +139,8 @@ void Field::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Field::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getField();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getField();
     return _eclass;
 }
 

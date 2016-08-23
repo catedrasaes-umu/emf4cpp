@@ -24,7 +24,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «DEFINE hppcpp FOR EPackage»
 «FILE getFactoryPrefix()+"Impl.cpp"-»
+«IF (boolean) GLOBALVAR internalLicense»
 «EXPAND template::License::License FOR getFactoryPrefix()+"Impl.cpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFactoryPrefix()+"Impl.cpp"-»
+«ENDIF»
 #include <«getFactoryPrefix()».hpp>
 #include <«getPackagePrefix()».hpp>
 «FOREACH EClassifiers.typeSelect(EClass) AS class-»

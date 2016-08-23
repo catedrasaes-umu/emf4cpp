@@ -48,14 +48,15 @@ DataAction::DataAction()
 
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, false, false >(this, NULL));
+                    ::kdm::action::ActionElement, -1, false, false >(this,
+                    NULL));
     m_dataElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::DataEvent, -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::data::DataEvent,
+                    -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(DataActionImpl__DataActionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -73,7 +74,6 @@ DataAction::~DataAction()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String DataAction::getKind() const
 {
     return m_kind;

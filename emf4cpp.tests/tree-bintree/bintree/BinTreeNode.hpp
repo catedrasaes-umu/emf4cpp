@@ -47,7 +47,6 @@ namespace bintree
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getData() const;
         void setData(::ecore::EString const& _data);
@@ -99,3 +98,4 @@ namespace bintree
 } // bintree
 
 #endif // BINTREE_BINTREENODE_HPP
+

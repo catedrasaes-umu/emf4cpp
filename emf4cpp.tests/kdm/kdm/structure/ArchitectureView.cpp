@@ -44,8 +44,8 @@ ArchitectureView::ArchitectureView()
 {
 
     /*PROTECTED REGION ID(ArchitectureViewImpl__ArchitectureViewImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -63,6 +63,4 @@ ArchitectureView::~ArchitectureView()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

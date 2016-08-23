@@ -459,8 +459,7 @@ namespace kdm
             static const int BITSTRINGTYPE__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int BITSTRINGTYPE__SOURCE =
-                    ABSTRACTCODEELEMENT__SOURCE;
+            static const int BITSTRINGTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
             static const int BITSTRINGTYPE__COMMENT =
                     ABSTRACTCODEELEMENT__COMMENT;
@@ -511,8 +510,7 @@ namespace kdm
 
             static const int BOOLEANTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int BOOLEANTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int BOOLEANTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int BOOLEANTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -544,8 +542,7 @@ namespace kdm
 
             static const int CALLABLEUNIT__TYPE = CONTROLELEMENT__TYPE;
 
-            static const int CALLABLEUNIT__ENTRYFLOW =
-                    CONTROLELEMENT__ENTRYFLOW;
+            static const int CALLABLEUNIT__ENTRYFLOW = CONTROLELEMENT__ENTRYFLOW;
 
             static const int CALLABLEUNIT__CODEELEMENT =
                     CONTROLELEMENT__CODEELEMENT;
@@ -670,8 +667,7 @@ namespace kdm
 
             static const int CODEELEMENT__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int CODEELEMENT__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int CODEELEMENT__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int CODEELEMENT__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -796,8 +792,7 @@ namespace kdm
             static const int COMPOSITETYPE__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int COMPOSITETYPE__SOURCE =
-                    ABSTRACTCODEELEMENT__SOURCE;
+            static const int COMPOSITETYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
             static const int COMPOSITETYPE__COMMENT =
                     ABSTRACTCODEELEMENT__COMMENT;
@@ -905,8 +900,7 @@ namespace kdm
 
             static const int DATAELEMENT__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int DATAELEMENT__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int DATAELEMENT__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int DATAELEMENT__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -978,8 +972,7 @@ namespace kdm
 
             static const int DECIMALTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int DECIMALTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int DECIMALTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int DECIMALTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -1003,8 +996,7 @@ namespace kdm
 
             static const int DEFINEDTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int DEFINEDTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int DEFINEDTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int DEFINEDTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -1028,8 +1020,7 @@ namespace kdm
 
             static const int DERIVEDTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int DERIVEDTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int DERIVEDTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int DERIVEDTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -1304,8 +1295,7 @@ namespace kdm
 
             static const int INTEGERTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int INTEGERTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int INTEGERTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int INTEGERTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -1327,8 +1317,7 @@ namespace kdm
             static const int INTERFACEUNIT__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int INTERFACEUNIT__SOURCE =
-                    ABSTRACTCODEELEMENT__SOURCE;
+            static const int INTERFACEUNIT__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
             static const int INTERFACEUNIT__COMMENT =
                     ABSTRACTCODEELEMENT__COMMENT;
@@ -1555,8 +1544,7 @@ namespace kdm
             static const int NAMESPACEUNIT__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int NAMESPACEUNIT__SOURCE =
-                    ABSTRACTCODEELEMENT__SOURCE;
+            static const int NAMESPACEUNIT__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
             static const int NAMESPACEUNIT__COMMENT =
                     ABSTRACTCODEELEMENT__COMMENT;
@@ -1633,8 +1621,7 @@ namespace kdm
 
             static const int ORDINALTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int ORDINALTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int ORDINALTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int ORDINALTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -1696,8 +1683,7 @@ namespace kdm
             static const int PARAMETERUNIT__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int PARAMETERUNIT__SOURCE =
-                    ABSTRACTCODEELEMENT__SOURCE;
+            static const int PARAMETERUNIT__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
             static const int PARAMETERUNIT__COMMENT =
                     ABSTRACTCODEELEMENT__COMMENT;
@@ -1733,8 +1719,7 @@ namespace kdm
 
             static const int POINTERTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int POINTERTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int POINTERTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int POINTERTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
@@ -1784,8 +1769,7 @@ namespace kdm
             static const int PRIMITIVETYPE__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int PRIMITIVETYPE__SOURCE =
-                    ABSTRACTCODEELEMENT__SOURCE;
+            static const int PRIMITIVETYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
             static const int PRIMITIVETYPE__COMMENT =
                     ABSTRACTCODEELEMENT__COMMENT;
@@ -2063,16 +2047,14 @@ namespace kdm
 
             static const int SYNONYMTYPE__SOURCE = ABSTRACTCODEELEMENT__SOURCE;
 
-            static const int SYNONYMTYPE__COMMENT =
-                    ABSTRACTCODEELEMENT__COMMENT;
+            static const int SYNONYMTYPE__COMMENT = ABSTRACTCODEELEMENT__COMMENT;
 
             static const int SYNONYMTYPE__CODERELATION =
                     ABSTRACTCODEELEMENT__CODERELATION;
 
             static const int SYNONYMTYPE__TYPE = DEFINEDTYPE__TYPE;
 
-            static const int SYNONYMTYPE__CODEELEMENT =
-                    DEFINEDTYPE__CODEELEMENT;
+            static const int SYNONYMTYPE__CODEELEMENT = DEFINEDTYPE__CODEELEMENT;
 
             // IDs for classifiers for class TemplateParameter 
 
@@ -2548,8 +2530,7 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getAbstractCodeElement__comment();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractCodeElement__codeRelation();
+            virtual ::ecore::EReference_ptr getAbstractCodeElement__codeRelation();
 
             virtual ::ecore::EReference_ptr getControlElement__type();
 
@@ -2665,8 +2646,7 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getParameterTo__from();
 
-            virtual ::ecore::EReference_ptr
-                    getPreprocessorDirective__codeElement();
+            virtual ::ecore::EReference_ptr getPreprocessorDirective__codeElement();
 
             virtual ::ecore::EAttribute_ptr getMacroUnit__kind();
 
@@ -2884,7 +2864,6 @@ namespace kdm
 
             // EDataType instances 
 
-
             // EStructuralFeatures instances
 
             ::ecore::EReference_ptr m_Element__attribute;
@@ -3050,5 +3029,5 @@ namespace kdm
     } // code
 } // kdm
 
-
 #endif // _KDM_CODEPACKAGE_HPP
+

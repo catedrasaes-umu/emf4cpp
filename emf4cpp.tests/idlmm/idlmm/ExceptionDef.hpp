@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::idlmm::ETypeCode getTypeCode() const;
         void setTypeCode(::idlmm::ETypeCode _typeCode);
@@ -79,11 +78,12 @@ namespace idlmm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::Field > > m_members;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::Field > > m_members;
 
     };
 
 } // idlmm
 
 #endif // IDLMM_EXCEPTIONDEF_HPP
+

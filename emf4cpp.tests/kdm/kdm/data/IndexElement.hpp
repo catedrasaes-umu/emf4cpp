@@ -51,12 +51,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >
-                    & getImplementation();
+            ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getImplementation();
 
             /*PROTECTED REGION ID(IndexElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -80,11 +78,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::ItemUnit > > m_implementation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit > > m_implementation;
 
         };
 
@@ -92,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_INDEXELEMENT_HPP
+

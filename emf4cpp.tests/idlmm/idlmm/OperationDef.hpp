@@ -47,7 +47,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isIsOneway() const;
         void setIsOneway(::ecore::EBoolean _isOneway);
@@ -93,14 +92,15 @@ namespace idlmm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::ParameterDef > > m_parameters;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::ParameterDef > > m_parameters;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::ExceptionDef > > m_canRaise;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_canRaise;
 
     };
 
 } // idlmm
 
 #endif // IDLMM_OPERATIONDEF_HPP
+

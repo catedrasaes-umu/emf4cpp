@@ -44,11 +44,9 @@ namespace json
 
         // Operations
 
-
         // Attributes
 
         // References
-
 
         /*PROTECTED REGION ID(NullValue) START*/
         // Please, enable the protected region if you add manually written code.
@@ -72,7 +70,6 @@ namespace json
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -80,3 +77,4 @@ namespace json
 } // json
 
 #endif // JSON_NULLVALUE_HPP
+

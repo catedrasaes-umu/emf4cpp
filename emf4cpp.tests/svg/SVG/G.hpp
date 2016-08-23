@@ -45,13 +45,11 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getName() const;
         void setName(::PrimitiveTypes::String _name);
 
         // References
-
 
         /*PROTECTED REGION ID(G) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_G_HPP
+

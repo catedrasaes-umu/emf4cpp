@@ -46,7 +46,7 @@ using namespace ::kdm::code;
 
 // Default constructor
 ControlElement::ControlElement() :
-    m_type(0)
+        m_type(0)
 {
 
     m_entryFlow.reset(
@@ -58,8 +58,8 @@ ControlElement::ControlElement() :
                     NULL));
 
     /*PROTECTED REGION ID(ControlElementImpl__ControlElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -77,7 +77,6 @@ ControlElement::~ControlElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::code::Datatype_ptr ControlElement::getType()
 {

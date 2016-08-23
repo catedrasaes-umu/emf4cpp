@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -76,7 +75,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::core::ModelElement_ptr m_reference;
@@ -87,3 +85,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_TAGGEDREF_HPP
+

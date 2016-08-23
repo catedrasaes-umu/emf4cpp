@@ -49,7 +49,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -59,8 +58,7 @@ namespace xpand3
             ::xpand3::Identifier_ptr getJavaMethod();
             void setJavaMethod(::xpand3::Identifier_ptr _javaMethod);
 
-            ::ecorecpp::mapping::EList< ::xpand3::Identifier >
-                    & getJavaParamTypes();
+            ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes();
 
             /*PROTECTED REGION ID(JavaExtension) START*/
             // Please, enable the protected region if you add manually written code.
@@ -84,15 +82,14 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::Identifier_ptr m_javaType;
 
             ::xpand3::Identifier_ptr m_javaMethod;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::xpand3::Identifier > > m_javaParamTypes;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::xpand3::Identifier > > m_javaParamTypes;
 
         };
 
@@ -100,3 +97,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_JAVAEXTENSION_HPP
+

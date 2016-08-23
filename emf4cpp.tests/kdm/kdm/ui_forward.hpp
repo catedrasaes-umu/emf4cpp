@@ -30,95 +30,94 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace ui
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // AbstractUIElement
+// AbstractUIElement
         class AbstractUIElement;
         typedef AbstractUIElement* AbstractUIElement_ptr;
 
-        // UIResource
+// UIResource
         class UIResource;
         typedef UIResource* UIResource_ptr;
 
-        // UIDisplay
+// UIDisplay
         class UIDisplay;
         typedef UIDisplay* UIDisplay_ptr;
 
-        // Screen
+// Screen
         class Screen;
         typedef Screen* Screen_ptr;
 
-        // Report
+// Report
         class Report;
         typedef Report* Report_ptr;
 
-        // UIModel
+// UIModel
         class UIModel;
         typedef UIModel* UIModel_ptr;
 
-        // AbstractUIRelationship
+// AbstractUIRelationship
         class AbstractUIRelationship;
         typedef AbstractUIRelationship* AbstractUIRelationship_ptr;
 
-        // UILayout
+// UILayout
         class UILayout;
         typedef UILayout* UILayout_ptr;
 
-        // UIField
+// UIField
         class UIField;
         typedef UIField* UIField_ptr;
 
-        // DisplaysImage
+// DisplaysImage
         class DisplaysImage;
         typedef DisplaysImage* DisplaysImage_ptr;
 
-        // Displays
+// Displays
         class Displays;
         typedef Displays* Displays_ptr;
 
-        // UIFlow
+// UIFlow
         class UIFlow;
         typedef UIFlow* UIFlow_ptr;
 
-        // UIElement
+// UIElement
         class UIElement;
         typedef UIElement* UIElement_ptr;
 
-        // UIRelationship
+// UIRelationship
         class UIRelationship;
         typedef UIRelationship* UIRelationship_ptr;
 
-        // UIAction
+// UIAction
         class UIAction;
         typedef UIAction* UIAction_ptr;
 
-        // UIEvent
+// UIEvent
         class UIEvent;
         typedef UIEvent* UIEvent_ptr;
 
-        // ReadsUI
+// ReadsUI
         class ReadsUI;
         typedef ReadsUI* ReadsUI_ptr;
 
-        // WritesUI
+// WritesUI
         class WritesUI;
         typedef WritesUI* WritesUI_ptr;
 
-        // ManagesUI
+// ManagesUI
         class ManagesUI;
         typedef ManagesUI* ManagesUI_ptr;
 
-        // Package & Factory
+// Package & Factory
         class UiFactory;
         typedef UiFactory * UiFactory_ptr;
         class UiPackage;
@@ -127,11 +126,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // ui
 } // kdm
 
-
 #endif // _KDM_UI_FORWARD_HPP
+

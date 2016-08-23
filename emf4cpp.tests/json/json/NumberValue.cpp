@@ -35,8 +35,8 @@ NumberValue::NumberValue()
 {
 
     /*PROTECTED REGION ID(NumberValueImpl__NumberValueImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -54,7 +54,6 @@ NumberValue::~NumberValue()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EDouble NumberValue::getValue() const
 {
     return m_value;

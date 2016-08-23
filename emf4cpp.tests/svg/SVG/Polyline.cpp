@@ -44,12 +44,12 @@ Polyline::Polyline()
 {
 
     m_waypoints.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1, true,
+                    false >(this, NULL));
 
     /*PROTECTED REGION ID(PolylineImpl__PolylineImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -67,7 +67,6 @@ Polyline::~Polyline()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String Polyline::getStrokeDashArray() const
 {
     return m_strokeDashArray;

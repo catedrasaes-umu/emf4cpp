@@ -49,23 +49,20 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EBoolean isForeach() const;
             void setForeach(::ecore::EBoolean _foreach);
 
             // References
-            ::ecorecpp::mapping::EList<
-                    ::xpand3::expression::AbstractExpression >& getParameters();
+            ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters();
 
             ::xpand3::expression::AbstractExpression_ptr getSeparator();
             void setSeparator(
                     ::xpand3::expression::AbstractExpression_ptr _separator);
 
             ::xpand3::expression::AbstractExpression_ptr getTarget();
-            void
-                    setTarget(
-                            ::xpand3::expression::AbstractExpression_ptr _target);
+            void setTarget(
+                    ::xpand3::expression::AbstractExpression_ptr _target);
 
             ::xpand3::Identifier_ptr getDefinition();
             void setDefinition(::xpand3::Identifier_ptr _definition);
@@ -96,8 +93,9 @@ namespace xpand3
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::xpand3::expression::AbstractExpression > > m_parameters;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::xpand3::expression::AbstractExpression > > m_parameters;
 
             ::xpand3::expression::AbstractExpression_ptr m_separator;
 
@@ -111,3 +109,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_STATEMENT_EXPANDSTATEMENT_HPP
+

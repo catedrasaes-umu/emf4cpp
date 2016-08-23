@@ -50,7 +50,6 @@ void ModuleDef::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ModuleDef::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -60,42 +59,42 @@ void ModuleDef::_initialize()
     {
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_identifier);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_repositoryId);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_repositoryId);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_version);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_version);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_absoluteName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_absoluteName);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
-        _any = static_cast< ::ecore::EObject* > (m_definedIn);
+        _any = static_cast< ::ecore::EObject* >(m_definedIn);
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
     {
-        _any = m_contains->asEListOf< ::ecore::EObject > ();
+        _any = m_contains->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::MODULEDEF__PREFIX:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_prefix);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_prefix);
     }
         return _any;
 
@@ -110,50 +109,48 @@ void ModuleDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_identifier);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_repositoryId);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_repositoryId);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_version);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_version);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_absoluteName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_absoluteName);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::idlmm::Container_ptr _t1 =
-                dynamic_cast< ::idlmm::Container_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
         ::idlmm::Contained::setDefinedIn(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::idlmm::Container::getContains().clear();
         ::idlmm::Container::getContains().insert_all(*_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::MODULEDEF__PREFIX:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_prefix);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_prefix);
     }
         return;
 
@@ -166,24 +163,24 @@ void ModuleDef::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_identifier);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_identifier);
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_repositoryId);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_repositoryId);
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_version);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_version);
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_absoluteName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_absoluteName);
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
         return m_definedIn;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
         return m_contains && m_contains->size();
     case ::idlmm::IdlmmPackage::MODULEDEF__PREFIX:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_prefix);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_prefix);
 
     }
     throw "Error";
@@ -200,9 +197,8 @@ void ModuleDef::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ModuleDef::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getModuleDef();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getModuleDef();
     return _eclass;
 }
 

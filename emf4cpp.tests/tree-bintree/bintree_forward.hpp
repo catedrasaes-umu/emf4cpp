@@ -30,21 +30,20 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace bintree
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // BinTreeNode
+// BinTreeNode
     class BinTreeNode;
     typedef BinTreeNode* BinTreeNode_ptr;
 
-    // Package & Factory
+// Package & Factory
     class BintreeFactory;
     typedef BintreeFactory * BintreeFactory_ptr;
     class BintreePackage;
@@ -53,10 +52,10 @@ namespace bintree
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // bintree
 
-
 #endif // _BINTREE_FORWARD_HPP
+

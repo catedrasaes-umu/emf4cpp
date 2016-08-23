@@ -35,7 +35,7 @@ using namespace ::idlmm;
 
 // Default constructor
 UnionDef::UnionDef() :
-    m_containedDiscrim(0), m_sharedDiscrim(0)
+        m_containedDiscrim(0), m_sharedDiscrim(0)
 {
 
     m_unionMembers.reset(
@@ -43,8 +43,8 @@ UnionDef::UnionDef() :
                     -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(UnionDefImpl__UnionDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ UnionDef::~UnionDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::idlmm::UnionField >& UnionDef::getUnionMembers()
 {

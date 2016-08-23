@@ -22,7 +22,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «DEFINE Makefile FOR EPackage»
 «FILE "Makefile."+getFQN("_")-»
+«IF (boolean) GLOBALVAR internalLicense»
 «EXPAND template::License::LicenseMakefile FOR "Makefile."+getFQN("_")-»
+«ELSE»
+«EXPAND template::EndUserLicense::LicenseMakefile FOR "Makefile."+getFQN("_")-»
+«ENDIF»
 
 «getFQN("_").toUpperCase()»__OBJS=«getFQN("/")».o \
     «getFQN("/")»/«name.toFirstUpper()»Factory.o \
@@ -45,7 +49,11 @@ $(«getFQN("_").toUpperCase()»__LIB): $(«getFQN("_").toUpperCase()»__OBJS)
 
 «DEFINE MainMakefile FOR EPackage»
 «FILE "Makefile" NOOVERWRITE»
+«IF (boolean) GLOBALVAR internalLicense»
 «EXPAND template::License::LicenseMakefile FOR "Makefile"-»
+«ELSE»
+«EXPAND template::EndUserLicense::LicenseMakefile FOR "Makefile"-»
+«ENDIF»
 LIBS=
 OBJS=
 

@@ -44,15 +44,13 @@ void DeclaredParameter::_initialize()
     if (m_name)
     {
         m_name->_initialize();
-        m_name->_setEContainer(
-                this,
+        m_name->_setEContainer(this,
                 ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
     }
     if (m_type)
     {
         m_type->_initialize();
-        m_type->_setEContainer(
-                this,
+        m_type->_setEContainer(this,
                 ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type());
     }
 
@@ -64,7 +62,6 @@ void DeclaredParameter::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject DeclaredParameter::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -74,33 +71,34 @@ void DeclaredParameter::_initialize()
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_start);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_end);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_fileName);
     }
         return _any;
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__NAME:
     {
-        _any = static_cast< ::ecore::EObject* > (m_name);
+        _any = static_cast< ::ecore::EObject* >(m_name);
     }
         return _any;
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__TYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_type);
+        _any = static_cast< ::ecore::EObject* >(m_type);
     }
         return _any;
 
@@ -115,43 +113,43 @@ void DeclaredParameter::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_start);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_end);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_fileName);
     }
         return;
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__NAME:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr > (_t0);
+                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
         ::xpand3::DeclaredParameter::setName(_t1);
     }
         return;
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__TYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr > (_t0);
+                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
         ::xpand3::DeclaredParameter::setType(_t1);
     }
         return;
@@ -165,14 +163,16 @@ void DeclaredParameter::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_start);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_start);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_end);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_end);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_fileName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_fileName);
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__NAME:
         return m_name;
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__TYPE:
@@ -193,9 +193,8 @@ void DeclaredParameter::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr DeclaredParameter::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::xpand3::Xpand3Package_ptr > (::xpand3::Xpand3Package::_instance())->getDeclaredParameter();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::xpand3::Xpand3Package_ptr >(::xpand3::Xpand3Package::_instance())->getDeclaredParameter();
     return _eclass;
 }
 

@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -77,14 +76,13 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::Segment > > m_segment;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::Segment > > m_segment;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::KDMModel > > m_model;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel > > m_model;
 
         };
 
@@ -92,3 +90,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_SEGMENT_HPP
+

@@ -50,15 +50,12 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::kdm::conceptual::AbstractConceptualElement_ptr
-                    getConceptualElement();
-            void
-                    setConceptualElement(
-                            ::kdm::conceptual::AbstractConceptualElement_ptr _conceptualElement);
+            ::kdm::conceptual::AbstractConceptualElement_ptr getConceptualElement();
+            void setConceptualElement(
+                    ::kdm::conceptual::AbstractConceptualElement_ptr _conceptualElement);
 
             /*PROTECTED REGION ID(ConceptualRole) START*/
             // Please, enable the protected region if you add manually written code.
@@ -82,11 +79,9 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::kdm::conceptual::AbstractConceptualElement_ptr
-                    m_conceptualElement;
+            ::kdm::conceptual::AbstractConceptualElement_ptr m_conceptualElement;
 
         };
 
@@ -94,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CONCEPTUAL_CONCEPTUALROLE_HPP
+

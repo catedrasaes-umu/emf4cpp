@@ -58,8 +58,8 @@ Machine::Machine()
                     NULL));
 
     /*PROTECTED REGION ID(MachineImpl__MachineImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -77,7 +77,6 @@ Machine::~Machine()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& Machine::getDeployedComponent()
 {

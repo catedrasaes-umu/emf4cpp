@@ -61,34 +61,33 @@ CoreFactory::CoreFactory()
     switch (_eDataType->getClassifierID())
     {
     case CorePackage::STRING:
-        return ::ecorecpp::mapping::string_traits< ::kdm::core::String >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::kdm::core::String
+                > ::fromString(_literalValue);
     case CorePackage::INTEGER:
-        return ::ecorecpp::mapping::string_traits< ::kdm::core::Integer >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::kdm::core::Integer
+                > ::fromString(_literalValue);
     case CorePackage::BOOLEAN:
-        return ::ecorecpp::mapping::string_traits< ::kdm::core::Boolean >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::kdm::core::Boolean
+                > ::fromString(_literalValue);
     default:
         throw "IllegalArgumentException";
     }
 }
 
-::ecore::EString CoreFactory::convertToString(
-        ::ecore::EDataType_ptr _eDataType,
+::ecore::EString CoreFactory::convertToString(::ecore::EDataType_ptr _eDataType,
         ::ecore::EJavaObject const& _instanceValue)
 {
     switch (_eDataType->getClassifierID())
     {
     case CorePackage::STRING:
-        return ::ecorecpp::mapping::string_traits< ::kdm::core::String >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::kdm::core::String
+                > ::toString(_instanceValue);
     case CorePackage::INTEGER:
-        return ::ecorecpp::mapping::string_traits< ::kdm::core::Integer >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::kdm::core::Integer
+                > ::toString(_instanceValue);
     case CorePackage::BOOLEAN:
-        return ::ecorecpp::mapping::string_traits< ::kdm::core::Boolean >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::kdm::core::Boolean
+                > ::toString(_instanceValue);
     default:
         throw "IllegalArgumentException";
     }

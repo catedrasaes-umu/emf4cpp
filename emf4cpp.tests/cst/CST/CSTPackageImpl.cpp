@@ -88,9 +88,7 @@ CSTPackage::CSTPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("CST");
@@ -115,7 +113,7 @@ CSTPackage::CSTPackage()
     m_ElementEClass->setAbstract(false);
     m_ElementEClass->setInterface(false);
     m_Element__kind->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Element__kind->setName("kind");
     m_Element__kind->setDefaultValueLiteral("");
     m_Element__kind->setLowerBound(0);
@@ -150,7 +148,7 @@ CSTPackage::CSTPackage()
     m_LeafEClass->setAbstract(false);
     m_LeafEClass->setInterface(false);
     m_Leaf__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Leaf__value->setName("value");
     m_Leaf__value->setDefaultValueLiteral("");
     m_Leaf__value->setLowerBound(0);
@@ -164,7 +162,7 @@ CSTPackage::CSTPackage()
     m_Leaf__value->setDerived(false);
     m_Leaf__value->setOrdered(true);
     m_Leaf__pos->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
     m_Leaf__pos->setName("pos");
     m_Leaf__pos->setDefaultValueLiteral("");
     m_Leaf__pos->setLowerBound(0);
@@ -178,7 +176,7 @@ CSTPackage::CSTPackage()
     m_Leaf__pos->setDerived(false);
     m_Leaf__pos->setOrdered(true);
     m_Leaf__line->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
     m_Leaf__line->setName("line");
     m_Leaf__line->setDefaultValueLiteral("");
     m_Leaf__line->setLowerBound(0);
@@ -193,7 +191,6 @@ CSTPackage::CSTPackage()
     m_Leaf__line->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

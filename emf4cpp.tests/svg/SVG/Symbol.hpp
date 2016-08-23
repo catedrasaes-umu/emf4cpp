@@ -45,11 +45,9 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
 
         // References
-
 
         /*PROTECTED REGION ID(Symbol) START*/
         // Please, enable the protected region if you add manually written code.
@@ -73,7 +71,6 @@ namespace SVG
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -81,3 +78,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_SYMBOL_HPP
+

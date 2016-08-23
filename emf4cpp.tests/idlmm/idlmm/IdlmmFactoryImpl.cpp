@@ -127,7 +127,7 @@ IdlmmFactory::IdlmmFactory()
     {
         ::ecore::EJavaObject _any;
         IdlmmPackage_ptr _epkg =
-                dynamic_cast< ::idlmm::IdlmmPackage_ptr > (getEPackage());
+                dynamic_cast< ::idlmm::IdlmmPackage_ptr >(getEPackage());
         return _epkg->getParameterMode()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
@@ -135,16 +135,16 @@ IdlmmFactory::IdlmmFactory()
     {
         ::ecore::EJavaObject _any;
         IdlmmPackage_ptr _epkg =
-                dynamic_cast< ::idlmm::IdlmmPackage_ptr > (getEPackage());
+                dynamic_cast< ::idlmm::IdlmmPackage_ptr >(getEPackage());
         return _epkg->getPrimitiveKind()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
     case IdlmmPackage::EANY:
-        return ::ecorecpp::mapping::string_traits< ::idlmm::EAny >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::idlmm::EAny
+                > ::fromString(_literalValue);
     case IdlmmPackage::ETYPECODE:
-        return ::ecorecpp::mapping::string_traits< ::idlmm::ETypeCode >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::idlmm::ETypeCode
+                > ::fromString(_literalValue);
     default:
         throw "IllegalArgumentException";
     }
@@ -158,26 +158,26 @@ IdlmmFactory::IdlmmFactory()
     {
     case IdlmmPackage::PARAMETERMODE:
     {
-        IdlmmPackage_ptr _epkg = ::idlmm::instanceOf< ::idlmm::IdlmmPackage >(
-                getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        IdlmmPackage_ptr _epkg = ::idlmm::instanceOf < ::idlmm::IdlmmPackage
+                > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getParameterMode()->getEEnumLiteral(_value)->getName();
     }
     case IdlmmPackage::PRIMITIVEKIND:
     {
-        IdlmmPackage_ptr _epkg = ::idlmm::instanceOf< ::idlmm::IdlmmPackage >(
-                getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        IdlmmPackage_ptr _epkg = ::idlmm::instanceOf < ::idlmm::IdlmmPackage
+                > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getPrimitiveKind()->getEEnumLiteral(_value)->getName();
     }
     case IdlmmPackage::EANY:
-        return ::ecorecpp::mapping::string_traits< ::idlmm::EAny >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::idlmm::EAny
+                > ::toString(_instanceValue);
     case IdlmmPackage::ETYPECODE:
-        return ::ecorecpp::mapping::string_traits< ::idlmm::ETypeCode >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::idlmm::ETypeCode
+                > ::toString(_instanceValue);
     default:
         throw "IllegalArgumentException";
     }

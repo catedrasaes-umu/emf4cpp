@@ -47,13 +47,11 @@ namespace company
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getName() const;
         void setName(::ecore::EString const& _name);
 
         // References
-
 
         /*PROTECTED REGION ID(Employee) START*/
         // Please, enable the protected region if you add manually written code.
@@ -86,3 +84,4 @@ namespace company
 } // company
 
 #endif // COMPANY_EMPLOYEE_HPP
+

@@ -60,7 +60,6 @@ namespace tree
 
         // IDs for classifiers for class TreeNode 
 
-
         // EClassifiers methods
 
         virtual ::ecore::EClass_ptr getTreeNode();
@@ -93,9 +92,7 @@ namespace tree
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -109,5 +106,5 @@ namespace tree
 
 } // tree
 
-
 #endif // _TREEPACKAGE_HPP
+

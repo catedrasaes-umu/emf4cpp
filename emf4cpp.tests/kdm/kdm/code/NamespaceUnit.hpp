@@ -49,12 +49,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >
-                    & getGroupedCode();
+            ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode();
 
             /*PROTECTED REGION ID(NamespaceUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -78,11 +76,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::CodeItem > > m_groupedCode;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::CodeItem > > m_groupedCode;
 
         };
 
@@ -90,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_NAMESPACEUNIT_HPP
+

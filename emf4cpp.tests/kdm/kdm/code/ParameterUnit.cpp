@@ -47,8 +47,8 @@ ParameterUnit::ParameterUnit()
 {
 
     /*PROTECTED REGION ID(ParameterUnitImpl__ParameterUnitImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ ParameterUnit::~ParameterUnit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::code::ParameterKind ParameterUnit::getKind() const
 {
     return m_kind;

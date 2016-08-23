@@ -47,7 +47,6 @@ void IDLType::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject IDLType::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -57,8 +56,8 @@ void IDLType::_initialize()
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::toAny(_any,
-                m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::toAny(_any, m_typeCode);
     }
         return _any;
 
@@ -73,8 +72,8 @@ void IDLType::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::fromAny(
-                _newValue, m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::fromAny(_newValue, m_typeCode);
     }
         return;
 
@@ -87,8 +86,8 @@ void IDLType::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
-        return ::ecorecpp::mapping::set_traits< ::idlmm::ETypeCode >::is_set(
-                m_typeCode);
+        return ::ecorecpp::mapping::set_traits < ::idlmm::ETypeCode
+                > ::is_set(m_typeCode);
 
     }
     throw "Error";
@@ -105,9 +104,8 @@ void IDLType::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr IDLType::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getIDLType();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getIDLType();
     return _eclass;
 }
 

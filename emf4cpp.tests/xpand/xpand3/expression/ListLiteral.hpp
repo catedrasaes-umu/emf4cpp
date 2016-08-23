@@ -47,12 +47,10 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList<
-                    ::xpand3::expression::AbstractExpression >& getElements();
+            ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getElements();
 
             /*PROTECTED REGION ID(ListLiteral) START*/
             // Please, enable the protected region if you add manually written code.
@@ -76,11 +74,11 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::xpand3::expression::AbstractExpression > > m_elements;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::xpand3::expression::AbstractExpression > > m_elements;
 
         };
 
@@ -88,3 +86,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_EXPRESSION_LISTLITERAL_HPP
+

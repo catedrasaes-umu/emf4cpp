@@ -49,7 +49,6 @@ void BooleanValue::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject BooleanValue::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,8 +58,8 @@ void BooleanValue::_initialize()
     {
     case ::json::JsonPackage::BOOLEANVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_value);
     }
         return _any;
 
@@ -75,8 +74,8 @@ void BooleanValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::BOOLEANVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_value);
     }
         return;
 
@@ -89,8 +88,8 @@ void BooleanValue::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::json::JsonPackage::BOOLEANVALUE__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_value);
 
     }
     throw "Error";
@@ -107,9 +106,8 @@ void BooleanValue::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr BooleanValue::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::json::JsonPackage_ptr > (::json::JsonPackage::_instance())->getBooleanValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getBooleanValue();
     return _eclass;
 }
 

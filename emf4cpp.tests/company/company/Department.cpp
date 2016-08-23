@@ -32,7 +32,7 @@ using namespace ::company;
 
 // Default constructor
 Department::Department() :
-    m_manager(0)
+        m_manager(0)
 {
 
     m_employees.reset(
@@ -40,8 +40,8 @@ Department::Department() :
                     -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(DepartmentImpl__DepartmentImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -59,7 +59,6 @@ Department::~Department()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EInt Department::getNumber() const
 {
     return m_number;

@@ -47,7 +47,6 @@ namespace tree
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getData() const;
         void setData(::ecore::EString const& _data);
@@ -89,3 +88,4 @@ namespace tree
 } // tree
 
 #endif // TREE_TREENODE_HPP
+

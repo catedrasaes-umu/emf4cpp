@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getIdentifier() const;
         void setIdentifier(::ecore::EString const& _identifier);
@@ -59,7 +58,6 @@ namespace idlmm
         void deleteLabelAt(size_t _position);
 
         // References
-
 
         /*PROTECTED REGION ID(UnionField) START*/
         // Please, enable the protected region if you add manually written code.
@@ -94,3 +92,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_UNIONFIELD_HPP
+

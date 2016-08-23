@@ -48,13 +48,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList<
-                    ::kdm::source::AbstractInventoryRelationship >
-                    & getInventoryRelation();
+                    ::kdm::source::AbstractInventoryRelationship >& getInventoryRelation();
 
             /*PROTECTED REGION ID(AbstractInventoryElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -78,12 +76,11 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::source::AbstractInventoryRelationship > >
-                    m_inventoryRelation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::source::AbstractInventoryRelationship > > m_inventoryRelation;
 
         };
 
@@ -91,3 +88,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_SOURCE_ABSTRACTINVENTORYELEMENT_HPP
+

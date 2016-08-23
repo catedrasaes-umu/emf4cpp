@@ -21,8 +21,7 @@
 
 using namespace ::kdm::conceptual;
 
-std::auto_ptr< ::kdm::conceptual::ConceptualPackage >
-        ConceptualPackage::s_instance;
+std::auto_ptr< ::kdm::conceptual::ConceptualPackage > ConceptualPackage::s_instance;
 
 ::kdm::conceptual::ConceptualPackage_ptr ConceptualPackage::_instance()
 {

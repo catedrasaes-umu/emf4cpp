@@ -32,12 +32,12 @@ using namespace ::json;
 
 // Default constructor
 NVPair::NVPair() :
-    m_value(0)
+        m_value(0)
 {
 
     /*PROTECTED REGION ID(NVPairImpl__NVPairImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -59,7 +59,6 @@ NVPair::~NVPair()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& NVPair::getName() const
 {
     return m_name;

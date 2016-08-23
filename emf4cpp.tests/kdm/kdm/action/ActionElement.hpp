@@ -50,18 +50,15 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getKind() const;
             void setKind(::kdm::core::String _kind);
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >
-                    & getCodeElement();
+            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement();
 
             ::ecorecpp::mapping::EList<
-                    ::kdm::action::AbstractActionRelationship >
-                    & getActionRelation();
+                    ::kdm::action::AbstractActionRelationship >& getActionRelation();
 
             /*PROTECTED REGION ID(ActionElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -89,12 +86,12 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::AbstractCodeElement > > m_codeElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement > > m_codeElement;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::action::AbstractActionRelationship > >
-                    m_actionRelation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::action::AbstractActionRelationship > > m_actionRelation;
 
         };
 
@@ -102,3 +99,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_ACTION_ACTIONELEMENT_HPP
+

@@ -49,8 +49,8 @@ CallableUnit::CallableUnit()
 {
 
     /*PROTECTED REGION ID(CallableUnitImpl__CallableUnitImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -68,7 +68,6 @@ CallableUnit::~CallableUnit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::code::CallableKind CallableUnit::getKind() const
 {
     return m_kind;

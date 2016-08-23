@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getRx() const;
         void setRx(::PrimitiveTypes::Double _rx);
@@ -54,7 +53,6 @@ namespace SVG
         void setRy(::PrimitiveTypes::Double _ry);
 
         // References
-
 
         /*PROTECTED REGION ID(Rect) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_RECT_HPP
+

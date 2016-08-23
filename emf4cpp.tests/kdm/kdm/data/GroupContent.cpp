@@ -48,8 +48,8 @@ GroupContent::GroupContent()
 {
 
     /*PROTECTED REGION ID(GroupContentImpl__GroupContentImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -67,6 +67,4 @@ GroupContent::~GroupContent()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

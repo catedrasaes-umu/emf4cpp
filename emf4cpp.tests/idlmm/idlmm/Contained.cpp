@@ -32,12 +32,12 @@ using namespace ::idlmm;
 
 // Default constructor
 Contained::Contained() :
-    m_definedIn(0)
+        m_definedIn(0)
 {
 
     /*PROTECTED REGION ID(ContainedImpl__ContainedImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,7 +55,6 @@ Contained::~Contained()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& Contained::getIdentifier() const
 {
     return m_identifier;

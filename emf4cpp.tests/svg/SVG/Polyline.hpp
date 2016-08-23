@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getStrokeDashArray() const;
         void setStrokeDashArray(::PrimitiveTypes::String _strokeDashArray);
@@ -89,11 +88,11 @@ namespace SVG
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Point > >
-                m_waypoints;
+        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Point > > m_waypoints;
 
     };
 
 } // SVG
 
 #endif // SVG_POLYLINE_HPP
+

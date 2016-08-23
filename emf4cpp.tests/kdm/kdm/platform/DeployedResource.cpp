@@ -49,11 +49,12 @@ DeployedResource::DeployedResource()
 
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::ResourceType, -1, true, false >(this, NULL));
+                    ::kdm::platform::ResourceType, -1, true, false >(this,
+                    NULL));
 
     /*PROTECTED REGION ID(DeployedResourceImpl__DeployedResourceImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +72,6 @@ DeployedResource::~DeployedResource()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& DeployedResource::getPlatformElement()
 {

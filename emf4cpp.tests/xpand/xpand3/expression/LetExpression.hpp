@@ -48,19 +48,16 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
             ::xpand3::expression::AbstractExpression_ptr getVarExpression();
-            void
-                    setVarExpression(
-                            ::xpand3::expression::AbstractExpression_ptr _varExpression);
+            void setVarExpression(
+                    ::xpand3::expression::AbstractExpression_ptr _varExpression);
 
             ::xpand3::expression::AbstractExpression_ptr getTargetExpression();
-            void
-                    setTargetExpression(
-                            ::xpand3::expression::AbstractExpression_ptr _targetExpression);
+            void setTargetExpression(
+                    ::xpand3::expression::AbstractExpression_ptr _targetExpression);
 
             ::xpand3::Identifier_ptr getVarName();
             void setVarName(::xpand3::Identifier_ptr _varName);
@@ -87,7 +84,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::expression::AbstractExpression_ptr m_varExpression;
@@ -102,3 +98,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_EXPRESSION_LETEXPRESSION_HPP
+

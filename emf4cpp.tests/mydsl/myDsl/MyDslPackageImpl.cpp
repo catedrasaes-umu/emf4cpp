@@ -113,9 +113,7 @@ MyDslPackage::MyDslPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("myDsl");
@@ -165,7 +163,7 @@ MyDslPackage::MyDslPackage()
     m_ImportEClass->setAbstract(false);
     m_ImportEClass->setInterface(false);
     m_Import__importURI->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Import__importURI->setName("importURI");
     m_Import__importURI->setDefaultValueLiteral("");
     m_Import__importURI->setLowerBound(0);
@@ -183,7 +181,7 @@ MyDslPackage::MyDslPackage()
     m_TypeEClass->setAbstract(false);
     m_TypeEClass->setInterface(false);
     m_Type__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Type__name->setName("name");
     m_Type__name->setDefaultValueLiteral("");
     m_Type__name->setLowerBound(0);
@@ -235,7 +233,7 @@ MyDslPackage::MyDslPackage()
     m_PropertyEClass->setAbstract(false);
     m_PropertyEClass->setInterface(false);
     m_Property__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Property__name->setName("name");
     m_Property__name->setDefaultValueLiteral("");
     m_Property__name->setLowerBound(0);
@@ -249,7 +247,7 @@ MyDslPackage::MyDslPackage()
     m_Property__name->setDerived(false);
     m_Property__name->setOrdered(true);
     m_Property__many->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_Property__many->setName("many");
     m_Property__many->setDefaultValueLiteral("");
     m_Property__many->setLowerBound(0);
@@ -277,7 +275,6 @@ MyDslPackage::MyDslPackage()
     m_Property__type->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

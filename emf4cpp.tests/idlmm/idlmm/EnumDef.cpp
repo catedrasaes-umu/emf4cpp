@@ -36,8 +36,8 @@ EnumDef::EnumDef()
 {
 
     /*PROTECTED REGION ID(EnumDefImpl__EnumDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,7 +55,6 @@ EnumDef::~EnumDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 std::vector< ::ecore::EString > const& EnumDef::getMembers() const
 {
     return m_members;

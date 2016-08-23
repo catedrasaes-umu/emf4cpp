@@ -51,8 +51,8 @@ ClassUnit::ClassUnit()
                     -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(ClassUnitImpl__ClassUnitImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -70,7 +70,6 @@ ClassUnit::~ClassUnit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::Boolean ClassUnit::getIsAbstract() const
 {
     return m_isAbstract;

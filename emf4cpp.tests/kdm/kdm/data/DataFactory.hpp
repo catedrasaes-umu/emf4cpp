@@ -40,8 +40,7 @@ namespace kdm
             virtual IndexElement_ptr createIndexElement();
             virtual UniqueKey_ptr createUniqueKey();
             virtual Index_ptr createIndex();
-            virtual AbstractDataRelationship_ptr
-                    createAbstractDataRelationship();
+            virtual AbstractDataRelationship_ptr createAbstractDataRelationship();
             virtual KeyRelation_ptr createKeyRelation();
             virtual ReferenceKey_ptr createReferenceKey();
             virtual DataContainer_ptr createDataContainer();
@@ -100,5 +99,5 @@ namespace kdm
     } // data
 } // kdm
 
-
 #endif // _KDM_DATAFACTORY_HPP
+

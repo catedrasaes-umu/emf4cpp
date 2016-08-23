@@ -35,12 +35,12 @@ using namespace ::xpand3::statement;
 
 // Default constructor
 ForEachStatement::ForEachStatement() :
-    m_target(0), m_separator(0), m_variable(0), m_iteratorName(0)
+        m_target(0), m_separator(0), m_variable(0), m_iteratorName(0)
 {
 
     /*PROTECTED REGION ID(ForEachStatementImpl__ForEachStatementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -74,7 +74,6 @@ ForEachStatement::~ForEachStatement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::expression::AbstractExpression_ptr ForEachStatement::getTarget()
 {

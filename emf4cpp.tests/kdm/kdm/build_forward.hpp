@@ -30,99 +30,98 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace build
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // AbstractBuildElement
+// AbstractBuildElement
         class AbstractBuildElement;
         typedef AbstractBuildElement* AbstractBuildElement_ptr;
 
-        // BuildResource
+// BuildResource
         class BuildResource;
         typedef BuildResource* BuildResource_ptr;
 
-        // BuildDescription
+// BuildDescription
         class BuildDescription;
         typedef BuildDescription* BuildDescription_ptr;
 
-        // SymbolicLink
+// SymbolicLink
         class SymbolicLink;
         typedef SymbolicLink* SymbolicLink_ptr;
 
-        // AbstractBuildRelationship
+// AbstractBuildRelationship
         class AbstractBuildRelationship;
         typedef AbstractBuildRelationship* AbstractBuildRelationship_ptr;
 
-        // LinksTo
+// LinksTo
         class LinksTo;
         typedef LinksTo* LinksTo_ptr;
 
-        // Consumes
+// Consumes
         class Consumes;
         typedef Consumes* Consumes_ptr;
 
-        // BuildModel
+// BuildModel
         class BuildModel;
         typedef BuildModel* BuildModel_ptr;
 
-        // BuildComponent
+// BuildComponent
         class BuildComponent;
         typedef BuildComponent* BuildComponent_ptr;
 
-        // Supplier
+// Supplier
         class Supplier;
         typedef Supplier* Supplier_ptr;
 
-        // Tool
+// Tool
         class Tool;
         typedef Tool* Tool_ptr;
 
-        // BuildElement
+// BuildElement
         class BuildElement;
         typedef BuildElement* BuildElement_ptr;
 
-        // BuildRelationship
+// BuildRelationship
         class BuildRelationship;
         typedef BuildRelationship* BuildRelationship_ptr;
 
-        // SuppliedBy
+// SuppliedBy
         class SuppliedBy;
         typedef SuppliedBy* SuppliedBy_ptr;
 
-        // Library
+// Library
         class Library;
         typedef Library* Library_ptr;
 
-        // BuildStep
+// BuildStep
         class BuildStep;
         typedef BuildStep* BuildStep_ptr;
 
-        // Produces
+// Produces
         class Produces;
         typedef Produces* Produces_ptr;
 
-        // SupportedBy
+// SupportedBy
         class SupportedBy;
         typedef SupportedBy* SupportedBy_ptr;
 
-        // BuildProduct
+// BuildProduct
         class BuildProduct;
         typedef BuildProduct* BuildProduct_ptr;
 
-        // DescribedBy
+// DescribedBy
         class DescribedBy;
         typedef DescribedBy* DescribedBy_ptr;
 
-        // Package & Factory
+// Package & Factory
         class BuildFactory;
         typedef BuildFactory * BuildFactory_ptr;
         class BuildPackage;
@@ -131,11 +130,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // build
 } // kdm
 
-
 #endif // _KDM_BUILD_FORWARD_HPP
+

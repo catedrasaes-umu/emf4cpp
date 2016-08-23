@@ -47,13 +47,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getValue() const;
             void setValue(::kdm::core::String _value);
 
             // References
-
 
             /*PROTECTED REGION ID(TaggedValue) START*/
             // Please, enable the protected region if you add manually written code.
@@ -87,3 +85,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_TAGGEDVALUE_HPP
+

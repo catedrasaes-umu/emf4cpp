@@ -47,7 +47,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isIsReadonly() const;
         void setIsReadonly(::ecore::EBoolean _isReadonly);
@@ -83,14 +82,15 @@ namespace idlmm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::ExceptionDef > > m_getRaises;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_getRaises;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::ExceptionDef > > m_setRaises;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_setRaises;
 
     };
 
 } // idlmm
 
 #endif // IDLMM_ATTRIBUTEDEF_HPP
+

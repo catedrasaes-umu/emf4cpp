@@ -47,7 +47,6 @@ namespace myDsl
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getName() const;
         void setName(::ecore::EString const& _name);
@@ -94,3 +93,4 @@ namespace myDsl
 } // myDsl
 
 #endif // MYDSL_PROPERTY_HPP
+

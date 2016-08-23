@@ -51,8 +51,8 @@ ValueList::ValueList()
                     ::kdm::code::ValueElement, -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(ValueListImpl__ValueListImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -70,7 +70,6 @@ ValueList::~ValueList()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& ValueList::getValueElement()
 {

@@ -30,119 +30,118 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace action
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // ActionElement
+// ActionElement
         class ActionElement;
         typedef ActionElement* ActionElement_ptr;
 
-        // AbstractActionRelationship
+// AbstractActionRelationship
         class AbstractActionRelationship;
         typedef AbstractActionRelationship* AbstractActionRelationship_ptr;
 
-        // ControlFlow
+// ControlFlow
         class ControlFlow;
         typedef ControlFlow* ControlFlow_ptr;
 
-        // Calls
+// Calls
         class Calls;
         typedef Calls* Calls_ptr;
 
-        // Creates
+// Creates
         class Creates;
         typedef Creates* Creates_ptr;
 
-        // Reads
+// Reads
         class Reads;
         typedef Reads* Reads_ptr;
 
-        // Writes
+// Writes
         class Writes;
         typedef Writes* Writes_ptr;
 
-        // CompliesTo
+// CompliesTo
         class CompliesTo;
         typedef CompliesTo* CompliesTo_ptr;
 
-        // Flow
+// Flow
         class Flow;
         typedef Flow* Flow_ptr;
 
-        // TrueFlow
+// TrueFlow
         class TrueFlow;
         typedef TrueFlow* TrueFlow_ptr;
 
-        // FalseFlow
+// FalseFlow
         class FalseFlow;
         typedef FalseFlow* FalseFlow_ptr;
 
-        // GuardedFlow
+// GuardedFlow
         class GuardedFlow;
         typedef GuardedFlow* GuardedFlow_ptr;
 
-        // UsesType
+// UsesType
         class UsesType;
         typedef UsesType* UsesType_ptr;
 
-        // Addresses
+// Addresses
         class Addresses;
         typedef Addresses* Addresses_ptr;
 
-        // ActionRelationship
+// ActionRelationship
         class ActionRelationship;
         typedef ActionRelationship* ActionRelationship_ptr;
 
-        // Throws
+// Throws
         class Throws;
         typedef Throws* Throws_ptr;
 
-        // Dispatches
+// Dispatches
         class Dispatches;
         typedef Dispatches* Dispatches_ptr;
 
-        // EntryFlow
+// EntryFlow
         class EntryFlow;
         typedef EntryFlow* EntryFlow_ptr;
 
-        // BlockUnit
+// BlockUnit
         class BlockUnit;
         typedef BlockUnit* BlockUnit_ptr;
 
-        // ExceptionUnit
+// ExceptionUnit
         class ExceptionUnit;
         typedef ExceptionUnit* ExceptionUnit_ptr;
 
-        // TryUnit
+// TryUnit
         class TryUnit;
         typedef TryUnit* TryUnit_ptr;
 
-        // FinallyUnit
+// FinallyUnit
         class FinallyUnit;
         typedef FinallyUnit* FinallyUnit_ptr;
 
-        // CatchUnit
+// CatchUnit
         class CatchUnit;
         typedef CatchUnit* CatchUnit_ptr;
 
-        // ExitFlow
+// ExitFlow
         class ExitFlow;
         typedef ExitFlow* ExitFlow_ptr;
 
-        // ExceptionFlow
+// ExceptionFlow
         class ExceptionFlow;
         typedef ExceptionFlow* ExceptionFlow_ptr;
 
-        // Package & Factory
+// Package & Factory
         class ActionFactory;
         typedef ActionFactory * ActionFactory_ptr;
         class ActionPackage;
@@ -151,11 +150,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // action
 } // kdm
 
-
 #endif // _KDM_ACTION_FORWARD_HPP
+

@@ -49,7 +49,6 @@ void Leaf::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Leaf::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,12 +58,13 @@ void Leaf::_initialize()
     {
     case ::tree::TreePackage::TREENODE__DATA:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_data);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_data);
     }
         return _any;
     case ::tree::TreePackage::TREENODE__PARENT:
     {
-        _any = static_cast< ::ecore::EObject* > (m_parent);
+        _any = static_cast< ::ecore::EObject* >(m_parent);
     }
         return _any;
 
@@ -78,15 +78,15 @@ void Leaf::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::tree::TreePackage::TREENODE__DATA:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_data);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_data);
     }
         return;
     case ::tree::TreePackage::TREENODE__PARENT:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::tree::TreeNode_ptr _t1 = dynamic_cast< ::tree::TreeNode_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::tree::TreeNode_ptr _t1 = dynamic_cast< ::tree::TreeNode_ptr >(_t0);
         ::tree::TreeNode::setParent(_t1);
     }
         return;
@@ -100,8 +100,8 @@ void Leaf::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     switch (_featureID)
     {
     case ::tree::TreePackage::TREENODE__DATA:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_data);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_data);
     case ::tree::TreePackage::TREENODE__PARENT:
         return m_parent;
 
@@ -120,9 +120,8 @@ void Leaf::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Leaf::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::tree::TreePackage_ptr > (::tree::TreePackage::_instance())->getLeaf();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::tree::TreePackage_ptr >(::tree::TreePackage::_instance())->getLeaf();
     return _eclass;
 }
 

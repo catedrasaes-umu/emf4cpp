@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getText() const;
             void setText(::kdm::core::String _text);
@@ -83,8 +82,8 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::source::SourceRef > > m_source;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
 
         };
 
@@ -92,3 +91,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_BUILD_BUILDDESCRIPTION_HPP
+

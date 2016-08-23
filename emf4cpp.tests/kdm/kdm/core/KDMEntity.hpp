@@ -79,7 +79,6 @@ namespace kdm
 
             // References
 
-
             /*PROTECTED REGION ID(KDMEntity) START*/
             // Please, enable the protected region if you add manually written code.
             // To do this, add the keyword ENABLED before START.
@@ -112,3 +111,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CORE_KDMENTITY_HPP
+

@@ -40,8 +40,8 @@ ObjectValue::ObjectValue()
                     true, false >(this, NULL));
 
     /*PROTECTED REGION ID(ObjectValueImpl__ObjectValueImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -59,7 +59,6 @@ ObjectValue::~ObjectValue()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::json::NVPair >& ObjectValue::getMembers()
 {
