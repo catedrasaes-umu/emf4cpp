@@ -14,11 +14,43 @@ FILES="./tree-bintree/Tree.ecore
 "
 
 EMF4CPP=../../emf4cpp
-EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_1.0.0.jar
+EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_1.1.0.jar
 GENERATOR="java -jar $EMF4CPPJAR"
 
+
+function testLicenseText ()
+{
+	DIR=`dirname $1`
+	FILES="$DIR/CMakeLists.txt $DIR/*.hpp $DIR/*.cpp"
+	rm -f $FILES
+
+	(cd $DIR ; $GENERATOR -o . -e $EMF4CPP `basename $1`)
+	egrep -L "was created by EMF4CPP [[:digit:]]+.[[:digit:]]+.[[:digit:]]+ and is copyrighted by the" $FILES
+	if [ $? -ne 0 ] ; then
+	    echo "License text failed: No foreign copyright when called w/o -i"
+	    return 1
+	fi
+
+	rm -f $FILES
+
+	(cd $DIR ; $GENERATOR --internal -o . -e $EMF4CPP `basename $1`)
+	grep -L "Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>" $FILES
+	if [ $? -ne 0 ] ; then
+	    echo "License text failed: No internal copyright when called w/ -i"
+	    return 2
+	fi
+
+	echo "License text passed for $1"
+	return 0
+}
+
+
 if test -n "$1" ; then
-	(cd `dirname $1` ; $GENERATOR -o . -e $EMF4CPP `basename $1`)
+	if test "$1" == "EndUserLicense/enduserlicense.ecore" ; then
+		testLicenseText "EndUserLicense/enduserlicense.ecore"
+	else
+		(cd `dirname $1` ; $GENERATOR -o . -e $EMF4CPP `basename $1`)
+	fi
 else
   	for i in $FILES; do
 
@@ -31,4 +63,6 @@ else
 
 		echo "Done!"
 	done
+
+	testLicenseText "EndUserLicense/enduserlicense.ecore"
 fi

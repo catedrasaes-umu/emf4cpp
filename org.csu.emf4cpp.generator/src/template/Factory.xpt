@@ -23,7 +23,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «DEFINE hppcpp FOR EPackage»
 «FILE getFactoryPrefix()+".hpp"-»
+«IF GLOBALVAR internalLicense»
 «EXPAND template::License::License FOR getFactoryPrefix()+".hpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFactoryPrefix()+".hpp"-»
+«ENDIF»
 #ifndef _«getHeaderDef()»FACTORY_HPP
 #define _«getHeaderDef()»FACTORY_HPP
 
@@ -61,7 +65,11 @@ protected:
 «ENDFILE»
 
 «FILE getFactoryPrefix()+".cpp"-»
+«IF GLOBALVAR internalLicense»
 «EXPAND template::License::License FOR getFactoryPrefix()+".cpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFactoryPrefix()+".cpp"-»
+«ENDIF»
 #include <«getFactoryPrefix()».hpp>
 
 using namespace ::«getFQN()»;

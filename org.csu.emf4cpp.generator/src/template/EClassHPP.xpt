@@ -27,7 +27,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «DEFINE hpp FOR EClass»
 «FILE getFQN("/")+".hpp"-»
+«IF GLOBALVAR internalLicense»
 «EXPAND template::License::License FOR getFQN("/")+".hpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFQN("/")+".hpp"-»
+«ENDIF»
 #ifndef «getHeaderDef()»_HPP
 #define «getHeaderDef()»_HPP
 
