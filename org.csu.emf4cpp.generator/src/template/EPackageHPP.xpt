@@ -23,7 +23,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «DEFINE hpp FOR EPackage»
 «FILE getFQN("/")+".hpp"-»
+«IF GLOBALVAR internalLicense»
 «EXPAND template::License::License FOR getFQN("/")+".hpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFQN("/")+".hpp"-»
+«ENDIF»
 #ifndef «getHeaderDef()»_HPP
 #define «getHeaderDef()»_HPP
 
@@ -59,7 +63,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 «ENDFILE»
 
 «FILE getFQN("/")+"_forward.hpp"-»
+«IF GLOBALVAR internalLicense»
 «EXPAND template::License::License FOR getFQN("/")+"_forward.hpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFQN("/")+"_forward.hpp"-»
+«ENDIF»
 #ifndef _«getHeaderDef()»_FORWARD_HPP
 #define _«getHeaderDef()»_FORWARD_HPP
 

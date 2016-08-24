@@ -22,7 +22,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «DEFINE MainCMake FOR EPackage»
 «FILE "CMakeLists.txt" NOOVERWRITE-»
+«IF GLOBALVAR internalLicense»
 «EXPAND template::License::LicenseMakefile FOR "CMakeLists.txt"-»
+«ELSE»
+«EXPAND template::EndUserLicense::LicenseMakefile FOR "CMakeLists.txt"-»
+«ENDIF»
 cmake_minimum_required(VERSION 2.6)
 
 project(emf4cpp-«name» CXX)
@@ -51,7 +55,11 @@ include(CPack)
 «DEFINE CMake FOR EPackage»
 «LET getFQN("_") AS fqn»
 «FILE fqn+".cmake"-»
+«IF GLOBALVAR internalLicense»
 «EXPAND template::License::LicenseMakefile FOR fqn+".cmake"-»
+«ELSE»
+«EXPAND template::EndUserLicense::LicenseMakefile FOR fqn+".cmake"-»
+«ENDIF»
 set(CMAKE_CXX_FLAGS "")
 set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -DDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -funroll-loops")
