@@ -30,59 +30,58 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace xpand3
 {
     namespace declaration
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // AbstractDeclaration
+// AbstractDeclaration
         class AbstractDeclaration;
         typedef AbstractDeclaration* AbstractDeclaration_ptr;
 
-        // AbstractNamedDeclaration
+// AbstractNamedDeclaration
         class AbstractNamedDeclaration;
         typedef AbstractNamedDeclaration* AbstractNamedDeclaration_ptr;
 
-        // Definition
+// Definition
         class Definition;
         typedef Definition* Definition_ptr;
 
-        // Extension
+// Extension
         class Extension;
         typedef Extension* Extension_ptr;
 
-        // AbstractAspect
+// AbstractAspect
         class AbstractAspect;
         typedef AbstractAspect* AbstractAspect_ptr;
 
-        // ExtensionAspect
+// ExtensionAspect
         class ExtensionAspect;
         typedef ExtensionAspect* ExtensionAspect_ptr;
 
-        // DefinitionAspect
+// DefinitionAspect
         class DefinitionAspect;
         typedef DefinitionAspect* DefinitionAspect_ptr;
 
-        // Check
+// Check
         class Check;
         typedef Check* Check_ptr;
 
-        // CreateExtension
+// CreateExtension
         class CreateExtension;
         typedef CreateExtension* CreateExtension_ptr;
 
-        // JavaExtension
+// JavaExtension
         class JavaExtension;
         typedef JavaExtension* JavaExtension_ptr;
 
-        // Package & Factory
+// Package & Factory
         class DeclarationFactory;
         typedef DeclarationFactory * DeclarationFactory_ptr;
         class DeclarationPackage;
@@ -91,11 +90,11 @@ namespace xpand3
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // declaration
 } // xpand3
 
-
 #endif // _XPAND3_DECLARATION_FORWARD_HPP
+

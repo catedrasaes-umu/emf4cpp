@@ -47,7 +47,6 @@ void Value::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Value::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -90,9 +89,8 @@ void Value::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Value::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::json::JsonPackage_ptr > (::json::JsonPackage::_instance())->getValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getValue();
     return _eclass;
 }
 

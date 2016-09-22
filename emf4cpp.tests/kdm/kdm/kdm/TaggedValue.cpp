@@ -38,8 +38,8 @@ TaggedValue::TaggedValue()
 {
 
     /*PROTECTED REGION ID(TaggedValueImpl__TaggedValueImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -57,7 +57,6 @@ TaggedValue::~TaggedValue()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String TaggedValue::getValue() const
 {
     return m_value;

@@ -48,12 +48,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >
-                    & getEventElement();
+            ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement();
 
             /*PROTECTED REGION ID(EventModel) START*/
             // Please, enable the protected region if you add manually written code.
@@ -77,11 +75,11 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::event::AbstractEventElement > > m_eventElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::event::AbstractEventElement > > m_eventElement;
 
         };
 
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_EVENT_EVENTMODEL_HPP
+

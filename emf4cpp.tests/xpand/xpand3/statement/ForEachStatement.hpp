@@ -49,14 +49,12 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
             ::xpand3::expression::AbstractExpression_ptr getTarget();
-            void
-                    setTarget(
-                            ::xpand3::expression::AbstractExpression_ptr _target);
+            void setTarget(
+                    ::xpand3::expression::AbstractExpression_ptr _target);
 
             ::xpand3::expression::AbstractExpression_ptr getSeparator();
             void setSeparator(
@@ -90,7 +88,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::expression::AbstractExpression_ptr m_target;
@@ -107,3 +104,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_STATEMENT_FOREACHSTATEMENT_HPP
+

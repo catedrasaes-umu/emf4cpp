@@ -46,8 +46,7 @@ void ExtensionFamily::_initialize()
     for (size_t i = 0; i < m_stereotype->size(); i++)
     {
         (*m_stereotype)[i]->_initialize();
-        (*m_stereotype)[i]->_setEContainer(
-                this,
+        (*m_stereotype)[i]->_setEContainer(this,
                 ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__stereotype());
     }
 
@@ -59,7 +58,6 @@ void ExtensionFamily::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ExtensionFamily::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -69,23 +67,23 @@ void ExtensionFamily::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_name);
     }
         return _any;
 
@@ -100,35 +98,32 @@ void ExtensionFamily::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::kdm::ExtensionFamily::getStereotype().clear();
         ::kdm::kdm::ExtensionFamily::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_name);
     }
         return;
 
@@ -147,8 +142,8 @@ void ExtensionFamily::eSet(::ecore::EInt _featureID,
     case ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__STEREOTYPE:
         return m_stereotype && m_stereotype->size();
     case ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__NAME:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_name);
 
     }
     throw "Error";
@@ -165,9 +160,8 @@ void ExtensionFamily::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ExtensionFamily::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::kdm::KdmPackage_ptr > (::kdm::kdm::KdmPackage::_instance())->getExtensionFamily();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getExtensionFamily();
     return _eclass;
 }
 

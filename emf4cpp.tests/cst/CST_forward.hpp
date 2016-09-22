@@ -30,33 +30,32 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace CST
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // Tree
+// Tree
     class Tree;
     typedef Tree* Tree_ptr;
 
-    // Element
+// Element
     class Element;
     typedef Element* Element_ptr;
 
-    // Node
+// Node
     class Node;
     typedef Node* Node_ptr;
 
-    // Leaf
+// Leaf
     class Leaf;
     typedef Leaf* Leaf_ptr;
 
-    // Package & Factory
+// Package & Factory
     class CSTFactory;
     typedef CSTFactory * CSTFactory_ptr;
     class CSTPackage;
@@ -65,10 +64,10 @@ namespace CST
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // CST
 
-
 #endif // _CST_FORWARD_HPP
+

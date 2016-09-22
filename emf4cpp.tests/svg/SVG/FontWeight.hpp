@@ -45,13 +45,11 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Boolean getBold() const;
         void setBold(::PrimitiveTypes::Boolean _bold);
 
         // References
-
 
         /*PROTECTED REGION ID(FontWeight) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_FONTWEIGHT_HPP
+

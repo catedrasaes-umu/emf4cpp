@@ -45,13 +45,11 @@ namespace xpand3
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getValue() const;
         void setValue(::ecore::EString const& _value);
 
         // References
-
 
         /*PROTECTED REGION ID(Identifier) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_IDENTIFIER_HPP
+

@@ -34,35 +34,35 @@
 #include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace xpand3
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // SyntaxElement
+// SyntaxElement
     class SyntaxElement;
     typedef SyntaxElement* SyntaxElement_ptr;
 
-    // File
+// File
     class File;
     typedef File* File_ptr;
 
-    // ImportStatement
+// ImportStatement
     class ImportStatement;
     typedef ImportStatement* ImportStatement_ptr;
 
-    // Identifier
+// Identifier
     class Identifier;
     typedef Identifier* Identifier_ptr;
 
-    // DeclaredParameter
+// DeclaredParameter
     class DeclaredParameter;
     typedef DeclaredParameter* DeclaredParameter_ptr;
 
-    // Package & Factory
+// Package & Factory
     class Xpand3Factory;
     typedef Xpand3Factory * Xpand3Factory_ptr;
     class Xpand3Package;
@@ -71,10 +71,10 @@ namespace xpand3
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // xpand3
 
-
 #endif // _XPAND3_FORWARD_HPP
+

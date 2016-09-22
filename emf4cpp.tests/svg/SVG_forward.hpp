@@ -30,169 +30,168 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace SVG
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // Element
+// Element
     class Element;
     typedef Element* Element_ptr;
 
-    // StructuralElement
+// StructuralElement
     class StructuralElement;
     typedef StructuralElement* StructuralElement_ptr;
 
-    // Image
+// Image
     class Image;
     typedef Image* Image_ptr;
 
-    // Svg
+// Svg
     class Svg;
     typedef Svg* Svg_ptr;
 
-    // GroupingElement
+// GroupingElement
     class GroupingElement;
     typedef GroupingElement* GroupingElement_ptr;
 
-    // G
+// G
     class G;
     typedef G* G_ptr;
 
-    // Defs
+// Defs
     class Defs;
     typedef Defs* Defs_ptr;
 
-    // Symbol
+// Symbol
     class Symbol;
     typedef Symbol* Symbol_ptr;
 
-    // Use
+// Use
     class Use;
     typedef Use* Use_ptr;
 
-    // GraphicalElement
+// GraphicalElement
     class GraphicalElement;
     typedef GraphicalElement* GraphicalElement_ptr;
 
-    // Shape
+// Shape
     class Shape;
     typedef Shape* Shape_ptr;
 
-    // TextElement
+// TextElement
     class TextElement;
     typedef TextElement* TextElement_ptr;
 
-    // Rect
+// Rect
     class Rect;
     typedef Rect* Rect_ptr;
 
-    // Circle
+// Circle
     class Circle;
     typedef Circle* Circle_ptr;
 
-    // Ellipse
+// Ellipse
     class Ellipse;
     typedef Ellipse* Ellipse_ptr;
 
-    // Line
+// Line
     class Line;
     typedef Line* Line_ptr;
 
-    // Polyline
+// Polyline
     class Polyline;
     typedef Polyline* Polyline_ptr;
 
-    // Polygon
+// Polygon
     class Polygon;
     typedef Polygon* Polygon_ptr;
 
-    // Path
+// Path
     class Path;
     typedef Path* Path_ptr;
 
-    // Point
+// Point
     class Point;
     typedef Point* Point_ptr;
 
-    // Marker
+// Marker
     class Marker;
     typedef Marker* Marker_ptr;
 
-    // Text
+// Text
     class Text;
     typedef Text* Text_ptr;
 
-    // Tspan
+// Tspan
     class Tspan;
     typedef Tspan* Tspan_ptr;
 
-    // Tref
+// Tref
     class Tref;
     typedef Tref* Tref_ptr;
 
-    // Attribute
+// Attribute
     class Attribute;
     typedef Attribute* Attribute_ptr;
 
-    // Transform
+// Transform
     class Transform;
     typedef Transform* Transform_ptr;
 
-    // Scale
+// Scale
     class Scale;
     typedef Scale* Scale_ptr;
 
-    // Translate
+// Translate
     class Translate;
     typedef Translate* Translate_ptr;
 
-    // Rotate
+// Rotate
     class Rotate;
     typedef Rotate* Rotate_ptr;
 
-    // Visibility
+// Visibility
     class Visibility;
     typedef Visibility* Visibility_ptr;
 
-    // FontWeight
+// FontWeight
     class FontWeight;
     typedef FontWeight* FontWeight_ptr;
 
-    // FontStyle
+// FontStyle
     class FontStyle;
     typedef FontStyle* FontStyle_ptr;
 
-    // Dimension
+// Dimension
     class Dimension;
     typedef Dimension* Dimension_ptr;
 
-    // Coordinates
+// Coordinates
     class Coordinates;
     typedef Coordinates* Coordinates_ptr;
 
-    // RelativeCoord
+// RelativeCoord
     class RelativeCoord;
     typedef RelativeCoord* RelativeCoord_ptr;
 
-    // AbsoluteCoord
+// AbsoluteCoord
     class AbsoluteCoord;
     typedef AbsoluteCoord* AbsoluteCoord_ptr;
 
-    // ReferencedFile
+// ReferencedFile
     class ReferencedFile;
     typedef ReferencedFile* ReferencedFile_ptr;
 
-    // SvgFile
+// SvgFile
     class SvgFile;
     typedef SvgFile* SvgFile_ptr;
 
-    // Package & Factory
+// Package & Factory
     class SVGFactory;
     typedef SVGFactory * SVGFactory_ptr;
     class SVGPackage;
@@ -201,10 +200,10 @@ namespace SVG
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // SVG
 
-
 #endif // _SVG_FORWARD_HPP
+

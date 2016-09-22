@@ -47,7 +47,6 @@ namespace xpand3
 
         // Operations
 
-
         // Attributes
         ::ecore::EInt getLine() const;
         void setLine(::ecore::EInt _line);
@@ -62,7 +61,6 @@ namespace xpand3
         void setFileName(::ecore::EString const& _fileName);
 
         // References
-
 
         /*PROTECTED REGION ID(SyntaxElement) START*/
         // Please, enable the protected region if you add manually written code.
@@ -101,3 +99,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_SYNTAXELEMENT_HPP
+

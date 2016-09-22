@@ -33,7 +33,7 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 SwitchExpression::SwitchExpression() :
-    m_switchExpr(0), m_defaultExpr(0)
+        m_switchExpr(0), m_defaultExpr(0)
 {
 
     m_cases.reset(
@@ -41,8 +41,8 @@ SwitchExpression::SwitchExpression() :
                     ::xpand3::expression::Case, -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(SwitchExpressionImpl__SwitchExpressionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -68,7 +68,6 @@ SwitchExpression::~SwitchExpression()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::expression::AbstractExpression_ptr SwitchExpression::getSwitchExpr()
 {

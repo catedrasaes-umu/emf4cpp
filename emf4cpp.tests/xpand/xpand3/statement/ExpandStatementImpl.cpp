@@ -45,29 +45,25 @@ void ExpandStatement::_initialize()
     for (size_t i = 0; i < m_parameters->size(); i++)
     {
         (*m_parameters)[i]->_initialize();
-        (*m_parameters)[i]->_setEContainer(
-                this,
+        (*m_parameters)[i]->_setEContainer(this,
                 ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__parameters());
     }
     if (m_separator)
     {
         m_separator->_initialize();
-        m_separator->_setEContainer(
-                this,
+        m_separator->_setEContainer(this,
                 ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator());
     }
     if (m_target)
     {
         m_target->_initialize();
-        m_target->_setEContainer(
-                this,
+        m_target->_setEContainer(this,
                 ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target());
     }
     if (m_definition)
     {
         m_definition->_initialize();
-        m_definition->_setEContainer(
-                this,
+        m_definition->_setEContainer(this,
                 ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__definition());
     }
 
@@ -79,7 +75,6 @@ void ExpandStatement::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ExpandStatement::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -89,49 +84,50 @@ void ExpandStatement::_initialize()
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_start);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_end);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_fileName);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__FOREACH:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_foreach);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_foreach);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
     {
-        _any = m_parameters->asEListOf< ::ecore::EObject > ();
+        _any = m_parameters->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
     {
-        _any = static_cast< ::ecore::EObject* > (m_separator);
+        _any = static_cast< ::ecore::EObject* >(m_separator);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET:
     {
-        _any = static_cast< ::ecore::EObject* > (m_target);
+        _any = static_cast< ::ecore::EObject* >(m_target);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION:
     {
-        _any = static_cast< ::ecore::EObject* > (m_definition);
+        _any = static_cast< ::ecore::EObject* >(m_definition);
     }
         return _any;
 
@@ -146,69 +142,66 @@ void ExpandStatement::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_start);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_end);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_fileName);
     }
         return;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__FOREACH:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_foreach);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_foreach);
     }
         return;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::xpand3::statement::ExpandStatement::getParameters().clear();
         ::xpand3::statement::ExpandStatement::getParameters().insert_all(*_t0);
     }
         return;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::xpand3::expression::AbstractExpression_ptr
-                _t1 =
-                        dynamic_cast< ::xpand3::expression::AbstractExpression_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::xpand3::expression::AbstractExpression_ptr _t1 =
+                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
         ::xpand3::statement::ExpandStatement::setSeparator(_t1);
     }
         return;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::xpand3::expression::AbstractExpression_ptr
-                _t1 =
-                        dynamic_cast< ::xpand3::expression::AbstractExpression_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::xpand3::expression::AbstractExpression_ptr _t1 =
+                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
         ::xpand3::statement::ExpandStatement::setTarget(_t1);
     }
         return;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr > (_t0);
+                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
         ::xpand3::statement::ExpandStatement::setDefinition(_t1);
     }
         return;
@@ -222,17 +215,19 @@ void ExpandStatement::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_start);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_start);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_end);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_end);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_fileName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_fileName);
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__FOREACH:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_foreach);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_foreach);
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
         return m_parameters && m_parameters->size();
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
@@ -257,9 +252,8 @@ void ExpandStatement::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ExpandStatement::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::xpand3::statement::StatementPackage_ptr > (::xpand3::statement::StatementPackage::_instance())->getExpandStatement();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getExpandStatement();
     return _eclass;
 }
 

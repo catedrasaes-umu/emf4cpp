@@ -47,8 +47,8 @@ MemberUnit::MemberUnit()
 {
 
     /*PROTECTED REGION ID(MemberUnitImpl__MemberUnitImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ MemberUnit::~MemberUnit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::code::ExportKind MemberUnit::getExport() const
 {
     return m_export;

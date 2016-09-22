@@ -38,12 +38,12 @@ using namespace ::kdm::data;
 
 // Default constructor
 ExtensionTo::ExtensionTo() :
-    m_to(0), m_from(0)
+        m_to(0), m_from(0)
 {
 
     /*PROTECTED REGION ID(ExtensionToImpl__ExtensionToImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ ExtensionTo::~ExtensionTo()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::data::ComplexContentType_ptr ExtensionTo::getTo()
 {

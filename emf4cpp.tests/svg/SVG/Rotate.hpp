@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getAngle() const;
         void setAngle(::PrimitiveTypes::Double _angle);
@@ -57,7 +56,6 @@ namespace SVG
         void setCy(::PrimitiveTypes::Double _cy);
 
         // References
-
 
         /*PROTECTED REGION ID(Rotate) START*/
         // Please, enable the protected region if you add manually written code.
@@ -94,3 +92,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_ROTATE_HPP
+

@@ -49,13 +49,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::Integer getSize() const;
             void setSize(::kdm::core::Integer _size);
 
             // References
-
 
             /*PROTECTED REGION ID(BagType) START*/
             // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_BAGTYPE_HPP
+

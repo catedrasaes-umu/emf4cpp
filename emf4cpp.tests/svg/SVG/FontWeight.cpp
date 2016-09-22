@@ -36,8 +36,8 @@ FontWeight::FontWeight()
 {
 
     /*PROTECTED REGION ID(FontWeightImpl__FontWeightImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,7 +55,6 @@ FontWeight::~FontWeight()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::Boolean FontWeight::getBold() const
 {
     return m_bold;

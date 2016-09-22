@@ -45,13 +45,11 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getIdentifier() const;
         void setIdentifier(::ecore::EString const& _identifier);
 
         // References
-
 
         /*PROTECTED REGION ID(Field) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_FIELD_HPP
+

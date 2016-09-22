@@ -30,60 +30,58 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace structure
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // AbstractStructureElement
+// AbstractStructureElement
         class AbstractStructureElement;
         typedef AbstractStructureElement* AbstractStructureElement_ptr;
 
-        // Subsystem
+// Subsystem
         class Subsystem;
         typedef Subsystem* Subsystem_ptr;
 
-        // Layer
+// Layer
         class Layer;
         typedef Layer* Layer_ptr;
 
-        // StructureModel
+// StructureModel
         class StructureModel;
         typedef StructureModel* StructureModel_ptr;
 
-        // Component
+// Component
         class Component;
         typedef Component* Component_ptr;
 
-        // SoftwareSystem
+// SoftwareSystem
         class SoftwareSystem;
         typedef SoftwareSystem* SoftwareSystem_ptr;
 
-        // AbstractStructureRelationship
+// AbstractStructureRelationship
         class AbstractStructureRelationship;
-        typedef AbstractStructureRelationship
-                * AbstractStructureRelationship_ptr;
+        typedef AbstractStructureRelationship* AbstractStructureRelationship_ptr;
 
-        // StructureRelationship
+// StructureRelationship
         class StructureRelationship;
         typedef StructureRelationship* StructureRelationship_ptr;
 
-        // ArchitectureView
+// ArchitectureView
         class ArchitectureView;
         typedef ArchitectureView* ArchitectureView_ptr;
 
-        // StructureElement
+// StructureElement
         class StructureElement;
         typedef StructureElement* StructureElement_ptr;
 
-        // Package & Factory
+// Package & Factory
         class StructureFactory;
         typedef StructureFactory * StructureFactory_ptr;
         class StructurePackage;
@@ -92,11 +90,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // structure
 } // kdm
 
-
 #endif // _KDM_STRUCTURE_FORWARD_HPP
+

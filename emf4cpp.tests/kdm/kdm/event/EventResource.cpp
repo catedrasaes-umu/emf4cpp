@@ -52,8 +52,8 @@ EventResource::EventResource()
                     NULL));
 
     /*PROTECTED REGION ID(EventResourceImpl__EventResourceImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +71,6 @@ EventResource::~EventResource()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventResource::getEventElement()
 {

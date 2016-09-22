@@ -46,7 +46,6 @@ namespace bintree
 
         // IDs for classifiers for class BinTreeNode 
 
-
         // EClassifiers methods
 
         virtual ::ecore::EClass_ptr getBinTreeNode();
@@ -73,9 +72,7 @@ namespace bintree
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -91,5 +88,5 @@ namespace bintree
 
 } // bintree
 
-
 #endif // _BINTREEPACKAGE_HPP
+

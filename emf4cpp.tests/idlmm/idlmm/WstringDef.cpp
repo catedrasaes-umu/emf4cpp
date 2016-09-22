@@ -35,8 +35,8 @@ WstringDef::WstringDef()
 {
 
     /*PROTECTED REGION ID(WstringDefImpl__WstringDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -54,7 +54,6 @@ WstringDef::~WstringDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& WstringDef::getBound() const
 {
     return m_bound;

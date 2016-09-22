@@ -48,12 +48,12 @@ UIAction::UIAction()
 {
 
     m_UIElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::ui::UIEvent,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::ui::UIEvent, -1,
+                    true, false >(this, NULL));
 
     /*PROTECTED REGION ID(UIActionImpl__UIActionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +71,6 @@ UIAction::~UIAction()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String UIAction::getKind() const
 {
     return m_kind;

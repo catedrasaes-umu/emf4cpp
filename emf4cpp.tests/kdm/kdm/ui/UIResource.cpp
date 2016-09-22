@@ -48,11 +48,12 @@ UIResource::UIResource()
 
     m_UIElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::ui::AbstractUIElement, -1, true, false >(this, NULL));
+                    ::kdm::ui::AbstractUIElement, -1, true, false >(this,
+                    NULL));
 
     /*PROTECTED REGION ID(UIResourceImpl__UIResourceImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -70,7 +71,6 @@ UIResource::~UIResource()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIResource::getUIElement()
 {

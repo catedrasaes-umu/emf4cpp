@@ -46,8 +46,8 @@ ScaledType::ScaledType()
 {
 
     /*PROTECTED REGION ID(ScaledTypeImpl__ScaledTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,6 +65,4 @@ ScaledType::~ScaledType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

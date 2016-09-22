@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -81,7 +80,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::source::Image_ptr m_to;
@@ -94,3 +92,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_UI_DISPLAYSIMAGE_HPP
+

@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::Integer getLower() const;
             void setLower(::kdm::core::Integer _lower);
@@ -58,7 +57,6 @@ namespace kdm
             void setUpper(::kdm::core::Integer _upper);
 
             // References
-
 
             /*PROTECTED REGION ID(RangeType) START*/
             // Please, enable the protected region if you add manually written code.
@@ -94,3 +92,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_RANGETYPE_HPP
+

@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -79,7 +78,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::data::UniqueKey_ptr m_to;
@@ -92,3 +90,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_KEYRELATION_HPP
+

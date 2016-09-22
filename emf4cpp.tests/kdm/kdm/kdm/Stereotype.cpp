@@ -42,8 +42,8 @@ Stereotype::Stereotype()
                     ::kdm::kdm::TagDefinition, -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(StereotypeImpl__StereotypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ Stereotype::~Stereotype()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String Stereotype::getName() const
 {
     return m_name;

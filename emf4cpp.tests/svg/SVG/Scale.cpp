@@ -36,8 +36,8 @@ Scale::Scale()
 {
 
     /*PROTECTED REGION ID(ScaleImpl__ScaleImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,7 +55,6 @@ Scale::~Scale()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::Double Scale::getSx() const
 {
     return m_sx;

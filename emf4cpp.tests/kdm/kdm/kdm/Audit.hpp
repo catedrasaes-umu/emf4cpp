@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getDescription() const;
             void setDescription(::kdm::core::String _description);
@@ -59,7 +58,6 @@ namespace kdm
             void setDate(::kdm::core::String _date);
 
             // References
-
 
             /*PROTECTED REGION ID(Audit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -97,3 +95,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_AUDIT_HPP
+

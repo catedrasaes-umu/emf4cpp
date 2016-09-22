@@ -32,12 +32,12 @@ using namespace ::tree;
 
 // Default constructor
 TreeNode::TreeNode() :
-    m_parent(0)
+        m_parent(0)
 {
 
     /*PROTECTED REGION ID(TreeNodeImpl__TreeNodeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,7 +55,6 @@ TreeNode::~TreeNode()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& TreeNode::getData() const
 {
     return m_data;

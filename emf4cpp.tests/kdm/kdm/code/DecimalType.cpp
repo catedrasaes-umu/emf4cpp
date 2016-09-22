@@ -46,8 +46,8 @@ DecimalType::DecimalType()
 {
 
     /*PROTECTED REGION ID(DecimalTypeImpl__DecimalTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,6 +65,4 @@ DecimalType::~DecimalType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

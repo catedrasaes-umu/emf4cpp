@@ -33,12 +33,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 LetExpression::LetExpression() :
-    m_varExpression(0), m_targetExpression(0), m_varName(0)
+        m_varExpression(0), m_targetExpression(0), m_varName(0)
 {
 
     /*PROTECTED REGION ID(LetExpressionImpl__LetExpressionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -68,7 +68,6 @@ LetExpression::~LetExpression()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::expression::AbstractExpression_ptr LetExpression::getVarExpression()
 {

@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "json/ObjectValue.hpp"
 #include "json/NVPair.hpp"

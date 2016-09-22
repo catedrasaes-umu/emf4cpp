@@ -48,8 +48,8 @@ OperationDef::OperationDef()
                     -1, false, false >(this, NULL));
 
     /*PROTECTED REGION ID(OperationDefImpl__OperationDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -67,7 +67,6 @@ OperationDef::~OperationDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean OperationDef::isIsOneway() const
 {
     return m_isOneway;

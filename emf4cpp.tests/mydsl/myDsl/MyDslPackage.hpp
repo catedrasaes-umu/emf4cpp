@@ -70,19 +70,15 @@ namespace myDsl
 
         // IDs for classifiers for class Import 
 
-
         // IDs for classifiers for class Model 
 
-
         // IDs for classifiers for class Property 
-
 
         // IDs for classifiers for class SimpleType 
 
         static const int SIMPLETYPE__NAME = TYPE__NAME;
 
         // IDs for classifiers for class Type 
-
 
         // EClassifiers methods
 
@@ -140,9 +136,7 @@ namespace myDsl
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -168,5 +162,5 @@ namespace myDsl
 
 } // myDsl
 
-
 #endif // _MYDSLPACKAGE_HPP
+

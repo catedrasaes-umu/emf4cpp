@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getIdentifier() const;
         void setIdentifier(::ecore::EString const& _identifier);
@@ -54,7 +53,6 @@ namespace idlmm
         void setDirection(::idlmm::ParameterMode _direction);
 
         // References
-
 
         /*PROTECTED REGION ID(ParameterDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_PARAMETERDEF_HPP
+

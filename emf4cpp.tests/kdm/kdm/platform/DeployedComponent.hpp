@@ -51,7 +51,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -79,11 +78,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::Module > > m_groupedCode;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::Module > > m_groupedCode;
 
         };
 
@@ -91,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_PLATFORM_DEPLOYEDCOMPONENT_HPP
+

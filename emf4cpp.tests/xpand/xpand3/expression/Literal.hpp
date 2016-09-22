@@ -48,7 +48,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -77,7 +76,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::Identifier_ptr m_literalValue;
@@ -88,3 +86,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_EXPRESSION_LITERAL_HPP
+

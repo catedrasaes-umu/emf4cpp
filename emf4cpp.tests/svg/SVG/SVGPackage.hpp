@@ -258,7 +258,6 @@ namespace SVG
 
         // IDs for classifiers for class Attribute 
 
-
         // IDs for classifiers for class Circle 
 
         static const int CIRCLE__OWNER = ELEMENT__OWNER;
@@ -286,7 +285,6 @@ namespace SVG
         static const int CIRCLE__STROKE = GRAPHICALELEMENT__STROKE;
 
         // IDs for classifiers for class Coordinates 
-
 
         // IDs for classifiers for class Defs 
 
@@ -316,9 +314,7 @@ namespace SVG
 
         // IDs for classifiers for class Dimension 
 
-
         // IDs for classifiers for class Element 
-
 
         // IDs for classifiers for class Ellipse 
 
@@ -635,7 +631,6 @@ namespace SVG
         static const int RECT__STROKE = GRAPHICALELEMENT__STROKE;
 
         // IDs for classifiers for class ReferencedFile 
-
 
         // IDs for classifiers for class RelativeCoord 
 
@@ -1221,9 +1216,7 @@ namespace SVG
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -1371,5 +1364,5 @@ namespace SVG
 
 } // SVG
 
-
 #endif // _SVGPACKAGE_HPP
+

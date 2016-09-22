@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -77,11 +76,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::ItemUnit > > m_itemUnit;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit > > m_itemUnit;
 
         };
 
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_COMPOSITETYPE_HPP
+

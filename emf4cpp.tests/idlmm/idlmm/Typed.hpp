@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -77,7 +76,6 @@ namespace idlmm
     protected:
         // Attributes
 
-
         // References
 
         ::idlmm::IDLType_ptr m_containedType;
@@ -89,3 +87,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_TYPED_HPP
+

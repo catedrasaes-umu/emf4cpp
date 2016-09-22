@@ -48,14 +48,12 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
             ::xpand3::expression::AbstractExpression_ptr getTarget();
-            void
-                    setTarget(
-                            ::xpand3::expression::AbstractExpression_ptr _target);
+            void setTarget(
+                    ::xpand3::expression::AbstractExpression_ptr _target);
 
             ::xpand3::Identifier_ptr getName();
             void setName(::xpand3::Identifier_ptr _name);
@@ -82,7 +80,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::expression::AbstractExpression_ptr m_target;
@@ -95,3 +92,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_EXPRESSION_FEATURECALL_HPP
+

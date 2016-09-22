@@ -38,8 +38,7 @@ namespace xpand3
             virtual BooleanOperation_ptr createBooleanOperation();
             virtual Cast_ptr createCast();
             virtual ChainExpression_ptr createChainExpression();
-            virtual ConstructorCallExpression_ptr
-                    createConstructorCallExpression();
+            virtual ConstructorCallExpression_ptr createConstructorCallExpression();
             virtual FeatureCall_ptr createFeatureCall();
             virtual CollectionExpression_ptr createCollectionExpression();
             virtual OperationCall_ptr createOperationCall();
@@ -78,5 +77,5 @@ namespace xpand3
     } // expression
 } // xpand3
 
-
 #endif // _XPAND3_EXPRESSIONFACTORY_HPP
+

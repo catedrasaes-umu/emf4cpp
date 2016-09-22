@@ -49,7 +49,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EBoolean isWildparams() const;
             void setWildparams(::ecore::EBoolean _wildparams);
@@ -92,3 +91,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_ABSTRACTASPECT_HPP
+

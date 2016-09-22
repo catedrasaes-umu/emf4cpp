@@ -30,147 +30,146 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace platform
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // AbstractPlatformElement
+// AbstractPlatformElement
         class AbstractPlatformElement;
         typedef AbstractPlatformElement* AbstractPlatformElement_ptr;
 
-        // PlatformModel
+// PlatformModel
         class PlatformModel;
         typedef PlatformModel* PlatformModel_ptr;
 
-        // AbstractPlatformRelationship
+// AbstractPlatformRelationship
         class AbstractPlatformRelationship;
         typedef AbstractPlatformRelationship* AbstractPlatformRelationship_ptr;
 
-        // Requires
+// Requires
         class Requires;
         typedef Requires* Requires_ptr;
 
-        // ResourceType
+// ResourceType
         class ResourceType;
         typedef ResourceType* ResourceType_ptr;
 
-        // NamingResource
+// NamingResource
         class NamingResource;
         typedef NamingResource* NamingResource_ptr;
 
-        // MarshalledResource
+// MarshalledResource
         class MarshalledResource;
         typedef MarshalledResource* MarshalledResource_ptr;
 
-        // MessagingResource
+// MessagingResource
         class MessagingResource;
         typedef MessagingResource* MessagingResource_ptr;
 
-        // FileResource
+// FileResource
         class FileResource;
         typedef FileResource* FileResource_ptr;
 
-        // ExecutionResource
+// ExecutionResource
         class ExecutionResource;
         typedef ExecutionResource* ExecutionResource_ptr;
 
-        // PlatformAction
+// PlatformAction
         class PlatformAction;
         typedef PlatformAction* PlatformAction_ptr;
 
-        // ExternalActor
+// ExternalActor
         class ExternalActor;
         typedef ExternalActor* ExternalActor_ptr;
 
-        // DataManager
+// DataManager
         class DataManager;
         typedef DataManager* DataManager_ptr;
 
-        // BindsTo
+// BindsTo
         class BindsTo;
         typedef BindsTo* BindsTo_ptr;
 
-        // PlatformElement
+// PlatformElement
         class PlatformElement;
         typedef PlatformElement* PlatformElement_ptr;
 
-        // PlatformRelationship
+// PlatformRelationship
         class PlatformRelationship;
         typedef PlatformRelationship* PlatformRelationship_ptr;
 
-        // PlatformEvent
+// PlatformEvent
         class PlatformEvent;
         typedef PlatformEvent* PlatformEvent_ptr;
 
-        // LockResource
+// LockResource
         class LockResource;
         typedef LockResource* LockResource_ptr;
 
-        // DeployedSoftwareSystem
+// DeployedSoftwareSystem
         class DeployedSoftwareSystem;
         typedef DeployedSoftwareSystem* DeployedSoftwareSystem_ptr;
 
-        // Machine
+// Machine
         class Machine;
         typedef Machine* Machine_ptr;
 
-        // DeployedComponent
+// DeployedComponent
         class DeployedComponent;
         typedef DeployedComponent* DeployedComponent_ptr;
 
-        // DeployedResource
+// DeployedResource
         class DeployedResource;
         typedef DeployedResource* DeployedResource_ptr;
 
-        // Loads
+// Loads
         class Loads;
         typedef Loads* Loads_ptr;
 
-        // Spawns
+// Spawns
         class Spawns;
         typedef Spawns* Spawns_ptr;
 
-        // RuntimeResource
+// RuntimeResource
         class RuntimeResource;
         typedef RuntimeResource* RuntimeResource_ptr;
 
-        // Thread
+// Thread
         class Thread;
         typedef Thread* Thread_ptr;
 
-        // Process
+// Process
         class Process;
         typedef Process* Process_ptr;
 
-        // ReadsResource
+// ReadsResource
         class ReadsResource;
         typedef ReadsResource* ReadsResource_ptr;
 
-        // WritesResource
+// WritesResource
         class WritesResource;
         typedef WritesResource* WritesResource_ptr;
 
-        // ManagesResource
+// ManagesResource
         class ManagesResource;
         typedef ManagesResource* ManagesResource_ptr;
 
-        // DefinedBy
+// DefinedBy
         class DefinedBy;
         typedef DefinedBy* DefinedBy_ptr;
 
-        // StreamResource
+// StreamResource
         class StreamResource;
         typedef StreamResource* StreamResource_ptr;
 
-        // Package & Factory
+// Package & Factory
         class PlatformFactory;
         typedef PlatformFactory * PlatformFactory_ptr;
         class PlatformPackage;
@@ -179,11 +178,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // platform
 } // kdm
 
-
 #endif // _KDM_PLATFORM_FORWARD_HPP
+

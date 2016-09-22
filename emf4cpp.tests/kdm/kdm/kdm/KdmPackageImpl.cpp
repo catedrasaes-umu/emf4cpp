@@ -206,9 +206,7 @@ KdmPackage::KdmPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("kdm");
@@ -219,23 +217,23 @@ KdmPackage::KdmPackage()
 
     // Add supertypes to classes
     m_KDMFrameworkEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getModelElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getModelElement());
     m_KDMModelEClass->getESuperTypes().push_back(m_KDMFrameworkEClass);
     m_AuditEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_SegmentEClass->getESuperTypes().push_back(m_KDMFrameworkEClass);
     m_AttributeEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_AnnotationEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_TagDefinitionEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_ExtendedValueEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_StereotypeEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_ExtensionFamilyEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_TaggedRefEClass->getESuperTypes().push_back(m_ExtendedValueEClass);
     m_TaggedValueEClass->getESuperTypes().push_back(m_ExtendedValueEClass);
 
@@ -246,7 +244,7 @@ KdmPackage::KdmPackage()
     m_KDMFrameworkEClass->setAbstract(true);
     m_KDMFrameworkEClass->setInterface(false);
     m_KDMFramework__name->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_KDMFramework__name->setName("name");
     m_KDMFramework__name->setDefaultValueLiteral("");
     m_KDMFramework__name->setLowerBound(0);
@@ -294,7 +292,7 @@ KdmPackage::KdmPackage()
     m_AuditEClass->setAbstract(false);
     m_AuditEClass->setInterface(false);
     m_Audit__description->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Audit__description->setName("description");
     m_Audit__description->setDefaultValueLiteral("");
     m_Audit__description->setLowerBound(0);
@@ -308,7 +306,7 @@ KdmPackage::KdmPackage()
     m_Audit__description->setDerived(false);
     m_Audit__description->setOrdered(false);
     m_Audit__author->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Audit__author->setName("author");
     m_Audit__author->setDefaultValueLiteral("");
     m_Audit__author->setLowerBound(0);
@@ -322,7 +320,7 @@ KdmPackage::KdmPackage()
     m_Audit__author->setDerived(false);
     m_Audit__author->setOrdered(false);
     m_Audit__date->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Audit__date->setName("date");
     m_Audit__date->setDefaultValueLiteral("");
     m_Audit__date->setLowerBound(0);
@@ -370,7 +368,7 @@ KdmPackage::KdmPackage()
     m_AttributeEClass->setAbstract(false);
     m_AttributeEClass->setInterface(false);
     m_Attribute__tag->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Attribute__tag->setName("tag");
     m_Attribute__tag->setDefaultValueLiteral("");
     m_Attribute__tag->setLowerBound(0);
@@ -384,7 +382,7 @@ KdmPackage::KdmPackage()
     m_Attribute__tag->setDerived(false);
     m_Attribute__tag->setOrdered(false);
     m_Attribute__value->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Attribute__value->setName("value");
     m_Attribute__value->setDefaultValueLiteral("");
     m_Attribute__value->setLowerBound(0);
@@ -402,7 +400,7 @@ KdmPackage::KdmPackage()
     m_AnnotationEClass->setAbstract(false);
     m_AnnotationEClass->setInterface(false);
     m_Annotation__text->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Annotation__text->setName("text");
     m_Annotation__text->setDefaultValueLiteral("");
     m_Annotation__text->setLowerBound(0);
@@ -420,7 +418,7 @@ KdmPackage::KdmPackage()
     m_TagDefinitionEClass->setAbstract(false);
     m_TagDefinitionEClass->setInterface(false);
     m_TagDefinition__tag->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_TagDefinition__tag->setName("tag");
     m_TagDefinition__tag->setDefaultValueLiteral("");
     m_TagDefinition__tag->setLowerBound(0);
@@ -434,7 +432,7 @@ KdmPackage::KdmPackage()
     m_TagDefinition__tag->setDerived(false);
     m_TagDefinition__tag->setOrdered(false);
     m_TagDefinition__type->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_TagDefinition__type->setName("type");
     m_TagDefinition__type->setDefaultValueLiteral("");
     m_TagDefinition__type->setLowerBound(0);
@@ -469,7 +467,7 @@ KdmPackage::KdmPackage()
     m_StereotypeEClass->setAbstract(false);
     m_StereotypeEClass->setInterface(false);
     m_Stereotype__name->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Stereotype__name->setName("name");
     m_Stereotype__name->setDefaultValueLiteral("");
     m_Stereotype__name->setLowerBound(0);
@@ -483,7 +481,7 @@ KdmPackage::KdmPackage()
     m_Stereotype__name->setDerived(false);
     m_Stereotype__name->setOrdered(false);
     m_Stereotype__type->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Stereotype__type->setName("type");
     m_Stereotype__type->setDefaultValueLiteral("");
     m_Stereotype__type->setLowerBound(0);
@@ -514,7 +512,7 @@ KdmPackage::KdmPackage()
     m_ExtensionFamilyEClass->setAbstract(false);
     m_ExtensionFamilyEClass->setInterface(false);
     m_ExtensionFamily__name->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_ExtensionFamily__name->setName("name");
     m_ExtensionFamily__name->setDefaultValueLiteral("");
     m_ExtensionFamily__name->setLowerBound(0);
@@ -545,7 +543,7 @@ KdmPackage::KdmPackage()
     m_TaggedRefEClass->setAbstract(false);
     m_TaggedRefEClass->setInterface(false);
     m_TaggedRef__reference->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getModelElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getModelElement());
     m_TaggedRef__reference->setName("reference");
     m_TaggedRef__reference->setDefaultValueLiteral("");
     m_TaggedRef__reference->setLowerBound(1);
@@ -563,7 +561,7 @@ KdmPackage::KdmPackage()
     m_TaggedValueEClass->setAbstract(false);
     m_TaggedValueEClass->setInterface(false);
     m_TaggedValue__value->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_TaggedValue__value->setName("value");
     m_TaggedValue__value->setDefaultValueLiteral("");
     m_TaggedValue__value->setLowerBound(0);
@@ -578,7 +576,6 @@ KdmPackage::KdmPackage()
     m_TaggedValue__value->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

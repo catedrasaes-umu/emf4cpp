@@ -39,12 +39,12 @@ using namespace ::kdm::data;
 
 // Default constructor
 HasContent::HasContent() :
-    m_to(0), m_from(0)
+        m_to(0), m_from(0)
 {
 
     /*PROTECTED REGION ID(HasContentImpl__HasContentImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ HasContent::~HasContent()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::data::AbstractDataElement_ptr HasContent::getTo()
 {

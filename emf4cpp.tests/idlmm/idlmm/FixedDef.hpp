@@ -45,7 +45,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getDigits() const;
         void setDigits(::ecore::EString const& _digits);
@@ -54,7 +53,6 @@ namespace idlmm
         void setScale(::ecore::EString const& _scale);
 
         // References
-
 
         /*PROTECTED REGION ID(FixedDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_FIXEDDEF_HPP
+

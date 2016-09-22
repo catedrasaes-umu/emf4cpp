@@ -44,8 +44,8 @@ SourceFile::SourceFile()
 {
 
     /*PROTECTED REGION ID(SourceFileImpl__SourceFileImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -63,7 +63,6 @@ SourceFile::~SourceFile()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String SourceFile::getLanguage() const
 {
     return m_language;

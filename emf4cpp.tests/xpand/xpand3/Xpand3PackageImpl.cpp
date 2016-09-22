@@ -132,9 +132,7 @@ Xpand3Package::Xpand3Package()
 
     // Create enums
 
-
     // Create data types
-
 
     getESubpackages().push_back(
             ::xpand3::expression::ExpressionPackage::_instance());
@@ -154,7 +152,8 @@ Xpand3Package::Xpand3Package()
     m_FileEClass->getESuperTypes().push_back(m_SyntaxElementEClass);
     m_ImportStatementEClass->getESuperTypes().push_back(m_SyntaxElementEClass);
     m_IdentifierEClass->getESuperTypes().push_back(m_SyntaxElementEClass);
-    m_DeclaredParameterEClass->getESuperTypes().push_back(m_SyntaxElementEClass);
+    m_DeclaredParameterEClass->getESuperTypes().push_back(
+            m_SyntaxElementEClass);
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
@@ -163,7 +162,7 @@ Xpand3Package::Xpand3Package()
     m_SyntaxElementEClass->setAbstract(true);
     m_SyntaxElementEClass->setInterface(false);
     m_SyntaxElement__line->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
     m_SyntaxElement__line->setName("line");
     m_SyntaxElement__line->setDefaultValueLiteral("");
     m_SyntaxElement__line->setLowerBound(0);
@@ -177,7 +176,7 @@ Xpand3Package::Xpand3Package()
     m_SyntaxElement__line->setDerived(false);
     m_SyntaxElement__line->setOrdered(true);
     m_SyntaxElement__start->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
     m_SyntaxElement__start->setName("start");
     m_SyntaxElement__start->setDefaultValueLiteral("");
     m_SyntaxElement__start->setLowerBound(0);
@@ -191,7 +190,7 @@ Xpand3Package::Xpand3Package()
     m_SyntaxElement__start->setDerived(false);
     m_SyntaxElement__start->setOrdered(true);
     m_SyntaxElement__end->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
     m_SyntaxElement__end->setName("end");
     m_SyntaxElement__end->setDefaultValueLiteral("");
     m_SyntaxElement__end->setLowerBound(0);
@@ -205,7 +204,7 @@ Xpand3Package::Xpand3Package()
     m_SyntaxElement__end->setDerived(false);
     m_SyntaxElement__end->setOrdered(true);
     m_SyntaxElement__fileName->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_SyntaxElement__fileName->setName("fileName");
     m_SyntaxElement__fileName->setDefaultValueLiteral("");
     m_SyntaxElement__fileName->setLowerBound(0);
@@ -236,7 +235,7 @@ Xpand3Package::Xpand3Package()
     m_File__imports->setDerived(false);
     m_File__imports->setOrdered(true);
     m_File__declarations->setEType(
-            dynamic_cast< ::xpand3::declaration::DeclarationPackage* > (::xpand3::declaration::DeclarationPackage::_instance())->getAbstractDeclaration());
+            dynamic_cast< ::xpand3::declaration::DeclarationPackage* >(::xpand3::declaration::DeclarationPackage::_instance())->getAbstractDeclaration());
     m_File__declarations->setName("declarations");
     m_File__declarations->setDefaultValueLiteral("");
     m_File__declarations->setLowerBound(1);
@@ -254,7 +253,7 @@ Xpand3Package::Xpand3Package()
     m_ImportStatementEClass->setAbstract(false);
     m_ImportStatementEClass->setInterface(false);
     m_ImportStatement__exported->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_ImportStatement__exported->setName("exported");
     m_ImportStatement__exported->setDefaultValueLiteral("");
     m_ImportStatement__exported->setLowerBound(0);
@@ -285,7 +284,7 @@ Xpand3Package::Xpand3Package()
     m_IdentifierEClass->setAbstract(false);
     m_IdentifierEClass->setInterface(false);
     m_Identifier__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_Identifier__value->setName("value");
     m_Identifier__value->setDefaultValueLiteral("");
     m_Identifier__value->setLowerBound(0);
@@ -330,7 +329,6 @@ Xpand3Package::Xpand3Package()
     m_DeclaredParameter__type->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

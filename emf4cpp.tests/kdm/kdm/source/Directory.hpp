@@ -48,13 +48,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getPath() const;
             void setPath(::kdm::core::String _path);
 
             // References
-
 
             /*PROTECTED REGION ID(Directory) START*/
             // Please, enable the protected region if you add manually written code.
@@ -88,3 +86,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_SOURCE_DIRECTORY_HPP
+

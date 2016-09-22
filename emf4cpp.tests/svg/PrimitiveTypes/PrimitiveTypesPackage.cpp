@@ -21,8 +21,7 @@
 
 using namespace ::PrimitiveTypes;
 
-std::auto_ptr< ::PrimitiveTypes::PrimitiveTypesPackage >
-        PrimitiveTypesPackage::s_instance;
+std::auto_ptr< ::PrimitiveTypes::PrimitiveTypesPackage > PrimitiveTypesPackage::s_instance;
 
 ::PrimitiveTypes::PrimitiveTypesPackage_ptr PrimitiveTypesPackage::_instance()
 {

@@ -45,11 +45,9 @@ namespace myDsl
 
         // Operations
 
-
         // Attributes
 
         // References
-
 
         /*PROTECTED REGION ID(SimpleType) START*/
         // Please, enable the protected region if you add manually written code.
@@ -73,7 +71,6 @@ namespace myDsl
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -81,3 +78,4 @@ namespace myDsl
 } // myDsl
 
 #endif // MYDSL_SIMPLETYPE_HPP
+

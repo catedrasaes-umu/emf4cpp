@@ -45,11 +45,9 @@ namespace tree
 
         // Operations
 
-
         // Attributes
 
         // References
-
 
         /*PROTECTED REGION ID(Leaf) START*/
         // Please, enable the protected region if you add manually written code.
@@ -73,7 +71,6 @@ namespace tree
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -81,3 +78,4 @@ namespace tree
 } // tree
 
 #endif // TREE_LEAF_HPP
+

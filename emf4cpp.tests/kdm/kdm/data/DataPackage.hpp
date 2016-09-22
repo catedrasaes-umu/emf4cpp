@@ -346,8 +346,7 @@ namespace kdm
             static const int CHOICECONTENT__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int CHOICECONTENT__SOURCE =
-                    ABSTRACTDATAELEMENT__SOURCE;
+            static const int CHOICECONTENT__SOURCE = ABSTRACTDATAELEMENT__SOURCE;
 
             static const int CHOICECONTENT__DATARELATION =
                     ABSTRACTDATAELEMENT__DATARELATION;
@@ -383,8 +382,7 @@ namespace kdm
             static const int COLUMNSET__ABSTRACTION =
                     ABSTRACTDATAELEMENT__ABSTRACTION;
 
-            static const int COLUMNSET__DATAELEMENT =
-                    DATACONTAINER__DATAELEMENT;
+            static const int COLUMNSET__DATAELEMENT = DATACONTAINER__DATAELEMENT;
 
             // IDs for classifiers for class ComplexContentType 
 
@@ -598,8 +596,7 @@ namespace kdm
             static const int DATACONTAINER__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int DATACONTAINER__SOURCE =
-                    ABSTRACTDATAELEMENT__SOURCE;
+            static const int DATACONTAINER__SOURCE = ABSTRACTDATAELEMENT__SOURCE;
 
             static const int DATACONTAINER__DATARELATION =
                     ABSTRACTDATAELEMENT__DATARELATION;
@@ -1388,11 +1385,9 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getAbstractDataElement__source();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractDataElement__dataRelation();
+            virtual ::ecore::EReference_ptr getAbstractDataElement__dataRelation();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractDataElement__abstraction();
+            virtual ::ecore::EReference_ptr getAbstractDataElement__abstraction();
 
             virtual ::ecore::EReference_ptr getIndexElement__implementation();
 
@@ -1410,8 +1405,7 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getXMLSchema__contentElement();
 
-            virtual ::ecore::EReference_ptr
-                    getComplexContentType__contentElement();
+            virtual ::ecore::EReference_ptr getComplexContentType__contentElement();
 
             virtual ::ecore::EReference_ptr getContentItem__type();
 
@@ -1575,9 +1569,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -1690,5 +1682,5 @@ namespace kdm
     } // data
 } // kdm
 
-
 #endif // _KDM_DATAPACKAGE_HPP
+

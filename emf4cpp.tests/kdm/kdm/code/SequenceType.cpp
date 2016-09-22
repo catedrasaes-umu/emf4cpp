@@ -47,8 +47,8 @@ SequenceType::SequenceType()
 {
 
     /*PROTECTED REGION ID(SequenceTypeImpl__SequenceTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ SequenceType::~SequenceType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::Integer SequenceType::getSize() const
 {
     return m_size;

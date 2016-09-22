@@ -47,7 +47,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getWidth() const;
         void setWidth(::PrimitiveTypes::Double _width);
@@ -56,7 +55,6 @@ namespace SVG
         void setHeight(::PrimitiveTypes::Double _height);
 
         // References
-
 
         /*PROTECTED REGION ID(Dimension) START*/
         // Please, enable the protected region if you add manually written code.
@@ -91,3 +89,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_DIMENSION_HPP
+

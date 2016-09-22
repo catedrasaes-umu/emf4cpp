@@ -33,12 +33,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 FeatureCall::FeatureCall() :
-    m_target(0), m_name(0)
+        m_target(0), m_name(0)
 {
 
     /*PROTECTED REGION ID(FeatureCallImpl__FeatureCallImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -64,7 +64,6 @@ FeatureCall::~FeatureCall()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::expression::AbstractExpression_ptr FeatureCall::getTarget()
 {

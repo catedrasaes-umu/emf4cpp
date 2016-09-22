@@ -43,15 +43,13 @@ void TranslationUnit::_initialize()
     for (size_t i = 0; i < m_contains->size(); i++)
     {
         (*m_contains)[i]->_initialize();
-        (*m_contains)[i]->_setEContainer(
-                this,
+        (*m_contains)[i]->_setEContainer(this,
                 ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__contains());
     }
     for (size_t i = 0; i < m_includes->size(); i++)
     {
         (*m_includes)[i]->_initialize();
-        (*m_includes)[i]->_setEContainer(
-                this,
+        (*m_includes)[i]->_setEContainer(this,
                 ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__includes());
     }
 
@@ -63,7 +61,6 @@ void TranslationUnit::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject TranslationUnit::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -73,18 +70,18 @@ void TranslationUnit::_initialize()
     {
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
     {
-        _any = m_contains->asEListOf< ::ecore::EObject > ();
+        _any = m_contains->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_identifier);
     }
         return _any;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
     {
-        _any = m_includes->asEListOf< ::ecore::EObject > ();
+        _any = m_includes->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -99,24 +96,22 @@ void TranslationUnit::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::idlmm::TranslationUnit::getContains().clear();
         ::idlmm::TranslationUnit::getContains().insert_all(*_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__IDENTIFIER:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_identifier);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_identifier);
     }
         return;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::idlmm::TranslationUnit::getIncludes().clear();
         ::idlmm::TranslationUnit::getIncludes().insert_all(*_t0);
     }
@@ -133,8 +128,8 @@ void TranslationUnit::eSet(::ecore::EInt _featureID,
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
         return m_contains && m_contains->size();
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__IDENTIFIER:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_identifier);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_identifier);
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
         return m_includes && m_includes->size();
 
@@ -153,9 +148,8 @@ void TranslationUnit::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr TranslationUnit::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getTranslationUnit();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getTranslationUnit();
     return _eclass;
 }
 

@@ -45,13 +45,11 @@ namespace json
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isValue() const;
         void setValue(::ecore::EBoolean _value);
 
         // References
-
 
         /*PROTECTED REGION ID(BooleanValue) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace json
 } // json
 
 #endif // JSON_BOOLEANVALUE_HPP
+

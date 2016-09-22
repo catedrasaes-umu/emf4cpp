@@ -38,12 +38,12 @@ using namespace ::kdm::platform;
 
 // Default constructor
 BindsTo::BindsTo() :
-    m_to(0), m_from(0)
+        m_to(0), m_from(0)
 {
 
     /*PROTECTED REGION ID(BindsToImpl__BindsToImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ BindsTo::~BindsTo()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::platform::ResourceType_ptr BindsTo::getTo()
 {

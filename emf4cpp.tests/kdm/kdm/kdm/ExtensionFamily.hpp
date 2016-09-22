@@ -47,14 +47,12 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getName() const;
             void setName(::kdm::core::String _name);
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >
-                    & getStereotype();
+            ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype();
 
             /*PROTECTED REGION ID(ExtensionFamily) START*/
             // Please, enable the protected region if you add manually written code.
@@ -82,8 +80,8 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::Stereotype > > m_stereotype;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype > > m_stereotype;
 
         };
 
@@ -91,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_EXTENSIONFAMILY_HPP
+

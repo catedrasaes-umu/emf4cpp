@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -81,7 +80,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::code::Datatype_ptr m_type;
@@ -94,3 +92,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_DEFINEDTYPE_HPP
+

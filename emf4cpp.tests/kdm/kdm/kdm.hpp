@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "kdm/KDMFramework.hpp"
 #include "kdm/KDMModel.hpp"

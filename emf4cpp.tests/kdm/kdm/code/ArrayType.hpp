@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::Integer getSize() const;
             void setSize(::kdm::core::Integer _size);
@@ -92,3 +91,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_ARRAYTYPE_HPP
+

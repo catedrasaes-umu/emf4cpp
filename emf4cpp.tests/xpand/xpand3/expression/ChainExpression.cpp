@@ -32,12 +32,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 ChainExpression::ChainExpression() :
-    m_first(0), m_next(0)
+        m_first(0), m_next(0)
 {
 
     /*PROTECTED REGION ID(ChainExpressionImpl__ChainExpressionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -63,7 +63,6 @@ ChainExpression::~ChainExpression()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::expression::AbstractExpression_ptr ChainExpression::getFirst()
 {

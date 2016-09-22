@@ -37,8 +37,8 @@ Field::Field()
 {
 
     /*PROTECTED REGION ID(FieldImpl__FieldImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -56,7 +56,6 @@ Field::~Field()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& Field::getIdentifier() const
 {
     return m_identifier;

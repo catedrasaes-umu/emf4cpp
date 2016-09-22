@@ -60,7 +60,6 @@ void BinTreeNode::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject BinTreeNode::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -70,22 +69,23 @@ void BinTreeNode::_initialize()
     {
     case ::bintree::BintreePackage::BINTREENODE__PARENT:
     {
-        _any = static_cast< ::ecore::EObject* > (m_parent);
+        _any = static_cast< ::ecore::EObject* >(m_parent);
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__LEFT:
     {
-        _any = static_cast< ::ecore::EObject* > (m_left);
+        _any = static_cast< ::ecore::EObject* >(m_left);
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__RIGHT:
     {
-        _any = static_cast< ::ecore::EObject* > (m_right);
+        _any = static_cast< ::ecore::EObject* >(m_right);
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__DATA:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_data);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_data);
     }
         return _any;
 
@@ -100,35 +100,35 @@ void BinTreeNode::eSet(::ecore::EInt _featureID,
     {
     case ::bintree::BintreePackage::BINTREENODE__PARENT:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::bintree::BinTreeNode_ptr _t1 =
-                dynamic_cast< ::bintree::BinTreeNode_ptr > (_t0);
+                dynamic_cast< ::bintree::BinTreeNode_ptr >(_t0);
         ::bintree::BinTreeNode::setParent(_t1);
     }
         return;
     case ::bintree::BintreePackage::BINTREENODE__LEFT:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::bintree::BinTreeNode_ptr _t1 =
-                dynamic_cast< ::bintree::BinTreeNode_ptr > (_t0);
+                dynamic_cast< ::bintree::BinTreeNode_ptr >(_t0);
         ::bintree::BinTreeNode::setLeft(_t1);
     }
         return;
     case ::bintree::BintreePackage::BINTREENODE__RIGHT:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::bintree::BinTreeNode_ptr _t1 =
-                dynamic_cast< ::bintree::BinTreeNode_ptr > (_t0);
+                dynamic_cast< ::bintree::BinTreeNode_ptr >(_t0);
         ::bintree::BinTreeNode::setRight(_t1);
     }
         return;
     case ::bintree::BintreePackage::BINTREENODE__DATA:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_data);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_data);
     }
         return;
 
@@ -147,8 +147,8 @@ void BinTreeNode::eSet(::ecore::EInt _featureID,
     case ::bintree::BintreePackage::BINTREENODE__RIGHT:
         return m_right;
     case ::bintree::BintreePackage::BINTREENODE__DATA:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_data);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_data);
 
     }
     throw "Error";
@@ -165,9 +165,8 @@ void BinTreeNode::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr BinTreeNode::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::bintree::BintreePackage_ptr > (::bintree::BintreePackage::_instance())->getBinTreeNode();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::bintree::BintreePackage_ptr >(::bintree::BintreePackage::_instance())->getBinTreeNode();
     return _eclass;
 }
 

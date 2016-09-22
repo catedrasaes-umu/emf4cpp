@@ -55,7 +55,6 @@ void ArrayValue::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ArrayValue::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -65,7 +64,7 @@ void ArrayValue::_initialize()
     {
     case ::json::JsonPackage::ARRAYVALUE__VALUES:
     {
-        _any = m_values->asEListOf< ::ecore::EObject > ();
+        _any = m_values->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -80,9 +79,8 @@ void ArrayValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::ARRAYVALUE__VALUES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::json::ArrayValue::getValues().clear();
         ::json::ArrayValue::getValues().insert_all(*_t0);
     }
@@ -114,9 +112,8 @@ void ArrayValue::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ArrayValue::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::json::JsonPackage_ptr > (::json::JsonPackage::_instance())->getArrayValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getArrayValue();
     return _eclass;
 }
 

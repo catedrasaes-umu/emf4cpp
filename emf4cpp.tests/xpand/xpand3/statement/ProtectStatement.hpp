@@ -48,7 +48,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EBoolean isDisable() const;
             void setDisable(::ecore::EBoolean _disable);
@@ -103,3 +102,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_STATEMENT_PROTECTSTATEMENT_HPP
+

@@ -46,17 +46,17 @@ PrimitiveTypesFactory::PrimitiveTypesFactory()
     switch (_eDataType->getClassifierID())
     {
     case PrimitiveTypesPackage::BOOLEAN:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::Boolean >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::Boolean
+                > ::fromString(_literalValue);
     case PrimitiveTypesPackage::INTEGER:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::Integer >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::Integer
+                > ::fromString(_literalValue);
     case PrimitiveTypesPackage::STRING:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::String >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::String
+                > ::fromString(_literalValue);
     case PrimitiveTypesPackage::DOUBLE:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::Double >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::Double
+                > ::fromString(_literalValue);
     default:
         throw "IllegalArgumentException";
     }
@@ -69,17 +69,17 @@ PrimitiveTypesFactory::PrimitiveTypesFactory()
     switch (_eDataType->getClassifierID())
     {
     case PrimitiveTypesPackage::BOOLEAN:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::Boolean >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::Boolean
+                > ::toString(_instanceValue);
     case PrimitiveTypesPackage::INTEGER:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::Integer >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::Integer
+                > ::toString(_instanceValue);
     case PrimitiveTypesPackage::STRING:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::String >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::String
+                > ::toString(_instanceValue);
     case PrimitiveTypesPackage::DOUBLE:
-        return ::ecorecpp::mapping::string_traits< ::PrimitiveTypes::Double >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::PrimitiveTypes::Double
+                > ::toString(_instanceValue);
     default:
         throw "IllegalArgumentException";
     }

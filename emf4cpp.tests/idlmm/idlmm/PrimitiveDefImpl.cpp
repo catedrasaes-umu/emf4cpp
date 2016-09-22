@@ -49,7 +49,6 @@ void PrimitiveDef::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject PrimitiveDef::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,14 +58,14 @@ void PrimitiveDef::_initialize()
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::toAny(_any,
-                m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::toAny(_any, m_typeCode);
     }
         return _any;
     case ::idlmm::IdlmmPackage::PRIMITIVEDEF__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::PrimitiveKind >::toAny(_any,
-                m_kind);
+        ::ecorecpp::mapping::any_traits < ::idlmm::PrimitiveKind
+                > ::toAny(_any, m_kind);
     }
         return _any;
 
@@ -81,14 +80,14 @@ void PrimitiveDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::fromAny(
-                _newValue, m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::fromAny(_newValue, m_typeCode);
     }
         return;
     case ::idlmm::IdlmmPackage::PRIMITIVEDEF__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::PrimitiveKind >::fromAny(
-                _newValue, m_kind);
+        ::ecorecpp::mapping::any_traits < ::idlmm::PrimitiveKind
+                > ::fromAny(_newValue, m_kind);
     }
         return;
 
@@ -101,11 +100,11 @@ void PrimitiveDef::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
-        return ::ecorecpp::mapping::set_traits< ::idlmm::ETypeCode >::is_set(
-                m_typeCode);
+        return ::ecorecpp::mapping::set_traits < ::idlmm::ETypeCode
+                > ::is_set(m_typeCode);
     case ::idlmm::IdlmmPackage::PRIMITIVEDEF__KIND:
-        return ::ecorecpp::mapping::set_traits< ::idlmm::PrimitiveKind >::is_set(
-                m_kind);
+        return ::ecorecpp::mapping::set_traits < ::idlmm::PrimitiveKind
+                > ::is_set(m_kind);
 
     }
     throw "Error";
@@ -122,9 +121,8 @@ void PrimitiveDef::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr PrimitiveDef::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getPrimitiveDef();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getPrimitiveDef();
     return _eclass;
 }
 

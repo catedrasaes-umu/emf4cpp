@@ -50,7 +50,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getKind() const;
             void setKind(::kdm::core::String _kind);
@@ -59,7 +58,6 @@ namespace kdm
             void setValue(::kdm::core::String _value);
 
             // References
-
 
             /*PROTECTED REGION ID(ContentRestriction) START*/
             // Please, enable the protected region if you add manually written code.
@@ -95,3 +93,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_CONTENTRESTRICTION_HPP
+

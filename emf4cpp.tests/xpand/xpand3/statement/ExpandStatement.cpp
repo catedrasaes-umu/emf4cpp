@@ -34,7 +34,7 @@ using namespace ::xpand3::statement;
 
 // Default constructor
 ExpandStatement::ExpandStatement() :
-    m_separator(0), m_target(0), m_definition(0)
+        m_separator(0), m_target(0), m_definition(0)
 {
 
     m_parameters.reset(
@@ -43,8 +43,8 @@ ExpandStatement::ExpandStatement() :
                     this, NULL));
 
     /*PROTECTED REGION ID(ExpandStatementImpl__ExpandStatementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -74,7 +74,6 @@ ExpandStatement::~ExpandStatement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean ExpandStatement::isForeach() const
 {
     return m_foreach;

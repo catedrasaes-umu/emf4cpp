@@ -49,7 +49,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EBoolean isCached() const;
             void setCached(::ecore::EBoolean _cached);
@@ -97,3 +96,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_EXTENSION_HPP
+

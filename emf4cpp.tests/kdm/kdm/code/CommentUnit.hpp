@@ -48,13 +48,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getText() const;
             void setText(::kdm::core::String _text);
 
             // References
-
 
             /*PROTECTED REGION ID(CommentUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -88,3 +86,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_COMMENTUNIT_HPP
+

@@ -63,7 +63,8 @@ SourcePackage::SourcePackage()
     m_SourceRef__language = new ::ecore::EAttribute();
     m_SourceRef__language->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREF__LANGUAGE);
-    m_SourceRefEClass->getEStructuralFeatures().push_back(m_SourceRef__language);
+    m_SourceRefEClass->getEStructuralFeatures().push_back(
+            m_SourceRef__language);
     m_SourceRef__snippet = new ::ecore::EAttribute();
     m_SourceRef__snippet->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREF__SNIPPET);
@@ -269,9 +270,7 @@ SourcePackage::SourcePackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("source");
@@ -282,13 +281,13 @@ SourcePackage::SourcePackage()
 
     // Add supertypes to classes
     m_SourceRefEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_SourceRegionEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
     m_InventoryModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_AbstractInventoryElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_InventoryItemEClass->getESuperTypes().push_back(
             m_AbstractInventoryElementEClass);
     m_SourceFileEClass->getESuperTypes().push_back(m_InventoryItemEClass);
@@ -301,7 +300,7 @@ SourcePackage::SourcePackage()
     m_DirectoryEClass->getESuperTypes().push_back(m_InventoryContainerEClass);
     m_ProjectEClass->getESuperTypes().push_back(m_InventoryContainerEClass);
     m_AbstractInventoryRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_BinaryFileEClass->getESuperTypes().push_back(m_InventoryItemEClass);
     m_ExecutableFileEClass->getESuperTypes().push_back(m_InventoryItemEClass);
     m_DependsOnEClass->getESuperTypes().push_back(
@@ -318,7 +317,7 @@ SourcePackage::SourcePackage()
     m_SourceRefEClass->setAbstract(false);
     m_SourceRefEClass->setInterface(false);
     m_SourceRef__language->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_SourceRef__language->setName("language");
     m_SourceRef__language->setDefaultValueLiteral("");
     m_SourceRef__language->setLowerBound(0);
@@ -332,7 +331,7 @@ SourcePackage::SourcePackage()
     m_SourceRef__language->setDerived(false);
     m_SourceRef__language->setOrdered(false);
     m_SourceRef__snippet->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_SourceRef__snippet->setName("snippet");
     m_SourceRef__snippet->setDefaultValueLiteral("");
     m_SourceRef__snippet->setLowerBound(0);
@@ -363,7 +362,7 @@ SourcePackage::SourcePackage()
     m_SourceRegionEClass->setAbstract(false);
     m_SourceRegionEClass->setInterface(false);
     m_SourceRegion__startLine->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_SourceRegion__startLine->setName("startLine");
     m_SourceRegion__startLine->setDefaultValueLiteral("");
     m_SourceRegion__startLine->setLowerBound(0);
@@ -377,7 +376,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__startLine->setDerived(false);
     m_SourceRegion__startLine->setOrdered(false);
     m_SourceRegion__startPosition->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_SourceRegion__startPosition->setName("startPosition");
     m_SourceRegion__startPosition->setDefaultValueLiteral("");
     m_SourceRegion__startPosition->setLowerBound(0);
@@ -391,7 +390,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__startPosition->setDerived(false);
     m_SourceRegion__startPosition->setOrdered(false);
     m_SourceRegion__endLine->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_SourceRegion__endLine->setName("endLine");
     m_SourceRegion__endLine->setDefaultValueLiteral("");
     m_SourceRegion__endLine->setLowerBound(0);
@@ -405,7 +404,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__endLine->setDerived(false);
     m_SourceRegion__endLine->setOrdered(false);
     m_SourceRegion__endPosition->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
     m_SourceRegion__endPosition->setName("endPosition");
     m_SourceRegion__endPosition->setDefaultValueLiteral("");
     m_SourceRegion__endPosition->setLowerBound(0);
@@ -419,7 +418,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__endPosition->setDerived(false);
     m_SourceRegion__endPosition->setOrdered(false);
     m_SourceRegion__language->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_SourceRegion__language->setName("language");
     m_SourceRegion__language->setDefaultValueLiteral("");
     m_SourceRegion__language->setLowerBound(0);
@@ -433,7 +432,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__language->setDerived(false);
     m_SourceRegion__language->setOrdered(false);
     m_SourceRegion__path->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_SourceRegion__path->setName("path");
     m_SourceRegion__path->setDefaultValueLiteral("");
     m_SourceRegion__path->setLowerBound(0);
@@ -500,7 +499,7 @@ SourcePackage::SourcePackage()
     m_InventoryItemEClass->setAbstract(false);
     m_InventoryItemEClass->setInterface(false);
     m_InventoryItem__version->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_InventoryItem__version->setName("version");
     m_InventoryItem__version->setDefaultValueLiteral("");
     m_InventoryItem__version->setLowerBound(0);
@@ -514,7 +513,7 @@ SourcePackage::SourcePackage()
     m_InventoryItem__version->setDerived(false);
     m_InventoryItem__version->setOrdered(false);
     m_InventoryItem__path->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_InventoryItem__path->setName("path");
     m_InventoryItem__path->setDefaultValueLiteral("");
     m_InventoryItem__path->setLowerBound(0);
@@ -532,7 +531,7 @@ SourcePackage::SourcePackage()
     m_SourceFileEClass->setAbstract(false);
     m_SourceFileEClass->setInterface(false);
     m_SourceFile__language->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_SourceFile__language->setName("language");
     m_SourceFile__language->setDefaultValueLiteral("");
     m_SourceFile__language->setLowerBound(0);
@@ -546,7 +545,7 @@ SourcePackage::SourcePackage()
     m_SourceFile__language->setDerived(false);
     m_SourceFile__language->setOrdered(false);
     m_SourceFile__encoding->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_SourceFile__encoding->setName("encoding");
     m_SourceFile__encoding->setDefaultValueLiteral("");
     m_SourceFile__encoding->setLowerBound(0);
@@ -594,7 +593,7 @@ SourcePackage::SourcePackage()
     m_DirectoryEClass->setAbstract(false);
     m_DirectoryEClass->setInterface(false);
     m_Directory__path->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_Directory__path->setName("path");
     m_Directory__path->setDefaultValueLiteral("");
     m_Directory__path->setLowerBound(0);
@@ -663,7 +662,7 @@ SourcePackage::SourcePackage()
     m_InventoryRelationshipEClass->setAbstract(false);
     m_InventoryRelationshipEClass->setInterface(false);
     m_InventoryRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_InventoryRelationship__to->setName("to");
     m_InventoryRelationship__to->setDefaultValueLiteral("");
     m_InventoryRelationship__to->setLowerBound(1);
@@ -691,7 +690,6 @@ SourcePackage::SourcePackage()
     m_InventoryRelationship__from->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

@@ -47,7 +47,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getIdentifier() const;
         void setIdentifier(::ecore::EString const& _identifier);
@@ -83,14 +82,15 @@ namespace idlmm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::Contained > > m_contains;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::Contained > > m_contains;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::idlmm::Include > > m_includes;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::idlmm::Include > > m_includes;
 
     };
 
 } // idlmm
 
 #endif // IDLMM_TRANSLATIONUNIT_HPP
+

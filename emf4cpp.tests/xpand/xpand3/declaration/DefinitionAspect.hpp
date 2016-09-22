@@ -50,12 +50,10 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >
-                    & getBody();
+            ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody();
 
             /*PROTECTED REGION ID(DefinitionAspect) START*/
             // Please, enable the protected region if you add manually written code.
@@ -79,11 +77,11 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::xpand3::statement::AbstractStatement > > m_body;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::xpand3::statement::AbstractStatement > > m_body;
 
         };
 
@@ -91,3 +89,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_DEFINITIONASPECT_HPP
+

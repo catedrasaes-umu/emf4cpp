@@ -37,8 +37,7 @@ namespace kdm
             virtual SourceRef_ptr createSourceRef();
             virtual SourceRegion_ptr createSourceRegion();
             virtual InventoryModel_ptr createInventoryModel();
-            virtual AbstractInventoryElement_ptr
-                    createAbstractInventoryElement();
+            virtual AbstractInventoryElement_ptr createAbstractInventoryElement();
             virtual InventoryItem_ptr createInventoryItem();
             virtual SourceFile_ptr createSourceFile();
             virtual Image_ptr createImage();
@@ -47,8 +46,7 @@ namespace kdm
             virtual InventoryContainer_ptr createInventoryContainer();
             virtual Directory_ptr createDirectory();
             virtual Project_ptr createProject();
-            virtual AbstractInventoryRelationship_ptr
-                    createAbstractInventoryRelationship();
+            virtual AbstractInventoryRelationship_ptr createAbstractInventoryRelationship();
             virtual BinaryFile_ptr createBinaryFile();
             virtual ExecutableFile_ptr createExecutableFile();
             virtual DependsOn_ptr createDependsOn();
@@ -74,5 +72,5 @@ namespace kdm
     } // source
 } // kdm
 
-
 #endif // _KDM_SOURCEFACTORY_HPP
+

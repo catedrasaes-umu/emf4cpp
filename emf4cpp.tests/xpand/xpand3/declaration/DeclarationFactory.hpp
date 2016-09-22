@@ -35,8 +35,7 @@ namespace xpand3
             static DeclarationFactory_ptr _instance();
 
             virtual AbstractDeclaration_ptr createAbstractDeclaration();
-            virtual AbstractNamedDeclaration_ptr
-                    createAbstractNamedDeclaration();
+            virtual AbstractNamedDeclaration_ptr createAbstractNamedDeclaration();
             virtual Definition_ptr createDefinition();
             virtual Extension_ptr createExtension();
             virtual AbstractAspect_ptr createAbstractAspect();
@@ -65,5 +64,5 @@ namespace xpand3
     } // declaration
 } // xpand3
 
-
 #endif // _XPAND3_DECLARATIONFACTORY_HPP
+

@@ -43,8 +43,8 @@ Text::Text()
 {
 
     /*PROTECTED REGION ID(TextImpl__TextImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ Text::~Text()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String Text::getLengthAdjust() const
 {
     return m_lengthAdjust;

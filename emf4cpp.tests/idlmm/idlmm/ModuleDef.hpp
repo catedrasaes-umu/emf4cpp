@@ -45,13 +45,11 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getPrefix() const;
         void setPrefix(::ecore::EString const& _prefix);
 
         // References
-
 
         /*PROTECTED REGION ID(ModuleDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_MODULEDEF_HPP
+

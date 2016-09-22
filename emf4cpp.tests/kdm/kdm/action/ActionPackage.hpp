@@ -247,8 +247,7 @@ namespace kdm
 
             static const int BLOCKUNIT__KIND = ACTIONELEMENT__KIND;
 
-            static const int BLOCKUNIT__CODEELEMENT =
-                    ACTIONELEMENT__CODEELEMENT;
+            static const int BLOCKUNIT__CODEELEMENT = ACTIONELEMENT__CODEELEMENT;
 
             static const int BLOCKUNIT__ACTIONRELATION =
                     ACTIONELEMENT__ACTIONRELATION;
@@ -295,8 +294,7 @@ namespace kdm
 
             static const int CATCHUNIT__KIND = ACTIONELEMENT__KIND;
 
-            static const int CATCHUNIT__CODEELEMENT =
-                    ACTIONELEMENT__CODEELEMENT;
+            static const int CATCHUNIT__CODEELEMENT = ACTIONELEMENT__CODEELEMENT;
 
             static const int CATCHUNIT__ACTIONRELATION =
                     ACTIONELEMENT__ACTIONRELATION;
@@ -696,8 +694,7 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getAbstractCodeElement__comment();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractCodeElement__codeRelation();
+            virtual ::ecore::EReference_ptr getAbstractCodeElement__codeRelation();
 
             virtual ::ecore::EAttribute_ptr getActionElement__kind();
 
@@ -821,9 +818,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -910,5 +905,5 @@ namespace kdm
     } // action
 } // kdm
 
-
 #endif // _KDM_ACTIONPACKAGE_HPP
+

@@ -449,8 +449,7 @@ namespace xpand3
             static const int STRINGLITERAL__FILENAME =
                     ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME;
 
-            static const int STRINGLITERAL__LITERALVALUE =
-                    LITERAL__LITERALVALUE;
+            static const int STRINGLITERAL__LITERALVALUE = LITERAL__LITERALVALUE;
 
             // IDs for classifiers for class SwitchExpression 
 
@@ -570,8 +569,7 @@ namespace xpand3
 
             virtual ::ecore::EReference_ptr getChainExpression__next();
 
-            virtual ::ecore::EReference_ptr
-                    getConstructorCallExpression__type();
+            virtual ::ecore::EReference_ptr getConstructorCallExpression__type();
 
             virtual ::ecore::EReference_ptr getFeatureCall__target();
 
@@ -583,11 +581,9 @@ namespace xpand3
 
             virtual ::ecore::EReference_ptr getOperationCall__params();
 
-            virtual ::ecore::EReference_ptr
-                    getTypeSelectExpression__typeLiteral();
+            virtual ::ecore::EReference_ptr getTypeSelectExpression__typeLiteral();
 
-            virtual ::ecore::EReference_ptr
-                    getGlobalVarExpression__globalVarName();
+            virtual ::ecore::EReference_ptr getGlobalVarExpression__globalVarName();
 
             virtual ::ecore::EReference_ptr getIfExpression__condition();
 
@@ -597,8 +593,7 @@ namespace xpand3
 
             virtual ::ecore::EReference_ptr getLetExpression__varExpression();
 
-            virtual ::ecore::EReference_ptr
-                    getLetExpression__targetExpression();
+            virtual ::ecore::EReference_ptr getLetExpression__targetExpression();
 
             virtual ::ecore::EReference_ptr getLetExpression__varName();
 
@@ -676,9 +671,7 @@ namespace xpand3
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -755,5 +748,5 @@ namespace xpand3
     } // expression
 } // xpand3
 
-
 #endif // _XPAND3_EXPRESSIONPACKAGE_HPP
+

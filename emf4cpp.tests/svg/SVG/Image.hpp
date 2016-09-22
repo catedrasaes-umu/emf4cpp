@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -73,14 +72,14 @@ namespace SVG
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::SVG::ReferencedFile > > m_referee;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::SVG::ReferencedFile > > m_referee;
 
     };
 
 } // SVG
 
 #endif // SVG_IMAGE_HPP
+

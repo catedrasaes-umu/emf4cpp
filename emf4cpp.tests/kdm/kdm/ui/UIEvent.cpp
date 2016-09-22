@@ -47,8 +47,8 @@ UIEvent::UIEvent()
 {
 
     /*PROTECTED REGION ID(UIEventImpl__UIEventImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ UIEvent::~UIEvent()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String UIEvent::getKind() const
 {
     return m_kind;

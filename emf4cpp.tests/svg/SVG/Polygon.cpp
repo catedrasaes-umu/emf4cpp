@@ -48,8 +48,8 @@ Polygon::Polygon()
                     false, false >(this, NULL));
 
     /*PROTECTED REGION ID(PolygonImpl__PolygonImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -67,7 +67,6 @@ Polygon::~Polygon()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String Polygon::getMarkerEnd() const
 {
     return m_markerEnd;

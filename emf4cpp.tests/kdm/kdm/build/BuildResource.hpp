@@ -48,18 +48,14 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >
-                    & getImplementation();
+            ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation();
 
-            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >
-                    & getGroupedBuild();
+            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild();
 
-            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >
-                    & getBuildElement();
+            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement();
 
             /*PROTECTED REGION ID(BuildResource) START*/
             // Please, enable the protected region if you add manually written code.
@@ -83,17 +79,18 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::core::KDMEntity > > m_implementation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity > > m_implementation;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::build::AbstractBuildElement > > m_groupedBuild;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::build::AbstractBuildElement > > m_groupedBuild;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::build::AbstractBuildElement > > m_buildElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::build::AbstractBuildElement > > m_buildElement;
 
         };
 
@@ -101,3 +98,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_BUILD_BUILDRESOURCE_HPP
+

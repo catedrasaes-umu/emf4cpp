@@ -36,12 +36,12 @@ using namespace ::xpand3::declaration;
 
 // Default constructor
 AbstractAspect::AbstractAspect() :
-    m_pointcut(0)
+        m_pointcut(0)
 {
 
     /*PROTECTED REGION ID(AbstractAspectImpl__AbstractAspectImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -63,7 +63,6 @@ AbstractAspect::~AbstractAspect()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean AbstractAspect::isWildparams() const
 {
     return m_wildparams;

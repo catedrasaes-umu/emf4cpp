@@ -47,8 +47,8 @@ CodeModel::CodeModel()
                     NULL));
 
     /*PROTECTED REGION ID(CodeModelImpl__CodeModelImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ CodeModel::~CodeModel()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& CodeModel::getCodeElement()
 {

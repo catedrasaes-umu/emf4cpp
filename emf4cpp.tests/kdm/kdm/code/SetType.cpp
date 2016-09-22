@@ -47,8 +47,8 @@ SetType::SetType()
 {
 
     /*PROTECTED REGION ID(SetTypeImpl__SetTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ SetType::~SetType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::Integer SetType::getSize() const
 {
     return m_size;

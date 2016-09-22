@@ -45,13 +45,11 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getStroke() const;
         void setStroke(::PrimitiveTypes::String _stroke);
 
         // References
-
 
         /*PROTECTED REGION ID(GraphicalElement) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_GRAPHICALELEMENT_HPP
+

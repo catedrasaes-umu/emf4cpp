@@ -40,8 +40,8 @@ AbstractActionRelationship::AbstractActionRelationship()
 {
 
     /*PROTECTED REGION ID(AbstractActionRelationshipImpl__AbstractActionRelationshipImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -59,6 +59,4 @@ AbstractActionRelationship::~AbstractActionRelationship()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

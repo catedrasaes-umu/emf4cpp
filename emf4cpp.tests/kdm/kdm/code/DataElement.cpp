@@ -44,7 +44,7 @@ using namespace ::kdm::code;
 
 // Default constructor
 DataElement::DataElement() :
-    m_type(0)
+        m_type(0)
 {
 
     m_codeElement.reset(
@@ -52,8 +52,8 @@ DataElement::DataElement() :
                     -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(DataElementImpl__DataElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +71,6 @@ DataElement::~DataElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String DataElement::getExt() const
 {
     return m_ext;

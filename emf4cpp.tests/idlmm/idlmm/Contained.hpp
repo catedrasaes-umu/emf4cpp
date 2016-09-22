@@ -47,7 +47,6 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getIdentifier() const;
         void setIdentifier(::ecore::EString const& _identifier);
@@ -104,3 +103,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_CONTAINED_HPP
+

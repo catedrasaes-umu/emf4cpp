@@ -47,7 +47,6 @@ namespace company
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getName() const;
         void setName(::ecore::EString const& _name);
@@ -81,11 +80,12 @@ namespace company
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::company::Department > > m_departments;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::company::Department > > m_departments;
 
     };
 
 } // company
 
 #endif // COMPANY_COMPANY_HPP
+

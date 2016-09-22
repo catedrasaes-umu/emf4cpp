@@ -48,7 +48,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getLanguage() const;
             void setLanguage(::kdm::core::String _language);
@@ -57,8 +56,7 @@ namespace kdm
             void setSnippet(::kdm::core::String _snippet);
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >
-                    & getRegion();
+            ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion();
 
             /*PROTECTED REGION ID(SourceRef) START*/
             // Please, enable the protected region if you add manually written code.
@@ -88,8 +86,8 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::source::SourceRegion > > m_region;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion > > m_region;
 
         };
 
@@ -97,3 +95,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_SOURCE_SOURCEREF_HPP
+

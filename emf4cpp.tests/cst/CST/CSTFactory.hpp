@@ -55,5 +55,5 @@ namespace CST
 
 } // CST
 
-
 #endif // _CSTFACTORY_HPP
+

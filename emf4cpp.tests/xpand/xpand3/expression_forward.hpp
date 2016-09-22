@@ -30,111 +30,110 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace xpand3
 {
     namespace expression
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // AbstractExpression
+// AbstractExpression
         class AbstractExpression;
         typedef AbstractExpression* AbstractExpression_ptr;
 
-        // BooleanOperation
+// BooleanOperation
         class BooleanOperation;
         typedef BooleanOperation* BooleanOperation_ptr;
 
-        // Cast
+// Cast
         class Cast;
         typedef Cast* Cast_ptr;
 
-        // ChainExpression
+// ChainExpression
         class ChainExpression;
         typedef ChainExpression* ChainExpression_ptr;
 
-        // ConstructorCallExpression
+// ConstructorCallExpression
         class ConstructorCallExpression;
         typedef ConstructorCallExpression* ConstructorCallExpression_ptr;
 
-        // FeatureCall
+// FeatureCall
         class FeatureCall;
         typedef FeatureCall* FeatureCall_ptr;
 
-        // CollectionExpression
+// CollectionExpression
         class CollectionExpression;
         typedef CollectionExpression* CollectionExpression_ptr;
 
-        // OperationCall
+// OperationCall
         class OperationCall;
         typedef OperationCall* OperationCall_ptr;
 
-        // TypeSelectExpression
+// TypeSelectExpression
         class TypeSelectExpression;
         typedef TypeSelectExpression* TypeSelectExpression_ptr;
 
-        // GlobalVarExpression
+// GlobalVarExpression
         class GlobalVarExpression;
         typedef GlobalVarExpression* GlobalVarExpression_ptr;
 
-        // IfExpression
+// IfExpression
         class IfExpression;
         typedef IfExpression* IfExpression_ptr;
 
-        // LetExpression
+// LetExpression
         class LetExpression;
         typedef LetExpression* LetExpression_ptr;
 
-        // ListLiteral
+// ListLiteral
         class ListLiteral;
         typedef ListLiteral* ListLiteral_ptr;
 
-        // Literal
+// Literal
         class Literal;
         typedef Literal* Literal_ptr;
 
-        // BooleanLiteral
+// BooleanLiteral
         class BooleanLiteral;
         typedef BooleanLiteral* BooleanLiteral_ptr;
 
-        // IntegerLiteral
+// IntegerLiteral
         class IntegerLiteral;
         typedef IntegerLiteral* IntegerLiteral_ptr;
 
-        // NullLiteral
+// NullLiteral
         class NullLiteral;
         typedef NullLiteral* NullLiteral_ptr;
 
-        // RealLiteral
+// RealLiteral
         class RealLiteral;
         typedef RealLiteral* RealLiteral_ptr;
 
-        // StringLiteral
+// StringLiteral
         class StringLiteral;
         typedef StringLiteral* StringLiteral_ptr;
 
-        // SwitchExpression
+// SwitchExpression
         class SwitchExpression;
         typedef SwitchExpression* SwitchExpression_ptr;
 
-        // Case
+// Case
         class Case;
         typedef Case* Case_ptr;
 
-        // BinaryOperation
+// BinaryOperation
         class BinaryOperation;
         typedef BinaryOperation* BinaryOperation_ptr;
 
-        // UnaryOperation
+// UnaryOperation
         class UnaryOperation;
         typedef UnaryOperation* UnaryOperation_ptr;
 
-        // Package & Factory
+// Package & Factory
         class ExpressionFactory;
         typedef ExpressionFactory * ExpressionFactory_ptr;
         class ExpressionPackage;
@@ -143,11 +142,11 @@ namespace xpand3
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // expression
 } // xpand3
 
-
 #endif // _XPAND3_EXPRESSION_FORWARD_HPP
+

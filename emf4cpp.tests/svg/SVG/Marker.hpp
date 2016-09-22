@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::String getMarkerUnits() const;
         void setMarkerUnits(::PrimitiveTypes::String _markerUnits);
@@ -104,11 +103,12 @@ namespace SVG
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::SVG::Element > > m_drawing;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::SVG::Element > > m_drawing;
 
     };
 
 } // SVG
 
 #endif // SVG_MARKER_HPP
+

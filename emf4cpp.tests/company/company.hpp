@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "company/Employee.hpp"
 #include "company/Department.hpp"

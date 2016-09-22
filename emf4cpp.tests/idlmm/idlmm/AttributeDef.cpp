@@ -47,8 +47,8 @@ AttributeDef::AttributeDef()
                     -1, false, false >(this, NULL));
 
     /*PROTECTED REGION ID(AttributeDefImpl__AttributeDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ AttributeDef::~AttributeDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean AttributeDef::isIsReadonly() const
 {
     return m_isReadonly;

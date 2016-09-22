@@ -51,7 +51,6 @@ void Audit::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Audit::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -61,30 +60,30 @@ void Audit::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::AUDIT__DESCRIPTION:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_description);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_description);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::AUDIT__AUTHOR:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_author);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_author);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::AUDIT__DATE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_date);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_date);
     }
         return _any;
 
@@ -99,38 +98,36 @@ void Audit::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::AUDIT__DESCRIPTION:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_description);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_description);
     }
         return;
     case ::kdm::kdm::KdmPackage::AUDIT__AUTHOR:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_author);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_author);
     }
         return;
     case ::kdm::kdm::KdmPackage::AUDIT__DATE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_date);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_date);
     }
         return;
 
@@ -147,14 +144,14 @@ void Audit::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
         return m_annotation && m_annotation->size();
     case ::kdm::kdm::KdmPackage::AUDIT__DESCRIPTION:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_description);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_description);
     case ::kdm::kdm::KdmPackage::AUDIT__AUTHOR:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_author);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_author);
     case ::kdm::kdm::KdmPackage::AUDIT__DATE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_date);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_date);
 
     }
     throw "Error";
@@ -171,9 +168,8 @@ void Audit::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Audit::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::kdm::KdmPackage_ptr > (::kdm::kdm::KdmPackage::_instance())->getAudit();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getAudit();
     return _eclass;
 }
 

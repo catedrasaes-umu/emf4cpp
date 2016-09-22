@@ -43,8 +43,8 @@ Path::Path()
 {
 
     /*PROTECTED REGION ID(PathImpl__PathImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ Path::~Path()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::Double Path::getPathLength() const
 {
     return m_pathLength;

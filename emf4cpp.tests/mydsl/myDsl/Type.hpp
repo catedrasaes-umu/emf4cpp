@@ -47,13 +47,11 @@ namespace myDsl
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getName() const;
         void setName(::ecore::EString const& _name);
 
         // References
-
 
         /*PROTECTED REGION ID(Type) START*/
         // Please, enable the protected region if you add manually written code.
@@ -86,3 +84,4 @@ namespace myDsl
 } // myDsl
 
 #endif // MYDSL_TYPE_HPP
+

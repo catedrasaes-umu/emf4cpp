@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::code::ParameterKind getKind() const;
             void setKind(::kdm::code::ParameterKind _kind);
@@ -58,7 +57,6 @@ namespace kdm
             void setPos(::kdm::core::Integer _pos);
 
             // References
-
 
             /*PROTECTED REGION ID(ParameterUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -94,3 +92,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_PARAMETERUNIT_HPP
+

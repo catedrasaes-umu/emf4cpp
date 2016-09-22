@@ -35,8 +35,8 @@ StringDef::StringDef()
 {
 
     /*PROTECTED REGION ID(StringDefImpl__StringDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -54,7 +54,6 @@ StringDef::~StringDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& StringDef::getBound() const
 {
     return m_bound;

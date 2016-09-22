@@ -127,7 +127,6 @@ CorePackage::CorePackage()
 
     // Create enums
 
-
     // Create data types
 
     m_StringEDataType = new ::ecore::EDataType();
@@ -166,7 +165,7 @@ CorePackage::CorePackage()
     m_ElementEClass->setAbstract(true);
     m_ElementEClass->setInterface(false);
     m_Element__attribute->setEType(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getAttribute());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getAttribute());
     m_Element__attribute->setName("attribute");
     m_Element__attribute->setDefaultValueLiteral("");
     m_Element__attribute->setLowerBound(0);
@@ -180,7 +179,7 @@ CorePackage::CorePackage()
     m_Element__attribute->setDerived(false);
     m_Element__attribute->setOrdered(false);
     m_Element__annotation->setEType(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getAnnotation());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getAnnotation());
     m_Element__annotation->setName("annotation");
     m_Element__annotation->setDefaultValueLiteral("");
     m_Element__annotation->setLowerBound(0);
@@ -198,7 +197,7 @@ CorePackage::CorePackage()
     m_ModelElementEClass->setAbstract(true);
     m_ModelElementEClass->setInterface(false);
     m_ModelElement__stereotype->setEType(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getStereotype());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getStereotype());
     m_ModelElement__stereotype->setName("stereotype");
     m_ModelElement__stereotype->setDefaultValueLiteral("");
     m_ModelElement__stereotype->setLowerBound(0);
@@ -212,7 +211,7 @@ CorePackage::CorePackage()
     m_ModelElement__stereotype->setDerived(false);
     m_ModelElement__stereotype->setOrdered(false);
     m_ModelElement__taggedValue->setEType(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getExtendedValue());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getExtendedValue());
     m_ModelElement__taggedValue->setName("taggedValue");
     m_ModelElement__taggedValue->setDefaultValueLiteral("");
     m_ModelElement__taggedValue->setLowerBound(0);
@@ -346,7 +345,7 @@ CorePackage::CorePackage()
     m_KDMEntityEClass->getEOperations().push_back(_op);
     _op = new ::ecore::EOperation();
     _op->setEType(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     _op->setName("getModel");
     _op->setLowerBound(0);
     _op->setUpperBound(1);

@@ -49,12 +49,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >
-                    & getParameterUnit();
+            ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >& getParameterUnit();
 
             /*PROTECTED REGION ID(Signature) START*/
             // Please, enable the protected region if you add manually written code.
@@ -78,11 +76,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::ParameterUnit > > m_parameterUnit;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit > > m_parameterUnit;
 
         };
 
@@ -90,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_SIGNATURE_HPP
+

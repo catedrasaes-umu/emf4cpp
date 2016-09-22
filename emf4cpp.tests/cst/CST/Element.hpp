@@ -47,13 +47,11 @@ namespace CST
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getKind() const;
         void setKind(::ecore::EString const& _kind);
 
         // References
-
 
         /*PROTECTED REGION ID(Element) START*/
         // Please, enable the protected region if you add manually written code.
@@ -86,3 +84,4 @@ namespace CST
 } // CST
 
 #endif // CST_ELEMENT_HPP
+

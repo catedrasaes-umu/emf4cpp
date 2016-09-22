@@ -50,21 +50,17 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource();
 
-            ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >
-                    & getImplementation();
+            ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation();
 
             ::ecorecpp::mapping::EList<
-                    ::kdm::conceptual::AbstractConceptualRelationship >
-                    & getConceptualRelation();
+                    ::kdm::conceptual::AbstractConceptualRelationship >& getConceptualRelation();
 
-            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >
-                    & getAbstraction();
+            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction();
 
             /*PROTECTED REGION ID(AbstractConceptualElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -88,21 +84,20 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::source::SourceRef > > m_source;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::core::KDMEntity > > m_implementation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity > > m_implementation;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::conceptual::AbstractConceptualRelationship > >
-                    m_conceptualRelation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::conceptual::AbstractConceptualRelationship > > m_conceptualRelation;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::action::ActionElement > > m_abstraction;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::action::ActionElement > > m_abstraction;
 
         };
 
@@ -110,3 +105,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CONCEPTUAL_ABSTRACTCONCEPTUALELEMENT_HPP
+

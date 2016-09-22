@@ -76,8 +76,8 @@ StructurePackage::StructurePackage()
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTUREELEMENT);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__structureElement);
-    m_AbstractStructureElement__structureRelationship
-            = new ::ecore::EReference();
+    m_AbstractStructureElement__structureRelationship =
+            new ::ecore::EReference();
     m_AbstractStructureElement__structureRelationship->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTURERELATIONSHIP);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
@@ -155,9 +155,7 @@ StructurePackage::StructurePackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("structure");
@@ -168,18 +166,18 @@ StructurePackage::StructurePackage()
 
     // Add supertypes to classes
     m_AbstractStructureElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_SubsystemEClass->getESuperTypes().push_back(
             m_AbstractStructureElementEClass);
     m_LayerEClass->getESuperTypes().push_back(m_AbstractStructureElementEClass);
     m_StructureModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_ComponentEClass->getESuperTypes().push_back(
             m_AbstractStructureElementEClass);
     m_SoftwareSystemEClass->getESuperTypes().push_back(
             m_AbstractStructureElementEClass);
     m_AbstractStructureRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_StructureRelationshipEClass->getESuperTypes().push_back(
             m_AbstractStructureRelationshipEClass);
     m_ArchitectureViewEClass->getESuperTypes().push_back(
@@ -194,7 +192,7 @@ StructurePackage::StructurePackage()
     m_AbstractStructureElementEClass->setAbstract(true);
     m_AbstractStructureElementEClass->setInterface(false);
     m_AbstractStructureElement__aggregated->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getAggregatedRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getAggregatedRelationship());
     m_AbstractStructureElement__aggregated->setName("aggregated");
     m_AbstractStructureElement__aggregated->setDefaultValueLiteral("");
     m_AbstractStructureElement__aggregated->setLowerBound(0);
@@ -208,7 +206,7 @@ StructurePackage::StructurePackage()
     m_AbstractStructureElement__aggregated->setDerived(false);
     m_AbstractStructureElement__aggregated->setOrdered(false);
     m_AbstractStructureElement__implementation->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_AbstractStructureElement__implementation->setName("implementation");
     m_AbstractStructureElement__implementation->setDefaultValueLiteral("");
     m_AbstractStructureElement__implementation->setLowerBound(0);
@@ -295,7 +293,7 @@ StructurePackage::StructurePackage()
     m_StructureRelationshipEClass->setAbstract(false);
     m_StructureRelationshipEClass->setInterface(false);
     m_StructureRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_StructureRelationship__to->setName("to");
     m_StructureRelationship__to->setDefaultValueLiteral("");
     m_StructureRelationship__to->setLowerBound(1);
@@ -331,7 +329,6 @@ StructurePackage::StructurePackage()
     m_StructureElementEClass->setInterface(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

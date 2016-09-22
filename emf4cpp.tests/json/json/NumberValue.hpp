@@ -45,13 +45,11 @@ namespace json
 
         // Operations
 
-
         // Attributes
         ::ecore::EDouble getValue() const;
         void setValue(::ecore::EDouble _value);
 
         // References
-
 
         /*PROTECTED REGION ID(NumberValue) START*/
         // Please, enable the protected region if you add manually written code.
@@ -84,3 +82,4 @@ namespace json
 } // json
 
 #endif // JSON_NUMBERVALUE_HPP
+

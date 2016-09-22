@@ -377,8 +377,7 @@ namespace kdm
 
             static const int UIEVENT__SOURCE = ABSTRACTUIELEMENT__SOURCE;
 
-            static const int UIEVENT__UIRELATION =
-                    ABSTRACTUIELEMENT__UIRELATION;
+            static const int UIEVENT__UIRELATION = ABSTRACTUIELEMENT__UIRELATION;
 
             static const int UIEVENT__IMPLEMENTATION =
                     ABSTRACTUIELEMENT__IMPLEMENTATION;
@@ -405,8 +404,7 @@ namespace kdm
 
             static const int UIFIELD__SOURCE = ABSTRACTUIELEMENT__SOURCE;
 
-            static const int UIFIELD__UIRELATION =
-                    ABSTRACTUIELEMENT__UIRELATION;
+            static const int UIFIELD__UIRELATION = ABSTRACTUIELEMENT__UIRELATION;
 
             static const int UIFIELD__IMPLEMENTATION =
                     ABSTRACTUIELEMENT__IMPLEMENTATION;
@@ -579,8 +577,7 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getAbstractUIElement__UIRelation();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractUIElement__implementation();
+            virtual ::ecore::EReference_ptr getAbstractUIElement__implementation();
 
             virtual ::ecore::EReference_ptr getAbstractUIElement__abstraction();
 
@@ -680,9 +677,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -757,5 +752,5 @@ namespace kdm
     } // ui
 } // kdm
 
-
 #endif // _KDM_UIPACKAGE_HPP
+

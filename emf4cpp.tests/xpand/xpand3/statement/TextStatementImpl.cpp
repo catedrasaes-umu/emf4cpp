@@ -49,7 +49,6 @@ void TextStatement::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject TextStatement::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,35 +58,36 @@ void TextStatement::_initialize()
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_start);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_end);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_fileName);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_value);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__DELETELINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_deleteLine);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_deleteLine);
     }
         return _any;
 
@@ -102,38 +102,38 @@ void TextStatement::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_start);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_end);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_fileName);
     }
         return;
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_value);
     }
         return;
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__DELETELINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_deleteLine);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_deleteLine);
     }
         return;
 
@@ -146,20 +146,22 @@ void TextStatement::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_start);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_start);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_end);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_end);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_fileName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_fileName);
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_value);
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__DELETELINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_deleteLine);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_deleteLine);
 
     }
     throw "Error";
@@ -176,9 +178,8 @@ void TextStatement::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr TextStatement::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::xpand3::statement::StatementPackage_ptr > (::xpand3::statement::StatementPackage::_instance())->getTextStatement();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getTextStatement();
     return _eclass;
 }
 

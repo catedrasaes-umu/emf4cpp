@@ -48,8 +48,8 @@ Use::Use()
                     false, true >(this, NULL));
 
     /*PROTECTED REGION ID(UseImpl__UseImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -67,7 +67,6 @@ Use::~Use()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::SVG::Element >& Use::getUse()
 {

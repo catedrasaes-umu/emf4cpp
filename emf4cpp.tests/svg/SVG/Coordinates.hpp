@@ -47,7 +47,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getX() const;
         void setX(::PrimitiveTypes::Double _x);
@@ -56,7 +55,6 @@ namespace SVG
         void setY(::PrimitiveTypes::Double _y);
 
         // References
-
 
         /*PROTECTED REGION ID(Coordinates) START*/
         // Please, enable the protected region if you add manually written code.
@@ -91,3 +89,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_COORDINATES_HPP
+

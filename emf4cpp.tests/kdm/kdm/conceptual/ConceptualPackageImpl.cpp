@@ -196,9 +196,7 @@ ConceptualPackage::ConceptualPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("conceptual");
@@ -209,16 +207,16 @@ ConceptualPackage::ConceptualPackage()
 
     // Add supertypes to classes
     m_ConceptualModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_AbstractConceptualElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_TermUnitEClass->getESuperTypes().push_back(
             m_AbstractConceptualElementEClass);
     m_ConceptualContainerEClass->getESuperTypes().push_back(
             m_AbstractConceptualElementEClass);
     m_FactUnitEClass->getESuperTypes().push_back(m_ConceptualContainerEClass);
     m_AbstractConceptualRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_ConceptualRelationshipEClass->getESuperTypes().push_back(
             m_AbstractConceptualRelationshipEClass);
     m_BehaviorUnitEClass->getESuperTypes().push_back(
@@ -258,7 +256,7 @@ ConceptualPackage::ConceptualPackage()
     m_AbstractConceptualElementEClass->setAbstract(true);
     m_AbstractConceptualElementEClass->setInterface(false);
     m_AbstractConceptualElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
     m_AbstractConceptualElement__source->setName("source");
     m_AbstractConceptualElement__source->setDefaultValueLiteral("");
     m_AbstractConceptualElement__source->setLowerBound(0);
@@ -272,7 +270,7 @@ ConceptualPackage::ConceptualPackage()
     m_AbstractConceptualElement__source->setDerived(false);
     m_AbstractConceptualElement__source->setOrdered(false);
     m_AbstractConceptualElement__implementation->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_AbstractConceptualElement__implementation->setName("implementation");
     m_AbstractConceptualElement__implementation->setDefaultValueLiteral("");
     m_AbstractConceptualElement__implementation->setLowerBound(0);
@@ -301,7 +299,7 @@ ConceptualPackage::ConceptualPackage()
     m_AbstractConceptualElement__conceptualRelation->setDerived(false);
     m_AbstractConceptualElement__conceptualRelation->setOrdered(false);
     m_AbstractConceptualElement__abstraction->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_AbstractConceptualElement__abstraction->setName("abstraction");
     m_AbstractConceptualElement__abstraction->setDefaultValueLiteral("");
     m_AbstractConceptualElement__abstraction->setLowerBound(0);
@@ -350,7 +348,7 @@ ConceptualPackage::ConceptualPackage()
     m_ConceptualRelationshipEClass->setAbstract(false);
     m_ConceptualRelationshipEClass->setInterface(false);
     m_ConceptualRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_ConceptualRelationship__to->setName("to");
     m_ConceptualRelationship__to->setDefaultValueLiteral("");
     m_ConceptualRelationship__to->setLowerBound(1);
@@ -442,7 +440,6 @@ ConceptualPackage::ConceptualPackage()
     m_ConceptualRole__conceptualElement->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

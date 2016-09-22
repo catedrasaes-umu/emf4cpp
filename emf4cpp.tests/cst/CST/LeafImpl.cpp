@@ -49,7 +49,6 @@ void Leaf::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Leaf::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,23 +58,24 @@ void Leaf::_initialize()
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_kind);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_kind);
     }
         return _any;
     case ::CST::CSTPackage::LEAF__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_value);
     }
         return _any;
     case ::CST::CSTPackage::LEAF__POS:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_pos);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_pos);
     }
         return _any;
     case ::CST::CSTPackage::LEAF__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
 
@@ -89,26 +89,26 @@ void Leaf::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_kind);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_kind);
     }
         return;
     case ::CST::CSTPackage::LEAF__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_value);
     }
         return;
     case ::CST::CSTPackage::LEAF__POS:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_pos);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_pos);
     }
         return;
     case ::CST::CSTPackage::LEAF__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
 
@@ -121,15 +121,16 @@ void Leaf::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     switch (_featureID)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_kind);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_kind);
     case ::CST::CSTPackage::LEAF__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_value);
     case ::CST::CSTPackage::LEAF__POS:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_pos);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_pos);
     case ::CST::CSTPackage::LEAF__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
 
     }
     throw "Error";
@@ -146,9 +147,8 @@ void Leaf::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Leaf::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::CST::CSTPackage_ptr > (::CST::CSTPackage::_instance())->getLeaf();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getLeaf();
     return _eclass;
 }
 

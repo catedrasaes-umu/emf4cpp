@@ -49,7 +49,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EBoolean isErrorSeverity() const;
             void setErrorSeverity(::ecore::EBoolean _errorSeverity);
@@ -103,3 +102,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_CHECK_HPP
+

@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "statement/AbstractStatement.hpp"
 #include "statement/ExpandStatement.hpp"

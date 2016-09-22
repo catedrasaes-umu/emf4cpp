@@ -50,7 +50,6 @@ void Rotate::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Rotate::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -60,25 +59,25 @@ void Rotate::_initialize()
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        _any = m_attOwner->asEListOf< ::ecore::EObject > ();
+        _any = m_attOwner->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::SVG::SVGPackage::ROTATE__ANGLE:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_angle);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_angle);
     }
         return _any;
     case ::SVG::SVGPackage::ROTATE__CX:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_cx);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_cx);
     }
         return _any;
     case ::SVG::SVGPackage::ROTATE__CY:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_cy);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_cy);
     }
         return _any;
 
@@ -93,29 +92,28 @@ void Rotate::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::SVG::Attribute::getAttOwner().clear();
         ::SVG::Attribute::getAttOwner().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::ROTATE__ANGLE:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_angle);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_angle);
     }
         return;
     case ::SVG::SVGPackage::ROTATE__CX:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_cx);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_cx);
     }
         return;
     case ::SVG::SVGPackage::ROTATE__CY:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_cy);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_cy);
     }
         return;
 
@@ -130,14 +128,14 @@ void Rotate::eSet(::ecore::EInt _featureID,
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
         return m_attOwner && m_attOwner->size();
     case ::SVG::SVGPackage::ROTATE__ANGLE:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_angle);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_angle);
     case ::SVG::SVGPackage::ROTATE__CX:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_cx);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_cx);
     case ::SVG::SVGPackage::ROTATE__CY:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_cy);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_cy);
 
     }
     throw "Error";
@@ -154,9 +152,8 @@ void Rotate::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Rotate::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getRotate();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getRotate();
     return _eclass;
 }
 

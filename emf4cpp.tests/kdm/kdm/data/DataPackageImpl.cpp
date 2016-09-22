@@ -141,7 +141,8 @@ DataPackage::DataPackage()
     m_KeyRelation__from = new ::ecore::EReference();
     m_KeyRelation__from->setFeatureID(
             ::kdm::data::DataPackage::KEYRELATION__FROM);
-    m_KeyRelationEClass->getEStructuralFeatures().push_back(m_KeyRelation__from);
+    m_KeyRelationEClass->getEStructuralFeatures().push_back(
+            m_KeyRelation__from);
 
     // ReferenceKey
     m_ReferenceKeyEClass = new ::ecore::EClass();
@@ -185,7 +186,8 @@ DataPackage::DataPackage()
     m_ColumnSet__itemUnit = new ::ecore::EReference();
     m_ColumnSet__itemUnit->setFeatureID(
             ::kdm::data::DataPackage::COLUMNSET__ITEMUNIT);
-    m_ColumnSetEClass->getEStructuralFeatures().push_back(m_ColumnSet__itemUnit);
+    m_ColumnSetEClass->getEStructuralFeatures().push_back(
+            m_ColumnSet__itemUnit);
 
     // RelationalTable
     m_RelationalTableEClass = new ::ecore::EClass();
@@ -268,7 +270,8 @@ DataPackage::DataPackage()
     m_ContentItem__type = new ::ecore::EReference();
     m_ContentItem__type->setFeatureID(
             ::kdm::data::DataPackage::CONTENTITEM__TYPE);
-    m_ContentItemEClass->getEStructuralFeatures().push_back(m_ContentItem__type);
+    m_ContentItemEClass->getEStructuralFeatures().push_back(
+            m_ContentItem__type);
     m_ContentItem__contentElement = new ::ecore::EReference();
     m_ContentItem__contentElement->setFeatureID(
             ::kdm::data::DataPackage::CONTENTITEM__CONTENTELEMENT);
@@ -353,7 +356,8 @@ DataPackage::DataPackage()
     m_DataActionEClass->setEPackage(this);
     getEClassifiers().push_back(m_DataActionEClass);
     m_DataAction__kind = new ::ecore::EAttribute();
-    m_DataAction__kind->setFeatureID(::kdm::data::DataPackage::DATAACTION__KIND);
+    m_DataAction__kind->setFeatureID(
+            ::kdm::data::DataPackage::DATAACTION__KIND);
     m_DataActionEClass->getEStructuralFeatures().push_back(m_DataAction__kind);
     m_DataAction__implementation = new ::ecore::EReference();
     m_DataAction__implementation->setFeatureID(
@@ -411,7 +415,8 @@ DataPackage::DataPackage()
     m_ReferenceTo__from = new ::ecore::EReference();
     m_ReferenceTo__from->setFeatureID(
             ::kdm::data::DataPackage::REFERENCETO__FROM);
-    m_ReferenceToEClass->getEStructuralFeatures().push_back(m_ReferenceTo__from);
+    m_ReferenceToEClass->getEStructuralFeatures().push_back(
+            m_ReferenceTo__from);
 
     // RestrictionOf
     m_RestrictionOfEClass = new ::ecore::EClass();
@@ -440,7 +445,8 @@ DataPackage::DataPackage()
     m_ExtensionTo__from = new ::ecore::EReference();
     m_ExtensionTo__from->setFeatureID(
             ::kdm::data::DataPackage::EXTENSIONTO__FROM);
-    m_ExtensionToEClass->getEStructuralFeatures().push_back(m_ExtensionTo__from);
+    m_ExtensionToEClass->getEStructuralFeatures().push_back(
+            m_ExtensionTo__from);
 
     // DatatypeOf
     m_DatatypeOfEClass = new ::ecore::EClass();
@@ -451,7 +457,8 @@ DataPackage::DataPackage()
     m_DatatypeOf__to->setFeatureID(::kdm::data::DataPackage::DATATYPEOF__TO);
     m_DatatypeOfEClass->getEStructuralFeatures().push_back(m_DatatypeOf__to);
     m_DatatypeOf__from = new ::ecore::EReference();
-    m_DatatypeOf__from->setFeatureID(::kdm::data::DataPackage::DATATYPEOF__FROM);
+    m_DatatypeOf__from->setFeatureID(
+            ::kdm::data::DataPackage::DATATYPEOF__FROM);
     m_DatatypeOfEClass->getEStructuralFeatures().push_back(m_DatatypeOf__from);
 
     // HasContent
@@ -463,7 +470,8 @@ DataPackage::DataPackage()
     m_HasContent__to->setFeatureID(::kdm::data::DataPackage::HASCONTENT__TO);
     m_HasContentEClass->getEStructuralFeatures().push_back(m_HasContent__to);
     m_HasContent__from = new ::ecore::EReference();
-    m_HasContent__from->setFeatureID(::kdm::data::DataPackage::HASCONTENT__FROM);
+    m_HasContent__from->setFeatureID(
+            ::kdm::data::DataPackage::HASCONTENT__FROM);
     m_HasContentEClass->getEStructuralFeatures().push_back(m_HasContent__from);
 
     // WritesColumnSet
@@ -521,13 +529,12 @@ DataPackage::DataPackage()
     m_ManagesData__from = new ::ecore::EReference();
     m_ManagesData__from->setFeatureID(
             ::kdm::data::DataPackage::MANAGESDATA__FROM);
-    m_ManagesDataEClass->getEStructuralFeatures().push_back(m_ManagesData__from);
+    m_ManagesDataEClass->getEStructuralFeatures().push_back(
+            m_ManagesData__from);
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("data");
@@ -538,16 +545,16 @@ DataPackage::DataPackage()
 
     // Add supertypes to classes
     m_DataModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* > (::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
     m_AbstractDataElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_DataResourceEClass->getESuperTypes().push_back(
             m_AbstractDataElementEClass);
     m_IndexElementEClass->getESuperTypes().push_back(m_DataResourceEClass);
     m_UniqueKeyEClass->getESuperTypes().push_back(m_IndexElementEClass);
     m_IndexEClass->getESuperTypes().push_back(m_IndexElementEClass);
     m_AbstractDataRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
     m_KeyRelationEClass->getESuperTypes().push_back(
             m_AbstractDataRelationshipEClass);
     m_ReferenceKeyEClass->getESuperTypes().push_back(m_IndexElementEClass);
@@ -579,11 +586,12 @@ DataPackage::DataPackage()
             m_AbstractDataElementEClass);
     m_DataRelationshipEClass->getESuperTypes().push_back(
             m_AbstractDataRelationshipEClass);
-    m_MixedContentEClass->getESuperTypes().push_back(m_ComplexContentTypeEClass);
+    m_MixedContentEClass->getESuperTypes().push_back(
+            m_ComplexContentTypeEClass);
     m_ContentReferenceEClass->getESuperTypes().push_back(m_ContentItemEClass);
     m_DataActionEClass->getESuperTypes().push_back(m_AbstractDataElementEClass);
     m_ReadsColumnSetEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_ContentAttributeEClass->getESuperTypes().push_back(m_ContentItemEClass);
     m_TypedByEClass->getESuperTypes().push_back(
             m_AbstractDataRelationshipEClass);
@@ -596,15 +604,15 @@ DataPackage::DataPackage()
     m_DatatypeOfEClass->getESuperTypes().push_back(
             m_AbstractDataRelationshipEClass);
     m_HasContentEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_WritesColumnSetEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_ProducesDataEventEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
     m_DataSegmentEClass->getESuperTypes().push_back(m_ColumnSetEClass);
     m_ContentElementEClass->getESuperTypes().push_back(m_ContentItemEClass);
     m_ManagesDataEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
@@ -630,7 +638,7 @@ DataPackage::DataPackage()
     m_AbstractDataElementEClass->setAbstract(true);
     m_AbstractDataElementEClass->setInterface(false);
     m_AbstractDataElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* > (::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
     m_AbstractDataElement__source->setName("source");
     m_AbstractDataElement__source->setDefaultValueLiteral("");
     m_AbstractDataElement__source->setLowerBound(0);
@@ -658,7 +666,7 @@ DataPackage::DataPackage()
     m_AbstractDataElement__dataRelation->setDerived(false);
     m_AbstractDataElement__dataRelation->setOrdered(false);
     m_AbstractDataElement__abstraction->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_AbstractDataElement__abstraction->setName("abstraction");
     m_AbstractDataElement__abstraction->setDefaultValueLiteral("");
     m_AbstractDataElement__abstraction->setLowerBound(0);
@@ -680,7 +688,7 @@ DataPackage::DataPackage()
     m_IndexElementEClass->setAbstract(false);
     m_IndexElementEClass->setInterface(false);
     m_IndexElement__implementation->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getItemUnit());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getItemUnit());
     m_IndexElement__implementation->setName("implementation");
     m_IndexElement__implementation->setDefaultValueLiteral("");
     m_IndexElement__implementation->setLowerBound(0);
@@ -765,7 +773,7 @@ DataPackage::DataPackage()
     m_RelationalSchemaEClass->setAbstract(false);
     m_RelationalSchemaEClass->setInterface(false);
     m_RelationalSchema__codeElement->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getCodeItem());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getCodeItem());
     m_RelationalSchema__codeElement->setName("codeElement");
     m_RelationalSchema__codeElement->setDefaultValueLiteral("");
     m_RelationalSchema__codeElement->setLowerBound(0);
@@ -783,7 +791,7 @@ DataPackage::DataPackage()
     m_ColumnSetEClass->setAbstract(false);
     m_ColumnSetEClass->setInterface(false);
     m_ColumnSet__itemUnit->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getItemUnit());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getItemUnit());
     m_ColumnSet__itemUnit->setName("itemUnit");
     m_ColumnSet__itemUnit->setDefaultValueLiteral("");
     m_ColumnSet__itemUnit->setLowerBound(0);
@@ -813,7 +821,7 @@ DataPackage::DataPackage()
     m_DataEventEClass->setAbstract(false);
     m_DataEventEClass->setInterface(false);
     m_DataEvent__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_DataEvent__kind->setName("kind");
     m_DataEvent__kind->setDefaultValueLiteral("");
     m_DataEvent__kind->setLowerBound(0);
@@ -916,7 +924,7 @@ DataPackage::DataPackage()
     m_ContentRestrictionEClass->setAbstract(false);
     m_ContentRestrictionEClass->setInterface(false);
     m_ContentRestriction__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_ContentRestriction__kind->setName("kind");
     m_ContentRestriction__kind->setDefaultValueLiteral("");
     m_ContentRestriction__kind->setLowerBound(0);
@@ -930,7 +938,7 @@ DataPackage::DataPackage()
     m_ContentRestriction__kind->setDerived(false);
     m_ContentRestriction__kind->setOrdered(false);
     m_ContentRestriction__value->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_ContentRestriction__value->setName("value");
     m_ContentRestriction__value->setDefaultValueLiteral("");
     m_ContentRestriction__value->setLowerBound(0);
@@ -948,7 +956,7 @@ DataPackage::DataPackage()
     m_SimpleContentTypeEClass->setAbstract(false);
     m_SimpleContentTypeEClass->setInterface(false);
     m_SimpleContentType__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_SimpleContentType__kind->setName("kind");
     m_SimpleContentType__kind->setDefaultValueLiteral("");
     m_SimpleContentType__kind->setLowerBound(0);
@@ -983,7 +991,7 @@ DataPackage::DataPackage()
     m_DataRelationshipEClass->setAbstract(false);
     m_DataRelationshipEClass->setInterface(false);
     m_DataRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
     m_DataRelationship__to->setName("to");
     m_DataRelationship__to->setDefaultValueLiteral("");
     m_DataRelationship__to->setLowerBound(1);
@@ -1022,7 +1030,7 @@ DataPackage::DataPackage()
     m_DataActionEClass->setAbstract(false);
     m_DataActionEClass->setInterface(false);
     m_DataAction__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* > (::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
     m_DataAction__kind->setName("kind");
     m_DataAction__kind->setDefaultValueLiteral("");
     m_DataAction__kind->setLowerBound(0);
@@ -1036,7 +1044,7 @@ DataPackage::DataPackage()
     m_DataAction__kind->setDerived(false);
     m_DataAction__kind->setOrdered(false);
     m_DataAction__implementation->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_DataAction__implementation->setName("implementation");
     m_DataAction__implementation->setDefaultValueLiteral("");
     m_DataAction__implementation->setLowerBound(0);
@@ -1080,7 +1088,7 @@ DataPackage::DataPackage()
     m_ReadsColumnSet__to->setDerived(false);
     m_ReadsColumnSet__to->setOrdered(false);
     m_ReadsColumnSet__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ReadsColumnSet__from->setName("from");
     m_ReadsColumnSet__from->setDefaultValueLiteral("");
     m_ReadsColumnSet__from->setLowerBound(1);
@@ -1222,7 +1230,7 @@ DataPackage::DataPackage()
     m_DatatypeOfEClass->setAbstract(false);
     m_DatatypeOfEClass->setInterface(false);
     m_DatatypeOf__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* > (::kdm::code::CodePackage::_instance())->getDatatype());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDatatype());
     m_DatatypeOf__to->setName("to");
     m_DatatypeOf__to->setDefaultValueLiteral("");
     m_DatatypeOf__to->setLowerBound(1);
@@ -1266,7 +1274,7 @@ DataPackage::DataPackage()
     m_HasContent__to->setDerived(false);
     m_HasContent__to->setOrdered(false);
     m_HasContent__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_HasContent__from->setName("from");
     m_HasContent__from->setDefaultValueLiteral("");
     m_HasContent__from->setLowerBound(1);
@@ -1297,7 +1305,7 @@ DataPackage::DataPackage()
     m_WritesColumnSet__to->setDerived(false);
     m_WritesColumnSet__to->setOrdered(false);
     m_WritesColumnSet__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_WritesColumnSet__from->setName("from");
     m_WritesColumnSet__from->setDefaultValueLiteral("");
     m_WritesColumnSet__from->setLowerBound(1);
@@ -1328,7 +1336,7 @@ DataPackage::DataPackage()
     m_ProducesDataEvent__to->setDerived(false);
     m_ProducesDataEvent__to->setOrdered(false);
     m_ProducesDataEvent__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ProducesDataEvent__from->setName("from");
     m_ProducesDataEvent__from->setDefaultValueLiteral("");
     m_ProducesDataEvent__from->setLowerBound(1);
@@ -1367,7 +1375,7 @@ DataPackage::DataPackage()
     m_ManagesData__to->setDerived(false);
     m_ManagesData__to->setOrdered(false);
     m_ManagesData__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* > (::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
     m_ManagesData__from->setName("from");
     m_ManagesData__from->setDefaultValueLiteral("");
     m_ManagesData__from->setLowerBound(1);
@@ -1382,7 +1390,6 @@ DataPackage::DataPackage()
     m_ManagesData__from->setOrdered(false);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

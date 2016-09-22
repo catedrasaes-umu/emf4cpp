@@ -51,12 +51,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >
-                    & getGroupedComponent();
+            ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& getGroupedComponent();
 
             /*PROTECTED REGION ID(DeployedSoftwareSystem) START*/
             // Please, enable the protected region if you add manually written code.
@@ -80,11 +78,11 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::platform::DeployedComponent > > m_groupedComponent;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::platform::DeployedComponent > > m_groupedComponent;
 
         };
 
@@ -92,3 +90,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_PLATFORM_DEPLOYEDSOFTWARESYSTEM_HPP
+

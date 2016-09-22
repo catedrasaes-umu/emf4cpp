@@ -48,7 +48,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getLanguage() const;
             void setLanguage(::kdm::core::String _language);
@@ -57,7 +56,6 @@ namespace kdm
             void setEncoding(::kdm::core::String _encoding);
 
             // References
-
 
             /*PROTECTED REGION ID(SourceFile) START*/
             // Please, enable the protected region if you add manually written code.
@@ -93,3 +91,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_SOURCE_SOURCEFILE_HPP
+

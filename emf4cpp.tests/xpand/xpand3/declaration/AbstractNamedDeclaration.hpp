@@ -49,7 +49,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -78,7 +77,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::Identifier_ptr m_name;
@@ -89,3 +87,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_DECLARATION_ABSTRACTNAMEDDECLARATION_HPP
+

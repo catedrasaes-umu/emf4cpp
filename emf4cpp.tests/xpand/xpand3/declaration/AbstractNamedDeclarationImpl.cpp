@@ -47,8 +47,7 @@ void AbstractNamedDeclaration::_initialize()
     if (m_name)
     {
         m_name->_initialize();
-        m_name->_setEContainer(
-                this,
+        m_name->_setEContainer(this,
                 ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
     }
 
@@ -60,7 +59,6 @@ void AbstractNamedDeclaration::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject AbstractNamedDeclaration::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -70,49 +68,50 @@ void AbstractNamedDeclaration::_initialize()
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_start);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_end);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_fileName);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
-        _any = static_cast< ::ecore::EObject* > (m_owner);
+        _any = static_cast< ::ecore::EObject* >(m_owner);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        _any = m_params->asEListOf< ::ecore::EObject > ();
+        _any = m_params->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_isPrivate);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_isPrivate);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
-        _any = static_cast< ::ecore::EObject* > (m_guard);
+        _any = static_cast< ::ecore::EObject* >(m_guard);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
     {
-        _any = static_cast< ::ecore::EObject* > (m_name);
+        _any = static_cast< ::ecore::EObject* >(m_name);
     }
         return _any;
 
@@ -127,67 +126,66 @@ void AbstractNamedDeclaration::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_start);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_end);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_fileName);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File_ptr >(_t0);
         ::xpand3::declaration::AbstractDeclaration::setOwner(_t1);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::xpand3::declaration::AbstractDeclaration::getParams().clear();
-        ::xpand3::declaration::AbstractDeclaration::getParams().insert_all(*_t0);
+        ::xpand3::declaration::AbstractDeclaration::getParams().insert_all(
+                *_t0);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_isPrivate);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_isPrivate);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::xpand3::expression::AbstractExpression_ptr
-                _t1 =
-                        dynamic_cast< ::xpand3::expression::AbstractExpression_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::xpand3::expression::AbstractExpression_ptr _t1 =
+                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
         ::xpand3::declaration::AbstractDeclaration::setGuard(_t1);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr > (_t0);
+                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
         ::xpand3::declaration::AbstractNamedDeclaration::setName(_t1);
     }
         return;
@@ -201,21 +199,23 @@ void AbstractNamedDeclaration::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_start);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_start);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_end);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_end);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_fileName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_fileName);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
         return m_owner;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
         return m_params && m_params->size();
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_isPrivate);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_isPrivate);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
         return m_guard;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
@@ -236,9 +236,8 @@ void AbstractNamedDeclaration::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr AbstractNamedDeclaration::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::xpand3::declaration::DeclarationPackage_ptr > (::xpand3::declaration::DeclarationPackage::_instance())->getAbstractNamedDeclaration();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::xpand3::declaration::DeclarationPackage_ptr >(::xpand3::declaration::DeclarationPackage::_instance())->getAbstractNamedDeclaration();
     return _eclass;
 }
 

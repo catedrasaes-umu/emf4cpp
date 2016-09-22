@@ -52,8 +52,8 @@ SimpleContentType::SimpleContentType()
                     NULL));
 
     /*PROTECTED REGION ID(SimpleContentTypeImpl__SimpleContentTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +71,6 @@ SimpleContentType::~SimpleContentType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String SimpleContentType::getKind() const
 {
     return m_kind;

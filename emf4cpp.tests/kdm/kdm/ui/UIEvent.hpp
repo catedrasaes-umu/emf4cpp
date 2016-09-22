@@ -51,13 +51,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getKind() const;
             void setKind(::kdm::core::String _kind);
 
             // References
-
 
             /*PROTECTED REGION ID(UIEvent) START*/
             // Please, enable the protected region if you add manually written code.
@@ -91,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_UI_UIEVENT_HPP
+

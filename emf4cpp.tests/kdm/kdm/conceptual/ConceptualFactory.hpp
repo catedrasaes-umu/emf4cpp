@@ -35,13 +35,11 @@ namespace kdm
             static ConceptualFactory_ptr _instance();
 
             virtual ConceptualModel_ptr createConceptualModel();
-            virtual AbstractConceptualElement_ptr
-                    createAbstractConceptualElement();
+            virtual AbstractConceptualElement_ptr createAbstractConceptualElement();
             virtual TermUnit_ptr createTermUnit();
             virtual ConceptualContainer_ptr createConceptualContainer();
             virtual FactUnit_ptr createFactUnit();
-            virtual AbstractConceptualRelationship_ptr
-                    createAbstractConceptualRelationship();
+            virtual AbstractConceptualRelationship_ptr createAbstractConceptualRelationship();
             virtual ConceptualRelationship_ptr createConceptualRelationship();
             virtual BehaviorUnit_ptr createBehaviorUnit();
             virtual RuleUnit_ptr createRuleUnit();
@@ -69,5 +67,5 @@ namespace kdm
     } // conceptual
 } // kdm
 
-
 #endif // _KDM_CONCEPTUALFACTORY_HPP
+

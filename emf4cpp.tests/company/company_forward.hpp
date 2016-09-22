@@ -30,29 +30,28 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace company
 {
 
-    // EDataType
+// EDataType
 
+// EClass
 
-    // EClass
-
-    // Employee
+// Employee
     class Employee;
     typedef Employee* Employee_ptr;
 
-    // Department
+// Department
     class Department;
     typedef Department* Department_ptr;
 
-    // Company
+// Company
     class Company;
     typedef Company* Company_ptr;
 
-    // Package & Factory
+// Package & Factory
     class CompanyFactory;
     typedef CompanyFactory * CompanyFactory_ptr;
     class CompanyPackage;
@@ -61,10 +60,10 @@ namespace company
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // company
 
-
 #endif // _COMPANY_FORWARD_HPP
+

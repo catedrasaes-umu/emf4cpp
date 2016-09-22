@@ -542,13 +542,11 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getKDMFramework__name();
 
-            virtual ::ecore::EReference_ptr
-                    getInventoryModel__inventoryElement();
+            virtual ::ecore::EReference_ptr getInventoryModel__inventoryElement();
 
             virtual ::ecore::EAttribute_ptr getKDMEntity__name();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractInventoryElement__inventoryRelation();
+            virtual ::ecore::EReference_ptr getAbstractInventoryElement__inventoryRelation();
 
             virtual ::ecore::EAttribute_ptr getInventoryItem__version();
 
@@ -558,8 +556,7 @@ namespace kdm
 
             virtual ::ecore::EAttribute_ptr getSourceFile__encoding();
 
-            virtual ::ecore::EReference_ptr
-                    getInventoryContainer__inventoryElement();
+            virtual ::ecore::EReference_ptr getInventoryContainer__inventoryElement();
 
             virtual ::ecore::EAttribute_ptr getDirectory__path();
 
@@ -617,9 +614,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -661,8 +656,7 @@ namespace kdm
 
             ::ecore::EAttribute_ptr m_KDMEntity__name;
 
-            ::ecore::EReference_ptr
-                    m_AbstractInventoryElement__inventoryRelation;
+            ::ecore::EReference_ptr m_AbstractInventoryElement__inventoryRelation;
 
             ::ecore::EAttribute_ptr m_InventoryItem__version;
 
@@ -689,5 +683,5 @@ namespace kdm
     } // source
 } // kdm
 
-
 #endif // _KDM_SOURCEPACKAGE_HPP
+

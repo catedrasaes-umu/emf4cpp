@@ -59,5 +59,5 @@ namespace kdm
     } // core
 } // kdm
 
-
 #endif // _KDM_COREFACTORY_HPP
+

@@ -45,7 +45,6 @@ namespace myDsl
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -75,11 +74,10 @@ namespace myDsl
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::myDsl::Import > > m_imports;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::myDsl::Import > > m_imports;
 
         ::ecorecpp::mapping::out_ptr<
                 ::ecorecpp::mapping::EList< ::myDsl::Type > > m_elements;
@@ -89,3 +87,4 @@ namespace myDsl
 } // myDsl
 
 #endif // MYDSL_MODEL_HPP
+

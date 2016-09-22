@@ -44,8 +44,7 @@ void UnaryOperation::_initialize()
     if (m_operator)
     {
         m_operator->_initialize();
-        m_operator->_setEContainer(
-                this,
+        m_operator->_setEContainer(this,
                 ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
     }
 
@@ -57,7 +56,6 @@ void UnaryOperation::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject UnaryOperation::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -67,33 +65,34 @@ void UnaryOperation::_initialize()
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_start);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_end);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_fileName);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR:
     {
-        _any = static_cast< ::ecore::EObject* > (m_operator);
+        _any = static_cast< ::ecore::EObject* >(m_operator);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND:
     {
-        _any = static_cast< ::ecore::EObject* > (m_operand);
+        _any = static_cast< ::ecore::EObject* >(m_operand);
     }
         return _any;
 
@@ -108,44 +107,43 @@ void UnaryOperation::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_start);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_end);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_fileName);
     }
         return;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr > (_t0);
+                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
         ::xpand3::expression::UnaryOperation::setOperator(_t1);
     }
         return;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::xpand3::expression::AbstractExpression_ptr
-                _t1 =
-                        dynamic_cast< ::xpand3::expression::AbstractExpression_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::xpand3::expression::AbstractExpression_ptr _t1 =
+                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
         ::xpand3::expression::UnaryOperation::setOperand(_t1);
     }
         return;
@@ -159,14 +157,16 @@ void UnaryOperation::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_start);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_start);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_end);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_end);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_fileName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR:
         return m_operator;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND:
@@ -187,9 +187,8 @@ void UnaryOperation::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr UnaryOperation::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr > (::xpand3::expression::ExpressionPackage::_instance())->getUnaryOperation();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getUnaryOperation();
     return _eclass;
 }
 

@@ -43,12 +43,12 @@ using namespace ::kdm::conceptual;
 
 // Default constructor
 ConceptualRole::ConceptualRole() :
-    m_conceptualElement(0)
+        m_conceptualElement(0)
 {
 
     /*PROTECTED REGION ID(ConceptualRoleImpl__ConceptualRoleImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ ConceptualRole::~ConceptualRole()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::conceptual::AbstractConceptualElement_ptr ConceptualRole::getConceptualElement()
 {

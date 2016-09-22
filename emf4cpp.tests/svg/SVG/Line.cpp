@@ -44,12 +44,12 @@ Line::Line()
 {
 
     m_between.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, 2,
-                    false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, 2, false,
+                    false >(this, NULL));
 
     /*PROTECTED REGION ID(LineImpl__LineImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -67,7 +67,6 @@ Line::~Line()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String Line::getMarkerEnd() const
 {
     return m_markerEnd;

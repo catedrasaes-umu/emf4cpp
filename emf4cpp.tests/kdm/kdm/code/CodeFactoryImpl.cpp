@@ -298,14 +298,14 @@ CodeFactory::CodeFactory()
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr > (getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
         return _epkg->getMethodKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::PARAMETERKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr > (getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
         return _epkg->getParameterKind()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
@@ -313,28 +313,28 @@ CodeFactory::CodeFactory()
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr > (getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
         return _epkg->getExportKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::STORABLEKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr > (getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
         return _epkg->getStorableKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::CALLABLEKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr > (getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
         return _epkg->getCallableKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::MACROKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr > (getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
         return _epkg->getMacroKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     default:
@@ -342,58 +342,57 @@ CodeFactory::CodeFactory()
     }
 }
 
-::ecore::EString CodeFactory::convertToString(
-        ::ecore::EDataType_ptr _eDataType,
+::ecore::EString CodeFactory::convertToString(::ecore::EDataType_ptr _eDataType,
         ::ecore::EJavaObject const& _instanceValue)
 {
     switch (_eDataType->getClassifierID())
     {
     case CodePackage::METHODKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf<
-                ::kdm::code::CodePackage >(getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        CodePackage_ptr _epkg = ::kdm::code::instanceOf
+                < ::kdm::code::CodePackage > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getMethodKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::PARAMETERKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf<
-                ::kdm::code::CodePackage >(getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        CodePackage_ptr _epkg = ::kdm::code::instanceOf
+                < ::kdm::code::CodePackage > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getParameterKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::EXPORTKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf<
-                ::kdm::code::CodePackage >(getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        CodePackage_ptr _epkg = ::kdm::code::instanceOf
+                < ::kdm::code::CodePackage > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getExportKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::STORABLEKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf<
-                ::kdm::code::CodePackage >(getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        CodePackage_ptr _epkg = ::kdm::code::instanceOf
+                < ::kdm::code::CodePackage > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getStorableKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::CALLABLEKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf<
-                ::kdm::code::CodePackage >(getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        CodePackage_ptr _epkg = ::kdm::code::instanceOf
+                < ::kdm::code::CodePackage > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getCallableKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::MACROKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf<
-                ::kdm::code::CodePackage >(getEPackage());
-        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EInt >(_instanceValue);
+        CodePackage_ptr _epkg = ::kdm::code::instanceOf
+                < ::kdm::code::CodePackage > (getEPackage());
+        ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EInt > (_instanceValue);
         return _epkg->getMacroKind()->getEEnumLiteral(_value)->getName();
     }
     default:

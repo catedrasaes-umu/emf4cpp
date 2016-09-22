@@ -51,20 +51,16 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource();
 
-            ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >
-                    & getEventRelation();
+            ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& getEventRelation();
 
-            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >
-                    & getAbstraction();
+            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction();
 
-            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >
-                    & getImplementation();
+            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation();
 
             /*PROTECTED REGION ID(AbstractEventElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -88,20 +84,20 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::source::SourceRef > > m_source;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::event::AbstractEventRelationship > > m_eventRelation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::event::AbstractEventRelationship > > m_eventRelation;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::action::ActionElement > > m_abstraction;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::action::ActionElement > > m_abstraction;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::AbstractCodeElement > > m_implementation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement > > m_implementation;
 
         };
 
@@ -109,3 +105,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_EVENT_ABSTRACTEVENTELEMENT_HPP
+

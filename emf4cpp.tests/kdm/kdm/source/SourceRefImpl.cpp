@@ -46,8 +46,7 @@ void SourceRef::_initialize()
     for (size_t i = 0; i < m_region->size(); i++)
     {
         (*m_region)[i]->_initialize();
-        (*m_region)[i]->_setEContainer(
-                this,
+        (*m_region)[i]->_setEContainer(this,
                 ::kdm::source::SourcePackage::_instance()->getSourceRef__region());
     }
 
@@ -59,7 +58,6 @@ void SourceRef::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject SourceRef::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -69,29 +67,29 @@ void SourceRef::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREF__REGION:
     {
-        _any = m_region->asEListOf< ::ecore::EObject > ();
+        _any = m_region->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREF__LANGUAGE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_language);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_language);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREF__SNIPPET:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_snippet);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_snippet);
     }
         return _any;
 
@@ -106,41 +104,38 @@ void SourceRef::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREF__REGION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::source::SourceRef::getRegion().clear();
         ::kdm::source::SourceRef::getRegion().insert_all(*_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREF__LANGUAGE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_language);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_language);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREF__SNIPPET:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_snippet);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_snippet);
     }
         return;
 
@@ -159,11 +154,11 @@ void SourceRef::eSet(::ecore::EInt _featureID,
     case ::kdm::source::SourcePackage::SOURCEREF__REGION:
         return m_region && m_region->size();
     case ::kdm::source::SourcePackage::SOURCEREF__LANGUAGE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_language);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_language);
     case ::kdm::source::SourcePackage::SOURCEREF__SNIPPET:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_snippet);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_snippet);
 
     }
     throw "Error";
@@ -180,9 +175,8 @@ void SourceRef::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr SourceRef::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::source::SourcePackage_ptr > (::kdm::source::SourcePackage::_instance())->getSourceRef();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::source::SourcePackage_ptr >(::kdm::source::SourcePackage::_instance())->getSourceRef();
     return _eclass;
 }
 

@@ -49,7 +49,6 @@ void SimpleType::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject SimpleType::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,7 +58,8 @@ void SimpleType::_initialize()
     {
     case ::myDsl::MyDslPackage::TYPE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_name);
     }
         return _any;
 
@@ -74,8 +74,8 @@ void SimpleType::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::TYPE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_name);
     }
         return;
 
@@ -88,8 +88,8 @@ void SimpleType::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::myDsl::MyDslPackage::TYPE__NAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_name);
 
     }
     throw "Error";
@@ -106,9 +106,8 @@ void SimpleType::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr SimpleType::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::myDsl::MyDslPackage_ptr > (::myDsl::MyDslPackage::_instance())->getSimpleType();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getSimpleType();
     return _eclass;
 }
 

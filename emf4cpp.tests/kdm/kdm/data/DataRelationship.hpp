@@ -48,7 +48,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -80,7 +79,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::core::KDMEntity_ptr m_to;
@@ -93,3 +91,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_DATARELATIONSHIP_HPP
+

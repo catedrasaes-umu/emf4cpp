@@ -49,14 +49,12 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& getAttribute();
 
-            ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >
-                    & getAnnotation();
+            ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& getAnnotation();
 
             /*PROTECTED REGION ID(Element) START*/
             // Please, enable the protected region if you add manually written code.
@@ -80,14 +78,13 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::Attribute > > m_attribute;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute > > m_attribute;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::Annotation > > m_annotation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation > > m_annotation;
 
         };
 
@@ -95,3 +92,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CORE_ELEMENT_HPP
+

@@ -39,12 +39,12 @@ using namespace ::kdm::action;
 
 // Default constructor
 EntryFlow::EntryFlow() :
-    m_to(0), m_from(0)
+        m_to(0), m_from(0)
 {
 
     /*PROTECTED REGION ID(EntryFlowImpl__EntryFlowImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ EntryFlow::~EntryFlow()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::action::ActionElement_ptr EntryFlow::getTo()
 {

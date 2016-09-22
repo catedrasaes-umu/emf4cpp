@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getName() const;
             void setName(::kdm::core::String _name);
@@ -55,8 +54,7 @@ namespace kdm
             // References
             ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit();
 
-            ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >
-                    & getExtensionFamily();
+            ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily();
 
             /*PROTECTED REGION ID(KDMFramework) START*/
             // Please, enable the protected region if you add manually written code.
@@ -84,11 +82,11 @@ namespace kdm
 
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::Audit > > m_audit;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::Audit > > m_audit;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::kdm::ExtensionFamily > > m_extensionFamily;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily > > m_extensionFamily;
 
         };
 
@@ -96,3 +94,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_KDMFRAMEWORK_HPP
+

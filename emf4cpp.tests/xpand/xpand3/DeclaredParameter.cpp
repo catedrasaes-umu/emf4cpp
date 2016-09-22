@@ -33,12 +33,12 @@ using namespace ::xpand3;
 
 // Default constructor
 DeclaredParameter::DeclaredParameter() :
-    m_name(0), m_type(0)
+        m_name(0), m_type(0)
 {
 
     /*PROTECTED REGION ID(DeclaredParameterImpl__DeclaredParameterImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -64,7 +64,6 @@ DeclaredParameter::~DeclaredParameter()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr DeclaredParameter::getName()
 {

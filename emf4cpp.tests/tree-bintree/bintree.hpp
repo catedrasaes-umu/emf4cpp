@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "bintree/BinTreeNode.hpp"
 

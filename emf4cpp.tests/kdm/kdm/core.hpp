@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "core/Element.hpp"
 #include "core/ModelElement.hpp"

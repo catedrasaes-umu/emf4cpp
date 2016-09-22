@@ -35,8 +35,7 @@ namespace kdm
             static ActionFactory_ptr _instance();
 
             virtual ActionElement_ptr createActionElement();
-            virtual AbstractActionRelationship_ptr
-                    createAbstractActionRelationship();
+            virtual AbstractActionRelationship_ptr createAbstractActionRelationship();
             virtual ControlFlow_ptr createControlFlow();
             virtual Calls_ptr createCalls();
             virtual Creates_ptr createCreates();
@@ -80,5 +79,5 @@ namespace kdm
     } // action
 } // kdm
 
-
 #endif // _KDM_ACTIONFACTORY_HPP
+

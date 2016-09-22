@@ -47,12 +47,12 @@ EnumeratedType::EnumeratedType()
 {
 
     m_value.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Value,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Value, -1,
+                    true, false >(this, NULL));
 
     /*PROTECTED REGION ID(EnumeratedTypeImpl__EnumeratedTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -70,7 +70,6 @@ EnumeratedType::~EnumeratedType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::code::Value >& EnumeratedType::getValue()
 {

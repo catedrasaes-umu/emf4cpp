@@ -30,37 +30,36 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace PrimitiveTypes
 {
 
-    // EDataType
+// EDataType
     /*PROTECTED REGION ID(PrimitiveTypes_Boolean) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int Boolean;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(PrimitiveTypes_Integer) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int Integer;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(PrimitiveTypes_String) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int String;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(PrimitiveTypes_Double) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int Double;
     /*PROTECTED REGION END*/
 
-    // EClass
+// EClass
 
-
-    // Package & Factory
+// Package & Factory
     class PrimitiveTypesFactory;
     typedef PrimitiveTypesFactory * PrimitiveTypesFactory_ptr;
     class PrimitiveTypesPackage;
@@ -69,10 +68,10 @@ namespace PrimitiveTypes
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // PrimitiveTypes
 
-
 #endif // _PRIMITIVETYPES_FORWARD_HPP
+

@@ -37,8 +37,8 @@ ArrayDef::ArrayDef()
 {
 
     /*PROTECTED REGION ID(ArrayDefImpl__ArrayDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -56,7 +56,6 @@ ArrayDef::~ArrayDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& ArrayDef::getBound() const
 {
     return m_bound;

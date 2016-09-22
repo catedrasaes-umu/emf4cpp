@@ -55,7 +55,6 @@ namespace kdm
 
             // References
 
-
             /*PROTECTED REGION ID(KDMRelationship) START*/
             // Please, enable the protected region if you add manually written code.
             // To do this, add the keyword ENABLED before START.
@@ -78,7 +77,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
         };
@@ -87,3 +85,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CORE_KDMRELATIONSHIP_HPP
+

@@ -45,11 +45,9 @@ namespace CST
 
         // Operations
 
-
         // Attributes
 
         // References
-
 
         /*PROTECTED REGION ID(Tree) START*/
         // Please, enable the protected region if you add manually written code.
@@ -73,7 +71,6 @@ namespace CST
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -81,3 +78,4 @@ namespace CST
 } // CST
 
 #endif // CST_TREE_HPP
+

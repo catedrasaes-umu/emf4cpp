@@ -34,12 +34,12 @@ using namespace ::xpand3::statement;
 
 // Default constructor
 ProtectStatement::ProtectStatement() :
-    m_commentStart(0), m_commentEnd(0), m_id(0)
+        m_commentStart(0), m_commentEnd(0), m_id(0)
 {
 
     /*PROTECTED REGION ID(ProtectStatementImpl__ProtectStatementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -69,7 +69,6 @@ ProtectStatement::~ProtectStatement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean ProtectStatement::isDisable() const
 {
     return m_disable;

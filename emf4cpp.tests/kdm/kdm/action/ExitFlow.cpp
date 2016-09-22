@@ -38,12 +38,12 @@ using namespace ::kdm::action;
 
 // Default constructor
 ExitFlow::ExitFlow() :
-    m_to(0), m_from(0)
+        m_to(0), m_from(0)
 {
 
     /*PROTECTED REGION ID(ExitFlowImpl__ExitFlowImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ ExitFlow::~ExitFlow()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::action::ActionElement_ptr ExitFlow::getTo()
 {

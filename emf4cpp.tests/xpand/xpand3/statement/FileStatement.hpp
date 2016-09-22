@@ -49,17 +49,14 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
             ::ecore::EBoolean isOnce() const;
             void setOnce(::ecore::EBoolean _once);
 
             // References
-            ::xpand3::expression::AbstractExpression_ptr
-                    getFileNameExpression();
-            void
-                    setFileNameExpression(
-                            ::xpand3::expression::AbstractExpression_ptr _fileNameExpression);
+            ::xpand3::expression::AbstractExpression_ptr getFileNameExpression();
+            void setFileNameExpression(
+                    ::xpand3::expression::AbstractExpression_ptr _fileNameExpression);
 
             ::xpand3::Identifier_ptr getOutletNameIdentifier();
             void setOutletNameIdentifier(
@@ -101,3 +98,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_STATEMENT_FILESTATEMENT_HPP
+

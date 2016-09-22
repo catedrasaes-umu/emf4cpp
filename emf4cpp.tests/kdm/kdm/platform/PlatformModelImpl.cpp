@@ -50,8 +50,7 @@ void PlatformModel::_initialize()
     for (size_t i = 0; i < m_platformElement->size(); i++)
     {
         (*m_platformElement)[i]->_initialize();
-        (*m_platformElement)[i]->_setEContainer(
-                this,
+        (*m_platformElement)[i]->_setEContainer(this,
                 ::kdm::platform::PlatformPackage::_instance()->getPlatformModel__platformElement());
     }
 
@@ -63,7 +62,6 @@ void PlatformModel::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject PlatformModel::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -73,43 +71,43 @@ void PlatformModel::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject > ();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__AUDIT:
     {
-        _any = m_audit->asEListOf< ::ecore::EObject > ();
+        _any = m_audit->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY:
     {
-        _any = m_extensionFamily->asEListOf< ::ecore::EObject > ();
+        _any = m_extensionFamily->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::kdm::platform::PlatformPackage::PLATFORMMODEL__PLATFORMELEMENT:
     {
-        _any = m_platformElement->asEListOf< ::ecore::EObject > ();
+        _any = m_platformElement->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -124,69 +122,62 @@ void PlatformModel::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__AUDIT:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::kdm::KDMFramework::getAudit().clear();
         ::kdm::kdm::KDMFramework::getAudit().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::kdm::KDMFramework::getExtensionFamily().clear();
         ::kdm::kdm::KDMFramework::getExtensionFamily().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::kdm::platform::PlatformPackage::PLATFORMMODEL__PLATFORMELEMENT:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::platform::PlatformModel::getPlatformElement().clear();
         ::kdm::platform::PlatformModel::getPlatformElement().insert_all(*_t0);
     }
@@ -213,8 +204,8 @@ void PlatformModel::eSet(::ecore::EInt _featureID,
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY:
         return m_extensionFamily && m_extensionFamily->size();
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__NAME:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_name);
     case ::kdm::platform::PlatformPackage::PLATFORMMODEL__PLATFORMELEMENT:
         return m_platformElement && m_platformElement->size();
 
@@ -233,9 +224,8 @@ void PlatformModel::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr PlatformModel::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::platform::PlatformPackage_ptr > (::kdm::platform::PlatformPackage::_instance())->getPlatformModel();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::platform::PlatformPackage_ptr >(::kdm::platform::PlatformPackage::_instance())->getPlatformModel();
     return _eclass;
 }
 

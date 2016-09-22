@@ -50,18 +50,15 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
             ::kdm::code::Datatype_ptr getType();
             void setType(::kdm::code::Datatype_ptr _type);
 
-            ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >
-                    & getEntryFlow();
+            ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& getEntryFlow();
 
-            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >
-                    & getCodeElement();
+            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement();
 
             /*PROTECTED REGION ID(ControlElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -85,16 +82,15 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::code::Datatype_ptr m_type;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::action::EntryFlow > > m_entryFlow;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow > > m_entryFlow;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::AbstractCodeElement > > m_codeElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement > > m_codeElement;
 
         };
 
@@ -102,3 +98,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_CONTROLELEMENT_HPP
+

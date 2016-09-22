@@ -50,7 +50,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::code::MethodKind getKind() const;
             void setKind(::kdm::code::MethodKind _kind);
@@ -59,7 +58,6 @@ namespace kdm
             void setExport(::kdm::code::ExportKind _export);
 
             // References
-
 
             /*PROTECTED REGION ID(MethodUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -95,3 +93,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_METHODUNIT_HPP
+

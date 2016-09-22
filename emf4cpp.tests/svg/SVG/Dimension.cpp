@@ -34,8 +34,8 @@ Dimension::Dimension()
 {
 
     /*PROTECTED REGION ID(DimensionImpl__DimensionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -53,7 +53,6 @@ Dimension::~Dimension()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::Double Dimension::getWidth() const
 {
     return m_width;

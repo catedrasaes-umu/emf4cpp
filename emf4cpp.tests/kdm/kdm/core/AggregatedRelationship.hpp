@@ -47,7 +47,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::Integer getDensity() const;
             void setDensity(::kdm::core::Integer _density);
@@ -59,8 +58,7 @@ namespace kdm
             ::kdm::core::KDMEntity_ptr getTo();
             void setTo(::kdm::core::KDMEntity_ptr _to);
 
-            ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >
-                    & getRelation();
+            ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation();
 
             /*PROTECTED REGION ID(AggregatedRelationship) START*/
             // Please, enable the protected region if you add manually written code.
@@ -92,8 +90,8 @@ namespace kdm
 
             ::kdm::core::KDMEntity_ptr m_to;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::core::KDMRelationship > > m_relation;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship > > m_relation;
 
         };
 
@@ -101,3 +99,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CORE_AGGREGATEDRELATIONSHIP_HPP
+

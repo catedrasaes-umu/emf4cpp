@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "action/ActionElement.hpp"
 #include "action/AbstractActionRelationship.hpp"

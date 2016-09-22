@@ -51,7 +51,6 @@ void TagDefinition::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject TagDefinition::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -61,24 +60,24 @@ void TagDefinition::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TAG:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_tag);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_tag);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TYPE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_type);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_type);
     }
         return _any;
 
@@ -93,32 +92,30 @@ void TagDefinition::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TAG:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_tag);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_tag);
     }
         return;
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TYPE:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_type);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_type);
     }
         return;
 
@@ -135,11 +132,11 @@ void TagDefinition::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
         return m_annotation && m_annotation->size();
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TAG:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_tag);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_tag);
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TYPE:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_type);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_type);
 
     }
     throw "Error";
@@ -156,9 +153,8 @@ void TagDefinition::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr TagDefinition::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::kdm::KdmPackage_ptr > (::kdm::kdm::KdmPackage::_instance())->getTagDefinition();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getTagDefinition();
     return _eclass;
 }
 

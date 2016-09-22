@@ -89,5 +89,5 @@ namespace SVG
 
 } // SVG
 
-
 #endif // _SVGFACTORY_HPP
+

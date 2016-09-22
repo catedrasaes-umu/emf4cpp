@@ -49,12 +49,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >
-                    & getValueElement();
+            ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& getValueElement();
 
             /*PROTECTED REGION ID(ValueList) START*/
             // Please, enable the protected region if you add manually written code.
@@ -78,11 +76,10 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::ValueElement > > m_valueElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::ValueElement > > m_valueElement;
 
         };
 
@@ -90,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_VALUELIST_HPP
+

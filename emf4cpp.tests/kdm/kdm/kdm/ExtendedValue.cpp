@@ -35,12 +35,12 @@ using namespace ::kdm::kdm;
 
 // Default constructor
 ExtendedValue::ExtendedValue() :
-    m_tag(0)
+        m_tag(0)
 {
 
     /*PROTECTED REGION ID(ExtendedValueImpl__ExtendedValueImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -58,7 +58,6 @@ ExtendedValue::~ExtendedValue()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::kdm::kdm::TagDefinition_ptr ExtendedValue::getTag()
 {

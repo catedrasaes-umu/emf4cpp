@@ -59,8 +59,7 @@ TreeFactory::TreeFactory()
     }
 }
 
-::ecore::EString TreeFactory::convertToString(
-        ::ecore::EDataType_ptr _eDataType,
+::ecore::EString TreeFactory::convertToString(::ecore::EDataType_ptr _eDataType,
         ::ecore::EJavaObject const& _instanceValue)
 {
     switch (_eDataType->getClassifierID())

@@ -39,8 +39,8 @@ ConstantDef::ConstantDef()
 {
 
     /*PROTECTED REGION ID(ConstantDefImpl__ConstantDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -58,7 +58,6 @@ ConstantDef::~ConstantDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::idlmm::EAny ConstantDef::getConstValue() const
 {
     return m_constValue;

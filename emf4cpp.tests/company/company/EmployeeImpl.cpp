@@ -47,7 +47,6 @@ void Employee::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Employee::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -57,7 +56,8 @@ void Employee::_initialize()
     {
     case ::company::CompanyPackage::EMPLOYEE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_name);
     }
         return _any;
 
@@ -72,8 +72,8 @@ void Employee::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::EMPLOYEE__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_name);
     }
         return;
 
@@ -86,8 +86,8 @@ void Employee::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::company::CompanyPackage::EMPLOYEE__NAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_name);
 
     }
     throw "Error";
@@ -104,9 +104,8 @@ void Employee::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Employee::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::company::CompanyPackage_ptr > (::company::CompanyPackage::_instance())->getEmployee();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::company::CompanyPackage_ptr >(::company::CompanyPackage::_instance())->getEmployee();
     return _eclass;
 }
 

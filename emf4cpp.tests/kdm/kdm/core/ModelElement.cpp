@@ -39,15 +39,15 @@ ModelElement::ModelElement()
 {
 
     m_stereotype.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::Stereotype, -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
+                    -1, false, false >(this, NULL));
     m_taggedValue.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::kdm::ExtendedValue, -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(ModelElementImpl__ModelElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,7 +65,6 @@ ModelElement::~ModelElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ModelElement::getStereotype()
 {

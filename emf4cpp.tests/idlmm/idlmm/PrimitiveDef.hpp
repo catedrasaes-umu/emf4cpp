@@ -44,13 +44,11 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::idlmm::PrimitiveKind getKind() const;
         void setKind(::idlmm::PrimitiveKind _kind);
 
         // References
-
 
         /*PROTECTED REGION ID(PrimitiveDef) START*/
         // Please, enable the protected region if you add manually written code.
@@ -83,3 +81,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_PRIMITIVEDEF_HPP
+

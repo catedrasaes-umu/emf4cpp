@@ -48,12 +48,12 @@ XMLSchema::XMLSchema()
 
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractContentElement, -1, true, false >(
-                    this, NULL));
+                    ::kdm::data::AbstractContentElement, -1, true, false >(this,
+                    NULL));
 
     /*PROTECTED REGION ID(XMLSchemaImpl__XMLSchemaImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -71,7 +71,6 @@ XMLSchema::~XMLSchema()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& XMLSchema::getContentElement()
 {

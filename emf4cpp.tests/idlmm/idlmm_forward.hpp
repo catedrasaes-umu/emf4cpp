@@ -30,140 +30,139 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace idlmm
 {
 
-    // EDataType
+// EDataType
     /*PROTECTED REGION ID(idlmm_ParameterMode) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int ParameterMode;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(idlmm_PrimitiveKind) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int PrimitiveKind;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(idlmm_EAny) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int EAny;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(idlmm_ETypeCode) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     typedef int ETypeCode;
     /*PROTECTED REGION END*/
 
-    // EClass
-
-    // Container
+// EClass
+// Container
     class Container;
     typedef Container* Container_ptr;
 
-    // Contained
+// Contained
     class Contained;
     typedef Contained* Contained_ptr;
 
-    // InterfaceDef
+// InterfaceDef
     class InterfaceDef;
     typedef InterfaceDef* InterfaceDef_ptr;
 
-    // ModuleDef
+// ModuleDef
     class ModuleDef;
     typedef ModuleDef* ModuleDef_ptr;
 
-    // IDLType
+// IDLType
     class IDLType;
     typedef IDLType* IDLType_ptr;
 
-    // OperationDef
+// OperationDef
     class OperationDef;
     typedef OperationDef* OperationDef_ptr;
 
-    // AttributeDef
+// AttributeDef
     class AttributeDef;
     typedef AttributeDef* AttributeDef_ptr;
 
-    // ConstantDef
+// ConstantDef
     class ConstantDef;
     typedef ConstantDef* ConstantDef_ptr;
 
-    // Typed
+// Typed
     class Typed;
     typedef Typed* Typed_ptr;
 
-    // ParameterDef
+// ParameterDef
     class ParameterDef;
     typedef ParameterDef* ParameterDef_ptr;
 
-    // PrimitiveDef
+// PrimitiveDef
     class PrimitiveDef;
     typedef PrimitiveDef* PrimitiveDef_ptr;
 
-    // ExceptionDef
+// ExceptionDef
     class ExceptionDef;
     typedef ExceptionDef* ExceptionDef_ptr;
 
-    // Field
+// Field
     class Field;
     typedef Field* Field_ptr;
 
-    // FixedDef
+// FixedDef
     class FixedDef;
     typedef FixedDef* FixedDef_ptr;
 
-    // WstringDef
+// WstringDef
     class WstringDef;
     typedef WstringDef* WstringDef_ptr;
 
-    // StringDef
+// StringDef
     class StringDef;
     typedef StringDef* StringDef_ptr;
 
-    // AliasDef
+// AliasDef
     class AliasDef;
     typedef AliasDef* AliasDef_ptr;
 
-    // ArrayDef
+// ArrayDef
     class ArrayDef;
     typedef ArrayDef* ArrayDef_ptr;
 
-    // SequenceDef
+// SequenceDef
     class SequenceDef;
     typedef SequenceDef* SequenceDef_ptr;
 
-    // UnionField
+// UnionField
     class UnionField;
     typedef UnionField* UnionField_ptr;
 
-    // TypedefDef
+// TypedefDef
     class TypedefDef;
     typedef TypedefDef* TypedefDef_ptr;
 
-    // UnionDef
+// UnionDef
     class UnionDef;
     typedef UnionDef* UnionDef_ptr;
 
-    // EnumDef
+// EnumDef
     class EnumDef;
     typedef EnumDef* EnumDef_ptr;
 
-    // StructDef
+// StructDef
     class StructDef;
     typedef StructDef* StructDef_ptr;
 
-    // TranslationUnit
+// TranslationUnit
     class TranslationUnit;
     typedef TranslationUnit* TranslationUnit_ptr;
 
-    // Include
+// Include
     class Include;
     typedef Include* Include_ptr;
 
-    // Package & Factory
+// Package & Factory
     class IdlmmFactory;
     typedef IdlmmFactory * IdlmmFactory_ptr;
     class IdlmmPackage;
@@ -172,10 +171,10 @@ namespace idlmm
     template< typename T, typename S >
     inline T* instanceOf(S* _s)
     {
-        return dynamic_cast< T* > (_s);
+        return dynamic_cast< T* >(_s);
     }
 
 } // idlmm
 
-
 #endif // _IDLMM_FORWARD_HPP
+

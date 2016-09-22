@@ -46,8 +46,8 @@ ContentRestriction::ContentRestriction()
 {
 
     /*PROTECTED REGION ID(ContentRestrictionImpl__ContentRestrictionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -65,7 +65,6 @@ ContentRestriction::~ContentRestriction()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String ContentRestriction::getKind() const
 {
     return m_kind;

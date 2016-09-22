@@ -46,7 +46,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -75,7 +74,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
             ::kdm::kdm::TagDefinition_ptr m_tag;
@@ -86,3 +84,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_KDM_EXTENDEDVALUE_HPP
+

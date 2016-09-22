@@ -37,8 +37,8 @@ Audit::Audit()
 {
 
     /*PROTECTED REGION ID(AuditImpl__AuditImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -56,7 +56,6 @@ Audit::~Audit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String Audit::getDescription() const
 {
     return m_description;

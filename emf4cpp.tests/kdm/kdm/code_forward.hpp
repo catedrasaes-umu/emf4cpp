@@ -30,380 +30,379 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace code
     {
 
-        // EDataType
+// EDataType
         /*PROTECTED REGION ID(kdm_code_MethodKind) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
         typedef int MethodKind;
         /*PROTECTED REGION END*/
         /*PROTECTED REGION ID(kdm_code_ParameterKind) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
         typedef int ParameterKind;
         /*PROTECTED REGION END*/
         /*PROTECTED REGION ID(kdm_code_ExportKind) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
         typedef int ExportKind;
         /*PROTECTED REGION END*/
         /*PROTECTED REGION ID(kdm_code_StorableKind) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
         typedef int StorableKind;
         /*PROTECTED REGION END*/
         /*PROTECTED REGION ID(kdm_code_CallableKind) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
         typedef int CallableKind;
         /*PROTECTED REGION END*/
         /*PROTECTED REGION ID(kdm_code_MacroKind) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
         typedef int MacroKind;
         /*PROTECTED REGION END*/
 
-        // EClass
-
-        // AbstractCodeElement
+// EClass
+// AbstractCodeElement
         class AbstractCodeElement;
         typedef AbstractCodeElement* AbstractCodeElement_ptr;
 
-        // CodeItem
+// CodeItem
         class CodeItem;
         typedef CodeItem* CodeItem_ptr;
 
-        // ComputationalObject
+// ComputationalObject
         class ComputationalObject;
         typedef ComputationalObject* ComputationalObject_ptr;
 
-        // ControlElement
+// ControlElement
         class ControlElement;
         typedef ControlElement* ControlElement_ptr;
 
-        // MethodUnit
+// MethodUnit
         class MethodUnit;
         typedef MethodUnit* MethodUnit_ptr;
 
-        // Module
+// Module
         class Module;
         typedef Module* Module_ptr;
 
-        // CodeAssembly
+// CodeAssembly
         class CodeAssembly;
         typedef CodeAssembly* CodeAssembly_ptr;
 
-        // CallableUnit
+// CallableUnit
         class CallableUnit;
         typedef CallableUnit* CallableUnit_ptr;
 
-        // Datatype
+// Datatype
         class Datatype;
         typedef Datatype* Datatype_ptr;
 
-        // TemplateUnit
+// TemplateUnit
         class TemplateUnit;
         typedef TemplateUnit* TemplateUnit_ptr;
 
-        // TemplateParameter
+// TemplateParameter
         class TemplateParameter;
         typedef TemplateParameter* TemplateParameter_ptr;
 
-        // AbstractCodeRelationship
+// AbstractCodeRelationship
         class AbstractCodeRelationship;
         typedef AbstractCodeRelationship* AbstractCodeRelationship_ptr;
 
-        // InstanceOf
+// InstanceOf
         class InstanceOf;
         typedef InstanceOf* InstanceOf_ptr;
 
-        // CompilationUnit
+// CompilationUnit
         class CompilationUnit;
         typedef CompilationUnit* CompilationUnit_ptr;
 
-        // CodeModel
+// CodeModel
         class CodeModel;
         typedef CodeModel* CodeModel_ptr;
 
-        // DerivedType
+// DerivedType
         class DerivedType;
         typedef DerivedType* DerivedType_ptr;
 
-        // ArrayType
+// ArrayType
         class ArrayType;
         typedef ArrayType* ArrayType_ptr;
 
-        // PrimitiveType
+// PrimitiveType
         class PrimitiveType;
         typedef PrimitiveType* PrimitiveType_ptr;
 
-        // BooleanType
+// BooleanType
         class BooleanType;
         typedef BooleanType* BooleanType_ptr;
 
-        // CharType
+// CharType
         class CharType;
         typedef CharType* CharType_ptr;
 
-        // ClassUnit
+// ClassUnit
         class ClassUnit;
         typedef ClassUnit* ClassUnit_ptr;
 
-        // CompositeType
+// CompositeType
         class CompositeType;
         typedef CompositeType* CompositeType_ptr;
 
-        // RecordType
+// RecordType
         class RecordType;
         typedef RecordType* RecordType_ptr;
 
-        // EnumeratedType
+// EnumeratedType
         class EnumeratedType;
         typedef EnumeratedType* EnumeratedType_ptr;
 
-        // Extends
+// Extends
         class Extends;
         typedef Extends* Extends_ptr;
 
-        // ScaledType
+// ScaledType
         class ScaledType;
         typedef ScaledType* ScaledType_ptr;
 
-        // FloatType
+// FloatType
         class FloatType;
         typedef FloatType* FloatType_ptr;
 
-        // HasType
+// HasType
         class HasType;
         typedef HasType* HasType_ptr;
 
-        // ImplementationOf
+// ImplementationOf
         class ImplementationOf;
         typedef ImplementationOf* ImplementationOf_ptr;
 
-        // Implements
+// Implements
         class Implements;
         typedef Implements* Implements_ptr;
 
-        // IntegerType
+// IntegerType
         class IntegerType;
         typedef IntegerType* IntegerType_ptr;
 
-        // InterfaceUnit
+// InterfaceUnit
         class InterfaceUnit;
         typedef InterfaceUnit* InterfaceUnit_ptr;
 
-        // PointerType
+// PointerType
         class PointerType;
         typedef PointerType* PointerType_ptr;
 
-        // DefinedType
+// DefinedType
         class DefinedType;
         typedef DefinedType* DefinedType_ptr;
 
-        // TypeUnit
+// TypeUnit
         class TypeUnit;
         typedef TypeUnit* TypeUnit_ptr;
 
-        // RangeType
+// RangeType
         class RangeType;
         typedef RangeType* RangeType_ptr;
 
-        // Signature
+// Signature
         class Signature;
         typedef Signature* Signature_ptr;
 
-        // DataElement
+// DataElement
         class DataElement;
         typedef DataElement* DataElement_ptr;
 
-        // StringType
+// StringType
         class StringType;
         typedef StringType* StringType_ptr;
 
-        // ChoiceType
+// ChoiceType
         class ChoiceType;
         typedef ChoiceType* ChoiceType_ptr;
 
-        // NamespaceUnit
+// NamespaceUnit
         class NamespaceUnit;
         typedef NamespaceUnit* NamespaceUnit_ptr;
 
-        // VisibleIn
+// VisibleIn
         class VisibleIn;
         typedef VisibleIn* VisibleIn_ptr;
 
-        // CommentUnit
+// CommentUnit
         class CommentUnit;
         typedef CommentUnit* CommentUnit_ptr;
 
-        // SharedUnit
+// SharedUnit
         class SharedUnit;
         typedef SharedUnit* SharedUnit_ptr;
 
-        // DecimalType
+// DecimalType
         class DecimalType;
         typedef DecimalType* DecimalType_ptr;
 
-        // DateType
+// DateType
         class DateType;
         typedef DateType* DateType_ptr;
 
-        // TimeType
+// TimeType
         class TimeType;
         typedef TimeType* TimeType_ptr;
 
-        // VoidType
+// VoidType
         class VoidType;
         typedef VoidType* VoidType_ptr;
 
-        // ValueElement
+// ValueElement
         class ValueElement;
         typedef ValueElement* ValueElement_ptr;
 
-        // Value
+// Value
         class Value;
         typedef Value* Value_ptr;
 
-        // ValueList
+// ValueList
         class ValueList;
         typedef ValueList* ValueList_ptr;
 
-        // StorableUnit
+// StorableUnit
         class StorableUnit;
         typedef StorableUnit* StorableUnit_ptr;
 
-        // MemberUnit
+// MemberUnit
         class MemberUnit;
         typedef MemberUnit* MemberUnit_ptr;
 
-        // ParameterUnit
+// ParameterUnit
         class ParameterUnit;
         typedef ParameterUnit* ParameterUnit_ptr;
 
-        // ItemUnit
+// ItemUnit
         class ItemUnit;
         typedef ItemUnit* ItemUnit_ptr;
 
-        // IndexUnit
+// IndexUnit
         class IndexUnit;
         typedef IndexUnit* IndexUnit_ptr;
 
-        // SynonymType
+// SynonymType
         class SynonymType;
         typedef SynonymType* SynonymType_ptr;
 
-        // SequenceType
+// SequenceType
         class SequenceType;
         typedef SequenceType* SequenceType_ptr;
 
-        // BagType
+// BagType
         class BagType;
         typedef BagType* BagType_ptr;
 
-        // SetType
+// SetType
         class SetType;
         typedef SetType* SetType_ptr;
 
-        // CodeElement
+// CodeElement
         class CodeElement;
         typedef CodeElement* CodeElement_ptr;
 
-        // CodeRelationship
+// CodeRelationship
         class CodeRelationship;
         typedef CodeRelationship* CodeRelationship_ptr;
 
-        // LanguageUnit
+// LanguageUnit
         class LanguageUnit;
         typedef LanguageUnit* LanguageUnit_ptr;
 
-        // OrdinalType
+// OrdinalType
         class OrdinalType;
         typedef OrdinalType* OrdinalType_ptr;
 
-        // BitstringType
+// BitstringType
         class BitstringType;
         typedef BitstringType* BitstringType_ptr;
 
-        // OctetType
+// OctetType
         class OctetType;
         typedef OctetType* OctetType_ptr;
 
-        // OctetstringType
+// OctetstringType
         class OctetstringType;
         typedef OctetstringType* OctetstringType_ptr;
 
-        // BitType
+// BitType
         class BitType;
         typedef BitType* BitType_ptr;
 
-        // Imports
+// Imports
         class Imports;
         typedef Imports* Imports_ptr;
 
-        // Package
+// Package
         class Package;
         typedef Package* Package_ptr;
 
-        // ParameterTo
+// ParameterTo
         class ParameterTo;
         typedef ParameterTo* ParameterTo_ptr;
 
-        // TemplateType
+// TemplateType
         class TemplateType;
         typedef TemplateType* TemplateType_ptr;
 
-        // PreprocessorDirective
+// PreprocessorDirective
         class PreprocessorDirective;
         typedef PreprocessorDirective* PreprocessorDirective_ptr;
 
-        // MacroDirective
+// MacroDirective
         class MacroDirective;
         typedef MacroDirective* MacroDirective_ptr;
 
-        // MacroUnit
+// MacroUnit
         class MacroUnit;
         typedef MacroUnit* MacroUnit_ptr;
 
-        // ConditionalDirective
+// ConditionalDirective
         class ConditionalDirective;
         typedef ConditionalDirective* ConditionalDirective_ptr;
 
-        // IncludeDirective
+// IncludeDirective
         class IncludeDirective;
         typedef IncludeDirective* IncludeDirective_ptr;
 
-        // VariantTo
+// VariantTo
         class VariantTo;
         typedef VariantTo* VariantTo_ptr;
 
-        // Expands
+// Expands
         class Expands;
         typedef Expands* Expands_ptr;
 
-        // Redefines
+// Redefines
         class Redefines;
         typedef Redefines* Redefines_ptr;
 
-        // GeneratedFrom
+// GeneratedFrom
         class GeneratedFrom;
         typedef GeneratedFrom* GeneratedFrom_ptr;
 
-        // Includes
+// Includes
         class Includes;
         typedef Includes* Includes_ptr;
 
-        // HasValue
+// HasValue
         class HasValue;
         typedef HasValue* HasValue_ptr;
 
-        // Package & Factory
+// Package & Factory
         class CodeFactory;
         typedef CodeFactory * CodeFactory_ptr;
         class CodePackage;
@@ -412,11 +411,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // code
 } // kdm
 
-
 #endif // _KDM_CODE_FORWARD_HPP
+

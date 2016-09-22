@@ -43,8 +43,8 @@ Tspan::Tspan()
 {
 
     /*PROTECTED REGION ID(TspanImpl__TspanImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ Tspan::~Tspan()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String Tspan::getContent() const
 {
     return m_content;

@@ -47,7 +47,6 @@ void Include::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Include::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -57,8 +56,8 @@ void Include::_initialize()
     {
     case ::idlmm::IdlmmPackage::INCLUDE__IMPORTURI:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_importURI);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_importURI);
     }
         return _any;
 
@@ -73,8 +72,8 @@ void Include::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::INCLUDE__IMPORTURI:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_importURI);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_importURI);
     }
         return;
 
@@ -87,8 +86,8 @@ void Include::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::INCLUDE__IMPORTURI:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_importURI);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_importURI);
 
     }
     throw "Error";
@@ -105,9 +104,8 @@ void Include::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Include::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getInclude();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getInclude();
     return _eclass;
 }
 

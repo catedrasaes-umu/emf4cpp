@@ -47,7 +47,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -59,8 +58,7 @@ namespace xpand3
             void setDefaultExpr(
                     ::xpand3::expression::AbstractExpression_ptr _defaultExpr);
 
-            ::ecorecpp::mapping::EList< ::xpand3::expression::Case >
-                    & getCases();
+            ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& getCases();
 
             /*PROTECTED REGION ID(SwitchExpression) START*/
             // Please, enable the protected region if you add manually written code.
@@ -84,15 +82,14 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::expression::AbstractExpression_ptr m_switchExpr;
 
             ::xpand3::expression::AbstractExpression_ptr m_defaultExpr;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::xpand3::expression::Case > > m_cases;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::xpand3::expression::Case > > m_cases;
 
         };
 
@@ -100,3 +97,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_EXPRESSION_SWITCHEXPRESSION_HPP
+

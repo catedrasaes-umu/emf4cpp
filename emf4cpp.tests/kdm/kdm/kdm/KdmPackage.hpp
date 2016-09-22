@@ -348,9 +348,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -409,5 +407,5 @@ namespace kdm
     } // kdm
 } // kdm
 
-
 #endif // _KDM_KDMPACKAGE_HPP
+

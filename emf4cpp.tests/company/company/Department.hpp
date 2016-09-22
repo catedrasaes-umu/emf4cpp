@@ -47,7 +47,6 @@ namespace company
 
         // Operations
 
-
         // Attributes
         ::ecore::EInt getNumber() const;
         void setNumber(::ecore::EInt _number);
@@ -84,8 +83,8 @@ namespace company
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::company::Employee > > m_employees;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::company::Employee > > m_employees;
 
         ::company::Employee_ptr m_manager;
 
@@ -94,3 +93,4 @@ namespace company
 } // company
 
 #endif // COMPANY_DEPARTMENT_HPP
+

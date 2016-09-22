@@ -185,8 +185,7 @@ DataFactory::DataFactory()
     }
 }
 
-::ecore::EString DataFactory::convertToString(
-        ::ecore::EDataType_ptr _eDataType,
+::ecore::EString DataFactory::convertToString(::ecore::EDataType_ptr _eDataType,
         ::ecore::EJavaObject const& _instanceValue)
 {
     switch (_eDataType->getClassifierID())

@@ -40,12 +40,12 @@ using namespace ::SVG;
 
 // Default constructor
 Tref::Tref() :
-    m_xlinkHref(0)
+        m_xlinkHref(0)
 {
 
     /*PROTECTED REGION ID(TrefImpl__TrefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -63,7 +63,6 @@ Tref::~Tref()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::SVG::TextElement_ptr Tref::getXlinkHref()
 {

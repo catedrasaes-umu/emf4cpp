@@ -55,8 +55,7 @@ void ClassUnit::_initialize()
     for (size_t i = 0; i < m_codeElement->size(); i++)
     {
         (*m_codeElement)[i]->_initialize();
-        (*m_codeElement)[i]->_setEContainer(
-                this,
+        (*m_codeElement)[i]->_setEContainer(this,
                 ::kdm::code::CodePackage::_instance()->getClassUnit__codeElement());
     }
 
@@ -68,7 +67,6 @@ void ClassUnit::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject ClassUnit::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -78,54 +76,54 @@ void ClassUnit::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject > ();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::toAny(_any,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__SOURCE:
     {
-        _any = m_source->asEListOf< ::ecore::EObject > ();
+        _any = m_source->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__COMMENT:
     {
-        _any = m_comment->asEListOf< ::ecore::EObject > ();
+        _any = m_comment->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__CODERELATION:
     {
-        _any = m_codeRelation->asEListOf< ::ecore::EObject > ();
+        _any = m_codeRelation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::code::CodePackage::CLASSUNIT__ISABSTRACT:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Boolean >::toAny(_any,
-                m_isAbstract);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Boolean
+                > ::toAny(_any, m_isAbstract);
     }
         return _any;
     case ::kdm::code::CodePackage::CLASSUNIT__CODEELEMENT:
     {
-        _any = m_codeElement->asEListOf< ::ecore::EObject > ();
+        _any = m_codeElement->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -140,84 +138,76 @@ void ClassUnit::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::String >::fromAny(
-                _newValue, m_name);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::String
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__SOURCE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::code::AbstractCodeElement::getSource().clear();
         ::kdm::code::AbstractCodeElement::getSource().insert_all(*_t0);
     }
         return;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__COMMENT:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::code::AbstractCodeElement::getComment().clear();
         ::kdm::code::AbstractCodeElement::getComment().insert_all(*_t0);
     }
         return;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__CODERELATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::code::AbstractCodeElement::getCodeRelation().clear();
         ::kdm::code::AbstractCodeElement::getCodeRelation().insert_all(*_t0);
     }
         return;
     case ::kdm::code::CodePackage::CLASSUNIT__ISABSTRACT:
     {
-        ::ecorecpp::mapping::any_traits< ::kdm::core::Boolean >::fromAny(
-                _newValue, m_isAbstract);
+        ::ecorecpp::mapping::any_traits < ::kdm::core::Boolean
+                > ::fromAny(_newValue, m_isAbstract);
     }
         return;
     case ::kdm::code::CodePackage::CLASSUNIT__CODEELEMENT:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::code::ClassUnit::getCodeElement().clear();
         ::kdm::code::ClassUnit::getCodeElement().insert_all(*_t0);
     }
@@ -240,8 +230,8 @@ void ClassUnit::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
         return m_taggedValue && m_taggedValue->size();
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::String >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::String
+                > ::is_set(m_name);
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__SOURCE:
         return m_source && m_source->size();
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__COMMENT:
@@ -249,8 +239,8 @@ void ClassUnit::eSet(::ecore::EInt _featureID,
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__CODERELATION:
         return m_codeRelation && m_codeRelation->size();
     case ::kdm::code::CodePackage::CLASSUNIT__ISABSTRACT:
-        return ::ecorecpp::mapping::set_traits< ::kdm::core::Boolean >::is_set(
-                m_isAbstract);
+        return ::ecorecpp::mapping::set_traits < ::kdm::core::Boolean
+                > ::is_set(m_isAbstract);
     case ::kdm::code::CodePackage::CLASSUNIT__CODEELEMENT:
         return m_codeElement && m_codeElement->size();
 
@@ -269,9 +259,8 @@ void ClassUnit::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr ClassUnit::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::code::CodePackage_ptr > (::kdm::code::CodePackage::_instance())->getClassUnit();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::code::CodePackage_ptr >(::kdm::code::CodePackage::_instance())->getClassUnit();
     return _eclass;
 }
 

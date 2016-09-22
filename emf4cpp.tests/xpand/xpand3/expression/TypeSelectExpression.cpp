@@ -34,12 +34,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 TypeSelectExpression::TypeSelectExpression() :
-    m_typeLiteral(0)
+        m_typeLiteral(0)
 {
 
     /*PROTECTED REGION ID(TypeSelectExpressionImpl__TypeSelectExpressionImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -61,7 +61,6 @@ TypeSelectExpression::~TypeSelectExpression()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr TypeSelectExpression::getTypeLiteral()
 {

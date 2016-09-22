@@ -46,15 +46,13 @@ void IfStatement::_initialize()
     if (m_condition)
     {
         m_condition->_initialize();
-        m_condition->_setEContainer(
-                this,
+        m_condition->_setEContainer(this,
                 ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
     }
     if (m_elseIf)
     {
         m_elseIf->_initialize();
-        m_elseIf->_setEContainer(
-                this,
+        m_elseIf->_setEContainer(this,
                 ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
     }
 
@@ -66,7 +64,6 @@ void IfStatement::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject IfStatement::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -76,38 +73,39 @@ void IfStatement::_initialize()
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_line);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_start);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any, m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_end);
     }
         return _any;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_fileName);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        _any = m_body->asEListOf< ::ecore::EObject > ();
+        _any = m_body->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__CONDITION:
     {
-        _any = static_cast< ::ecore::EObject* > (m_condition);
+        _any = static_cast< ::ecore::EObject* >(m_condition);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__ELSEIF:
     {
-        _any = static_cast< ::ecore::EObject* > (m_elseIf);
+        _any = static_cast< ::ecore::EObject* >(m_elseIf);
     }
         return _any;
 
@@ -122,33 +120,32 @@ void IfStatement::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_line);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_line);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_start);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_start);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_end);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_end);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_fileName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_fileName);
     }
         return;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::xpand3::statement::AbstractStatementWithBody::getBody().clear();
         ::xpand3::statement::AbstractStatementWithBody::getBody().insert_all(
                 *_t0);
@@ -156,20 +153,19 @@ void IfStatement::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__CONDITION:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::xpand3::expression::AbstractExpression_ptr
-                _t1 =
-                        dynamic_cast< ::xpand3::expression::AbstractExpression_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::xpand3::expression::AbstractExpression_ptr _t1 =
+                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
         ::xpand3::statement::IfStatement::setCondition(_t1);
     }
         return;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__ELSEIF:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::statement::IfStatement_ptr _t1 =
-                dynamic_cast< ::xpand3::statement::IfStatement_ptr > (_t0);
+                dynamic_cast< ::xpand3::statement::IfStatement_ptr >(_t0);
         ::xpand3::statement::IfStatement::setElseIf(_t1);
     }
         return;
@@ -183,14 +179,16 @@ void IfStatement::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_line);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_line);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_start);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_start);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(m_end);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt > ::is_set(m_end);
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_fileName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_fileName);
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
         return m_body && m_body->size();
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__CONDITION:
@@ -213,9 +211,8 @@ void IfStatement::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr IfStatement::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::xpand3::statement::StatementPackage_ptr > (::xpand3::statement::StatementPackage::_instance())->getIfStatement();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getIfStatement();
     return _eclass;
 }
 

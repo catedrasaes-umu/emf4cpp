@@ -49,7 +49,6 @@ void AbsoluteCoord::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject AbsoluteCoord::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,14 +58,14 @@ void AbsoluteCoord::_initialize()
     {
     case ::SVG::SVGPackage::COORDINATES__X:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_x);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_x);
     }
         return _any;
     case ::SVG::SVGPackage::COORDINATES__Y:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_y);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_y);
     }
         return _any;
 
@@ -81,14 +80,14 @@ void AbsoluteCoord::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::COORDINATES__X:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_x);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_x);
     }
         return;
     case ::SVG::SVGPackage::COORDINATES__Y:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_y);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_y);
     }
         return;
 
@@ -101,11 +100,11 @@ void AbsoluteCoord::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::SVG::SVGPackage::COORDINATES__X:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_x);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_x);
     case ::SVG::SVGPackage::COORDINATES__Y:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_y);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_y);
 
     }
     throw "Error";
@@ -122,9 +121,8 @@ void AbsoluteCoord::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr AbsoluteCoord::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getAbsoluteCoord();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getAbsoluteCoord();
     return _eclass;
 }
 

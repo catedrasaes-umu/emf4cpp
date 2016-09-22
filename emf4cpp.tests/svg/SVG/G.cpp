@@ -43,8 +43,8 @@ G::G()
 {
 
     /*PROTECTED REGION ID(GImpl__GImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ G::~G()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::PrimitiveTypes::String G::getName() const
 {
     return m_name;

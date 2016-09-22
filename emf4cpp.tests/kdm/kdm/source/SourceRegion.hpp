@@ -48,7 +48,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::Integer getStartLine() const;
             void setStartLine(::kdm::core::Integer _startLine);
@@ -116,3 +115,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_SOURCE_SOURCEREGION_HPP
+

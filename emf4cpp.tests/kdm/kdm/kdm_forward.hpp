@@ -30,67 +30,66 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace kdm
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // KDMFramework
+// KDMFramework
         class KDMFramework;
         typedef KDMFramework* KDMFramework_ptr;
 
-        // KDMModel
+// KDMModel
         class KDMModel;
         typedef KDMModel* KDMModel_ptr;
 
-        // Audit
+// Audit
         class Audit;
         typedef Audit* Audit_ptr;
 
-        // Segment
+// Segment
         class Segment;
         typedef Segment* Segment_ptr;
 
-        // Attribute
+// Attribute
         class Attribute;
         typedef Attribute* Attribute_ptr;
 
-        // Annotation
+// Annotation
         class Annotation;
         typedef Annotation* Annotation_ptr;
 
-        // TagDefinition
+// TagDefinition
         class TagDefinition;
         typedef TagDefinition* TagDefinition_ptr;
 
-        // ExtendedValue
+// ExtendedValue
         class ExtendedValue;
         typedef ExtendedValue* ExtendedValue_ptr;
 
-        // Stereotype
+// Stereotype
         class Stereotype;
         typedef Stereotype* Stereotype_ptr;
 
-        // ExtensionFamily
+// ExtensionFamily
         class ExtensionFamily;
         typedef ExtensionFamily* ExtensionFamily_ptr;
 
-        // TaggedRef
+// TaggedRef
         class TaggedRef;
         typedef TaggedRef* TaggedRef_ptr;
 
-        // TaggedValue
+// TaggedValue
         class TaggedValue;
         typedef TaggedValue* TaggedValue_ptr;
 
-        // Package & Factory
+// Package & Factory
         class KdmFactory;
         typedef KdmFactory * KdmFactory_ptr;
         class KdmPackage;
@@ -99,11 +98,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // kdm
 } // kdm
 
-
 #endif // _KDM_KDM_FORWARD_HPP
+

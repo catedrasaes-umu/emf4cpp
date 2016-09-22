@@ -34,12 +34,9 @@ namespace kdm
 
         // IDs for classifiers
 
-
         // EClassifiers methods
 
-
         // EStructuralFeatures methods
-
 
     protected:
 
@@ -49,12 +46,9 @@ namespace kdm
 
         // EClass instances 
 
-
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -62,5 +56,5 @@ namespace kdm
 
 } // kdm
 
-
 #endif // _KDMPACKAGE_HPP
+

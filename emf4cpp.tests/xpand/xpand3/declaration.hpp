@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "declaration/AbstractDeclaration.hpp"
 #include "declaration/AbstractNamedDeclaration.hpp"

@@ -30,199 +30,198 @@
 
 // EPackage
 
-
 #include <ecore_forward.hpp> // for EDataTypes
+
 namespace kdm
 {
     namespace data
     {
 
-        // EDataType
+// EDataType
 
+// EClass
 
-        // EClass
-
-        // DataModel
+// DataModel
         class DataModel;
         typedef DataModel* DataModel_ptr;
 
-        // AbstractDataElement
+// AbstractDataElement
         class AbstractDataElement;
         typedef AbstractDataElement* AbstractDataElement_ptr;
 
-        // DataResource
+// DataResource
         class DataResource;
         typedef DataResource* DataResource_ptr;
 
-        // IndexElement
+// IndexElement
         class IndexElement;
         typedef IndexElement* IndexElement_ptr;
 
-        // UniqueKey
+// UniqueKey
         class UniqueKey;
         typedef UniqueKey* UniqueKey_ptr;
 
-        // Index
+// Index
         class Index;
         typedef Index* Index_ptr;
 
-        // AbstractDataRelationship
+// AbstractDataRelationship
         class AbstractDataRelationship;
         typedef AbstractDataRelationship* AbstractDataRelationship_ptr;
 
-        // KeyRelation
+// KeyRelation
         class KeyRelation;
         typedef KeyRelation* KeyRelation_ptr;
 
-        // ReferenceKey
+// ReferenceKey
         class ReferenceKey;
         typedef ReferenceKey* ReferenceKey_ptr;
 
-        // DataContainer
+// DataContainer
         class DataContainer;
         typedef DataContainer* DataContainer_ptr;
 
-        // Catalog
+// Catalog
         class Catalog;
         typedef Catalog* Catalog_ptr;
 
-        // RelationalSchema
+// RelationalSchema
         class RelationalSchema;
         typedef RelationalSchema* RelationalSchema_ptr;
 
-        // ColumnSet
+// ColumnSet
         class ColumnSet;
         typedef ColumnSet* ColumnSet_ptr;
 
-        // RelationalTable
+// RelationalTable
         class RelationalTable;
         typedef RelationalTable* RelationalTable_ptr;
 
-        // RelationalView
+// RelationalView
         class RelationalView;
         typedef RelationalView* RelationalView_ptr;
 
-        // RecordFile
+// RecordFile
         class RecordFile;
         typedef RecordFile* RecordFile_ptr;
 
-        // DataEvent
+// DataEvent
         class DataEvent;
         typedef DataEvent* DataEvent_ptr;
 
-        // XMLSchema
+// XMLSchema
         class XMLSchema;
         typedef XMLSchema* XMLSchema_ptr;
 
-        // AbstractContentElement
+// AbstractContentElement
         class AbstractContentElement;
         typedef AbstractContentElement* AbstractContentElement_ptr;
 
-        // ComplexContentType
+// ComplexContentType
         class ComplexContentType;
         typedef ComplexContentType* ComplexContentType_ptr;
 
-        // AllContent
+// AllContent
         class AllContent;
         typedef AllContent* AllContent_ptr;
 
-        // SeqContent
+// SeqContent
         class SeqContent;
         typedef SeqContent* SeqContent_ptr;
 
-        // ChoiceContent
+// ChoiceContent
         class ChoiceContent;
         typedef ChoiceContent* ChoiceContent_ptr;
 
-        // ContentItem
+// ContentItem
         class ContentItem;
         typedef ContentItem* ContentItem_ptr;
 
-        // GroupContent
+// GroupContent
         class GroupContent;
         typedef GroupContent* GroupContent_ptr;
 
-        // ContentRestriction
+// ContentRestriction
         class ContentRestriction;
         typedef ContentRestriction* ContentRestriction_ptr;
 
-        // SimpleContentType
+// SimpleContentType
         class SimpleContentType;
         typedef SimpleContentType* SimpleContentType_ptr;
 
-        // ExtendedDataElement
+// ExtendedDataElement
         class ExtendedDataElement;
         typedef ExtendedDataElement* ExtendedDataElement_ptr;
 
-        // DataRelationship
+// DataRelationship
         class DataRelationship;
         typedef DataRelationship* DataRelationship_ptr;
 
-        // MixedContent
+// MixedContent
         class MixedContent;
         typedef MixedContent* MixedContent_ptr;
 
-        // ContentReference
+// ContentReference
         class ContentReference;
         typedef ContentReference* ContentReference_ptr;
 
-        // DataAction
+// DataAction
         class DataAction;
         typedef DataAction* DataAction_ptr;
 
-        // ReadsColumnSet
+// ReadsColumnSet
         class ReadsColumnSet;
         typedef ReadsColumnSet* ReadsColumnSet_ptr;
 
-        // ContentAttribute
+// ContentAttribute
         class ContentAttribute;
         typedef ContentAttribute* ContentAttribute_ptr;
 
-        // TypedBy
+// TypedBy
         class TypedBy;
         typedef TypedBy* TypedBy_ptr;
 
-        // ReferenceTo
+// ReferenceTo
         class ReferenceTo;
         typedef ReferenceTo* ReferenceTo_ptr;
 
-        // RestrictionOf
+// RestrictionOf
         class RestrictionOf;
         typedef RestrictionOf* RestrictionOf_ptr;
 
-        // ExtensionTo
+// ExtensionTo
         class ExtensionTo;
         typedef ExtensionTo* ExtensionTo_ptr;
 
-        // DatatypeOf
+// DatatypeOf
         class DatatypeOf;
         typedef DatatypeOf* DatatypeOf_ptr;
 
-        // HasContent
+// HasContent
         class HasContent;
         typedef HasContent* HasContent_ptr;
 
-        // WritesColumnSet
+// WritesColumnSet
         class WritesColumnSet;
         typedef WritesColumnSet* WritesColumnSet_ptr;
 
-        // ProducesDataEvent
+// ProducesDataEvent
         class ProducesDataEvent;
         typedef ProducesDataEvent* ProducesDataEvent_ptr;
 
-        // DataSegment
+// DataSegment
         class DataSegment;
         typedef DataSegment* DataSegment_ptr;
 
-        // ContentElement
+// ContentElement
         class ContentElement;
         typedef ContentElement* ContentElement_ptr;
 
-        // ManagesData
+// ManagesData
         class ManagesData;
         typedef ManagesData* ManagesData_ptr;
 
-        // Package & Factory
+// Package & Factory
         class DataFactory;
         typedef DataFactory * DataFactory_ptr;
         class DataPackage;
@@ -231,11 +230,11 @@ namespace kdm
         template< typename T, typename S >
         inline T* instanceOf(S* _s)
         {
-            return dynamic_cast< T* > (_s);
+            return dynamic_cast< T* >(_s);
         }
 
     } // data
 } // kdm
 
-
 #endif // _KDM_DATA_FORWARD_HPP
+

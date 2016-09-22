@@ -45,7 +45,6 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
         ::PrimitiveTypes::Double getPathLength() const;
         void setPathLength(::PrimitiveTypes::Double _pathLength);
@@ -60,7 +59,6 @@ namespace SVG
         void setMarkerStart(::PrimitiveTypes::String _markerStart);
 
         // References
-
 
         /*PROTECTED REGION ID(Path) START*/
         // Please, enable the protected region if you add manually written code.
@@ -99,3 +97,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_PATH_HPP
+

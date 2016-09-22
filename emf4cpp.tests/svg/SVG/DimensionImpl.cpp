@@ -47,7 +47,6 @@ void Dimension::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Dimension::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -57,14 +56,14 @@ void Dimension::_initialize()
     {
     case ::SVG::SVGPackage::DIMENSION__WIDTH:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_width);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_width);
     }
         return _any;
     case ::SVG::SVGPackage::DIMENSION__HEIGHT:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::toAny(
-                _any, m_height);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::toAny(_any, m_height);
     }
         return _any;
 
@@ -79,14 +78,14 @@ void Dimension::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::DIMENSION__WIDTH:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_width);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_width);
     }
         return;
     case ::SVG::SVGPackage::DIMENSION__HEIGHT:
     {
-        ::ecorecpp::mapping::any_traits< ::PrimitiveTypes::Double >::fromAny(
-                _newValue, m_height);
+        ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
+                > ::fromAny(_newValue, m_height);
     }
         return;
 
@@ -99,11 +98,11 @@ void Dimension::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::SVG::SVGPackage::DIMENSION__WIDTH:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_width);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_width);
     case ::SVG::SVGPackage::DIMENSION__HEIGHT:
-        return ::ecorecpp::mapping::set_traits< ::PrimitiveTypes::Double >::is_set(
-                m_height);
+        return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::Double
+                > ::is_set(m_height);
 
     }
     throw "Error";
@@ -120,9 +119,8 @@ void Dimension::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Dimension::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::SVG::SVGPackage_ptr > (::SVG::SVGPackage::_instance())->getDimension();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getDimension();
     return _eclass;
 }
 

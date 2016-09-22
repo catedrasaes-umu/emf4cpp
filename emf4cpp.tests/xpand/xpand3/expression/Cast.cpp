@@ -33,12 +33,12 @@ using namespace ::xpand3::expression;
 
 // Default constructor
 Cast::Cast() :
-    m_type(0), m_target(0)
+        m_type(0), m_target(0)
 {
 
     /*PROTECTED REGION ID(CastImpl__CastImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -64,7 +64,6 @@ Cast::~Cast()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::Identifier_ptr Cast::getType()
 {

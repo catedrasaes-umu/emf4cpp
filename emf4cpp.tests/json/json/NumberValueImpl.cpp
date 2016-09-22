@@ -49,7 +49,6 @@ void NumberValue::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject NumberValue::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -59,8 +58,8 @@ void NumberValue::_initialize()
     {
     case ::json::JsonPackage::NUMBERVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EDouble >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EDouble
+                > ::toAny(_any, m_value);
     }
         return _any;
 
@@ -75,8 +74,8 @@ void NumberValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::NUMBERVALUE__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EDouble >::fromAny(_newValue,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EDouble
+                > ::fromAny(_newValue, m_value);
     }
         return;
 
@@ -89,8 +88,8 @@ void NumberValue::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::json::JsonPackage::NUMBERVALUE__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EDouble >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EDouble
+                > ::is_set(m_value);
 
     }
     throw "Error";
@@ -107,9 +106,8 @@ void NumberValue::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr NumberValue::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::json::JsonPackage_ptr > (::json::JsonPackage::_instance())->getNumberValue();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getNumberValue();
     return _eclass;
 }
 

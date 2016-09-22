@@ -48,7 +48,6 @@ namespace xpand3
 
             // Operations
 
-
             // Attributes
 
             // References
@@ -81,7 +80,6 @@ namespace xpand3
         protected:
             // Attributes
 
-
             // References
 
             ::xpand3::expression::AbstractExpression_ptr m_condition;
@@ -94,3 +92,4 @@ namespace xpand3
 } // xpand3
 
 #endif // XPAND3_STATEMENT_IFSTATEMENT_HPP
+

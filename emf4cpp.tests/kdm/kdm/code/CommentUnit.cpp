@@ -39,8 +39,8 @@ CommentUnit::CommentUnit()
 {
 
     /*PROTECTED REGION ID(CommentUnitImpl__CommentUnitImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -58,7 +58,6 @@ CommentUnit::~CommentUnit()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::kdm::core::String CommentUnit::getText() const
 {
     return m_text;

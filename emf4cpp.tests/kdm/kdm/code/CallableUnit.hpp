@@ -50,13 +50,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::code::CallableKind getKind() const;
             void setKind(::kdm::code::CallableKind _kind);
 
             // References
-
 
             /*PROTECTED REGION ID(CallableUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -90,3 +88,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_CALLABLEUNIT_HPP
+

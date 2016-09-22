@@ -47,13 +47,11 @@ namespace idlmm
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getImportURI() const;
         void setImportURI(::ecore::EString const& _importURI);
 
         // References
-
 
         /*PROTECTED REGION ID(Include) START*/
         // Please, enable the protected region if you add manually written code.
@@ -86,3 +84,4 @@ namespace idlmm
 } // idlmm
 
 #endif // IDLMM_INCLUDE_HPP
+

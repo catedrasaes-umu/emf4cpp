@@ -46,14 +46,12 @@ namespace xpand3
 
         // Operations
 
-
         // Attributes
 
         // References
         ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& getImports();
 
-        ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >
-                & getDeclarations();
+        ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& getDeclarations();
 
         /*PROTECTED REGION ID(File) START*/
         // Please, enable the protected region if you add manually written code.
@@ -77,17 +75,18 @@ namespace xpand3
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::xpand3::ImportStatement > > m_imports;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::xpand3::ImportStatement > > m_imports;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::xpand3::declaration::AbstractDeclaration > > m_declarations;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList<
+                        ::xpand3::declaration::AbstractDeclaration > > m_declarations;
 
     };
 
 } // xpand3
 
 #endif // XPAND3_FILE_HPP
+

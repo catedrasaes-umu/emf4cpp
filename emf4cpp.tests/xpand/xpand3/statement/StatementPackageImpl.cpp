@@ -245,9 +245,7 @@ StatementPackage::StatementPackage()
 
     // Create enums
 
-
     // Create data types
-
 
     // Initialize package
     setName("statement");
@@ -258,7 +256,7 @@ StatementPackage::StatementPackage()
 
     // Add supertypes to classes
     m_AbstractStatementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getSyntaxElement());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getSyntaxElement());
     m_ExpandStatementEClass->getESuperTypes().push_back(
             m_AbstractStatementEClass);
     m_ExpressionStatementEClass->getESuperTypes().push_back(
@@ -277,7 +275,8 @@ StatementPackage::StatementPackage()
             m_AbstractStatementWithBodyEClass);
     m_ProtectStatementEClass->getESuperTypes().push_back(
             m_AbstractStatementWithBodyEClass);
-    m_TextStatementEClass->getESuperTypes().push_back(m_AbstractStatementEClass);
+    m_TextStatementEClass->getESuperTypes().push_back(
+            m_AbstractStatementEClass);
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
@@ -290,7 +289,7 @@ StatementPackage::StatementPackage()
     m_ExpandStatementEClass->setAbstract(false);
     m_ExpandStatementEClass->setInterface(false);
     m_ExpandStatement__foreach->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_ExpandStatement__foreach->setName("foreach");
     m_ExpandStatement__foreach->setDefaultValueLiteral("");
     m_ExpandStatement__foreach->setLowerBound(0);
@@ -304,7 +303,7 @@ StatementPackage::StatementPackage()
     m_ExpandStatement__foreach->setDerived(false);
     m_ExpandStatement__foreach->setOrdered(true);
     m_ExpandStatement__parameters->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ExpandStatement__parameters->setName("parameters");
     m_ExpandStatement__parameters->setDefaultValueLiteral("");
     m_ExpandStatement__parameters->setLowerBound(0);
@@ -318,7 +317,7 @@ StatementPackage::StatementPackage()
     m_ExpandStatement__parameters->setDerived(false);
     m_ExpandStatement__parameters->setOrdered(true);
     m_ExpandStatement__separator->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ExpandStatement__separator->setName("separator");
     m_ExpandStatement__separator->setDefaultValueLiteral("");
     m_ExpandStatement__separator->setLowerBound(0);
@@ -332,7 +331,7 @@ StatementPackage::StatementPackage()
     m_ExpandStatement__separator->setDerived(false);
     m_ExpandStatement__separator->setOrdered(true);
     m_ExpandStatement__target->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ExpandStatement__target->setName("target");
     m_ExpandStatement__target->setDefaultValueLiteral("");
     m_ExpandStatement__target->setLowerBound(0);
@@ -346,7 +345,7 @@ StatementPackage::StatementPackage()
     m_ExpandStatement__target->setDerived(false);
     m_ExpandStatement__target->setOrdered(true);
     m_ExpandStatement__definition->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_ExpandStatement__definition->setName("definition");
     m_ExpandStatement__definition->setDefaultValueLiteral("");
     m_ExpandStatement__definition->setLowerBound(1);
@@ -364,7 +363,7 @@ StatementPackage::StatementPackage()
     m_ExpressionStatementEClass->setAbstract(false);
     m_ExpressionStatementEClass->setInterface(false);
     m_ExpressionStatement__expression->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ExpressionStatement__expression->setName("expression");
     m_ExpressionStatement__expression->setDefaultValueLiteral("");
     m_ExpressionStatement__expression->setLowerBound(1);
@@ -382,7 +381,7 @@ StatementPackage::StatementPackage()
     m_ErrorStatementEClass->setAbstract(false);
     m_ErrorStatementEClass->setInterface(false);
     m_ErrorStatement__message->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ErrorStatement__message->setName("message");
     m_ErrorStatement__message->setDefaultValueLiteral("");
     m_ErrorStatement__message->setLowerBound(1);
@@ -417,7 +416,7 @@ StatementPackage::StatementPackage()
     m_FileStatementEClass->setAbstract(false);
     m_FileStatementEClass->setInterface(false);
     m_FileStatement__once->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_FileStatement__once->setName("once");
     m_FileStatement__once->setDefaultValueLiteral("");
     m_FileStatement__once->setLowerBound(0);
@@ -431,7 +430,7 @@ StatementPackage::StatementPackage()
     m_FileStatement__once->setDerived(false);
     m_FileStatement__once->setOrdered(true);
     m_FileStatement__fileNameExpression->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_FileStatement__fileNameExpression->setName("fileNameExpression");
     m_FileStatement__fileNameExpression->setDefaultValueLiteral("");
     m_FileStatement__fileNameExpression->setLowerBound(0);
@@ -445,7 +444,7 @@ StatementPackage::StatementPackage()
     m_FileStatement__fileNameExpression->setDerived(false);
     m_FileStatement__fileNameExpression->setOrdered(true);
     m_FileStatement__outletNameIdentifier->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_FileStatement__outletNameIdentifier->setName("outletNameIdentifier");
     m_FileStatement__outletNameIdentifier->setDefaultValueLiteral("");
     m_FileStatement__outletNameIdentifier->setLowerBound(0);
@@ -463,7 +462,7 @@ StatementPackage::StatementPackage()
     m_ForEachStatementEClass->setAbstract(false);
     m_ForEachStatementEClass->setInterface(false);
     m_ForEachStatement__target->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ForEachStatement__target->setName("target");
     m_ForEachStatement__target->setDefaultValueLiteral("");
     m_ForEachStatement__target->setLowerBound(0);
@@ -477,7 +476,7 @@ StatementPackage::StatementPackage()
     m_ForEachStatement__target->setDerived(false);
     m_ForEachStatement__target->setOrdered(true);
     m_ForEachStatement__separator->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ForEachStatement__separator->setName("separator");
     m_ForEachStatement__separator->setDefaultValueLiteral("");
     m_ForEachStatement__separator->setLowerBound(0);
@@ -491,7 +490,7 @@ StatementPackage::StatementPackage()
     m_ForEachStatement__separator->setDerived(false);
     m_ForEachStatement__separator->setOrdered(true);
     m_ForEachStatement__variable->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_ForEachStatement__variable->setName("variable");
     m_ForEachStatement__variable->setDefaultValueLiteral("");
     m_ForEachStatement__variable->setLowerBound(0);
@@ -505,7 +504,7 @@ StatementPackage::StatementPackage()
     m_ForEachStatement__variable->setDerived(false);
     m_ForEachStatement__variable->setOrdered(true);
     m_ForEachStatement__iteratorName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_ForEachStatement__iteratorName->setName("iteratorName");
     m_ForEachStatement__iteratorName->setDefaultValueLiteral("");
     m_ForEachStatement__iteratorName->setLowerBound(0);
@@ -523,7 +522,7 @@ StatementPackage::StatementPackage()
     m_IfStatementEClass->setAbstract(false);
     m_IfStatementEClass->setInterface(false);
     m_IfStatement__condition->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_IfStatement__condition->setName("condition");
     m_IfStatement__condition->setDefaultValueLiteral("");
     m_IfStatement__condition->setLowerBound(0);
@@ -554,7 +553,7 @@ StatementPackage::StatementPackage()
     m_LetStatementEClass->setAbstract(false);
     m_LetStatementEClass->setInterface(false);
     m_LetStatement__varName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* > (::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
     m_LetStatement__varName->setName("varName");
     m_LetStatement__varName->setDefaultValueLiteral("");
     m_LetStatement__varName->setLowerBound(0);
@@ -568,7 +567,7 @@ StatementPackage::StatementPackage()
     m_LetStatement__varName->setDerived(false);
     m_LetStatement__varName->setOrdered(true);
     m_LetStatement__varValue->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_LetStatement__varValue->setName("varValue");
     m_LetStatement__varValue->setDefaultValueLiteral("");
     m_LetStatement__varValue->setLowerBound(0);
@@ -586,7 +585,7 @@ StatementPackage::StatementPackage()
     m_ProtectStatementEClass->setAbstract(false);
     m_ProtectStatementEClass->setInterface(false);
     m_ProtectStatement__disable->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_ProtectStatement__disable->setName("disable");
     m_ProtectStatement__disable->setDefaultValueLiteral("");
     m_ProtectStatement__disable->setLowerBound(0);
@@ -600,7 +599,7 @@ StatementPackage::StatementPackage()
     m_ProtectStatement__disable->setDerived(false);
     m_ProtectStatement__disable->setOrdered(true);
     m_ProtectStatement__commentStart->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ProtectStatement__commentStart->setName("commentStart");
     m_ProtectStatement__commentStart->setDefaultValueLiteral("");
     m_ProtectStatement__commentStart->setLowerBound(0);
@@ -614,7 +613,7 @@ StatementPackage::StatementPackage()
     m_ProtectStatement__commentStart->setDerived(false);
     m_ProtectStatement__commentStart->setOrdered(true);
     m_ProtectStatement__commentEnd->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ProtectStatement__commentEnd->setName("commentEnd");
     m_ProtectStatement__commentEnd->setDefaultValueLiteral("");
     m_ProtectStatement__commentEnd->setLowerBound(0);
@@ -628,7 +627,7 @@ StatementPackage::StatementPackage()
     m_ProtectStatement__commentEnd->setDerived(false);
     m_ProtectStatement__commentEnd->setOrdered(true);
     m_ProtectStatement__id->setEType(
-            dynamic_cast< ::xpand3::expression::ExpressionPackage* > (::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression());
     m_ProtectStatement__id->setName("id");
     m_ProtectStatement__id->setDefaultValueLiteral("");
     m_ProtectStatement__id->setLowerBound(0);
@@ -646,7 +645,7 @@ StatementPackage::StatementPackage()
     m_TextStatementEClass->setAbstract(false);
     m_TextStatementEClass->setInterface(false);
     m_TextStatement__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
     m_TextStatement__value->setName("value");
     m_TextStatement__value->setDefaultValueLiteral("");
     m_TextStatement__value->setLowerBound(0);
@@ -660,7 +659,7 @@ StatementPackage::StatementPackage()
     m_TextStatement__value->setDerived(false);
     m_TextStatement__value->setOrdered(true);
     m_TextStatement__deleteLine->setEType(
-            dynamic_cast< ::ecore::EcorePackage* > (::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
     m_TextStatement__deleteLine->setName("deleteLine");
     m_TextStatement__deleteLine->setDefaultValueLiteral("");
     m_TextStatement__deleteLine->setLowerBound(0);
@@ -675,7 +674,6 @@ StatementPackage::StatementPackage()
     m_TextStatement__deleteLine->setOrdered(true);
 
     // TODO: Initialize data types
-
 
     _initialize();
 }

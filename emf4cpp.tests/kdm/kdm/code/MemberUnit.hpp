@@ -49,13 +49,11 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::code::ExportKind getExport() const;
             void setExport(::kdm::code::ExportKind _export);
 
             // References
-
 
             /*PROTECTED REGION ID(MemberUnit) START*/
             // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_MEMBERUNIT_HPP
+

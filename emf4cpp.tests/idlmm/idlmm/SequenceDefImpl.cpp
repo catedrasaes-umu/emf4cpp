@@ -52,7 +52,6 @@ void SequenceDef::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject SequenceDef::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -62,24 +61,24 @@ void SequenceDef::_initialize()
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_containedType);
+        _any = static_cast< ::ecore::EObject* >(m_containedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_sharedType);
+        _any = static_cast< ::ecore::EObject* >(m_sharedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::toAny(_any,
-                m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::toAny(_any, m_typeCode);
     }
         return _any;
     case ::idlmm::IdlmmPackage::SEQUENCEDEF__BOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_bound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_bound);
     }
         return _any;
 
@@ -94,31 +93,31 @@ void SequenceDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr >(_t0);
         ::idlmm::Typed::setContainedType(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::idlmm::TypedefDef_ptr _t1 =
-                dynamic_cast< ::idlmm::TypedefDef_ptr > (_t0);
+                dynamic_cast< ::idlmm::TypedefDef_ptr >(_t0);
         ::idlmm::Typed::setSharedType(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
-        ::ecorecpp::mapping::any_traits< ::idlmm::ETypeCode >::fromAny(
-                _newValue, m_typeCode);
+        ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
+                > ::fromAny(_newValue, m_typeCode);
     }
         return;
     case ::idlmm::IdlmmPackage::SEQUENCEDEF__BOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_bound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_bound);
     }
         return;
 
@@ -135,11 +134,11 @@ void SequenceDef::eSet(::ecore::EInt _featureID,
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
         return m_sharedType;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
-        return ::ecorecpp::mapping::set_traits< ::idlmm::ETypeCode >::is_set(
-                m_typeCode);
+        return ::ecorecpp::mapping::set_traits < ::idlmm::ETypeCode
+                > ::is_set(m_typeCode);
     case ::idlmm::IdlmmPackage::SEQUENCEDEF__BOUND:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_bound);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_bound);
 
     }
     throw "Error";
@@ -156,9 +155,8 @@ void SequenceDef::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr SequenceDef::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::idlmm::IdlmmPackage_ptr > (::idlmm::IdlmmPackage::_instance())->getSequenceDef();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getSequenceDef();
     return _eclass;
 }
 

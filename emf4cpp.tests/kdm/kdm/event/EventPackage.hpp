@@ -235,8 +235,7 @@ namespace kdm
             static const int EVENTELEMENT__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int EVENTELEMENT__SOURCE =
-                    ABSTRACTEVENTELEMENT__SOURCE;
+            static const int EVENTELEMENT__SOURCE = ABSTRACTEVENTELEMENT__SOURCE;
 
             static const int EVENTELEMENT__EVENTRELATION =
                     ABSTRACTEVENTELEMENT__EVENTRELATION;
@@ -344,8 +343,7 @@ namespace kdm
             static const int INITIALSTATE__NAME =
                     ::kdm::core::CorePackage::KDMENTITY__NAME;
 
-            static const int INITIALSTATE__SOURCE =
-                    ABSTRACTEVENTELEMENT__SOURCE;
+            static const int INITIALSTATE__SOURCE = ABSTRACTEVENTELEMENT__SOURCE;
 
             static const int INITIALSTATE__EVENTRELATION =
                     ABSTRACTEVENTELEMENT__EVENTRELATION;
@@ -401,8 +399,7 @@ namespace kdm
             static const int ONENTRY__IMPLEMENTATION =
                     ABSTRACTEVENTELEMENT__IMPLEMENTATION;
 
-            static const int ONENTRY__EVENTELEMENT =
-                    EVENTRESOURCE__EVENTELEMENT;
+            static const int ONENTRY__EVENTELEMENT = EVENTRESOURCE__EVENTELEMENT;
 
             // IDs for classifiers for class OnExit 
 
@@ -583,14 +580,11 @@ namespace kdm
 
             virtual ::ecore::EReference_ptr getAbstractEventElement__source();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractEventElement__eventRelation();
+            virtual ::ecore::EReference_ptr getAbstractEventElement__eventRelation();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractEventElement__abstraction();
+            virtual ::ecore::EReference_ptr getAbstractEventElement__abstraction();
 
-            virtual ::ecore::EReference_ptr
-                    getAbstractEventElement__implementation();
+            virtual ::ecore::EReference_ptr getAbstractEventElement__implementation();
 
             virtual ::ecore::EAttribute_ptr getEvent__kind();
 
@@ -670,9 +664,7 @@ namespace kdm
 
             // EEnuminstances 
 
-
             // EDataType instances 
-
 
             // EStructuralFeatures instances
 
@@ -739,5 +731,5 @@ namespace kdm
     } // event
 } // kdm
 
-
 #endif // _KDM_EVENTPACKAGE_HPP
+

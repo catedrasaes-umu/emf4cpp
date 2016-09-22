@@ -42,8 +42,7 @@ void Company::_initialize()
     for (size_t i = 0; i < m_departments->size(); i++)
     {
         (*m_departments)[i]->_initialize();
-        (*m_departments)[i]->_setEContainer(
-                this,
+        (*m_departments)[i]->_setEContainer(this,
                 ::company::CompanyPackage::_instance()->getCompany__departments());
     }
 
@@ -55,7 +54,6 @@ void Company::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject Company::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -65,12 +63,13 @@ void Company::_initialize()
     {
     case ::company::CompanyPackage::COMPANY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::company::CompanyPackage::COMPANY__DEPARTMENTS:
     {
-        _any = m_departments->asEListOf< ::ecore::EObject > ();
+        _any = m_departments->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -85,15 +84,14 @@ void Company::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::COMPANY__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::company::CompanyPackage::COMPANY__DEPARTMENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::company::Company::getDepartments().clear();
         ::company::Company::getDepartments().insert_all(*_t0);
     }
@@ -108,8 +106,8 @@ void Company::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::company::CompanyPackage::COMPANY__NAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_name);
     case ::company::CompanyPackage::COMPANY__DEPARTMENTS:
         return m_departments && m_departments->size();
 
@@ -128,9 +126,8 @@ void Company::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr Company::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::company::CompanyPackage_ptr > (::company::CompanyPackage::_instance())->getCompany();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::company::CompanyPackage_ptr >(::company::CompanyPackage::_instance())->getCompany();
     return _eclass;
 }
 

@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "code/AbstractCodeElement.hpp"
 #include "code/CodeItem.hpp"

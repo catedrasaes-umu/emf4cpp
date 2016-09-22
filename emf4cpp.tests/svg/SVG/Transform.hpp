@@ -44,11 +44,9 @@ namespace SVG
 
         // Operations
 
-
         // Attributes
 
         // References
-
 
         /*PROTECTED REGION ID(Transform) START*/
         // Please, enable the protected region if you add manually written code.
@@ -72,7 +70,6 @@ namespace SVG
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -80,3 +77,4 @@ namespace SVG
 } // SVG
 
 #endif // SVG_TRANSFORM_HPP
+

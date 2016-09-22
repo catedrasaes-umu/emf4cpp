@@ -28,9 +28,11 @@ import org.eclipse.xtend.expression.Variable;
 import org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel;
 
 public class Generator {
+	private static String version = "1.1.0";
     private static String templatePath = "template::Main::main";
 
-    public void generate(URI fileURI, String targetDir, String prSrcPaths, String ecPath) {
+    public void generate(URI fileURI, String targetDir, String prSrcPaths, String ecPath,
+			boolean internalLicense) {
 
         ResourceSet rs = new ResourceSetImpl();
         rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
@@ -41,6 +43,8 @@ public class Generator {
         Map<String, Variable> globalVarsMap = new HashMap<String, Variable>();
         globalVarsMap.put("ecorePath", new Variable("ecorePath", ecPath));
         globalVarsMap.put("ecoreCppPath", new Variable("ecoreCppPath", ecPath));
+        globalVarsMap.put("emf4cppVersion", new Variable("emf4cppVersion", version));
+        globalVarsMap.put("internalLicense", new Variable("internalLicense", internalLicense));
 
         // Configure outlets
         CppBeautifier cppBeautifier = new CppBeautifier();
@@ -98,6 +102,15 @@ public class Generator {
             System.exit(1);
         }
 
+        if (cmd.hasOption("V")) {
+			System.out.println("emf4cpp " + version);
+			System.out.println("Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>");
+			System.out.println("License LGPLv3+: GNU LGPL version 3 or later <http://gnu.org/licenses/lgpl.html>.");
+			System.out.println("EMF4CPP is free software: you can redistribute it and/or modify it.");
+			System.out.println("There is NO WARRANTY, to the extent permitted by law.");
+			System.exit(0);
+        }
+
         if (cmd.hasOption("h")) {
             System.out.println("Options:");
             for (Option opt : (Collection<Option>) options.getOptions()) {
@@ -134,7 +147,8 @@ public class Generator {
             System.exit(1);
         }
 
-        new Generator().generate(URI.createFileURI(filePath), targetDir, prSrcPaths, ecPath);
+        new Generator().generate(URI.createFileURI(filePath), targetDir, prSrcPaths, ecPath,
+				cmd.hasOption("i"));
     }
 
     private final static Options options = new Options(); // Command line
@@ -149,10 +163,14 @@ public class Generator {
         options.addOption("v", false, "Verbose.");
 
         options.addOption("o", true,
-                        "Output directory for the generated files. Default is current directory.");
+			  "Output directory for the generated files. Default is current directory.");
         options.addOption("p", true,
-                "Protected regions directories. Default is output directory.");
+			  "Protected regions directories. Default is output directory.");
         options.addOption("e", true,
-        "EMF4CPP path.");
+			  "EMF4CPP path.");
+        options.addOption("V", "version", false,
+			  "Display version information and exit.");
+        options.addOption("i", "internal", false,
+			  "Add EMF4CPP license instead of more permissive end-user license.");
     }
 }

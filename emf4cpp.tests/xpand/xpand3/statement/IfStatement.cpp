@@ -35,12 +35,12 @@ using namespace ::xpand3::statement;
 
 // Default constructor
 IfStatement::IfStatement() :
-    m_condition(0), m_elseIf(0)
+        m_condition(0), m_elseIf(0)
 {
 
     /*PROTECTED REGION ID(IfStatementImpl__IfStatementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ IfStatement::~IfStatement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::xpand3::expression::AbstractExpression_ptr IfStatement::getCondition()
 {

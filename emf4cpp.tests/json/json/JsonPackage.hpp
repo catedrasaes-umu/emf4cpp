@@ -66,27 +66,19 @@ namespace json
 
         // IDs for classifiers for class ArrayValue 
 
-
         // IDs for classifiers for class BooleanValue 
-
 
         // IDs for classifiers for class NullValue 
 
-
         // IDs for classifiers for class NumberValue 
-
 
         // IDs for classifiers for class NVPair 
 
-
         // IDs for classifiers for class ObjectValue 
-
 
         // IDs for classifiers for class StringValue 
 
-
         // IDs for classifiers for class Value 
-
 
         // EClassifiers methods
 
@@ -148,9 +140,7 @@ namespace json
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -172,5 +162,5 @@ namespace json
 
 } // json
 
-
 #endif // _JSONPACKAGE_HPP
+

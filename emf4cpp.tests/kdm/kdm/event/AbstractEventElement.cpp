@@ -54,15 +54,16 @@ AbstractEventElement::AbstractEventElement()
                     this, NULL));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this, NULL));
+                    ::kdm::action::ActionElement, -1, true, false >(this,
+                    NULL));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, false, false >(this,
                     NULL));
 
     /*PROTECTED REGION ID(AbstractEventElementImpl__AbstractEventElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -80,7 +81,6 @@ AbstractEventElement::~AbstractEventElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractEventElement::getSource()
 {

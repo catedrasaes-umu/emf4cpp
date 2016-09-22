@@ -48,7 +48,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getVersion() const;
             void setVersion(::kdm::core::String _version);
@@ -57,7 +56,6 @@ namespace kdm
             void setPath(::kdm::core::String _path);
 
             // References
-
 
             /*PROTECTED REGION ID(InventoryItem) START*/
             // Please, enable the protected region if you add manually written code.
@@ -93,3 +91,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_SOURCE_INVENTORYITEM_HPP
+

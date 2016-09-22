@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "tree/TreeNode.hpp"
 #include "tree/Leaf.hpp"

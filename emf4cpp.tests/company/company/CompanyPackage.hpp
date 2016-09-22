@@ -54,12 +54,9 @@ namespace company
 
         // IDs for classifiers for class Company 
 
-
         // IDs for classifiers for class Department 
 
-
         // IDs for classifiers for class Employee 
-
 
         // EClassifiers methods
 
@@ -99,9 +96,7 @@ namespace company
 
         // EEnuminstances 
 
-
         // EDataType instances 
-
 
         // EStructuralFeatures instances
 
@@ -121,5 +116,5 @@ namespace company
 
 } // company
 
-
 #endif // _COMPANYPACKAGE_HPP
+

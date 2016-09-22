@@ -35,8 +35,8 @@ AbsoluteCoord::AbsoluteCoord()
 {
 
     /*PROTECTED REGION ID(AbsoluteCoordImpl__AbsoluteCoordImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -54,6 +54,4 @@ AbsoluteCoord::~AbsoluteCoord()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

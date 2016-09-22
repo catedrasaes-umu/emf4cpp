@@ -35,12 +35,12 @@ using namespace ::xpand3::statement;
 
 // Default constructor
 FileStatement::FileStatement() :
-    m_fileNameExpression(0), m_outletNameIdentifier(0)
+        m_fileNameExpression(0), m_outletNameIdentifier(0)
 {
 
     /*PROTECTED REGION ID(FileStatementImpl__FileStatementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -66,7 +66,6 @@ FileStatement::~FileStatement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean FileStatement::isOnce() const
 {
     return m_once;

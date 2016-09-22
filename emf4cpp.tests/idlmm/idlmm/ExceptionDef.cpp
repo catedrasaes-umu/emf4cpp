@@ -41,8 +41,8 @@ ExceptionDef::ExceptionDef()
                     true, false >(this, NULL));
 
     /*PROTECTED REGION ID(ExceptionDefImpl__ExceptionDefImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -60,7 +60,6 @@ ExceptionDef::~ExceptionDef()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::idlmm::ETypeCode ExceptionDef::getTypeCode() const
 {
     return m_typeCode;

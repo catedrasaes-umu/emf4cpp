@@ -48,19 +48,20 @@ AbstractConceptualElement::AbstractConceptualElement()
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::source::SourceRef, -1, true, false >(this, NULL));
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::KDMEntity, -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
+                    -1, false, false >(this, NULL));
     m_conceptualRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::conceptual::AbstractConceptualRelationship, -1,
-                    true, false >(this, NULL));
+                    ::kdm::conceptual::AbstractConceptualRelationship, -1, true,
+                    false >(this, NULL));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this, NULL));
+                    ::kdm::action::ActionElement, -1, true, false >(this,
+                    NULL));
 
     /*PROTECTED REGION ID(AbstractConceptualElementImpl__AbstractConceptualElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,7 +79,6 @@ AbstractConceptualElement::~AbstractConceptualElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractConceptualElement::getSource()
 {

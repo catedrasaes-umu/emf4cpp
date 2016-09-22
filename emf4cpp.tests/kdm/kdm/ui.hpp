@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "ui/AbstractUIElement.hpp"
 #include "ui/UIResource.hpp"

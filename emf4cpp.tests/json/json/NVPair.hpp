@@ -47,7 +47,6 @@ namespace json
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getName() const;
         void setName(::ecore::EString const& _name);
@@ -89,3 +88,4 @@ namespace json
 } // json
 
 #endif // JSON_NVPAIR_HPP
+

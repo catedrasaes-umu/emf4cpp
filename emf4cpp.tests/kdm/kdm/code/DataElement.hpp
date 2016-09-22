@@ -49,7 +49,6 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
             ::kdm::core::String getExt() const;
             void setExt(::kdm::core::String _ext);
@@ -61,8 +60,7 @@ namespace kdm
             ::kdm::code::Datatype_ptr getType();
             void setType(::kdm::code::Datatype_ptr _type);
 
-            ::ecorecpp::mapping::EList< ::kdm::code::Datatype >
-                    & getCodeElement();
+            ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement();
 
             /*PROTECTED REGION ID(DataElement) START*/
             // Please, enable the protected region if you add manually written code.
@@ -94,8 +92,8 @@ namespace kdm
 
             ::kdm::code::Datatype_ptr m_type;
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::code::Datatype > > m_codeElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList< ::kdm::code::Datatype > > m_codeElement;
 
         };
 
@@ -103,3 +101,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_CODE_DATAELEMENT_HPP
+

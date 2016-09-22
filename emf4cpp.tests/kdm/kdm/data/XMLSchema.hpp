@@ -50,12 +50,10 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-            ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >
-                    & getContentElement();
+            ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement();
 
             /*PROTECTED REGION ID(XMLSchema) START*/
             // Please, enable the protected region if you add manually written code.
@@ -79,11 +77,11 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
-            ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                    ::kdm::data::AbstractContentElement > > m_contentElement;
+            ::ecorecpp::mapping::out_ptr<
+                    ::ecorecpp::mapping::EList<
+                            ::kdm::data::AbstractContentElement > > m_contentElement;
 
         };
 
@@ -91,3 +89,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_DATA_XMLSCHEMA_HPP
+

@@ -21,8 +21,7 @@
 
 using namespace ::kdm::structure;
 
-std::auto_ptr< ::kdm::structure::StructurePackage >
-        StructurePackage::s_instance;
+std::auto_ptr< ::kdm::structure::StructurePackage > StructurePackage::s_instance;
 
 ::kdm::structure::StructurePackage_ptr StructurePackage::_instance()
 {

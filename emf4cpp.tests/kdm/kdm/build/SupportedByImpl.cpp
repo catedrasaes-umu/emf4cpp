@@ -56,7 +56,6 @@ void SupportedBy::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject SupportedBy::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -66,32 +65,32 @@ void SupportedBy::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject > ();
+        _any = m_attribute->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject > ();
+        _any = m_annotation->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject > ();
+        _any = m_stereotype->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject > ();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::kdm::build::BuildPackage::SUPPORTEDBY__TO:
     {
-        _any = static_cast< ::ecore::EObject* > (m_to);
+        _any = static_cast< ::ecore::EObject* >(m_to);
     }
         return _any;
     case ::kdm::build::BuildPackage::SUPPORTEDBY__FROM:
     {
-        _any = static_cast< ::ecore::EObject* > (m_from);
+        _any = static_cast< ::ecore::EObject* >(m_from);
     }
         return _any;
 
@@ -106,55 +105,50 @@ void SupportedBy::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::build::BuildPackage::SUPPORTEDBY__TO:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::kdm::build::Tool_ptr _t1 =
-                dynamic_cast< ::kdm::build::Tool_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::kdm::build::Tool_ptr _t1 = dynamic_cast< ::kdm::build::Tool_ptr >(_t0);
         ::kdm::build::SupportedBy::setTo(_t1);
     }
         return;
     case ::kdm::build::BuildPackage::SUPPORTEDBY__FROM:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::kdm::build::BuildStep_ptr _t1 =
-                dynamic_cast< ::kdm::build::BuildStep_ptr > (_t0);
+                dynamic_cast< ::kdm::build::BuildStep_ptr >(_t0);
         ::kdm::build::SupportedBy::setFrom(_t1);
     }
         return;
@@ -195,9 +189,8 @@ void SupportedBy::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr SupportedBy::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::kdm::build::BuildPackage_ptr > (::kdm::build::BuildPackage::_instance())->getSupportedBy();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::kdm::build::BuildPackage_ptr >(::kdm::build::BuildPackage::_instance())->getSupportedBy();
     return _eclass;
 }
 

@@ -33,12 +33,12 @@ using namespace ::idlmm;
 
 // Default constructor
 Typed::Typed() :
-    m_containedType(0), m_sharedType(0)
+        m_containedType(0), m_sharedType(0)
 {
 
     /*PROTECTED REGION ID(TypedImpl__TypedImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -60,7 +60,6 @@ Typed::~Typed()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::idlmm::IDLType_ptr Typed::getContainedType()
 {

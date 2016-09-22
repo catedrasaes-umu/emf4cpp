@@ -51,11 +51,9 @@ namespace kdm
 
             // Operations
 
-
             // Attributes
 
             // References
-
 
             /*PROTECTED REGION ID(Thread) START*/
             // Please, enable the protected region if you add manually written code.
@@ -79,7 +77,6 @@ namespace kdm
         protected:
             // Attributes
 
-
             // References
 
         };
@@ -88,3 +85,4 @@ namespace kdm
 } // kdm
 
 #endif // KDM_PLATFORM_THREAD_HPP
+
