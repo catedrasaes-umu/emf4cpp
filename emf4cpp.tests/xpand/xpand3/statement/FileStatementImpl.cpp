@@ -227,3 +227,51 @@ void FileStatement::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void FileStatement::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::FILESTATEMENT__FILENAMEEXPRESSION:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::FILESTATEMENT__OUTLETNAMEIDENTIFIER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void FileStatement::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::FILESTATEMENT__FILENAMEEXPRESSION:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::FILESTATEMENT__OUTLETNAMEIDENTIFIER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

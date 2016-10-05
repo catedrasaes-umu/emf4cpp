@@ -38,6 +38,105 @@ using namespace ::idlmm;
 IdlmmPackage::IdlmmPackage()
 {
 
+    // Feature definitions of Container
+    m_Container__contains = new ::ecore::EReference();
+
+    // Feature definitions of Contained
+    m_Contained__identifier = new ::ecore::EAttribute();
+    m_Contained__repositoryId = new ::ecore::EAttribute();
+    m_Contained__version = new ::ecore::EAttribute();
+    m_Contained__absoluteName = new ::ecore::EAttribute();
+    m_Contained__definedIn = new ::ecore::EReference();
+
+    // Feature definitions of InterfaceDef
+    m_InterfaceDef__isAbstract = new ::ecore::EAttribute();
+    m_InterfaceDef__isCustom = new ::ecore::EAttribute();
+    m_InterfaceDef__isTruncatable = new ::ecore::EAttribute();
+    m_InterfaceDef__derivesFrom = new ::ecore::EReference();
+
+    // Feature definitions of ModuleDef
+    m_ModuleDef__prefix = new ::ecore::EAttribute();
+
+    // Feature definitions of IDLType
+    m_IDLType__typeCode = new ::ecore::EAttribute();
+
+    // Feature definitions of OperationDef
+    m_OperationDef__isOneway = new ::ecore::EAttribute();
+    m_OperationDef__contexts = new ::ecore::EAttribute();
+    m_OperationDef__parameters = new ::ecore::EReference();
+    m_OperationDef__canRaise = new ::ecore::EReference();
+
+    // Feature definitions of AttributeDef
+    m_AttributeDef__isReadonly = new ::ecore::EAttribute();
+    m_AttributeDef__getRaises = new ::ecore::EReference();
+    m_AttributeDef__setRaises = new ::ecore::EReference();
+
+    // Feature definitions of ConstantDef
+    m_ConstantDef__constValue = new ::ecore::EAttribute();
+
+    // Feature definitions of Typed
+    m_Typed__containedType = new ::ecore::EReference();
+    m_Typed__sharedType = new ::ecore::EReference();
+
+    // Feature definitions of ParameterDef
+    m_ParameterDef__identifier = new ::ecore::EAttribute();
+    m_ParameterDef__direction = new ::ecore::EAttribute();
+
+    // Feature definitions of PrimitiveDef
+    m_PrimitiveDef__kind = new ::ecore::EAttribute();
+
+    // Feature definitions of ExceptionDef
+    m_ExceptionDef__typeCode = new ::ecore::EAttribute();
+    m_ExceptionDef__members = new ::ecore::EReference();
+
+    // Feature definitions of Field
+    m_Field__identifier = new ::ecore::EAttribute();
+
+    // Feature definitions of FixedDef
+    m_FixedDef__digits = new ::ecore::EAttribute();
+    m_FixedDef__scale = new ::ecore::EAttribute();
+
+    // Feature definitions of WstringDef
+    m_WstringDef__bound = new ::ecore::EAttribute();
+
+    // Feature definitions of StringDef
+    m_StringDef__bound = new ::ecore::EAttribute();
+
+    // Feature definitions of AliasDef
+
+    // Feature definitions of ArrayDef
+    m_ArrayDef__bound = new ::ecore::EAttribute();
+
+    // Feature definitions of SequenceDef
+    m_SequenceDef__bound = new ::ecore::EAttribute();
+
+    // Feature definitions of UnionField
+    m_UnionField__identifier = new ::ecore::EAttribute();
+    m_UnionField__label = new ::ecore::EAttribute();
+
+    // Feature definitions of TypedefDef
+
+    // Feature definitions of UnionDef
+    m_UnionDef__unionMembers = new ::ecore::EReference();
+    m_UnionDef__containedDiscrim = new ::ecore::EReference();
+    m_UnionDef__sharedDiscrim = new ::ecore::EReference();
+
+    // Feature definitions of EnumDef
+    m_EnumDef__members = new ::ecore::EAttribute();
+
+    // Feature definitions of StructDef
+    m_StructDef__members = new ::ecore::EReference();
+
+    // Feature definitions of TranslationUnit
+    m_TranslationUnit__identifier = new ::ecore::EAttribute();
+    m_TranslationUnit__contains = new ::ecore::EReference();
+    m_TranslationUnit__includes = new ::ecore::EReference();
+
+    // Feature definitions of Include
+    m_Include__importURI = new ::ecore::EAttribute();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -52,7 +151,7 @@ IdlmmPackage::IdlmmPackage()
     m_ContainerEClass->setClassifierID(CONTAINER);
     m_ContainerEClass->setEPackage(this);
     getEClassifiers().push_back(m_ContainerEClass);
-    m_Container__contains = new ::ecore::EReference();
+    // m_Container__contains has already been allocated above
     m_Container__contains->setFeatureID(
             ::idlmm::IdlmmPackage::CONTAINER__CONTAINS);
     m_ContainerEClass->getEStructuralFeatures().push_back(
@@ -63,26 +162,26 @@ IdlmmPackage::IdlmmPackage()
     m_ContainedEClass->setClassifierID(CONTAINED);
     m_ContainedEClass->setEPackage(this);
     getEClassifiers().push_back(m_ContainedEClass);
-    m_Contained__identifier = new ::ecore::EAttribute();
+    // m_Contained__identifier has already been allocated above
     m_Contained__identifier->setFeatureID(
             ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER);
     m_ContainedEClass->getEStructuralFeatures().push_back(
             m_Contained__identifier);
-    m_Contained__repositoryId = new ::ecore::EAttribute();
+    // m_Contained__repositoryId has already been allocated above
     m_Contained__repositoryId->setFeatureID(
             ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID);
     m_ContainedEClass->getEStructuralFeatures().push_back(
             m_Contained__repositoryId);
-    m_Contained__version = new ::ecore::EAttribute();
+    // m_Contained__version has already been allocated above
     m_Contained__version->setFeatureID(
             ::idlmm::IdlmmPackage::CONTAINED__VERSION);
     m_ContainedEClass->getEStructuralFeatures().push_back(m_Contained__version);
-    m_Contained__absoluteName = new ::ecore::EAttribute();
+    // m_Contained__absoluteName has already been allocated above
     m_Contained__absoluteName->setFeatureID(
             ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME);
     m_ContainedEClass->getEStructuralFeatures().push_back(
             m_Contained__absoluteName);
-    m_Contained__definedIn = new ::ecore::EReference();
+    // m_Contained__definedIn has already been allocated above
     m_Contained__definedIn->setFeatureID(
             ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN);
     m_ContainedEClass->getEStructuralFeatures().push_back(
@@ -93,22 +192,22 @@ IdlmmPackage::IdlmmPackage()
     m_InterfaceDefEClass->setClassifierID(INTERFACEDEF);
     m_InterfaceDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_InterfaceDefEClass);
-    m_InterfaceDef__isAbstract = new ::ecore::EAttribute();
+    // m_InterfaceDef__isAbstract has already been allocated above
     m_InterfaceDef__isAbstract->setFeatureID(
             ::idlmm::IdlmmPackage::INTERFACEDEF__ISABSTRACT);
     m_InterfaceDefEClass->getEStructuralFeatures().push_back(
             m_InterfaceDef__isAbstract);
-    m_InterfaceDef__isCustom = new ::ecore::EAttribute();
+    // m_InterfaceDef__isCustom has already been allocated above
     m_InterfaceDef__isCustom->setFeatureID(
             ::idlmm::IdlmmPackage::INTERFACEDEF__ISCUSTOM);
     m_InterfaceDefEClass->getEStructuralFeatures().push_back(
             m_InterfaceDef__isCustom);
-    m_InterfaceDef__isTruncatable = new ::ecore::EAttribute();
+    // m_InterfaceDef__isTruncatable has already been allocated above
     m_InterfaceDef__isTruncatable->setFeatureID(
             ::idlmm::IdlmmPackage::INTERFACEDEF__ISTRUNCATABLE);
     m_InterfaceDefEClass->getEStructuralFeatures().push_back(
             m_InterfaceDef__isTruncatable);
-    m_InterfaceDef__derivesFrom = new ::ecore::EReference();
+    // m_InterfaceDef__derivesFrom has already been allocated above
     m_InterfaceDef__derivesFrom->setFeatureID(
             ::idlmm::IdlmmPackage::INTERFACEDEF__DERIVESFROM);
     m_InterfaceDefEClass->getEStructuralFeatures().push_back(
@@ -119,7 +218,7 @@ IdlmmPackage::IdlmmPackage()
     m_ModuleDefEClass->setClassifierID(MODULEDEF);
     m_ModuleDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_ModuleDefEClass);
-    m_ModuleDef__prefix = new ::ecore::EAttribute();
+    // m_ModuleDef__prefix has already been allocated above
     m_ModuleDef__prefix->setFeatureID(::idlmm::IdlmmPackage::MODULEDEF__PREFIX);
     m_ModuleDefEClass->getEStructuralFeatures().push_back(m_ModuleDef__prefix);
 
@@ -128,7 +227,7 @@ IdlmmPackage::IdlmmPackage()
     m_IDLTypeEClass->setClassifierID(IDLTYPE);
     m_IDLTypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_IDLTypeEClass);
-    m_IDLType__typeCode = new ::ecore::EAttribute();
+    // m_IDLType__typeCode has already been allocated above
     m_IDLType__typeCode->setFeatureID(::idlmm::IdlmmPackage::IDLTYPE__TYPECODE);
     m_IDLTypeEClass->getEStructuralFeatures().push_back(m_IDLType__typeCode);
 
@@ -137,22 +236,22 @@ IdlmmPackage::IdlmmPackage()
     m_OperationDefEClass->setClassifierID(OPERATIONDEF);
     m_OperationDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_OperationDefEClass);
-    m_OperationDef__isOneway = new ::ecore::EAttribute();
+    // m_OperationDef__isOneway has already been allocated above
     m_OperationDef__isOneway->setFeatureID(
             ::idlmm::IdlmmPackage::OPERATIONDEF__ISONEWAY);
     m_OperationDefEClass->getEStructuralFeatures().push_back(
             m_OperationDef__isOneway);
-    m_OperationDef__contexts = new ::ecore::EAttribute();
+    // m_OperationDef__contexts has already been allocated above
     m_OperationDef__contexts->setFeatureID(
             ::idlmm::IdlmmPackage::OPERATIONDEF__CONTEXTS);
     m_OperationDefEClass->getEStructuralFeatures().push_back(
             m_OperationDef__contexts);
-    m_OperationDef__parameters = new ::ecore::EReference();
+    // m_OperationDef__parameters has already been allocated above
     m_OperationDef__parameters->setFeatureID(
             ::idlmm::IdlmmPackage::OPERATIONDEF__PARAMETERS);
     m_OperationDefEClass->getEStructuralFeatures().push_back(
             m_OperationDef__parameters);
-    m_OperationDef__canRaise = new ::ecore::EReference();
+    // m_OperationDef__canRaise has already been allocated above
     m_OperationDef__canRaise->setFeatureID(
             ::idlmm::IdlmmPackage::OPERATIONDEF__CANRAISE);
     m_OperationDefEClass->getEStructuralFeatures().push_back(
@@ -163,17 +262,17 @@ IdlmmPackage::IdlmmPackage()
     m_AttributeDefEClass->setClassifierID(ATTRIBUTEDEF);
     m_AttributeDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_AttributeDefEClass);
-    m_AttributeDef__isReadonly = new ::ecore::EAttribute();
+    // m_AttributeDef__isReadonly has already been allocated above
     m_AttributeDef__isReadonly->setFeatureID(
             ::idlmm::IdlmmPackage::ATTRIBUTEDEF__ISREADONLY);
     m_AttributeDefEClass->getEStructuralFeatures().push_back(
             m_AttributeDef__isReadonly);
-    m_AttributeDef__getRaises = new ::ecore::EReference();
+    // m_AttributeDef__getRaises has already been allocated above
     m_AttributeDef__getRaises->setFeatureID(
             ::idlmm::IdlmmPackage::ATTRIBUTEDEF__GETRAISES);
     m_AttributeDefEClass->getEStructuralFeatures().push_back(
             m_AttributeDef__getRaises);
-    m_AttributeDef__setRaises = new ::ecore::EReference();
+    // m_AttributeDef__setRaises has already been allocated above
     m_AttributeDef__setRaises->setFeatureID(
             ::idlmm::IdlmmPackage::ATTRIBUTEDEF__SETRAISES);
     m_AttributeDefEClass->getEStructuralFeatures().push_back(
@@ -184,7 +283,7 @@ IdlmmPackage::IdlmmPackage()
     m_ConstantDefEClass->setClassifierID(CONSTANTDEF);
     m_ConstantDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConstantDefEClass);
-    m_ConstantDef__constValue = new ::ecore::EAttribute();
+    // m_ConstantDef__constValue has already been allocated above
     m_ConstantDef__constValue->setFeatureID(
             ::idlmm::IdlmmPackage::CONSTANTDEF__CONSTVALUE);
     m_ConstantDefEClass->getEStructuralFeatures().push_back(
@@ -195,11 +294,11 @@ IdlmmPackage::IdlmmPackage()
     m_TypedEClass->setClassifierID(TYPED);
     m_TypedEClass->setEPackage(this);
     getEClassifiers().push_back(m_TypedEClass);
-    m_Typed__containedType = new ::ecore::EReference();
+    // m_Typed__containedType has already been allocated above
     m_Typed__containedType->setFeatureID(
             ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE);
     m_TypedEClass->getEStructuralFeatures().push_back(m_Typed__containedType);
-    m_Typed__sharedType = new ::ecore::EReference();
+    // m_Typed__sharedType has already been allocated above
     m_Typed__sharedType->setFeatureID(::idlmm::IdlmmPackage::TYPED__SHAREDTYPE);
     m_TypedEClass->getEStructuralFeatures().push_back(m_Typed__sharedType);
 
@@ -208,12 +307,12 @@ IdlmmPackage::IdlmmPackage()
     m_ParameterDefEClass->setClassifierID(PARAMETERDEF);
     m_ParameterDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_ParameterDefEClass);
-    m_ParameterDef__identifier = new ::ecore::EAttribute();
+    // m_ParameterDef__identifier has already been allocated above
     m_ParameterDef__identifier->setFeatureID(
             ::idlmm::IdlmmPackage::PARAMETERDEF__IDENTIFIER);
     m_ParameterDefEClass->getEStructuralFeatures().push_back(
             m_ParameterDef__identifier);
-    m_ParameterDef__direction = new ::ecore::EAttribute();
+    // m_ParameterDef__direction has already been allocated above
     m_ParameterDef__direction->setFeatureID(
             ::idlmm::IdlmmPackage::PARAMETERDEF__DIRECTION);
     m_ParameterDefEClass->getEStructuralFeatures().push_back(
@@ -224,7 +323,7 @@ IdlmmPackage::IdlmmPackage()
     m_PrimitiveDefEClass->setClassifierID(PRIMITIVEDEF);
     m_PrimitiveDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_PrimitiveDefEClass);
-    m_PrimitiveDef__kind = new ::ecore::EAttribute();
+    // m_PrimitiveDef__kind has already been allocated above
     m_PrimitiveDef__kind->setFeatureID(
             ::idlmm::IdlmmPackage::PRIMITIVEDEF__KIND);
     m_PrimitiveDefEClass->getEStructuralFeatures().push_back(
@@ -235,12 +334,12 @@ IdlmmPackage::IdlmmPackage()
     m_ExceptionDefEClass->setClassifierID(EXCEPTIONDEF);
     m_ExceptionDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExceptionDefEClass);
-    m_ExceptionDef__typeCode = new ::ecore::EAttribute();
+    // m_ExceptionDef__typeCode has already been allocated above
     m_ExceptionDef__typeCode->setFeatureID(
             ::idlmm::IdlmmPackage::EXCEPTIONDEF__TYPECODE);
     m_ExceptionDefEClass->getEStructuralFeatures().push_back(
             m_ExceptionDef__typeCode);
-    m_ExceptionDef__members = new ::ecore::EReference();
+    // m_ExceptionDef__members has already been allocated above
     m_ExceptionDef__members->setFeatureID(
             ::idlmm::IdlmmPackage::EXCEPTIONDEF__MEMBERS);
     m_ExceptionDefEClass->getEStructuralFeatures().push_back(
@@ -251,7 +350,7 @@ IdlmmPackage::IdlmmPackage()
     m_FieldEClass->setClassifierID(FIELD);
     m_FieldEClass->setEPackage(this);
     getEClassifiers().push_back(m_FieldEClass);
-    m_Field__identifier = new ::ecore::EAttribute();
+    // m_Field__identifier has already been allocated above
     m_Field__identifier->setFeatureID(::idlmm::IdlmmPackage::FIELD__IDENTIFIER);
     m_FieldEClass->getEStructuralFeatures().push_back(m_Field__identifier);
 
@@ -260,10 +359,10 @@ IdlmmPackage::IdlmmPackage()
     m_FixedDefEClass->setClassifierID(FIXEDDEF);
     m_FixedDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_FixedDefEClass);
-    m_FixedDef__digits = new ::ecore::EAttribute();
+    // m_FixedDef__digits has already been allocated above
     m_FixedDef__digits->setFeatureID(::idlmm::IdlmmPackage::FIXEDDEF__DIGITS);
     m_FixedDefEClass->getEStructuralFeatures().push_back(m_FixedDef__digits);
-    m_FixedDef__scale = new ::ecore::EAttribute();
+    // m_FixedDef__scale has already been allocated above
     m_FixedDef__scale->setFeatureID(::idlmm::IdlmmPackage::FIXEDDEF__SCALE);
     m_FixedDefEClass->getEStructuralFeatures().push_back(m_FixedDef__scale);
 
@@ -272,7 +371,7 @@ IdlmmPackage::IdlmmPackage()
     m_WstringDefEClass->setClassifierID(WSTRINGDEF);
     m_WstringDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_WstringDefEClass);
-    m_WstringDef__bound = new ::ecore::EAttribute();
+    // m_WstringDef__bound has already been allocated above
     m_WstringDef__bound->setFeatureID(::idlmm::IdlmmPackage::WSTRINGDEF__BOUND);
     m_WstringDefEClass->getEStructuralFeatures().push_back(m_WstringDef__bound);
 
@@ -281,7 +380,7 @@ IdlmmPackage::IdlmmPackage()
     m_StringDefEClass->setClassifierID(STRINGDEF);
     m_StringDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_StringDefEClass);
-    m_StringDef__bound = new ::ecore::EAttribute();
+    // m_StringDef__bound has already been allocated above
     m_StringDef__bound->setFeatureID(::idlmm::IdlmmPackage::STRINGDEF__BOUND);
     m_StringDefEClass->getEStructuralFeatures().push_back(m_StringDef__bound);
 
@@ -296,7 +395,7 @@ IdlmmPackage::IdlmmPackage()
     m_ArrayDefEClass->setClassifierID(ARRAYDEF);
     m_ArrayDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_ArrayDefEClass);
-    m_ArrayDef__bound = new ::ecore::EAttribute();
+    // m_ArrayDef__bound has already been allocated above
     m_ArrayDef__bound->setFeatureID(::idlmm::IdlmmPackage::ARRAYDEF__BOUND);
     m_ArrayDefEClass->getEStructuralFeatures().push_back(m_ArrayDef__bound);
 
@@ -305,7 +404,7 @@ IdlmmPackage::IdlmmPackage()
     m_SequenceDefEClass->setClassifierID(SEQUENCEDEF);
     m_SequenceDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_SequenceDefEClass);
-    m_SequenceDef__bound = new ::ecore::EAttribute();
+    // m_SequenceDef__bound has already been allocated above
     m_SequenceDef__bound->setFeatureID(
             ::idlmm::IdlmmPackage::SEQUENCEDEF__BOUND);
     m_SequenceDefEClass->getEStructuralFeatures().push_back(
@@ -316,12 +415,12 @@ IdlmmPackage::IdlmmPackage()
     m_UnionFieldEClass->setClassifierID(UNIONFIELD);
     m_UnionFieldEClass->setEPackage(this);
     getEClassifiers().push_back(m_UnionFieldEClass);
-    m_UnionField__identifier = new ::ecore::EAttribute();
+    // m_UnionField__identifier has already been allocated above
     m_UnionField__identifier->setFeatureID(
             ::idlmm::IdlmmPackage::UNIONFIELD__IDENTIFIER);
     m_UnionFieldEClass->getEStructuralFeatures().push_back(
             m_UnionField__identifier);
-    m_UnionField__label = new ::ecore::EAttribute();
+    // m_UnionField__label has already been allocated above
     m_UnionField__label->setFeatureID(::idlmm::IdlmmPackage::UNIONFIELD__LABEL);
     m_UnionFieldEClass->getEStructuralFeatures().push_back(m_UnionField__label);
 
@@ -336,17 +435,17 @@ IdlmmPackage::IdlmmPackage()
     m_UnionDefEClass->setClassifierID(UNIONDEF);
     m_UnionDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_UnionDefEClass);
-    m_UnionDef__unionMembers = new ::ecore::EReference();
+    // m_UnionDef__unionMembers has already been allocated above
     m_UnionDef__unionMembers->setFeatureID(
             ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS);
     m_UnionDefEClass->getEStructuralFeatures().push_back(
             m_UnionDef__unionMembers);
-    m_UnionDef__containedDiscrim = new ::ecore::EReference();
+    // m_UnionDef__containedDiscrim has already been allocated above
     m_UnionDef__containedDiscrim->setFeatureID(
             ::idlmm::IdlmmPackage::UNIONDEF__CONTAINEDDISCRIM);
     m_UnionDefEClass->getEStructuralFeatures().push_back(
             m_UnionDef__containedDiscrim);
-    m_UnionDef__sharedDiscrim = new ::ecore::EReference();
+    // m_UnionDef__sharedDiscrim has already been allocated above
     m_UnionDef__sharedDiscrim->setFeatureID(
             ::idlmm::IdlmmPackage::UNIONDEF__SHAREDDISCRIM);
     m_UnionDefEClass->getEStructuralFeatures().push_back(
@@ -357,7 +456,7 @@ IdlmmPackage::IdlmmPackage()
     m_EnumDefEClass->setClassifierID(ENUMDEF);
     m_EnumDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_EnumDefEClass);
-    m_EnumDef__members = new ::ecore::EAttribute();
+    // m_EnumDef__members has already been allocated above
     m_EnumDef__members->setFeatureID(::idlmm::IdlmmPackage::ENUMDEF__MEMBERS);
     m_EnumDefEClass->getEStructuralFeatures().push_back(m_EnumDef__members);
 
@@ -366,7 +465,7 @@ IdlmmPackage::IdlmmPackage()
     m_StructDefEClass->setClassifierID(STRUCTDEF);
     m_StructDefEClass->setEPackage(this);
     getEClassifiers().push_back(m_StructDefEClass);
-    m_StructDef__members = new ::ecore::EReference();
+    // m_StructDef__members has already been allocated above
     m_StructDef__members->setFeatureID(
             ::idlmm::IdlmmPackage::STRUCTDEF__MEMBERS);
     m_StructDefEClass->getEStructuralFeatures().push_back(m_StructDef__members);
@@ -376,17 +475,17 @@ IdlmmPackage::IdlmmPackage()
     m_TranslationUnitEClass->setClassifierID(TRANSLATIONUNIT);
     m_TranslationUnitEClass->setEPackage(this);
     getEClassifiers().push_back(m_TranslationUnitEClass);
-    m_TranslationUnit__identifier = new ::ecore::EAttribute();
+    // m_TranslationUnit__identifier has already been allocated above
     m_TranslationUnit__identifier->setFeatureID(
             ::idlmm::IdlmmPackage::TRANSLATIONUNIT__IDENTIFIER);
     m_TranslationUnitEClass->getEStructuralFeatures().push_back(
             m_TranslationUnit__identifier);
-    m_TranslationUnit__contains = new ::ecore::EReference();
+    // m_TranslationUnit__contains has already been allocated above
     m_TranslationUnit__contains->setFeatureID(
             ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS);
     m_TranslationUnitEClass->getEStructuralFeatures().push_back(
             m_TranslationUnit__contains);
-    m_TranslationUnit__includes = new ::ecore::EReference();
+    // m_TranslationUnit__includes has already been allocated above
     m_TranslationUnit__includes->setFeatureID(
             ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES);
     m_TranslationUnitEClass->getEStructuralFeatures().push_back(
@@ -397,7 +496,7 @@ IdlmmPackage::IdlmmPackage()
     m_IncludeEClass->setClassifierID(INCLUDE);
     m_IncludeEClass->setEPackage(this);
     getEClassifiers().push_back(m_IncludeEClass);
-    m_Include__importURI = new ::ecore::EAttribute();
+    // m_Include__importURI has already been allocated above
     m_Include__importURI->setFeatureID(
             ::idlmm::IdlmmPackage::INCLUDE__IMPORTURI);
     m_IncludeEClass->getEStructuralFeatures().push_back(m_Include__importURI);

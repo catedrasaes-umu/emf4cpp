@@ -26,8 +26,15 @@ std::unique_ptr< ::company::CompanyPackage,
 
 ::company::CompanyPackage_ptr CompanyPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new CompanyPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

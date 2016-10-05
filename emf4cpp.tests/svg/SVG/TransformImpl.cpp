@@ -112,3 +112,53 @@ void Transform::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Transform::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+                        false, true >&) ::SVG::Attribute::getAttOwner();
+        container.basicAdd(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Transform::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+                        false, true >&) ::SVG::Attribute::getAttOwner();
+        container.basicRemove(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

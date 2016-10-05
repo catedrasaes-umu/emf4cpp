@@ -266,3 +266,112 @@ void EEnum::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EEnum::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr >(_t0);
+
+        // set reference
+        basicsetEPackage(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EENUM__ELITERALS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EEnumLiteral_ptr _t1 =
+                dynamic_cast< ::ecore::EEnumLiteral_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EEnumLiteral,
+                        -1, true, true >&) ::ecore::EEnum::getELiterals();
+        container.basicAdd(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EEnum::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr >(_t0);
+
+        // set reference
+        if (basicgetEPackage() == _t1)
+            basicsetEPackage(nullptr);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EENUM__ELITERALS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EEnumLiteral_ptr _t1 =
+                dynamic_cast< ::ecore::EEnumLiteral_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EEnumLiteral,
+                        -1, true, true >&) ::ecore::EEnum::getELiterals();
+        container.basicRemove(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

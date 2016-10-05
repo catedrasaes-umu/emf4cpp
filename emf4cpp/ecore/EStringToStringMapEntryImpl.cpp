@@ -124,3 +124,27 @@ void EStringToStringMapEntry::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EStringToStringMapEntry::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EStringToStringMapEntry::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

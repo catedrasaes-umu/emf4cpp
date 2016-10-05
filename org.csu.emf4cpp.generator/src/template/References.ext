@@ -41,13 +41,17 @@ String getListImpl(EReference this) :
 
 String _getListImplConstructorOpposite(EReference this) :
     if EOpposite != null then
-        ", " + "NULL" // EOpposite.EContainingClass.EPackage.getFeatureGetMemberCall(EOpposite)
+        ", " + EOpposite.EContainingClass.EPackage.getPackageFQN() + "::" + EOpposite.getFeatureIDFQN()
     else
         ""
 ;
 
 String getListImplConstructorParameters(EReference this) :
-    "this, " + EContainingClass.EPackage.getFeatureGetMemberCall(this) + _getListImplConstructorOpposite(this)
+	"this, " + EContainingClass.EPackage.getFeatureGetMemberCall(this) + _getListImplConstructorOpposite(this)
+;
+
+String getListImplConstructorParametersOptional(EReference this) :
+	"this, " + EContainingClass.EPackage.getFeatureGetMemberCallOptional(this) + _getListImplConstructorOpposite(this)
 ;
 
 // Reference type
@@ -89,3 +93,5 @@ String getGetCPPSignature(EReference this, String prefix) :
 String getGetCPPSignature(EReference this) : 
 	getGetCPPSignature("");
 
+String getSetCPPCall(EReference this, String prefix) :
+       prefix + "set"+ name.toFirstUpper();

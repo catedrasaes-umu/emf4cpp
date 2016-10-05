@@ -190,3 +190,67 @@ void EGenericType::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EGenericType::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EGenericType::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

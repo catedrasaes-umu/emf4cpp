@@ -59,7 +59,18 @@ using namespace ::«getFQN()»;
 
 «name.toFirstUpper()»Package::«name.toFirstUpper()»Package()
 {    
+«FOREACH EClassifiers.typeSelect(EClass) AS class»
+    // Feature definitions of «class.name»
+    «FOREACH class.EAttributes AS at-»
+    «getFeatureMember(at)» = new ::ecore::EAttribute();
+    «ENDFOREACH-»
+    «FOREACH class.EReferences AS ref-»
+    «getFeatureMember(ref)» = new ::ecore::EReference();
+    «ENDFOREACH-»
+«ENDFOREACH»
 
+	/* Now one can safely ask for a feature definition of
+	 * a class, though it is not yet usable. */
     s_instance.reset(this);
     
     // Factory
@@ -82,12 +93,12 @@ using namespace ::«getFQN()»;
     «getPackageAttribute(class)»->setEPackage(this);
     getEClassifiers().push_back(«getPackageAttribute(class)»);   
     «FOREACH class.EAttributes AS at-»
-    «getFeatureMember(at)» = new ::ecore::EAttribute();
+    // «getFeatureMember(at)» has already been allocated above
     «getFeatureMember(at)»->setFeatureID(«at.getCPPFQN()»);
     «getPackageAttribute(class)»->getEStructuralFeatures().push_back(«getFeatureMember(at)»);
     «ENDFOREACH-»
     «FOREACH class.EReferences AS ref-»
-    «getFeatureMember(ref)» = new ::ecore::EReference();
+    // «getFeatureMember(ref)» has already been allocated above
     «getFeatureMember(ref)»->setFeatureID(«ref.getCPPFQN()»);
     «getPackageAttribute(class)»->getEStructuralFeatures().push_back(«getFeatureMember(ref)»);
     «ENDFOREACH-»

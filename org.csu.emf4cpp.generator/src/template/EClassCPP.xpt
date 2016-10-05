@@ -62,9 +62,15 @@ using namespace ::«EPackage.getFQN()»;
 «ENDLET-»
 {
 
-«FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+«IF (boolean) GLOBALVAR bootstrap»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+    «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParametersOptional()»));
+    «ENDFOREACH-»
+«ELSE»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
     «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParameters()»));
-«ENDFOREACH-»
+    «ENDFOREACH-»
+«ENDIF»
 
 «PROTECT CSTART '/*' CEND '*/' ID name+"Impl__"+name+"Impl" DISABLE»
 // Please, enable the protected region if you add manually written code.
@@ -171,7 +177,22 @@ using namespace ::«EPackage.getFQN()»;
 }
 
     «IF !ref.isMultiple()-»
+	   «IF ref.EOpposite != null-»
+«ref.getGetCPPSignature(name+"::basic")»
+{
+    «IF !ref.isMultiple()-»
+    return «ref.getRefMemberName()»;
+    «ELSE-»
+    return *«ref.getRefMemberName()»;
+    «ENDIF-»
+}
+       «ENDIF-»
+
+	   «IF ref.EOpposite != null-»
+«ref.getSetCPPSignature(name+"::basic")»
+       «ELSE-»
 «ref.getSetCPPSignature(name+"::")» 
+       «ENDIF-»
 {
     «ref.getCPPTypeSignature()» _old_«ref.name» = «ref.getRefMemberName()»;
 
@@ -196,6 +217,29 @@ using namespace ::«EPackage.getFQN()»;
     «ref.getRefMemberName()»->_setEContainer(this, «EPackage.getFeatureGetMemberCall(ref)»);
     «ENDIF-»
 }
+
+	   «IF ref.EOpposite != null-»
+«ref.getSetCPPSignature(name+"::")»
+{
+	if (_«ref.name» != «ref.getRefMemberName()»)
+	{
+		::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+                if («ref.getRefMemberName()» != nullptr)
+		{
+		        «ref.getRefMemberName()»->_inverseRemove(
+			    «ref.EOpposite.EContainingClass.EPackage.getPackageFQN()»::«ref.EOpposite.getFeatureIDFQN()»,
+			    _this);
+		}
+		if (_«ref.name» != nullptr)
+		{
+		        _«ref.name»->_inverseAdd(
+			    «ref.EOpposite.EContainingClass.EPackage.getPackageFQN()»::«ref.EOpposite.getFeatureIDFQN()»,
+			    _this);
+		}
+		«ref.getSetCPPCall("basic")»(_«ref.name»);
+	}
+}
+       «ENDIF-»
 
     «ENDIF-»
 «ENDFOREACH-»

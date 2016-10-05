@@ -40,6 +40,84 @@ using namespace ::xpand3::expression;
 ExpressionPackage::ExpressionPackage()
 {
 
+    // Feature definitions of AbstractExpression
+
+    // Feature definitions of BooleanOperation
+
+    // Feature definitions of Cast
+    m_Cast__type = new ::ecore::EReference();
+    m_Cast__target = new ::ecore::EReference();
+
+    // Feature definitions of ChainExpression
+    m_ChainExpression__first = new ::ecore::EReference();
+    m_ChainExpression__next = new ::ecore::EReference();
+
+    // Feature definitions of ConstructorCallExpression
+    m_ConstructorCallExpression__type = new ::ecore::EReference();
+
+    // Feature definitions of FeatureCall
+    m_FeatureCall__target = new ::ecore::EReference();
+    m_FeatureCall__name = new ::ecore::EReference();
+
+    // Feature definitions of CollectionExpression
+    m_CollectionExpression__closure = new ::ecore::EReference();
+    m_CollectionExpression__eleName = new ::ecore::EReference();
+
+    // Feature definitions of OperationCall
+    m_OperationCall__params = new ::ecore::EReference();
+
+    // Feature definitions of TypeSelectExpression
+    m_TypeSelectExpression__typeLiteral = new ::ecore::EReference();
+
+    // Feature definitions of GlobalVarExpression
+    m_GlobalVarExpression__globalVarName = new ::ecore::EReference();
+
+    // Feature definitions of IfExpression
+    m_IfExpression__condition = new ::ecore::EReference();
+    m_IfExpression__thenPart = new ::ecore::EReference();
+    m_IfExpression__elsePart = new ::ecore::EReference();
+
+    // Feature definitions of LetExpression
+    m_LetExpression__varExpression = new ::ecore::EReference();
+    m_LetExpression__targetExpression = new ::ecore::EReference();
+    m_LetExpression__varName = new ::ecore::EReference();
+
+    // Feature definitions of ListLiteral
+    m_ListLiteral__elements = new ::ecore::EReference();
+
+    // Feature definitions of Literal
+    m_Literal__literalValue = new ::ecore::EReference();
+
+    // Feature definitions of BooleanLiteral
+
+    // Feature definitions of IntegerLiteral
+
+    // Feature definitions of NullLiteral
+
+    // Feature definitions of RealLiteral
+
+    // Feature definitions of StringLiteral
+
+    // Feature definitions of SwitchExpression
+    m_SwitchExpression__switchExpr = new ::ecore::EReference();
+    m_SwitchExpression__defaultExpr = new ::ecore::EReference();
+    m_SwitchExpression__cases = new ::ecore::EReference();
+
+    // Feature definitions of Case
+    m_Case__condition = new ::ecore::EReference();
+    m_Case__thenPart = new ::ecore::EReference();
+
+    // Feature definitions of BinaryOperation
+    m_BinaryOperation__left = new ::ecore::EReference();
+    m_BinaryOperation__right = new ::ecore::EReference();
+    m_BinaryOperation__operator = new ::ecore::EReference();
+
+    // Feature definitions of UnaryOperation
+    m_UnaryOperation__operator = new ::ecore::EReference();
+    m_UnaryOperation__operand = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -66,11 +144,11 @@ ExpressionPackage::ExpressionPackage()
     m_CastEClass->setClassifierID(CAST);
     m_CastEClass->setEPackage(this);
     getEClassifiers().push_back(m_CastEClass);
-    m_Cast__type = new ::ecore::EReference();
+    // m_Cast__type has already been allocated above
     m_Cast__type->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CAST__TYPE);
     m_CastEClass->getEStructuralFeatures().push_back(m_Cast__type);
-    m_Cast__target = new ::ecore::EReference();
+    // m_Cast__target has already been allocated above
     m_Cast__target->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CAST__TARGET);
     m_CastEClass->getEStructuralFeatures().push_back(m_Cast__target);
@@ -80,12 +158,12 @@ ExpressionPackage::ExpressionPackage()
     m_ChainExpressionEClass->setClassifierID(CHAINEXPRESSION);
     m_ChainExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_ChainExpressionEClass);
-    m_ChainExpression__first = new ::ecore::EReference();
+    // m_ChainExpression__first has already been allocated above
     m_ChainExpression__first->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST);
     m_ChainExpressionEClass->getEStructuralFeatures().push_back(
             m_ChainExpression__first);
-    m_ChainExpression__next = new ::ecore::EReference();
+    // m_ChainExpression__next has already been allocated above
     m_ChainExpression__next->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT);
     m_ChainExpressionEClass->getEStructuralFeatures().push_back(
@@ -97,7 +175,7 @@ ExpressionPackage::ExpressionPackage()
             CONSTRUCTORCALLEXPRESSION);
     m_ConstructorCallExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConstructorCallExpressionEClass);
-    m_ConstructorCallExpression__type = new ::ecore::EReference();
+    // m_ConstructorCallExpression__type has already been allocated above
     m_ConstructorCallExpression__type->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CONSTRUCTORCALLEXPRESSION__TYPE);
     m_ConstructorCallExpressionEClass->getEStructuralFeatures().push_back(
@@ -108,12 +186,12 @@ ExpressionPackage::ExpressionPackage()
     m_FeatureCallEClass->setClassifierID(FEATURECALL);
     m_FeatureCallEClass->setEPackage(this);
     getEClassifiers().push_back(m_FeatureCallEClass);
-    m_FeatureCall__target = new ::ecore::EReference();
+    // m_FeatureCall__target has already been allocated above
     m_FeatureCall__target->setFeatureID(
             ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET);
     m_FeatureCallEClass->getEStructuralFeatures().push_back(
             m_FeatureCall__target);
-    m_FeatureCall__name = new ::ecore::EReference();
+    // m_FeatureCall__name has already been allocated above
     m_FeatureCall__name->setFeatureID(
             ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME);
     m_FeatureCallEClass->getEStructuralFeatures().push_back(
@@ -124,12 +202,12 @@ ExpressionPackage::ExpressionPackage()
     m_CollectionExpressionEClass->setClassifierID(COLLECTIONEXPRESSION);
     m_CollectionExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_CollectionExpressionEClass);
-    m_CollectionExpression__closure = new ::ecore::EReference();
+    // m_CollectionExpression__closure has already been allocated above
     m_CollectionExpression__closure->setFeatureID(
             ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE);
     m_CollectionExpressionEClass->getEStructuralFeatures().push_back(
             m_CollectionExpression__closure);
-    m_CollectionExpression__eleName = new ::ecore::EReference();
+    // m_CollectionExpression__eleName has already been allocated above
     m_CollectionExpression__eleName->setFeatureID(
             ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME);
     m_CollectionExpressionEClass->getEStructuralFeatures().push_back(
@@ -140,7 +218,7 @@ ExpressionPackage::ExpressionPackage()
     m_OperationCallEClass->setClassifierID(OPERATIONCALL);
     m_OperationCallEClass->setEPackage(this);
     getEClassifiers().push_back(m_OperationCallEClass);
-    m_OperationCall__params = new ::ecore::EReference();
+    // m_OperationCall__params has already been allocated above
     m_OperationCall__params->setFeatureID(
             ::xpand3::expression::ExpressionPackage::OPERATIONCALL__PARAMS);
     m_OperationCallEClass->getEStructuralFeatures().push_back(
@@ -151,7 +229,7 @@ ExpressionPackage::ExpressionPackage()
     m_TypeSelectExpressionEClass->setClassifierID(TYPESELECTEXPRESSION);
     m_TypeSelectExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_TypeSelectExpressionEClass);
-    m_TypeSelectExpression__typeLiteral = new ::ecore::EReference();
+    // m_TypeSelectExpression__typeLiteral has already been allocated above
     m_TypeSelectExpression__typeLiteral->setFeatureID(
             ::xpand3::expression::ExpressionPackage::TYPESELECTEXPRESSION__TYPELITERAL);
     m_TypeSelectExpressionEClass->getEStructuralFeatures().push_back(
@@ -162,7 +240,7 @@ ExpressionPackage::ExpressionPackage()
     m_GlobalVarExpressionEClass->setClassifierID(GLOBALVAREXPRESSION);
     m_GlobalVarExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_GlobalVarExpressionEClass);
-    m_GlobalVarExpression__globalVarName = new ::ecore::EReference();
+    // m_GlobalVarExpression__globalVarName has already been allocated above
     m_GlobalVarExpression__globalVarName->setFeatureID(
             ::xpand3::expression::ExpressionPackage::GLOBALVAREXPRESSION__GLOBALVARNAME);
     m_GlobalVarExpressionEClass->getEStructuralFeatures().push_back(
@@ -173,17 +251,17 @@ ExpressionPackage::ExpressionPackage()
     m_IfExpressionEClass->setClassifierID(IFEXPRESSION);
     m_IfExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_IfExpressionEClass);
-    m_IfExpression__condition = new ::ecore::EReference();
+    // m_IfExpression__condition has already been allocated above
     m_IfExpression__condition->setFeatureID(
             ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION);
     m_IfExpressionEClass->getEStructuralFeatures().push_back(
             m_IfExpression__condition);
-    m_IfExpression__thenPart = new ::ecore::EReference();
+    // m_IfExpression__thenPart has already been allocated above
     m_IfExpression__thenPart->setFeatureID(
             ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART);
     m_IfExpressionEClass->getEStructuralFeatures().push_back(
             m_IfExpression__thenPart);
-    m_IfExpression__elsePart = new ::ecore::EReference();
+    // m_IfExpression__elsePart has already been allocated above
     m_IfExpression__elsePart->setFeatureID(
             ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART);
     m_IfExpressionEClass->getEStructuralFeatures().push_back(
@@ -194,17 +272,17 @@ ExpressionPackage::ExpressionPackage()
     m_LetExpressionEClass->setClassifierID(LETEXPRESSION);
     m_LetExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_LetExpressionEClass);
-    m_LetExpression__varExpression = new ::ecore::EReference();
+    // m_LetExpression__varExpression has already been allocated above
     m_LetExpression__varExpression->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VAREXPRESSION);
     m_LetExpressionEClass->getEStructuralFeatures().push_back(
             m_LetExpression__varExpression);
-    m_LetExpression__targetExpression = new ::ecore::EReference();
+    // m_LetExpression__targetExpression has already been allocated above
     m_LetExpression__targetExpression->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LETEXPRESSION__TARGETEXPRESSION);
     m_LetExpressionEClass->getEStructuralFeatures().push_back(
             m_LetExpression__targetExpression);
-    m_LetExpression__varName = new ::ecore::EReference();
+    // m_LetExpression__varName has already been allocated above
     m_LetExpression__varName->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VARNAME);
     m_LetExpressionEClass->getEStructuralFeatures().push_back(
@@ -215,7 +293,7 @@ ExpressionPackage::ExpressionPackage()
     m_ListLiteralEClass->setClassifierID(LISTLITERAL);
     m_ListLiteralEClass->setEPackage(this);
     getEClassifiers().push_back(m_ListLiteralEClass);
-    m_ListLiteral__elements = new ::ecore::EReference();
+    // m_ListLiteral__elements has already been allocated above
     m_ListLiteral__elements->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LISTLITERAL__ELEMENTS);
     m_ListLiteralEClass->getEStructuralFeatures().push_back(
@@ -226,7 +304,7 @@ ExpressionPackage::ExpressionPackage()
     m_LiteralEClass->setClassifierID(LITERAL);
     m_LiteralEClass->setEPackage(this);
     getEClassifiers().push_back(m_LiteralEClass);
-    m_Literal__literalValue = new ::ecore::EReference();
+    // m_Literal__literalValue has already been allocated above
     m_Literal__literalValue->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE);
     m_LiteralEClass->getEStructuralFeatures().push_back(
@@ -267,17 +345,17 @@ ExpressionPackage::ExpressionPackage()
     m_SwitchExpressionEClass->setClassifierID(SWITCHEXPRESSION);
     m_SwitchExpressionEClass->setEPackage(this);
     getEClassifiers().push_back(m_SwitchExpressionEClass);
-    m_SwitchExpression__switchExpr = new ::ecore::EReference();
+    // m_SwitchExpression__switchExpr has already been allocated above
     m_SwitchExpression__switchExpr->setFeatureID(
             ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__SWITCHEXPR);
     m_SwitchExpressionEClass->getEStructuralFeatures().push_back(
             m_SwitchExpression__switchExpr);
-    m_SwitchExpression__defaultExpr = new ::ecore::EReference();
+    // m_SwitchExpression__defaultExpr has already been allocated above
     m_SwitchExpression__defaultExpr->setFeatureID(
             ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__DEFAULTEXPR);
     m_SwitchExpressionEClass->getEStructuralFeatures().push_back(
             m_SwitchExpression__defaultExpr);
-    m_SwitchExpression__cases = new ::ecore::EReference();
+    // m_SwitchExpression__cases has already been allocated above
     m_SwitchExpression__cases->setFeatureID(
             ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__CASES);
     m_SwitchExpressionEClass->getEStructuralFeatures().push_back(
@@ -288,11 +366,11 @@ ExpressionPackage::ExpressionPackage()
     m_CaseEClass->setClassifierID(CASE);
     m_CaseEClass->setEPackage(this);
     getEClassifiers().push_back(m_CaseEClass);
-    m_Case__condition = new ::ecore::EReference();
+    // m_Case__condition has already been allocated above
     m_Case__condition->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CASE__CONDITION);
     m_CaseEClass->getEStructuralFeatures().push_back(m_Case__condition);
-    m_Case__thenPart = new ::ecore::EReference();
+    // m_Case__thenPart has already been allocated above
     m_Case__thenPart->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CASE__THENPART);
     m_CaseEClass->getEStructuralFeatures().push_back(m_Case__thenPart);
@@ -302,17 +380,17 @@ ExpressionPackage::ExpressionPackage()
     m_BinaryOperationEClass->setClassifierID(BINARYOPERATION);
     m_BinaryOperationEClass->setEPackage(this);
     getEClassifiers().push_back(m_BinaryOperationEClass);
-    m_BinaryOperation__left = new ::ecore::EReference();
+    // m_BinaryOperation__left has already been allocated above
     m_BinaryOperation__left->setFeatureID(
             ::xpand3::expression::ExpressionPackage::BINARYOPERATION__LEFT);
     m_BinaryOperationEClass->getEStructuralFeatures().push_back(
             m_BinaryOperation__left);
-    m_BinaryOperation__right = new ::ecore::EReference();
+    // m_BinaryOperation__right has already been allocated above
     m_BinaryOperation__right->setFeatureID(
             ::xpand3::expression::ExpressionPackage::BINARYOPERATION__RIGHT);
     m_BinaryOperationEClass->getEStructuralFeatures().push_back(
             m_BinaryOperation__right);
-    m_BinaryOperation__operator = new ::ecore::EReference();
+    // m_BinaryOperation__operator has already been allocated above
     m_BinaryOperation__operator->setFeatureID(
             ::xpand3::expression::ExpressionPackage::BINARYOPERATION__OPERATOR);
     m_BinaryOperationEClass->getEStructuralFeatures().push_back(
@@ -323,12 +401,12 @@ ExpressionPackage::ExpressionPackage()
     m_UnaryOperationEClass->setClassifierID(UNARYOPERATION);
     m_UnaryOperationEClass->setEPackage(this);
     getEClassifiers().push_back(m_UnaryOperationEClass);
-    m_UnaryOperation__operator = new ::ecore::EReference();
+    // m_UnaryOperation__operator has already been allocated above
     m_UnaryOperation__operator->setFeatureID(
             ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR);
     m_UnaryOperationEClass->getEStructuralFeatures().push_back(
             m_UnaryOperation__operator);
-    m_UnaryOperation__operand = new ::ecore::EReference();
+    // m_UnaryOperation__operand has already been allocated above
     m_UnaryOperation__operand->setFeatureID(
             ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND);
     m_UnaryOperationEClass->getEStructuralFeatures().push_back(

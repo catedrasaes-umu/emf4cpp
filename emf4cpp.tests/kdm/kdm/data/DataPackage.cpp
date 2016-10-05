@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::data::DataPackage,
 
 ::kdm::data::DataPackage_ptr DataPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new DataPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

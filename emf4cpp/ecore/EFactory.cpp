@@ -66,7 +66,12 @@ EFactory::~EFactory()
     return m_ePackage;
 }
 
-void EFactory::setEPackage(::ecore::EPackage_ptr _ePackage)
+::ecore::EPackage_ptr EFactory::basicgetEPackage()
+{
+    return m_ePackage;
+}
+
+void EFactory::basicsetEPackage(::ecore::EPackage_ptr _ePackage)
 {
     ::ecore::EPackage_ptr _old_ePackage = m_ePackage;
 
@@ -86,5 +91,24 @@ void EFactory::setEPackage(::ecore::EPackage_ptr _ePackage)
     }
 #endif
 
+}
+
+void EFactory::setEPackage(::ecore::EPackage_ptr _ePackage)
+{
+    if (_ePackage != m_ePackage)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_ePackage != nullptr)
+        {
+            m_ePackage->_inverseRemove(
+                    ::ecore::EcorePackage::EPACKAGE__EFACTORYINSTANCE, _this);
+        }
+        if (_ePackage != nullptr)
+        {
+            _ePackage->_inverseAdd(
+                    ::ecore::EcorePackage::EPACKAGE__EFACTORYINSTANCE, _this);
+        }
+        basicsetEPackage(_ePackage);
+    }
 }
 

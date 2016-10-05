@@ -85,9 +85,13 @@ public:
     
     // References
     «FOREACH this.EReferences AS ref-»
-    «ref.getGetCPPSignature()»;
+       «ref.getGetCPPSignature()»;
        «IF !ref.isMultiple()-»
-    «ref.getSetCPPSignature()»;
+          «ref.getSetCPPSignature()»;
+          «IF ref.EOpposite != null-»
+	         «ref.getGetCPPSignature("basic")»;
+	         «ref.getSetCPPSignature("basic")»;
+          «ENDIF-»
        «ENDIF-»
        
     «ENDFOREACH-»
@@ -115,6 +119,8 @@ public:
     virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);    
     virtual void eUnset ( ::ecore::EInt _featureID);
     virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
     
     «PROTECT CSTART '/*' CEND '*/' ID name+"Impl" DISABLE»
     // Please, enable the protected region if you add manually written code.

@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::structure::StructurePackage,
 
 ::kdm::structure::StructurePackage_ptr StructurePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new StructurePackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

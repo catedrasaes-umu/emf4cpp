@@ -47,6 +47,36 @@ using namespace ::kdm::structure;
 StructurePackage::StructurePackage()
 {
 
+    // Feature definitions of AbstractStructureElement
+    m_AbstractStructureElement__aggregated = new ::ecore::EReference();
+    m_AbstractStructureElement__implementation = new ::ecore::EReference();
+    m_AbstractStructureElement__structureElement = new ::ecore::EReference();
+    m_AbstractStructureElement__structureRelationship =
+            new ::ecore::EReference();
+
+    // Feature definitions of Subsystem
+
+    // Feature definitions of Layer
+
+    // Feature definitions of StructureModel
+    m_StructureModel__structureElement = new ::ecore::EReference();
+
+    // Feature definitions of Component
+
+    // Feature definitions of SoftwareSystem
+
+    // Feature definitions of AbstractStructureRelationship
+
+    // Feature definitions of StructureRelationship
+    m_StructureRelationship__to = new ::ecore::EReference();
+    m_StructureRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of ArchitectureView
+
+    // Feature definitions of StructureElement
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -61,23 +91,22 @@ StructurePackage::StructurePackage()
     m_AbstractStructureElementEClass->setClassifierID(ABSTRACTSTRUCTUREELEMENT);
     m_AbstractStructureElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractStructureElementEClass);
-    m_AbstractStructureElement__aggregated = new ::ecore::EReference();
+    // m_AbstractStructureElement__aggregated has already been allocated above
     m_AbstractStructureElement__aggregated->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__AGGREGATED);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__aggregated);
-    m_AbstractStructureElement__implementation = new ::ecore::EReference();
+    // m_AbstractStructureElement__implementation has already been allocated above
     m_AbstractStructureElement__implementation->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__IMPLEMENTATION);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__implementation);
-    m_AbstractStructureElement__structureElement = new ::ecore::EReference();
+    // m_AbstractStructureElement__structureElement has already been allocated above
     m_AbstractStructureElement__structureElement->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTUREELEMENT);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__structureElement);
-    m_AbstractStructureElement__structureRelationship =
-            new ::ecore::EReference();
+    // m_AbstractStructureElement__structureRelationship has already been allocated above
     m_AbstractStructureElement__structureRelationship->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTURERELATIONSHIP);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
@@ -100,7 +129,7 @@ StructurePackage::StructurePackage()
     m_StructureModelEClass->setClassifierID(STRUCTUREMODEL);
     m_StructureModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_StructureModelEClass);
-    m_StructureModel__structureElement = new ::ecore::EReference();
+    // m_StructureModel__structureElement has already been allocated above
     m_StructureModel__structureElement->setFeatureID(
             ::kdm::structure::StructurePackage::STRUCTUREMODEL__STRUCTUREELEMENT);
     m_StructureModelEClass->getEStructuralFeatures().push_back(
@@ -130,12 +159,12 @@ StructurePackage::StructurePackage()
     m_StructureRelationshipEClass->setClassifierID(STRUCTURERELATIONSHIP);
     m_StructureRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_StructureRelationshipEClass);
-    m_StructureRelationship__to = new ::ecore::EReference();
+    // m_StructureRelationship__to has already been allocated above
     m_StructureRelationship__to->setFeatureID(
             ::kdm::structure::StructurePackage::STRUCTURERELATIONSHIP__TO);
     m_StructureRelationshipEClass->getEStructuralFeatures().push_back(
             m_StructureRelationship__to);
-    m_StructureRelationship__from = new ::ecore::EReference();
+    // m_StructureRelationship__from has already been allocated above
     m_StructureRelationship__from->setFeatureID(
             ::kdm::structure::StructurePackage::STRUCTURERELATIONSHIP__FROM);
     m_StructureRelationshipEClass->getEStructuralFeatures().push_back(

@@ -141,7 +141,12 @@ void EEnumLiteral::setLiteral(::ecore::EString const& _literal)
     return m_eEnum;
 }
 
-void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)
+::ecore::EEnum_ptr EEnumLiteral::basicgetEEnum()
+{
+    return m_eEnum;
+}
+
+void EEnumLiteral::basicsetEEnum(::ecore::EEnum_ptr _eEnum)
 {
     ::ecore::EEnum_ptr _old_eEnum = m_eEnum;
 
@@ -161,5 +166,23 @@ void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)
     }
 #endif
 
+}
+
+void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)
+{
+    if (_eEnum != m_eEnum)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_eEnum != nullptr)
+        {
+            m_eEnum->_inverseRemove(::ecore::EcorePackage::EENUM__ELITERALS,
+                    _this);
+        }
+        if (_eEnum != nullptr)
+        {
+            _eEnum->_inverseAdd(::ecore::EcorePackage::EENUM__ELITERALS, _this);
+        }
+        basicsetEEnum(_eEnum);
+    }
 }
 

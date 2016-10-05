@@ -39,7 +39,8 @@ ETypeParameter::ETypeParameter()
     m_eBounds.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
                     -1, true, false >(this,
-                    ::ecore::EcorePackage::_instance()->getETypeParameter__eBounds()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getETypeParameter__eBounds() :
+                            nullptr));
 
     /*PROTECTED REGION ID(ETypeParameterImpl__ETypeParameterImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -38,6 +38,23 @@ using namespace ::company;
 CompanyPackage::CompanyPackage()
 {
 
+    // Feature definitions of Employee
+    m_Employee__name = new ::ecore::EAttribute();
+    m_Employee__phonebookEntry = new ::ecore::EReference();
+
+    // Feature definitions of Department
+    m_Department__number = new ::ecore::EAttribute();
+    m_Department__employees = new ::ecore::EReference();
+    m_Department__manager = new ::ecore::EReference();
+
+    // Feature definitions of Company
+    m_Company__name = new ::ecore::EAttribute();
+    m_Company__departments = new ::ecore::EReference();
+
+    // Feature definitions of PhonebookEntry
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -52,10 +69,10 @@ CompanyPackage::CompanyPackage()
     m_EmployeeEClass->setClassifierID(EMPLOYEE);
     m_EmployeeEClass->setEPackage(this);
     getEClassifiers().push_back(m_EmployeeEClass);
-    m_Employee__name = new ::ecore::EAttribute();
+    // m_Employee__name has already been allocated above
     m_Employee__name->setFeatureID(::company::CompanyPackage::EMPLOYEE__NAME);
     m_EmployeeEClass->getEStructuralFeatures().push_back(m_Employee__name);
-    m_Employee__phonebookEntry = new ::ecore::EReference();
+    // m_Employee__phonebookEntry has already been allocated above
     m_Employee__phonebookEntry->setFeatureID(
             ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY);
     m_EmployeeEClass->getEStructuralFeatures().push_back(
@@ -66,17 +83,17 @@ CompanyPackage::CompanyPackage()
     m_DepartmentEClass->setClassifierID(DEPARTMENT);
     m_DepartmentEClass->setEPackage(this);
     getEClassifiers().push_back(m_DepartmentEClass);
-    m_Department__number = new ::ecore::EAttribute();
+    // m_Department__number has already been allocated above
     m_Department__number->setFeatureID(
             ::company::CompanyPackage::DEPARTMENT__NUMBER);
     m_DepartmentEClass->getEStructuralFeatures().push_back(
             m_Department__number);
-    m_Department__employees = new ::ecore::EReference();
+    // m_Department__employees has already been allocated above
     m_Department__employees->setFeatureID(
             ::company::CompanyPackage::DEPARTMENT__EMPLOYEES);
     m_DepartmentEClass->getEStructuralFeatures().push_back(
             m_Department__employees);
-    m_Department__manager = new ::ecore::EReference();
+    // m_Department__manager has already been allocated above
     m_Department__manager->setFeatureID(
             ::company::CompanyPackage::DEPARTMENT__MANAGER);
     m_DepartmentEClass->getEStructuralFeatures().push_back(
@@ -87,10 +104,10 @@ CompanyPackage::CompanyPackage()
     m_CompanyEClass->setClassifierID(COMPANY);
     m_CompanyEClass->setEPackage(this);
     getEClassifiers().push_back(m_CompanyEClass);
-    m_Company__name = new ::ecore::EAttribute();
+    // m_Company__name has already been allocated above
     m_Company__name->setFeatureID(::company::CompanyPackage::COMPANY__NAME);
     m_CompanyEClass->getEStructuralFeatures().push_back(m_Company__name);
-    m_Company__departments = new ::ecore::EReference();
+    // m_Company__departments has already been allocated above
     m_Company__departments->setFeatureID(
             ::company::CompanyPackage::COMPANY__DEPARTMENTS);
     m_CompanyEClass->getEStructuralFeatures().push_back(m_Company__departments);

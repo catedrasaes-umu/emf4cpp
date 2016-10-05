@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::core::CorePackage,
 
 ::kdm::core::CorePackage_ptr CorePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new CorePackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

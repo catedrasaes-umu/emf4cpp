@@ -160,3 +160,51 @@ void TaggedValue::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void TaggedValue::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void TaggedValue::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

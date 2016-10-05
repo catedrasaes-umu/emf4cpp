@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::source::SourcePackage,
 
 ::kdm::source::SourcePackage_ptr SourcePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new SourcePackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

@@ -39,6 +39,53 @@ using namespace ::kdm::kdm;
 KdmPackage::KdmPackage()
 {
 
+    // Feature definitions of KDMFramework
+    m_KDMFramework__name = new ::ecore::EAttribute();
+    m_KDMFramework__audit = new ::ecore::EReference();
+    m_KDMFramework__extensionFamily = new ::ecore::EReference();
+
+    // Feature definitions of KDMModel
+
+    // Feature definitions of Audit
+    m_Audit__description = new ::ecore::EAttribute();
+    m_Audit__author = new ::ecore::EAttribute();
+    m_Audit__date = new ::ecore::EAttribute();
+
+    // Feature definitions of Segment
+    m_Segment__segment = new ::ecore::EReference();
+    m_Segment__model = new ::ecore::EReference();
+
+    // Feature definitions of Attribute
+    m_Attribute__tag = new ::ecore::EAttribute();
+    m_Attribute__value = new ::ecore::EAttribute();
+
+    // Feature definitions of Annotation
+    m_Annotation__text = new ::ecore::EAttribute();
+
+    // Feature definitions of TagDefinition
+    m_TagDefinition__tag = new ::ecore::EAttribute();
+    m_TagDefinition__type = new ::ecore::EAttribute();
+
+    // Feature definitions of ExtendedValue
+    m_ExtendedValue__tag = new ::ecore::EReference();
+
+    // Feature definitions of Stereotype
+    m_Stereotype__name = new ::ecore::EAttribute();
+    m_Stereotype__type = new ::ecore::EAttribute();
+    m_Stereotype__tag = new ::ecore::EReference();
+
+    // Feature definitions of ExtensionFamily
+    m_ExtensionFamily__name = new ::ecore::EAttribute();
+    m_ExtensionFamily__stereotype = new ::ecore::EReference();
+
+    // Feature definitions of TaggedRef
+    m_TaggedRef__reference = new ::ecore::EReference();
+
+    // Feature definitions of TaggedValue
+    m_TaggedValue__value = new ::ecore::EAttribute();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -53,17 +100,17 @@ KdmPackage::KdmPackage()
     m_KDMFrameworkEClass->setClassifierID(KDMFRAMEWORK);
     m_KDMFrameworkEClass->setEPackage(this);
     getEClassifiers().push_back(m_KDMFrameworkEClass);
-    m_KDMFramework__name = new ::ecore::EAttribute();
+    // m_KDMFramework__name has already been allocated above
     m_KDMFramework__name->setFeatureID(
             ::kdm::kdm::KdmPackage::KDMFRAMEWORK__NAME);
     m_KDMFrameworkEClass->getEStructuralFeatures().push_back(
             m_KDMFramework__name);
-    m_KDMFramework__audit = new ::ecore::EReference();
+    // m_KDMFramework__audit has already been allocated above
     m_KDMFramework__audit->setFeatureID(
             ::kdm::kdm::KdmPackage::KDMFRAMEWORK__AUDIT);
     m_KDMFrameworkEClass->getEStructuralFeatures().push_back(
             m_KDMFramework__audit);
-    m_KDMFramework__extensionFamily = new ::ecore::EReference();
+    // m_KDMFramework__extensionFamily has already been allocated above
     m_KDMFramework__extensionFamily->setFeatureID(
             ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY);
     m_KDMFrameworkEClass->getEStructuralFeatures().push_back(
@@ -80,14 +127,14 @@ KdmPackage::KdmPackage()
     m_AuditEClass->setClassifierID(AUDIT);
     m_AuditEClass->setEPackage(this);
     getEClassifiers().push_back(m_AuditEClass);
-    m_Audit__description = new ::ecore::EAttribute();
+    // m_Audit__description has already been allocated above
     m_Audit__description->setFeatureID(
             ::kdm::kdm::KdmPackage::AUDIT__DESCRIPTION);
     m_AuditEClass->getEStructuralFeatures().push_back(m_Audit__description);
-    m_Audit__author = new ::ecore::EAttribute();
+    // m_Audit__author has already been allocated above
     m_Audit__author->setFeatureID(::kdm::kdm::KdmPackage::AUDIT__AUTHOR);
     m_AuditEClass->getEStructuralFeatures().push_back(m_Audit__author);
-    m_Audit__date = new ::ecore::EAttribute();
+    // m_Audit__date has already been allocated above
     m_Audit__date->setFeatureID(::kdm::kdm::KdmPackage::AUDIT__DATE);
     m_AuditEClass->getEStructuralFeatures().push_back(m_Audit__date);
 
@@ -96,10 +143,10 @@ KdmPackage::KdmPackage()
     m_SegmentEClass->setClassifierID(SEGMENT);
     m_SegmentEClass->setEPackage(this);
     getEClassifiers().push_back(m_SegmentEClass);
-    m_Segment__segment = new ::ecore::EReference();
+    // m_Segment__segment has already been allocated above
     m_Segment__segment->setFeatureID(::kdm::kdm::KdmPackage::SEGMENT__SEGMENT);
     m_SegmentEClass->getEStructuralFeatures().push_back(m_Segment__segment);
-    m_Segment__model = new ::ecore::EReference();
+    // m_Segment__model has already been allocated above
     m_Segment__model->setFeatureID(::kdm::kdm::KdmPackage::SEGMENT__MODEL);
     m_SegmentEClass->getEStructuralFeatures().push_back(m_Segment__model);
 
@@ -108,10 +155,10 @@ KdmPackage::KdmPackage()
     m_AttributeEClass->setClassifierID(ATTRIBUTE);
     m_AttributeEClass->setEPackage(this);
     getEClassifiers().push_back(m_AttributeEClass);
-    m_Attribute__tag = new ::ecore::EAttribute();
+    // m_Attribute__tag has already been allocated above
     m_Attribute__tag->setFeatureID(::kdm::kdm::KdmPackage::ATTRIBUTE__TAG);
     m_AttributeEClass->getEStructuralFeatures().push_back(m_Attribute__tag);
-    m_Attribute__value = new ::ecore::EAttribute();
+    // m_Attribute__value has already been allocated above
     m_Attribute__value->setFeatureID(::kdm::kdm::KdmPackage::ATTRIBUTE__VALUE);
     m_AttributeEClass->getEStructuralFeatures().push_back(m_Attribute__value);
 
@@ -120,7 +167,7 @@ KdmPackage::KdmPackage()
     m_AnnotationEClass->setClassifierID(ANNOTATION);
     m_AnnotationEClass->setEPackage(this);
     getEClassifiers().push_back(m_AnnotationEClass);
-    m_Annotation__text = new ::ecore::EAttribute();
+    // m_Annotation__text has already been allocated above
     m_Annotation__text->setFeatureID(::kdm::kdm::KdmPackage::ANNOTATION__TEXT);
     m_AnnotationEClass->getEStructuralFeatures().push_back(m_Annotation__text);
 
@@ -129,12 +176,12 @@ KdmPackage::KdmPackage()
     m_TagDefinitionEClass->setClassifierID(TAGDEFINITION);
     m_TagDefinitionEClass->setEPackage(this);
     getEClassifiers().push_back(m_TagDefinitionEClass);
-    m_TagDefinition__tag = new ::ecore::EAttribute();
+    // m_TagDefinition__tag has already been allocated above
     m_TagDefinition__tag->setFeatureID(
             ::kdm::kdm::KdmPackage::TAGDEFINITION__TAG);
     m_TagDefinitionEClass->getEStructuralFeatures().push_back(
             m_TagDefinition__tag);
-    m_TagDefinition__type = new ::ecore::EAttribute();
+    // m_TagDefinition__type has already been allocated above
     m_TagDefinition__type->setFeatureID(
             ::kdm::kdm::KdmPackage::TAGDEFINITION__TYPE);
     m_TagDefinitionEClass->getEStructuralFeatures().push_back(
@@ -145,7 +192,7 @@ KdmPackage::KdmPackage()
     m_ExtendedValueEClass->setClassifierID(EXTENDEDVALUE);
     m_ExtendedValueEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExtendedValueEClass);
-    m_ExtendedValue__tag = new ::ecore::EReference();
+    // m_ExtendedValue__tag has already been allocated above
     m_ExtendedValue__tag->setFeatureID(
             ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG);
     m_ExtendedValueEClass->getEStructuralFeatures().push_back(
@@ -156,13 +203,13 @@ KdmPackage::KdmPackage()
     m_StereotypeEClass->setClassifierID(STEREOTYPE);
     m_StereotypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_StereotypeEClass);
-    m_Stereotype__name = new ::ecore::EAttribute();
+    // m_Stereotype__name has already been allocated above
     m_Stereotype__name->setFeatureID(::kdm::kdm::KdmPackage::STEREOTYPE__NAME);
     m_StereotypeEClass->getEStructuralFeatures().push_back(m_Stereotype__name);
-    m_Stereotype__type = new ::ecore::EAttribute();
+    // m_Stereotype__type has already been allocated above
     m_Stereotype__type->setFeatureID(::kdm::kdm::KdmPackage::STEREOTYPE__TYPE);
     m_StereotypeEClass->getEStructuralFeatures().push_back(m_Stereotype__type);
-    m_Stereotype__tag = new ::ecore::EReference();
+    // m_Stereotype__tag has already been allocated above
     m_Stereotype__tag->setFeatureID(::kdm::kdm::KdmPackage::STEREOTYPE__TAG);
     m_StereotypeEClass->getEStructuralFeatures().push_back(m_Stereotype__tag);
 
@@ -171,12 +218,12 @@ KdmPackage::KdmPackage()
     m_ExtensionFamilyEClass->setClassifierID(EXTENSIONFAMILY);
     m_ExtensionFamilyEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExtensionFamilyEClass);
-    m_ExtensionFamily__name = new ::ecore::EAttribute();
+    // m_ExtensionFamily__name has already been allocated above
     m_ExtensionFamily__name->setFeatureID(
             ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__NAME);
     m_ExtensionFamilyEClass->getEStructuralFeatures().push_back(
             m_ExtensionFamily__name);
-    m_ExtensionFamily__stereotype = new ::ecore::EReference();
+    // m_ExtensionFamily__stereotype has already been allocated above
     m_ExtensionFamily__stereotype->setFeatureID(
             ::kdm::kdm::KdmPackage::EXTENSIONFAMILY__STEREOTYPE);
     m_ExtensionFamilyEClass->getEStructuralFeatures().push_back(
@@ -187,7 +234,7 @@ KdmPackage::KdmPackage()
     m_TaggedRefEClass->setClassifierID(TAGGEDREF);
     m_TaggedRefEClass->setEPackage(this);
     getEClassifiers().push_back(m_TaggedRefEClass);
-    m_TaggedRef__reference = new ::ecore::EReference();
+    // m_TaggedRef__reference has already been allocated above
     m_TaggedRef__reference->setFeatureID(
             ::kdm::kdm::KdmPackage::TAGGEDREF__REFERENCE);
     m_TaggedRefEClass->getEStructuralFeatures().push_back(
@@ -198,7 +245,7 @@ KdmPackage::KdmPackage()
     m_TaggedValueEClass->setClassifierID(TAGGEDVALUE);
     m_TaggedValueEClass->setEPackage(this);
     getEClassifiers().push_back(m_TaggedValueEClass);
-    m_TaggedValue__value = new ::ecore::EAttribute();
+    // m_TaggedValue__value has already been allocated above
     m_TaggedValue__value->setFeatureID(
             ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE);
     m_TaggedValueEClass->getEStructuralFeatures().push_back(

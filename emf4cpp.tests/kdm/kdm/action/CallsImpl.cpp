@@ -195,3 +195,75 @@ void Calls::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Calls::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
+    {
+    }
+        return;
+    case ::kdm::action::ActionPackage::CALLS__TO:
+    {
+    }
+        return;
+    case ::kdm::action::ActionPackage::CALLS__FROM:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Calls::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
+    {
+    }
+        return;
+    case ::kdm::action::ActionPackage::CALLS__TO:
+    {
+    }
+        return;
+    case ::kdm::action::ActionPackage::CALLS__FROM:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

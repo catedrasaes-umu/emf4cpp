@@ -39,7 +39,7 @@ Container::Container()
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained, -1,
                     true, true >(this,
                     ::idlmm::IdlmmPackage::_instance()->getContainer__contains(),
-                    NULL));
+                    ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN));
 
     /*PROTECTED REGION ID(ContainerImpl__ContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.

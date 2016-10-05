@@ -26,8 +26,15 @@ std::unique_ptr< ::SVG::SVGPackage,
 
 ::SVG::SVGPackage_ptr SVGPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new SVGPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

@@ -48,6 +48,69 @@ using namespace ::kdm::build;
 BuildPackage::BuildPackage()
 {
 
+    // Feature definitions of AbstractBuildElement
+    m_AbstractBuildElement__buildRelation = new ::ecore::EReference();
+
+    // Feature definitions of BuildResource
+    m_BuildResource__implementation = new ::ecore::EReference();
+    m_BuildResource__groupedBuild = new ::ecore::EReference();
+    m_BuildResource__buildElement = new ::ecore::EReference();
+
+    // Feature definitions of BuildDescription
+    m_BuildDescription__text = new ::ecore::EAttribute();
+    m_BuildDescription__source = new ::ecore::EReference();
+
+    // Feature definitions of SymbolicLink
+
+    // Feature definitions of AbstractBuildRelationship
+
+    // Feature definitions of LinksTo
+    m_LinksTo__to = new ::ecore::EReference();
+    m_LinksTo__from = new ::ecore::EReference();
+
+    // Feature definitions of Consumes
+    m_Consumes__to = new ::ecore::EReference();
+    m_Consumes__from = new ::ecore::EReference();
+
+    // Feature definitions of BuildModel
+    m_BuildModel__buildElement = new ::ecore::EReference();
+
+    // Feature definitions of BuildComponent
+
+    // Feature definitions of Supplier
+
+    // Feature definitions of Tool
+
+    // Feature definitions of BuildElement
+
+    // Feature definitions of BuildRelationship
+    m_BuildRelationship__to = new ::ecore::EReference();
+    m_BuildRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of SuppliedBy
+    m_SuppliedBy__to = new ::ecore::EReference();
+    m_SuppliedBy__from = new ::ecore::EReference();
+
+    // Feature definitions of Library
+
+    // Feature definitions of BuildStep
+
+    // Feature definitions of Produces
+    m_Produces__to = new ::ecore::EReference();
+    m_Produces__from = new ::ecore::EReference();
+
+    // Feature definitions of SupportedBy
+    m_SupportedBy__to = new ::ecore::EReference();
+    m_SupportedBy__from = new ::ecore::EReference();
+
+    // Feature definitions of BuildProduct
+
+    // Feature definitions of DescribedBy
+    m_DescribedBy__to = new ::ecore::EReference();
+    m_DescribedBy__from = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -62,7 +125,7 @@ BuildPackage::BuildPackage()
     m_AbstractBuildElementEClass->setClassifierID(ABSTRACTBUILDELEMENT);
     m_AbstractBuildElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractBuildElementEClass);
-    m_AbstractBuildElement__buildRelation = new ::ecore::EReference();
+    // m_AbstractBuildElement__buildRelation has already been allocated above
     m_AbstractBuildElement__buildRelation->setFeatureID(
             ::kdm::build::BuildPackage::ABSTRACTBUILDELEMENT__BUILDRELATION);
     m_AbstractBuildElementEClass->getEStructuralFeatures().push_back(
@@ -73,17 +136,17 @@ BuildPackage::BuildPackage()
     m_BuildResourceEClass->setClassifierID(BUILDRESOURCE);
     m_BuildResourceEClass->setEPackage(this);
     getEClassifiers().push_back(m_BuildResourceEClass);
-    m_BuildResource__implementation = new ::ecore::EReference();
+    // m_BuildResource__implementation has already been allocated above
     m_BuildResource__implementation->setFeatureID(
             ::kdm::build::BuildPackage::BUILDRESOURCE__IMPLEMENTATION);
     m_BuildResourceEClass->getEStructuralFeatures().push_back(
             m_BuildResource__implementation);
-    m_BuildResource__groupedBuild = new ::ecore::EReference();
+    // m_BuildResource__groupedBuild has already been allocated above
     m_BuildResource__groupedBuild->setFeatureID(
             ::kdm::build::BuildPackage::BUILDRESOURCE__GROUPEDBUILD);
     m_BuildResourceEClass->getEStructuralFeatures().push_back(
             m_BuildResource__groupedBuild);
-    m_BuildResource__buildElement = new ::ecore::EReference();
+    // m_BuildResource__buildElement has already been allocated above
     m_BuildResource__buildElement->setFeatureID(
             ::kdm::build::BuildPackage::BUILDRESOURCE__BUILDELEMENT);
     m_BuildResourceEClass->getEStructuralFeatures().push_back(
@@ -94,12 +157,12 @@ BuildPackage::BuildPackage()
     m_BuildDescriptionEClass->setClassifierID(BUILDDESCRIPTION);
     m_BuildDescriptionEClass->setEPackage(this);
     getEClassifiers().push_back(m_BuildDescriptionEClass);
-    m_BuildDescription__text = new ::ecore::EAttribute();
+    // m_BuildDescription__text has already been allocated above
     m_BuildDescription__text->setFeatureID(
             ::kdm::build::BuildPackage::BUILDDESCRIPTION__TEXT);
     m_BuildDescriptionEClass->getEStructuralFeatures().push_back(
             m_BuildDescription__text);
-    m_BuildDescription__source = new ::ecore::EReference();
+    // m_BuildDescription__source has already been allocated above
     m_BuildDescription__source->setFeatureID(
             ::kdm::build::BuildPackage::BUILDDESCRIPTION__SOURCE);
     m_BuildDescriptionEClass->getEStructuralFeatures().push_back(
@@ -123,10 +186,10 @@ BuildPackage::BuildPackage()
     m_LinksToEClass->setClassifierID(LINKSTO);
     m_LinksToEClass->setEPackage(this);
     getEClassifiers().push_back(m_LinksToEClass);
-    m_LinksTo__to = new ::ecore::EReference();
+    // m_LinksTo__to has already been allocated above
     m_LinksTo__to->setFeatureID(::kdm::build::BuildPackage::LINKSTO__TO);
     m_LinksToEClass->getEStructuralFeatures().push_back(m_LinksTo__to);
-    m_LinksTo__from = new ::ecore::EReference();
+    // m_LinksTo__from has already been allocated above
     m_LinksTo__from->setFeatureID(::kdm::build::BuildPackage::LINKSTO__FROM);
     m_LinksToEClass->getEStructuralFeatures().push_back(m_LinksTo__from);
 
@@ -135,10 +198,10 @@ BuildPackage::BuildPackage()
     m_ConsumesEClass->setClassifierID(CONSUMES);
     m_ConsumesEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConsumesEClass);
-    m_Consumes__to = new ::ecore::EReference();
+    // m_Consumes__to has already been allocated above
     m_Consumes__to->setFeatureID(::kdm::build::BuildPackage::CONSUMES__TO);
     m_ConsumesEClass->getEStructuralFeatures().push_back(m_Consumes__to);
-    m_Consumes__from = new ::ecore::EReference();
+    // m_Consumes__from has already been allocated above
     m_Consumes__from->setFeatureID(::kdm::build::BuildPackage::CONSUMES__FROM);
     m_ConsumesEClass->getEStructuralFeatures().push_back(m_Consumes__from);
 
@@ -147,7 +210,7 @@ BuildPackage::BuildPackage()
     m_BuildModelEClass->setClassifierID(BUILDMODEL);
     m_BuildModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_BuildModelEClass);
-    m_BuildModel__buildElement = new ::ecore::EReference();
+    // m_BuildModel__buildElement has already been allocated above
     m_BuildModel__buildElement->setFeatureID(
             ::kdm::build::BuildPackage::BUILDMODEL__BUILDELEMENT);
     m_BuildModelEClass->getEStructuralFeatures().push_back(
@@ -182,12 +245,12 @@ BuildPackage::BuildPackage()
     m_BuildRelationshipEClass->setClassifierID(BUILDRELATIONSHIP);
     m_BuildRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_BuildRelationshipEClass);
-    m_BuildRelationship__to = new ::ecore::EReference();
+    // m_BuildRelationship__to has already been allocated above
     m_BuildRelationship__to->setFeatureID(
             ::kdm::build::BuildPackage::BUILDRELATIONSHIP__TO);
     m_BuildRelationshipEClass->getEStructuralFeatures().push_back(
             m_BuildRelationship__to);
-    m_BuildRelationship__from = new ::ecore::EReference();
+    // m_BuildRelationship__from has already been allocated above
     m_BuildRelationship__from->setFeatureID(
             ::kdm::build::BuildPackage::BUILDRELATIONSHIP__FROM);
     m_BuildRelationshipEClass->getEStructuralFeatures().push_back(
@@ -198,10 +261,10 @@ BuildPackage::BuildPackage()
     m_SuppliedByEClass->setClassifierID(SUPPLIEDBY);
     m_SuppliedByEClass->setEPackage(this);
     getEClassifiers().push_back(m_SuppliedByEClass);
-    m_SuppliedBy__to = new ::ecore::EReference();
+    // m_SuppliedBy__to has already been allocated above
     m_SuppliedBy__to->setFeatureID(::kdm::build::BuildPackage::SUPPLIEDBY__TO);
     m_SuppliedByEClass->getEStructuralFeatures().push_back(m_SuppliedBy__to);
-    m_SuppliedBy__from = new ::ecore::EReference();
+    // m_SuppliedBy__from has already been allocated above
     m_SuppliedBy__from->setFeatureID(
             ::kdm::build::BuildPackage::SUPPLIEDBY__FROM);
     m_SuppliedByEClass->getEStructuralFeatures().push_back(m_SuppliedBy__from);
@@ -223,10 +286,10 @@ BuildPackage::BuildPackage()
     m_ProducesEClass->setClassifierID(PRODUCES);
     m_ProducesEClass->setEPackage(this);
     getEClassifiers().push_back(m_ProducesEClass);
-    m_Produces__to = new ::ecore::EReference();
+    // m_Produces__to has already been allocated above
     m_Produces__to->setFeatureID(::kdm::build::BuildPackage::PRODUCES__TO);
     m_ProducesEClass->getEStructuralFeatures().push_back(m_Produces__to);
-    m_Produces__from = new ::ecore::EReference();
+    // m_Produces__from has already been allocated above
     m_Produces__from->setFeatureID(::kdm::build::BuildPackage::PRODUCES__FROM);
     m_ProducesEClass->getEStructuralFeatures().push_back(m_Produces__from);
 
@@ -235,11 +298,11 @@ BuildPackage::BuildPackage()
     m_SupportedByEClass->setClassifierID(SUPPORTEDBY);
     m_SupportedByEClass->setEPackage(this);
     getEClassifiers().push_back(m_SupportedByEClass);
-    m_SupportedBy__to = new ::ecore::EReference();
+    // m_SupportedBy__to has already been allocated above
     m_SupportedBy__to->setFeatureID(
             ::kdm::build::BuildPackage::SUPPORTEDBY__TO);
     m_SupportedByEClass->getEStructuralFeatures().push_back(m_SupportedBy__to);
-    m_SupportedBy__from = new ::ecore::EReference();
+    // m_SupportedBy__from has already been allocated above
     m_SupportedBy__from->setFeatureID(
             ::kdm::build::BuildPackage::SUPPORTEDBY__FROM);
     m_SupportedByEClass->getEStructuralFeatures().push_back(
@@ -256,11 +319,11 @@ BuildPackage::BuildPackage()
     m_DescribedByEClass->setClassifierID(DESCRIBEDBY);
     m_DescribedByEClass->setEPackage(this);
     getEClassifiers().push_back(m_DescribedByEClass);
-    m_DescribedBy__to = new ::ecore::EReference();
+    // m_DescribedBy__to has already been allocated above
     m_DescribedBy__to->setFeatureID(
             ::kdm::build::BuildPackage::DESCRIBEDBY__TO);
     m_DescribedByEClass->getEStructuralFeatures().push_back(m_DescribedBy__to);
-    m_DescribedBy__from = new ::ecore::EReference();
+    // m_DescribedBy__from has already been allocated above
     m_DescribedBy__from->setFeatureID(
             ::kdm::build::BuildPackage::DESCRIBEDBY__FROM);
     m_DescribedByEClass->getEStructuralFeatures().push_back(

@@ -26,8 +26,15 @@ std::unique_ptr< ::xpand3::Xpand3Package,
 
 ::xpand3::Xpand3Package_ptr Xpand3Package::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new Xpand3Package();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

@@ -249,3 +249,59 @@ void ExpandStatement::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void ExpandStatement::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void ExpandStatement::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

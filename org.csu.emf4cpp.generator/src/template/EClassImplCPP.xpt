@@ -234,5 +234,72 @@ void «name»::eUnset ( ::ecore::EInt _featureID)
     «ENDLET-»
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void «name»::_inverseAdd( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
+      «IF EReference.isInstance(ef)-»
+        case «ef.getCPPFQN()» :
+            {
+      «IF ((EReference)ef).EOpposite != null-»
+                ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
+                «ef.getCPPTypeSignatureImpl()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»_ptr >(_t0);
+
+          «IF ef.upperBound == 1-»
+	      // set reference
+	      basicset«ef.name.toFirstUpper()»(_t1);
+          «ELSE-»
+	      // add to a list
+	      auto& container =
+	          («((EReference)ef).getListImpl()»&)
+	          ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»();
+	      container.basicAdd(_t1);
+          «ENDIF-»
+      «ENDIF-»
+            }
+            return;
+      «ENDIF-»
+    «ENDFOREACH»
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void «name»::_inverseRemove( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
+      «IF EReference.isInstance(ef)-»
+        case «ef.getCPPFQN()» :
+            {
+      «IF ((EReference)ef).EOpposite != null-»
+                ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_oldValue);
+                «ef.getCPPTypeSignatureImpl()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»_ptr >(_t0);
+
+          «IF ef.upperBound == 1-»
+	      // set reference
+	      if (basicget«ef.name.toFirstUpper()»() == _t1)
+	          basicset«ef.name.toFirstUpper()»(nullptr);
+          «ELSE-»
+	      // add to a list
+	      auto& container =
+	          («((EReference)ef).getListImpl()»&)
+	          ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»();
+	      container.basicRemove(_t1);
+          «ENDIF-»
+      «ENDIF-»
+            }
+            return;
+      «ENDIF-»
+    «ENDFOREACH»
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+
 «ENDFILE»
 «ENDDEFINE»

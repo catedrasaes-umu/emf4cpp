@@ -26,8 +26,15 @@ std::unique_ptr< ::CST::CSTPackage,
 
 ::CST::CSTPackage_ptr CSTPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new CSTPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

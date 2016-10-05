@@ -41,15 +41,18 @@ EAnnotation::EAnnotation() :
     m_details.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::ecore::EStringToStringMapEntry, -1, true, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEAnnotation__details()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEAnnotation__details() :
+                            nullptr));
     m_contents.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject, -1,
                     true, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEAnnotation__contents()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEAnnotation__contents() :
+                            nullptr));
     m_references.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject, -1,
                     false, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEAnnotation__references()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEAnnotation__references() :
+                            nullptr));
 
     /*PROTECTED REGION ID(EAnnotationImpl__EAnnotationImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -108,7 +111,13 @@ void EAnnotation::setSource(::ecore::EString const& _source)
     return m_eModelElement;
 }
 
-void EAnnotation::setEModelElement(::ecore::EModelElement_ptr _eModelElement)
+::ecore::EModelElement_ptr EAnnotation::basicgetEModelElement()
+{
+    return m_eModelElement;
+}
+
+void EAnnotation::basicsetEModelElement(
+        ::ecore::EModelElement_ptr _eModelElement)
 {
     ::ecore::EModelElement_ptr _old_eModelElement = m_eModelElement;
 
@@ -128,6 +137,25 @@ void EAnnotation::setEModelElement(::ecore::EModelElement_ptr _eModelElement)
     }
 #endif
 
+}
+
+void EAnnotation::setEModelElement(::ecore::EModelElement_ptr _eModelElement)
+{
+    if (_eModelElement != m_eModelElement)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_eModelElement != nullptr)
+        {
+            m_eModelElement->_inverseRemove(
+                    ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS, _this);
+        }
+        if (_eModelElement != nullptr)
+        {
+            _eModelElement->_inverseAdd(
+                    ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS, _this);
+        }
+        basicsetEModelElement(_eModelElement);
+    }
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getContents()

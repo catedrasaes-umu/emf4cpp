@@ -38,6 +38,14 @@ using namespace ::bintree;
 BintreePackage::BintreePackage()
 {
 
+    // Feature definitions of BinTreeNode
+    m_BinTreeNode__data = new ::ecore::EAttribute();
+    m_BinTreeNode__parent = new ::ecore::EReference();
+    m_BinTreeNode__left = new ::ecore::EReference();
+    m_BinTreeNode__right = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -52,22 +60,22 @@ BintreePackage::BintreePackage()
     m_BinTreeNodeEClass->setClassifierID(BINTREENODE);
     m_BinTreeNodeEClass->setEPackage(this);
     getEClassifiers().push_back(m_BinTreeNodeEClass);
-    m_BinTreeNode__data = new ::ecore::EAttribute();
+    // m_BinTreeNode__data has already been allocated above
     m_BinTreeNode__data->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__DATA);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
             m_BinTreeNode__data);
-    m_BinTreeNode__parent = new ::ecore::EReference();
+    // m_BinTreeNode__parent has already been allocated above
     m_BinTreeNode__parent->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__PARENT);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
             m_BinTreeNode__parent);
-    m_BinTreeNode__left = new ::ecore::EReference();
+    // m_BinTreeNode__left has already been allocated above
     m_BinTreeNode__left->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__LEFT);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
             m_BinTreeNode__left);
-    m_BinTreeNode__right = new ::ecore::EReference();
+    // m_BinTreeNode__right has already been allocated above
     m_BinTreeNode__right->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__RIGHT);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(

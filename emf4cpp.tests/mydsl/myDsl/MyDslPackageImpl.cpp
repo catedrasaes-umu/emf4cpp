@@ -38,6 +38,29 @@ using namespace ::myDsl;
 MyDslPackage::MyDslPackage()
 {
 
+    // Feature definitions of Model
+    m_Model__imports = new ::ecore::EReference();
+    m_Model__elements = new ::ecore::EReference();
+
+    // Feature definitions of Import
+    m_Import__importURI = new ::ecore::EAttribute();
+
+    // Feature definitions of Type
+    m_Type__name = new ::ecore::EAttribute();
+
+    // Feature definitions of SimpleType
+
+    // Feature definitions of Entity
+    m_Entity__extends = new ::ecore::EReference();
+    m_Entity__properties = new ::ecore::EReference();
+
+    // Feature definitions of Property
+    m_Property__name = new ::ecore::EAttribute();
+    m_Property__many = new ::ecore::EAttribute();
+    m_Property__type = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -52,10 +75,10 @@ MyDslPackage::MyDslPackage()
     m_ModelEClass->setClassifierID(MODEL);
     m_ModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_ModelEClass);
-    m_Model__imports = new ::ecore::EReference();
+    // m_Model__imports has already been allocated above
     m_Model__imports->setFeatureID(::myDsl::MyDslPackage::MODEL__IMPORTS);
     m_ModelEClass->getEStructuralFeatures().push_back(m_Model__imports);
-    m_Model__elements = new ::ecore::EReference();
+    // m_Model__elements has already been allocated above
     m_Model__elements->setFeatureID(::myDsl::MyDslPackage::MODEL__ELEMENTS);
     m_ModelEClass->getEStructuralFeatures().push_back(m_Model__elements);
 
@@ -64,7 +87,7 @@ MyDslPackage::MyDslPackage()
     m_ImportEClass->setClassifierID(IMPORT);
     m_ImportEClass->setEPackage(this);
     getEClassifiers().push_back(m_ImportEClass);
-    m_Import__importURI = new ::ecore::EAttribute();
+    // m_Import__importURI has already been allocated above
     m_Import__importURI->setFeatureID(::myDsl::MyDslPackage::IMPORT__IMPORTURI);
     m_ImportEClass->getEStructuralFeatures().push_back(m_Import__importURI);
 
@@ -73,7 +96,7 @@ MyDslPackage::MyDslPackage()
     m_TypeEClass->setClassifierID(TYPE);
     m_TypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_TypeEClass);
-    m_Type__name = new ::ecore::EAttribute();
+    // m_Type__name has already been allocated above
     m_Type__name->setFeatureID(::myDsl::MyDslPackage::TYPE__NAME);
     m_TypeEClass->getEStructuralFeatures().push_back(m_Type__name);
 
@@ -88,10 +111,10 @@ MyDslPackage::MyDslPackage()
     m_EntityEClass->setClassifierID(ENTITY);
     m_EntityEClass->setEPackage(this);
     getEClassifiers().push_back(m_EntityEClass);
-    m_Entity__extends = new ::ecore::EReference();
+    // m_Entity__extends has already been allocated above
     m_Entity__extends->setFeatureID(::myDsl::MyDslPackage::ENTITY__EXTENDS);
     m_EntityEClass->getEStructuralFeatures().push_back(m_Entity__extends);
-    m_Entity__properties = new ::ecore::EReference();
+    // m_Entity__properties has already been allocated above
     m_Entity__properties->setFeatureID(
             ::myDsl::MyDslPackage::ENTITY__PROPERTIES);
     m_EntityEClass->getEStructuralFeatures().push_back(m_Entity__properties);
@@ -101,13 +124,13 @@ MyDslPackage::MyDslPackage()
     m_PropertyEClass->setClassifierID(PROPERTY);
     m_PropertyEClass->setEPackage(this);
     getEClassifiers().push_back(m_PropertyEClass);
-    m_Property__name = new ::ecore::EAttribute();
+    // m_Property__name has already been allocated above
     m_Property__name->setFeatureID(::myDsl::MyDslPackage::PROPERTY__NAME);
     m_PropertyEClass->getEStructuralFeatures().push_back(m_Property__name);
-    m_Property__many = new ::ecore::EAttribute();
+    // m_Property__many has already been allocated above
     m_Property__many->setFeatureID(::myDsl::MyDslPackage::PROPERTY__MANY);
     m_PropertyEClass->getEStructuralFeatures().push_back(m_Property__many);
-    m_Property__type = new ::ecore::EReference();
+    // m_Property__type has already been allocated above
     m_Property__type->setFeatureID(::myDsl::MyDslPackage::PROPERTY__TYPE);
     m_PropertyEClass->getEStructuralFeatures().push_back(m_Property__type);
 

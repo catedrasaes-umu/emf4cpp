@@ -64,6 +64,10 @@ namespace json
         virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
+        virtual void _inverseAdd(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _oldValue);
 
         /*PROTECTED REGION ID(StringValueImpl) START*/
         // Please, enable the protected region if you add manually written code.

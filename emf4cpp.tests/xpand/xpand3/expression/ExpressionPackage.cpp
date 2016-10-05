@@ -26,8 +26,15 @@ std::unique_ptr< ::xpand3::expression::ExpressionPackage,
 
 ::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new ExpressionPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

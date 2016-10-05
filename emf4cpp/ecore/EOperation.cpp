@@ -45,20 +45,24 @@ EOperation::EOperation() :
     m_eTypeParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::ecore::ETypeParameter, -1, true, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEOperation__eTypeParameters()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eTypeParameters() :
+                            nullptr));
     m_eParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EParameter,
                     -1, true, true >(this,
-                    ::ecore::EcorePackage::_instance()->getEOperation__eParameters(),
-                    NULL));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eParameters() :
+                            nullptr,
+                    ::ecore::EcorePackage::EPARAMETER__EOPERATION));
     m_eExceptions.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClassifier,
                     -1, false, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEOperation__eExceptions()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eExceptions() :
+                            nullptr));
     m_eGenericExceptions.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
                     -1, true, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEOperation__eGenericExceptions()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eGenericExceptions() :
+                            nullptr));
 
     /*PROTECTED REGION ID(EOperationImpl__EOperationImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -86,7 +90,12 @@ EOperation::~EOperation()
     return m_eContainingClass;
 }
 
-void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)
+::ecore::EClass_ptr EOperation::basicgetEContainingClass()
+{
+    return m_eContainingClass;
+}
+
+void EOperation::basicsetEContainingClass(::ecore::EClass_ptr _eContainingClass)
 {
     ::ecore::EClass_ptr _old_eContainingClass = m_eContainingClass;
 
@@ -106,6 +115,25 @@ void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)
     }
 #endif
 
+}
+
+void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)
+{
+    if (_eContainingClass != m_eContainingClass)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_eContainingClass != nullptr)
+        {
+            m_eContainingClass->_inverseRemove(
+                    ::ecore::EcorePackage::ECLASS__EOPERATIONS, _this);
+        }
+        if (_eContainingClass != nullptr)
+        {
+            _eContainingClass->_inverseAdd(
+                    ::ecore::EcorePackage::ECLASS__EOPERATIONS, _this);
+        }
+        basicsetEContainingClass(_eContainingClass);
+    }
 }
 
 ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EOperation::getETypeParameters()

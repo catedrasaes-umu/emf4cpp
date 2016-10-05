@@ -193,3 +193,43 @@ void Case::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Case::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::CASE__CONDITION:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::CASE__THENPART:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Case::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::CASE__CONDITION:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::CASE__THENPART:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

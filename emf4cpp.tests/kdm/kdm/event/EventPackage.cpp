@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::event::EventPackage,
 
 ::kdm::event::EventPackage_ptr EventPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new EventPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

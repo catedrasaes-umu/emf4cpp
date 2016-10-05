@@ -40,6 +40,29 @@ using namespace ::xpand3;
 Xpand3Package::Xpand3Package()
 {
 
+    // Feature definitions of SyntaxElement
+    m_SyntaxElement__line = new ::ecore::EAttribute();
+    m_SyntaxElement__start = new ::ecore::EAttribute();
+    m_SyntaxElement__end = new ::ecore::EAttribute();
+    m_SyntaxElement__fileName = new ::ecore::EAttribute();
+
+    // Feature definitions of File
+    m_File__imports = new ::ecore::EReference();
+    m_File__declarations = new ::ecore::EReference();
+
+    // Feature definitions of ImportStatement
+    m_ImportStatement__exported = new ::ecore::EAttribute();
+    m_ImportStatement__importedId = new ::ecore::EReference();
+
+    // Feature definitions of Identifier
+    m_Identifier__value = new ::ecore::EAttribute();
+
+    // Feature definitions of DeclaredParameter
+    m_DeclaredParameter__name = new ::ecore::EReference();
+    m_DeclaredParameter__type = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -54,22 +77,22 @@ Xpand3Package::Xpand3Package()
     m_SyntaxElementEClass->setClassifierID(SYNTAXELEMENT);
     m_SyntaxElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_SyntaxElementEClass);
-    m_SyntaxElement__line = new ::ecore::EAttribute();
+    // m_SyntaxElement__line has already been allocated above
     m_SyntaxElement__line->setFeatureID(
             ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE);
     m_SyntaxElementEClass->getEStructuralFeatures().push_back(
             m_SyntaxElement__line);
-    m_SyntaxElement__start = new ::ecore::EAttribute();
+    // m_SyntaxElement__start has already been allocated above
     m_SyntaxElement__start->setFeatureID(
             ::xpand3::Xpand3Package::SYNTAXELEMENT__START);
     m_SyntaxElementEClass->getEStructuralFeatures().push_back(
             m_SyntaxElement__start);
-    m_SyntaxElement__end = new ::ecore::EAttribute();
+    // m_SyntaxElement__end has already been allocated above
     m_SyntaxElement__end->setFeatureID(
             ::xpand3::Xpand3Package::SYNTAXELEMENT__END);
     m_SyntaxElementEClass->getEStructuralFeatures().push_back(
             m_SyntaxElement__end);
-    m_SyntaxElement__fileName = new ::ecore::EAttribute();
+    // m_SyntaxElement__fileName has already been allocated above
     m_SyntaxElement__fileName->setFeatureID(
             ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME);
     m_SyntaxElementEClass->getEStructuralFeatures().push_back(
@@ -80,10 +103,10 @@ Xpand3Package::Xpand3Package()
     m_FileEClass->setClassifierID(FILE);
     m_FileEClass->setEPackage(this);
     getEClassifiers().push_back(m_FileEClass);
-    m_File__imports = new ::ecore::EReference();
+    // m_File__imports has already been allocated above
     m_File__imports->setFeatureID(::xpand3::Xpand3Package::FILE__IMPORTS);
     m_FileEClass->getEStructuralFeatures().push_back(m_File__imports);
-    m_File__declarations = new ::ecore::EReference();
+    // m_File__declarations has already been allocated above
     m_File__declarations->setFeatureID(
             ::xpand3::Xpand3Package::FILE__DECLARATIONS);
     m_FileEClass->getEStructuralFeatures().push_back(m_File__declarations);
@@ -93,12 +116,12 @@ Xpand3Package::Xpand3Package()
     m_ImportStatementEClass->setClassifierID(IMPORTSTATEMENT);
     m_ImportStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ImportStatementEClass);
-    m_ImportStatement__exported = new ::ecore::EAttribute();
+    // m_ImportStatement__exported has already been allocated above
     m_ImportStatement__exported->setFeatureID(
             ::xpand3::Xpand3Package::IMPORTSTATEMENT__EXPORTED);
     m_ImportStatementEClass->getEStructuralFeatures().push_back(
             m_ImportStatement__exported);
-    m_ImportStatement__importedId = new ::ecore::EReference();
+    // m_ImportStatement__importedId has already been allocated above
     m_ImportStatement__importedId->setFeatureID(
             ::xpand3::Xpand3Package::IMPORTSTATEMENT__IMPORTEDID);
     m_ImportStatementEClass->getEStructuralFeatures().push_back(
@@ -109,7 +132,7 @@ Xpand3Package::Xpand3Package()
     m_IdentifierEClass->setClassifierID(IDENTIFIER);
     m_IdentifierEClass->setEPackage(this);
     getEClassifiers().push_back(m_IdentifierEClass);
-    m_Identifier__value = new ::ecore::EAttribute();
+    // m_Identifier__value has already been allocated above
     m_Identifier__value->setFeatureID(
             ::xpand3::Xpand3Package::IDENTIFIER__VALUE);
     m_IdentifierEClass->getEStructuralFeatures().push_back(m_Identifier__value);
@@ -119,12 +142,12 @@ Xpand3Package::Xpand3Package()
     m_DeclaredParameterEClass->setClassifierID(DECLAREDPARAMETER);
     m_DeclaredParameterEClass->setEPackage(this);
     getEClassifiers().push_back(m_DeclaredParameterEClass);
-    m_DeclaredParameter__name = new ::ecore::EReference();
+    // m_DeclaredParameter__name has already been allocated above
     m_DeclaredParameter__name->setFeatureID(
             ::xpand3::Xpand3Package::DECLAREDPARAMETER__NAME);
     m_DeclaredParameterEClass->getEStructuralFeatures().push_back(
             m_DeclaredParameter__name);
-    m_DeclaredParameter__type = new ::ecore::EReference();
+    // m_DeclaredParameter__type has already been allocated above
     m_DeclaredParameter__type->setFeatureID(
             ::xpand3::Xpand3Package::DECLAREDPARAMETER__TYPE);
     m_DeclaredParameterEClass->getEStructuralFeatures().push_back(

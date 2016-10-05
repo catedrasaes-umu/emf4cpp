@@ -42,13 +42,15 @@ EPackage::EPackage() :
     m_eClassifiers.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClassifier,
                     -1, true, true >(this,
-                    ::ecore::EcorePackage::_instance()->getEPackage__eClassifiers(),
-                    NULL));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEPackage__eClassifiers() :
+                            nullptr,
+                    ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE));
     m_eSubpackages.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EPackage, -1,
                     true, true >(this,
-                    ::ecore::EcorePackage::_instance()->getEPackage__eSubpackages(),
-                    NULL));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEPackage__eSubpackages() :
+                            nullptr,
+                    ::ecore::EcorePackage::EPACKAGE__ESUPERPACKAGE));
 
     /*PROTECTED REGION ID(EPackageImpl__EPackageImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -128,7 +130,12 @@ void EPackage::setNsPrefix(::ecore::EString const& _nsPrefix)
     return m_eFactoryInstance;
 }
 
-void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
+::ecore::EFactory_ptr EPackage::basicgetEFactoryInstance()
+{
+    return m_eFactoryInstance;
+}
+
+void EPackage::basicsetEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
 {
     ::ecore::EFactory_ptr _old_eFactoryInstance = m_eFactoryInstance;
 
@@ -150,6 +157,25 @@ void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
 
 }
 
+void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
+{
+    if (_eFactoryInstance != m_eFactoryInstance)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_eFactoryInstance != nullptr)
+        {
+            m_eFactoryInstance->_inverseRemove(
+                    ::ecore::EcorePackage::EFACTORY__EPACKAGE, _this);
+        }
+        if (_eFactoryInstance != nullptr)
+        {
+            _eFactoryInstance->_inverseAdd(
+                    ::ecore::EcorePackage::EFACTORY__EPACKAGE, _this);
+        }
+        basicsetEFactoryInstance(_eFactoryInstance);
+    }
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EClassifier >& EPackage::getEClassifiers()
 {
     return *m_eClassifiers;
@@ -165,7 +191,12 @@ void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
     return m_eSuperPackage;
 }
 
-void EPackage::setESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
+::ecore::EPackage_ptr EPackage::basicgetESuperPackage()
+{
+    return m_eSuperPackage;
+}
+
+void EPackage::basicsetESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
 {
     ::ecore::EPackage_ptr _old_eSuperPackage = m_eSuperPackage;
 
@@ -185,5 +216,24 @@ void EPackage::setESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
     }
 #endif
 
+}
+
+void EPackage::setESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
+{
+    if (_eSuperPackage != m_eSuperPackage)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_eSuperPackage != nullptr)
+        {
+            m_eSuperPackage->_inverseRemove(
+                    ::ecore::EcorePackage::EPACKAGE__ESUBPACKAGES, _this);
+        }
+        if (_eSuperPackage != nullptr)
+        {
+            _eSuperPackage->_inverseAdd(
+                    ::ecore::EcorePackage::EPACKAGE__ESUBPACKAGES, _this);
+        }
+        basicsetESuperPackage(_eSuperPackage);
+    }
 }
 

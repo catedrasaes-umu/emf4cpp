@@ -38,7 +38,7 @@ Attribute::Attribute()
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getAttribute__attOwner(),
-                    NULL));
+                    ::SVG::SVGPackage::ELEMENT__ATTRIBUTE));
 
     /*PROTECTED REGION ID(AttributeImpl__AttributeImpl) START*/
 // Please, enable the protected region if you add manually written code.

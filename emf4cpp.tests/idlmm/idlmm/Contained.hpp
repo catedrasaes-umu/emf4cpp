@@ -63,6 +63,8 @@ namespace idlmm
         // References
         ::idlmm::Container_ptr getDefinedIn();
         void setDefinedIn(::idlmm::Container_ptr _definedIn);
+        ::idlmm::Container_ptr basicgetDefinedIn();
+        void basicsetDefinedIn(::idlmm::Container_ptr _definedIn);
 
         /*PROTECTED REGION ID(Contained) START*/
         // Please, enable the protected region if you add manually written code.
@@ -77,6 +79,10 @@ namespace idlmm
         virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
+        virtual void _inverseAdd(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _oldValue);
 
         /*PROTECTED REGION ID(ContainedImpl) START*/
         // Please, enable the protected region if you add manually written code.

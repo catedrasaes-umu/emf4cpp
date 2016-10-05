@@ -67,6 +67,10 @@ String getFeatureGetMemberCall(EPackage this, EStructuralFeature ef) :
     getPackageFQN() + "::_instance()->" + getFeatureGetMember(ef) + "()"
 ;
 
+String getFeatureGetMemberCallOptional(EPackage this, EStructuralFeature ef) :
+    getPackageFQN() + "::_instance() ? " + getPackageFQN() + "::_instance()->" + getFeatureGetMember(ef) + "() : nullptr"
+;
+
 String getFeatureGetMemberCallOrThis(EPackage this, EStructuralFeature ef) :
 	"(dynamic_cast< " + getPackageFQN() + " >(this))? dynamic_cast< " + getPackageFQN() + " >(this)->" + getFeatureGetMember(ef) + "() " + ": " + getFeatureGetMemberCall(ef)
 ;

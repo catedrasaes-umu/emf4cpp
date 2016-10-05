@@ -67,6 +67,8 @@ namespace ecore
         // References
         ::ecore::EFactory_ptr getEFactoryInstance();
         void setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance);
+        ::ecore::EFactory_ptr basicgetEFactoryInstance();
+        void basicsetEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance);
 
         ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers();
 
@@ -74,6 +76,8 @@ namespace ecore
 
         ::ecore::EPackage_ptr getESuperPackage();
         void setESuperPackage(::ecore::EPackage_ptr _eSuperPackage);
+        ::ecore::EPackage_ptr basicgetESuperPackage();
+        void basicsetESuperPackage(::ecore::EPackage_ptr _eSuperPackage);
 
         /*PROTECTED REGION ID(EPackage) ENABLED START*/
         // Please, enable the protected region if you add manually written code.
@@ -99,6 +103,10 @@ namespace ecore
         virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
+        virtual void _inverseAdd(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _oldValue);
 
         /*PROTECTED REGION ID(EPackageImpl) START*/
         // Please, enable the protected region if you add manually written code.

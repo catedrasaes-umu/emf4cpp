@@ -53,6 +53,8 @@ namespace ecore
 
         ::ecore::EModelElement_ptr getEModelElement();
         void setEModelElement(::ecore::EModelElement_ptr _eModelElement);
+        ::ecore::EModelElement_ptr basicgetEModelElement();
+        void basicsetEModelElement(::ecore::EModelElement_ptr _eModelElement);
 
         ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents();
 
@@ -71,6 +73,10 @@ namespace ecore
         virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
+        virtual void _inverseAdd(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _oldValue);
 
         /*PROTECTED REGION ID(EAnnotationImpl) START*/
         // Please, enable the protected region if you add manually written code.

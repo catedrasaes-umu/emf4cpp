@@ -42,7 +42,7 @@ SvgFile::SvgFile() :
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getSvgFile__elements(),
-                    NULL));
+                    ::SVG::SVGPackage::ELEMENT__OWNER));
 
     /*PROTECTED REGION ID(SvgFileImpl__SvgFileImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -70,7 +70,12 @@ SvgFile::~SvgFile()
     return m_tag;
 }
 
-void SvgFile::setTag(::SVG::Svg_ptr _tag)
+::SVG::Svg_ptr SvgFile::basicgetTag()
+{
+    return m_tag;
+}
+
+void SvgFile::basicsetTag(::SVG::Svg_ptr _tag)
 {
     ::SVG::Svg_ptr _old_tag = m_tag;
 
@@ -90,6 +95,23 @@ void SvgFile::setTag(::SVG::Svg_ptr _tag)
     }
 #endif
 
+}
+
+void SvgFile::setTag(::SVG::Svg_ptr _tag)
+{
+    if (_tag != m_tag)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_tag != nullptr)
+        {
+            m_tag->_inverseRemove(::SVG::SVGPackage::SVG__OWNER_SVG, _this);
+        }
+        if (_tag != nullptr)
+        {
+            _tag->_inverseAdd(::SVG::SVGPackage::SVG__OWNER_SVG, _this);
+        }
+        basicsetTag(_tag);
+    }
 }
 
 ::ecorecpp::mapping::EList< ::SVG::Element >& SvgFile::getElements()

@@ -26,8 +26,15 @@ std::unique_ptr< ::enumeration::EnumerationPackage,
 
 ::enumeration::EnumerationPackage_ptr EnumerationPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new EnumerationPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

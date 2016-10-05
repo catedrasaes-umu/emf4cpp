@@ -37,6 +37,8 @@ using namespace ::PrimitiveTypes;
 PrimitiveTypesPackage::PrimitiveTypesPackage()
 {
 
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory

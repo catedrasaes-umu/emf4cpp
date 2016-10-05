@@ -50,6 +50,45 @@ using namespace ::kdm::conceptual;
 ConceptualPackage::ConceptualPackage()
 {
 
+    // Feature definitions of ConceptualModel
+    m_ConceptualModel__conceptualElement = new ::ecore::EReference();
+
+    // Feature definitions of AbstractConceptualElement
+    m_AbstractConceptualElement__source = new ::ecore::EReference();
+    m_AbstractConceptualElement__implementation = new ::ecore::EReference();
+    m_AbstractConceptualElement__conceptualRelation = new ::ecore::EReference();
+    m_AbstractConceptualElement__abstraction = new ::ecore::EReference();
+
+    // Feature definitions of TermUnit
+
+    // Feature definitions of ConceptualContainer
+    m_ConceptualContainer__conceptualElement = new ::ecore::EReference();
+
+    // Feature definitions of FactUnit
+
+    // Feature definitions of AbstractConceptualRelationship
+
+    // Feature definitions of ConceptualRelationship
+    m_ConceptualRelationship__to = new ::ecore::EReference();
+    m_ConceptualRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of BehaviorUnit
+
+    // Feature definitions of RuleUnit
+
+    // Feature definitions of ScenarioUnit
+
+    // Feature definitions of ConceptualFlow
+    m_ConceptualFlow__to = new ::ecore::EReference();
+    m_ConceptualFlow__from = new ::ecore::EReference();
+
+    // Feature definitions of ConceptualElement
+
+    // Feature definitions of ConceptualRole
+    m_ConceptualRole__conceptualElement = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -64,7 +103,7 @@ ConceptualPackage::ConceptualPackage()
     m_ConceptualModelEClass->setClassifierID(CONCEPTUALMODEL);
     m_ConceptualModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConceptualModelEClass);
-    m_ConceptualModel__conceptualElement = new ::ecore::EReference();
+    // m_ConceptualModel__conceptualElement has already been allocated above
     m_ConceptualModel__conceptualElement->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::CONCEPTUALMODEL__CONCEPTUALELEMENT);
     m_ConceptualModelEClass->getEStructuralFeatures().push_back(
@@ -76,22 +115,22 @@ ConceptualPackage::ConceptualPackage()
             ABSTRACTCONCEPTUALELEMENT);
     m_AbstractConceptualElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractConceptualElementEClass);
-    m_AbstractConceptualElement__source = new ::ecore::EReference();
+    // m_AbstractConceptualElement__source has already been allocated above
     m_AbstractConceptualElement__source->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::ABSTRACTCONCEPTUALELEMENT__SOURCE);
     m_AbstractConceptualElementEClass->getEStructuralFeatures().push_back(
             m_AbstractConceptualElement__source);
-    m_AbstractConceptualElement__implementation = new ::ecore::EReference();
+    // m_AbstractConceptualElement__implementation has already been allocated above
     m_AbstractConceptualElement__implementation->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::ABSTRACTCONCEPTUALELEMENT__IMPLEMENTATION);
     m_AbstractConceptualElementEClass->getEStructuralFeatures().push_back(
             m_AbstractConceptualElement__implementation);
-    m_AbstractConceptualElement__conceptualRelation = new ::ecore::EReference();
+    // m_AbstractConceptualElement__conceptualRelation has already been allocated above
     m_AbstractConceptualElement__conceptualRelation->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::ABSTRACTCONCEPTUALELEMENT__CONCEPTUALRELATION);
     m_AbstractConceptualElementEClass->getEStructuralFeatures().push_back(
             m_AbstractConceptualElement__conceptualRelation);
-    m_AbstractConceptualElement__abstraction = new ::ecore::EReference();
+    // m_AbstractConceptualElement__abstraction has already been allocated above
     m_AbstractConceptualElement__abstraction->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::ABSTRACTCONCEPTUALELEMENT__ABSTRACTION);
     m_AbstractConceptualElementEClass->getEStructuralFeatures().push_back(
@@ -108,7 +147,7 @@ ConceptualPackage::ConceptualPackage()
     m_ConceptualContainerEClass->setClassifierID(CONCEPTUALCONTAINER);
     m_ConceptualContainerEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConceptualContainerEClass);
-    m_ConceptualContainer__conceptualElement = new ::ecore::EReference();
+    // m_ConceptualContainer__conceptualElement has already been allocated above
     m_ConceptualContainer__conceptualElement->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::CONCEPTUALCONTAINER__CONCEPTUALELEMENT);
     m_ConceptualContainerEClass->getEStructuralFeatures().push_back(
@@ -132,12 +171,12 @@ ConceptualPackage::ConceptualPackage()
     m_ConceptualRelationshipEClass->setClassifierID(CONCEPTUALRELATIONSHIP);
     m_ConceptualRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConceptualRelationshipEClass);
-    m_ConceptualRelationship__to = new ::ecore::EReference();
+    // m_ConceptualRelationship__to has already been allocated above
     m_ConceptualRelationship__to->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::CONCEPTUALRELATIONSHIP__TO);
     m_ConceptualRelationshipEClass->getEStructuralFeatures().push_back(
             m_ConceptualRelationship__to);
-    m_ConceptualRelationship__from = new ::ecore::EReference();
+    // m_ConceptualRelationship__from has already been allocated above
     m_ConceptualRelationship__from->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::CONCEPTUALRELATIONSHIP__FROM);
     m_ConceptualRelationshipEClass->getEStructuralFeatures().push_back(
@@ -166,12 +205,12 @@ ConceptualPackage::ConceptualPackage()
     m_ConceptualFlowEClass->setClassifierID(CONCEPTUALFLOW);
     m_ConceptualFlowEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConceptualFlowEClass);
-    m_ConceptualFlow__to = new ::ecore::EReference();
+    // m_ConceptualFlow__to has already been allocated above
     m_ConceptualFlow__to->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::CONCEPTUALFLOW__TO);
     m_ConceptualFlowEClass->getEStructuralFeatures().push_back(
             m_ConceptualFlow__to);
-    m_ConceptualFlow__from = new ::ecore::EReference();
+    // m_ConceptualFlow__from has already been allocated above
     m_ConceptualFlow__from->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::CONCEPTUALFLOW__FROM);
     m_ConceptualFlowEClass->getEStructuralFeatures().push_back(
@@ -188,7 +227,7 @@ ConceptualPackage::ConceptualPackage()
     m_ConceptualRoleEClass->setClassifierID(CONCEPTUALROLE);
     m_ConceptualRoleEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConceptualRoleEClass);
-    m_ConceptualRole__conceptualElement = new ::ecore::EReference();
+    // m_ConceptualRole__conceptualElement has already been allocated above
     m_ConceptualRole__conceptualElement->setFeatureID(
             ::kdm::conceptual::ConceptualPackage::CONCEPTUALROLE__CONCEPTUALELEMENT);
     m_ConceptualRoleEClass->getEStructuralFeatures().push_back(

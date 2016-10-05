@@ -46,6 +46,49 @@ using namespace ::xpand3::declaration;
 DeclarationPackage::DeclarationPackage()
 {
 
+    // Feature definitions of AbstractDeclaration
+    m_AbstractDeclaration__isPrivate = new ::ecore::EAttribute();
+    m_AbstractDeclaration__owner = new ::ecore::EReference();
+    m_AbstractDeclaration__params = new ::ecore::EReference();
+    m_AbstractDeclaration__guard = new ::ecore::EReference();
+
+    // Feature definitions of AbstractNamedDeclaration
+    m_AbstractNamedDeclaration__name = new ::ecore::EReference();
+
+    // Feature definitions of Definition
+    m_Definition__body = new ::ecore::EReference();
+
+    // Feature definitions of Extension
+    m_Extension__cached = new ::ecore::EAttribute();
+    m_Extension__body = new ::ecore::EReference();
+    m_Extension__returnType = new ::ecore::EReference();
+
+    // Feature definitions of AbstractAspect
+    m_AbstractAspect__wildparams = new ::ecore::EAttribute();
+    m_AbstractAspect__pointcut = new ::ecore::EReference();
+
+    // Feature definitions of ExtensionAspect
+    m_ExtensionAspect__expression = new ::ecore::EReference();
+
+    // Feature definitions of DefinitionAspect
+    m_DefinitionAspect__body = new ::ecore::EReference();
+
+    // Feature definitions of Check
+    m_Check__errorSeverity = new ::ecore::EAttribute();
+    m_Check__feature = new ::ecore::EAttribute();
+    m_Check__msg = new ::ecore::EReference();
+    m_Check__constraint = new ::ecore::EReference();
+
+    // Feature definitions of CreateExtension
+    m_CreateExtension__toBeCreated = new ::ecore::EReference();
+
+    // Feature definitions of JavaExtension
+    m_JavaExtension__javaType = new ::ecore::EReference();
+    m_JavaExtension__javaMethod = new ::ecore::EReference();
+    m_JavaExtension__javaParamTypes = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -60,22 +103,22 @@ DeclarationPackage::DeclarationPackage()
     m_AbstractDeclarationEClass->setClassifierID(ABSTRACTDECLARATION);
     m_AbstractDeclarationEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractDeclarationEClass);
-    m_AbstractDeclaration__isPrivate = new ::ecore::EAttribute();
+    // m_AbstractDeclaration__isPrivate has already been allocated above
     m_AbstractDeclaration__isPrivate->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE);
     m_AbstractDeclarationEClass->getEStructuralFeatures().push_back(
             m_AbstractDeclaration__isPrivate);
-    m_AbstractDeclaration__owner = new ::ecore::EReference();
+    // m_AbstractDeclaration__owner has already been allocated above
     m_AbstractDeclaration__owner->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER);
     m_AbstractDeclarationEClass->getEStructuralFeatures().push_back(
             m_AbstractDeclaration__owner);
-    m_AbstractDeclaration__params = new ::ecore::EReference();
+    // m_AbstractDeclaration__params has already been allocated above
     m_AbstractDeclaration__params->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS);
     m_AbstractDeclarationEClass->getEStructuralFeatures().push_back(
             m_AbstractDeclaration__params);
-    m_AbstractDeclaration__guard = new ::ecore::EReference();
+    // m_AbstractDeclaration__guard has already been allocated above
     m_AbstractDeclaration__guard->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD);
     m_AbstractDeclarationEClass->getEStructuralFeatures().push_back(
@@ -86,7 +129,7 @@ DeclarationPackage::DeclarationPackage()
     m_AbstractNamedDeclarationEClass->setClassifierID(ABSTRACTNAMEDDECLARATION);
     m_AbstractNamedDeclarationEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractNamedDeclarationEClass);
-    m_AbstractNamedDeclaration__name = new ::ecore::EReference();
+    // m_AbstractNamedDeclaration__name has already been allocated above
     m_AbstractNamedDeclaration__name->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME);
     m_AbstractNamedDeclarationEClass->getEStructuralFeatures().push_back(
@@ -97,7 +140,7 @@ DeclarationPackage::DeclarationPackage()
     m_DefinitionEClass->setClassifierID(DEFINITION);
     m_DefinitionEClass->setEPackage(this);
     getEClassifiers().push_back(m_DefinitionEClass);
-    m_Definition__body = new ::ecore::EReference();
+    // m_Definition__body has already been allocated above
     m_Definition__body->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::DEFINITION__BODY);
     m_DefinitionEClass->getEStructuralFeatures().push_back(m_Definition__body);
@@ -107,15 +150,15 @@ DeclarationPackage::DeclarationPackage()
     m_ExtensionEClass->setClassifierID(EXTENSION);
     m_ExtensionEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExtensionEClass);
-    m_Extension__cached = new ::ecore::EAttribute();
+    // m_Extension__cached has already been allocated above
     m_Extension__cached->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::EXTENSION__CACHED);
     m_ExtensionEClass->getEStructuralFeatures().push_back(m_Extension__cached);
-    m_Extension__body = new ::ecore::EReference();
+    // m_Extension__body has already been allocated above
     m_Extension__body->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::EXTENSION__BODY);
     m_ExtensionEClass->getEStructuralFeatures().push_back(m_Extension__body);
-    m_Extension__returnType = new ::ecore::EReference();
+    // m_Extension__returnType has already been allocated above
     m_Extension__returnType->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::EXTENSION__RETURNTYPE);
     m_ExtensionEClass->getEStructuralFeatures().push_back(
@@ -126,12 +169,12 @@ DeclarationPackage::DeclarationPackage()
     m_AbstractAspectEClass->setClassifierID(ABSTRACTASPECT);
     m_AbstractAspectEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractAspectEClass);
-    m_AbstractAspect__wildparams = new ::ecore::EAttribute();
+    // m_AbstractAspect__wildparams has already been allocated above
     m_AbstractAspect__wildparams->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__WILDPARAMS);
     m_AbstractAspectEClass->getEStructuralFeatures().push_back(
             m_AbstractAspect__wildparams);
-    m_AbstractAspect__pointcut = new ::ecore::EReference();
+    // m_AbstractAspect__pointcut has already been allocated above
     m_AbstractAspect__pointcut->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__POINTCUT);
     m_AbstractAspectEClass->getEStructuralFeatures().push_back(
@@ -142,7 +185,7 @@ DeclarationPackage::DeclarationPackage()
     m_ExtensionAspectEClass->setClassifierID(EXTENSIONASPECT);
     m_ExtensionAspectEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExtensionAspectEClass);
-    m_ExtensionAspect__expression = new ::ecore::EReference();
+    // m_ExtensionAspect__expression has already been allocated above
     m_ExtensionAspect__expression->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::EXTENSIONASPECT__EXPRESSION);
     m_ExtensionAspectEClass->getEStructuralFeatures().push_back(
@@ -153,7 +196,7 @@ DeclarationPackage::DeclarationPackage()
     m_DefinitionAspectEClass->setClassifierID(DEFINITIONASPECT);
     m_DefinitionAspectEClass->setEPackage(this);
     getEClassifiers().push_back(m_DefinitionAspectEClass);
-    m_DefinitionAspect__body = new ::ecore::EReference();
+    // m_DefinitionAspect__body has already been allocated above
     m_DefinitionAspect__body->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::DEFINITIONASPECT__BODY);
     m_DefinitionAspectEClass->getEStructuralFeatures().push_back(
@@ -164,19 +207,19 @@ DeclarationPackage::DeclarationPackage()
     m_CheckEClass->setClassifierID(CHECK);
     m_CheckEClass->setEPackage(this);
     getEClassifiers().push_back(m_CheckEClass);
-    m_Check__errorSeverity = new ::ecore::EAttribute();
+    // m_Check__errorSeverity has already been allocated above
     m_Check__errorSeverity->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::CHECK__ERRORSEVERITY);
     m_CheckEClass->getEStructuralFeatures().push_back(m_Check__errorSeverity);
-    m_Check__feature = new ::ecore::EAttribute();
+    // m_Check__feature has already been allocated above
     m_Check__feature->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::CHECK__FEATURE);
     m_CheckEClass->getEStructuralFeatures().push_back(m_Check__feature);
-    m_Check__msg = new ::ecore::EReference();
+    // m_Check__msg has already been allocated above
     m_Check__msg->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::CHECK__MSG);
     m_CheckEClass->getEStructuralFeatures().push_back(m_Check__msg);
-    m_Check__constraint = new ::ecore::EReference();
+    // m_Check__constraint has already been allocated above
     m_Check__constraint->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::CHECK__CONSTRAINT);
     m_CheckEClass->getEStructuralFeatures().push_back(m_Check__constraint);
@@ -186,7 +229,7 @@ DeclarationPackage::DeclarationPackage()
     m_CreateExtensionEClass->setClassifierID(CREATEEXTENSION);
     m_CreateExtensionEClass->setEPackage(this);
     getEClassifiers().push_back(m_CreateExtensionEClass);
-    m_CreateExtension__toBeCreated = new ::ecore::EReference();
+    // m_CreateExtension__toBeCreated has already been allocated above
     m_CreateExtension__toBeCreated->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::CREATEEXTENSION__TOBECREATED);
     m_CreateExtensionEClass->getEStructuralFeatures().push_back(
@@ -197,17 +240,17 @@ DeclarationPackage::DeclarationPackage()
     m_JavaExtensionEClass->setClassifierID(JAVAEXTENSION);
     m_JavaExtensionEClass->setEPackage(this);
     getEClassifiers().push_back(m_JavaExtensionEClass);
-    m_JavaExtension__javaType = new ::ecore::EReference();
+    // m_JavaExtension__javaType has already been allocated above
     m_JavaExtension__javaType->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::JAVAEXTENSION__JAVATYPE);
     m_JavaExtensionEClass->getEStructuralFeatures().push_back(
             m_JavaExtension__javaType);
-    m_JavaExtension__javaMethod = new ::ecore::EReference();
+    // m_JavaExtension__javaMethod has already been allocated above
     m_JavaExtension__javaMethod->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::JAVAEXTENSION__JAVAMETHOD);
     m_JavaExtensionEClass->getEStructuralFeatures().push_back(
             m_JavaExtension__javaMethod);
-    m_JavaExtension__javaParamTypes = new ::ecore::EReference();
+    // m_JavaExtension__javaParamTypes has already been allocated above
     m_JavaExtension__javaParamTypes->setFeatureID(
             ::xpand3::declaration::DeclarationPackage::JAVAEXTENSION__JAVAPARAMTYPES);
     m_JavaExtensionEClass->getEStructuralFeatures().push_back(

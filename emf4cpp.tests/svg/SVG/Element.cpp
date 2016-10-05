@@ -45,17 +45,18 @@ Element::Element() :
     m_owner.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile, -1,
                     false, true >(this,
-                    ::SVG::SVGPackage::_instance()->getElement__owner(), NULL));
+                    ::SVG::SVGPackage::_instance()->getElement__owner(),
+                    ::SVG::SVGPackage::SVGFILE__ELEMENTS));
     m_target.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Use, -1, false,
                     true >(this,
                     ::SVG::SVGPackage::_instance()->getElement__target(),
-                    NULL));
+                    ::SVG::SVGPackage::USE__USE));
     m_attribute.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getElement__attribute(),
-                    NULL));
+                    ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER));
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -244,7 +245,12 @@ void Element::setSize(::SVG::Dimension_ptr _size)
     return m_root;
 }
 
-void Element::setRoot(::SVG::Svg_ptr _root)
+::SVG::Svg_ptr Element::basicgetRoot()
+{
+    return m_root;
+}
+
+void Element::basicsetRoot(::SVG::Svg_ptr _root)
 {
     ::SVG::Svg_ptr _old_root = m_root;
 
@@ -266,12 +272,34 @@ void Element::setRoot(::SVG::Svg_ptr _root)
 
 }
 
+void Element::setRoot(::SVG::Svg_ptr _root)
+{
+    if (_root != m_root)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_root != nullptr)
+        {
+            m_root->_inverseRemove(::SVG::SVGPackage::SVG__CHILDREN, _this);
+        }
+        if (_root != nullptr)
+        {
+            _root->_inverseAdd(::SVG::SVGPackage::SVG__CHILDREN, _this);
+        }
+        basicsetRoot(_root);
+    }
+}
+
 ::SVG::GroupingElement_ptr Element::getGroup()
 {
     return m_group;
 }
 
-void Element::setGroup(::SVG::GroupingElement_ptr _group)
+::SVG::GroupingElement_ptr Element::basicgetGroup()
+{
+    return m_group;
+}
+
+void Element::basicsetGroup(::SVG::GroupingElement_ptr _group)
 {
     ::SVG::GroupingElement_ptr _old_group = m_group;
 
@@ -293,12 +321,36 @@ void Element::setGroup(::SVG::GroupingElement_ptr _group)
 
 }
 
+void Element::setGroup(::SVG::GroupingElement_ptr _group)
+{
+    if (_group != m_group)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_group != nullptr)
+        {
+            m_group->_inverseRemove(
+                    ::SVG::SVGPackage::GROUPINGELEMENT__GROUPCONTENT, _this);
+        }
+        if (_group != nullptr)
+        {
+            _group->_inverseAdd(
+                    ::SVG::SVGPackage::GROUPINGELEMENT__GROUPCONTENT, _this);
+        }
+        basicsetGroup(_group);
+    }
+}
+
 ::SVG::Marker_ptr Element::getDrawsMarker()
 {
     return m_drawsMarker;
 }
 
-void Element::setDrawsMarker(::SVG::Marker_ptr _drawsMarker)
+::SVG::Marker_ptr Element::basicgetDrawsMarker()
+{
+    return m_drawsMarker;
+}
+
+void Element::basicsetDrawsMarker(::SVG::Marker_ptr _drawsMarker)
 {
     ::SVG::Marker_ptr _old_drawsMarker = m_drawsMarker;
 
@@ -318,5 +370,24 @@ void Element::setDrawsMarker(::SVG::Marker_ptr _drawsMarker)
     }
 #endif
 
+}
+
+void Element::setDrawsMarker(::SVG::Marker_ptr _drawsMarker)
+{
+    if (_drawsMarker != m_drawsMarker)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_drawsMarker != nullptr)
+        {
+            m_drawsMarker->_inverseRemove(::SVG::SVGPackage::MARKER__DRAWING,
+                    _this);
+        }
+        if (_drawsMarker != nullptr)
+        {
+            _drawsMarker->_inverseAdd(::SVG::SVGPackage::MARKER__DRAWING,
+                    _this);
+        }
+        basicsetDrawsMarker(_drawsMarker);
+    }
 }
 

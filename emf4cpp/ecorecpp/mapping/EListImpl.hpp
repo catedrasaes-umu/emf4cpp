@@ -110,7 +110,7 @@ class ReferenceEListImpl: public EListImpl< T >
 public:
 
     ReferenceEListImpl(::ecore::EObject_ptr _this,
-			::ecore::EReference_ptr _ref, ::ecore::EReference_ptr _opp = NULL) :
+					   ::ecore::EReference_ptr _ref, int _opp = -1) :
 		m_this(_this), m_ref(_ref), m_opp(_opp),
 		m_containment(*this), m_opposite(*this)
     {
@@ -128,10 +128,13 @@ public:
 
     virtual void push_back(T* _obj)
     {
-        base_t::m_content.push_back(_obj);
+		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
+		if (it == base_t::m_content.end()) {
+			base_t::m_content.push_back(_obj);
 
-		m_containment.set(_obj);
-		m_opposite.set(_obj);
+			m_containment.set(_obj);
+			m_opposite.set(_obj);
+		}
     }
 
     virtual void clear()
@@ -152,6 +155,24 @@ public:
 		}
 	}
 
+	/* Called from the opposite end of a relation: Just remove the object, do
+	 * nothing else. */
+	void basicRemove(T* _obj) {
+		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
+		if (it != base_t::m_content.end()) {
+			base_t::m_content.erase(it);
+		}
+	}
+
+	/* Called from the opposite end of a relation: Just add the object, do
+	 * nothing else. */
+	void basicAdd(T* _obj) {
+		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
+		if (it == base_t::m_content.end()) {
+			base_t::m_content.push_back(_obj);
+		}
+	}
+
     virtual ~ReferenceEListImpl()
     {
         containment_t< T, containment >::free_all(base_t::m_content);
@@ -161,7 +182,7 @@ protected:
 
     ::ecore::EObject_ptr m_this; // owner object
     ::ecore::EReference_ptr m_ref;
-    ::ecore::EReference_ptr m_opp;
+    const int m_opp;
 
     template< typename Q, bool _free = false >
     struct containment_t
@@ -246,11 +267,19 @@ protected:
 
         inline void set(::ecore::EObject_ptr _obj)
         {
+			auto ref = m_parent.m_opp;
+			if (ref == -1) // as long as ecore has not been regenerated
+				return;
+			_obj->_inverseAdd(ref, m_parent.m_this);
         }
 
         inline void unset(::ecore::EObject_ptr _obj)
         {
-        }
+			auto ref = m_parent.m_opp;
+			if (ref == -1) // as long as ecore has not been regenerated
+				return;
+			_obj->_inverseRemove(ref, m_parent.m_this);
+          }
 
         ReferenceEListImpl& m_parent;
     };

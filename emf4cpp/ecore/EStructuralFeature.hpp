@@ -74,6 +74,8 @@ namespace ecore
         // References
         ::ecore::EClass_ptr getEContainingClass();
         void setEContainingClass(::ecore::EClass_ptr _eContainingClass);
+        ::ecore::EClass_ptr basicgetEContainingClass();
+        void basicsetEContainingClass(::ecore::EClass_ptr _eContainingClass);
 
         /*PROTECTED REGION ID(EStructuralFeature) ENABLED START*/
 
@@ -88,6 +90,10 @@ namespace ecore
         virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
+        virtual void _inverseAdd(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _oldValue);
 
         /*PROTECTED REGION ID(EStructuralFeatureImpl) ENABLED START*/
 

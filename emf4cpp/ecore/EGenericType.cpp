@@ -41,7 +41,8 @@ EGenericType::EGenericType() :
     m_eTypeArguments.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
                     -1, true, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEGenericType__eTypeArguments()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEGenericType__eTypeArguments() :
+                            nullptr));
 
     /*PROTECTED REGION ID(EGenericTypeImpl__EGenericTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.

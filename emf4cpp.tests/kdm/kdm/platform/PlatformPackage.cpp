@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::platform::PlatformPackage,
 
 ::kdm::platform::PlatformPackage_ptr PlatformPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new PlatformPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

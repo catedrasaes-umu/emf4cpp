@@ -53,6 +53,71 @@ using namespace ::kdm::ui;
 UiPackage::UiPackage()
 {
 
+    // Feature definitions of AbstractUIElement
+    m_AbstractUIElement__source = new ::ecore::EReference();
+    m_AbstractUIElement__UIRelation = new ::ecore::EReference();
+    m_AbstractUIElement__implementation = new ::ecore::EReference();
+    m_AbstractUIElement__abstraction = new ::ecore::EReference();
+
+    // Feature definitions of UIResource
+    m_UIResource__UIElement = new ::ecore::EReference();
+
+    // Feature definitions of UIDisplay
+
+    // Feature definitions of Screen
+
+    // Feature definitions of Report
+
+    // Feature definitions of UIModel
+    m_UIModel__UIElement = new ::ecore::EReference();
+
+    // Feature definitions of AbstractUIRelationship
+
+    // Feature definitions of UILayout
+    m_UILayout__to = new ::ecore::EReference();
+    m_UILayout__from = new ::ecore::EReference();
+
+    // Feature definitions of UIField
+
+    // Feature definitions of DisplaysImage
+    m_DisplaysImage__to = new ::ecore::EReference();
+    m_DisplaysImage__from = new ::ecore::EReference();
+
+    // Feature definitions of Displays
+    m_Displays__to = new ::ecore::EReference();
+    m_Displays__from = new ::ecore::EReference();
+
+    // Feature definitions of UIFlow
+    m_UIFlow__to = new ::ecore::EReference();
+    m_UIFlow__from = new ::ecore::EReference();
+
+    // Feature definitions of UIElement
+
+    // Feature definitions of UIRelationship
+    m_UIRelationship__to = new ::ecore::EReference();
+    m_UIRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of UIAction
+    m_UIAction__kind = new ::ecore::EAttribute();
+    m_UIAction__UIElement = new ::ecore::EReference();
+
+    // Feature definitions of UIEvent
+    m_UIEvent__kind = new ::ecore::EAttribute();
+
+    // Feature definitions of ReadsUI
+    m_ReadsUI__to = new ::ecore::EReference();
+    m_ReadsUI__from = new ::ecore::EReference();
+
+    // Feature definitions of WritesUI
+    m_WritesUI__to = new ::ecore::EReference();
+    m_WritesUI__from = new ::ecore::EReference();
+
+    // Feature definitions of ManagesUI
+    m_ManagesUI__to = new ::ecore::EReference();
+    m_ManagesUI__from = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -67,22 +132,22 @@ UiPackage::UiPackage()
     m_AbstractUIElementEClass->setClassifierID(ABSTRACTUIELEMENT);
     m_AbstractUIElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractUIElementEClass);
-    m_AbstractUIElement__source = new ::ecore::EReference();
+    // m_AbstractUIElement__source has already been allocated above
     m_AbstractUIElement__source->setFeatureID(
             ::kdm::ui::UiPackage::ABSTRACTUIELEMENT__SOURCE);
     m_AbstractUIElementEClass->getEStructuralFeatures().push_back(
             m_AbstractUIElement__source);
-    m_AbstractUIElement__UIRelation = new ::ecore::EReference();
+    // m_AbstractUIElement__UIRelation has already been allocated above
     m_AbstractUIElement__UIRelation->setFeatureID(
             ::kdm::ui::UiPackage::ABSTRACTUIELEMENT__UIRELATION);
     m_AbstractUIElementEClass->getEStructuralFeatures().push_back(
             m_AbstractUIElement__UIRelation);
-    m_AbstractUIElement__implementation = new ::ecore::EReference();
+    // m_AbstractUIElement__implementation has already been allocated above
     m_AbstractUIElement__implementation->setFeatureID(
             ::kdm::ui::UiPackage::ABSTRACTUIELEMENT__IMPLEMENTATION);
     m_AbstractUIElementEClass->getEStructuralFeatures().push_back(
             m_AbstractUIElement__implementation);
-    m_AbstractUIElement__abstraction = new ::ecore::EReference();
+    // m_AbstractUIElement__abstraction has already been allocated above
     m_AbstractUIElement__abstraction->setFeatureID(
             ::kdm::ui::UiPackage::ABSTRACTUIELEMENT__ABSTRACTION);
     m_AbstractUIElementEClass->getEStructuralFeatures().push_back(
@@ -93,7 +158,7 @@ UiPackage::UiPackage()
     m_UIResourceEClass->setClassifierID(UIRESOURCE);
     m_UIResourceEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIResourceEClass);
-    m_UIResource__UIElement = new ::ecore::EReference();
+    // m_UIResource__UIElement has already been allocated above
     m_UIResource__UIElement->setFeatureID(
             ::kdm::ui::UiPackage::UIRESOURCE__UIELEMENT);
     m_UIResourceEClass->getEStructuralFeatures().push_back(
@@ -122,7 +187,7 @@ UiPackage::UiPackage()
     m_UIModelEClass->setClassifierID(UIMODEL);
     m_UIModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIModelEClass);
-    m_UIModel__UIElement = new ::ecore::EReference();
+    // m_UIModel__UIElement has already been allocated above
     m_UIModel__UIElement->setFeatureID(
             ::kdm::ui::UiPackage::UIMODEL__UIELEMENT);
     m_UIModelEClass->getEStructuralFeatures().push_back(m_UIModel__UIElement);
@@ -138,10 +203,10 @@ UiPackage::UiPackage()
     m_UILayoutEClass->setClassifierID(UILAYOUT);
     m_UILayoutEClass->setEPackage(this);
     getEClassifiers().push_back(m_UILayoutEClass);
-    m_UILayout__to = new ::ecore::EReference();
+    // m_UILayout__to has already been allocated above
     m_UILayout__to->setFeatureID(::kdm::ui::UiPackage::UILAYOUT__TO);
     m_UILayoutEClass->getEStructuralFeatures().push_back(m_UILayout__to);
-    m_UILayout__from = new ::ecore::EReference();
+    // m_UILayout__from has already been allocated above
     m_UILayout__from->setFeatureID(::kdm::ui::UiPackage::UILAYOUT__FROM);
     m_UILayoutEClass->getEStructuralFeatures().push_back(m_UILayout__from);
 
@@ -156,11 +221,11 @@ UiPackage::UiPackage()
     m_DisplaysImageEClass->setClassifierID(DISPLAYSIMAGE);
     m_DisplaysImageEClass->setEPackage(this);
     getEClassifiers().push_back(m_DisplaysImageEClass);
-    m_DisplaysImage__to = new ::ecore::EReference();
+    // m_DisplaysImage__to has already been allocated above
     m_DisplaysImage__to->setFeatureID(::kdm::ui::UiPackage::DISPLAYSIMAGE__TO);
     m_DisplaysImageEClass->getEStructuralFeatures().push_back(
             m_DisplaysImage__to);
-    m_DisplaysImage__from = new ::ecore::EReference();
+    // m_DisplaysImage__from has already been allocated above
     m_DisplaysImage__from->setFeatureID(
             ::kdm::ui::UiPackage::DISPLAYSIMAGE__FROM);
     m_DisplaysImageEClass->getEStructuralFeatures().push_back(
@@ -171,10 +236,10 @@ UiPackage::UiPackage()
     m_DisplaysEClass->setClassifierID(DISPLAYS);
     m_DisplaysEClass->setEPackage(this);
     getEClassifiers().push_back(m_DisplaysEClass);
-    m_Displays__to = new ::ecore::EReference();
+    // m_Displays__to has already been allocated above
     m_Displays__to->setFeatureID(::kdm::ui::UiPackage::DISPLAYS__TO);
     m_DisplaysEClass->getEStructuralFeatures().push_back(m_Displays__to);
-    m_Displays__from = new ::ecore::EReference();
+    // m_Displays__from has already been allocated above
     m_Displays__from->setFeatureID(::kdm::ui::UiPackage::DISPLAYS__FROM);
     m_DisplaysEClass->getEStructuralFeatures().push_back(m_Displays__from);
 
@@ -183,10 +248,10 @@ UiPackage::UiPackage()
     m_UIFlowEClass->setClassifierID(UIFLOW);
     m_UIFlowEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIFlowEClass);
-    m_UIFlow__to = new ::ecore::EReference();
+    // m_UIFlow__to has already been allocated above
     m_UIFlow__to->setFeatureID(::kdm::ui::UiPackage::UIFLOW__TO);
     m_UIFlowEClass->getEStructuralFeatures().push_back(m_UIFlow__to);
-    m_UIFlow__from = new ::ecore::EReference();
+    // m_UIFlow__from has already been allocated above
     m_UIFlow__from->setFeatureID(::kdm::ui::UiPackage::UIFLOW__FROM);
     m_UIFlowEClass->getEStructuralFeatures().push_back(m_UIFlow__from);
 
@@ -201,12 +266,12 @@ UiPackage::UiPackage()
     m_UIRelationshipEClass->setClassifierID(UIRELATIONSHIP);
     m_UIRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIRelationshipEClass);
-    m_UIRelationship__to = new ::ecore::EReference();
+    // m_UIRelationship__to has already been allocated above
     m_UIRelationship__to->setFeatureID(
             ::kdm::ui::UiPackage::UIRELATIONSHIP__TO);
     m_UIRelationshipEClass->getEStructuralFeatures().push_back(
             m_UIRelationship__to);
-    m_UIRelationship__from = new ::ecore::EReference();
+    // m_UIRelationship__from has already been allocated above
     m_UIRelationship__from->setFeatureID(
             ::kdm::ui::UiPackage::UIRELATIONSHIP__FROM);
     m_UIRelationshipEClass->getEStructuralFeatures().push_back(
@@ -217,10 +282,10 @@ UiPackage::UiPackage()
     m_UIActionEClass->setClassifierID(UIACTION);
     m_UIActionEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIActionEClass);
-    m_UIAction__kind = new ::ecore::EAttribute();
+    // m_UIAction__kind has already been allocated above
     m_UIAction__kind->setFeatureID(::kdm::ui::UiPackage::UIACTION__KIND);
     m_UIActionEClass->getEStructuralFeatures().push_back(m_UIAction__kind);
-    m_UIAction__UIElement = new ::ecore::EReference();
+    // m_UIAction__UIElement has already been allocated above
     m_UIAction__UIElement->setFeatureID(
             ::kdm::ui::UiPackage::UIACTION__UIELEMENT);
     m_UIActionEClass->getEStructuralFeatures().push_back(m_UIAction__UIElement);
@@ -230,7 +295,7 @@ UiPackage::UiPackage()
     m_UIEventEClass->setClassifierID(UIEVENT);
     m_UIEventEClass->setEPackage(this);
     getEClassifiers().push_back(m_UIEventEClass);
-    m_UIEvent__kind = new ::ecore::EAttribute();
+    // m_UIEvent__kind has already been allocated above
     m_UIEvent__kind->setFeatureID(::kdm::ui::UiPackage::UIEVENT__KIND);
     m_UIEventEClass->getEStructuralFeatures().push_back(m_UIEvent__kind);
 
@@ -239,10 +304,10 @@ UiPackage::UiPackage()
     m_ReadsUIEClass->setClassifierID(READSUI);
     m_ReadsUIEClass->setEPackage(this);
     getEClassifiers().push_back(m_ReadsUIEClass);
-    m_ReadsUI__to = new ::ecore::EReference();
+    // m_ReadsUI__to has already been allocated above
     m_ReadsUI__to->setFeatureID(::kdm::ui::UiPackage::READSUI__TO);
     m_ReadsUIEClass->getEStructuralFeatures().push_back(m_ReadsUI__to);
-    m_ReadsUI__from = new ::ecore::EReference();
+    // m_ReadsUI__from has already been allocated above
     m_ReadsUI__from->setFeatureID(::kdm::ui::UiPackage::READSUI__FROM);
     m_ReadsUIEClass->getEStructuralFeatures().push_back(m_ReadsUI__from);
 
@@ -251,10 +316,10 @@ UiPackage::UiPackage()
     m_WritesUIEClass->setClassifierID(WRITESUI);
     m_WritesUIEClass->setEPackage(this);
     getEClassifiers().push_back(m_WritesUIEClass);
-    m_WritesUI__to = new ::ecore::EReference();
+    // m_WritesUI__to has already been allocated above
     m_WritesUI__to->setFeatureID(::kdm::ui::UiPackage::WRITESUI__TO);
     m_WritesUIEClass->getEStructuralFeatures().push_back(m_WritesUI__to);
-    m_WritesUI__from = new ::ecore::EReference();
+    // m_WritesUI__from has already been allocated above
     m_WritesUI__from->setFeatureID(::kdm::ui::UiPackage::WRITESUI__FROM);
     m_WritesUIEClass->getEStructuralFeatures().push_back(m_WritesUI__from);
 
@@ -263,10 +328,10 @@ UiPackage::UiPackage()
     m_ManagesUIEClass->setClassifierID(MANAGESUI);
     m_ManagesUIEClass->setEPackage(this);
     getEClassifiers().push_back(m_ManagesUIEClass);
-    m_ManagesUI__to = new ::ecore::EReference();
+    // m_ManagesUI__to has already been allocated above
     m_ManagesUI__to->setFeatureID(::kdm::ui::UiPackage::MANAGESUI__TO);
     m_ManagesUIEClass->getEStructuralFeatures().push_back(m_ManagesUI__to);
-    m_ManagesUI__from = new ::ecore::EReference();
+    // m_ManagesUI__from has already been allocated above
     m_ManagesUI__from->setFeatureID(::kdm::ui::UiPackage::MANAGESUI__FROM);
     m_ManagesUIEClass->getEStructuralFeatures().push_back(m_ManagesUI__from);
 

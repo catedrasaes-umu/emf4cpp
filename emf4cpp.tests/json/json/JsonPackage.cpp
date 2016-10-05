@@ -26,8 +26,15 @@ std::unique_ptr< ::json::JsonPackage,
 
 ::json::JsonPackage_ptr JsonPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new JsonPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

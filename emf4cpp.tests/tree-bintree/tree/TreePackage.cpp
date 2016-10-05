@@ -26,8 +26,15 @@ std::unique_ptr< ::tree::TreePackage,
 
 ::tree::TreePackage_ptr TreePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new TreePackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

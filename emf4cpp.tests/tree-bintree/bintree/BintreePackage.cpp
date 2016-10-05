@@ -26,8 +26,15 @@ std::unique_ptr< ::bintree::BintreePackage,
 
 ::bintree::BintreePackage_ptr BintreePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new BintreePackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::ui::UiPackage,
 
 ::kdm::ui::UiPackage_ptr UiPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new UiPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

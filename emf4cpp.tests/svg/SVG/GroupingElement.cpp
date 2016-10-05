@@ -47,7 +47,7 @@ GroupingElement::GroupingElement()
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
                     true, true >(this,
                     ::SVG::SVGPackage::_instance()->getGroupingElement__groupContent(),
-                    NULL));
+                    ::SVG::SVGPackage::ELEMENT__GROUP));
 
     /*PROTECTED REGION ID(GroupingElementImpl__GroupingElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

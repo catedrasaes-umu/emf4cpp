@@ -55,6 +55,89 @@ using namespace ::kdm::action;
 ActionPackage::ActionPackage()
 {
 
+    // Feature definitions of ActionElement
+    m_ActionElement__kind = new ::ecore::EAttribute();
+    m_ActionElement__codeElement = new ::ecore::EReference();
+    m_ActionElement__actionRelation = new ::ecore::EReference();
+
+    // Feature definitions of AbstractActionRelationship
+
+    // Feature definitions of ControlFlow
+    m_ControlFlow__to = new ::ecore::EReference();
+    m_ControlFlow__from = new ::ecore::EReference();
+
+    // Feature definitions of Calls
+    m_Calls__to = new ::ecore::EReference();
+    m_Calls__from = new ::ecore::EReference();
+
+    // Feature definitions of Creates
+    m_Creates__to = new ::ecore::EReference();
+    m_Creates__from = new ::ecore::EReference();
+
+    // Feature definitions of Reads
+    m_Reads__to = new ::ecore::EReference();
+    m_Reads__from = new ::ecore::EReference();
+
+    // Feature definitions of Writes
+    m_Writes__to = new ::ecore::EReference();
+    m_Writes__from = new ::ecore::EReference();
+
+    // Feature definitions of CompliesTo
+    m_CompliesTo__to = new ::ecore::EReference();
+    m_CompliesTo__from = new ::ecore::EReference();
+
+    // Feature definitions of Flow
+
+    // Feature definitions of TrueFlow
+
+    // Feature definitions of FalseFlow
+
+    // Feature definitions of GuardedFlow
+
+    // Feature definitions of UsesType
+    m_UsesType__to = new ::ecore::EReference();
+    m_UsesType__from = new ::ecore::EReference();
+
+    // Feature definitions of Addresses
+    m_Addresses__to = new ::ecore::EReference();
+    m_Addresses__from = new ::ecore::EReference();
+
+    // Feature definitions of ActionRelationship
+    m_ActionRelationship__to = new ::ecore::EReference();
+    m_ActionRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of Throws
+    m_Throws__to = new ::ecore::EReference();
+    m_Throws__from = new ::ecore::EReference();
+
+    // Feature definitions of Dispatches
+    m_Dispatches__to = new ::ecore::EReference();
+    m_Dispatches__from = new ::ecore::EReference();
+
+    // Feature definitions of EntryFlow
+    m_EntryFlow__to = new ::ecore::EReference();
+    m_EntryFlow__from = new ::ecore::EReference();
+
+    // Feature definitions of BlockUnit
+
+    // Feature definitions of ExceptionUnit
+
+    // Feature definitions of TryUnit
+
+    // Feature definitions of FinallyUnit
+
+    // Feature definitions of CatchUnit
+
+    // Feature definitions of ExitFlow
+    m_ExitFlow__to = new ::ecore::EReference();
+    m_ExitFlow__from = new ::ecore::EReference();
+
+    // Feature definitions of ExceptionFlow
+    m_ExceptionFlow__to = new ::ecore::EReference();
+    m_ExceptionFlow__from = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -69,17 +152,17 @@ ActionPackage::ActionPackage()
     m_ActionElementEClass->setClassifierID(ACTIONELEMENT);
     m_ActionElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ActionElementEClass);
-    m_ActionElement__kind = new ::ecore::EAttribute();
+    // m_ActionElement__kind has already been allocated above
     m_ActionElement__kind->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONELEMENT__KIND);
     m_ActionElementEClass->getEStructuralFeatures().push_back(
             m_ActionElement__kind);
-    m_ActionElement__codeElement = new ::ecore::EReference();
+    // m_ActionElement__codeElement has already been allocated above
     m_ActionElement__codeElement->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONELEMENT__CODEELEMENT);
     m_ActionElementEClass->getEStructuralFeatures().push_back(
             m_ActionElement__codeElement);
-    m_ActionElement__actionRelation = new ::ecore::EReference();
+    // m_ActionElement__actionRelation has already been allocated above
     m_ActionElement__actionRelation->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONELEMENT__ACTIONRELATION);
     m_ActionElementEClass->getEStructuralFeatures().push_back(
@@ -97,11 +180,11 @@ ActionPackage::ActionPackage()
     m_ControlFlowEClass->setClassifierID(CONTROLFLOW);
     m_ControlFlowEClass->setEPackage(this);
     getEClassifiers().push_back(m_ControlFlowEClass);
-    m_ControlFlow__to = new ::ecore::EReference();
+    // m_ControlFlow__to has already been allocated above
     m_ControlFlow__to->setFeatureID(
             ::kdm::action::ActionPackage::CONTROLFLOW__TO);
     m_ControlFlowEClass->getEStructuralFeatures().push_back(m_ControlFlow__to);
-    m_ControlFlow__from = new ::ecore::EReference();
+    // m_ControlFlow__from has already been allocated above
     m_ControlFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::CONTROLFLOW__FROM);
     m_ControlFlowEClass->getEStructuralFeatures().push_back(
@@ -112,10 +195,10 @@ ActionPackage::ActionPackage()
     m_CallsEClass->setClassifierID(CALLS);
     m_CallsEClass->setEPackage(this);
     getEClassifiers().push_back(m_CallsEClass);
-    m_Calls__to = new ::ecore::EReference();
+    // m_Calls__to has already been allocated above
     m_Calls__to->setFeatureID(::kdm::action::ActionPackage::CALLS__TO);
     m_CallsEClass->getEStructuralFeatures().push_back(m_Calls__to);
-    m_Calls__from = new ::ecore::EReference();
+    // m_Calls__from has already been allocated above
     m_Calls__from->setFeatureID(::kdm::action::ActionPackage::CALLS__FROM);
     m_CallsEClass->getEStructuralFeatures().push_back(m_Calls__from);
 
@@ -124,10 +207,10 @@ ActionPackage::ActionPackage()
     m_CreatesEClass->setClassifierID(CREATES);
     m_CreatesEClass->setEPackage(this);
     getEClassifiers().push_back(m_CreatesEClass);
-    m_Creates__to = new ::ecore::EReference();
+    // m_Creates__to has already been allocated above
     m_Creates__to->setFeatureID(::kdm::action::ActionPackage::CREATES__TO);
     m_CreatesEClass->getEStructuralFeatures().push_back(m_Creates__to);
-    m_Creates__from = new ::ecore::EReference();
+    // m_Creates__from has already been allocated above
     m_Creates__from->setFeatureID(::kdm::action::ActionPackage::CREATES__FROM);
     m_CreatesEClass->getEStructuralFeatures().push_back(m_Creates__from);
 
@@ -136,10 +219,10 @@ ActionPackage::ActionPackage()
     m_ReadsEClass->setClassifierID(READS);
     m_ReadsEClass->setEPackage(this);
     getEClassifiers().push_back(m_ReadsEClass);
-    m_Reads__to = new ::ecore::EReference();
+    // m_Reads__to has already been allocated above
     m_Reads__to->setFeatureID(::kdm::action::ActionPackage::READS__TO);
     m_ReadsEClass->getEStructuralFeatures().push_back(m_Reads__to);
-    m_Reads__from = new ::ecore::EReference();
+    // m_Reads__from has already been allocated above
     m_Reads__from->setFeatureID(::kdm::action::ActionPackage::READS__FROM);
     m_ReadsEClass->getEStructuralFeatures().push_back(m_Reads__from);
 
@@ -148,10 +231,10 @@ ActionPackage::ActionPackage()
     m_WritesEClass->setClassifierID(WRITES);
     m_WritesEClass->setEPackage(this);
     getEClassifiers().push_back(m_WritesEClass);
-    m_Writes__to = new ::ecore::EReference();
+    // m_Writes__to has already been allocated above
     m_Writes__to->setFeatureID(::kdm::action::ActionPackage::WRITES__TO);
     m_WritesEClass->getEStructuralFeatures().push_back(m_Writes__to);
-    m_Writes__from = new ::ecore::EReference();
+    // m_Writes__from has already been allocated above
     m_Writes__from->setFeatureID(::kdm::action::ActionPackage::WRITES__FROM);
     m_WritesEClass->getEStructuralFeatures().push_back(m_Writes__from);
 
@@ -160,11 +243,11 @@ ActionPackage::ActionPackage()
     m_CompliesToEClass->setClassifierID(COMPLIESTO);
     m_CompliesToEClass->setEPackage(this);
     getEClassifiers().push_back(m_CompliesToEClass);
-    m_CompliesTo__to = new ::ecore::EReference();
+    // m_CompliesTo__to has already been allocated above
     m_CompliesTo__to->setFeatureID(
             ::kdm::action::ActionPackage::COMPLIESTO__TO);
     m_CompliesToEClass->getEStructuralFeatures().push_back(m_CompliesTo__to);
-    m_CompliesTo__from = new ::ecore::EReference();
+    // m_CompliesTo__from has already been allocated above
     m_CompliesTo__from->setFeatureID(
             ::kdm::action::ActionPackage::COMPLIESTO__FROM);
     m_CompliesToEClass->getEStructuralFeatures().push_back(m_CompliesTo__from);
@@ -198,10 +281,10 @@ ActionPackage::ActionPackage()
     m_UsesTypeEClass->setClassifierID(USESTYPE);
     m_UsesTypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_UsesTypeEClass);
-    m_UsesType__to = new ::ecore::EReference();
+    // m_UsesType__to has already been allocated above
     m_UsesType__to->setFeatureID(::kdm::action::ActionPackage::USESTYPE__TO);
     m_UsesTypeEClass->getEStructuralFeatures().push_back(m_UsesType__to);
-    m_UsesType__from = new ::ecore::EReference();
+    // m_UsesType__from has already been allocated above
     m_UsesType__from->setFeatureID(
             ::kdm::action::ActionPackage::USESTYPE__FROM);
     m_UsesTypeEClass->getEStructuralFeatures().push_back(m_UsesType__from);
@@ -211,10 +294,10 @@ ActionPackage::ActionPackage()
     m_AddressesEClass->setClassifierID(ADDRESSES);
     m_AddressesEClass->setEPackage(this);
     getEClassifiers().push_back(m_AddressesEClass);
-    m_Addresses__to = new ::ecore::EReference();
+    // m_Addresses__to has already been allocated above
     m_Addresses__to->setFeatureID(::kdm::action::ActionPackage::ADDRESSES__TO);
     m_AddressesEClass->getEStructuralFeatures().push_back(m_Addresses__to);
-    m_Addresses__from = new ::ecore::EReference();
+    // m_Addresses__from has already been allocated above
     m_Addresses__from->setFeatureID(
             ::kdm::action::ActionPackage::ADDRESSES__FROM);
     m_AddressesEClass->getEStructuralFeatures().push_back(m_Addresses__from);
@@ -224,12 +307,12 @@ ActionPackage::ActionPackage()
     m_ActionRelationshipEClass->setClassifierID(ACTIONRELATIONSHIP);
     m_ActionRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_ActionRelationshipEClass);
-    m_ActionRelationship__to = new ::ecore::EReference();
+    // m_ActionRelationship__to has already been allocated above
     m_ActionRelationship__to->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONRELATIONSHIP__TO);
     m_ActionRelationshipEClass->getEStructuralFeatures().push_back(
             m_ActionRelationship__to);
-    m_ActionRelationship__from = new ::ecore::EReference();
+    // m_ActionRelationship__from has already been allocated above
     m_ActionRelationship__from->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONRELATIONSHIP__FROM);
     m_ActionRelationshipEClass->getEStructuralFeatures().push_back(
@@ -240,10 +323,10 @@ ActionPackage::ActionPackage()
     m_ThrowsEClass->setClassifierID(THROWS);
     m_ThrowsEClass->setEPackage(this);
     getEClassifiers().push_back(m_ThrowsEClass);
-    m_Throws__to = new ::ecore::EReference();
+    // m_Throws__to has already been allocated above
     m_Throws__to->setFeatureID(::kdm::action::ActionPackage::THROWS__TO);
     m_ThrowsEClass->getEStructuralFeatures().push_back(m_Throws__to);
-    m_Throws__from = new ::ecore::EReference();
+    // m_Throws__from has already been allocated above
     m_Throws__from->setFeatureID(::kdm::action::ActionPackage::THROWS__FROM);
     m_ThrowsEClass->getEStructuralFeatures().push_back(m_Throws__from);
 
@@ -252,11 +335,11 @@ ActionPackage::ActionPackage()
     m_DispatchesEClass->setClassifierID(DISPATCHES);
     m_DispatchesEClass->setEPackage(this);
     getEClassifiers().push_back(m_DispatchesEClass);
-    m_Dispatches__to = new ::ecore::EReference();
+    // m_Dispatches__to has already been allocated above
     m_Dispatches__to->setFeatureID(
             ::kdm::action::ActionPackage::DISPATCHES__TO);
     m_DispatchesEClass->getEStructuralFeatures().push_back(m_Dispatches__to);
-    m_Dispatches__from = new ::ecore::EReference();
+    // m_Dispatches__from has already been allocated above
     m_Dispatches__from->setFeatureID(
             ::kdm::action::ActionPackage::DISPATCHES__FROM);
     m_DispatchesEClass->getEStructuralFeatures().push_back(m_Dispatches__from);
@@ -266,10 +349,10 @@ ActionPackage::ActionPackage()
     m_EntryFlowEClass->setClassifierID(ENTRYFLOW);
     m_EntryFlowEClass->setEPackage(this);
     getEClassifiers().push_back(m_EntryFlowEClass);
-    m_EntryFlow__to = new ::ecore::EReference();
+    // m_EntryFlow__to has already been allocated above
     m_EntryFlow__to->setFeatureID(::kdm::action::ActionPackage::ENTRYFLOW__TO);
     m_EntryFlowEClass->getEStructuralFeatures().push_back(m_EntryFlow__to);
-    m_EntryFlow__from = new ::ecore::EReference();
+    // m_EntryFlow__from has already been allocated above
     m_EntryFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::ENTRYFLOW__FROM);
     m_EntryFlowEClass->getEStructuralFeatures().push_back(m_EntryFlow__from);
@@ -309,10 +392,10 @@ ActionPackage::ActionPackage()
     m_ExitFlowEClass->setClassifierID(EXITFLOW);
     m_ExitFlowEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExitFlowEClass);
-    m_ExitFlow__to = new ::ecore::EReference();
+    // m_ExitFlow__to has already been allocated above
     m_ExitFlow__to->setFeatureID(::kdm::action::ActionPackage::EXITFLOW__TO);
     m_ExitFlowEClass->getEStructuralFeatures().push_back(m_ExitFlow__to);
-    m_ExitFlow__from = new ::ecore::EReference();
+    // m_ExitFlow__from has already been allocated above
     m_ExitFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::EXITFLOW__FROM);
     m_ExitFlowEClass->getEStructuralFeatures().push_back(m_ExitFlow__from);
@@ -322,12 +405,12 @@ ActionPackage::ActionPackage()
     m_ExceptionFlowEClass->setClassifierID(EXCEPTIONFLOW);
     m_ExceptionFlowEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExceptionFlowEClass);
-    m_ExceptionFlow__to = new ::ecore::EReference();
+    // m_ExceptionFlow__to has already been allocated above
     m_ExceptionFlow__to->setFeatureID(
             ::kdm::action::ActionPackage::EXCEPTIONFLOW__TO);
     m_ExceptionFlowEClass->getEStructuralFeatures().push_back(
             m_ExceptionFlow__to);
-    m_ExceptionFlow__from = new ::ecore::EReference();
+    // m_ExceptionFlow__from has already been allocated above
     m_ExceptionFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::EXCEPTIONFLOW__FROM);
     m_ExceptionFlowEClass->getEStructuralFeatures().push_back(

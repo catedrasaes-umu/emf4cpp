@@ -42,6 +42,55 @@ using namespace ::xpand3::statement;
 StatementPackage::StatementPackage()
 {
 
+    // Feature definitions of AbstractStatement
+
+    // Feature definitions of ExpandStatement
+    m_ExpandStatement__foreach = new ::ecore::EAttribute();
+    m_ExpandStatement__parameters = new ::ecore::EReference();
+    m_ExpandStatement__separator = new ::ecore::EReference();
+    m_ExpandStatement__target = new ::ecore::EReference();
+    m_ExpandStatement__definition = new ::ecore::EReference();
+
+    // Feature definitions of ExpressionStatement
+    m_ExpressionStatement__expression = new ::ecore::EReference();
+
+    // Feature definitions of ErrorStatement
+    m_ErrorStatement__message = new ::ecore::EReference();
+
+    // Feature definitions of AbstractStatementWithBody
+    m_AbstractStatementWithBody__body = new ::ecore::EReference();
+
+    // Feature definitions of FileStatement
+    m_FileStatement__once = new ::ecore::EAttribute();
+    m_FileStatement__fileNameExpression = new ::ecore::EReference();
+    m_FileStatement__outletNameIdentifier = new ::ecore::EReference();
+
+    // Feature definitions of ForEachStatement
+    m_ForEachStatement__target = new ::ecore::EReference();
+    m_ForEachStatement__separator = new ::ecore::EReference();
+    m_ForEachStatement__variable = new ::ecore::EReference();
+    m_ForEachStatement__iteratorName = new ::ecore::EReference();
+
+    // Feature definitions of IfStatement
+    m_IfStatement__condition = new ::ecore::EReference();
+    m_IfStatement__elseIf = new ::ecore::EReference();
+
+    // Feature definitions of LetStatement
+    m_LetStatement__varName = new ::ecore::EReference();
+    m_LetStatement__varValue = new ::ecore::EReference();
+
+    // Feature definitions of ProtectStatement
+    m_ProtectStatement__disable = new ::ecore::EAttribute();
+    m_ProtectStatement__commentStart = new ::ecore::EReference();
+    m_ProtectStatement__commentEnd = new ::ecore::EReference();
+    m_ProtectStatement__id = new ::ecore::EReference();
+
+    // Feature definitions of TextStatement
+    m_TextStatement__value = new ::ecore::EAttribute();
+    m_TextStatement__deleteLine = new ::ecore::EAttribute();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -62,27 +111,27 @@ StatementPackage::StatementPackage()
     m_ExpandStatementEClass->setClassifierID(EXPANDSTATEMENT);
     m_ExpandStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExpandStatementEClass);
-    m_ExpandStatement__foreach = new ::ecore::EAttribute();
+    // m_ExpandStatement__foreach has already been allocated above
     m_ExpandStatement__foreach->setFeatureID(
             ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__FOREACH);
     m_ExpandStatementEClass->getEStructuralFeatures().push_back(
             m_ExpandStatement__foreach);
-    m_ExpandStatement__parameters = new ::ecore::EReference();
+    // m_ExpandStatement__parameters has already been allocated above
     m_ExpandStatement__parameters->setFeatureID(
             ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS);
     m_ExpandStatementEClass->getEStructuralFeatures().push_back(
             m_ExpandStatement__parameters);
-    m_ExpandStatement__separator = new ::ecore::EReference();
+    // m_ExpandStatement__separator has already been allocated above
     m_ExpandStatement__separator->setFeatureID(
             ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR);
     m_ExpandStatementEClass->getEStructuralFeatures().push_back(
             m_ExpandStatement__separator);
-    m_ExpandStatement__target = new ::ecore::EReference();
+    // m_ExpandStatement__target has already been allocated above
     m_ExpandStatement__target->setFeatureID(
             ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET);
     m_ExpandStatementEClass->getEStructuralFeatures().push_back(
             m_ExpandStatement__target);
-    m_ExpandStatement__definition = new ::ecore::EReference();
+    // m_ExpandStatement__definition has already been allocated above
     m_ExpandStatement__definition->setFeatureID(
             ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION);
     m_ExpandStatementEClass->getEStructuralFeatures().push_back(
@@ -93,7 +142,7 @@ StatementPackage::StatementPackage()
     m_ExpressionStatementEClass->setClassifierID(EXPRESSIONSTATEMENT);
     m_ExpressionStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExpressionStatementEClass);
-    m_ExpressionStatement__expression = new ::ecore::EReference();
+    // m_ExpressionStatement__expression has already been allocated above
     m_ExpressionStatement__expression->setFeatureID(
             ::xpand3::statement::StatementPackage::EXPRESSIONSTATEMENT__EXPRESSION);
     m_ExpressionStatementEClass->getEStructuralFeatures().push_back(
@@ -104,7 +153,7 @@ StatementPackage::StatementPackage()
     m_ErrorStatementEClass->setClassifierID(ERRORSTATEMENT);
     m_ErrorStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ErrorStatementEClass);
-    m_ErrorStatement__message = new ::ecore::EReference();
+    // m_ErrorStatement__message has already been allocated above
     m_ErrorStatement__message->setFeatureID(
             ::xpand3::statement::StatementPackage::ERRORSTATEMENT__MESSAGE);
     m_ErrorStatementEClass->getEStructuralFeatures().push_back(
@@ -116,7 +165,7 @@ StatementPackage::StatementPackage()
             ABSTRACTSTATEMENTWITHBODY);
     m_AbstractStatementWithBodyEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractStatementWithBodyEClass);
-    m_AbstractStatementWithBody__body = new ::ecore::EReference();
+    // m_AbstractStatementWithBody__body has already been allocated above
     m_AbstractStatementWithBody__body->setFeatureID(
             ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY);
     m_AbstractStatementWithBodyEClass->getEStructuralFeatures().push_back(
@@ -127,17 +176,17 @@ StatementPackage::StatementPackage()
     m_FileStatementEClass->setClassifierID(FILESTATEMENT);
     m_FileStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_FileStatementEClass);
-    m_FileStatement__once = new ::ecore::EAttribute();
+    // m_FileStatement__once has already been allocated above
     m_FileStatement__once->setFeatureID(
             ::xpand3::statement::StatementPackage::FILESTATEMENT__ONCE);
     m_FileStatementEClass->getEStructuralFeatures().push_back(
             m_FileStatement__once);
-    m_FileStatement__fileNameExpression = new ::ecore::EReference();
+    // m_FileStatement__fileNameExpression has already been allocated above
     m_FileStatement__fileNameExpression->setFeatureID(
             ::xpand3::statement::StatementPackage::FILESTATEMENT__FILENAMEEXPRESSION);
     m_FileStatementEClass->getEStructuralFeatures().push_back(
             m_FileStatement__fileNameExpression);
-    m_FileStatement__outletNameIdentifier = new ::ecore::EReference();
+    // m_FileStatement__outletNameIdentifier has already been allocated above
     m_FileStatement__outletNameIdentifier->setFeatureID(
             ::xpand3::statement::StatementPackage::FILESTATEMENT__OUTLETNAMEIDENTIFIER);
     m_FileStatementEClass->getEStructuralFeatures().push_back(
@@ -148,22 +197,22 @@ StatementPackage::StatementPackage()
     m_ForEachStatementEClass->setClassifierID(FOREACHSTATEMENT);
     m_ForEachStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ForEachStatementEClass);
-    m_ForEachStatement__target = new ::ecore::EReference();
+    // m_ForEachStatement__target has already been allocated above
     m_ForEachStatement__target->setFeatureID(
             ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__TARGET);
     m_ForEachStatementEClass->getEStructuralFeatures().push_back(
             m_ForEachStatement__target);
-    m_ForEachStatement__separator = new ::ecore::EReference();
+    // m_ForEachStatement__separator has already been allocated above
     m_ForEachStatement__separator->setFeatureID(
             ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__SEPARATOR);
     m_ForEachStatementEClass->getEStructuralFeatures().push_back(
             m_ForEachStatement__separator);
-    m_ForEachStatement__variable = new ::ecore::EReference();
+    // m_ForEachStatement__variable has already been allocated above
     m_ForEachStatement__variable->setFeatureID(
             ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__VARIABLE);
     m_ForEachStatementEClass->getEStructuralFeatures().push_back(
             m_ForEachStatement__variable);
-    m_ForEachStatement__iteratorName = new ::ecore::EReference();
+    // m_ForEachStatement__iteratorName has already been allocated above
     m_ForEachStatement__iteratorName->setFeatureID(
             ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__ITERATORNAME);
     m_ForEachStatementEClass->getEStructuralFeatures().push_back(
@@ -174,12 +223,12 @@ StatementPackage::StatementPackage()
     m_IfStatementEClass->setClassifierID(IFSTATEMENT);
     m_IfStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_IfStatementEClass);
-    m_IfStatement__condition = new ::ecore::EReference();
+    // m_IfStatement__condition has already been allocated above
     m_IfStatement__condition->setFeatureID(
             ::xpand3::statement::StatementPackage::IFSTATEMENT__CONDITION);
     m_IfStatementEClass->getEStructuralFeatures().push_back(
             m_IfStatement__condition);
-    m_IfStatement__elseIf = new ::ecore::EReference();
+    // m_IfStatement__elseIf has already been allocated above
     m_IfStatement__elseIf->setFeatureID(
             ::xpand3::statement::StatementPackage::IFSTATEMENT__ELSEIF);
     m_IfStatementEClass->getEStructuralFeatures().push_back(
@@ -190,12 +239,12 @@ StatementPackage::StatementPackage()
     m_LetStatementEClass->setClassifierID(LETSTATEMENT);
     m_LetStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_LetStatementEClass);
-    m_LetStatement__varName = new ::ecore::EReference();
+    // m_LetStatement__varName has already been allocated above
     m_LetStatement__varName->setFeatureID(
             ::xpand3::statement::StatementPackage::LETSTATEMENT__VARNAME);
     m_LetStatementEClass->getEStructuralFeatures().push_back(
             m_LetStatement__varName);
-    m_LetStatement__varValue = new ::ecore::EReference();
+    // m_LetStatement__varValue has already been allocated above
     m_LetStatement__varValue->setFeatureID(
             ::xpand3::statement::StatementPackage::LETSTATEMENT__VARVALUE);
     m_LetStatementEClass->getEStructuralFeatures().push_back(
@@ -206,22 +255,22 @@ StatementPackage::StatementPackage()
     m_ProtectStatementEClass->setClassifierID(PROTECTSTATEMENT);
     m_ProtectStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ProtectStatementEClass);
-    m_ProtectStatement__disable = new ::ecore::EAttribute();
+    // m_ProtectStatement__disable has already been allocated above
     m_ProtectStatement__disable->setFeatureID(
             ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__DISABLE);
     m_ProtectStatementEClass->getEStructuralFeatures().push_back(
             m_ProtectStatement__disable);
-    m_ProtectStatement__commentStart = new ::ecore::EReference();
+    // m_ProtectStatement__commentStart has already been allocated above
     m_ProtectStatement__commentStart->setFeatureID(
             ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTSTART);
     m_ProtectStatementEClass->getEStructuralFeatures().push_back(
             m_ProtectStatement__commentStart);
-    m_ProtectStatement__commentEnd = new ::ecore::EReference();
+    // m_ProtectStatement__commentEnd has already been allocated above
     m_ProtectStatement__commentEnd->setFeatureID(
             ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTEND);
     m_ProtectStatementEClass->getEStructuralFeatures().push_back(
             m_ProtectStatement__commentEnd);
-    m_ProtectStatement__id = new ::ecore::EReference();
+    // m_ProtectStatement__id has already been allocated above
     m_ProtectStatement__id->setFeatureID(
             ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__ID);
     m_ProtectStatementEClass->getEStructuralFeatures().push_back(
@@ -232,12 +281,12 @@ StatementPackage::StatementPackage()
     m_TextStatementEClass->setClassifierID(TEXTSTATEMENT);
     m_TextStatementEClass->setEPackage(this);
     getEClassifiers().push_back(m_TextStatementEClass);
-    m_TextStatement__value = new ::ecore::EAttribute();
+    // m_TextStatement__value has already been allocated above
     m_TextStatement__value->setFeatureID(
             ::xpand3::statement::StatementPackage::TEXTSTATEMENT__VALUE);
     m_TextStatementEClass->getEStructuralFeatures().push_back(
             m_TextStatement__value);
-    m_TextStatement__deleteLine = new ::ecore::EAttribute();
+    // m_TextStatement__deleteLine has already been allocated above
     m_TextStatement__deleteLine->setFeatureID(
             ::xpand3::statement::StatementPackage::TEXTSTATEMENT__DELETELINE);
     m_TextStatementEClass->getEStructuralFeatures().push_back(

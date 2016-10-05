@@ -26,8 +26,15 @@ std::unique_ptr< ::xpand3::declaration::DeclarationPackage,
 
 ::xpand3::declaration::DeclarationPackage_ptr DeclarationPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new DeclarationPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

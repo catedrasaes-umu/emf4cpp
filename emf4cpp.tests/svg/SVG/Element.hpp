@@ -72,12 +72,18 @@ namespace SVG
 
         ::SVG::Svg_ptr getRoot();
         void setRoot(::SVG::Svg_ptr _root);
+        ::SVG::Svg_ptr basicgetRoot();
+        void basicsetRoot(::SVG::Svg_ptr _root);
 
         ::SVG::GroupingElement_ptr getGroup();
         void setGroup(::SVG::GroupingElement_ptr _group);
+        ::SVG::GroupingElement_ptr basicgetGroup();
+        void basicsetGroup(::SVG::GroupingElement_ptr _group);
 
         ::SVG::Marker_ptr getDrawsMarker();
         void setDrawsMarker(::SVG::Marker_ptr _drawsMarker);
+        ::SVG::Marker_ptr basicgetDrawsMarker();
+        void basicsetDrawsMarker(::SVG::Marker_ptr _drawsMarker);
 
         /*PROTECTED REGION ID(Element) START*/
         // Please, enable the protected region if you add manually written code.
@@ -92,6 +98,10 @@ namespace SVG
         virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
+        virtual void _inverseAdd(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _oldValue);
 
         /*PROTECTED REGION ID(ElementImpl) START*/
         // Please, enable the protected region if you add manually written code.

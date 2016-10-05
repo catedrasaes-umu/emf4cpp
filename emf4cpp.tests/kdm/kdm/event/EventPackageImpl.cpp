@@ -52,6 +52,65 @@ using namespace ::kdm::event;
 EventPackage::EventPackage()
 {
 
+    // Feature definitions of EventModel
+    m_EventModel__eventElement = new ::ecore::EReference();
+
+    // Feature definitions of AbstractEventElement
+    m_AbstractEventElement__source = new ::ecore::EReference();
+    m_AbstractEventElement__eventRelation = new ::ecore::EReference();
+    m_AbstractEventElement__abstraction = new ::ecore::EReference();
+    m_AbstractEventElement__implementation = new ::ecore::EReference();
+
+    // Feature definitions of Event
+    m_Event__kind = new ::ecore::EAttribute();
+
+    // Feature definitions of AbstractEventRelationship
+
+    // Feature definitions of EventRelationship
+    m_EventRelationship__to = new ::ecore::EReference();
+    m_EventRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of EventResource
+    m_EventResource__eventElement = new ::ecore::EReference();
+
+    // Feature definitions of State
+
+    // Feature definitions of Transition
+
+    // Feature definitions of OnEntry
+
+    // Feature definitions of OnExit
+
+    // Feature definitions of EventAction
+    m_EventAction__kind = new ::ecore::EAttribute();
+    m_EventAction__eventElement = new ::ecore::EReference();
+
+    // Feature definitions of ReadsState
+    m_ReadsState__to = new ::ecore::EReference();
+    m_ReadsState__from = new ::ecore::EReference();
+
+    // Feature definitions of ProducesEvent
+    m_ProducesEvent__to = new ::ecore::EReference();
+    m_ProducesEvent__from = new ::ecore::EReference();
+
+    // Feature definitions of ConsumesEvent
+    m_ConsumesEvent__to = new ::ecore::EReference();
+    m_ConsumesEvent__from = new ::ecore::EReference();
+
+    // Feature definitions of NextState
+    m_NextState__to = new ::ecore::EReference();
+    m_NextState__from = new ::ecore::EReference();
+
+    // Feature definitions of InitialState
+
+    // Feature definitions of EventElement
+
+    // Feature definitions of HasState
+    m_HasState__to = new ::ecore::EReference();
+    m_HasState__from = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -66,7 +125,7 @@ EventPackage::EventPackage()
     m_EventModelEClass->setClassifierID(EVENTMODEL);
     m_EventModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_EventModelEClass);
-    m_EventModel__eventElement = new ::ecore::EReference();
+    // m_EventModel__eventElement has already been allocated above
     m_EventModel__eventElement->setFeatureID(
             ::kdm::event::EventPackage::EVENTMODEL__EVENTELEMENT);
     m_EventModelEClass->getEStructuralFeatures().push_back(
@@ -77,22 +136,22 @@ EventPackage::EventPackage()
     m_AbstractEventElementEClass->setClassifierID(ABSTRACTEVENTELEMENT);
     m_AbstractEventElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractEventElementEClass);
-    m_AbstractEventElement__source = new ::ecore::EReference();
+    // m_AbstractEventElement__source has already been allocated above
     m_AbstractEventElement__source->setFeatureID(
             ::kdm::event::EventPackage::ABSTRACTEVENTELEMENT__SOURCE);
     m_AbstractEventElementEClass->getEStructuralFeatures().push_back(
             m_AbstractEventElement__source);
-    m_AbstractEventElement__eventRelation = new ::ecore::EReference();
+    // m_AbstractEventElement__eventRelation has already been allocated above
     m_AbstractEventElement__eventRelation->setFeatureID(
             ::kdm::event::EventPackage::ABSTRACTEVENTELEMENT__EVENTRELATION);
     m_AbstractEventElementEClass->getEStructuralFeatures().push_back(
             m_AbstractEventElement__eventRelation);
-    m_AbstractEventElement__abstraction = new ::ecore::EReference();
+    // m_AbstractEventElement__abstraction has already been allocated above
     m_AbstractEventElement__abstraction->setFeatureID(
             ::kdm::event::EventPackage::ABSTRACTEVENTELEMENT__ABSTRACTION);
     m_AbstractEventElementEClass->getEStructuralFeatures().push_back(
             m_AbstractEventElement__abstraction);
-    m_AbstractEventElement__implementation = new ::ecore::EReference();
+    // m_AbstractEventElement__implementation has already been allocated above
     m_AbstractEventElement__implementation->setFeatureID(
             ::kdm::event::EventPackage::ABSTRACTEVENTELEMENT__IMPLEMENTATION);
     m_AbstractEventElementEClass->getEStructuralFeatures().push_back(
@@ -103,7 +162,7 @@ EventPackage::EventPackage()
     m_EventEClass->setClassifierID(EVENT);
     m_EventEClass->setEPackage(this);
     getEClassifiers().push_back(m_EventEClass);
-    m_Event__kind = new ::ecore::EAttribute();
+    // m_Event__kind has already been allocated above
     m_Event__kind->setFeatureID(::kdm::event::EventPackage::EVENT__KIND);
     m_EventEClass->getEStructuralFeatures().push_back(m_Event__kind);
 
@@ -119,12 +178,12 @@ EventPackage::EventPackage()
     m_EventRelationshipEClass->setClassifierID(EVENTRELATIONSHIP);
     m_EventRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_EventRelationshipEClass);
-    m_EventRelationship__to = new ::ecore::EReference();
+    // m_EventRelationship__to has already been allocated above
     m_EventRelationship__to->setFeatureID(
             ::kdm::event::EventPackage::EVENTRELATIONSHIP__TO);
     m_EventRelationshipEClass->getEStructuralFeatures().push_back(
             m_EventRelationship__to);
-    m_EventRelationship__from = new ::ecore::EReference();
+    // m_EventRelationship__from has already been allocated above
     m_EventRelationship__from->setFeatureID(
             ::kdm::event::EventPackage::EVENTRELATIONSHIP__FROM);
     m_EventRelationshipEClass->getEStructuralFeatures().push_back(
@@ -135,7 +194,7 @@ EventPackage::EventPackage()
     m_EventResourceEClass->setClassifierID(EVENTRESOURCE);
     m_EventResourceEClass->setEPackage(this);
     getEClassifiers().push_back(m_EventResourceEClass);
-    m_EventResource__eventElement = new ::ecore::EReference();
+    // m_EventResource__eventElement has already been allocated above
     m_EventResource__eventElement->setFeatureID(
             ::kdm::event::EventPackage::EVENTRESOURCE__EVENTELEMENT);
     m_EventResourceEClass->getEStructuralFeatures().push_back(
@@ -170,12 +229,12 @@ EventPackage::EventPackage()
     m_EventActionEClass->setClassifierID(EVENTACTION);
     m_EventActionEClass->setEPackage(this);
     getEClassifiers().push_back(m_EventActionEClass);
-    m_EventAction__kind = new ::ecore::EAttribute();
+    // m_EventAction__kind has already been allocated above
     m_EventAction__kind->setFeatureID(
             ::kdm::event::EventPackage::EVENTACTION__KIND);
     m_EventActionEClass->getEStructuralFeatures().push_back(
             m_EventAction__kind);
-    m_EventAction__eventElement = new ::ecore::EReference();
+    // m_EventAction__eventElement has already been allocated above
     m_EventAction__eventElement->setFeatureID(
             ::kdm::event::EventPackage::EVENTACTION__EVENTELEMENT);
     m_EventActionEClass->getEStructuralFeatures().push_back(
@@ -186,10 +245,10 @@ EventPackage::EventPackage()
     m_ReadsStateEClass->setClassifierID(READSSTATE);
     m_ReadsStateEClass->setEPackage(this);
     getEClassifiers().push_back(m_ReadsStateEClass);
-    m_ReadsState__to = new ::ecore::EReference();
+    // m_ReadsState__to has already been allocated above
     m_ReadsState__to->setFeatureID(::kdm::event::EventPackage::READSSTATE__TO);
     m_ReadsStateEClass->getEStructuralFeatures().push_back(m_ReadsState__to);
-    m_ReadsState__from = new ::ecore::EReference();
+    // m_ReadsState__from has already been allocated above
     m_ReadsState__from->setFeatureID(
             ::kdm::event::EventPackage::READSSTATE__FROM);
     m_ReadsStateEClass->getEStructuralFeatures().push_back(m_ReadsState__from);
@@ -199,12 +258,12 @@ EventPackage::EventPackage()
     m_ProducesEventEClass->setClassifierID(PRODUCESEVENT);
     m_ProducesEventEClass->setEPackage(this);
     getEClassifiers().push_back(m_ProducesEventEClass);
-    m_ProducesEvent__to = new ::ecore::EReference();
+    // m_ProducesEvent__to has already been allocated above
     m_ProducesEvent__to->setFeatureID(
             ::kdm::event::EventPackage::PRODUCESEVENT__TO);
     m_ProducesEventEClass->getEStructuralFeatures().push_back(
             m_ProducesEvent__to);
-    m_ProducesEvent__from = new ::ecore::EReference();
+    // m_ProducesEvent__from has already been allocated above
     m_ProducesEvent__from->setFeatureID(
             ::kdm::event::EventPackage::PRODUCESEVENT__FROM);
     m_ProducesEventEClass->getEStructuralFeatures().push_back(
@@ -215,12 +274,12 @@ EventPackage::EventPackage()
     m_ConsumesEventEClass->setClassifierID(CONSUMESEVENT);
     m_ConsumesEventEClass->setEPackage(this);
     getEClassifiers().push_back(m_ConsumesEventEClass);
-    m_ConsumesEvent__to = new ::ecore::EReference();
+    // m_ConsumesEvent__to has already been allocated above
     m_ConsumesEvent__to->setFeatureID(
             ::kdm::event::EventPackage::CONSUMESEVENT__TO);
     m_ConsumesEventEClass->getEStructuralFeatures().push_back(
             m_ConsumesEvent__to);
-    m_ConsumesEvent__from = new ::ecore::EReference();
+    // m_ConsumesEvent__from has already been allocated above
     m_ConsumesEvent__from->setFeatureID(
             ::kdm::event::EventPackage::CONSUMESEVENT__FROM);
     m_ConsumesEventEClass->getEStructuralFeatures().push_back(
@@ -231,10 +290,10 @@ EventPackage::EventPackage()
     m_NextStateEClass->setClassifierID(NEXTSTATE);
     m_NextStateEClass->setEPackage(this);
     getEClassifiers().push_back(m_NextStateEClass);
-    m_NextState__to = new ::ecore::EReference();
+    // m_NextState__to has already been allocated above
     m_NextState__to->setFeatureID(::kdm::event::EventPackage::NEXTSTATE__TO);
     m_NextStateEClass->getEStructuralFeatures().push_back(m_NextState__to);
-    m_NextState__from = new ::ecore::EReference();
+    // m_NextState__from has already been allocated above
     m_NextState__from->setFeatureID(
             ::kdm::event::EventPackage::NEXTSTATE__FROM);
     m_NextStateEClass->getEStructuralFeatures().push_back(m_NextState__from);
@@ -256,10 +315,10 @@ EventPackage::EventPackage()
     m_HasStateEClass->setClassifierID(HASSTATE);
     m_HasStateEClass->setEPackage(this);
     getEClassifiers().push_back(m_HasStateEClass);
-    m_HasState__to = new ::ecore::EReference();
+    // m_HasState__to has already been allocated above
     m_HasState__to->setFeatureID(::kdm::event::EventPackage::HASSTATE__TO);
     m_HasStateEClass->getEStructuralFeatures().push_back(m_HasState__to);
-    m_HasState__from = new ::ecore::EReference();
+    // m_HasState__from has already been allocated above
     m_HasState__from->setFeatureID(::kdm::event::EventPackage::HASSTATE__FROM);
     m_HasStateEClass->getEStructuralFeatures().push_back(m_HasState__from);
 

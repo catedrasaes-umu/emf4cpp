@@ -54,6 +54,142 @@ using namespace ::kdm::data;
 DataPackage::DataPackage()
 {
 
+    // Feature definitions of DataModel
+    m_DataModel__dataElement = new ::ecore::EReference();
+
+    // Feature definitions of AbstractDataElement
+    m_AbstractDataElement__source = new ::ecore::EReference();
+    m_AbstractDataElement__dataRelation = new ::ecore::EReference();
+    m_AbstractDataElement__abstraction = new ::ecore::EReference();
+
+    // Feature definitions of DataResource
+
+    // Feature definitions of IndexElement
+    m_IndexElement__implementation = new ::ecore::EReference();
+
+    // Feature definitions of UniqueKey
+
+    // Feature definitions of Index
+
+    // Feature definitions of AbstractDataRelationship
+
+    // Feature definitions of KeyRelation
+    m_KeyRelation__to = new ::ecore::EReference();
+    m_KeyRelation__from = new ::ecore::EReference();
+
+    // Feature definitions of ReferenceKey
+
+    // Feature definitions of DataContainer
+    m_DataContainer__dataElement = new ::ecore::EReference();
+
+    // Feature definitions of Catalog
+
+    // Feature definitions of RelationalSchema
+    m_RelationalSchema__codeElement = new ::ecore::EReference();
+
+    // Feature definitions of ColumnSet
+    m_ColumnSet__itemUnit = new ::ecore::EReference();
+
+    // Feature definitions of RelationalTable
+
+    // Feature definitions of RelationalView
+
+    // Feature definitions of RecordFile
+
+    // Feature definitions of DataEvent
+    m_DataEvent__kind = new ::ecore::EAttribute();
+
+    // Feature definitions of XMLSchema
+    m_XMLSchema__contentElement = new ::ecore::EReference();
+
+    // Feature definitions of AbstractContentElement
+
+    // Feature definitions of ComplexContentType
+    m_ComplexContentType__contentElement = new ::ecore::EReference();
+
+    // Feature definitions of AllContent
+
+    // Feature definitions of SeqContent
+
+    // Feature definitions of ChoiceContent
+
+    // Feature definitions of ContentItem
+    m_ContentItem__type = new ::ecore::EReference();
+    m_ContentItem__contentElement = new ::ecore::EReference();
+
+    // Feature definitions of GroupContent
+
+    // Feature definitions of ContentRestriction
+    m_ContentRestriction__kind = new ::ecore::EAttribute();
+    m_ContentRestriction__value = new ::ecore::EAttribute();
+
+    // Feature definitions of SimpleContentType
+    m_SimpleContentType__kind = new ::ecore::EAttribute();
+    m_SimpleContentType__type = new ::ecore::EReference();
+
+    // Feature definitions of ExtendedDataElement
+
+    // Feature definitions of DataRelationship
+    m_DataRelationship__to = new ::ecore::EReference();
+    m_DataRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of MixedContent
+
+    // Feature definitions of ContentReference
+
+    // Feature definitions of DataAction
+    m_DataAction__kind = new ::ecore::EAttribute();
+    m_DataAction__implementation = new ::ecore::EReference();
+    m_DataAction__dataElement = new ::ecore::EReference();
+
+    // Feature definitions of ReadsColumnSet
+    m_ReadsColumnSet__to = new ::ecore::EReference();
+    m_ReadsColumnSet__from = new ::ecore::EReference();
+
+    // Feature definitions of ContentAttribute
+
+    // Feature definitions of TypedBy
+    m_TypedBy__to = new ::ecore::EReference();
+    m_TypedBy__from = new ::ecore::EReference();
+
+    // Feature definitions of ReferenceTo
+    m_ReferenceTo__to = new ::ecore::EReference();
+    m_ReferenceTo__from = new ::ecore::EReference();
+
+    // Feature definitions of RestrictionOf
+    m_RestrictionOf__to = new ::ecore::EReference();
+    m_RestrictionOf__from = new ::ecore::EReference();
+
+    // Feature definitions of ExtensionTo
+    m_ExtensionTo__to = new ::ecore::EReference();
+    m_ExtensionTo__from = new ::ecore::EReference();
+
+    // Feature definitions of DatatypeOf
+    m_DatatypeOf__to = new ::ecore::EReference();
+    m_DatatypeOf__from = new ::ecore::EReference();
+
+    // Feature definitions of HasContent
+    m_HasContent__to = new ::ecore::EReference();
+    m_HasContent__from = new ::ecore::EReference();
+
+    // Feature definitions of WritesColumnSet
+    m_WritesColumnSet__to = new ::ecore::EReference();
+    m_WritesColumnSet__from = new ::ecore::EReference();
+
+    // Feature definitions of ProducesDataEvent
+    m_ProducesDataEvent__to = new ::ecore::EReference();
+    m_ProducesDataEvent__from = new ::ecore::EReference();
+
+    // Feature definitions of DataSegment
+
+    // Feature definitions of ContentElement
+
+    // Feature definitions of ManagesData
+    m_ManagesData__to = new ::ecore::EReference();
+    m_ManagesData__from = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -68,7 +204,7 @@ DataPackage::DataPackage()
     m_DataModelEClass->setClassifierID(DATAMODEL);
     m_DataModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_DataModelEClass);
-    m_DataModel__dataElement = new ::ecore::EReference();
+    // m_DataModel__dataElement has already been allocated above
     m_DataModel__dataElement->setFeatureID(
             ::kdm::data::DataPackage::DATAMODEL__DATAELEMENT);
     m_DataModelEClass->getEStructuralFeatures().push_back(
@@ -79,17 +215,17 @@ DataPackage::DataPackage()
     m_AbstractDataElementEClass->setClassifierID(ABSTRACTDATAELEMENT);
     m_AbstractDataElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractDataElementEClass);
-    m_AbstractDataElement__source = new ::ecore::EReference();
+    // m_AbstractDataElement__source has already been allocated above
     m_AbstractDataElement__source->setFeatureID(
             ::kdm::data::DataPackage::ABSTRACTDATAELEMENT__SOURCE);
     m_AbstractDataElementEClass->getEStructuralFeatures().push_back(
             m_AbstractDataElement__source);
-    m_AbstractDataElement__dataRelation = new ::ecore::EReference();
+    // m_AbstractDataElement__dataRelation has already been allocated above
     m_AbstractDataElement__dataRelation->setFeatureID(
             ::kdm::data::DataPackage::ABSTRACTDATAELEMENT__DATARELATION);
     m_AbstractDataElementEClass->getEStructuralFeatures().push_back(
             m_AbstractDataElement__dataRelation);
-    m_AbstractDataElement__abstraction = new ::ecore::EReference();
+    // m_AbstractDataElement__abstraction has already been allocated above
     m_AbstractDataElement__abstraction->setFeatureID(
             ::kdm::data::DataPackage::ABSTRACTDATAELEMENT__ABSTRACTION);
     m_AbstractDataElementEClass->getEStructuralFeatures().push_back(
@@ -106,7 +242,7 @@ DataPackage::DataPackage()
     m_IndexElementEClass->setClassifierID(INDEXELEMENT);
     m_IndexElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_IndexElementEClass);
-    m_IndexElement__implementation = new ::ecore::EReference();
+    // m_IndexElement__implementation has already been allocated above
     m_IndexElement__implementation->setFeatureID(
             ::kdm::data::DataPackage::INDEXELEMENT__IMPLEMENTATION);
     m_IndexElementEClass->getEStructuralFeatures().push_back(
@@ -135,10 +271,10 @@ DataPackage::DataPackage()
     m_KeyRelationEClass->setClassifierID(KEYRELATION);
     m_KeyRelationEClass->setEPackage(this);
     getEClassifiers().push_back(m_KeyRelationEClass);
-    m_KeyRelation__to = new ::ecore::EReference();
+    // m_KeyRelation__to has already been allocated above
     m_KeyRelation__to->setFeatureID(::kdm::data::DataPackage::KEYRELATION__TO);
     m_KeyRelationEClass->getEStructuralFeatures().push_back(m_KeyRelation__to);
-    m_KeyRelation__from = new ::ecore::EReference();
+    // m_KeyRelation__from has already been allocated above
     m_KeyRelation__from->setFeatureID(
             ::kdm::data::DataPackage::KEYRELATION__FROM);
     m_KeyRelationEClass->getEStructuralFeatures().push_back(
@@ -155,7 +291,7 @@ DataPackage::DataPackage()
     m_DataContainerEClass->setClassifierID(DATACONTAINER);
     m_DataContainerEClass->setEPackage(this);
     getEClassifiers().push_back(m_DataContainerEClass);
-    m_DataContainer__dataElement = new ::ecore::EReference();
+    // m_DataContainer__dataElement has already been allocated above
     m_DataContainer__dataElement->setFeatureID(
             ::kdm::data::DataPackage::DATACONTAINER__DATAELEMENT);
     m_DataContainerEClass->getEStructuralFeatures().push_back(
@@ -172,7 +308,7 @@ DataPackage::DataPackage()
     m_RelationalSchemaEClass->setClassifierID(RELATIONALSCHEMA);
     m_RelationalSchemaEClass->setEPackage(this);
     getEClassifiers().push_back(m_RelationalSchemaEClass);
-    m_RelationalSchema__codeElement = new ::ecore::EReference();
+    // m_RelationalSchema__codeElement has already been allocated above
     m_RelationalSchema__codeElement->setFeatureID(
             ::kdm::data::DataPackage::RELATIONALSCHEMA__CODEELEMENT);
     m_RelationalSchemaEClass->getEStructuralFeatures().push_back(
@@ -183,7 +319,7 @@ DataPackage::DataPackage()
     m_ColumnSetEClass->setClassifierID(COLUMNSET);
     m_ColumnSetEClass->setEPackage(this);
     getEClassifiers().push_back(m_ColumnSetEClass);
-    m_ColumnSet__itemUnit = new ::ecore::EReference();
+    // m_ColumnSet__itemUnit has already been allocated above
     m_ColumnSet__itemUnit->setFeatureID(
             ::kdm::data::DataPackage::COLUMNSET__ITEMUNIT);
     m_ColumnSetEClass->getEStructuralFeatures().push_back(
@@ -212,7 +348,7 @@ DataPackage::DataPackage()
     m_DataEventEClass->setClassifierID(DATAEVENT);
     m_DataEventEClass->setEPackage(this);
     getEClassifiers().push_back(m_DataEventEClass);
-    m_DataEvent__kind = new ::ecore::EAttribute();
+    // m_DataEvent__kind has already been allocated above
     m_DataEvent__kind->setFeatureID(::kdm::data::DataPackage::DATAEVENT__KIND);
     m_DataEventEClass->getEStructuralFeatures().push_back(m_DataEvent__kind);
 
@@ -221,7 +357,7 @@ DataPackage::DataPackage()
     m_XMLSchemaEClass->setClassifierID(XMLSCHEMA);
     m_XMLSchemaEClass->setEPackage(this);
     getEClassifiers().push_back(m_XMLSchemaEClass);
-    m_XMLSchema__contentElement = new ::ecore::EReference();
+    // m_XMLSchema__contentElement has already been allocated above
     m_XMLSchema__contentElement->setFeatureID(
             ::kdm::data::DataPackage::XMLSCHEMA__CONTENTELEMENT);
     m_XMLSchemaEClass->getEStructuralFeatures().push_back(
@@ -238,7 +374,7 @@ DataPackage::DataPackage()
     m_ComplexContentTypeEClass->setClassifierID(COMPLEXCONTENTTYPE);
     m_ComplexContentTypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_ComplexContentTypeEClass);
-    m_ComplexContentType__contentElement = new ::ecore::EReference();
+    // m_ComplexContentType__contentElement has already been allocated above
     m_ComplexContentType__contentElement->setFeatureID(
             ::kdm::data::DataPackage::COMPLEXCONTENTTYPE__CONTENTELEMENT);
     m_ComplexContentTypeEClass->getEStructuralFeatures().push_back(
@@ -267,12 +403,12 @@ DataPackage::DataPackage()
     m_ContentItemEClass->setClassifierID(CONTENTITEM);
     m_ContentItemEClass->setEPackage(this);
     getEClassifiers().push_back(m_ContentItemEClass);
-    m_ContentItem__type = new ::ecore::EReference();
+    // m_ContentItem__type has already been allocated above
     m_ContentItem__type->setFeatureID(
             ::kdm::data::DataPackage::CONTENTITEM__TYPE);
     m_ContentItemEClass->getEStructuralFeatures().push_back(
             m_ContentItem__type);
-    m_ContentItem__contentElement = new ::ecore::EReference();
+    // m_ContentItem__contentElement has already been allocated above
     m_ContentItem__contentElement->setFeatureID(
             ::kdm::data::DataPackage::CONTENTITEM__CONTENTELEMENT);
     m_ContentItemEClass->getEStructuralFeatures().push_back(
@@ -289,12 +425,12 @@ DataPackage::DataPackage()
     m_ContentRestrictionEClass->setClassifierID(CONTENTRESTRICTION);
     m_ContentRestrictionEClass->setEPackage(this);
     getEClassifiers().push_back(m_ContentRestrictionEClass);
-    m_ContentRestriction__kind = new ::ecore::EAttribute();
+    // m_ContentRestriction__kind has already been allocated above
     m_ContentRestriction__kind->setFeatureID(
             ::kdm::data::DataPackage::CONTENTRESTRICTION__KIND);
     m_ContentRestrictionEClass->getEStructuralFeatures().push_back(
             m_ContentRestriction__kind);
-    m_ContentRestriction__value = new ::ecore::EAttribute();
+    // m_ContentRestriction__value has already been allocated above
     m_ContentRestriction__value->setFeatureID(
             ::kdm::data::DataPackage::CONTENTRESTRICTION__VALUE);
     m_ContentRestrictionEClass->getEStructuralFeatures().push_back(
@@ -305,12 +441,12 @@ DataPackage::DataPackage()
     m_SimpleContentTypeEClass->setClassifierID(SIMPLECONTENTTYPE);
     m_SimpleContentTypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_SimpleContentTypeEClass);
-    m_SimpleContentType__kind = new ::ecore::EAttribute();
+    // m_SimpleContentType__kind has already been allocated above
     m_SimpleContentType__kind->setFeatureID(
             ::kdm::data::DataPackage::SIMPLECONTENTTYPE__KIND);
     m_SimpleContentTypeEClass->getEStructuralFeatures().push_back(
             m_SimpleContentType__kind);
-    m_SimpleContentType__type = new ::ecore::EReference();
+    // m_SimpleContentType__type has already been allocated above
     m_SimpleContentType__type->setFeatureID(
             ::kdm::data::DataPackage::SIMPLECONTENTTYPE__TYPE);
     m_SimpleContentTypeEClass->getEStructuralFeatures().push_back(
@@ -327,12 +463,12 @@ DataPackage::DataPackage()
     m_DataRelationshipEClass->setClassifierID(DATARELATIONSHIP);
     m_DataRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_DataRelationshipEClass);
-    m_DataRelationship__to = new ::ecore::EReference();
+    // m_DataRelationship__to has already been allocated above
     m_DataRelationship__to->setFeatureID(
             ::kdm::data::DataPackage::DATARELATIONSHIP__TO);
     m_DataRelationshipEClass->getEStructuralFeatures().push_back(
             m_DataRelationship__to);
-    m_DataRelationship__from = new ::ecore::EReference();
+    // m_DataRelationship__from has already been allocated above
     m_DataRelationship__from->setFeatureID(
             ::kdm::data::DataPackage::DATARELATIONSHIP__FROM);
     m_DataRelationshipEClass->getEStructuralFeatures().push_back(
@@ -355,16 +491,16 @@ DataPackage::DataPackage()
     m_DataActionEClass->setClassifierID(DATAACTION);
     m_DataActionEClass->setEPackage(this);
     getEClassifiers().push_back(m_DataActionEClass);
-    m_DataAction__kind = new ::ecore::EAttribute();
+    // m_DataAction__kind has already been allocated above
     m_DataAction__kind->setFeatureID(
             ::kdm::data::DataPackage::DATAACTION__KIND);
     m_DataActionEClass->getEStructuralFeatures().push_back(m_DataAction__kind);
-    m_DataAction__implementation = new ::ecore::EReference();
+    // m_DataAction__implementation has already been allocated above
     m_DataAction__implementation->setFeatureID(
             ::kdm::data::DataPackage::DATAACTION__IMPLEMENTATION);
     m_DataActionEClass->getEStructuralFeatures().push_back(
             m_DataAction__implementation);
-    m_DataAction__dataElement = new ::ecore::EReference();
+    // m_DataAction__dataElement has already been allocated above
     m_DataAction__dataElement->setFeatureID(
             ::kdm::data::DataPackage::DATAACTION__DATAELEMENT);
     m_DataActionEClass->getEStructuralFeatures().push_back(
@@ -375,12 +511,12 @@ DataPackage::DataPackage()
     m_ReadsColumnSetEClass->setClassifierID(READSCOLUMNSET);
     m_ReadsColumnSetEClass->setEPackage(this);
     getEClassifiers().push_back(m_ReadsColumnSetEClass);
-    m_ReadsColumnSet__to = new ::ecore::EReference();
+    // m_ReadsColumnSet__to has already been allocated above
     m_ReadsColumnSet__to->setFeatureID(
             ::kdm::data::DataPackage::READSCOLUMNSET__TO);
     m_ReadsColumnSetEClass->getEStructuralFeatures().push_back(
             m_ReadsColumnSet__to);
-    m_ReadsColumnSet__from = new ::ecore::EReference();
+    // m_ReadsColumnSet__from has already been allocated above
     m_ReadsColumnSet__from->setFeatureID(
             ::kdm::data::DataPackage::READSCOLUMNSET__FROM);
     m_ReadsColumnSetEClass->getEStructuralFeatures().push_back(
@@ -397,10 +533,10 @@ DataPackage::DataPackage()
     m_TypedByEClass->setClassifierID(TYPEDBY);
     m_TypedByEClass->setEPackage(this);
     getEClassifiers().push_back(m_TypedByEClass);
-    m_TypedBy__to = new ::ecore::EReference();
+    // m_TypedBy__to has already been allocated above
     m_TypedBy__to->setFeatureID(::kdm::data::DataPackage::TYPEDBY__TO);
     m_TypedByEClass->getEStructuralFeatures().push_back(m_TypedBy__to);
-    m_TypedBy__from = new ::ecore::EReference();
+    // m_TypedBy__from has already been allocated above
     m_TypedBy__from->setFeatureID(::kdm::data::DataPackage::TYPEDBY__FROM);
     m_TypedByEClass->getEStructuralFeatures().push_back(m_TypedBy__from);
 
@@ -409,10 +545,10 @@ DataPackage::DataPackage()
     m_ReferenceToEClass->setClassifierID(REFERENCETO);
     m_ReferenceToEClass->setEPackage(this);
     getEClassifiers().push_back(m_ReferenceToEClass);
-    m_ReferenceTo__to = new ::ecore::EReference();
+    // m_ReferenceTo__to has already been allocated above
     m_ReferenceTo__to->setFeatureID(::kdm::data::DataPackage::REFERENCETO__TO);
     m_ReferenceToEClass->getEStructuralFeatures().push_back(m_ReferenceTo__to);
-    m_ReferenceTo__from = new ::ecore::EReference();
+    // m_ReferenceTo__from has already been allocated above
     m_ReferenceTo__from->setFeatureID(
             ::kdm::data::DataPackage::REFERENCETO__FROM);
     m_ReferenceToEClass->getEStructuralFeatures().push_back(
@@ -423,12 +559,12 @@ DataPackage::DataPackage()
     m_RestrictionOfEClass->setClassifierID(RESTRICTIONOF);
     m_RestrictionOfEClass->setEPackage(this);
     getEClassifiers().push_back(m_RestrictionOfEClass);
-    m_RestrictionOf__to = new ::ecore::EReference();
+    // m_RestrictionOf__to has already been allocated above
     m_RestrictionOf__to->setFeatureID(
             ::kdm::data::DataPackage::RESTRICTIONOF__TO);
     m_RestrictionOfEClass->getEStructuralFeatures().push_back(
             m_RestrictionOf__to);
-    m_RestrictionOf__from = new ::ecore::EReference();
+    // m_RestrictionOf__from has already been allocated above
     m_RestrictionOf__from->setFeatureID(
             ::kdm::data::DataPackage::RESTRICTIONOF__FROM);
     m_RestrictionOfEClass->getEStructuralFeatures().push_back(
@@ -439,10 +575,10 @@ DataPackage::DataPackage()
     m_ExtensionToEClass->setClassifierID(EXTENSIONTO);
     m_ExtensionToEClass->setEPackage(this);
     getEClassifiers().push_back(m_ExtensionToEClass);
-    m_ExtensionTo__to = new ::ecore::EReference();
+    // m_ExtensionTo__to has already been allocated above
     m_ExtensionTo__to->setFeatureID(::kdm::data::DataPackage::EXTENSIONTO__TO);
     m_ExtensionToEClass->getEStructuralFeatures().push_back(m_ExtensionTo__to);
-    m_ExtensionTo__from = new ::ecore::EReference();
+    // m_ExtensionTo__from has already been allocated above
     m_ExtensionTo__from->setFeatureID(
             ::kdm::data::DataPackage::EXTENSIONTO__FROM);
     m_ExtensionToEClass->getEStructuralFeatures().push_back(
@@ -453,10 +589,10 @@ DataPackage::DataPackage()
     m_DatatypeOfEClass->setClassifierID(DATATYPEOF);
     m_DatatypeOfEClass->setEPackage(this);
     getEClassifiers().push_back(m_DatatypeOfEClass);
-    m_DatatypeOf__to = new ::ecore::EReference();
+    // m_DatatypeOf__to has already been allocated above
     m_DatatypeOf__to->setFeatureID(::kdm::data::DataPackage::DATATYPEOF__TO);
     m_DatatypeOfEClass->getEStructuralFeatures().push_back(m_DatatypeOf__to);
-    m_DatatypeOf__from = new ::ecore::EReference();
+    // m_DatatypeOf__from has already been allocated above
     m_DatatypeOf__from->setFeatureID(
             ::kdm::data::DataPackage::DATATYPEOF__FROM);
     m_DatatypeOfEClass->getEStructuralFeatures().push_back(m_DatatypeOf__from);
@@ -466,10 +602,10 @@ DataPackage::DataPackage()
     m_HasContentEClass->setClassifierID(HASCONTENT);
     m_HasContentEClass->setEPackage(this);
     getEClassifiers().push_back(m_HasContentEClass);
-    m_HasContent__to = new ::ecore::EReference();
+    // m_HasContent__to has already been allocated above
     m_HasContent__to->setFeatureID(::kdm::data::DataPackage::HASCONTENT__TO);
     m_HasContentEClass->getEStructuralFeatures().push_back(m_HasContent__to);
-    m_HasContent__from = new ::ecore::EReference();
+    // m_HasContent__from has already been allocated above
     m_HasContent__from->setFeatureID(
             ::kdm::data::DataPackage::HASCONTENT__FROM);
     m_HasContentEClass->getEStructuralFeatures().push_back(m_HasContent__from);
@@ -479,12 +615,12 @@ DataPackage::DataPackage()
     m_WritesColumnSetEClass->setClassifierID(WRITESCOLUMNSET);
     m_WritesColumnSetEClass->setEPackage(this);
     getEClassifiers().push_back(m_WritesColumnSetEClass);
-    m_WritesColumnSet__to = new ::ecore::EReference();
+    // m_WritesColumnSet__to has already been allocated above
     m_WritesColumnSet__to->setFeatureID(
             ::kdm::data::DataPackage::WRITESCOLUMNSET__TO);
     m_WritesColumnSetEClass->getEStructuralFeatures().push_back(
             m_WritesColumnSet__to);
-    m_WritesColumnSet__from = new ::ecore::EReference();
+    // m_WritesColumnSet__from has already been allocated above
     m_WritesColumnSet__from->setFeatureID(
             ::kdm::data::DataPackage::WRITESCOLUMNSET__FROM);
     m_WritesColumnSetEClass->getEStructuralFeatures().push_back(
@@ -495,12 +631,12 @@ DataPackage::DataPackage()
     m_ProducesDataEventEClass->setClassifierID(PRODUCESDATAEVENT);
     m_ProducesDataEventEClass->setEPackage(this);
     getEClassifiers().push_back(m_ProducesDataEventEClass);
-    m_ProducesDataEvent__to = new ::ecore::EReference();
+    // m_ProducesDataEvent__to has already been allocated above
     m_ProducesDataEvent__to->setFeatureID(
             ::kdm::data::DataPackage::PRODUCESDATAEVENT__TO);
     m_ProducesDataEventEClass->getEStructuralFeatures().push_back(
             m_ProducesDataEvent__to);
-    m_ProducesDataEvent__from = new ::ecore::EReference();
+    // m_ProducesDataEvent__from has already been allocated above
     m_ProducesDataEvent__from->setFeatureID(
             ::kdm::data::DataPackage::PRODUCESDATAEVENT__FROM);
     m_ProducesDataEventEClass->getEStructuralFeatures().push_back(
@@ -523,10 +659,10 @@ DataPackage::DataPackage()
     m_ManagesDataEClass->setClassifierID(MANAGESDATA);
     m_ManagesDataEClass->setEPackage(this);
     getEClassifiers().push_back(m_ManagesDataEClass);
-    m_ManagesData__to = new ::ecore::EReference();
+    // m_ManagesData__to has already been allocated above
     m_ManagesData__to->setFeatureID(::kdm::data::DataPackage::MANAGESDATA__TO);
     m_ManagesDataEClass->getEStructuralFeatures().push_back(m_ManagesData__to);
-    m_ManagesData__from = new ::ecore::EReference();
+    // m_ManagesData__from has already been allocated above
     m_ManagesData__from->setFeatureID(
             ::kdm::data::DataPackage::MANAGESDATA__FROM);
     m_ManagesDataEClass->getEStructuralFeatures().push_back(

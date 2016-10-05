@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::code::CodePackage,
 
 ::kdm::code::CodePackage_ptr CodePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new CodePackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

@@ -334,3 +334,144 @@ void EOperation::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EOperation::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__ECONTAININGCLASS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass_ptr >(_t0);
+
+        // set reference
+        basicsetEContainingClass(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__ETYPEPARAMETERS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__EPARAMETERS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EParameter_ptr _t1 =
+                dynamic_cast< ::ecore::EParameter_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EParameter,
+                        -1, true, true >&) ::ecore::EOperation::getEParameters();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__EEXCEPTIONS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__EGENERICEXCEPTIONS:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EOperation::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__ECONTAININGCLASS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass_ptr >(_t0);
+
+        // set reference
+        if (basicgetEContainingClass() == _t1)
+            basicsetEContainingClass(nullptr);
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__ETYPEPARAMETERS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__EPARAMETERS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EParameter_ptr _t1 =
+                dynamic_cast< ::ecore::EParameter_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EParameter,
+                        -1, true, true >&) ::ecore::EOperation::getEParameters();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__EEXCEPTIONS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EOPERATION__EGENERICEXCEPTIONS:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

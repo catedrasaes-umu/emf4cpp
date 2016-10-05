@@ -159,3 +159,100 @@ void SvgFile::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void SvgFile::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image, -1,
+                        false, true >&) ::SVG::ReferencedFile::getReferer();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::SVGFILE__TAG:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr >(_t0);
+
+        // set reference
+        basicsetTag(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::SVGFILE__ELEMENTS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+                        false, true >&) ::SVG::SvgFile::getElements();
+        container.basicAdd(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void SvgFile::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image, -1,
+                        false, true >&) ::SVG::ReferencedFile::getReferer();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::SVGFILE__TAG:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr >(_t0);
+
+        // set reference
+        if (basicgetTag() == _t1)
+            basicsetTag(nullptr);
+    }
+        return;
+    case ::SVG::SVGPackage::SVGFILE__ELEMENTS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+                        false, true >&) ::SVG::SvgFile::getElements();
+        container.basicRemove(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

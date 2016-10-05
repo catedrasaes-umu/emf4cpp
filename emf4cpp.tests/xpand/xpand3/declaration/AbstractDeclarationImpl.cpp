@@ -230,3 +230,51 @@ void AbstractDeclaration::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void AbstractDeclaration::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void AbstractDeclaration::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

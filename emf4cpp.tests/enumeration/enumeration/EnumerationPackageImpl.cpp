@@ -38,6 +38,12 @@ using namespace ::enumeration;
 EnumerationPackage::EnumerationPackage()
 {
 
+    // Feature definitions of Bird
+    m_Bird__type = new ::ecore::EAttribute();
+    m_Bird__name = new ::ecore::EAttribute();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -52,10 +58,10 @@ EnumerationPackage::EnumerationPackage()
     m_BirdEClass->setClassifierID(BIRD);
     m_BirdEClass->setEPackage(this);
     getEClassifiers().push_back(m_BirdEClass);
-    m_Bird__type = new ::ecore::EAttribute();
+    // m_Bird__type has already been allocated above
     m_Bird__type->setFeatureID(::enumeration::EnumerationPackage::BIRD__TYPE);
     m_BirdEClass->getEStructuralFeatures().push_back(m_Bird__type);
-    m_Bird__name = new ::ecore::EAttribute();
+    // m_Bird__name has already been allocated above
     m_Bird__name->setFeatureID(::enumeration::EnumerationPackage::BIRD__NAME);
     m_BirdEClass->getEStructuralFeatures().push_back(m_Bird__name);
 

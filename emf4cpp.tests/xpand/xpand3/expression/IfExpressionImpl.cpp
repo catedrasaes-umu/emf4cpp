@@ -213,3 +213,51 @@ void IfExpression::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void IfExpression::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void IfExpression::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

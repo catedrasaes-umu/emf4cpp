@@ -38,6 +38,31 @@ using namespace ::json;
 JsonPackage::JsonPackage()
 {
 
+    // Feature definitions of ObjectValue
+    m_ObjectValue__members = new ::ecore::EReference();
+
+    // Feature definitions of NVPair
+    m_NVPair__name = new ::ecore::EAttribute();
+    m_NVPair__value = new ::ecore::EReference();
+
+    // Feature definitions of Value
+
+    // Feature definitions of StringValue
+    m_StringValue__value = new ::ecore::EAttribute();
+
+    // Feature definitions of NumberValue
+    m_NumberValue__value = new ::ecore::EAttribute();
+
+    // Feature definitions of BooleanValue
+    m_BooleanValue__value = new ::ecore::EAttribute();
+
+    // Feature definitions of ArrayValue
+    m_ArrayValue__values = new ::ecore::EReference();
+
+    // Feature definitions of NullValue
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -52,7 +77,7 @@ JsonPackage::JsonPackage()
     m_ObjectValueEClass->setClassifierID(OBJECTVALUE);
     m_ObjectValueEClass->setEPackage(this);
     getEClassifiers().push_back(m_ObjectValueEClass);
-    m_ObjectValue__members = new ::ecore::EReference();
+    // m_ObjectValue__members has already been allocated above
     m_ObjectValue__members->setFeatureID(
             ::json::JsonPackage::OBJECTVALUE__MEMBERS);
     m_ObjectValueEClass->getEStructuralFeatures().push_back(
@@ -63,10 +88,10 @@ JsonPackage::JsonPackage()
     m_NVPairEClass->setClassifierID(NVPAIR);
     m_NVPairEClass->setEPackage(this);
     getEClassifiers().push_back(m_NVPairEClass);
-    m_NVPair__name = new ::ecore::EAttribute();
+    // m_NVPair__name has already been allocated above
     m_NVPair__name->setFeatureID(::json::JsonPackage::NVPAIR__NAME);
     m_NVPairEClass->getEStructuralFeatures().push_back(m_NVPair__name);
-    m_NVPair__value = new ::ecore::EReference();
+    // m_NVPair__value has already been allocated above
     m_NVPair__value->setFeatureID(::json::JsonPackage::NVPAIR__VALUE);
     m_NVPairEClass->getEStructuralFeatures().push_back(m_NVPair__value);
 
@@ -81,7 +106,7 @@ JsonPackage::JsonPackage()
     m_StringValueEClass->setClassifierID(STRINGVALUE);
     m_StringValueEClass->setEPackage(this);
     getEClassifiers().push_back(m_StringValueEClass);
-    m_StringValue__value = new ::ecore::EAttribute();
+    // m_StringValue__value has already been allocated above
     m_StringValue__value->setFeatureID(::json::JsonPackage::STRINGVALUE__VALUE);
     m_StringValueEClass->getEStructuralFeatures().push_back(
             m_StringValue__value);
@@ -91,7 +116,7 @@ JsonPackage::JsonPackage()
     m_NumberValueEClass->setClassifierID(NUMBERVALUE);
     m_NumberValueEClass->setEPackage(this);
     getEClassifiers().push_back(m_NumberValueEClass);
-    m_NumberValue__value = new ::ecore::EAttribute();
+    // m_NumberValue__value has already been allocated above
     m_NumberValue__value->setFeatureID(::json::JsonPackage::NUMBERVALUE__VALUE);
     m_NumberValueEClass->getEStructuralFeatures().push_back(
             m_NumberValue__value);
@@ -101,7 +126,7 @@ JsonPackage::JsonPackage()
     m_BooleanValueEClass->setClassifierID(BOOLEANVALUE);
     m_BooleanValueEClass->setEPackage(this);
     getEClassifiers().push_back(m_BooleanValueEClass);
-    m_BooleanValue__value = new ::ecore::EAttribute();
+    // m_BooleanValue__value has already been allocated above
     m_BooleanValue__value->setFeatureID(
             ::json::JsonPackage::BOOLEANVALUE__VALUE);
     m_BooleanValueEClass->getEStructuralFeatures().push_back(
@@ -112,7 +137,7 @@ JsonPackage::JsonPackage()
     m_ArrayValueEClass->setClassifierID(ARRAYVALUE);
     m_ArrayValueEClass->setEPackage(this);
     getEClassifiers().push_back(m_ArrayValueEClass);
-    m_ArrayValue__values = new ::ecore::EReference();
+    // m_ArrayValue__values has already been allocated above
     m_ArrayValue__values->setFeatureID(::json::JsonPackage::ARRAYVALUE__VALUES);
     m_ArrayValueEClass->getEStructuralFeatures().push_back(
             m_ArrayValue__values);

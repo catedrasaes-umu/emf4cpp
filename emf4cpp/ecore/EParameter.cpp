@@ -65,7 +65,12 @@ EParameter::~EParameter()
     return m_eOperation;
 }
 
-void EParameter::setEOperation(::ecore::EOperation_ptr _eOperation)
+::ecore::EOperation_ptr EParameter::basicgetEOperation()
+{
+    return m_eOperation;
+}
+
+void EParameter::basicsetEOperation(::ecore::EOperation_ptr _eOperation)
 {
     ::ecore::EOperation_ptr _old_eOperation = m_eOperation;
 
@@ -85,5 +90,24 @@ void EParameter::setEOperation(::ecore::EOperation_ptr _eOperation)
     }
 #endif
 
+}
+
+void EParameter::setEOperation(::ecore::EOperation_ptr _eOperation)
+{
+    if (_eOperation != m_eOperation)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_eOperation != nullptr)
+        {
+            m_eOperation->_inverseRemove(
+                    ::ecore::EcorePackage::EOPERATION__EPARAMETERS, _this);
+        }
+        if (_eOperation != nullptr)
+        {
+            _eOperation->_inverseAdd(
+                    ::ecore::EcorePackage::EOPERATION__EPARAMETERS, _this);
+        }
+        basicsetEOperation(_eOperation);
+    }
 }
 

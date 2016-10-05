@@ -46,11 +46,13 @@ Svg::Svg()
     m_owner_SVG.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile, -1,
                     false, true >(this,
-                    ::SVG::SVGPackage::_instance()->getSvg__owner_SVG(), NULL));
+                    ::SVG::SVGPackage::_instance()->getSvg__owner_SVG(),
+                    ::SVG::SVGPackage::SVGFILE__TAG));
     m_children.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
                     true, true >(this,
-                    ::SVG::SVGPackage::_instance()->getSvg__children(), NULL));
+                    ::SVG::SVGPackage::_instance()->getSvg__children(),
+                    ::SVG::SVGPackage::ELEMENT__ROOT));
 
     /*PROTECTED REGION ID(SvgImpl__SvgImpl) START*/
 // Please, enable the protected region if you add manually written code.

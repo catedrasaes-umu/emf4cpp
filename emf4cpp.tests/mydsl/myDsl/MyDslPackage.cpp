@@ -26,8 +26,15 @@ std::unique_ptr< ::myDsl::MyDslPackage,
 
 ::myDsl::MyDslPackage_ptr MyDslPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new MyDslPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::conceptual::ConceptualPackage,
 
 ::kdm::conceptual::ConceptualPackage_ptr ConceptualPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new ConceptualPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

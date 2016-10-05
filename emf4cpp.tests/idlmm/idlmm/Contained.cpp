@@ -165,7 +165,12 @@ void Contained::setAbsoluteName(::ecore::EString const& _absoluteName)
     return m_definedIn;
 }
 
-void Contained::setDefinedIn(::idlmm::Container_ptr _definedIn)
+::idlmm::Container_ptr Contained::basicgetDefinedIn()
+{
+    return m_definedIn;
+}
+
+void Contained::basicsetDefinedIn(::idlmm::Container_ptr _definedIn)
 {
     ::idlmm::Container_ptr _old_definedIn = m_definedIn;
 
@@ -185,5 +190,24 @@ void Contained::setDefinedIn(::idlmm::Container_ptr _definedIn)
     }
 #endif
 
+}
+
+void Contained::setDefinedIn(::idlmm::Container_ptr _definedIn)
+{
+    if (_definedIn != m_definedIn)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_definedIn != nullptr)
+        {
+            m_definedIn->_inverseRemove(
+                    ::idlmm::IdlmmPackage::CONTAINER__CONTAINS, _this);
+        }
+        if (_definedIn != nullptr)
+        {
+            _definedIn->_inverseAdd(::idlmm::IdlmmPackage::CONTAINER__CONTAINS,
+                    _this);
+        }
+        basicsetDefinedIn(_definedIn);
+    }
 }
 

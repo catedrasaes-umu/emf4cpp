@@ -38,6 +38,21 @@ using namespace ::CST;
 CSTPackage::CSTPackage()
 {
 
+    // Feature definitions of Tree
+
+    // Feature definitions of Element
+    m_Element__kind = new ::ecore::EAttribute();
+
+    // Feature definitions of Node
+    m_Node__children = new ::ecore::EReference();
+
+    // Feature definitions of Leaf
+    m_Leaf__value = new ::ecore::EAttribute();
+    m_Leaf__pos = new ::ecore::EAttribute();
+    m_Leaf__line = new ::ecore::EAttribute();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -58,7 +73,7 @@ CSTPackage::CSTPackage()
     m_ElementEClass->setClassifierID(ELEMENT);
     m_ElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ElementEClass);
-    m_Element__kind = new ::ecore::EAttribute();
+    // m_Element__kind has already been allocated above
     m_Element__kind->setFeatureID(::CST::CSTPackage::ELEMENT__KIND);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__kind);
 
@@ -67,7 +82,7 @@ CSTPackage::CSTPackage()
     m_NodeEClass->setClassifierID(NODE);
     m_NodeEClass->setEPackage(this);
     getEClassifiers().push_back(m_NodeEClass);
-    m_Node__children = new ::ecore::EReference();
+    // m_Node__children has already been allocated above
     m_Node__children->setFeatureID(::CST::CSTPackage::NODE__CHILDREN);
     m_NodeEClass->getEStructuralFeatures().push_back(m_Node__children);
 
@@ -76,13 +91,13 @@ CSTPackage::CSTPackage()
     m_LeafEClass->setClassifierID(LEAF);
     m_LeafEClass->setEPackage(this);
     getEClassifiers().push_back(m_LeafEClass);
-    m_Leaf__value = new ::ecore::EAttribute();
+    // m_Leaf__value has already been allocated above
     m_Leaf__value->setFeatureID(::CST::CSTPackage::LEAF__VALUE);
     m_LeafEClass->getEStructuralFeatures().push_back(m_Leaf__value);
-    m_Leaf__pos = new ::ecore::EAttribute();
+    // m_Leaf__pos has already been allocated above
     m_Leaf__pos->setFeatureID(::CST::CSTPackage::LEAF__POS);
     m_LeafEClass->getEStructuralFeatures().push_back(m_Leaf__pos);
-    m_Leaf__line = new ::ecore::EAttribute();
+    // m_Leaf__line has already been allocated above
     m_Leaf__line->setFeatureID(::CST::CSTPackage::LEAF__LINE);
     m_LeafEClass->getEStructuralFeatures().push_back(m_Leaf__line);
 

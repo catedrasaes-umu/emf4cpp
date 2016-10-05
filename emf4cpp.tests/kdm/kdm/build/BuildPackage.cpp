@@ -26,8 +26,15 @@ std::unique_ptr< ::kdm::build::BuildPackage,
 
 ::kdm::build::BuildPackage_ptr BuildPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new BuildPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

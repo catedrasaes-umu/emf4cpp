@@ -188,3 +188,76 @@ void EEnumLiteral::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EEnumLiteral::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EENUMLITERAL__EENUM:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum_ptr >(_t0);
+
+        // set reference
+        basicsetEEnum(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EEnumLiteral::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EENUMLITERAL__EENUM:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum_ptr >(_t0);
+
+        // set reference
+        if (basicgetEEnum() == _t1)
+            basicsetEEnum(nullptr);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

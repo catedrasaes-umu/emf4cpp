@@ -32,7 +32,7 @@ public class Generator {
     private static String templatePath = "template::Main::main";
 
     public void generate(URI fileURI, String targetDir, String prSrcPaths, String ecPath,
-			boolean internalLicense) {
+			boolean internalLicense, boolean bootstrap) {
 
         ResourceSet rs = new ResourceSetImpl();
         rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
@@ -45,6 +45,7 @@ public class Generator {
         globalVarsMap.put("ecoreCppPath", new Variable("ecoreCppPath", ecPath));
         globalVarsMap.put("emf4cppVersion", new Variable("emf4cppVersion", version));
         globalVarsMap.put("internalLicense", new Variable("internalLicense", internalLicense));
+        globalVarsMap.put("bootstrap", new Variable("bootstrap", bootstrap));
 
         // Configure outlets
         CppBeautifier cppBeautifier = new CppBeautifier();
@@ -148,7 +149,7 @@ public class Generator {
         }
 
         new Generator().generate(URI.createFileURI(filePath), targetDir, prSrcPaths, ecPath,
-				cmd.hasOption("i"));
+				cmd.hasOption("i"), cmd.hasOption("b"));
     }
 
     private final static Options options = new Options(); // Command line
@@ -172,5 +173,7 @@ public class Generator {
 			  "Display version information and exit.");
         options.addOption("i", "internal", false,
 			  "Add EMF4CPP license instead of more permissive end-user license.");
+        options.addOption("b", "bootstrap", false,
+			  "Activate special code needed to process the ecore model itself");
     }
 }

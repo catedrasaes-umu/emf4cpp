@@ -49,6 +49,8 @@ namespace ecore
         // References
         ::ecore::EOperation_ptr getEOperation();
         void setEOperation(::ecore::EOperation_ptr _eOperation);
+        ::ecore::EOperation_ptr basicgetEOperation();
+        void basicsetEOperation(::ecore::EOperation_ptr _eOperation);
 
         /*PROTECTED REGION ID(EParameter) START*/
         // Please, enable the protected region if you add manually written code.
@@ -63,6 +65,10 @@ namespace ecore
         virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
+        virtual void _inverseAdd(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove(::ecore::EInt _featureID,
+                ::ecore::EJavaObject const& _oldValue);
 
         /*PROTECTED REGION ID(EParameterImpl) START*/
         // Please, enable the protected region if you add manually written code.

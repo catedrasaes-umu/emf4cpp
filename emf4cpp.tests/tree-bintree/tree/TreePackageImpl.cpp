@@ -38,6 +38,17 @@ using namespace ::tree;
 TreePackage::TreePackage()
 {
 
+    // Feature definitions of TreeNode
+    m_TreeNode__data = new ::ecore::EAttribute();
+    m_TreeNode__parent = new ::ecore::EReference();
+
+    // Feature definitions of Leaf
+
+    // Feature definitions of NonTerminal
+    m_NonTerminal__children = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -52,10 +63,10 @@ TreePackage::TreePackage()
     m_TreeNodeEClass->setClassifierID(TREENODE);
     m_TreeNodeEClass->setEPackage(this);
     getEClassifiers().push_back(m_TreeNodeEClass);
-    m_TreeNode__data = new ::ecore::EAttribute();
+    // m_TreeNode__data has already been allocated above
     m_TreeNode__data->setFeatureID(::tree::TreePackage::TREENODE__DATA);
     m_TreeNodeEClass->getEStructuralFeatures().push_back(m_TreeNode__data);
-    m_TreeNode__parent = new ::ecore::EReference();
+    // m_TreeNode__parent has already been allocated above
     m_TreeNode__parent->setFeatureID(::tree::TreePackage::TREENODE__PARENT);
     m_TreeNodeEClass->getEStructuralFeatures().push_back(m_TreeNode__parent);
 
@@ -70,7 +81,7 @@ TreePackage::TreePackage()
     m_NonTerminalEClass->setClassifierID(NONTERMINAL);
     m_NonTerminalEClass->setEPackage(this);
     getEClassifiers().push_back(m_NonTerminalEClass);
-    m_NonTerminal__children = new ::ecore::EReference();
+    // m_NonTerminal__children has already been allocated above
     m_NonTerminal__children->setFeatureID(
             ::tree::TreePackage::NONTERMINAL__CHILDREN);
     m_NonTerminalEClass->getEStructuralFeatures().push_back(

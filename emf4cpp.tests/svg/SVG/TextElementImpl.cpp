@@ -330,3 +330,182 @@ void TextElement::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void TextElement::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ELEMENT__OWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::SvgFile_ptr _t1 = dynamic_cast< ::SVG::SvgFile_ptr >(_t0);
+
+        // add to a list
+        auto& container = (::ecorecpp::mapping::ReferenceEListImpl<
+                ::SVG::SvgFile, -1, false, true >&) ::SVG::Element::getOwner();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__TARGET:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Use_ptr _t1 = dynamic_cast< ::SVG::Use_ptr >(_t0);
+
+        // add to a list
+        auto& container = (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Use,
+                -1, false, true >&) ::SVG::Element::getTarget();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Attribute_ptr _t1 = dynamic_cast< ::SVG::Attribute_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute, -1,
+                        false, true >&) ::SVG::Element::getAttribute();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__POSITION:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__SIZE:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ROOT:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr >(_t0);
+
+        // set reference
+        basicsetRoot(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__GROUP:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::GroupingElement_ptr _t1 =
+                dynamic_cast< ::SVG::GroupingElement_ptr >(_t0);
+
+        // set reference
+        basicsetGroup(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker_ptr >(_t0);
+
+        // set reference
+        basicsetDrawsMarker(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void TextElement::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ELEMENT__OWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::SvgFile_ptr _t1 = dynamic_cast< ::SVG::SvgFile_ptr >(_t0);
+
+        // add to a list
+        auto& container = (::ecorecpp::mapping::ReferenceEListImpl<
+                ::SVG::SvgFile, -1, false, true >&) ::SVG::Element::getOwner();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__TARGET:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Use_ptr _t1 = dynamic_cast< ::SVG::Use_ptr >(_t0);
+
+        // add to a list
+        auto& container = (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Use,
+                -1, false, true >&) ::SVG::Element::getTarget();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Attribute_ptr _t1 = dynamic_cast< ::SVG::Attribute_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute, -1,
+                        false, true >&) ::SVG::Element::getAttribute();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__POSITION:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__SIZE:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ROOT:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr >(_t0);
+
+        // set reference
+        if (basicgetRoot() == _t1)
+            basicsetRoot(nullptr);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__GROUP:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::GroupingElement_ptr _t1 =
+                dynamic_cast< ::SVG::GroupingElement_ptr >(_t0);
+
+        // set reference
+        if (basicgetGroup() == _t1)
+            basicsetGroup(nullptr);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker_ptr >(_t0);
+
+        // set reference
+        if (basicgetDrawsMarker() == _t1)
+            basicsetDrawsMarker(nullptr);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

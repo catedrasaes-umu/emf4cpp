@@ -198,3 +198,102 @@ void EAnnotation::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EAnnotation::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__DETAILS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EModelElement_ptr _t1 =
+                dynamic_cast< ::ecore::EModelElement_ptr >(_t0);
+
+        // set reference
+        basicsetEModelElement(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__CONTENTS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__REFERENCES:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EAnnotation::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
+                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__DETAILS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EModelElement_ptr _t1 =
+                dynamic_cast< ::ecore::EModelElement_ptr >(_t0);
+
+        // set reference
+        if (basicgetEModelElement() == _t1)
+            basicsetEModelElement(nullptr);
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__CONTENTS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EANNOTATION__REFERENCES:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

@@ -44,7 +44,8 @@ EReference::EReference() :
     m_eKeys.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAttribute,
                     -1, false, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEReference__eKeys()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEReference__eKeys() :
+                            nullptr));
 
     /*PROTECTED REGION ID(EReferenceImpl__EReferenceImpl) START*/
 // Please, enable the protected region if you add manually written code.

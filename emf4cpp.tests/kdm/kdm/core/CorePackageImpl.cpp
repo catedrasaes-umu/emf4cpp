@@ -42,6 +42,27 @@ using namespace ::kdm::core;
 CorePackage::CorePackage()
 {
 
+    // Feature definitions of Element
+    m_Element__attribute = new ::ecore::EReference();
+    m_Element__annotation = new ::ecore::EReference();
+
+    // Feature definitions of ModelElement
+    m_ModelElement__stereotype = new ::ecore::EReference();
+    m_ModelElement__taggedValue = new ::ecore::EReference();
+
+    // Feature definitions of KDMEntity
+    m_KDMEntity__name = new ::ecore::EAttribute();
+
+    // Feature definitions of KDMRelationship
+
+    // Feature definitions of AggregatedRelationship
+    m_AggregatedRelationship__density = new ::ecore::EAttribute();
+    m_AggregatedRelationship__from = new ::ecore::EReference();
+    m_AggregatedRelationship__to = new ::ecore::EReference();
+    m_AggregatedRelationship__relation = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -59,11 +80,11 @@ CorePackage::CorePackage()
     m_ElementEClass->setClassifierID(ELEMENT);
     m_ElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ElementEClass);
-    m_Element__attribute = new ::ecore::EReference();
+    // m_Element__attribute has already been allocated above
     m_Element__attribute->setFeatureID(
             ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__attribute);
-    m_Element__annotation = new ::ecore::EReference();
+    // m_Element__annotation has already been allocated above
     m_Element__annotation->setFeatureID(
             ::kdm::core::CorePackage::ELEMENT__ANNOTATION);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__annotation);
@@ -73,12 +94,12 @@ CorePackage::CorePackage()
     m_ModelElementEClass->setClassifierID(MODELELEMENT);
     m_ModelElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_ModelElementEClass);
-    m_ModelElement__stereotype = new ::ecore::EReference();
+    // m_ModelElement__stereotype has already been allocated above
     m_ModelElement__stereotype->setFeatureID(
             ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE);
     m_ModelElementEClass->getEStructuralFeatures().push_back(
             m_ModelElement__stereotype);
-    m_ModelElement__taggedValue = new ::ecore::EReference();
+    // m_ModelElement__taggedValue has already been allocated above
     m_ModelElement__taggedValue->setFeatureID(
             ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE);
     m_ModelElementEClass->getEStructuralFeatures().push_back(
@@ -89,7 +110,7 @@ CorePackage::CorePackage()
     m_KDMEntityEClass->setClassifierID(KDMENTITY);
     m_KDMEntityEClass->setEPackage(this);
     getEClassifiers().push_back(m_KDMEntityEClass);
-    m_KDMEntity__name = new ::ecore::EAttribute();
+    // m_KDMEntity__name has already been allocated above
     m_KDMEntity__name->setFeatureID(::kdm::core::CorePackage::KDMENTITY__NAME);
     m_KDMEntityEClass->getEStructuralFeatures().push_back(m_KDMEntity__name);
 
@@ -104,22 +125,22 @@ CorePackage::CorePackage()
     m_AggregatedRelationshipEClass->setClassifierID(AGGREGATEDRELATIONSHIP);
     m_AggregatedRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_AggregatedRelationshipEClass);
-    m_AggregatedRelationship__density = new ::ecore::EAttribute();
+    // m_AggregatedRelationship__density has already been allocated above
     m_AggregatedRelationship__density->setFeatureID(
             ::kdm::core::CorePackage::AGGREGATEDRELATIONSHIP__DENSITY);
     m_AggregatedRelationshipEClass->getEStructuralFeatures().push_back(
             m_AggregatedRelationship__density);
-    m_AggregatedRelationship__from = new ::ecore::EReference();
+    // m_AggregatedRelationship__from has already been allocated above
     m_AggregatedRelationship__from->setFeatureID(
             ::kdm::core::CorePackage::AGGREGATEDRELATIONSHIP__FROM);
     m_AggregatedRelationshipEClass->getEStructuralFeatures().push_back(
             m_AggregatedRelationship__from);
-    m_AggregatedRelationship__to = new ::ecore::EReference();
+    // m_AggregatedRelationship__to has already been allocated above
     m_AggregatedRelationship__to->setFeatureID(
             ::kdm::core::CorePackage::AGGREGATEDRELATIONSHIP__TO);
     m_AggregatedRelationshipEClass->getEStructuralFeatures().push_back(
             m_AggregatedRelationship__to);
-    m_AggregatedRelationship__relation = new ::ecore::EReference();
+    // m_AggregatedRelationship__relation has already been allocated above
     m_AggregatedRelationship__relation->setFeatureID(
             ::kdm::core::CorePackage::AGGREGATEDRELATIONSHIP__RELATION);
     m_AggregatedRelationshipEClass->getEStructuralFeatures().push_back(

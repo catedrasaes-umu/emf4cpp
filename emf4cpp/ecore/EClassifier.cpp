@@ -41,7 +41,8 @@ EClassifier::EClassifier() :
     m_eTypeParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::ecore::ETypeParameter, -1, true, false >(this,
-                    ::ecore::EcorePackage::_instance()->getEClassifier__eTypeParameters()));
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClassifier__eTypeParameters() :
+                            nullptr));
 
     /*PROTECTED REGION ID(EClassifierImpl__EClassifierImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -174,7 +175,12 @@ void EClassifier::setInstanceTypeName(::ecore::EString const& _instanceTypeName)
     return m_ePackage;
 }
 
-void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)
+::ecore::EPackage_ptr EClassifier::basicgetEPackage()
+{
+    return m_ePackage;
+}
+
+void EClassifier::basicsetEPackage(::ecore::EPackage_ptr _ePackage)
 {
     ::ecore::EPackage_ptr _old_ePackage = m_ePackage;
 
@@ -194,6 +200,25 @@ void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)
     }
 #endif
 
+}
+
+void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)
+{
+    if (_ePackage != m_ePackage)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_ePackage != nullptr)
+        {
+            m_ePackage->_inverseRemove(
+                    ::ecore::EcorePackage::EPACKAGE__ECLASSIFIERS, _this);
+        }
+        if (_ePackage != nullptr)
+        {
+            _ePackage->_inverseAdd(
+                    ::ecore::EcorePackage::EPACKAGE__ECLASSIFIERS, _this);
+        }
+        basicsetEPackage(_ePackage);
+    }
 }
 
 ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EClassifier::getETypeParameters()

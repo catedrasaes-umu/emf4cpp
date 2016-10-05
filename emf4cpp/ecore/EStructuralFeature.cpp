@@ -249,7 +249,12 @@ void EStructuralFeature::setDerived(::ecore::EBoolean _derived)
     return m_eContainingClass;
 }
 
-void EStructuralFeature::setEContainingClass(
+::ecore::EClass_ptr EStructuralFeature::basicgetEContainingClass()
+{
+    return m_eContainingClass;
+}
+
+void EStructuralFeature::basicsetEContainingClass(
         ::ecore::EClass_ptr _eContainingClass)
 {
     ::ecore::EClass_ptr _old_eContainingClass = m_eContainingClass;
@@ -270,5 +275,25 @@ void EStructuralFeature::setEContainingClass(
     }
 #endif
 
+}
+
+void EStructuralFeature::setEContainingClass(
+        ::ecore::EClass_ptr _eContainingClass)
+{
+    if (_eContainingClass != m_eContainingClass)
+    {
+        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        if (m_eContainingClass != nullptr)
+        {
+            m_eContainingClass->_inverseRemove(
+                    ::ecore::EcorePackage::ECLASS__ESTRUCTURALFEATURES, _this);
+        }
+        if (_eContainingClass != nullptr)
+        {
+            _eContainingClass->_inverseAdd(
+                    ::ecore::EcorePackage::ECLASS__ESTRUCTURALFEATURES, _this);
+        }
+        basicsetEContainingClass(_eContainingClass);
+    }
 }
 

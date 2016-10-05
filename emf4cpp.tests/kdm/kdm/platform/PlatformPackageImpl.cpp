@@ -54,6 +54,104 @@ using namespace ::kdm::platform;
 PlatformPackage::PlatformPackage()
 {
 
+    // Feature definitions of AbstractPlatformElement
+    m_AbstractPlatformElement__source = new ::ecore::EReference();
+    m_AbstractPlatformElement__relation = new ::ecore::EReference();
+    m_AbstractPlatformElement__abstraction = new ::ecore::EReference();
+    m_AbstractPlatformElement__implementation = new ::ecore::EReference();
+
+    // Feature definitions of PlatformModel
+    m_PlatformModel__platformElement = new ::ecore::EReference();
+
+    // Feature definitions of AbstractPlatformRelationship
+
+    // Feature definitions of Requires
+    m_Requires__to = new ::ecore::EReference();
+    m_Requires__from = new ::ecore::EReference();
+
+    // Feature definitions of ResourceType
+    m_ResourceType__platformElement = new ::ecore::EReference();
+
+    // Feature definitions of NamingResource
+
+    // Feature definitions of MarshalledResource
+
+    // Feature definitions of MessagingResource
+
+    // Feature definitions of FileResource
+
+    // Feature definitions of ExecutionResource
+
+    // Feature definitions of PlatformAction
+    m_PlatformAction__kind = new ::ecore::EAttribute();
+    m_PlatformAction__platformElement = new ::ecore::EReference();
+
+    // Feature definitions of ExternalActor
+
+    // Feature definitions of DataManager
+
+    // Feature definitions of BindsTo
+    m_BindsTo__to = new ::ecore::EReference();
+    m_BindsTo__from = new ::ecore::EReference();
+
+    // Feature definitions of PlatformElement
+
+    // Feature definitions of PlatformRelationship
+    m_PlatformRelationship__to = new ::ecore::EReference();
+    m_PlatformRelationship__from = new ::ecore::EReference();
+
+    // Feature definitions of PlatformEvent
+    m_PlatformEvent__kind = new ::ecore::EAttribute();
+
+    // Feature definitions of LockResource
+
+    // Feature definitions of DeployedSoftwareSystem
+    m_DeployedSoftwareSystem__groupedComponent = new ::ecore::EReference();
+
+    // Feature definitions of Machine
+    m_Machine__deployedComponent = new ::ecore::EReference();
+    m_Machine__deployedResource = new ::ecore::EReference();
+
+    // Feature definitions of DeployedComponent
+    m_DeployedComponent__groupedCode = new ::ecore::EReference();
+
+    // Feature definitions of DeployedResource
+    m_DeployedResource__platformElement = new ::ecore::EReference();
+
+    // Feature definitions of Loads
+    m_Loads__to = new ::ecore::EReference();
+    m_Loads__from = new ::ecore::EReference();
+
+    // Feature definitions of Spawns
+    m_Spawns__to = new ::ecore::EReference();
+    m_Spawns__from = new ::ecore::EReference();
+
+    // Feature definitions of RuntimeResource
+
+    // Feature definitions of Thread
+
+    // Feature definitions of Process
+
+    // Feature definitions of ReadsResource
+    m_ReadsResource__to = new ::ecore::EReference();
+    m_ReadsResource__from = new ::ecore::EReference();
+
+    // Feature definitions of WritesResource
+    m_WritesResource__to = new ::ecore::EReference();
+    m_WritesResource__from = new ::ecore::EReference();
+
+    // Feature definitions of ManagesResource
+    m_ManagesResource__to = new ::ecore::EReference();
+    m_ManagesResource__from = new ::ecore::EReference();
+
+    // Feature definitions of DefinedBy
+    m_DefinedBy__to = new ::ecore::EReference();
+    m_DefinedBy__from = new ::ecore::EReference();
+
+    // Feature definitions of StreamResource
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -68,22 +166,22 @@ PlatformPackage::PlatformPackage()
     m_AbstractPlatformElementEClass->setClassifierID(ABSTRACTPLATFORMELEMENT);
     m_AbstractPlatformElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractPlatformElementEClass);
-    m_AbstractPlatformElement__source = new ::ecore::EReference();
+    // m_AbstractPlatformElement__source has already been allocated above
     m_AbstractPlatformElement__source->setFeatureID(
             ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__SOURCE);
     m_AbstractPlatformElementEClass->getEStructuralFeatures().push_back(
             m_AbstractPlatformElement__source);
-    m_AbstractPlatformElement__relation = new ::ecore::EReference();
+    // m_AbstractPlatformElement__relation has already been allocated above
     m_AbstractPlatformElement__relation->setFeatureID(
             ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__RELATION);
     m_AbstractPlatformElementEClass->getEStructuralFeatures().push_back(
             m_AbstractPlatformElement__relation);
-    m_AbstractPlatformElement__abstraction = new ::ecore::EReference();
+    // m_AbstractPlatformElement__abstraction has already been allocated above
     m_AbstractPlatformElement__abstraction->setFeatureID(
             ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__ABSTRACTION);
     m_AbstractPlatformElementEClass->getEStructuralFeatures().push_back(
             m_AbstractPlatformElement__abstraction);
-    m_AbstractPlatformElement__implementation = new ::ecore::EReference();
+    // m_AbstractPlatformElement__implementation has already been allocated above
     m_AbstractPlatformElement__implementation->setFeatureID(
             ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__IMPLEMENTATION);
     m_AbstractPlatformElementEClass->getEStructuralFeatures().push_back(
@@ -94,7 +192,7 @@ PlatformPackage::PlatformPackage()
     m_PlatformModelEClass->setClassifierID(PLATFORMMODEL);
     m_PlatformModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_PlatformModelEClass);
-    m_PlatformModel__platformElement = new ::ecore::EReference();
+    // m_PlatformModel__platformElement has already been allocated above
     m_PlatformModel__platformElement->setFeatureID(
             ::kdm::platform::PlatformPackage::PLATFORMMODEL__PLATFORMELEMENT);
     m_PlatformModelEClass->getEStructuralFeatures().push_back(
@@ -112,11 +210,11 @@ PlatformPackage::PlatformPackage()
     m_RequiresEClass->setClassifierID(REQUIRES);
     m_RequiresEClass->setEPackage(this);
     getEClassifiers().push_back(m_RequiresEClass);
-    m_Requires__to = new ::ecore::EReference();
+    // m_Requires__to has already been allocated above
     m_Requires__to->setFeatureID(
             ::kdm::platform::PlatformPackage::REQUIRES__TO);
     m_RequiresEClass->getEStructuralFeatures().push_back(m_Requires__to);
-    m_Requires__from = new ::ecore::EReference();
+    // m_Requires__from has already been allocated above
     m_Requires__from->setFeatureID(
             ::kdm::platform::PlatformPackage::REQUIRES__FROM);
     m_RequiresEClass->getEStructuralFeatures().push_back(m_Requires__from);
@@ -126,7 +224,7 @@ PlatformPackage::PlatformPackage()
     m_ResourceTypeEClass->setClassifierID(RESOURCETYPE);
     m_ResourceTypeEClass->setEPackage(this);
     getEClassifiers().push_back(m_ResourceTypeEClass);
-    m_ResourceType__platformElement = new ::ecore::EReference();
+    // m_ResourceType__platformElement has already been allocated above
     m_ResourceType__platformElement->setFeatureID(
             ::kdm::platform::PlatformPackage::RESOURCETYPE__PLATFORMELEMENT);
     m_ResourceTypeEClass->getEStructuralFeatures().push_back(
@@ -167,12 +265,12 @@ PlatformPackage::PlatformPackage()
     m_PlatformActionEClass->setClassifierID(PLATFORMACTION);
     m_PlatformActionEClass->setEPackage(this);
     getEClassifiers().push_back(m_PlatformActionEClass);
-    m_PlatformAction__kind = new ::ecore::EAttribute();
+    // m_PlatformAction__kind has already been allocated above
     m_PlatformAction__kind->setFeatureID(
             ::kdm::platform::PlatformPackage::PLATFORMACTION__KIND);
     m_PlatformActionEClass->getEStructuralFeatures().push_back(
             m_PlatformAction__kind);
-    m_PlatformAction__platformElement = new ::ecore::EReference();
+    // m_PlatformAction__platformElement has already been allocated above
     m_PlatformAction__platformElement->setFeatureID(
             ::kdm::platform::PlatformPackage::PLATFORMACTION__PLATFORMELEMENT);
     m_PlatformActionEClass->getEStructuralFeatures().push_back(
@@ -195,10 +293,10 @@ PlatformPackage::PlatformPackage()
     m_BindsToEClass->setClassifierID(BINDSTO);
     m_BindsToEClass->setEPackage(this);
     getEClassifiers().push_back(m_BindsToEClass);
-    m_BindsTo__to = new ::ecore::EReference();
+    // m_BindsTo__to has already been allocated above
     m_BindsTo__to->setFeatureID(::kdm::platform::PlatformPackage::BINDSTO__TO);
     m_BindsToEClass->getEStructuralFeatures().push_back(m_BindsTo__to);
-    m_BindsTo__from = new ::ecore::EReference();
+    // m_BindsTo__from has already been allocated above
     m_BindsTo__from->setFeatureID(
             ::kdm::platform::PlatformPackage::BINDSTO__FROM);
     m_BindsToEClass->getEStructuralFeatures().push_back(m_BindsTo__from);
@@ -214,12 +312,12 @@ PlatformPackage::PlatformPackage()
     m_PlatformRelationshipEClass->setClassifierID(PLATFORMRELATIONSHIP);
     m_PlatformRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_PlatformRelationshipEClass);
-    m_PlatformRelationship__to = new ::ecore::EReference();
+    // m_PlatformRelationship__to has already been allocated above
     m_PlatformRelationship__to->setFeatureID(
             ::kdm::platform::PlatformPackage::PLATFORMRELATIONSHIP__TO);
     m_PlatformRelationshipEClass->getEStructuralFeatures().push_back(
             m_PlatformRelationship__to);
-    m_PlatformRelationship__from = new ::ecore::EReference();
+    // m_PlatformRelationship__from has already been allocated above
     m_PlatformRelationship__from->setFeatureID(
             ::kdm::platform::PlatformPackage::PLATFORMRELATIONSHIP__FROM);
     m_PlatformRelationshipEClass->getEStructuralFeatures().push_back(
@@ -230,7 +328,7 @@ PlatformPackage::PlatformPackage()
     m_PlatformEventEClass->setClassifierID(PLATFORMEVENT);
     m_PlatformEventEClass->setEPackage(this);
     getEClassifiers().push_back(m_PlatformEventEClass);
-    m_PlatformEvent__kind = new ::ecore::EAttribute();
+    // m_PlatformEvent__kind has already been allocated above
     m_PlatformEvent__kind->setFeatureID(
             ::kdm::platform::PlatformPackage::PLATFORMEVENT__KIND);
     m_PlatformEventEClass->getEStructuralFeatures().push_back(
@@ -247,7 +345,7 @@ PlatformPackage::PlatformPackage()
     m_DeployedSoftwareSystemEClass->setClassifierID(DEPLOYEDSOFTWARESYSTEM);
     m_DeployedSoftwareSystemEClass->setEPackage(this);
     getEClassifiers().push_back(m_DeployedSoftwareSystemEClass);
-    m_DeployedSoftwareSystem__groupedComponent = new ::ecore::EReference();
+    // m_DeployedSoftwareSystem__groupedComponent has already been allocated above
     m_DeployedSoftwareSystem__groupedComponent->setFeatureID(
             ::kdm::platform::PlatformPackage::DEPLOYEDSOFTWARESYSTEM__GROUPEDCOMPONENT);
     m_DeployedSoftwareSystemEClass->getEStructuralFeatures().push_back(
@@ -258,12 +356,12 @@ PlatformPackage::PlatformPackage()
     m_MachineEClass->setClassifierID(MACHINE);
     m_MachineEClass->setEPackage(this);
     getEClassifiers().push_back(m_MachineEClass);
-    m_Machine__deployedComponent = new ::ecore::EReference();
+    // m_Machine__deployedComponent has already been allocated above
     m_Machine__deployedComponent->setFeatureID(
             ::kdm::platform::PlatformPackage::MACHINE__DEPLOYEDCOMPONENT);
     m_MachineEClass->getEStructuralFeatures().push_back(
             m_Machine__deployedComponent);
-    m_Machine__deployedResource = new ::ecore::EReference();
+    // m_Machine__deployedResource has already been allocated above
     m_Machine__deployedResource->setFeatureID(
             ::kdm::platform::PlatformPackage::MACHINE__DEPLOYEDRESOURCE);
     m_MachineEClass->getEStructuralFeatures().push_back(
@@ -274,7 +372,7 @@ PlatformPackage::PlatformPackage()
     m_DeployedComponentEClass->setClassifierID(DEPLOYEDCOMPONENT);
     m_DeployedComponentEClass->setEPackage(this);
     getEClassifiers().push_back(m_DeployedComponentEClass);
-    m_DeployedComponent__groupedCode = new ::ecore::EReference();
+    // m_DeployedComponent__groupedCode has already been allocated above
     m_DeployedComponent__groupedCode->setFeatureID(
             ::kdm::platform::PlatformPackage::DEPLOYEDCOMPONENT__GROUPEDCODE);
     m_DeployedComponentEClass->getEStructuralFeatures().push_back(
@@ -285,7 +383,7 @@ PlatformPackage::PlatformPackage()
     m_DeployedResourceEClass->setClassifierID(DEPLOYEDRESOURCE);
     m_DeployedResourceEClass->setEPackage(this);
     getEClassifiers().push_back(m_DeployedResourceEClass);
-    m_DeployedResource__platformElement = new ::ecore::EReference();
+    // m_DeployedResource__platformElement has already been allocated above
     m_DeployedResource__platformElement->setFeatureID(
             ::kdm::platform::PlatformPackage::DEPLOYEDRESOURCE__PLATFORMELEMENT);
     m_DeployedResourceEClass->getEStructuralFeatures().push_back(
@@ -296,10 +394,10 @@ PlatformPackage::PlatformPackage()
     m_LoadsEClass->setClassifierID(LOADS);
     m_LoadsEClass->setEPackage(this);
     getEClassifiers().push_back(m_LoadsEClass);
-    m_Loads__to = new ::ecore::EReference();
+    // m_Loads__to has already been allocated above
     m_Loads__to->setFeatureID(::kdm::platform::PlatformPackage::LOADS__TO);
     m_LoadsEClass->getEStructuralFeatures().push_back(m_Loads__to);
-    m_Loads__from = new ::ecore::EReference();
+    // m_Loads__from has already been allocated above
     m_Loads__from->setFeatureID(::kdm::platform::PlatformPackage::LOADS__FROM);
     m_LoadsEClass->getEStructuralFeatures().push_back(m_Loads__from);
 
@@ -308,10 +406,10 @@ PlatformPackage::PlatformPackage()
     m_SpawnsEClass->setClassifierID(SPAWNS);
     m_SpawnsEClass->setEPackage(this);
     getEClassifiers().push_back(m_SpawnsEClass);
-    m_Spawns__to = new ::ecore::EReference();
+    // m_Spawns__to has already been allocated above
     m_Spawns__to->setFeatureID(::kdm::platform::PlatformPackage::SPAWNS__TO);
     m_SpawnsEClass->getEStructuralFeatures().push_back(m_Spawns__to);
-    m_Spawns__from = new ::ecore::EReference();
+    // m_Spawns__from has already been allocated above
     m_Spawns__from->setFeatureID(
             ::kdm::platform::PlatformPackage::SPAWNS__FROM);
     m_SpawnsEClass->getEStructuralFeatures().push_back(m_Spawns__from);
@@ -339,12 +437,12 @@ PlatformPackage::PlatformPackage()
     m_ReadsResourceEClass->setClassifierID(READSRESOURCE);
     m_ReadsResourceEClass->setEPackage(this);
     getEClassifiers().push_back(m_ReadsResourceEClass);
-    m_ReadsResource__to = new ::ecore::EReference();
+    // m_ReadsResource__to has already been allocated above
     m_ReadsResource__to->setFeatureID(
             ::kdm::platform::PlatformPackage::READSRESOURCE__TO);
     m_ReadsResourceEClass->getEStructuralFeatures().push_back(
             m_ReadsResource__to);
-    m_ReadsResource__from = new ::ecore::EReference();
+    // m_ReadsResource__from has already been allocated above
     m_ReadsResource__from->setFeatureID(
             ::kdm::platform::PlatformPackage::READSRESOURCE__FROM);
     m_ReadsResourceEClass->getEStructuralFeatures().push_back(
@@ -355,12 +453,12 @@ PlatformPackage::PlatformPackage()
     m_WritesResourceEClass->setClassifierID(WRITESRESOURCE);
     m_WritesResourceEClass->setEPackage(this);
     getEClassifiers().push_back(m_WritesResourceEClass);
-    m_WritesResource__to = new ::ecore::EReference();
+    // m_WritesResource__to has already been allocated above
     m_WritesResource__to->setFeatureID(
             ::kdm::platform::PlatformPackage::WRITESRESOURCE__TO);
     m_WritesResourceEClass->getEStructuralFeatures().push_back(
             m_WritesResource__to);
-    m_WritesResource__from = new ::ecore::EReference();
+    // m_WritesResource__from has already been allocated above
     m_WritesResource__from->setFeatureID(
             ::kdm::platform::PlatformPackage::WRITESRESOURCE__FROM);
     m_WritesResourceEClass->getEStructuralFeatures().push_back(
@@ -371,12 +469,12 @@ PlatformPackage::PlatformPackage()
     m_ManagesResourceEClass->setClassifierID(MANAGESRESOURCE);
     m_ManagesResourceEClass->setEPackage(this);
     getEClassifiers().push_back(m_ManagesResourceEClass);
-    m_ManagesResource__to = new ::ecore::EReference();
+    // m_ManagesResource__to has already been allocated above
     m_ManagesResource__to->setFeatureID(
             ::kdm::platform::PlatformPackage::MANAGESRESOURCE__TO);
     m_ManagesResourceEClass->getEStructuralFeatures().push_back(
             m_ManagesResource__to);
-    m_ManagesResource__from = new ::ecore::EReference();
+    // m_ManagesResource__from has already been allocated above
     m_ManagesResource__from->setFeatureID(
             ::kdm::platform::PlatformPackage::MANAGESRESOURCE__FROM);
     m_ManagesResourceEClass->getEStructuralFeatures().push_back(
@@ -387,11 +485,11 @@ PlatformPackage::PlatformPackage()
     m_DefinedByEClass->setClassifierID(DEFINEDBY);
     m_DefinedByEClass->setEPackage(this);
     getEClassifiers().push_back(m_DefinedByEClass);
-    m_DefinedBy__to = new ::ecore::EReference();
+    // m_DefinedBy__to has already been allocated above
     m_DefinedBy__to->setFeatureID(
             ::kdm::platform::PlatformPackage::DEFINEDBY__TO);
     m_DefinedByEClass->getEStructuralFeatures().push_back(m_DefinedBy__to);
-    m_DefinedBy__from = new ::ecore::EReference();
+    // m_DefinedBy__from has already been allocated above
     m_DefinedBy__from->setFeatureID(
             ::kdm::platform::PlatformPackage::DEFINEDBY__FROM);
     m_DefinedByEClass->getEStructuralFeatures().push_back(m_DefinedBy__from);

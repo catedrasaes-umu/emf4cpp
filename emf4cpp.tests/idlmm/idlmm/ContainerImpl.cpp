@@ -191,3 +191,74 @@ void Container::eUnset(::ecore::EInt _featureID)
     return _eclass;
 }
 
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Container::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+
+        // set reference
+        basicsetDefinedIn(_t1);
+    }
+        return;
+    case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::Contained_ptr _t1 = dynamic_cast< ::idlmm::Contained_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained,
+                        -1, true, true >&) ::idlmm::Container::getContains();
+        container.basicAdd(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Container::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+
+        // set reference
+        if (basicgetDefinedIn() == _t1)
+            basicsetDefinedIn(nullptr);
+    }
+        return;
+    case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::idlmm::Contained_ptr _t1 = dynamic_cast< ::idlmm::Contained_ptr >(_t0);
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained,
+                        -1, true, true >&) ::idlmm::Container::getContains();
+        container.basicRemove(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
+}
+

@@ -26,8 +26,15 @@ std::unique_ptr< ::ecore::EcorePackage,
 
 ::ecore::EcorePackage_ptr EcorePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new EcorePackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 

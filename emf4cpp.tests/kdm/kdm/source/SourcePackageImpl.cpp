@@ -46,6 +46,66 @@ using namespace ::kdm::source;
 SourcePackage::SourcePackage()
 {
 
+    // Feature definitions of SourceRef
+    m_SourceRef__language = new ::ecore::EAttribute();
+    m_SourceRef__snippet = new ::ecore::EAttribute();
+    m_SourceRef__region = new ::ecore::EReference();
+
+    // Feature definitions of SourceRegion
+    m_SourceRegion__startLine = new ::ecore::EAttribute();
+    m_SourceRegion__startPosition = new ::ecore::EAttribute();
+    m_SourceRegion__endLine = new ::ecore::EAttribute();
+    m_SourceRegion__endPosition = new ::ecore::EAttribute();
+    m_SourceRegion__language = new ::ecore::EAttribute();
+    m_SourceRegion__path = new ::ecore::EAttribute();
+    m_SourceRegion__file = new ::ecore::EReference();
+
+    // Feature definitions of InventoryModel
+    m_InventoryModel__inventoryElement = new ::ecore::EReference();
+
+    // Feature definitions of AbstractInventoryElement
+    m_AbstractInventoryElement__inventoryRelation = new ::ecore::EReference();
+
+    // Feature definitions of InventoryItem
+    m_InventoryItem__version = new ::ecore::EAttribute();
+    m_InventoryItem__path = new ::ecore::EAttribute();
+
+    // Feature definitions of SourceFile
+    m_SourceFile__language = new ::ecore::EAttribute();
+    m_SourceFile__encoding = new ::ecore::EAttribute();
+
+    // Feature definitions of Image
+
+    // Feature definitions of ResourceDescription
+
+    // Feature definitions of Configuration
+
+    // Feature definitions of InventoryContainer
+    m_InventoryContainer__inventoryElement = new ::ecore::EReference();
+
+    // Feature definitions of Directory
+    m_Directory__path = new ::ecore::EAttribute();
+
+    // Feature definitions of Project
+
+    // Feature definitions of AbstractInventoryRelationship
+
+    // Feature definitions of BinaryFile
+
+    // Feature definitions of ExecutableFile
+
+    // Feature definitions of DependsOn
+    m_DependsOn__to = new ::ecore::EReference();
+    m_DependsOn__from = new ::ecore::EReference();
+
+    // Feature definitions of InventoryElement
+
+    // Feature definitions of InventoryRelationship
+    m_InventoryRelationship__to = new ::ecore::EReference();
+    m_InventoryRelationship__from = new ::ecore::EReference();
+
+    /* Now one can safely ask for a feature definition of
+     * a class, though it is not yet usable. */
     s_instance.reset(this);
 
     // Factory
@@ -60,16 +120,16 @@ SourcePackage::SourcePackage()
     m_SourceRefEClass->setClassifierID(SOURCEREF);
     m_SourceRefEClass->setEPackage(this);
     getEClassifiers().push_back(m_SourceRefEClass);
-    m_SourceRef__language = new ::ecore::EAttribute();
+    // m_SourceRef__language has already been allocated above
     m_SourceRef__language->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREF__LANGUAGE);
     m_SourceRefEClass->getEStructuralFeatures().push_back(
             m_SourceRef__language);
-    m_SourceRef__snippet = new ::ecore::EAttribute();
+    // m_SourceRef__snippet has already been allocated above
     m_SourceRef__snippet->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREF__SNIPPET);
     m_SourceRefEClass->getEStructuralFeatures().push_back(m_SourceRef__snippet);
-    m_SourceRef__region = new ::ecore::EReference();
+    // m_SourceRef__region has already been allocated above
     m_SourceRef__region->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREF__REGION);
     m_SourceRefEClass->getEStructuralFeatures().push_back(m_SourceRef__region);
@@ -79,37 +139,37 @@ SourcePackage::SourcePackage()
     m_SourceRegionEClass->setClassifierID(SOURCEREGION);
     m_SourceRegionEClass->setEPackage(this);
     getEClassifiers().push_back(m_SourceRegionEClass);
-    m_SourceRegion__startLine = new ::ecore::EAttribute();
+    // m_SourceRegion__startLine has already been allocated above
     m_SourceRegion__startLine->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE);
     m_SourceRegionEClass->getEStructuralFeatures().push_back(
             m_SourceRegion__startLine);
-    m_SourceRegion__startPosition = new ::ecore::EAttribute();
+    // m_SourceRegion__startPosition has already been allocated above
     m_SourceRegion__startPosition->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREGION__STARTPOSITION);
     m_SourceRegionEClass->getEStructuralFeatures().push_back(
             m_SourceRegion__startPosition);
-    m_SourceRegion__endLine = new ::ecore::EAttribute();
+    // m_SourceRegion__endLine has already been allocated above
     m_SourceRegion__endLine->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREGION__ENDLINE);
     m_SourceRegionEClass->getEStructuralFeatures().push_back(
             m_SourceRegion__endLine);
-    m_SourceRegion__endPosition = new ::ecore::EAttribute();
+    // m_SourceRegion__endPosition has already been allocated above
     m_SourceRegion__endPosition->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREGION__ENDPOSITION);
     m_SourceRegionEClass->getEStructuralFeatures().push_back(
             m_SourceRegion__endPosition);
-    m_SourceRegion__language = new ::ecore::EAttribute();
+    // m_SourceRegion__language has already been allocated above
     m_SourceRegion__language->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREGION__LANGUAGE);
     m_SourceRegionEClass->getEStructuralFeatures().push_back(
             m_SourceRegion__language);
-    m_SourceRegion__path = new ::ecore::EAttribute();
+    // m_SourceRegion__path has already been allocated above
     m_SourceRegion__path->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREGION__PATH);
     m_SourceRegionEClass->getEStructuralFeatures().push_back(
             m_SourceRegion__path);
-    m_SourceRegion__file = new ::ecore::EReference();
+    // m_SourceRegion__file has already been allocated above
     m_SourceRegion__file->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEREGION__FILE);
     m_SourceRegionEClass->getEStructuralFeatures().push_back(
@@ -120,7 +180,7 @@ SourcePackage::SourcePackage()
     m_InventoryModelEClass->setClassifierID(INVENTORYMODEL);
     m_InventoryModelEClass->setEPackage(this);
     getEClassifiers().push_back(m_InventoryModelEClass);
-    m_InventoryModel__inventoryElement = new ::ecore::EReference();
+    // m_InventoryModel__inventoryElement has already been allocated above
     m_InventoryModel__inventoryElement->setFeatureID(
             ::kdm::source::SourcePackage::INVENTORYMODEL__INVENTORYELEMENT);
     m_InventoryModelEClass->getEStructuralFeatures().push_back(
@@ -131,7 +191,7 @@ SourcePackage::SourcePackage()
     m_AbstractInventoryElementEClass->setClassifierID(ABSTRACTINVENTORYELEMENT);
     m_AbstractInventoryElementEClass->setEPackage(this);
     getEClassifiers().push_back(m_AbstractInventoryElementEClass);
-    m_AbstractInventoryElement__inventoryRelation = new ::ecore::EReference();
+    // m_AbstractInventoryElement__inventoryRelation has already been allocated above
     m_AbstractInventoryElement__inventoryRelation->setFeatureID(
             ::kdm::source::SourcePackage::ABSTRACTINVENTORYELEMENT__INVENTORYRELATION);
     m_AbstractInventoryElementEClass->getEStructuralFeatures().push_back(
@@ -142,12 +202,12 @@ SourcePackage::SourcePackage()
     m_InventoryItemEClass->setClassifierID(INVENTORYITEM);
     m_InventoryItemEClass->setEPackage(this);
     getEClassifiers().push_back(m_InventoryItemEClass);
-    m_InventoryItem__version = new ::ecore::EAttribute();
+    // m_InventoryItem__version has already been allocated above
     m_InventoryItem__version->setFeatureID(
             ::kdm::source::SourcePackage::INVENTORYITEM__VERSION);
     m_InventoryItemEClass->getEStructuralFeatures().push_back(
             m_InventoryItem__version);
-    m_InventoryItem__path = new ::ecore::EAttribute();
+    // m_InventoryItem__path has already been allocated above
     m_InventoryItem__path->setFeatureID(
             ::kdm::source::SourcePackage::INVENTORYITEM__PATH);
     m_InventoryItemEClass->getEStructuralFeatures().push_back(
@@ -158,12 +218,12 @@ SourcePackage::SourcePackage()
     m_SourceFileEClass->setClassifierID(SOURCEFILE);
     m_SourceFileEClass->setEPackage(this);
     getEClassifiers().push_back(m_SourceFileEClass);
-    m_SourceFile__language = new ::ecore::EAttribute();
+    // m_SourceFile__language has already been allocated above
     m_SourceFile__language->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEFILE__LANGUAGE);
     m_SourceFileEClass->getEStructuralFeatures().push_back(
             m_SourceFile__language);
-    m_SourceFile__encoding = new ::ecore::EAttribute();
+    // m_SourceFile__encoding has already been allocated above
     m_SourceFile__encoding->setFeatureID(
             ::kdm::source::SourcePackage::SOURCEFILE__ENCODING);
     m_SourceFileEClass->getEStructuralFeatures().push_back(
@@ -192,7 +252,7 @@ SourcePackage::SourcePackage()
     m_InventoryContainerEClass->setClassifierID(INVENTORYCONTAINER);
     m_InventoryContainerEClass->setEPackage(this);
     getEClassifiers().push_back(m_InventoryContainerEClass);
-    m_InventoryContainer__inventoryElement = new ::ecore::EReference();
+    // m_InventoryContainer__inventoryElement has already been allocated above
     m_InventoryContainer__inventoryElement->setFeatureID(
             ::kdm::source::SourcePackage::INVENTORYCONTAINER__INVENTORYELEMENT);
     m_InventoryContainerEClass->getEStructuralFeatures().push_back(
@@ -203,7 +263,7 @@ SourcePackage::SourcePackage()
     m_DirectoryEClass->setClassifierID(DIRECTORY);
     m_DirectoryEClass->setEPackage(this);
     getEClassifiers().push_back(m_DirectoryEClass);
-    m_Directory__path = new ::ecore::EAttribute();
+    // m_Directory__path has already been allocated above
     m_Directory__path->setFeatureID(
             ::kdm::source::SourcePackage::DIRECTORY__PATH);
     m_DirectoryEClass->getEStructuralFeatures().push_back(m_Directory__path);
@@ -238,10 +298,10 @@ SourcePackage::SourcePackage()
     m_DependsOnEClass->setClassifierID(DEPENDSON);
     m_DependsOnEClass->setEPackage(this);
     getEClassifiers().push_back(m_DependsOnEClass);
-    m_DependsOn__to = new ::ecore::EReference();
+    // m_DependsOn__to has already been allocated above
     m_DependsOn__to->setFeatureID(::kdm::source::SourcePackage::DEPENDSON__TO);
     m_DependsOnEClass->getEStructuralFeatures().push_back(m_DependsOn__to);
-    m_DependsOn__from = new ::ecore::EReference();
+    // m_DependsOn__from has already been allocated above
     m_DependsOn__from->setFeatureID(
             ::kdm::source::SourcePackage::DEPENDSON__FROM);
     m_DependsOnEClass->getEStructuralFeatures().push_back(m_DependsOn__from);
@@ -257,12 +317,12 @@ SourcePackage::SourcePackage()
     m_InventoryRelationshipEClass->setClassifierID(INVENTORYRELATIONSHIP);
     m_InventoryRelationshipEClass->setEPackage(this);
     getEClassifiers().push_back(m_InventoryRelationshipEClass);
-    m_InventoryRelationship__to = new ::ecore::EReference();
+    // m_InventoryRelationship__to has already been allocated above
     m_InventoryRelationship__to->setFeatureID(
             ::kdm::source::SourcePackage::INVENTORYRELATIONSHIP__TO);
     m_InventoryRelationshipEClass->getEStructuralFeatures().push_back(
             m_InventoryRelationship__to);
-    m_InventoryRelationship__from = new ::ecore::EReference();
+    // m_InventoryRelationship__from has already been allocated above
     m_InventoryRelationship__from->setFeatureID(
             ::kdm::source::SourcePackage::INVENTORYRELATIONSHIP__FROM);
     m_InventoryRelationshipEClass->getEStructuralFeatures().push_back(

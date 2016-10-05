@@ -26,8 +26,15 @@ std::unique_ptr< ::idlmm::IdlmmPackage,
 
 ::idlmm::IdlmmPackage_ptr IdlmmPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return nullptr;
+        duringConstruction = true;
         new IdlmmPackage();
+        duringConstruction = false;
+    }
     return s_instance.get();
 }
 
