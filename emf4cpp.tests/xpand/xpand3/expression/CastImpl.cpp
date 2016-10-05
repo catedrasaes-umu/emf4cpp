@@ -44,14 +44,10 @@ void Cast::_initialize()
     if (m_type)
     {
         m_type->_initialize();
-        m_type->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCast__type());
     }
     if (m_target)
     {
         m_target->_initialize();
-        m_target->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCast__target());
     }
 
     /*PROTECTED REGION ID(CastImpl__initialize) START*/

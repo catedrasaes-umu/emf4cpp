@@ -43,8 +43,6 @@ void NonTerminal::_initialize()
     for (size_t i = 0; i < m_children->size(); i++)
     {
         (*m_children)[i]->_initialize();
-        (*m_children)[i]->_setEContainer(this,
-                ::tree::TreePackage::_instance()->getNonTerminal__children());
     }
 
     /*PROTECTED REGION ID(NonTerminalImpl__initialize) START*/

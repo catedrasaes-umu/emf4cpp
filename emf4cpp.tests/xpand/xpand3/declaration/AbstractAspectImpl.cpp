@@ -47,8 +47,6 @@ void AbstractAspect::_initialize()
     if (m_pointcut)
     {
         m_pointcut->_initialize();
-        m_pointcut->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
     }
 
     /*PROTECTED REGION ID(AbstractAspectImpl__initialize) START*/

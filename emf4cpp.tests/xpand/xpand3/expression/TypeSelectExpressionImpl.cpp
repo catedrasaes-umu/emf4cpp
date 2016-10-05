@@ -45,8 +45,6 @@ void TypeSelectExpression::_initialize()
     if (m_typeLiteral)
     {
         m_typeLiteral->_initialize();
-        m_typeLiteral->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
     }
 
     /*PROTECTED REGION ID(TypeSelectExpressionImpl__initialize) START*/

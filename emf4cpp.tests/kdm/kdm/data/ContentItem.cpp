@@ -50,7 +50,7 @@ ContentItem::ContentItem() :
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::data::AbstractContentElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::data::DataPackage::_instance()->getContentItem__contentElement()));
 
     /*PROTECTED REGION ID(ContentItemImpl__ContentItemImpl) START*/
 // Please, enable the protected region if you add manually written code.

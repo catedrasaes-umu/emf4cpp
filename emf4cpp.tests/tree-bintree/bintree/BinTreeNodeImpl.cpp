@@ -42,14 +42,10 @@ void BinTreeNode::_initialize()
     if (m_left)
     {
         m_left->_initialize();
-        m_left->_setEContainer(this,
-                ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
     }
     if (m_right)
     {
         m_right->_initialize();
-        m_right->_setEContainer(this,
-                ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
     }
 
     /*PROTECTED REGION ID(BinTreeNodeImpl__initialize) START*/

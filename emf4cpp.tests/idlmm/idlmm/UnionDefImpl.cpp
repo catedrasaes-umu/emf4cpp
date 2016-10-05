@@ -46,14 +46,10 @@ void UnionDef::_initialize()
     for (size_t i = 0; i < m_unionMembers->size(); i++)
     {
         (*m_unionMembers)[i]->_initialize();
-        (*m_unionMembers)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getUnionDef__unionMembers());
     }
     if (m_containedDiscrim)
     {
         m_containedDiscrim->_initialize();
-        m_containedDiscrim->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
     }
 
     /*PROTECTED REGION ID(UnionDefImpl__initialize) START*/

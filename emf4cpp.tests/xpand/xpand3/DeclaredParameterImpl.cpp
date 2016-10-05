@@ -44,14 +44,10 @@ void DeclaredParameter::_initialize()
     if (m_name)
     {
         m_name->_initialize();
-        m_name->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
     }
     if (m_type)
     {
         m_type->_initialize();
-        m_type->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type());
     }
 
     /*PROTECTED REGION ID(DeclaredParameterImpl__initialize) START*/

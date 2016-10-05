@@ -76,6 +76,9 @@ public:
 	virtual typename UnderlyingContainer_type::const_iterator cbegin() const = 0;
 	virtual typename UnderlyingContainer_type::const_iterator cend() const = 0;
 
+	virtual void remove(T*) = 0;
+	virtual void remove(typename UnderlyingContainer_type::iterator) = 0;
+
     /**
      * Permite tratar a una EList< T > como una EList< Q >
      */
@@ -150,6 +153,14 @@ public:
 
 	typename EList<T>::UnderlyingContainer_type::const_iterator cend() const override {
 		throw "Iterator not evailable for delegate list";
+	}
+
+	void remove(T*) override {
+		throw "remove() not evailable for delegate list";
+	}
+	
+	void remove(typename EList<T>::UnderlyingContainer_type::iterator) override {
+		throw "remove() not evailable for delegate list";
 	}
 
     virtual ~DelegateEList()

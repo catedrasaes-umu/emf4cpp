@@ -193,6 +193,7 @@ using namespace ::«EPackage.getFQN()»;
 
     «IF ref.containment-»
     delete _old_«ref.name»;
+    «ref.getRefMemberName()»->_setEContainer(this, «EPackage.getFeatureGetMemberCall(ref)»);
     «ENDIF-»
 }
 

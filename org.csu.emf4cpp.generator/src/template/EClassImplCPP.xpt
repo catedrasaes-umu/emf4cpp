@@ -69,17 +69,11 @@ void «name»::_initialize()
     if («ref.getMemberName()»)
     {
         «ref.getMemberName()»->_initialize();
-        «ref.getMemberName()»->_setEContainer(
-                this,
-                «EPackage.getFeatureGetMemberCall(ref)»);
     }
         «ELSE-»
     for (size_t i = 0; i < «ref.getMemberName()»->size(); i++)
     {
         (*«ref.getMemberName()»)[i]->_initialize();
-        (*«ref.getMemberName()»)[i]->_setEContainer(
-                this,
-                «EPackage.getFeatureGetMemberCall(ref)»);
     }
         «ENDIF-»
     «ENDFOREACH-»

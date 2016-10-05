@@ -47,8 +47,6 @@ void AbstractNamedDeclaration::_initialize()
     if (m_name)
     {
         m_name->_initialize();
-        m_name->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
     }
 
     /*PROTECTED REGION ID(AbstractNamedDeclarationImpl__initialize) START*/

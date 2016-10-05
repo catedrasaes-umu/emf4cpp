@@ -44,7 +44,7 @@ AggregatedRelationship::AggregatedRelationship() :
     m_relation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::core::KDMRelationship, -1, false, false >(this,
-                    NULL));
+                    ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__relation()));
 
     /*PROTECTED REGION ID(AggregatedRelationshipImpl__AggregatedRelationshipImpl) START*/
 // Please, enable the protected region if you add manually written code.

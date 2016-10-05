@@ -39,7 +39,8 @@ Entity::Entity() :
 
     m_properties.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Property, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::myDsl::MyDslPackage::_instance()->getEntity__properties()));
 
     /*PROTECTED REGION ID(EntityImpl__EntityImpl) START*/
 // Please, enable the protected region if you add manually written code.

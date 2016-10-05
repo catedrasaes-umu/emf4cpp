@@ -50,7 +50,7 @@ DeployedSoftwareSystem::DeployedSoftwareSystem()
     m_groupedComponent.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::DeployedComponent, -1, false, false >(this,
-                    NULL));
+                    ::kdm::platform::PlatformPackage::_instance()->getDeployedSoftwareSystem__groupedComponent()));
 
     /*PROTECTED REGION ID(DeployedSoftwareSystemImpl__DeployedSoftwareSystemImpl) START*/
 // Please, enable the protected region if you add manually written code.

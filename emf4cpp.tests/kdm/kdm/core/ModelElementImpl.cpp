@@ -47,8 +47,6 @@ void ModelElement::_initialize()
     for (size_t i = 0; i < m_taggedValue->size(); i++)
     {
         (*m_taggedValue)[i]->_initialize();
-        (*m_taggedValue)[i]->_setEContainer(this,
-                ::kdm::core::CorePackage::_instance()->getModelElement__taggedValue());
     }
 
     /*PROTECTED REGION ID(ModelElementImpl__initialize) START*/

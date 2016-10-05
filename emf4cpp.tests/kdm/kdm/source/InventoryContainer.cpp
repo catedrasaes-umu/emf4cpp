@@ -46,7 +46,8 @@ InventoryContainer::InventoryContainer()
     m_inventoryElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::source::AbstractInventoryElement, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::source::SourcePackage::_instance()->getInventoryContainer__inventoryElement()));
 
     /*PROTECTED REGION ID(InventoryContainerImpl__InventoryContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -43,8 +43,6 @@ void Typed::_initialize()
     if (m_containedType)
     {
         m_containedType->_initialize();
-        m_containedType->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
     }
 
     /*PROTECTED REGION ID(TypedImpl__initialize) START*/

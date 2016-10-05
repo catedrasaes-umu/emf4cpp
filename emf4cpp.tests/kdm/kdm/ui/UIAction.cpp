@@ -49,7 +49,8 @@ UIAction::UIAction()
 
     m_UIElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::ui::UIEvent, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::kdm::ui::UiPackage::_instance()->getUIAction__UIElement()));
 
     /*PROTECTED REGION ID(UIActionImpl__UIActionImpl) START*/
 // Please, enable the protected region if you add manually written code.

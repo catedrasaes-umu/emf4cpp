@@ -44,14 +44,10 @@ void FeatureCall::_initialize()
     if (m_target)
     {
         m_target->_initialize();
-        m_target->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
     }
     if (m_name)
     {
         m_name->_initialize();
-        m_name->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
     }
 
     /*PROTECTED REGION ID(FeatureCallImpl__initialize) START*/

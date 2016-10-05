@@ -87,6 +87,8 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
 #endif
 
     delete _old_operator;
+    m_operator->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
 }
 
 ::xpand3::expression::AbstractExpression_ptr UnaryOperation::getOperand()

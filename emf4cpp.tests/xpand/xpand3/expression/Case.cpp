@@ -91,6 +91,8 @@ void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
 #endif
 
     delete _old_condition;
+    m_condition->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
 }
 
 ::xpand3::expression::AbstractExpression_ptr Case::getThenPart()
@@ -119,5 +121,7 @@ void Case::setThenPart(::xpand3::expression::AbstractExpression_ptr _thenPart)
 #endif
 
     delete _old_thenPart;
+    m_thenPart->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
 }
 

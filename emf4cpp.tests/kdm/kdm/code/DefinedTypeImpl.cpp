@@ -54,8 +54,6 @@ void DefinedType::_initialize()
     if (m_codeElement)
     {
         m_codeElement->_initialize();
-        m_codeElement->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
     }
 
     /*PROTECTED REGION ID(DefinedTypeImpl__initialize) START*/

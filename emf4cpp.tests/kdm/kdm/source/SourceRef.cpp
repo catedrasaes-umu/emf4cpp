@@ -39,7 +39,8 @@ SourceRef::SourceRef()
 
     m_region.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRegion, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRegion, -1, true, false >(this,
+                    ::kdm::source::SourcePackage::_instance()->getSourceRef__region()));
 
     /*PROTECTED REGION ID(SourceRefImpl__SourceRefImpl) START*/
 // Please, enable the protected region if you add manually written code.

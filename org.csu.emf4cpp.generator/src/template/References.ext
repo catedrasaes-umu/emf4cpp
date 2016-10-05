@@ -47,8 +47,7 @@ String _getListImplConstructorOpposite(EReference this) :
 ;
 
 String getListImplConstructorParameters(EReference this) :
-//    "this, " + EContainingClass.EPackage.getFeatureGetMemberCall(this) + _getListImplConstructorOpposite(this)
-	"this, NULL"
+    "this, " + EContainingClass.EPackage.getFeatureGetMemberCall(this) + _getListImplConstructorOpposite(this)
 ;
 
 // Reference type

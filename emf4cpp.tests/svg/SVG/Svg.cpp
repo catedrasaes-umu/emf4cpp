@@ -45,10 +45,12 @@ Svg::Svg()
 
     m_owner_SVG.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile, -1,
-                    false, true >(this, NULL));
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getSvg__owner_SVG(), NULL));
     m_children.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    true, true >(this, NULL));
+                    true, true >(this,
+                    ::SVG::SVGPackage::_instance()->getSvg__children(), NULL));
 
     /*PROTECTED REGION ID(SvgImpl__SvgImpl) START*/
 // Please, enable the protected region if you add manually written code.

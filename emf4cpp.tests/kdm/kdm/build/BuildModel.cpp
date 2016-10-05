@@ -44,7 +44,7 @@ BuildModel::BuildModel()
     m_buildElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::build::AbstractBuildElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::build::BuildPackage::_instance()->getBuildModel__buildElement()));
 
     /*PROTECTED REGION ID(BuildModelImpl__BuildModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

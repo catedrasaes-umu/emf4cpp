@@ -46,44 +46,58 @@ EClass::EClass() :
 
     m_eSuperTypes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClass, -1,
-                    false, false >(this, NULL));
+                    false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eSuperTypes()));
     m_eOperations.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EOperation,
-                    -1, true, true >(this, NULL));
+                    -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eOperations(),
+                    NULL));
     m_eAllAttributes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAttribute,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eAllAttributes()));
     m_eAllReferences.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EReference,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eAllReferences()));
     m_eReferences.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EReference,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eReferences()));
     m_eAttributes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAttribute,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eAttributes()));
     m_eAllContainments.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EReference,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eAllContainments()));
     m_eAllOperations.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EOperation,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eAllOperations()));
     m_eAllStructuralFeatures.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::ecore::EStructuralFeature, -1, false, false >(this,
-                    NULL));
+                    ::ecore::EcorePackage::_instance()->getEClass__eAllStructuralFeatures()));
     m_eAllSuperTypes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClass, -1,
-                    false, false >(this, NULL));
+                    false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eAllSuperTypes()));
     m_eStructuralFeatures.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::EStructuralFeature, -1, true, true >(this, NULL));
+                    ::ecore::EStructuralFeature, -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eStructuralFeatures(),
+                    NULL));
     m_eGenericSuperTypes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eGenericSuperTypes()));
     m_eAllGenericSuperTypes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClass__eAllGenericSuperTypes()));
 
     /*PROTECTED REGION ID(EClassImpl__EClassImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -125,5 +125,7 @@ void ArrayType::setIndexUnit(::kdm::code::IndexUnit_ptr _indexUnit)
 #endif
 
     delete _old_indexUnit;
+    m_indexUnit->_setEContainer(this,
+            ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
 }
 

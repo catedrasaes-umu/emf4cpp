@@ -55,8 +55,6 @@ void EnumeratedType::_initialize()
     for (size_t i = 0; i < m_value->size(); i++)
     {
         (*m_value)[i]->_initialize();
-        (*m_value)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getEnumeratedType__value());
     }
 
     /*PROTECTED REGION ID(EnumeratedTypeImpl__initialize) START*/

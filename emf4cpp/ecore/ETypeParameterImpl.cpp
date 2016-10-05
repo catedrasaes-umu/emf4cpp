@@ -45,8 +45,6 @@ void ETypeParameter::_initialize()
     for (size_t i = 0; i < m_eBounds->size(); i++)
     {
         (*m_eBounds)[i]->_initialize();
-        (*m_eBounds)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getETypeParameter__eBounds());
     }
 
     /*PROTECTED REGION ID(ETypeParameterImpl__initialize) START*/

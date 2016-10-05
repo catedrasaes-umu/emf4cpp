@@ -47,7 +47,8 @@ BuildDescription::BuildDescription()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::build::BuildPackage::_instance()->getBuildDescription__source()));
 
     /*PROTECTED REGION ID(BuildDescriptionImpl__BuildDescriptionImpl) START*/
 // Please, enable the protected region if you add manually written code.

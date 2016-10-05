@@ -90,5 +90,7 @@ void AbstractNamedDeclaration::setName(::xpand3::Identifier_ptr _name)
 #endif
 
     delete _old_name;
+    m_name->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
 }
 

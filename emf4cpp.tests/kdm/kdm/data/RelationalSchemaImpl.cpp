@@ -56,8 +56,6 @@ void RelationalSchema::_initialize()
     for (size_t i = 0; i < m_codeElement->size(); i++)
     {
         (*m_codeElement)[i]->_initialize();
-        (*m_codeElement)[i]->_setEContainer(this,
-                ::kdm::data::DataPackage::_instance()->getRelationalSchema__codeElement());
     }
 
     /*PROTECTED REGION ID(RelationalSchemaImpl__initialize) START*/

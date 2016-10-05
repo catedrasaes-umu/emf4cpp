@@ -53,20 +53,14 @@ void AbstractDataElement::_initialize()
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();
-        (*m_source)[i]->_setEContainer(this,
-                ::kdm::data::DataPackage::_instance()->getAbstractDataElement__source());
     }
     for (size_t i = 0; i < m_dataRelation->size(); i++)
     {
         (*m_dataRelation)[i]->_initialize();
-        (*m_dataRelation)[i]->_setEContainer(this,
-                ::kdm::data::DataPackage::_instance()->getAbstractDataElement__dataRelation());
     }
     for (size_t i = 0; i < m_abstraction->size(); i++)
     {
         (*m_abstraction)[i]->_initialize();
-        (*m_abstraction)[i]->_setEContainer(this,
-                ::kdm::data::DataPackage::_instance()->getAbstractDataElement__abstraction());
     }
 
     /*PROTECTED REGION ID(AbstractDataElementImpl__initialize) START*/

@@ -273,5 +273,7 @@ void ETypedElement::setEGenericType(::ecore::EGenericType_ptr _eGenericType)
 #endif
 
     delete _old_eGenericType;
+    m_eGenericType->_setEContainer(this,
+            ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
 }
 

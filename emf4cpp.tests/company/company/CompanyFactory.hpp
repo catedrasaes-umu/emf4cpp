@@ -35,6 +35,7 @@ namespace company
         virtual Employee_ptr createEmployee();
         virtual Department_ptr createDepartment();
         virtual Company_ptr createCompany();
+        virtual PhonebookEntry_ptr createPhonebookEntry();
 
         virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
         virtual ::ecore::EJavaObject createFromString(

@@ -36,7 +36,8 @@ Node::Node()
 
     m_children.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::CST::Element, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::CST::CSTPackage::_instance()->getNode__children()));
 
     /*PROTECTED REGION ID(NodeImpl__NodeImpl) START*/
 // Please, enable the protected region if you add manually written code.

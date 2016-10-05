@@ -47,20 +47,14 @@ void JavaExtension::_initialize()
     if (m_javaType)
     {
         m_javaType->_initialize();
-        m_javaType->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaType());
     }
     if (m_javaMethod)
     {
         m_javaMethod->_initialize();
-        m_javaMethod->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaMethod());
     }
     for (size_t i = 0; i < m_javaParamTypes->size(); i++)
     {
         (*m_javaParamTypes)[i]->_initialize();
-        (*m_javaParamTypes)[i]->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaParamTypes());
     }
 
     /*PROTECTED REGION ID(JavaExtensionImpl__initialize) START*/

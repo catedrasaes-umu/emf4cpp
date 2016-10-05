@@ -54,8 +54,6 @@ void BuildDescription::_initialize()
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();
-        (*m_source)[i]->_setEContainer(this,
-                ::kdm::build::BuildPackage::_instance()->getBuildDescription__source());
     }
 
     /*PROTECTED REGION ID(BuildDescriptionImpl__initialize) START*/

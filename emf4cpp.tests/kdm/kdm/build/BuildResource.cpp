@@ -45,15 +45,16 @@ BuildResource::BuildResource()
 
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::kdm::build::BuildPackage::_instance()->getBuildResource__implementation()));
     m_groupedBuild.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::build::AbstractBuildElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::build::BuildPackage::_instance()->getBuildResource__groupedBuild()));
     m_buildElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::build::AbstractBuildElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::build::BuildPackage::_instance()->getBuildResource__buildElement()));
 
     /*PROTECTED REGION ID(BuildResourceImpl__BuildResourceImpl) START*/
 // Please, enable the protected region if you add manually written code.

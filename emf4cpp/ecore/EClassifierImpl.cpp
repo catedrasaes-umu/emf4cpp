@@ -48,8 +48,6 @@ void EClassifier::_initialize()
     for (size_t i = 0; i < m_eTypeParameters->size(); i++)
     {
         (*m_eTypeParameters)[i]->_initialize();
-        (*m_eTypeParameters)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEClassifier__eTypeParameters());
     }
 
     /*PROTECTED REGION ID(EClassifierImpl__initialize) START*/

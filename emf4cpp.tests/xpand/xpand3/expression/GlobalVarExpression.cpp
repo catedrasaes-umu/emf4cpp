@@ -88,5 +88,7 @@ void GlobalVarExpression::setGlobalVarName(
 #endif
 
     delete _old_globalVarName;
+    m_globalVarName->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
 }
 

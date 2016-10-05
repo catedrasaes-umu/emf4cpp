@@ -48,7 +48,8 @@ InterfaceUnit::InterfaceUnit()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getInterfaceUnit__codeElement()));
 
     /*PROTECTED REGION ID(InterfaceUnitImpl__InterfaceUnitImpl) START*/
 // Please, enable the protected region if you add manually written code.

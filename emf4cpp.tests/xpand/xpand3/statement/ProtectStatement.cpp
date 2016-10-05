@@ -124,6 +124,8 @@ void ProtectStatement::setCommentStart(
 #endif
 
     delete _old_commentStart;
+    m_commentStart->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
 }
 
 ::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentEnd()
@@ -153,6 +155,8 @@ void ProtectStatement::setCommentEnd(
 #endif
 
     delete _old_commentEnd;
+    m_commentEnd->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
 }
 
 ::xpand3::expression::AbstractExpression_ptr ProtectStatement::getId()
@@ -181,5 +185,7 @@ void ProtectStatement::setId(::xpand3::expression::AbstractExpression_ptr _id)
 #endif
 
     delete _old_id;
+    m_id->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
 }
 

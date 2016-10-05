@@ -50,8 +50,6 @@ void BuildModel::_initialize()
     for (size_t i = 0; i < m_buildElement->size(); i++)
     {
         (*m_buildElement)[i]->_initialize();
-        (*m_buildElement)[i]->_setEContainer(this,
-                ::kdm::build::BuildPackage::_instance()->getBuildModel__buildElement());
     }
 
     /*PROTECTED REGION ID(BuildModelImpl__initialize) START*/

@@ -46,8 +46,6 @@ void Stereotype::_initialize()
     for (size_t i = 0; i < m_tag->size(); i++)
     {
         (*m_tag)[i]->_initialize();
-        (*m_tag)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getStereotype__tag());
     }
 
     /*PROTECTED REGION ID(StereotypeImpl__initialize) START*/

@@ -47,7 +47,8 @@ DataContainer::DataContainer()
 
     m_dataElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::DataResource, -1, true, false >(this, NULL));
+                    ::kdm::data::DataResource, -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getDataContainer__dataElement()));
 
     /*PROTECTED REGION ID(DataContainerImpl__DataContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.

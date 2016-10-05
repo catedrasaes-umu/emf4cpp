@@ -44,10 +44,12 @@ Segment::Segment()
 
     m_segment.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Segment,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getSegment__segment()));
     m_model.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::KDMModel,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getSegment__model()));
 
     /*PROTECTED REGION ID(SegmentImpl__SegmentImpl) START*/
 // Please, enable the protected region if you add manually written code.

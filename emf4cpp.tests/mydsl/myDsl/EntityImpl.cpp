@@ -45,8 +45,6 @@ void Entity::_initialize()
     for (size_t i = 0; i < m_properties->size(); i++)
     {
         (*m_properties)[i]->_initialize();
-        (*m_properties)[i]->_setEContainer(this,
-                ::myDsl::MyDslPackage::_instance()->getEntity__properties());
     }
 
     /*PROTECTED REGION ID(EntityImpl__initialize) START*/

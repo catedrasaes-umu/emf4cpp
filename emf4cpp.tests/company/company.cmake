@@ -35,6 +35,8 @@ set(company_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/company/DepartmentImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/company/Company.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/company/CompanyImpl.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/company/PhonebookEntry.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/company/PhonebookEntryImpl.cpp
    )
    
 set(company_HEADERS
@@ -45,6 +47,7 @@ set(company_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/company/Employee.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/company/Department.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/company/Company.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/company/PhonebookEntry.hpp
    )
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/company.hpp DESTINATION include/emf4cpp/)
@@ -54,6 +57,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/company/CompanyPackage.hpp DESTINATION
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/company/Employee.hpp DESTINATION include/emf4cpp/company)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/company/Department.hpp DESTINATION include/emf4cpp/company)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/company/Company.hpp DESTINATION include/emf4cpp/company)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/company/PhonebookEntry.hpp DESTINATION include/emf4cpp/company)
    
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../emf4cpp ../../emf4cpp)
 

@@ -50,7 +50,7 @@ DeployedResource::DeployedResource()
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::ResourceType, -1, true, false >(this,
-                    NULL));
+                    ::kdm::platform::PlatformPackage::_instance()->getDeployedResource__platformElement()));
 
     /*PROTECTED REGION ID(DeployedResourceImpl__DeployedResourceImpl) START*/
 // Please, enable the protected region if you add manually written code.

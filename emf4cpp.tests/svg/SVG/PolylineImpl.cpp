@@ -52,8 +52,6 @@ void Polyline::_initialize()
     for (size_t i = 0; i < m_waypoints->size(); i++)
     {
         (*m_waypoints)[i]->_initialize();
-        (*m_waypoints)[i]->_setEContainer(this,
-                ::SVG::SVGPackage::_instance()->getPolyline__waypoints());
     }
 
     /*PROTECTED REGION ID(PolylineImpl__initialize) START*/

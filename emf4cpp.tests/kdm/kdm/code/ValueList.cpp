@@ -48,7 +48,8 @@ ValueList::ValueList()
 
     m_valueElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::ValueElement, -1, true, false >(this, NULL));
+                    ::kdm::code::ValueElement, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getValueList__valueElement()));
 
     /*PROTECTED REGION ID(ValueListImpl__ValueListImpl) START*/
 // Please, enable the protected region if you add manually written code.

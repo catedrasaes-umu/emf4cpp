@@ -51,6 +51,10 @@ namespace company
     class Company;
     typedef Company* Company_ptr;
 
+// PhonebookEntry
+    class PhonebookEntry;
+    typedef PhonebookEntry* PhonebookEntry_ptr;
+
 // EEnum
 
 // Package & Factory

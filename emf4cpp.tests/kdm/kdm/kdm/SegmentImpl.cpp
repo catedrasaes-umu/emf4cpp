@@ -51,14 +51,10 @@ void Segment::_initialize()
     for (size_t i = 0; i < m_segment->size(); i++)
     {
         (*m_segment)[i]->_initialize();
-        (*m_segment)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getSegment__segment());
     }
     for (size_t i = 0; i < m_model->size(); i++)
     {
         (*m_model)[i]->_initialize();
-        (*m_model)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getSegment__model());
     }
 
     /*PROTECTED REGION ID(SegmentImpl__initialize) START*/

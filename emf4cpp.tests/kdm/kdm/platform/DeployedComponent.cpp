@@ -49,7 +49,8 @@ DeployedComponent::DeployedComponent()
 
     m_groupedCode.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Module,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getDeployedComponent__groupedCode()));
 
     /*PROTECTED REGION ID(DeployedComponentImpl__DeployedComponentImpl) START*/
 // Please, enable the protected region if you add manually written code.

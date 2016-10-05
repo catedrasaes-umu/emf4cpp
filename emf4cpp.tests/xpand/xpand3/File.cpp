@@ -38,11 +38,13 @@ File::File()
 
     m_imports.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::ImportStatement, -1, true, false >(this, NULL));
+                    ::xpand3::ImportStatement, -1, true, false >(this,
+                    ::xpand3::Xpand3Package::_instance()->getFile__imports()));
     m_declarations.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::xpand3::declaration::AbstractDeclaration, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::xpand3::Xpand3Package::_instance()->getFile__declarations()));
 
     /*PROTECTED REGION ID(FileImpl__FileImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -44,8 +44,6 @@ void ConstructorCallExpression::_initialize()
     if (m_type)
     {
         m_type->_initialize();
-        m_type->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
     }
 
     /*PROTECTED REGION ID(ConstructorCallExpressionImpl__initialize) START*/

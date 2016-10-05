@@ -45,8 +45,6 @@ void OperationCall::_initialize()
     for (size_t i = 0; i < m_params->size(); i++)
     {
         (*m_params)[i]->_initialize();
-        (*m_params)[i]->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getOperationCall__params());
     }
 
     /*PROTECTED REGION ID(OperationCallImpl__initialize) START*/

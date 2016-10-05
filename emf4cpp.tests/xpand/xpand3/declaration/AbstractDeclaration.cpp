@@ -40,7 +40,8 @@ AbstractDeclaration::AbstractDeclaration() :
 
     m_params.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::DeclaredParameter, -1, true, false >(this, NULL));
+                    ::xpand3::DeclaredParameter, -1, true, false >(this,
+                    ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__params()));
 
     /*PROTECTED REGION ID(AbstractDeclarationImpl__AbstractDeclarationImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -123,6 +124,8 @@ void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
 #endif
 
     delete _old_owner;
+    m_owner->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
 }
 
 ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& AbstractDeclaration::getParams()
@@ -157,5 +160,7 @@ void AbstractDeclaration::setGuard(
 #endif
 
     delete _old_guard;
+    m_guard->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
 }
 

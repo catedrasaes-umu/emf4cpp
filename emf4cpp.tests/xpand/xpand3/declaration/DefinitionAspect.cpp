@@ -42,7 +42,8 @@ DefinitionAspect::DefinitionAspect()
     m_body.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::xpand3::statement::AbstractStatement, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::xpand3::declaration::DeclarationPackage::_instance()->getDefinitionAspect__body()));
 
     /*PROTECTED REGION ID(DefinitionAspectImpl__DefinitionAspectImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -38,7 +38,8 @@ StructDef::StructDef()
 
     m_members.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getStructDef__members()));
 
     /*PROTECTED REGION ID(StructDefImpl__StructDefImpl) START*/
 // Please, enable the protected region if you add manually written code.

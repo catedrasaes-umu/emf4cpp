@@ -50,8 +50,6 @@ void ConceptualModel::_initialize()
     for (size_t i = 0; i < m_conceptualElement->size(); i++)
     {
         (*m_conceptualElement)[i]->_initialize();
-        (*m_conceptualElement)[i]->_setEContainer(this,
-                ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualModel__conceptualElement());
     }
 
     /*PROTECTED REGION ID(ConceptualModelImpl__initialize) START*/

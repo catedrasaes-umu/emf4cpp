@@ -22,6 +22,7 @@
 #include <company/Employee.hpp>
 #include <company/Department.hpp>
 #include <company/Company.hpp>
+#include <company/PhonebookEntry.hpp>
 
 #include <ecore.hpp>
 #include <ecorecpp/mapping.hpp>
@@ -43,6 +44,8 @@ CompanyFactory::CompanyFactory()
         return createDepartment();
     case CompanyPackage::COMPANY:
         return createCompany();
+    case CompanyPackage::PHONEBOOKENTRY:
+        return createPhonebookEntry();
     default:
         throw "IllegalArgumentException";
     }
@@ -81,5 +84,9 @@ Department_ptr CompanyFactory::createDepartment()
 Company_ptr CompanyFactory::createCompany()
 {
     return new Company();
+}
+PhonebookEntry_ptr CompanyFactory::createPhonebookEntry()
+{
+    return new PhonebookEntry();
 }
 

@@ -49,7 +49,8 @@ DataElement::DataElement() :
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Datatype,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getDataElement__codeElement()));
 
     /*PROTECTED REGION ID(DataElementImpl__DataElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

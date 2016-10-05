@@ -43,8 +43,6 @@ void Node::_initialize()
     for (size_t i = 0; i < m_children->size(); i++)
     {
         (*m_children)[i]->_initialize();
-        (*m_children)[i]->_setEContainer(this,
-                ::CST::CSTPackage::_instance()->getNode__children());
     }
 
     /*PROTECTED REGION ID(NodeImpl__initialize) START*/

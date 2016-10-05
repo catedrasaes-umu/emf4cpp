@@ -46,18 +46,21 @@ AbstractConceptualElement::AbstractConceptualElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__source()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__implementation()));
     m_conceptualRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::conceptual::AbstractConceptualRelationship, -1, true,
-                    false >(this, NULL));
+                    false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__conceptualRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractConceptualElementImpl__AbstractConceptualElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

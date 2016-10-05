@@ -37,7 +37,8 @@ ListLiteral::ListLiteral()
     m_elements.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::xpand3::expression::AbstractExpression, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::xpand3::expression::ExpressionPackage::_instance()->getListLiteral__elements()));
 
     /*PROTECTED REGION ID(ListLiteralImpl__ListLiteralImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -53,20 +53,14 @@ void AbstractCodeElement::_initialize()
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();
-        (*m_source)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__source());
     }
     for (size_t i = 0; i < m_comment->size(); i++)
     {
         (*m_comment)[i]->_initialize();
-        (*m_comment)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__comment());
     }
     for (size_t i = 0; i < m_codeRelation->size(); i++)
     {
         (*m_codeRelation)[i]->_initialize();
-        (*m_codeRelation)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__codeRelation());
     }
 
     /*PROTECTED REGION ID(AbstractCodeElementImpl__initialize) START*/

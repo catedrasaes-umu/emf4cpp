@@ -88,5 +88,7 @@ void TypeSelectExpression::setTypeLiteral(::xpand3::Identifier_ptr _typeLiteral)
 #endif
 
     delete _old_typeLiteral;
+    m_typeLiteral->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
 }
 

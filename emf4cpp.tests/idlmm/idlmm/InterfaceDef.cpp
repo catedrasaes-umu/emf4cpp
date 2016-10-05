@@ -39,7 +39,8 @@ InterfaceDef::InterfaceDef()
 
     m_derivesFrom.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::InterfaceDef,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__derivesFrom()));
 
     /*PROTECTED REGION ID(InterfaceDefImpl__InterfaceDefImpl) START*/
 // Please, enable the protected region if you add manually written code.

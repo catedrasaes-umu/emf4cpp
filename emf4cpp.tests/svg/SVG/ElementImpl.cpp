@@ -49,14 +49,10 @@ void Element::_initialize()
     if (m_position)
     {
         m_position->_initialize();
-        m_position->_setEContainer(this,
-                ::SVG::SVGPackage::_instance()->getElement__position());
     }
     if (m_size)
     {
         m_size->_initialize();
-        m_size->_setEContainer(this,
-                ::SVG::SVGPackage::_instance()->getElement__size());
     }
 
     /*PROTECTED REGION ID(ElementImpl__initialize) START*/

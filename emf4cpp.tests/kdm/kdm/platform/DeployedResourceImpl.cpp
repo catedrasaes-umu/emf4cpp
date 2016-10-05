@@ -56,8 +56,6 @@ void DeployedResource::_initialize()
     for (size_t i = 0; i < m_platformElement->size(); i++)
     {
         (*m_platformElement)[i]->_initialize();
-        (*m_platformElement)[i]->_setEContainer(this,
-                ::kdm::platform::PlatformPackage::_instance()->getDeployedResource__platformElement());
     }
 
     /*PROTECTED REGION ID(DeployedResourceImpl__initialize) START*/

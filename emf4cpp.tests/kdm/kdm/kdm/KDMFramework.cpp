@@ -42,10 +42,12 @@ KDMFramework::KDMFramework()
 
     m_audit.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Audit, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__audit()));
     m_extensionFamily.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::ExtensionFamily, -1, true, false >(this, NULL));
+                    ::kdm::kdm::ExtensionFamily, -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__extensionFamily()));
 
     /*PROTECTED REGION ID(KDMFrameworkImpl__KDMFrameworkImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -42,23 +42,29 @@ namespace company
 
         static const int EMPLOYEE = 2;
 
+        static const int PHONEBOOKENTRY = 3;
+
         static const int EMPLOYEE__NAME = 0;
 
-        static const int DEPARTMENT__EMPLOYEES = 1;
+        static const int EMPLOYEE__PHONEBOOKENTRY = 1;
 
-        static const int DEPARTMENT__MANAGER = 2;
+        static const int DEPARTMENT__EMPLOYEES = 2;
 
-        static const int DEPARTMENT__NUMBER = 3;
+        static const int DEPARTMENT__MANAGER = 3;
 
-        static const int COMPANY__NAME = 4;
+        static const int DEPARTMENT__NUMBER = 4;
 
-        static const int COMPANY__DEPARTMENTS = 5;
+        static const int COMPANY__NAME = 5;
+
+        static const int COMPANY__DEPARTMENTS = 6;
 
         // IDs for classifiers for class Company 
 
         // IDs for classifiers for class Department 
 
         // IDs for classifiers for class Employee 
+
+        // IDs for classifiers for class PhonebookEntry 
 
         // EClassifiers methods
 
@@ -68,9 +74,13 @@ namespace company
 
         virtual ::ecore::EClass_ptr getCompany();
 
+        virtual ::ecore::EClass_ptr getPhonebookEntry();
+
         // EStructuralFeatures methods
 
         virtual ::ecore::EAttribute_ptr getEmployee__name();
+
+        virtual ::ecore::EReference_ptr getEmployee__phonebookEntry();
 
         virtual ::ecore::EReference_ptr getDepartment__employees();
 
@@ -97,6 +107,8 @@ namespace company
 
         ::ecore::EClass_ptr m_CompanyEClass;
 
+        ::ecore::EClass_ptr m_PhonebookEntryEClass;
+
         // EEnuminstances 
 
         // EDataType instances 
@@ -104,6 +116,8 @@ namespace company
         // EStructuralFeatures instances
 
         ::ecore::EAttribute_ptr m_Employee__name;
+
+        ::ecore::EReference_ptr m_Employee__phonebookEntry;
 
         ::ecore::EReference_ptr m_Department__employees;
 

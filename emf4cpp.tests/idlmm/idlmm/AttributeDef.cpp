@@ -41,10 +41,12 @@ AttributeDef::AttributeDef()
 
     m_getRaises.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getAttributeDef__getRaises()));
     m_setRaises.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getAttributeDef__setRaises()));
 
     /*PROTECTED REGION ID(AttributeDefImpl__AttributeDefImpl) START*/
 // Please, enable the protected region if you add manually written code.

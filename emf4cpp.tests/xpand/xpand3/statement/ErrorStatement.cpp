@@ -88,5 +88,7 @@ void ErrorStatement::setMessage(
 #endif
 
     delete _old_message;
+    m_message->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
 }
 

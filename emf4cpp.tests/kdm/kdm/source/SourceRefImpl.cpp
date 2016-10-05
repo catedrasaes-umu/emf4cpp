@@ -46,8 +46,6 @@ void SourceRef::_initialize()
     for (size_t i = 0; i < m_region->size(); i++)
     {
         (*m_region)[i]->_initialize();
-        (*m_region)[i]->_setEContainer(this,
-                ::kdm::source::SourcePackage::_instance()->getSourceRef__region());
     }
 
     /*PROTECTED REGION ID(SourceRefImpl__initialize) START*/

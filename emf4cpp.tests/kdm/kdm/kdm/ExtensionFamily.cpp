@@ -39,7 +39,8 @@ ExtensionFamily::ExtensionFamily()
 
     m_stereotype.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__stereotype()));
 
     /*PROTECTED REGION ID(ExtensionFamilyImpl__ExtensionFamilyImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -18,6 +18,7 @@
  */
 
 #include "Employee.hpp"
+#include <company/PhonebookEntry.hpp>
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
 #include "company/CompanyPackage.hpp"
@@ -30,7 +31,8 @@
 using namespace ::company;
 
 // Default constructor
-Employee::Employee()
+Employee::Employee() :
+        m_phonebookEntry(0)
 {
 
     /*PROTECTED REGION ID(EmployeeImpl__EmployeeImpl) START*/
@@ -45,6 +47,10 @@ Employee::Employee()
 
 Employee::~Employee()
 {
+    if (m_phonebookEntry)
+    {
+        delete m_phonebookEntry;
+    }
 }
 
 /*PROTECTED REGION ID(Employee.cpp) START*/
@@ -80,4 +86,33 @@ void Employee::setName(::ecore::EString const& _name)
 }
 
 // References
+::company::PhonebookEntry_ptr Employee::getPhonebookEntry()
+{
+    return m_phonebookEntry;
+}
+
+void Employee::setPhonebookEntry(::company::PhonebookEntry_ptr _phonebookEntry)
+{
+    ::company::PhonebookEntry_ptr _old_phonebookEntry = m_phonebookEntry;
+
+    m_phonebookEntry = _phonebookEntry;
+
+#ifdef ECORECPP_NOTIFICATION_API
+    if (eNotificationRequired())
+    {
+        ::ecorecpp::notify::Notification notification(
+                ::ecorecpp::notify::Notification::SET,
+                (::ecore::EObject_ptr) this,
+                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry(),
+                _old_phonebookEntry,
+                m_phonebookEntry
+        );
+        eNotify(&notification);
+    }
+#endif
+
+    delete _old_phonebookEntry;
+    m_phonebookEntry->_setEContainer(this,
+            ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
+}
 

@@ -43,14 +43,10 @@ void Model::_initialize()
     for (size_t i = 0; i < m_imports->size(); i++)
     {
         (*m_imports)[i]->_initialize();
-        (*m_imports)[i]->_setEContainer(this,
-                ::myDsl::MyDslPackage::_instance()->getModel__imports());
     }
     for (size_t i = 0; i < m_elements->size(); i++)
     {
         (*m_elements)[i]->_initialize();
-        (*m_elements)[i]->_setEContainer(this,
-                ::myDsl::MyDslPackage::_instance()->getModel__elements());
     }
 
     /*PROTECTED REGION ID(ModelImpl__initialize) START*/

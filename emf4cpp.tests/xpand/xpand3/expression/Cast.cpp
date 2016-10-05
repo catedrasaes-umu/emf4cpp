@@ -91,6 +91,8 @@ void Cast::setType(::xpand3::Identifier_ptr _type)
 #endif
 
     delete _old_type;
+    m_type->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getCast__type());
 }
 
 ::xpand3::expression::AbstractExpression_ptr Cast::getTarget()
@@ -119,5 +121,7 @@ void Cast::setTarget(::xpand3::expression::AbstractExpression_ptr _target)
 #endif
 
     delete _old_target;
+    m_target->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getCast__target());
 }
 

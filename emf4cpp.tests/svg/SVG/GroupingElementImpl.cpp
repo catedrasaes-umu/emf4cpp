@@ -52,8 +52,6 @@ void GroupingElement::_initialize()
     for (size_t i = 0; i < m_groupContent->size(); i++)
     {
         (*m_groupContent)[i]->_initialize();
-        (*m_groupContent)[i]->_setEContainer(this,
-                ::SVG::SVGPackage::_instance()->getGroupingElement__groupContent());
     }
 
     /*PROTECTED REGION ID(GroupingElementImpl__initialize) START*/

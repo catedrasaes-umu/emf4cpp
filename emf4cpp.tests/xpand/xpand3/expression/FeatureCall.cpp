@@ -92,6 +92,8 @@ void FeatureCall::setTarget(
 #endif
 
     delete _old_target;
+    m_target->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
 }
 
 ::xpand3::Identifier_ptr FeatureCall::getName()
@@ -120,5 +122,7 @@ void FeatureCall::setName(::xpand3::Identifier_ptr _name)
 #endif
 
     delete _old_name;
+    m_name->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
 }
 

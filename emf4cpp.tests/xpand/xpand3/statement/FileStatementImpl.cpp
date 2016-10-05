@@ -46,14 +46,10 @@ void FileStatement::_initialize()
     if (m_fileNameExpression)
     {
         m_fileNameExpression->_initialize();
-        m_fileNameExpression->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
     }
     if (m_outletNameIdentifier)
     {
         m_outletNameIdentifier->_initialize();
-        m_outletNameIdentifier->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
     }
 
     /*PROTECTED REGION ID(FileStatementImpl__initialize) START*/

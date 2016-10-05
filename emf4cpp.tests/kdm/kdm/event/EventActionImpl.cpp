@@ -56,8 +56,6 @@ void EventAction::_initialize()
     for (size_t i = 0; i < m_eventElement->size(); i++)
     {
         (*m_eventElement)[i]->_initialize();
-        (*m_eventElement)[i]->_setEContainer(this,
-                ::kdm::event::EventPackage::_instance()->getEventAction__eventElement());
     }
 
     /*PROTECTED REGION ID(EventActionImpl__initialize) START*/

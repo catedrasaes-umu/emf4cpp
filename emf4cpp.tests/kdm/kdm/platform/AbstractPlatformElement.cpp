@@ -47,19 +47,21 @@ AbstractPlatformElement::AbstractPlatformElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__source()));
     m_relation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::AbstractPlatformRelationship, -1, true,
-                    false >(this, NULL));
+                    false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__relation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__abstraction()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__implementation()));
 
     /*PROTECTED REGION ID(AbstractPlatformElementImpl__AbstractPlatformElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -19,6 +19,7 @@
 
 #include "Employee.hpp"
 #include <company/CompanyPackage.hpp>
+#include <company/PhonebookEntry.hpp>
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
 #include <ecore/EStructuralFeature.hpp>
@@ -38,6 +39,10 @@ void Employee::_initialize()
     // Supertypes
 
     // References
+    if (m_phonebookEntry)
+    {
+        m_phonebookEntry->_initialize();
+    }
 
     /*PROTECTED REGION ID(EmployeeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -60,6 +65,11 @@ void Employee::_initialize()
                 > ::toAny(_any, m_name);
     }
         return _any;
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+    {
+        _any = static_cast< ::ecore::EObject* >(m_phonebookEntry);
+    }
+        return _any;
 
     }
     throw "Error";
@@ -76,6 +86,15 @@ void Employee::eSet(::ecore::EInt _featureID,
                 > ::fromAny(_newValue, m_name);
     }
         return;
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::company::PhonebookEntry_ptr _t1 =
+                dynamic_cast< ::company::PhonebookEntry_ptr >(_t0);
+        ::company::Employee::setPhonebookEntry(_t1);
+    }
+        return;
 
     }
     throw "Error";
@@ -88,6 +107,8 @@ void Employee::eSet(::ecore::EInt _featureID,
     case ::company::CompanyPackage::EMPLOYEE__NAME:
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+        return m_phonebookEntry;
 
     }
     throw "Error";

@@ -55,8 +55,6 @@ void ValueList::_initialize()
     for (size_t i = 0; i < m_valueElement->size(); i++)
     {
         (*m_valueElement)[i]->_initialize();
-        (*m_valueElement)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getValueList__valueElement());
     }
 
     /*PROTECTED REGION ID(ValueListImpl__initialize) START*/

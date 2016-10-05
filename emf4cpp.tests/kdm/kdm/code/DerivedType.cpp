@@ -98,5 +98,7 @@ void DerivedType::setItemUnit(::kdm::code::ItemUnit_ptr _itemUnit)
 #endif
 
     delete _old_itemUnit;
+    m_itemUnit->_setEContainer(this,
+            ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
 }
 

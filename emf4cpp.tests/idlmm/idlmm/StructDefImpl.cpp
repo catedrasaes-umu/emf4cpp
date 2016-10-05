@@ -45,8 +45,6 @@ void StructDef::_initialize()
     for (size_t i = 0; i < m_members->size(); i++)
     {
         (*m_members)[i]->_initialize();
-        (*m_members)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getStructDef__members());
     }
 
     /*PROTECTED REGION ID(StructDefImpl__initialize) START*/

@@ -44,8 +44,6 @@ void ImportStatement::_initialize()
     if (m_importedId)
     {
         m_importedId->_initialize();
-        m_importedId->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
     }
 
     /*PROTECTED REGION ID(ImportStatementImpl__initialize) START*/

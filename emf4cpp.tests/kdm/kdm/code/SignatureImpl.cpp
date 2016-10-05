@@ -55,8 +55,6 @@ void Signature::_initialize()
     for (size_t i = 0; i < m_parameterUnit->size(); i++)
     {
         (*m_parameterUnit)[i]->_initialize();
-        (*m_parameterUnit)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getSignature__parameterUnit());
     }
 
     /*PROTECTED REGION ID(SignatureImpl__initialize) START*/

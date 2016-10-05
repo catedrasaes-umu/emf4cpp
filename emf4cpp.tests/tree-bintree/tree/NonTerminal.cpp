@@ -36,7 +36,8 @@ NonTerminal::NonTerminal()
 
     m_children.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::tree::TreeNode, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::tree::TreePackage::_instance()->getNonTerminal__children()));
 
     /*PROTECTED REGION ID(NonTerminalImpl__NonTerminalImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -50,8 +50,6 @@ void InventoryModel::_initialize()
     for (size_t i = 0; i < m_inventoryElement->size(); i++)
     {
         (*m_inventoryElement)[i]->_initialize();
-        (*m_inventoryElement)[i]->_setEContainer(this,
-                ::kdm::source::SourcePackage::_instance()->getInventoryModel__inventoryElement());
     }
 
     /*PROTECTED REGION ID(InventoryModelImpl__initialize) START*/

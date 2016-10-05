@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * company/Employee.hpp
+ * company/PhonebookEntry.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
@@ -17,17 +17,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef COMPANY_EMPLOYEE_HPP
-#define COMPANY_EMPLOYEE_HPP
+#ifndef COMPANY_PHONEBOOKENTRY_HPP
+#define COMPANY_PHONEBOOKENTRY_HPP
 
 #include <company_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
-#include <ecore_forward.hpp>
-
 #include <ecore/EObject.hpp>
 
-/*PROTECTED REGION ID(Employee_pre) START*/
+/*PROTECTED REGION ID(PhonebookEntry_pre) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
@@ -35,27 +33,23 @@
 namespace company
 {
 
-    class Employee: public virtual ::ecore::EObject
+    class PhonebookEntry: public virtual ::ecore::EObject
 
     {
     public:
-        Employee();
+        PhonebookEntry();
 
-        virtual ~Employee();
+        virtual ~PhonebookEntry();
 
         virtual void _initialize();
 
         // Operations
 
         // Attributes
-        ::ecore::EString const& getName() const;
-        void setName(::ecore::EString const& _name);
 
         // References
-        ::company::PhonebookEntry_ptr getPhonebookEntry();
-        void setPhonebookEntry(::company::PhonebookEntry_ptr _phonebookEntry);
 
-        /*PROTECTED REGION ID(Employee) START*/
+        /*PROTECTED REGION ID(PhonebookEntry) START*/
         // Please, enable the protected region if you add manually written code.
         // To do this, add the keyword ENABLED before START.
         /*PROTECTED REGION END*/
@@ -69,7 +63,7 @@ namespace company
         virtual void eUnset(::ecore::EInt _featureID);
         virtual ::ecore::EClass_ptr _eClass();
 
-        /*PROTECTED REGION ID(EmployeeImpl) START*/
+        /*PROTECTED REGION ID(PhonebookEntryImpl) START*/
         // Please, enable the protected region if you add manually written code.
         // To do this, add the keyword ENABLED before START.
         /*PROTECTED REGION END*/
@@ -77,15 +71,11 @@ namespace company
     protected:
         // Attributes
 
-        ::ecore::EString m_name;
-
         // References
-
-        ::company::PhonebookEntry_ptr m_phonebookEntry;
 
     };
 
 } // company
 
-#endif // COMPANY_EMPLOYEE_HPP
+#endif // COMPANY_PHONEBOOKENTRY_HPP
 

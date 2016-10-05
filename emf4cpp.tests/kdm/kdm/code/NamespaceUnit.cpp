@@ -47,7 +47,8 @@ NamespaceUnit::NamespaceUnit()
 
     m_groupedCode.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getNamespaceUnit__groupedCode()));
 
     /*PROTECTED REGION ID(NamespaceUnitImpl__NamespaceUnitImpl) START*/
 // Please, enable the protected region if you add manually written code.

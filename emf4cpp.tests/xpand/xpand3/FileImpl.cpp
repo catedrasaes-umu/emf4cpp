@@ -45,14 +45,10 @@ void File::_initialize()
     for (size_t i = 0; i < m_imports->size(); i++)
     {
         (*m_imports)[i]->_initialize();
-        (*m_imports)[i]->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getFile__imports());
     }
     for (size_t i = 0; i < m_declarations->size(); i++)
     {
         (*m_declarations)[i]->_initialize();
-        (*m_declarations)[i]->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getFile__declarations());
     }
 
     /*PROTECTED REGION ID(FileImpl__initialize) START*/

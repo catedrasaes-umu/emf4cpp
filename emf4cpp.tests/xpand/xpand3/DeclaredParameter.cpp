@@ -91,6 +91,8 @@ void DeclaredParameter::setName(::xpand3::Identifier_ptr _name)
 #endif
 
     delete _old_name;
+    m_name->_setEContainer(this,
+            ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
 }
 
 ::xpand3::Identifier_ptr DeclaredParameter::getType()
@@ -119,5 +121,7 @@ void DeclaredParameter::setType(::xpand3::Identifier_ptr _type)
 #endif
 
     delete _old_type;
+    m_type->_setEContainer(this,
+            ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type());
 }
 

@@ -44,7 +44,7 @@ UIModel::UIModel()
     m_UIElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::ui::AbstractUIElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::ui::UiPackage::_instance()->getUIModel__UIElement()));
 
     /*PROTECTED REGION ID(UIModelImpl__UIModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

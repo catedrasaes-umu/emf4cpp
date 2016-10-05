@@ -36,7 +36,8 @@ Company::Company()
 
     m_departments.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::company::Department,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::company::CompanyPackage::_instance()->getCompany__departments()));
 
     /*PROTECTED REGION ID(CompanyImpl__CompanyImpl) START*/
 // Please, enable the protected region if you add manually written code.

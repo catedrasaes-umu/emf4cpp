@@ -47,19 +47,20 @@ AbstractUIElement::AbstractUIElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__source()));
     m_UIRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::ui::AbstractUIRelationship, -1, true, false >(this,
-                    NULL));
+                    ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__UIRelation()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__implementation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractUIElementImpl__AbstractUIElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

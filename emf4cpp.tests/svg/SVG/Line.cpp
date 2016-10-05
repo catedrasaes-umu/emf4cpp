@@ -45,7 +45,8 @@ Line::Line()
 
     m_between.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, 2, false,
-                    false >(this, NULL));
+                    false >(this,
+                    ::SVG::SVGPackage::_instance()->getLine__between()));
 
     /*PROTECTED REGION ID(LineImpl__LineImpl) START*/
 // Please, enable the protected region if you add manually written code.

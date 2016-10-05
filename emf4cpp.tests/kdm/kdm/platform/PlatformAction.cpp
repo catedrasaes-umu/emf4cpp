@@ -50,7 +50,7 @@ PlatformAction::PlatformAction()
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::PlatformEvent, -1, true, false >(this,
-                    NULL));
+                    ::kdm::platform::PlatformPackage::_instance()->getPlatformAction__platformElement()));
 
     /*PROTECTED REGION ID(PlatformActionImpl__PlatformActionImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -44,8 +44,6 @@ void GlobalVarExpression::_initialize()
     if (m_globalVarName)
     {
         m_globalVarName->_initialize();
-        m_globalVarName->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
     }
 
     /*PROTECTED REGION ID(GlobalVarExpressionImpl__initialize) START*/

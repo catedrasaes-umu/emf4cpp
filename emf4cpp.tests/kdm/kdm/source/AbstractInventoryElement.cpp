@@ -45,7 +45,8 @@ AbstractInventoryElement::AbstractInventoryElement()
     m_inventoryRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::source::AbstractInventoryRelationship, -1, true,
-                    false >(this, NULL));
+                    false >(this,
+                    ::kdm::source::SourcePackage::_instance()->getAbstractInventoryElement__inventoryRelation()));
 
     /*PROTECTED REGION ID(AbstractInventoryElementImpl__AbstractInventoryElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -51,8 +51,6 @@ void AbstractInventoryElement::_initialize()
     for (size_t i = 0; i < m_inventoryRelation->size(); i++)
     {
         (*m_inventoryRelation)[i]->_initialize();
-        (*m_inventoryRelation)[i]->_setEContainer(this,
-                ::kdm::source::SourcePackage::_instance()->getAbstractInventoryElement__inventoryRelation());
     }
 
     /*PROTECTED REGION ID(AbstractInventoryElementImpl__initialize) START*/

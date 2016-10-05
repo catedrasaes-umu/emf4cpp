@@ -48,7 +48,8 @@ CompositeType::CompositeType()
 
     m_itemUnit.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::ItemUnit,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getCompositeType__itemUnit()));
 
     /*PROTECTED REGION ID(CompositeTypeImpl__CompositeTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.

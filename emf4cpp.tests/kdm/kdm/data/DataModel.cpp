@@ -44,7 +44,7 @@ DataModel::DataModel()
     m_dataElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::data::AbstractDataElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::data::DataPackage::_instance()->getDataModel__dataElement()));
 
     /*PROTECTED REGION ID(DataModelImpl__DataModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

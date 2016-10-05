@@ -46,14 +46,10 @@ void Check::_initialize()
     if (m_msg)
     {
         m_msg->_initialize();
-        m_msg->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
     }
     if (m_constraint)
     {
         m_constraint->_initialize();
-        m_constraint->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
     }
 
     /*PROTECTED REGION ID(CheckImpl__initialize) START*/

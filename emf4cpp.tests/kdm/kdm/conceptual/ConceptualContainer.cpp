@@ -48,7 +48,8 @@ ConceptualContainer::ConceptualContainer()
     m_conceptualElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::conceptual::AbstractConceptualElement, -1, true,
-                    false >(this, NULL));
+                    false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualContainer__conceptualElement()));
 
     /*PROTECTED REGION ID(ConceptualContainerImpl__ConceptualContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.

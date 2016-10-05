@@ -95,6 +95,8 @@ void IfExpression::setCondition(
 #endif
 
     delete _old_condition;
+    m_condition->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
 }
 
 ::xpand3::expression::AbstractExpression_ptr IfExpression::getThenPart()
@@ -124,6 +126,8 @@ void IfExpression::setThenPart(
 #endif
 
     delete _old_thenPart;
+    m_thenPart->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
 }
 
 ::xpand3::expression::AbstractExpression_ptr IfExpression::getElsePart()
@@ -153,5 +157,7 @@ void IfExpression::setElsePart(
 #endif
 
     delete _old_elsePart;
+    m_elsePart->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
 }
 

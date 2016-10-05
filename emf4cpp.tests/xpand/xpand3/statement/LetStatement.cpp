@@ -93,6 +93,8 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
 #endif
 
     delete _old_varName;
+    m_varName->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
 }
 
 ::xpand3::expression::AbstractExpression_ptr LetStatement::getVarValue()
@@ -122,5 +124,7 @@ void LetStatement::setVarValue(
 #endif
 
     delete _old_varValue;
+    m_varValue->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
 }
 

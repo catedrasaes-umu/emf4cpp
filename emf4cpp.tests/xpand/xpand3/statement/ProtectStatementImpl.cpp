@@ -45,20 +45,14 @@ void ProtectStatement::_initialize()
     if (m_commentStart)
     {
         m_commentStart->_initialize();
-        m_commentStart->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
     }
     if (m_commentEnd)
     {
         m_commentEnd->_initialize();
-        m_commentEnd->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
     }
     if (m_id)
     {
         m_id->_initialize();
-        m_id->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
     }
 
     /*PROTECTED REGION ID(ProtectStatementImpl__initialize) START*/

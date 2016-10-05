@@ -43,8 +43,6 @@ void ListLiteral::_initialize()
     for (size_t i = 0; i < m_elements->size(); i++)
     {
         (*m_elements)[i]->_initialize();
-        (*m_elements)[i]->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getListLiteral__elements());
     }
 
     /*PROTECTED REGION ID(ListLiteralImpl__initialize) START*/

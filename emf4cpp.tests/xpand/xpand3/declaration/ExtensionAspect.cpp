@@ -91,5 +91,7 @@ void ExtensionAspect::setExpression(
 #endif
 
     delete _old_expression;
+    m_expression->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression());
 }
 

@@ -45,7 +45,8 @@ Polyline::Polyline()
 
     m_waypoints.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1, true,
-                    false >(this, NULL));
+                    false >(this,
+                    ::SVG::SVGPackage::_instance()->getPolyline__waypoints()));
 
     /*PROTECTED REGION ID(PolylineImpl__PolylineImpl) START*/
 // Please, enable the protected region if you add manually written code.

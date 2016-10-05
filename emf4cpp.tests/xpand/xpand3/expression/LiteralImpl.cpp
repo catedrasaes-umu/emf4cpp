@@ -44,8 +44,6 @@ void Literal::_initialize()
     if (m_literalValue)
     {
         m_literalValue->_initialize();
-        m_literalValue->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
     }
 
     /*PROTECTED REGION ID(LiteralImpl__initialize) START*/

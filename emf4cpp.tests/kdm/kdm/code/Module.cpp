@@ -49,7 +49,7 @@ Module::Module()
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::code::CodePackage::_instance()->getModule__codeElement()));
 
     /*PROTECTED REGION ID(ModuleImpl__ModuleImpl) START*/
 // Please, enable the protected region if you add manually written code.

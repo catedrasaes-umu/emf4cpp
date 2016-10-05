@@ -43,8 +43,6 @@ void ArrayValue::_initialize()
     for (size_t i = 0; i < m_values->size(); i++)
     {
         (*m_values)[i]->_initialize();
-        (*m_values)[i]->_setEContainer(this,
-                ::json::JsonPackage::_instance()->getArrayValue__values());
     }
 
     /*PROTECTED REGION ID(ArrayValueImpl__initialize) START*/

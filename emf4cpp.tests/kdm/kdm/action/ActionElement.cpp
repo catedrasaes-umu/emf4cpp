@@ -49,11 +49,12 @@ ActionElement::ActionElement()
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::action::ActionPackage::_instance()->getActionElement__codeElement()));
     m_actionRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::action::AbstractActionRelationship, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::action::ActionPackage::_instance()->getActionElement__actionRelation()));
 
     /*PROTECTED REGION ID(ActionElementImpl__ActionElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

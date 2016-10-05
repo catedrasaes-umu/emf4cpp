@@ -44,20 +44,14 @@ void EGenericType::_initialize()
     if (m_eUpperBound)
     {
         m_eUpperBound->_initialize();
-        m_eUpperBound->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
     }
     for (size_t i = 0; i < m_eTypeArguments->size(); i++)
     {
         (*m_eTypeArguments)[i]->_initialize();
-        (*m_eTypeArguments)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEGenericType__eTypeArguments());
     }
     if (m_eLowerBound)
     {
         m_eLowerBound->_initialize();
-        m_eLowerBound->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
     }
 
     /*PROTECTED REGION ID(EGenericTypeImpl__initialize) START*/

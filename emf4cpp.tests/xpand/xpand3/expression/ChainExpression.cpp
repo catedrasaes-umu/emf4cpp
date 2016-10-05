@@ -91,6 +91,8 @@ void ChainExpression::setFirst(
 #endif
 
     delete _old_first;
+    m_first->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
 }
 
 ::xpand3::expression::AbstractExpression_ptr ChainExpression::getNext()
@@ -120,5 +122,7 @@ void ChainExpression::setNext(
 #endif
 
     delete _old_next;
+    m_next->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
 }
 

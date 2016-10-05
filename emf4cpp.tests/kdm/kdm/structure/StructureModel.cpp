@@ -44,7 +44,8 @@ StructureModel::StructureModel()
     m_structureElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::structure::AbstractStructureElement, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::structure::StructurePackage::_instance()->getStructureModel__structureElement()));
 
     /*PROTECTED REGION ID(StructureModelImpl__StructureModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -47,8 +47,6 @@ void EEnum::_initialize()
     for (size_t i = 0; i < m_eLiterals->size(); i++)
     {
         (*m_eLiterals)[i]->_initialize();
-        (*m_eLiterals)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEEnum__eLiterals());
     }
 
     /*PROTECTED REGION ID(EEnumImpl__initialize) START*/

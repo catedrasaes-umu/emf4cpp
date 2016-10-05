@@ -112,5 +112,7 @@ void NVPair::setValue(::json::Value_ptr _value)
 #endif
 
     delete _old_value;
+    m_value->_setEContainer(this,
+            ::json::JsonPackage::_instance()->getNVPair__value());
 }
 

@@ -45,14 +45,10 @@ void CollectionExpression::_initialize()
     if (m_closure)
     {
         m_closure->_initialize();
-        m_closure->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
     }
     if (m_eleName)
     {
         m_eleName->_initialize();
-        m_eleName->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
     }
 
     /*PROTECTED REGION ID(CollectionExpressionImpl__initialize) START*/

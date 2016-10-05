@@ -44,20 +44,14 @@ void BinaryOperation::_initialize()
     if (m_left)
     {
         m_left->_initialize();
-        m_left->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__left());
     }
     if (m_right)
     {
         m_right->_initialize();
-        m_right->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__right());
     }
     if (m_operator)
     {
         m_operator->_initialize();
-        m_operator->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__operator());
     }
 
     /*PROTECTED REGION ID(BinaryOperationImpl__initialize) START*/

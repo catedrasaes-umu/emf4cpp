@@ -55,8 +55,6 @@ void TemplateUnit::_initialize()
     for (size_t i = 0; i < m_codeElement->size(); i++)
     {
         (*m_codeElement)[i]->_initialize();
-        (*m_codeElement)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getTemplateUnit__codeElement());
     }
 
     /*PROTECTED REGION ID(TemplateUnitImpl__initialize) START*/

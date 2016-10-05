@@ -46,8 +46,6 @@ void ETypedElement::_initialize()
     if (m_eGenericType)
     {
         m_eGenericType->_initialize();
-        m_eGenericType->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
     }
 
     /*PROTECTED REGION ID(ETypedElementImpl__initialize) START*/

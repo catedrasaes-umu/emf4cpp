@@ -43,14 +43,10 @@ void ChainExpression::_initialize()
     if (m_first)
     {
         m_first->_initialize();
-        m_first->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
     }
     if (m_next)
     {
         m_next->_initialize();
-        m_next->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
     }
 
     /*PROTECTED REGION ID(ChainExpressionImpl__initialize) START*/

@@ -57,14 +57,10 @@ void Machine::_initialize()
     for (size_t i = 0; i < m_deployedComponent->size(); i++)
     {
         (*m_deployedComponent)[i]->_initialize();
-        (*m_deployedComponent)[i]->_setEContainer(this,
-                ::kdm::platform::PlatformPackage::_instance()->getMachine__deployedComponent());
     }
     for (size_t i = 0; i < m_deployedResource->size(); i++)
     {
         (*m_deployedResource)[i]->_initialize();
-        (*m_deployedResource)[i]->_setEContainer(this,
-                ::kdm::platform::PlatformPackage::_instance()->getMachine__deployedResource());
     }
 
     /*PROTECTED REGION ID(MachineImpl__initialize) START*/

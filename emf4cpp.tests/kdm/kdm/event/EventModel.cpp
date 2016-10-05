@@ -44,7 +44,7 @@ EventModel::EventModel()
     m_eventElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::event::AbstractEventElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::event::EventPackage::_instance()->getEventModel__eventElement()));
 
     /*PROTECTED REGION ID(EventModelImpl__EventModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

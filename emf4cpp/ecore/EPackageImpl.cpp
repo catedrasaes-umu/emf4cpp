@@ -47,14 +47,10 @@ void EPackage::_initialize()
     for (size_t i = 0; i < m_eClassifiers->size(); i++)
     {
         (*m_eClassifiers)[i]->_initialize();
-        (*m_eClassifiers)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEPackage__eClassifiers());
     }
     for (size_t i = 0; i < m_eSubpackages->size(); i++)
     {
         (*m_eSubpackages)[i]->_initialize();
-        (*m_eSubpackages)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEPackage__eSubpackages());
     }
 
     /*PROTECTED REGION ID(EPackageImpl__initialize) START*/

@@ -54,20 +54,14 @@ void AbstractUIElement::_initialize()
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();
-        (*m_source)[i]->_setEContainer(this,
-                ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__source());
     }
     for (size_t i = 0; i < m_UIRelation->size(); i++)
     {
         (*m_UIRelation)[i]->_initialize();
-        (*m_UIRelation)[i]->_setEContainer(this,
-                ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__UIRelation());
     }
     for (size_t i = 0; i < m_abstraction->size(); i++)
     {
         (*m_abstraction)[i]->_initialize();
-        (*m_abstraction)[i]->_setEContainer(this,
-                ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__abstraction());
     }
 
     /*PROTECTED REGION ID(AbstractUIElementImpl__initialize) START*/

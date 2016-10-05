@@ -44,16 +44,21 @@ EOperation::EOperation() :
 
     m_eTypeParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::ETypeParameter, -1, true, false >(this, NULL));
+                    ::ecore::ETypeParameter, -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEOperation__eTypeParameters()));
     m_eParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EParameter,
-                    -1, true, true >(this, NULL));
+                    -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance()->getEOperation__eParameters(),
+                    NULL));
     m_eExceptions.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClassifier,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEOperation__eExceptions()));
     m_eGenericExceptions.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEOperation__eGenericExceptions()));
 
     /*PROTECTED REGION ID(EOperationImpl__EOperationImpl) START*/
 // Please, enable the protected region if you add manually written code.

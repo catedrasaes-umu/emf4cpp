@@ -40,7 +40,8 @@ ExpandStatement::ExpandStatement() :
     m_parameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::xpand3::expression::AbstractExpression, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__parameters()));
 
     /*PROTECTED REGION ID(ExpandStatementImpl__ExpandStatementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -133,6 +134,8 @@ void ExpandStatement::setSeparator(
 #endif
 
     delete _old_separator;
+    m_separator->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator());
 }
 
 ::xpand3::expression::AbstractExpression_ptr ExpandStatement::getTarget()
@@ -162,6 +165,8 @@ void ExpandStatement::setTarget(
 #endif
 
     delete _old_target;
+    m_target->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target());
 }
 
 ::xpand3::Identifier_ptr ExpandStatement::getDefinition()
@@ -190,5 +195,7 @@ void ExpandStatement::setDefinition(::xpand3::Identifier_ptr _definition)
 #endif
 
     delete _old_definition;
+    m_definition->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__definition());
 }
 

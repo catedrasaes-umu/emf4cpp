@@ -45,7 +45,9 @@ Marker::Marker()
 
     m_drawing.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    true, true >(this, NULL));
+                    true, true >(this,
+                    ::SVG::SVGPackage::_instance()->getMarker__drawing(),
+                    NULL));
 
     /*PROTECTED REGION ID(MarkerImpl__MarkerImpl) START*/
 // Please, enable the protected region if you add manually written code.

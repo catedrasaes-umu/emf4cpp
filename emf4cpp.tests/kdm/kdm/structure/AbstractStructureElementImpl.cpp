@@ -52,20 +52,14 @@ void AbstractStructureElement::_initialize()
     for (size_t i = 0; i < m_aggregated->size(); i++)
     {
         (*m_aggregated)[i]->_initialize();
-        (*m_aggregated)[i]->_setEContainer(this,
-                ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__aggregated());
     }
     for (size_t i = 0; i < m_structureElement->size(); i++)
     {
         (*m_structureElement)[i]->_initialize();
-        (*m_structureElement)[i]->_setEContainer(this,
-                ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureElement());
     }
     for (size_t i = 0; i < m_structureRelationship->size(); i++)
     {
         (*m_structureRelationship)[i]->_initialize();
-        (*m_structureRelationship)[i]->_setEContainer(this,
-                ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureRelationship());
     }
 
     /*PROTECTED REGION ID(AbstractStructureElementImpl__initialize) START*/

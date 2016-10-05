@@ -45,26 +45,18 @@ void ExpandStatement::_initialize()
     for (size_t i = 0; i < m_parameters->size(); i++)
     {
         (*m_parameters)[i]->_initialize();
-        (*m_parameters)[i]->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__parameters());
     }
     if (m_separator)
     {
         m_separator->_initialize();
-        m_separator->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator());
     }
     if (m_target)
     {
         m_target->_initialize();
-        m_target->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target());
     }
     if (m_definition)
     {
         m_definition->_initialize();
-        m_definition->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__definition());
     }
 
     /*PROTECTED REGION ID(ExpandStatementImpl__initialize) START*/

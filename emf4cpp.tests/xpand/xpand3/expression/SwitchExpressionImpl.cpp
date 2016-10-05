@@ -44,20 +44,14 @@ void SwitchExpression::_initialize()
     if (m_switchExpr)
     {
         m_switchExpr->_initialize();
-        m_switchExpr->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
     }
     if (m_defaultExpr)
     {
         m_defaultExpr->_initialize();
-        m_defaultExpr->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
     }
     for (size_t i = 0; i < m_cases->size(); i++)
     {
         (*m_cases)[i]->_initialize();
-        (*m_cases)[i]->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__cases());
     }
 
     /*PROTECTED REGION ID(SwitchExpressionImpl__initialize) START*/

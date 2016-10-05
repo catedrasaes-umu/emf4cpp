@@ -46,15 +46,17 @@ AbstractDataElement::AbstractDataElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getAbstractDataElement__source()));
     m_dataRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::data::AbstractDataRelationship, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::data::DataPackage::_instance()->getAbstractDataElement__dataRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::data::DataPackage::_instance()->getAbstractDataElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractDataElementImpl__AbstractDataElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

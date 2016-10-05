@@ -29,6 +29,7 @@
 #include "company/Employee.hpp"
 #include "company/Department.hpp"
 #include "company/Company.hpp"
+#include "company/PhonebookEntry.hpp"
 
 // Package & Factory
 #include "company/CompanyPackage.hpp"

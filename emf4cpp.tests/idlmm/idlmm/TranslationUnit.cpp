@@ -37,10 +37,12 @@ TranslationUnit::TranslationUnit()
 
     m_contains.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__contains()));
     m_includes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Include, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__includes()));
 
     /*PROTECTED REGION ID(TranslationUnitImpl__TranslationUnitImpl) START*/
 // Please, enable the protected region if you add manually written code.

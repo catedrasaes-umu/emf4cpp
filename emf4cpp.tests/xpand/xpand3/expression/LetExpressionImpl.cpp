@@ -44,20 +44,14 @@ void LetExpression::_initialize()
     if (m_varExpression)
     {
         m_varExpression->_initialize();
-        m_varExpression->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
     }
     if (m_targetExpression)
     {
         m_targetExpression->_initialize();
-        m_targetExpression->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
     }
     if (m_varName)
     {
         m_varName->_initialize();
-        m_varName->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
     }
 
     /*PROTECTED REGION ID(LetExpressionImpl__initialize) START*/

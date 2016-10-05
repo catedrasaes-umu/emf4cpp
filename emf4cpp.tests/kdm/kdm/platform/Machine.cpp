@@ -51,11 +51,11 @@ Machine::Machine()
     m_deployedComponent.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::DeployedComponent, -1, true, false >(this,
-                    NULL));
+                    ::kdm::platform::PlatformPackage::_instance()->getMachine__deployedComponent()));
     m_deployedResource.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::DeployedResource, -1, true, false >(this,
-                    NULL));
+                    ::kdm::platform::PlatformPackage::_instance()->getMachine__deployedResource()));
 
     /*PROTECTED REGION ID(MachineImpl__MachineImpl) START*/
 // Please, enable the protected region if you add manually written code.

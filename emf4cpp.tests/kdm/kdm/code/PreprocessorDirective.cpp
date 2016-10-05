@@ -48,7 +48,7 @@ PreprocessorDirective::PreprocessorDirective()
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::code::CodePackage::_instance()->getPreprocessorDirective__codeElement()));
 
     /*PROTECTED REGION ID(PreprocessorDirectiveImpl__PreprocessorDirectiveImpl) START*/
 // Please, enable the protected region if you add manually written code.

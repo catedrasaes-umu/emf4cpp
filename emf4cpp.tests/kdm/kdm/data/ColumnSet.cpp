@@ -49,7 +49,8 @@ ColumnSet::ColumnSet()
 
     m_itemUnit.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::ItemUnit,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getColumnSet__itemUnit()));
 
     /*PROTECTED REGION ID(ColumnSetImpl__ColumnSetImpl) START*/
 // Please, enable the protected region if you add manually written code.

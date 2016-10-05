@@ -41,10 +41,14 @@ EPackage::EPackage() :
 
     m_eClassifiers.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClassifier,
-                    -1, true, true >(this, NULL));
+                    -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance()->getEPackage__eClassifiers(),
+                    NULL));
     m_eSubpackages.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EPackage, -1,
-                    true, true >(this, NULL));
+                    true, true >(this,
+                    ::ecore::EcorePackage::_instance()->getEPackage__eSubpackages(),
+                    NULL));
 
     /*PROTECTED REGION ID(EPackageImpl__EPackageImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -96,6 +96,8 @@ void BinaryOperation::setLeft(
 #endif
 
     delete _old_left;
+    m_left->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__left());
 }
 
 ::xpand3::expression::AbstractExpression_ptr BinaryOperation::getRight()
@@ -125,6 +127,8 @@ void BinaryOperation::setRight(
 #endif
 
     delete _old_right;
+    m_right->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__right());
 }
 
 ::xpand3::Identifier_ptr BinaryOperation::getOperator()
@@ -153,5 +157,7 @@ void BinaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
 #endif
 
     delete _old_operator;
+    m_operator->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__operator());
 }
 

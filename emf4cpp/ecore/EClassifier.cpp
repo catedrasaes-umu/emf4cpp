@@ -40,7 +40,8 @@ EClassifier::EClassifier() :
 
     m_eTypeParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::ETypeParameter, -1, true, false >(this, NULL));
+                    ::ecore::ETypeParameter, -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEClassifier__eTypeParameters()));
 
     /*PROTECTED REGION ID(EClassifierImpl__EClassifierImpl) START*/
 // Please, enable the protected region if you add manually written code.

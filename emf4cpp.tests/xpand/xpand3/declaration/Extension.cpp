@@ -120,6 +120,8 @@ void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
 #endif
 
     delete _old_body;
+    m_body->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
 }
 
 ::xpand3::Identifier_ptr Extension::getReturnType()
@@ -148,5 +150,7 @@ void Extension::setReturnType(::xpand3::Identifier_ptr _returnType)
 #endif
 
     delete _old_returnType;
+    m_returnType->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
 }
 

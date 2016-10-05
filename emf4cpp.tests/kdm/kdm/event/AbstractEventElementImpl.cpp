@@ -54,20 +54,14 @@ void AbstractEventElement::_initialize()
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();
-        (*m_source)[i]->_setEContainer(this,
-                ::kdm::event::EventPackage::_instance()->getAbstractEventElement__source());
     }
     for (size_t i = 0; i < m_eventRelation->size(); i++)
     {
         (*m_eventRelation)[i]->_initialize();
-        (*m_eventRelation)[i]->_setEContainer(this,
-                ::kdm::event::EventPackage::_instance()->getAbstractEventElement__eventRelation());
     }
     for (size_t i = 0; i < m_abstraction->size(); i++)
     {
         (*m_abstraction)[i]->_initialize();
-        (*m_abstraction)[i]->_setEContainer(this,
-                ::kdm::event::EventPackage::_instance()->getAbstractEventElement__abstraction());
     }
 
     /*PROTECTED REGION ID(AbstractEventElementImpl__initialize) START*/

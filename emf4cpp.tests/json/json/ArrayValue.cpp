@@ -36,7 +36,8 @@ ArrayValue::ArrayValue()
 
     m_values.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::json::Value, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::json::JsonPackage::_instance()->getArrayValue__values()));
 
     /*PROTECTED REGION ID(ArrayValueImpl__ArrayValueImpl) START*/
 // Please, enable the protected region if you add manually written code.

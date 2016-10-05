@@ -44,7 +44,8 @@ PlatformModel::PlatformModel()
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::AbstractPlatformElement, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::platform::PlatformPackage::_instance()->getPlatformModel__platformElement()));
 
     /*PROTECTED REGION ID(PlatformModelImpl__PlatformModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

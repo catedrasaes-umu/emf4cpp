@@ -52,8 +52,6 @@ void InventoryContainer::_initialize()
     for (size_t i = 0; i < m_inventoryElement->size(); i++)
     {
         (*m_inventoryElement)[i]->_initialize();
-        (*m_inventoryElement)[i]->_setEContainer(this,
-                ::kdm::source::SourcePackage::_instance()->getInventoryContainer__inventoryElement());
     }
 
     /*PROTECTED REGION ID(InventoryContainerImpl__initialize) START*/

@@ -55,6 +55,11 @@ CompanyPackage::CompanyPackage()
     m_Employee__name = new ::ecore::EAttribute();
     m_Employee__name->setFeatureID(::company::CompanyPackage::EMPLOYEE__NAME);
     m_EmployeeEClass->getEStructuralFeatures().push_back(m_Employee__name);
+    m_Employee__phonebookEntry = new ::ecore::EReference();
+    m_Employee__phonebookEntry->setFeatureID(
+            ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY);
+    m_EmployeeEClass->getEStructuralFeatures().push_back(
+            m_Employee__phonebookEntry);
 
     // Department
     m_DepartmentEClass = new ::ecore::EClass();
@@ -90,6 +95,12 @@ CompanyPackage::CompanyPackage()
             ::company::CompanyPackage::COMPANY__DEPARTMENTS);
     m_CompanyEClass->getEStructuralFeatures().push_back(m_Company__departments);
 
+    // PhonebookEntry
+    m_PhonebookEntryEClass = new ::ecore::EClass();
+    m_PhonebookEntryEClass->setClassifierID(PHONEBOOKENTRY);
+    m_PhonebookEntryEClass->setEPackage(this);
+    getEClassifiers().push_back(m_PhonebookEntryEClass);
+
     // Create enums
 
     // Create data types
@@ -123,6 +134,19 @@ CompanyPackage::CompanyPackage()
     m_Employee__name->setUnique(true);
     m_Employee__name->setDerived(false);
     m_Employee__name->setOrdered(true);
+    m_Employee__phonebookEntry->setEType(m_PhonebookEntryEClass);
+    m_Employee__phonebookEntry->setName("phonebookEntry");
+    m_Employee__phonebookEntry->setDefaultValueLiteral("");
+    m_Employee__phonebookEntry->setLowerBound(0);
+    m_Employee__phonebookEntry->setUpperBound(1);
+    m_Employee__phonebookEntry->setTransient(false);
+    m_Employee__phonebookEntry->setVolatile(false);
+    m_Employee__phonebookEntry->setChangeable(true);
+    m_Employee__phonebookEntry->setContainment(true);
+    m_Employee__phonebookEntry->setResolveProxies(true);
+    m_Employee__phonebookEntry->setUnique(true);
+    m_Employee__phonebookEntry->setDerived(false);
+    m_Employee__phonebookEntry->setOrdered(true);
     // Department
     m_DepartmentEClass->setName("Department");
     m_DepartmentEClass->setAbstract(false);
@@ -198,6 +222,10 @@ CompanyPackage::CompanyPackage()
     m_Company__departments->setUnique(true);
     m_Company__departments->setDerived(false);
     m_Company__departments->setOrdered(true);
+    // PhonebookEntry
+    m_PhonebookEntryEClass->setName("PhonebookEntry");
+    m_PhonebookEntryEClass->setAbstract(false);
+    m_PhonebookEntryEClass->setInterface(false);
 
     // TODO: Initialize data types
 
@@ -216,10 +244,18 @@ CompanyPackage::CompanyPackage()
 {
     return m_CompanyEClass;
 }
+::ecore::EClass_ptr CompanyPackage::getPhonebookEntry()
+{
+    return m_PhonebookEntryEClass;
+}
 
 ::ecore::EAttribute_ptr CompanyPackage::getEmployee__name()
 {
     return m_Employee__name;
+}
+::ecore::EReference_ptr CompanyPackage::getEmployee__phonebookEntry()
+{
+    return m_Employee__phonebookEntry;
 }
 ::ecore::EReference_ptr CompanyPackage::getDepartment__employees()
 {

@@ -46,18 +46,21 @@ AbstractStructureElement::AbstractStructureElement()
     m_aggregated.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::core::AggregatedRelationship, -1, true, false >(this,
-                    NULL));
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__aggregated()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__implementation()));
     m_structureElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::structure::AbstractStructureElement, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureElement()));
     m_structureRelationship.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::structure::AbstractStructureRelationship, -1, true,
-                    false >(this, NULL));
+                    false >(this,
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureRelationship()));
 
     /*PROTECTED REGION ID(AbstractStructureElementImpl__AbstractStructureElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

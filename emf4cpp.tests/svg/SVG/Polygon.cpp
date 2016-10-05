@@ -45,7 +45,8 @@ Polygon::Polygon()
 
     m_waypoints.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1,
-                    false, false >(this, NULL));
+                    false, false >(this,
+                    ::SVG::SVGPackage::_instance()->getPolygon__waypoints()));
 
     /*PROTECTED REGION ID(PolygonImpl__PolygonImpl) START*/
 // Please, enable the protected region if you add manually written code.

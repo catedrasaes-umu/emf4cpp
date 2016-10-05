@@ -145,6 +145,8 @@ void Check::setMsg(::xpand3::expression::AbstractExpression_ptr _msg)
 #endif
 
     delete _old_msg;
+    m_msg->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
 }
 
 ::xpand3::expression::AbstractExpression_ptr Check::getConstraint()
@@ -174,5 +176,7 @@ void Check::setConstraint(
 #endif
 
     delete _old_constraint;
+    m_constraint->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
 }
 

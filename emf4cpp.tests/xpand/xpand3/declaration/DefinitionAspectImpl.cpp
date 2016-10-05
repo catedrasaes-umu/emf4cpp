@@ -48,8 +48,6 @@ void DefinitionAspect::_initialize()
     for (size_t i = 0; i < m_body->size(); i++)
     {
         (*m_body)[i]->_initialize();
-        (*m_body)[i]->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getDefinitionAspect__body());
     }
 
     /*PROTECTED REGION ID(DefinitionAspectImpl__initialize) START*/

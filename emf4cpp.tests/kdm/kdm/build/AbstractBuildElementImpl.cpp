@@ -51,8 +51,6 @@ void AbstractBuildElement::_initialize()
     for (size_t i = 0; i < m_buildRelation->size(); i++)
     {
         (*m_buildRelation)[i]->_initialize();
-        (*m_buildRelation)[i]->_setEContainer(this,
-                ::kdm::build::BuildPackage::_instance()->getAbstractBuildElement__buildRelation());
     }
 
     /*PROTECTED REGION ID(AbstractBuildElementImpl__initialize) START*/

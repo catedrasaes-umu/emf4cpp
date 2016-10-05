@@ -44,7 +44,8 @@ ConceptualModel::ConceptualModel()
     m_conceptualElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::conceptual::AbstractConceptualElement, -1, true,
-                    false >(this, NULL));
+                    false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualModel__conceptualElement()));
 
     /*PROTECTED REGION ID(ConceptualModelImpl__ConceptualModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

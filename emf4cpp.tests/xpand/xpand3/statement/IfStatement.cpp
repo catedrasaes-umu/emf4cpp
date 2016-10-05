@@ -94,6 +94,8 @@ void IfStatement::setCondition(
 #endif
 
     delete _old_condition;
+    m_condition->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
 }
 
 ::xpand3::statement::IfStatement_ptr IfStatement::getElseIf()
@@ -122,5 +124,7 @@ void IfStatement::setElseIf(::xpand3::statement::IfStatement_ptr _elseIf)
 #endif
 
     delete _old_elseIf;
+    m_elseIf->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
 }
 

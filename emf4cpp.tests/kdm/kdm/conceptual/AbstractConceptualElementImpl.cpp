@@ -53,20 +53,14 @@ void AbstractConceptualElement::_initialize()
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();
-        (*m_source)[i]->_setEContainer(this,
-                ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__source());
     }
     for (size_t i = 0; i < m_conceptualRelation->size(); i++)
     {
         (*m_conceptualRelation)[i]->_initialize();
-        (*m_conceptualRelation)[i]->_setEContainer(this,
-                ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__conceptualRelation());
     }
     for (size_t i = 0; i < m_abstraction->size(); i++)
     {
         (*m_abstraction)[i]->_initialize();
-        (*m_abstraction)[i]->_setEContainer(this,
-                ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__abstraction());
     }
 
     /*PROTECTED REGION ID(AbstractConceptualElementImpl__initialize) START*/

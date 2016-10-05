@@ -44,8 +44,6 @@ void Container::_initialize()
     for (size_t i = 0; i < m_contains->size(); i++)
     {
         (*m_contains)[i]->_initialize();
-        (*m_contains)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getContainer__contains());
     }
 
     /*PROTECTED REGION ID(ContainerImpl__initialize) START*/

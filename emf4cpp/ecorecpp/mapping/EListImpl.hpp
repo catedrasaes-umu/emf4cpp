@@ -20,6 +20,8 @@
 #ifndef ECORECPP_MAPPING_ELISTIMPL_HPP
 #define ECORECPP_MAPPING_ELISTIMPL_HPP
 
+#include <algorithm>
+#include <iostream>
 #include "EList.hpp"
 #include "any.hpp"
 #include <ecore/EReference.hpp>
@@ -76,6 +78,17 @@ public:
 		return m_content.cend();
 	}
 
+	void remove(T* _obj) override {
+		auto it = std::find( m_content.begin(), m_content.end(), _obj );
+		remove(it);
+	}
+
+	/* Better check before trusting the caller. */
+	void remove(typename EList<T>::UnderlyingContainer_type::iterator it) override {
+		if (it != m_content.end())
+			m_content.erase(it);
+	}
+
     virtual ~EListImpl()
     {
     }
@@ -97,35 +110,51 @@ class ReferenceEListImpl: public EListImpl< T >
 public:
 
     ReferenceEListImpl(::ecore::EObject_ptr _this,
-            ::ecore::EReference_ptr _ref, ::ecore::EReference_ptr _opp = NULL) :
-        m_this(_this), m_ref(_ref), m_opp(_opp), m_opposite(*this)
+			::ecore::EReference_ptr _ref, ::ecore::EReference_ptr _opp = NULL) :
+		m_this(_this), m_ref(_ref), m_opp(_opp),
+		m_containment(*this), m_opposite(*this)
     {
     }
 
     virtual void insert_at(size_t _pos, T* _obj)
     {
-        contaiment_t< T, containment >::free(base_t::m_content[_pos]);
+        containment_t< T, containment >::free(base_t::m_content[_pos]);
 
         base_t::m_content[_pos] = _obj;
 
-        m_opposite.set(_obj);
+		m_containment.set(_obj);
+		m_opposite.set(_obj);
     }
 
     virtual void push_back(T* _obj)
     {
         base_t::m_content.push_back(_obj);
+
+		m_containment.set(_obj);
+		m_opposite.set(_obj);
     }
 
     virtual void clear()
     {
-        contaiment_t< T, containment >::free_all(base_t::m_content);
+        containment_t< T, containment >::free_all(base_t::m_content);
 
         base_t::m_content.clear();
     }
 
+	/* Better check before trusting the caller. */
+	void remove(typename EList<T>::UnderlyingContainer_type::iterator it) override {
+		if (it != base_t::m_content.end()) {
+			T* _obj = *it;
+			base_t::m_content.erase(it);
+
+			m_containment.unset(_obj);
+			m_opposite.unset(_obj);
+		}
+	}
+
     virtual ~ReferenceEListImpl()
     {
-        contaiment_t< T, containment >::free_all(base_t::m_content);
+        containment_t< T, containment >::free_all(base_t::m_content);
     }
 
 protected:
@@ -135,8 +164,12 @@ protected:
     ::ecore::EReference_ptr m_opp;
 
     template< typename Q, bool _free = false >
-    struct contaiment_t
+    struct containment_t
     {
+        inline containment_t(ReferenceEListImpl& _parent)
+        {
+        }
+
         static inline void free_all(std::vector< Q* >& _v)
         {
         }
@@ -144,11 +177,24 @@ protected:
         static inline void free(Q* _p)
         {
         }
-    };
+
+		inline void set(Q* _p)
+        {
+        }
+
+		inline void unset(Q* _p)
+        {
+        }
+	};
 
     template< typename Q >
-    struct contaiment_t< Q, true >
+    struct containment_t< Q, true >
     {
+        inline containment_t(ReferenceEListImpl& _parent)
+        : m_parent(_parent)
+        {
+        }
+
         static inline void free_all(std::vector< Q* >& _v)
         {
             for (size_t i = 0; i < _v.size(); i++)
@@ -159,7 +205,20 @@ protected:
         {
             delete _p;
         }
-    };
+
+		inline void set(Q* _p)
+        {
+			_p->_setEContainer(m_parent.m_this, m_parent.m_ref);
+        }
+
+		inline void unset(Q* _p)
+        {
+			if (_p)
+				_p->_setEContainer(nullptr, m_parent.m_ref);
+        }
+
+		ReferenceEListImpl& m_parent;
+	};
 
     template< typename Q, bool _opposite = false >
     struct opposite_t
@@ -169,6 +228,10 @@ protected:
         }
 
         inline void set(::ecore::EObject_ptr _obj)
+        {
+        }
+
+        inline void unset(::ecore::EObject_ptr _obj)
         {
         }
     };
@@ -185,11 +248,16 @@ protected:
         {
         }
 
+        inline void unset(::ecore::EObject_ptr _obj)
+        {
+        }
+
         ReferenceEListImpl& m_parent;
     };
 
     typedef EListImpl< T > base_t;
 
+    containment_t< T, containment > m_containment;
     opposite_t< T, opposite > m_opposite;
 
 };

@@ -88,5 +88,7 @@ void ExpressionStatement::setExpression(
 #endif
 
     delete _old_expression;
+    m_expression->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
 }
 

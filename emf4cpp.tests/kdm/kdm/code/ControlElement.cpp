@@ -51,11 +51,12 @@ ControlElement::ControlElement() :
 
     m_entryFlow.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::EntryFlow, -1, true, false >(this, NULL));
+                    ::kdm::action::EntryFlow, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getControlElement__entryFlow()));
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::code::CodePackage::_instance()->getControlElement__codeElement()));
 
     /*PROTECTED REGION ID(ControlElementImpl__ControlElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

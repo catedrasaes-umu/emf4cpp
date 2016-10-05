@@ -46,8 +46,6 @@ void ExtensionFamily::_initialize()
     for (size_t i = 0; i < m_stereotype->size(); i++)
     {
         (*m_stereotype)[i]->_initialize();
-        (*m_stereotype)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__stereotype());
     }
 
     /*PROTECTED REGION ID(ExtensionFamilyImpl__initialize) START*/

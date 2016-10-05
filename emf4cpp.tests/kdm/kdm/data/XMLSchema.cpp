@@ -49,7 +49,7 @@ XMLSchema::XMLSchema()
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::data::AbstractContentElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::data::DataPackage::_instance()->getXMLSchema__contentElement()));
 
     /*PROTECTED REGION ID(XMLSchemaImpl__XMLSchemaImpl) START*/
 // Please, enable the protected region if you add manually written code.

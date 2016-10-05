@@ -49,7 +49,8 @@ ResourceType::ResourceType()
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::platform::AbstractPlatformElement, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::platform::PlatformPackage::_instance()->getResourceType__platformElement()));
 
     /*PROTECTED REGION ID(ResourceTypeImpl__ResourceTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.

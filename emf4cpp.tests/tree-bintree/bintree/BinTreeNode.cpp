@@ -143,6 +143,8 @@ void BinTreeNode::setLeft(::bintree::BinTreeNode_ptr _left)
 #endif
 
     delete _old_left;
+    m_left->_setEContainer(this,
+            ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
 }
 
 ::bintree::BinTreeNode_ptr BinTreeNode::getRight()
@@ -171,5 +173,7 @@ void BinTreeNode::setRight(::bintree::BinTreeNode_ptr _right)
 #endif
 
     delete _old_right;
+    m_right->_setEContainer(this,
+            ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
 }
 

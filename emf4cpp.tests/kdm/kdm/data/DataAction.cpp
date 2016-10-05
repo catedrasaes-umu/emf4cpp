@@ -49,10 +49,11 @@ DataAction::DataAction()
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::action::ActionElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::data::DataPackage::_instance()->getDataAction__implementation()));
     m_dataElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::data::DataEvent,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getDataAction__dataElement()));
 
     /*PROTECTED REGION ID(DataActionImpl__DataActionImpl) START*/
 // Please, enable the protected region if you add manually written code.

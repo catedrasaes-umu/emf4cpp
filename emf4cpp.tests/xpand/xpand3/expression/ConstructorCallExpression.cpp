@@ -87,5 +87,7 @@ void ConstructorCallExpression::setType(::xpand3::Identifier_ptr _type)
 #endif
 
     delete _old_type;
+    m_type->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
 }
 

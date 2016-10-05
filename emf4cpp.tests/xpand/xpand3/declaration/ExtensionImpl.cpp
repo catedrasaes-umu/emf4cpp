@@ -47,14 +47,10 @@ void Extension::_initialize()
     if (m_body)
     {
         m_body->_initialize();
-        m_body->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
     }
     if (m_returnType)
     {
         m_returnType->_initialize();
-        m_returnType->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
     }
 
     /*PROTECTED REGION ID(ExtensionImpl__initialize) START*/

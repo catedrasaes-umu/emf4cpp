@@ -40,7 +40,8 @@ EGenericType::EGenericType() :
 
     m_eTypeArguments.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEGenericType__eTypeArguments()));
 
     /*PROTECTED REGION ID(EGenericTypeImpl__EGenericTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -97,6 +98,8 @@ void EGenericType::setEUpperBound(::ecore::EGenericType_ptr _eUpperBound)
 #endif
 
     delete _old_eUpperBound;
+    m_eUpperBound->_setEContainer(this,
+            ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EGenericType::getETypeArguments()
@@ -157,6 +160,8 @@ void EGenericType::setELowerBound(::ecore::EGenericType_ptr _eLowerBound)
 #endif
 
     delete _old_eLowerBound;
+    m_eLowerBound->_setEContainer(this,
+            ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
 }
 
 ::ecore::ETypeParameter_ptr EGenericType::getETypeParameter()

@@ -50,8 +50,6 @@ void OperationDef::_initialize()
     for (size_t i = 0; i < m_parameters->size(); i++)
     {
         (*m_parameters)[i]->_initialize();
-        (*m_parameters)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getOperationDef__parameters());
     }
 
     /*PROTECTED REGION ID(OperationDefImpl__initialize) START*/

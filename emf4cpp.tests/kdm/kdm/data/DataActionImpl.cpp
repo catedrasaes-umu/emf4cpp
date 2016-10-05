@@ -55,8 +55,6 @@ void DataAction::_initialize()
     for (size_t i = 0; i < m_dataElement->size(); i++)
     {
         (*m_dataElement)[i]->_initialize();
-        (*m_dataElement)[i]->_setEContainer(this,
-                ::kdm::data::DataPackage::_instance()->getDataAction__dataElement());
     }
 
     /*PROTECTED REGION ID(DataActionImpl__initialize) START*/

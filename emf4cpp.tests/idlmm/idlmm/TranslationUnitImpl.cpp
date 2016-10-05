@@ -43,14 +43,10 @@ void TranslationUnit::_initialize()
     for (size_t i = 0; i < m_contains->size(); i++)
     {
         (*m_contains)[i]->_initialize();
-        (*m_contains)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__contains());
     }
     for (size_t i = 0; i < m_includes->size(); i++)
     {
         (*m_includes)[i]->_initialize();
-        (*m_includes)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__includes());
     }
 
     /*PROTECTED REGION ID(TranslationUnitImpl__initialize) START*/

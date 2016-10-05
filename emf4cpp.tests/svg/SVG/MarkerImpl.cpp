@@ -52,8 +52,6 @@ void Marker::_initialize()
     for (size_t i = 0; i < m_drawing->size(); i++)
     {
         (*m_drawing)[i]->_initialize();
-        (*m_drawing)[i]->_setEContainer(this,
-                ::SVG::SVGPackage::_instance()->getMarker__drawing());
     }
 
     /*PROTECTED REGION ID(MarkerImpl__initialize) START*/

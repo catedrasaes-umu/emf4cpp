@@ -44,8 +44,6 @@ void ExpressionStatement::_initialize()
     if (m_expression)
     {
         m_expression->_initialize();
-        m_expression->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
     }
 
     /*PROTECTED REGION ID(ExpressionStatementImpl__initialize) START*/

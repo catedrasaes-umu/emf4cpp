@@ -48,7 +48,8 @@ EnumeratedType::EnumeratedType()
 
     m_value.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Value, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getEnumeratedType__value()));
 
     /*PROTECTED REGION ID(EnumeratedTypeImpl__EnumeratedTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.

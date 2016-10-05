@@ -38,7 +38,8 @@ SwitchExpression::SwitchExpression() :
 
     m_cases.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::expression::Case, -1, true, false >(this, NULL));
+                    ::xpand3::expression::Case, -1, true, false >(this,
+                    ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__cases()));
 
     /*PROTECTED REGION ID(SwitchExpressionImpl__SwitchExpressionImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -96,6 +97,8 @@ void SwitchExpression::setSwitchExpr(
 #endif
 
     delete _old_switchExpr;
+    m_switchExpr->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
 }
 
 ::xpand3::expression::AbstractExpression_ptr SwitchExpression::getDefaultExpr()
@@ -126,6 +129,8 @@ void SwitchExpression::setDefaultExpr(
 #endif
 
     delete _old_defaultExpr;
+    m_defaultExpr->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
 }
 
 ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& SwitchExpression::getCases()

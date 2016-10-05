@@ -46,14 +46,10 @@ void IfStatement::_initialize()
     if (m_condition)
     {
         m_condition->_initialize();
-        m_condition->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
     }
     if (m_elseIf)
     {
         m_elseIf->_initialize();
-        m_elseIf->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
     }
 
     /*PROTECTED REGION ID(IfStatementImpl__initialize) START*/

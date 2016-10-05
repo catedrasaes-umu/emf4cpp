@@ -165,20 +165,14 @@ void EClass::_initialize()
     for (size_t i = 0; i < m_eOperations->size(); i++)
     {
         (*m_eOperations)[i]->_initialize();
-        (*m_eOperations)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEClass__eOperations());
     }
     for (size_t i = 0; i < m_eStructuralFeatures->size(); i++)
     {
         (*m_eStructuralFeatures)[i]->_initialize();
-        (*m_eStructuralFeatures)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEClass__eStructuralFeatures());
     }
     for (size_t i = 0; i < m_eGenericSuperTypes->size(); i++)
     {
         (*m_eGenericSuperTypes)[i]->_initialize();
-        (*m_eGenericSuperTypes)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEClass__eGenericSuperTypes());
     }
 
     /*PROTECTED REGION ID(EClassImpl__initialize) ENABLED START*/

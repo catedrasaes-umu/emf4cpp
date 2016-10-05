@@ -121,6 +121,8 @@ void FileStatement::setFileNameExpression(
 #endif
 
     delete _old_fileNameExpression;
+    m_fileNameExpression->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
 }
 
 ::xpand3::Identifier_ptr FileStatement::getOutletNameIdentifier()
@@ -150,5 +152,7 @@ void FileStatement::setOutletNameIdentifier(
 #endif
 
     delete _old_outletNameIdentifier;
+    m_outletNameIdentifier->_setEContainer(this,
+            ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
 }
 

@@ -50,8 +50,6 @@ void DataModel::_initialize()
     for (size_t i = 0; i < m_dataElement->size(); i++)
     {
         (*m_dataElement)[i]->_initialize();
-        (*m_dataElement)[i]->_setEContainer(this,
-                ::kdm::data::DataPackage::_instance()->getDataModel__dataElement());
     }
 
     /*PROTECTED REGION ID(DataModelImpl__initialize) START*/

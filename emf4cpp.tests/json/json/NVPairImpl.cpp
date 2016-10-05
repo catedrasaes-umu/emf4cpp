@@ -42,8 +42,6 @@ void NVPair::_initialize()
     if (m_value)
     {
         m_value->_initialize();
-        m_value->_setEContainer(this,
-                ::json::JsonPackage::_instance()->getNVPair__value());
     }
 
     /*PROTECTED REGION ID(NVPairImpl__initialize) START*/

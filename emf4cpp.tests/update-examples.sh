@@ -50,7 +50,7 @@ if test -n "$1" ; then
 	if test "$1" == "EndUserLicense/enduserlicense.ecore" ; then
 		testLicenseText "EndUserLicense/enduserlicense.ecore"
 	else
-		(cd `dirname $1` ; $GENERATOR -o . -e $EMF4CPP `basename $1`)
+		(cd `dirname $1` ; $GENERATOR --internal -o . -e $EMF4CPP `basename $1`)
 	fi
 else
   	for i in $FILES; do

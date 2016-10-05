@@ -45,7 +45,8 @@ Use::Use()
 
     m_use.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    false, true >(this, NULL));
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getUse__use(), NULL));
 
     /*PROTECTED REGION ID(UseImpl__UseImpl) START*/
 // Please, enable the protected region if you add manually written code.

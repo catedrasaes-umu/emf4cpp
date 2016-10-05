@@ -40,7 +40,9 @@ SvgFile::SvgFile() :
 
     m_elements.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    false, true >(this, NULL));
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getSvgFile__elements(),
+                    NULL));
 
     /*PROTECTED REGION ID(SvgFileImpl__SvgFileImpl) START*/
 // Please, enable the protected region if you add manually written code.

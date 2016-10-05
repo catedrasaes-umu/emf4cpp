@@ -49,7 +49,8 @@ RelationalSchema::RelationalSchema()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getRelationalSchema__codeElement()));
 
     /*PROTECTED REGION ID(RelationalSchemaImpl__RelationalSchemaImpl) START*/
 // Please, enable the protected region if you add manually written code.

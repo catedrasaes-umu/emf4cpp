@@ -124,5 +124,7 @@ void DefinedType::setCodeElement(::kdm::code::Datatype_ptr _codeElement)
 #endif
 
     delete _old_codeElement;
+    m_codeElement->_setEContainer(this,
+            ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
 }
 

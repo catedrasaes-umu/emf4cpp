@@ -42,8 +42,6 @@ void Department::_initialize()
     for (size_t i = 0; i < m_employees->size(); i++)
     {
         (*m_employees)[i]->_initialize();
-        (*m_employees)[i]->_setEContainer(this,
-                ::company::CompanyPackage::_instance()->getDepartment__employees());
     }
 
     /*PROTECTED REGION ID(DepartmentImpl__initialize) START*/

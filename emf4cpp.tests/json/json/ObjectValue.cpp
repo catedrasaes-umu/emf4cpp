@@ -37,7 +37,8 @@ ObjectValue::ObjectValue()
 
     m_members.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::json::NVPair, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::json::JsonPackage::_instance()->getObjectValue__members()));
 
     /*PROTECTED REGION ID(ObjectValueImpl__ObjectValueImpl) START*/
 // Please, enable the protected region if you add manually written code.

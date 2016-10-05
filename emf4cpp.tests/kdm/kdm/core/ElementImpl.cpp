@@ -43,14 +43,10 @@ void Element::_initialize()
     for (size_t i = 0; i < m_attribute->size(); i++)
     {
         (*m_attribute)[i]->_initialize();
-        (*m_attribute)[i]->_setEContainer(this,
-                ::kdm::core::CorePackage::_instance()->getElement__attribute());
     }
     for (size_t i = 0; i < m_annotation->size(); i++)
     {
         (*m_annotation)[i]->_initialize();
-        (*m_annotation)[i]->_setEContainer(this,
-                ::kdm::core::CorePackage::_instance()->getElement__annotation());
     }
 
     /*PROTECTED REGION ID(ElementImpl__initialize) START*/

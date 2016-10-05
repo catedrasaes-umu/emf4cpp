@@ -42,8 +42,6 @@ void EModelElement::_initialize()
     for (size_t i = 0; i < m_eAnnotations->size(); i++)
     {
         (*m_eAnnotations)[i]->_initialize();
-        (*m_eAnnotations)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEModelElement__eAnnotations());
     }
 
     /*PROTECTED REGION ID(EModelElementImpl__initialize) START*/

@@ -113,5 +113,7 @@ void ImportStatement::setImportedId(::xpand3::Identifier_ptr _importedId)
 #endif
 
     delete _old_importedId;
+    m_importedId->_setEContainer(this,
+            ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
 }
 

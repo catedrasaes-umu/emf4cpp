@@ -41,7 +41,8 @@ JavaExtension::JavaExtension() :
 
     m_javaParamTypes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::xpand3::Identifier,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaParamTypes()));
 
     /*PROTECTED REGION ID(JavaExtensionImpl__JavaExtensionImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -98,6 +99,8 @@ void JavaExtension::setJavaType(::xpand3::Identifier_ptr _javaType)
 #endif
 
     delete _old_javaType;
+    m_javaType->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaType());
 }
 
 ::xpand3::Identifier_ptr JavaExtension::getJavaMethod()
@@ -126,6 +129,8 @@ void JavaExtension::setJavaMethod(::xpand3::Identifier_ptr _javaMethod)
 #endif
 
     delete _old_javaMethod;
+    m_javaMethod->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaMethod());
 }
 
 ::ecorecpp::mapping::EList< ::xpand3::Identifier >& JavaExtension::getJavaParamTypes()

@@ -44,13 +44,18 @@ Element::Element() :
 
     m_owner.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile, -1,
-                    false, true >(this, NULL));
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getElement__owner(), NULL));
     m_target.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Use, -1, false,
-                    true >(this, NULL));
+                    true >(this,
+                    ::SVG::SVGPackage::_instance()->getElement__target(),
+                    NULL));
     m_attribute.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute, -1,
-                    false, true >(this, NULL));
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getElement__attribute(),
+                    NULL));
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -200,6 +205,8 @@ void Element::setPosition(::SVG::Coordinates_ptr _position)
 #endif
 
     delete _old_position;
+    m_position->_setEContainer(this,
+            ::SVG::SVGPackage::_instance()->getElement__position());
 }
 
 ::SVG::Dimension_ptr Element::getSize()
@@ -228,6 +235,8 @@ void Element::setSize(::SVG::Dimension_ptr _size)
 #endif
 
     delete _old_size;
+    m_size->_setEContainer(this,
+            ::SVG::SVGPackage::_instance()->getElement__size());
 }
 
 ::SVG::Svg_ptr Element::getRoot()

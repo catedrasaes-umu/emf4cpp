@@ -50,8 +50,6 @@ void UIModel::_initialize()
     for (size_t i = 0; i < m_UIElement->size(); i++)
     {
         (*m_UIElement)[i]->_initialize();
-        (*m_UIElement)[i]->_setEContainer(this,
-                ::kdm::ui::UiPackage::_instance()->getUIModel__UIElement());
     }
 
     /*PROTECTED REGION ID(UIModelImpl__initialize) START*/

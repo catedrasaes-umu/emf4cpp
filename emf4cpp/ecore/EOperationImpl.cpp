@@ -50,20 +50,14 @@ void EOperation::_initialize()
     for (size_t i = 0; i < m_eTypeParameters->size(); i++)
     {
         (*m_eTypeParameters)[i]->_initialize();
-        (*m_eTypeParameters)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEOperation__eTypeParameters());
     }
     for (size_t i = 0; i < m_eParameters->size(); i++)
     {
         (*m_eParameters)[i]->_initialize();
-        (*m_eParameters)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEOperation__eParameters());
     }
     for (size_t i = 0; i < m_eGenericExceptions->size(); i++)
     {
         (*m_eGenericExceptions)[i]->_initialize();
-        (*m_eGenericExceptions)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEOperation__eGenericExceptions());
     }
 
     /*PROTECTED REGION ID(EOperationImpl__initialize) START*/

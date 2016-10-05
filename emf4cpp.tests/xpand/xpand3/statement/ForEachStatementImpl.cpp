@@ -46,26 +46,18 @@ void ForEachStatement::_initialize()
     if (m_target)
     {
         m_target->_initialize();
-        m_target->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target());
     }
     if (m_separator)
     {
         m_separator->_initialize();
-        m_separator->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator());
     }
     if (m_variable)
     {
         m_variable->_initialize();
-        m_variable->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable());
     }
     if (m_iteratorName)
     {
         m_iteratorName->_initialize();
-        m_iteratorName->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName());
     }
 
     /*PROTECTED REGION ID(ForEachStatementImpl__initialize) START*/

@@ -87,5 +87,7 @@ void Literal::setLiteralValue(::xpand3::Identifier_ptr _literalValue)
 #endif
 
     delete _old_literalValue;
+    m_literalValue->_setEContainer(this,
+            ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
 }
 

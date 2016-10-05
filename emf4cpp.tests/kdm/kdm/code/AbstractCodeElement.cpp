@@ -46,14 +46,17 @@ AbstractCodeElement::AbstractCodeElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__source()));
     m_comment.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::CommentUnit, -1, true, false >(this, NULL));
+                    ::kdm::code::CommentUnit, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__comment()));
     m_codeRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeRelationship, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__codeRelation()));
 
     /*PROTECTED REGION ID(AbstractCodeElementImpl__AbstractCodeElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

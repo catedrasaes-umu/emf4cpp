@@ -48,7 +48,8 @@ ClassUnit::ClassUnit()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getClassUnit__codeElement()));
 
     /*PROTECTED REGION ID(ClassUnitImpl__ClassUnitImpl) START*/
 // Please, enable the protected region if you add manually written code.

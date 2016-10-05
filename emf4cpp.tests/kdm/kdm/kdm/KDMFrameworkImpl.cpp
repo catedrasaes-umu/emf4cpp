@@ -49,14 +49,10 @@ void KDMFramework::_initialize()
     for (size_t i = 0; i < m_audit->size(); i++)
     {
         (*m_audit)[i]->_initialize();
-        (*m_audit)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__audit());
     }
     for (size_t i = 0; i < m_extensionFamily->size(); i++)
     {
         (*m_extensionFamily)[i]->_initialize();
-        (*m_extensionFamily)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__extensionFamily());
     }
 
     /*PROTECTED REGION ID(KDMFrameworkImpl__initialize) START*/

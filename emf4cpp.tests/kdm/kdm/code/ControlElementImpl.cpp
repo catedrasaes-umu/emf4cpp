@@ -57,14 +57,10 @@ void ControlElement::_initialize()
     for (size_t i = 0; i < m_entryFlow->size(); i++)
     {
         (*m_entryFlow)[i]->_initialize();
-        (*m_entryFlow)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getControlElement__entryFlow());
     }
     for (size_t i = 0; i < m_codeElement->size(); i++)
     {
         (*m_codeElement)[i]->_initialize();
-        (*m_codeElement)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getControlElement__codeElement());
     }
 
     /*PROTECTED REGION ID(ControlElementImpl__initialize) START*/

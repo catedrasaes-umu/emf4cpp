@@ -37,10 +37,12 @@ Element::Element()
 
     m_attribute.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Attribute,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getElement__attribute()));
     m_annotation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Annotation,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getElement__annotation()));
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -44,8 +44,6 @@ void ErrorStatement::_initialize()
     if (m_message)
     {
         m_message->_initialize();
-        m_message->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
     }
 
     /*PROTECTED REGION ID(ErrorStatementImpl__initialize) START*/

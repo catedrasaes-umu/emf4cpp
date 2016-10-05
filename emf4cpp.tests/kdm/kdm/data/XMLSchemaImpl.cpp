@@ -55,8 +55,6 @@ void XMLSchema::_initialize()
     for (size_t i = 0; i < m_contentElement->size(); i++)
     {
         (*m_contentElement)[i]->_initialize();
-        (*m_contentElement)[i]->_setEContainer(this,
-                ::kdm::data::DataPackage::_instance()->getXMLSchema__contentElement());
     }
 
     /*PROTECTED REGION ID(XMLSchemaImpl__initialize) START*/

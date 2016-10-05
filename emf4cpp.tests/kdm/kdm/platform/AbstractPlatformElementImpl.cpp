@@ -54,20 +54,14 @@ void AbstractPlatformElement::_initialize()
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();
-        (*m_source)[i]->_setEContainer(this,
-                ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__source());
     }
     for (size_t i = 0; i < m_relation->size(); i++)
     {
         (*m_relation)[i]->_initialize();
-        (*m_relation)[i]->_setEContainer(this,
-                ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__relation());
     }
     for (size_t i = 0; i < m_abstraction->size(); i++)
     {
         (*m_abstraction)[i]->_initialize();
-        (*m_abstraction)[i]->_setEContainer(this,
-                ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__abstraction());
     }
 
     /*PROTECTED REGION ID(AbstractPlatformElementImpl__initialize) START*/

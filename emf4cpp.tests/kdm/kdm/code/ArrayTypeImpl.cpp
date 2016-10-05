@@ -56,8 +56,6 @@ void ArrayType::_initialize()
     if (m_indexUnit)
     {
         m_indexUnit->_initialize();
-        m_indexUnit->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
     }
 
     /*PROTECTED REGION ID(ArrayTypeImpl__initialize) START*/

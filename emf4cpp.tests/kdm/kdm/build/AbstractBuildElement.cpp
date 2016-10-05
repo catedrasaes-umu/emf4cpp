@@ -45,7 +45,8 @@ AbstractBuildElement::AbstractBuildElement()
     m_buildRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::build::AbstractBuildRelationship, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::build::BuildPackage::_instance()->getAbstractBuildElement__buildRelation()));
 
     /*PROTECTED REGION ID(AbstractBuildElementImpl__AbstractBuildElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -49,7 +49,7 @@ SimpleContentType::SimpleContentType()
     m_type.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::data::ComplexContentType, -1, false, false >(this,
-                    NULL));
+                    ::kdm::data::DataPackage::_instance()->getSimpleContentType__type()));
 
     /*PROTECTED REGION ID(SimpleContentTypeImpl__SimpleContentTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.

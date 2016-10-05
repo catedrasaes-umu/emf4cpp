@@ -46,14 +46,10 @@ void LetStatement::_initialize()
     if (m_varName)
     {
         m_varName->_initialize();
-        m_varName->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
     }
     if (m_varValue)
     {
         m_varValue->_initialize();
-        m_varValue->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
     }
 
     /*PROTECTED REGION ID(LetStatementImpl__initialize) START*/

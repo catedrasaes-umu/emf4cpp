@@ -46,20 +46,14 @@ void AbstractDeclaration::_initialize()
     if (m_owner)
     {
         m_owner->_initialize();
-        m_owner->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
     }
     for (size_t i = 0; i < m_params->size(); i++)
     {
         (*m_params)[i]->_initialize();
-        (*m_params)[i]->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__params());
     }
     if (m_guard)
     {
         m_guard->_initialize();
-        m_guard->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
     }
 
     /*PROTECTED REGION ID(AbstractDeclarationImpl__initialize) START*/

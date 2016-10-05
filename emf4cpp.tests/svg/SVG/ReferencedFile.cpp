@@ -36,7 +36,9 @@ ReferencedFile::ReferencedFile()
 
     m_referer.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image, -1,
-                    false, true >(this, NULL));
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getReferencedFile__referer(),
+                    NULL));
 
     /*PROTECTED REGION ID(ReferencedFileImpl__ReferencedFileImpl) START*/
 // Please, enable the protected region if you add manually written code.

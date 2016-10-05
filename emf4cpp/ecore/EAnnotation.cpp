@@ -41,13 +41,15 @@ EAnnotation::EAnnotation() :
     m_details.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::ecore::EStringToStringMapEntry, -1, true, false >(this,
-                    NULL));
+                    ::ecore::EcorePackage::_instance()->getEAnnotation__details()));
     m_contents.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEAnnotation__contents()));
     m_references.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject, -1,
-                    false, false >(this, NULL));
+                    false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEAnnotation__references()));
 
     /*PROTECTED REGION ID(EAnnotationImpl__EAnnotationImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -47,8 +47,6 @@ void ExtensionAspect::_initialize()
     if (m_expression)
     {
         m_expression->_initialize();
-        m_expression->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression());
     }
 
     /*PROTECTED REGION ID(ExtensionAspectImpl__initialize) START*/

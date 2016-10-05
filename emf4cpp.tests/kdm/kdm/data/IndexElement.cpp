@@ -48,7 +48,8 @@ IndexElement::IndexElement()
 
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::ItemUnit,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getIndexElement__implementation()));
 
     /*PROTECTED REGION ID(IndexElementImpl__IndexElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

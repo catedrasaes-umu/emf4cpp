@@ -42,10 +42,12 @@ OperationDef::OperationDef()
 
     m_parameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ParameterDef,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getOperationDef__parameters()));
     m_canRaise.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getOperationDef__canRaise()));
 
     /*PROTECTED REGION ID(OperationDefImpl__OperationDefImpl) START*/
 // Please, enable the protected region if you add manually written code.

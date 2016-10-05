@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * xpand3/expression/OperationCall.cpp
+ * company/PhonebookEntry.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
@@ -17,32 +17,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "OperationCall.hpp"
-#include <xpand3/expression/FeatureCall.hpp>
-#include <xpand3/expression/AbstractExpression.hpp>
-#include <xpand3/Identifier.hpp>
+#include "PhonebookEntry.hpp"
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
-#include "xpand3/expression/ExpressionPackage.hpp"
+#include "company/CompanyPackage.hpp"
 #include <ecorecpp/mapping.hpp>
 
 #ifdef ECORECPP_NOTIFICATION_API
 #include <ecorecpp/notify.hpp>
 #endif
 
-using namespace ::xpand3::expression;
+using namespace ::company;
 
 // Default constructor
-OperationCall::OperationCall()
+PhonebookEntry::PhonebookEntry()
 {
 
-    m_params.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::expression::AbstractExpression, -1, true, false >(
-                    this,
-                    ::xpand3::expression::ExpressionPackage::_instance()->getOperationCall__params()));
-
-    /*PROTECTED REGION ID(OperationCallImpl__OperationCallImpl) START*/
+    /*PROTECTED REGION ID(PhonebookEntryImpl__PhonebookEntryImpl) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
@@ -52,19 +43,14 @@ OperationCall::OperationCall()
 #endif
 }
 
-OperationCall::~OperationCall()
+PhonebookEntry::~PhonebookEntry()
 {
 }
 
-/*PROTECTED REGION ID(OperationCall.cpp) START*/
+/*PROTECTED REGION ID(PhonebookEntry.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
 // Attributes
 // References
-::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& OperationCall::getParams()
-{
-    return *m_params;
-}
-

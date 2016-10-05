@@ -87,6 +87,8 @@ void Typed::setContainedType(::idlmm::IDLType_ptr _containedType)
 #endif
 
     delete _old_containedType;
+    m_containedType->_setEContainer(this,
+            ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
 }
 
 ::idlmm::TypedefDef_ptr Typed::getSharedType()

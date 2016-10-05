@@ -48,7 +48,8 @@ Signature::Signature()
 
     m_parameterUnit.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::ParameterUnit, -1, true, false >(this, NULL));
+                    ::kdm::code::ParameterUnit, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getSignature__parameterUnit()));
 
     /*PROTECTED REGION ID(SignatureImpl__SignatureImpl) START*/
 // Please, enable the protected region if you add manually written code.

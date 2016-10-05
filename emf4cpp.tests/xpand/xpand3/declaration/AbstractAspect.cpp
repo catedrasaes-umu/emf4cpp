@@ -116,5 +116,7 @@ void AbstractAspect::setPointcut(::xpand3::Identifier_ptr _pointcut)
 #endif
 
     delete _old_pointcut;
+    m_pointcut->_setEContainer(this,
+            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
 }
 

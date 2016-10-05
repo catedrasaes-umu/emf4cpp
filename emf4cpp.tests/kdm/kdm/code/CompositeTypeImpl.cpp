@@ -55,8 +55,6 @@ void CompositeType::_initialize()
     for (size_t i = 0; i < m_itemUnit->size(); i++)
     {
         (*m_itemUnit)[i]->_initialize();
-        (*m_itemUnit)[i]->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getCompositeType__itemUnit());
     }
 
     /*PROTECTED REGION ID(CompositeTypeImpl__initialize) START*/

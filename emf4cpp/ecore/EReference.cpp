@@ -43,7 +43,8 @@ EReference::EReference() :
 
     m_eKeys.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAttribute,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance()->getEReference__eKeys()));
 
     /*PROTECTED REGION ID(EReferenceImpl__EReferenceImpl) START*/
 // Please, enable the protected region if you add manually written code.

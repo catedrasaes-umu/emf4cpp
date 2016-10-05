@@ -48,7 +48,8 @@ TemplateUnit::TemplateUnit()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getTemplateUnit__codeElement()));
 
     /*PROTECTED REGION ID(TemplateUnitImpl__TemplateUnitImpl) START*/
 // Please, enable the protected region if you add manually written code.

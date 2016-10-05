@@ -55,8 +55,6 @@ void DerivedType::_initialize()
     if (m_itemUnit)
     {
         m_itemUnit->_initialize();
-        m_itemUnit->_setEContainer(this,
-                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
     }
 
     /*PROTECTED REGION ID(DerivedTypeImpl__initialize) START*/

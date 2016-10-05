@@ -40,7 +40,9 @@ EEnum::EEnum()
 
     m_eLiterals.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EEnumLiteral,
-                    -1, true, true >(this, NULL));
+                    -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance()->getEEnum__eLiterals(),
+                    NULL));
 
     /*PROTECTED REGION ID(EEnumImpl__EEnumImpl) START*/
 // Please, enable the protected region if you add manually written code.

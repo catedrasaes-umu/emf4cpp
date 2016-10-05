@@ -50,8 +50,6 @@ void StructureModel::_initialize()
     for (size_t i = 0; i < m_structureElement->size(); i++)
     {
         (*m_structureElement)[i]->_initialize();
-        (*m_structureElement)[i]->_setEContainer(this,
-                ::kdm::structure::StructurePackage::_instance()->getStructureModel__structureElement());
     }
 
     /*PROTECTED REGION ID(StructureModelImpl__initialize) START*/

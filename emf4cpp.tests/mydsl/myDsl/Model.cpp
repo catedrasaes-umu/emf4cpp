@@ -37,10 +37,12 @@ Model::Model()
 
     m_imports.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Import, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::myDsl::MyDslPackage::_instance()->getModel__imports()));
     m_elements.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Type, -1,
-                    true, false >(this, NULL));
+                    true, false >(this,
+                    ::myDsl::MyDslPackage::_instance()->getModel__elements()));
 
     /*PROTECTED REGION ID(ModelImpl__ModelImpl) START*/
 // Please, enable the protected region if you add manually written code.

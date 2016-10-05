@@ -46,14 +46,10 @@ void EAnnotation::_initialize()
     for (size_t i = 0; i < m_details->size(); i++)
     {
         (*m_details)[i]->_initialize();
-        (*m_details)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEAnnotation__details());
     }
     for (size_t i = 0; i < m_contents->size(); i++)
     {
         (*m_contents)[i]->_initialize();
-        (*m_contents)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEAnnotation__contents());
     }
 
     /*PROTECTED REGION ID(EAnnotationImpl__initialize) START*/

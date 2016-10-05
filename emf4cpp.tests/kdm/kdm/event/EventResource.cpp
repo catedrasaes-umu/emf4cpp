@@ -49,7 +49,7 @@ EventResource::EventResource()
     m_eventElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::event::AbstractEventElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::event::EventPackage::_instance()->getEventResource__eventElement()));
 
     /*PROTECTED REGION ID(EventResourceImpl__EventResourceImpl) START*/
 // Please, enable the protected region if you add manually written code.

@@ -43,8 +43,6 @@ void AbstractStatementWithBody::_initialize()
     for (size_t i = 0; i < m_body->size(); i++)
     {
         (*m_body)[i]->_initialize();
-        (*m_body)[i]->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getAbstractStatementWithBody__body());
     }
 
     /*PROTECTED REGION ID(AbstractStatementWithBodyImpl__initialize) START*/

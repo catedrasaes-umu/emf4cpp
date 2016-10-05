@@ -44,14 +44,10 @@ void Case::_initialize()
     if (m_condition)
     {
         m_condition->_initialize();
-        m_condition->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
     }
     if (m_thenPart)
     {
         m_thenPart->_initialize();
-        m_thenPart->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
     }
 
     /*PROTECTED REGION ID(CaseImpl__initialize) START*/

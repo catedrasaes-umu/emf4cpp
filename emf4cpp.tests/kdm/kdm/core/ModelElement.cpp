@@ -40,10 +40,12 @@ ModelElement::ModelElement()
 
     m_stereotype.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
-                    -1, false, false >(this, NULL));
+                    -1, false, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getModelElement__stereotype()));
     m_taggedValue.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::ExtendedValue, -1, true, false >(this, NULL));
+                    ::kdm::kdm::ExtendedValue, -1, true, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getModelElement__taggedValue()));
 
     /*PROTECTED REGION ID(ModelElementImpl__ModelElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

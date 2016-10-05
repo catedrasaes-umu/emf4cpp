@@ -40,7 +40,8 @@ UnionDef::UnionDef() :
 
     m_unionMembers.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::UnionField,
-                    -1, true, false >(this, NULL));
+                    -1, true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getUnionDef__unionMembers()));
 
     /*PROTECTED REGION ID(UnionDefImpl__UnionDefImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -98,6 +99,8 @@ void UnionDef::setContainedDiscrim(::idlmm::IDLType_ptr _containedDiscrim)
 #endif
 
     delete _old_containedDiscrim;
+    m_containedDiscrim->_setEContainer(this,
+            ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
 }
 
 ::idlmm::TypedefDef_ptr UnionDef::getSharedDiscrim()

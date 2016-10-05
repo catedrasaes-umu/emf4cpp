@@ -47,19 +47,21 @@ AbstractEventElement::AbstractEventElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__source()));
     m_eventRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::event::AbstractEventRelationship, -1, true, false >(
-                    this, NULL));
+                    this,
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__eventRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__abstraction()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
                     ::kdm::code::AbstractCodeElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__implementation()));
 
     /*PROTECTED REGION ID(AbstractEventElementImpl__AbstractEventElementImpl) START*/
 // Please, enable the protected region if you add manually written code.

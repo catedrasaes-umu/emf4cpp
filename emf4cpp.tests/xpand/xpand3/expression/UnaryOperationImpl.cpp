@@ -44,8 +44,6 @@ void UnaryOperation::_initialize()
     if (m_operator)
     {
         m_operator->_initialize();
-        m_operator->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
     }
 
     /*PROTECTED REGION ID(UnaryOperationImpl__initialize) START*/

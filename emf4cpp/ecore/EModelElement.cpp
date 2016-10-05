@@ -36,7 +36,9 @@ EModelElement::EModelElement()
 
     m_eAnnotations.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                    -1, true, true >(this, NULL));
+                    -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance()->getEModelElement__eAnnotations(),
+                    NULL));
 
     /*PROTECTED REGION ID(EModelElementImpl__EModelElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
