@@ -71,6 +71,139 @@ namespace kdm
 
         };
 
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline T* create()
+        {
+            return (T*) nullptr;
+        }
+
+        template< > inline AbstractBuildElement_ptr create< AbstractBuildElement >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createAbstractBuildElement();
+        }
+        template< > inline BuildResource_ptr create< BuildResource >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildResource();
+        }
+        template< > inline BuildDescription_ptr create< BuildDescription >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildDescription();
+        }
+        template< > inline SymbolicLink_ptr create< SymbolicLink >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createSymbolicLink();
+        }
+        template< > inline AbstractBuildRelationship_ptr create<
+                AbstractBuildRelationship >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createAbstractBuildRelationship();
+        }
+        template< > inline LinksTo_ptr create< LinksTo >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createLinksTo();
+        }
+        template< > inline Consumes_ptr create< Consumes >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createConsumes();
+        }
+        template< > inline BuildModel_ptr create< BuildModel >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildModel();
+        }
+        template< > inline BuildComponent_ptr create< BuildComponent >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildComponent();
+        }
+        template< > inline Supplier_ptr create< Supplier >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createSupplier();
+        }
+        template< > inline Tool_ptr create< Tool >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createTool();
+        }
+        template< > inline BuildElement_ptr create< BuildElement >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildElement();
+        }
+        template< > inline BuildRelationship_ptr create< BuildRelationship >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildRelationship();
+        }
+        template< > inline SuppliedBy_ptr create< SuppliedBy >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createSuppliedBy();
+        }
+        template< > inline Library_ptr create< Library >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createLibrary();
+        }
+        template< > inline BuildStep_ptr create< BuildStep >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildStep();
+        }
+        template< > inline Produces_ptr create< Produces >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createProduces();
+        }
+        template< > inline SupportedBy_ptr create< SupportedBy >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createSupportedBy();
+        }
+        template< > inline BuildProduct_ptr create< BuildProduct >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createBuildProduct();
+        }
+        template< > inline DescribedBy_ptr create< DescribedBy >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory);
+            return packageFactory->createDescribedBy();
+        }
+
     } // build
 } // kdm
 

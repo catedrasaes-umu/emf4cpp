@@ -134,6 +134,518 @@ namespace kdm
 
         };
 
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline T* create()
+        {
+            return (T*) nullptr;
+        }
+
+        template< > inline AbstractCodeElement_ptr create< AbstractCodeElement >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createAbstractCodeElement();
+        }
+        template< > inline CodeItem_ptr create< CodeItem >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCodeItem();
+        }
+        template< > inline ComputationalObject_ptr create< ComputationalObject >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createComputationalObject();
+        }
+        template< > inline ControlElement_ptr create< ControlElement >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createControlElement();
+        }
+        template< > inline MethodUnit_ptr create< MethodUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createMethodUnit();
+        }
+        template< > inline Module_ptr create< Module >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createModule();
+        }
+        template< > inline CodeAssembly_ptr create< CodeAssembly >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCodeAssembly();
+        }
+        template< > inline CallableUnit_ptr create< CallableUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCallableUnit();
+        }
+        template< > inline Datatype_ptr create< Datatype >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createDatatype();
+        }
+        template< > inline TemplateUnit_ptr create< TemplateUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createTemplateUnit();
+        }
+        template< > inline TemplateParameter_ptr create< TemplateParameter >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createTemplateParameter();
+        }
+        template< > inline AbstractCodeRelationship_ptr create<
+                AbstractCodeRelationship >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createAbstractCodeRelationship();
+        }
+        template< > inline InstanceOf_ptr create< InstanceOf >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createInstanceOf();
+        }
+        template< > inline CompilationUnit_ptr create< CompilationUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCompilationUnit();
+        }
+        template< > inline CodeModel_ptr create< CodeModel >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCodeModel();
+        }
+        template< > inline DerivedType_ptr create< DerivedType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createDerivedType();
+        }
+        template< > inline ArrayType_ptr create< ArrayType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createArrayType();
+        }
+        template< > inline PrimitiveType_ptr create< PrimitiveType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createPrimitiveType();
+        }
+        template< > inline BooleanType_ptr create< BooleanType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createBooleanType();
+        }
+        template< > inline CharType_ptr create< CharType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCharType();
+        }
+        template< > inline ClassUnit_ptr create< ClassUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createClassUnit();
+        }
+        template< > inline CompositeType_ptr create< CompositeType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCompositeType();
+        }
+        template< > inline RecordType_ptr create< RecordType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createRecordType();
+        }
+        template< > inline EnumeratedType_ptr create< EnumeratedType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createEnumeratedType();
+        }
+        template< > inline Extends_ptr create< Extends >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createExtends();
+        }
+        template< > inline ScaledType_ptr create< ScaledType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createScaledType();
+        }
+        template< > inline FloatType_ptr create< FloatType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createFloatType();
+        }
+        template< > inline HasType_ptr create< HasType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createHasType();
+        }
+        template< > inline ImplementationOf_ptr create< ImplementationOf >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createImplementationOf();
+        }
+        template< > inline Implements_ptr create< Implements >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createImplements();
+        }
+        template< > inline IntegerType_ptr create< IntegerType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createIntegerType();
+        }
+        template< > inline InterfaceUnit_ptr create< InterfaceUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createInterfaceUnit();
+        }
+        template< > inline PointerType_ptr create< PointerType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createPointerType();
+        }
+        template< > inline DefinedType_ptr create< DefinedType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createDefinedType();
+        }
+        template< > inline TypeUnit_ptr create< TypeUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createTypeUnit();
+        }
+        template< > inline RangeType_ptr create< RangeType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createRangeType();
+        }
+        template< > inline Signature_ptr create< Signature >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createSignature();
+        }
+        template< > inline DataElement_ptr create< DataElement >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createDataElement();
+        }
+        template< > inline StringType_ptr create< StringType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createStringType();
+        }
+        template< > inline ChoiceType_ptr create< ChoiceType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createChoiceType();
+        }
+        template< > inline NamespaceUnit_ptr create< NamespaceUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createNamespaceUnit();
+        }
+        template< > inline VisibleIn_ptr create< VisibleIn >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createVisibleIn();
+        }
+        template< > inline CommentUnit_ptr create< CommentUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCommentUnit();
+        }
+        template< > inline SharedUnit_ptr create< SharedUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createSharedUnit();
+        }
+        template< > inline DecimalType_ptr create< DecimalType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createDecimalType();
+        }
+        template< > inline DateType_ptr create< DateType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createDateType();
+        }
+        template< > inline TimeType_ptr create< TimeType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createTimeType();
+        }
+        template< > inline VoidType_ptr create< VoidType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createVoidType();
+        }
+        template< > inline ValueElement_ptr create< ValueElement >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createValueElement();
+        }
+        template< > inline Value_ptr create< Value >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createValue();
+        }
+        template< > inline ValueList_ptr create< ValueList >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createValueList();
+        }
+        template< > inline StorableUnit_ptr create< StorableUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createStorableUnit();
+        }
+        template< > inline MemberUnit_ptr create< MemberUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createMemberUnit();
+        }
+        template< > inline ParameterUnit_ptr create< ParameterUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createParameterUnit();
+        }
+        template< > inline ItemUnit_ptr create< ItemUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createItemUnit();
+        }
+        template< > inline IndexUnit_ptr create< IndexUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createIndexUnit();
+        }
+        template< > inline SynonymType_ptr create< SynonymType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createSynonymType();
+        }
+        template< > inline SequenceType_ptr create< SequenceType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createSequenceType();
+        }
+        template< > inline BagType_ptr create< BagType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createBagType();
+        }
+        template< > inline SetType_ptr create< SetType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createSetType();
+        }
+        template< > inline CodeElement_ptr create< CodeElement >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCodeElement();
+        }
+        template< > inline CodeRelationship_ptr create< CodeRelationship >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createCodeRelationship();
+        }
+        template< > inline LanguageUnit_ptr create< LanguageUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createLanguageUnit();
+        }
+        template< > inline OrdinalType_ptr create< OrdinalType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createOrdinalType();
+        }
+        template< > inline BitstringType_ptr create< BitstringType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createBitstringType();
+        }
+        template< > inline OctetType_ptr create< OctetType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createOctetType();
+        }
+        template< > inline OctetstringType_ptr create< OctetstringType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createOctetstringType();
+        }
+        template< > inline BitType_ptr create< BitType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createBitType();
+        }
+        template< > inline Imports_ptr create< Imports >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createImports();
+        }
+        template< > inline Package_ptr create< Package >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createPackage();
+        }
+        template< > inline ParameterTo_ptr create< ParameterTo >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createParameterTo();
+        }
+        template< > inline TemplateType_ptr create< TemplateType >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createTemplateType();
+        }
+        template< > inline PreprocessorDirective_ptr create<
+                PreprocessorDirective >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createPreprocessorDirective();
+        }
+        template< > inline MacroDirective_ptr create< MacroDirective >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createMacroDirective();
+        }
+        template< > inline MacroUnit_ptr create< MacroUnit >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createMacroUnit();
+        }
+        template< > inline ConditionalDirective_ptr create< ConditionalDirective >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createConditionalDirective();
+        }
+        template< > inline IncludeDirective_ptr create< IncludeDirective >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createIncludeDirective();
+        }
+        template< > inline VariantTo_ptr create< VariantTo >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createVariantTo();
+        }
+        template< > inline Expands_ptr create< Expands >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createExpands();
+        }
+        template< > inline Redefines_ptr create< Redefines >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createRedefines();
+        }
+        template< > inline GeneratedFrom_ptr create< GeneratedFrom >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createGeneratedFrom();
+        }
+        template< > inline Includes_ptr create< Includes >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createIncludes();
+        }
+        template< > inline HasValue_ptr create< HasValue >()
+        {
+            auto eFactory = CodePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< CodeFactory* >(eFactory);
+            return packageFactory->createHasValue();
+        }
+
     } // code
 } // kdm
 

@@ -48,6 +48,17 @@ namespace kdm
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
 } // kdm
 
 #endif // _KDMFACTORY_HPP

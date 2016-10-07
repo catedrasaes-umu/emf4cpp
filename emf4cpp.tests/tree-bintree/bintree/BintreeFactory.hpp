@@ -50,6 +50,24 @@ namespace bintree
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline BinTreeNode_ptr create< BinTreeNode >()
+    {
+        auto eFactory = BintreePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< BintreeFactory* >(eFactory);
+        return packageFactory->createBinTreeNode();
+    }
+
 } // bintree
 
 #endif // _BINTREEFACTORY_HPP

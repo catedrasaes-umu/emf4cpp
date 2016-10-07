@@ -53,6 +53,42 @@ namespace CST
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline Tree_ptr create< Tree >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        return packageFactory->createTree();
+    }
+    template< > inline Element_ptr create< Element >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        return packageFactory->createElement();
+    }
+    template< > inline Node_ptr create< Node >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        return packageFactory->createNode();
+    }
+    template< > inline Leaf_ptr create< Leaf >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        return packageFactory->createLeaf();
+    }
+
 } // CST
 
 #endif // _CSTFACTORY_HPP

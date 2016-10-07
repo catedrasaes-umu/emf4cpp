@@ -69,6 +69,139 @@ namespace ecore
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline EAttribute_ptr create< EAttribute >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEAttribute();
+    }
+    template< > inline EAnnotation_ptr create< EAnnotation >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEAnnotation();
+    }
+    template< > inline EClass_ptr create< EClass >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEClass();
+    }
+    template< > inline EClassifier_ptr create< EClassifier >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEClassifier();
+    }
+    template< > inline EDataType_ptr create< EDataType >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEDataType();
+    }
+    template< > inline EEnum_ptr create< EEnum >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEEnum();
+    }
+    template< > inline EEnumLiteral_ptr create< EEnumLiteral >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEEnumLiteral();
+    }
+    template< > inline EFactory_ptr create< EFactory >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEFactory();
+    }
+    template< > inline EModelElement_ptr create< EModelElement >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEModelElement();
+    }
+    template< > inline ENamedElement_ptr create< ENamedElement >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createENamedElement();
+    }
+    template< > inline EObject_ptr create< EObject >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEObject();
+    }
+    template< > inline EOperation_ptr create< EOperation >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEOperation();
+    }
+    template< > inline EPackage_ptr create< EPackage >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEPackage();
+    }
+    template< > inline EParameter_ptr create< EParameter >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEParameter();
+    }
+    template< > inline EReference_ptr create< EReference >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEReference();
+    }
+    template< > inline EStructuralFeature_ptr create< EStructuralFeature >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEStructuralFeature();
+    }
+    template< > inline ETypedElement_ptr create< ETypedElement >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createETypedElement();
+    }
+    template< > inline EStringToStringMapEntry_ptr create<
+            EStringToStringMapEntry >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEStringToStringMapEntry();
+    }
+    template< > inline EGenericType_ptr create< EGenericType >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createEGenericType();
+    }
+    template< > inline ETypeParameter_ptr create< ETypeParameter >()
+    {
+        auto eFactory = EcorePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EcoreFactory* >(eFactory);
+        return packageFactory->createETypeParameter();
+    }
+
 } // ecore
 
 #endif // _ECOREFACTORY_HPP

@@ -69,6 +69,127 @@ namespace kdm
 
         };
 
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline T* create()
+        {
+            return (T*) nullptr;
+        }
+
+        template< > inline EventModel_ptr create< EventModel >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createEventModel();
+        }
+        template< > inline AbstractEventElement_ptr create< AbstractEventElement >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createAbstractEventElement();
+        }
+        template< > inline Event_ptr create< Event >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createEvent();
+        }
+        template< > inline AbstractEventRelationship_ptr create<
+                AbstractEventRelationship >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createAbstractEventRelationship();
+        }
+        template< > inline EventRelationship_ptr create< EventRelationship >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createEventRelationship();
+        }
+        template< > inline EventResource_ptr create< EventResource >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createEventResource();
+        }
+        template< > inline State_ptr create< State >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createState();
+        }
+        template< > inline Transition_ptr create< Transition >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createTransition();
+        }
+        template< > inline OnEntry_ptr create< OnEntry >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createOnEntry();
+        }
+        template< > inline OnExit_ptr create< OnExit >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createOnExit();
+        }
+        template< > inline EventAction_ptr create< EventAction >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createEventAction();
+        }
+        template< > inline ReadsState_ptr create< ReadsState >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createReadsState();
+        }
+        template< > inline ProducesEvent_ptr create< ProducesEvent >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createProducesEvent();
+        }
+        template< > inline ConsumesEvent_ptr create< ConsumesEvent >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createConsumesEvent();
+        }
+        template< > inline NextState_ptr create< NextState >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createNextState();
+        }
+        template< > inline InitialState_ptr create< InitialState >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createInitialState();
+        }
+        template< > inline EventElement_ptr create< EventElement >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createEventElement();
+        }
+        template< > inline HasState_ptr create< HasState >()
+        {
+            auto eFactory = EventPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< EventFactory* >(eFactory);
+            return packageFactory->createHasState();
+        }
+
     } // event
 } // kdm
 

@@ -38,7 +38,9 @@ class serializer
 {
 public:
 
-    serializer(std::ostream& _ostream);
+	enum class XmiIndentMode { NoIndentation, Indentation };
+    serializer(std::ostream& _ostream,
+			   XmiIndentMode = XmiIndentMode::NoIndentation);
 
     virtual ~serializer();
 

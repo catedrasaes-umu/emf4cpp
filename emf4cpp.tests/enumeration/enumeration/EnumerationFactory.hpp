@@ -50,6 +50,24 @@ namespace enumeration
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline Bird_ptr create< Bird >()
+    {
+        auto eFactory = EnumerationPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EnumerationFactory* >(eFactory);
+        return packageFactory->createBird();
+    }
+
 } // enumeration
 
 #endif // _ENUMERATIONFACTORY_HPP

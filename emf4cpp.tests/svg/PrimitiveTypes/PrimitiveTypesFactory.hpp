@@ -48,6 +48,17 @@ namespace PrimitiveTypes
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
 } // PrimitiveTypes
 
 #endif // _PRIMITIVETYPESFACTORY_HPP

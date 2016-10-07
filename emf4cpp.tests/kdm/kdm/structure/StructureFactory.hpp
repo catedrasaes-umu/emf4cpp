@@ -61,6 +61,91 @@ namespace kdm
 
         };
 
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline T* create()
+        {
+            return (T*) nullptr;
+        }
+
+        template< > inline AbstractStructureElement_ptr create<
+                AbstractStructureElement >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createAbstractStructureElement();
+        }
+        template< > inline Subsystem_ptr create< Subsystem >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createSubsystem();
+        }
+        template< > inline Layer_ptr create< Layer >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createLayer();
+        }
+        template< > inline StructureModel_ptr create< StructureModel >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createStructureModel();
+        }
+        template< > inline Component_ptr create< Component >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createComponent();
+        }
+        template< > inline SoftwareSystem_ptr create< SoftwareSystem >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createSoftwareSystem();
+        }
+        template< > inline AbstractStructureRelationship_ptr create<
+                AbstractStructureRelationship >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createAbstractStructureRelationship();
+        }
+        template< > inline StructureRelationship_ptr create<
+                StructureRelationship >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createStructureRelationship();
+        }
+        template< > inline ArchitectureView_ptr create< ArchitectureView >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createArchitectureView();
+        }
+        template< > inline StructureElement_ptr create< StructureElement >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< StructureFactory* >(eFactory);
+            return packageFactory->createStructureElement();
+        }
+
     } // structure
 } // kdm
 

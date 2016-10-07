@@ -54,6 +54,48 @@ namespace eopposite
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline TopLevel_ptr create< TopLevel >()
+    {
+        auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        return packageFactory->createTopLevel();
+    }
+    template< > inline NamedObject_ptr create< NamedObject >()
+    {
+        auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        return packageFactory->createNamedObject();
+    }
+    template< > inline LeftHand_ptr create< LeftHand >()
+    {
+        auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        return packageFactory->createLeftHand();
+    }
+    template< > inline RightHand_ptr create< RightHand >()
+    {
+        auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        return packageFactory->createRightHand();
+    }
+    template< > inline RightMultiple_ptr create< RightMultiple >()
+    {
+        auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        return packageFactory->createRightMultiple();
+    }
+
 } // eopposite
 
 #endif // _EOPPOSITEFACTORY_HPP

@@ -96,6 +96,290 @@ namespace kdm
 
         };
 
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline T* create()
+        {
+            return (T*) nullptr;
+        }
+
+        template< > inline DataModel_ptr create< DataModel >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDataModel();
+        }
+        template< > inline AbstractDataElement_ptr create< AbstractDataElement >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createAbstractDataElement();
+        }
+        template< > inline DataResource_ptr create< DataResource >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDataResource();
+        }
+        template< > inline IndexElement_ptr create< IndexElement >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createIndexElement();
+        }
+        template< > inline UniqueKey_ptr create< UniqueKey >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createUniqueKey();
+        }
+        template< > inline Index_ptr create< Index >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createIndex();
+        }
+        template< > inline AbstractDataRelationship_ptr create<
+                AbstractDataRelationship >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createAbstractDataRelationship();
+        }
+        template< > inline KeyRelation_ptr create< KeyRelation >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createKeyRelation();
+        }
+        template< > inline ReferenceKey_ptr create< ReferenceKey >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createReferenceKey();
+        }
+        template< > inline DataContainer_ptr create< DataContainer >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDataContainer();
+        }
+        template< > inline Catalog_ptr create< Catalog >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createCatalog();
+        }
+        template< > inline RelationalSchema_ptr create< RelationalSchema >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createRelationalSchema();
+        }
+        template< > inline ColumnSet_ptr create< ColumnSet >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createColumnSet();
+        }
+        template< > inline RelationalTable_ptr create< RelationalTable >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createRelationalTable();
+        }
+        template< > inline RelationalView_ptr create< RelationalView >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createRelationalView();
+        }
+        template< > inline RecordFile_ptr create< RecordFile >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createRecordFile();
+        }
+        template< > inline DataEvent_ptr create< DataEvent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDataEvent();
+        }
+        template< > inline XMLSchema_ptr create< XMLSchema >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createXMLSchema();
+        }
+        template< > inline AbstractContentElement_ptr create<
+                AbstractContentElement >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createAbstractContentElement();
+        }
+        template< > inline ComplexContentType_ptr create< ComplexContentType >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createComplexContentType();
+        }
+        template< > inline AllContent_ptr create< AllContent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createAllContent();
+        }
+        template< > inline SeqContent_ptr create< SeqContent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createSeqContent();
+        }
+        template< > inline ChoiceContent_ptr create< ChoiceContent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createChoiceContent();
+        }
+        template< > inline ContentItem_ptr create< ContentItem >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createContentItem();
+        }
+        template< > inline GroupContent_ptr create< GroupContent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createGroupContent();
+        }
+        template< > inline ContentRestriction_ptr create< ContentRestriction >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createContentRestriction();
+        }
+        template< > inline SimpleContentType_ptr create< SimpleContentType >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createSimpleContentType();
+        }
+        template< > inline ExtendedDataElement_ptr create< ExtendedDataElement >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createExtendedDataElement();
+        }
+        template< > inline DataRelationship_ptr create< DataRelationship >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDataRelationship();
+        }
+        template< > inline MixedContent_ptr create< MixedContent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createMixedContent();
+        }
+        template< > inline ContentReference_ptr create< ContentReference >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createContentReference();
+        }
+        template< > inline DataAction_ptr create< DataAction >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDataAction();
+        }
+        template< > inline ReadsColumnSet_ptr create< ReadsColumnSet >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createReadsColumnSet();
+        }
+        template< > inline ContentAttribute_ptr create< ContentAttribute >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createContentAttribute();
+        }
+        template< > inline TypedBy_ptr create< TypedBy >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createTypedBy();
+        }
+        template< > inline ReferenceTo_ptr create< ReferenceTo >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createReferenceTo();
+        }
+        template< > inline RestrictionOf_ptr create< RestrictionOf >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createRestrictionOf();
+        }
+        template< > inline ExtensionTo_ptr create< ExtensionTo >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createExtensionTo();
+        }
+        template< > inline DatatypeOf_ptr create< DatatypeOf >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDatatypeOf();
+        }
+        template< > inline HasContent_ptr create< HasContent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createHasContent();
+        }
+        template< > inline WritesColumnSet_ptr create< WritesColumnSet >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createWritesColumnSet();
+        }
+        template< > inline ProducesDataEvent_ptr create< ProducesDataEvent >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createProducesDataEvent();
+        }
+        template< > inline DataSegment_ptr create< DataSegment >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createDataSegment();
+        }
+        template< > inline ContentElement_ptr create< ContentElement >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createContentElement();
+        }
+        template< > inline ManagesData_ptr create< ManagesData >()
+        {
+            auto eFactory = DataPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DataFactory* >(eFactory);
+            return packageFactory->createManagesData();
+        }
+
     } // data
 } // kdm
 

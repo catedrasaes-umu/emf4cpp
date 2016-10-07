@@ -6,7 +6,7 @@
 #include <assert.h>
 
 using namespace eopposite;
-using namespace ecore;
+namespace ec = ecore;
 
 int main(int argc, char* argv[])
 {
@@ -14,13 +14,13 @@ int main(int argc, char* argv[])
     EoppositeFactory_ptr eoppositeFactory = EoppositeFactory::_instance()->as< EoppositeFactory >();
 
     {
-        std::shared_ptr<TopLevel> tl ( eoppositeFactory->createTopLevel());
+        std::shared_ptr<TopLevel> tl ( create<TopLevel>());
         tl->setName("MyTopLevel");
 
-        LeftHand_ptr myLeft = eoppositeFactory->createLeftHand();
+        auto myLeft = create<LeftHand>();
 		myLeft->setName("leftyNo1");
 
-        RightHand_ptr myRight = eoppositeFactory->createRightHand();
+        auto myRight = create<RightHand>();
 		myRight->setName("rightyNo1");
 
 		tl->getLeftees().push_back(myLeft);
@@ -51,9 +51,9 @@ int main(int argc, char* argv[])
 		assert( myRight->getLeftee() == nullptr );
 		myRight->setLeftee(myLeft);
 
-		RightMultiple_ptr rm = eoppositeFactory->createRightMultiple();
+		auto rm = create<RightMultiple>();
 		tl->getRightMultiples().push_back(rm);
-		LeftHand_ptr myLeft2 = eoppositeFactory->createLeftHand();
+		auto myLeft2 = create<LeftHand>();
 		tl->getLeftees().push_back(myLeft2);
 		myLeft2->setName("leftyNo2");
 
@@ -64,7 +64,9 @@ int main(int argc, char* argv[])
 
  		{
 			std::ofstream outfile ("myTopLevel2.xmi");
-			ecorecpp::serializer::serializer _ser(outfile);
+			ecorecpp::serializer::serializer _ser(
+				outfile,
+				ecorecpp::serializer::serializer::XmiIndentMode::Indentation);
 			_ser.serialize(tl.get());
 			outfile.close();
 		}
@@ -85,7 +87,7 @@ int main(int argc, char* argv[])
     ::ecorecpp::MetaModelRepository::_instance()->load(eoppositePackage);
 
     ecorecpp::parser::parser _dser;
-    EObject_ptr eobj = _dser.load ("myTopLevel.xmi");
+	ec::EObject_ptr eobj = _dser.load ("myTopLevel.xmi");
 
     {
         std::shared_ptr<TopLevel> tl (eobj->as< TopLevel >());

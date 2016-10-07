@@ -98,13 +98,18 @@ public:
 
     inline void close_object(const string_t& _name)
     {
+        --level;
         if (!has_value.back())
             out << "/>\n";
         else
+		{
+			if (indent)
+				_indent();
+
             out << "</" << _name << ">\n";
+		}
 
         has_value.pop_back();
-        --level;
     }
 
     inline void add_attribute(const string_t& _name, const string_t& _value)

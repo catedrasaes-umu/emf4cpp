@@ -55,6 +55,54 @@ namespace myDsl
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline Model_ptr create< Model >()
+    {
+        auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        return packageFactory->createModel();
+    }
+    template< > inline Import_ptr create< Import >()
+    {
+        auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        return packageFactory->createImport();
+    }
+    template< > inline Type_ptr create< Type >()
+    {
+        auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        return packageFactory->createType();
+    }
+    template< > inline SimpleType_ptr create< SimpleType >()
+    {
+        auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        return packageFactory->createSimpleType();
+    }
+    template< > inline Entity_ptr create< Entity >()
+    {
+        auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        return packageFactory->createEntity();
+    }
+    template< > inline Property_ptr create< Property >()
+    {
+        auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        return packageFactory->createProperty();
+    }
+
 } // myDsl
 
 #endif // _MYDSLFACTORY_HPP

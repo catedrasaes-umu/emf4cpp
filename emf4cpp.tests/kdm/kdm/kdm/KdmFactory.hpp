@@ -63,6 +63,90 @@ namespace kdm
 
         };
 
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline T* create()
+        {
+            return (T*) nullptr;
+        }
+
+        template< > inline KDMFramework_ptr create< KDMFramework >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createKDMFramework();
+        }
+        template< > inline KDMModel_ptr create< KDMModel >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createKDMModel();
+        }
+        template< > inline Audit_ptr create< Audit >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createAudit();
+        }
+        template< > inline Segment_ptr create< Segment >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createSegment();
+        }
+        template< > inline Attribute_ptr create< Attribute >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createAttribute();
+        }
+        template< > inline Annotation_ptr create< Annotation >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createAnnotation();
+        }
+        template< > inline TagDefinition_ptr create< TagDefinition >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createTagDefinition();
+        }
+        template< > inline ExtendedValue_ptr create< ExtendedValue >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createExtendedValue();
+        }
+        template< > inline Stereotype_ptr create< Stereotype >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createStereotype();
+        }
+        template< > inline ExtensionFamily_ptr create< ExtensionFamily >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createExtensionFamily();
+        }
+        template< > inline TaggedRef_ptr create< TaggedRef >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createTaggedRef();
+        }
+        template< > inline TaggedValue_ptr create< TaggedValue >()
+        {
+            auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            return packageFactory->createTaggedValue();
+        }
+
     } // kdm
 } // kdm
 

@@ -54,6 +54,48 @@ namespace xpand3
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline SyntaxElement_ptr create< SyntaxElement >()
+    {
+        auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        return packageFactory->createSyntaxElement();
+    }
+    template< > inline File_ptr create< File >()
+    {
+        auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        return packageFactory->createFile();
+    }
+    template< > inline ImportStatement_ptr create< ImportStatement >()
+    {
+        auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        return packageFactory->createImportStatement();
+    }
+    template< > inline Identifier_ptr create< Identifier >()
+    {
+        auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        return packageFactory->createIdentifier();
+    }
+    template< > inline DeclaredParameter_ptr create< DeclaredParameter >()
+    {
+        auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        return packageFactory->createDeclaredParameter();
+    }
+
 } // xpand3
 
 #endif // _XPAND3FACTORY_HPP

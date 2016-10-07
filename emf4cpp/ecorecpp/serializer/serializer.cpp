@@ -26,8 +26,9 @@
 using namespace ::ecorecpp::serializer;
 using namespace ::ecore;
 
-serializer::serializer(std::ostream& _ostream) :
-     m_out(_ostream), m_level(0), m_ser(m_out)
+serializer::serializer(std::ostream& _ostream, XmiIndentMode mode) :
+	m_out(_ostream), m_level(0),
+	m_ser(m_out, mode == XmiIndentMode::Indentation)
 {
 }
 

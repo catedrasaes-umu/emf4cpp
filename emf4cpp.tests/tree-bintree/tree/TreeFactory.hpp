@@ -52,6 +52,36 @@ namespace tree
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline TreeNode_ptr create< TreeNode >()
+    {
+        auto eFactory = TreePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory);
+        return packageFactory->createTreeNode();
+    }
+    template< > inline Leaf_ptr create< Leaf >()
+    {
+        auto eFactory = TreePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory);
+        return packageFactory->createLeaf();
+    }
+    template< > inline NonTerminal_ptr create< NonTerminal >()
+    {
+        auto eFactory = TreePackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory);
+        return packageFactory->createNonTerminal();
+    }
+
 } // tree
 
 #endif // _TREEFACTORY_HPP

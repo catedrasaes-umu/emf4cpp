@@ -53,6 +53,42 @@ namespace company
 
     };
 
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline T* create()
+    {
+        return (T*) nullptr;
+    }
+
+    template< > inline Employee_ptr create< Employee >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        return packageFactory->createEmployee();
+    }
+    template< > inline Department_ptr create< Department >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        return packageFactory->createDepartment();
+    }
+    template< > inline Company_ptr create< Company >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        return packageFactory->createCompany();
+    }
+    template< > inline PhonebookEntry_ptr create< PhonebookEntry >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        return packageFactory->createPhonebookEntry();
+    }
+
 } // company
 
 #endif // _COMPANYFACTORY_HPP

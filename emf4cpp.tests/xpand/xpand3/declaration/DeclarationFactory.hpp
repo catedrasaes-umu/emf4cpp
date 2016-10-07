@@ -61,6 +61,89 @@ namespace xpand3
 
         };
 
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline T* create()
+        {
+            return (T*) nullptr;
+        }
+
+        template< > inline AbstractDeclaration_ptr create< AbstractDeclaration >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createAbstractDeclaration();
+        }
+        template< > inline AbstractNamedDeclaration_ptr create<
+                AbstractNamedDeclaration >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createAbstractNamedDeclaration();
+        }
+        template< > inline Definition_ptr create< Definition >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createDefinition();
+        }
+        template< > inline Extension_ptr create< Extension >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createExtension();
+        }
+        template< > inline AbstractAspect_ptr create< AbstractAspect >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createAbstractAspect();
+        }
+        template< > inline ExtensionAspect_ptr create< ExtensionAspect >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createExtensionAspect();
+        }
+        template< > inline DefinitionAspect_ptr create< DefinitionAspect >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createDefinitionAspect();
+        }
+        template< > inline Check_ptr create< Check >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createCheck();
+        }
+        template< > inline CreateExtension_ptr create< CreateExtension >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createCreateExtension();
+        }
+        template< > inline JavaExtension_ptr create< JavaExtension >()
+        {
+            auto eFactory =
+                    DeclarationPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            return packageFactory->createJavaExtension();
+        }
+
     } // declaration
 } // xpand3
 

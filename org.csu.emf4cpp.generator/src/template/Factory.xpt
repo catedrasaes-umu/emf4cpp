@@ -59,6 +59,24 @@ protected:
     
 };
 
+/** An object creation helper
+ *
+ * Usage (add namespaces as required):
+ *   auto p = create<MyClass>();
+ *
+ */
+template<class T> inline
+T* create() { return (T*)nullptr; }
+
+«FOREACH this.EClassifiers.typeSelect(EClass) AS class-»
+template<> inline
+«class.name»_ptr create<«class.name»>() {
+	auto eFactory = «name.toFirstUpper()»Package::_instance()->getEFactoryInstance();
+	auto packageFactory = dynamic_cast<«name.toFirstUpper()»Factory*>(eFactory);
+    return packageFactory->create«class.name»();
+}
+«ENDFOREACH-»
+
 «EXPAND template::EClassHPP::namespaces_end FOR this»
 
 #endif // _«getHeaderDef()»FACTORY_HPP
