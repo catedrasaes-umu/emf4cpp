@@ -123,7 +123,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EStringToStringMapEntry.hpp DEST
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EGenericType.hpp DESTINATION include/emf4cpp/ecore)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypeParameter.hpp DESTINATION include/emf4cpp/ecore)
    
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} /opt/emf4cpp/bin/../include/emf4cpp /opt/emf4cpp/bin/../include/emf4cpp)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../org.csu.emf4cpp.generator/../include/emf4cpp ../org.csu.emf4cpp.generator/../include/emf4cpp)
 
 add_library(emf4cpp-ecore SHARED ${ecore_HEADERS} ${ecore_SOURCES})
 set_target_properties(emf4cpp-ecore PROPERTIES VERSION 0.0.1 SOVERSION 1)
