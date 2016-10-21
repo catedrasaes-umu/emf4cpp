@@ -2,6 +2,7 @@
 /*
  * ecore/EGenericType.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <ecore/dllEcore.hpp>
+
 #include <ecore/EObject.hpp>
 
 /*PROTECTED REGION ID(EGenericType_pre) START*/
@@ -33,82 +36,78 @@
 namespace ecore
 {
 
-    class EGenericType: public virtual ::ecore::EObject
+class EXPORT_ECORE_DLL EGenericType : public virtual ::ecore::EObject
 
-    {
-    public:
-        EGenericType();
+{
+public:
+    EGenericType();
 
-        virtual ~EGenericType();
+    virtual ~EGenericType();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecore::EGenericType_ptr getEUpperBound();
-        void setEUpperBound(::ecore::EGenericType_ptr _eUpperBound);
+    // References
+    ::ecore::EGenericType_ptr getEUpperBound ();
+    void setEUpperBound (::ecore::EGenericType_ptr _eUpperBound);
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments();
+    ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments ();
 
-        ::ecore::EClassifier_ptr getERawType();
-        void setERawType(::ecore::EClassifier_ptr _eRawType);
+    ::ecore::EClassifier_ptr getERawType ();
+    void setERawType (::ecore::EClassifier_ptr _eRawType);
 
-        ::ecore::EGenericType_ptr getELowerBound();
-        void setELowerBound(::ecore::EGenericType_ptr _eLowerBound);
+    ::ecore::EGenericType_ptr getELowerBound ();
+    void setELowerBound (::ecore::EGenericType_ptr _eLowerBound);
 
-        ::ecore::ETypeParameter_ptr getETypeParameter();
-        void setETypeParameter(::ecore::ETypeParameter_ptr _eTypeParameter);
+    ::ecore::ETypeParameter_ptr getETypeParameter ();
+    void setETypeParameter (::ecore::ETypeParameter_ptr _eTypeParameter);
 
-        ::ecore::EClassifier_ptr getEClassifier();
-        void setEClassifier(::ecore::EClassifier_ptr _eClassifier);
+    ::ecore::EClassifier_ptr getEClassifier ();
+    void setEClassifier (::ecore::EClassifier_ptr _eClassifier);
 
-        /*PROTECTED REGION ID(EGenericType) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EGenericType) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(EGenericTypeImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EGenericTypeImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        // References
+    // References
 
-        ::ecore::EGenericType_ptr m_eUpperBound;
+    ::ecore::EGenericType_ptr m_eUpperBound;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eTypeArguments;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eTypeArguments;
 
-        ::ecore::EClassifier_ptr m_eRawType;
+    ::ecore::EClassifier_ptr m_eRawType;
 
-        ::ecore::EGenericType_ptr m_eLowerBound;
+    ::ecore::EGenericType_ptr m_eLowerBound;
 
-        ::ecore::ETypeParameter_ptr m_eTypeParameter;
+    ::ecore::ETypeParameter_ptr m_eTypeParameter;
 
-        ::ecore::EClassifier_ptr m_eClassifier;
+    ::ecore::EClassifier_ptr m_eClassifier;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EGENERICTYPE_HPP
 

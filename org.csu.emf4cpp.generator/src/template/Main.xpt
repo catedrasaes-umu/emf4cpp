@@ -22,6 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 «DEFINE main FOR EPackage»
     «EXPAND package FOR this»
     «EXPAND template::CMakeLists::MainCMake FOR this»
+    «EXPAND template::CMakeLists::CMake FOR this»
+    «EXPAND template::dllExtensions::hpp FOR this»
     «REM»«EXPAND template::Makefile::MainMakefile FOR this»«ENDREM»
 «ENDDEFINE»
 
@@ -36,10 +38,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     «EXPAND template::Factory::hppcpp FOR this»
     «EXPAND template::FactoryImpl::hppcpp FOR this»
     «EXPAND template::Package::hppcpp FOR this»
-    «EXPAND template::PackageImpl::hppcpp FOR this»
+    «EXPAND template::PackageImpl::hppcpp FOR this»	
     
     «REM»«EXPAND template::Makefile::Makefile FOR this»«ENDREM»
-    «EXPAND template::CMakeLists::CMake FOR this»
+    «REM»«EXPAND template::CMakeLists::CMake FOR this»«ENDREM»
     
     «EXPAND package FOREACH ESubpackages»
 «ENDDEFINE»

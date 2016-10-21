@@ -2,6 +2,7 @@
 /*
  * idlmm/Typed.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <idlmm/dllIdlmm.hpp>
+
 #include <ecore/EObject.hpp>
 
 /*PROTECTED REGION ID(Typed_pre) START*/
@@ -33,62 +36,59 @@
 namespace idlmm
 {
 
-    class Typed: public virtual ::ecore::EObject
+class EXPORT_IDLMM_DLL Typed : public virtual ::ecore::EObject
 
-    {
-    public:
-        Typed();
+{
+public:
+    Typed();
 
-        virtual ~Typed();
+    virtual ~Typed();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::idlmm::IDLType_ptr getContainedType();
-        void setContainedType(::idlmm::IDLType_ptr _containedType);
+    // References
+    ::idlmm::IDLType_ptr getContainedType ();
+    void setContainedType (::idlmm::IDLType_ptr _containedType);
 
-        ::idlmm::TypedefDef_ptr getSharedType();
-        void setSharedType(::idlmm::TypedefDef_ptr _sharedType);
+    ::idlmm::TypedefDef_ptr getSharedType ();
+    void setSharedType (::idlmm::TypedefDef_ptr _sharedType);
 
-        /*PROTECTED REGION ID(Typed) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Typed) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(TypedImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(TypedImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        // References
+    // References
 
-        ::idlmm::IDLType_ptr m_containedType;
+    ::idlmm::IDLType_ptr m_containedType;
 
-        ::idlmm::TypedefDef_ptr m_sharedType;
+    ::idlmm::TypedefDef_ptr m_sharedType;
 
-    };
+};
 
-} // idlmm
+}
+ // idlmm
 
 #endif // IDLMM_TYPED_HPP
 

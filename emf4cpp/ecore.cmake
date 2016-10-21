@@ -2,6 +2,7 @@
 #
 # ecore.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -69,10 +70,10 @@ set(ecore_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EGenericTypeImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypeParameter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypeParameterImpl.cpp
-   )
-   
+)
+
 set(ecore_HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/ecore.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecore.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore_forward.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EcorePackage.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EcoreFactory.hpp
@@ -96,7 +97,7 @@ set(ecore_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EStringToStringMapEntry.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EGenericType.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypeParameter.hpp
-   )
+)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore.hpp DESTINATION include/emf4cpp/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore_forward.hpp DESTINATION include/emf4cpp/)
@@ -122,11 +123,14 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypedElement.hpp DESTINATION in
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EStringToStringMapEntry.hpp DESTINATION include/emf4cpp/ecore)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EGenericType.hpp DESTINATION include/emf4cpp/ecore)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypeParameter.hpp DESTINATION include/emf4cpp/ecore)
-   
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/dllEcore.hpp DESTINATION include/emf4cpp/ecore)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../org.csu.emf4cpp.generator/../include/emf4cpp ../org.csu.emf4cpp.generator/../include/emf4cpp)
+link_directories(../org.csu.emf4cpp.generator/../lib)
 
 add_library(emf4cpp-ecore SHARED ${ecore_HEADERS} ${ecore_SOURCES})
-set_target_properties(emf4cpp-ecore PROPERTIES VERSION 0.0.1 SOVERSION 1)
+set_target_properties(emf4cpp-ecore PROPERTIES COMPILE_FLAGS "-DMAKE_ECORE_DLL" VERSION 0.0.1 SOVERSION 1)
+
 
 install(TARGETS emf4cpp-ecore DESTINATION lib)
 

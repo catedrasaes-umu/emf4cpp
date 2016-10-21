@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/ExtensionAspect.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <xpand3/dllXpand3.hpp>
+
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
@@ -38,58 +41,54 @@ namespace xpand3
     namespace declaration
     {
 
-        class ExtensionAspect: public virtual ::xpand3::declaration::AbstractAspect
-        {
-        public:
-            ExtensionAspect();
+    class EXPORT_XPAND3_DLL ExtensionAspect : public virtual ::xpand3::declaration::AbstractAspect
+    {
+    public:
+        ExtensionAspect();
 
-            virtual ~ExtensionAspect();
+        virtual ~ExtensionAspect();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::xpand3::expression::AbstractExpression_ptr getExpression();
-            void setExpression(
-                    ::xpand3::expression::AbstractExpression_ptr _expression);
+        // References
+        ::xpand3::expression::AbstractExpression_ptr getExpression ();
+        void setExpression (::xpand3::expression::AbstractExpression_ptr _expression);
 
-            /*PROTECTED REGION ID(ExtensionAspect) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(ExtensionAspect) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(ExtensionAspectImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(ExtensionAspectImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            // References
+        // References
 
-            ::xpand3::expression::AbstractExpression_ptr m_expression;
+        ::xpand3::expression::AbstractExpression_ptr m_expression;
 
-        };
+    };
 
-    } // declaration
-} // xpand3
+}
+ // declaration
+}// xpand3
 
 #endif // XPAND3_DECLARATION_EXTENSIONASPECT_HPP
 

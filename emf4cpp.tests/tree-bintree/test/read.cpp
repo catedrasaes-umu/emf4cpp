@@ -18,8 +18,7 @@
  */
 #include <ecorecpp.hpp>
 #include <tree.hpp>
-#include <boost/date_time/local_time/local_time.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
+#include <chrono>
 #include <fstream>
 
 using namespace tree;
@@ -31,31 +30,31 @@ int main(int argc, char* argv[])
 
     if (argc > 1)
     {
-        using namespace boost::posix_time;
-
-        ptime tStart = microsec_clock::local_time();
+		std::chrono::high_resolution_clock::time_point tStart =
+				std::chrono::high_resolution_clock::now();
 
         ::ecorecpp::parser::parser _parser;
         ::ecore::EObject_ptr _eobj = _parser.load(argv[1]);
 
-        ptime tEnd = microsec_clock::local_time();
+		std::chrono::high_resolution_clock::time_point tEnd =
+				std::chrono::high_resolution_clock::now();
 
-        time_duration tVal = tEnd - tStart;
-        std::cout << to_simple_string(tVal)  << std::endl;
+        std::chrono::microseconds duration =
+				std::chrono::duration_cast<std::chrono::microseconds>(tEnd - tStart);
+        std::cout << "Parsing duration: " << duration.count() << "us" << std::endl;
 
         assert(_eobj);
         TreeNode_ptr _node = ::tree::instanceOf< TreeNode >(_eobj);
 
-        tStart = microsec_clock::local_time();
+        tStart = std::chrono::high_resolution_clock::now();
 
         std::ofstream outfile ("salida.xmi");
         ::ecorecpp::serializer::serializer _serializer(outfile);
         _serializer.serialize(_eobj);
 
-        tEnd = microsec_clock::local_time();
-
-        tVal = tEnd - tStart;
-        std::cout << to_simple_string(tVal)  << std::endl;
+        tEnd = std::chrono::high_resolution_clock::now();
+        duration = std::chrono::duration_cast<std::chrono::microseconds>(tEnd - tStart);
+		std::cout << "Serializing duration: " << duration.count() << "us" << std::endl;
     }
 }
 

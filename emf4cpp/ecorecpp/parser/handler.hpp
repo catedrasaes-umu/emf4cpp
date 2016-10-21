@@ -28,12 +28,14 @@
 #include <list>
 #include <string>
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace parser
 {
 
-class handler
+class EXPORT_ECORECPP_DLL handler
 {
 public:
 

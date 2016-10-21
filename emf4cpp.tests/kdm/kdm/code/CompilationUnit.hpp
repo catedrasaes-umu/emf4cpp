@@ -2,6 +2,7 @@
 /*
  * kdm/code/CompilationUnit.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
@@ -38,53 +41,50 @@ namespace kdm
     namespace code
     {
 
-        class CompilationUnit: public virtual ::kdm::code::Module
-        {
-        public:
-            CompilationUnit();
+    class EXPORT_KDM_DLL CompilationUnit : public virtual ::kdm::code::Module
+    {
+    public:
+        CompilationUnit();
 
-            virtual ~CompilationUnit();
+        virtual ~CompilationUnit();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(CompilationUnit) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(CompilationUnit) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(CompilationUnitImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(CompilationUnitImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            // References
+        // References
 
-        };
+    };
 
-    } // code
-} // kdm
+}
+ // code
+}// kdm
 
 #endif // KDM_CODE_COMPILATIONUNIT_HPP
 

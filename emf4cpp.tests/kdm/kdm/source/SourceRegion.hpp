@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceRegion.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/core/Element.hpp>
@@ -37,86 +40,83 @@ namespace kdm
     namespace source
     {
 
-        class SourceRegion: public virtual ::kdm::core::Element
-        {
-        public:
-            SourceRegion();
+    class EXPORT_KDM_DLL SourceRegion : public virtual ::kdm::core::Element
+    {
+    public:
+        SourceRegion();
 
-            virtual ~SourceRegion();
+        virtual ~SourceRegion();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::core::Integer getStartLine() const;
-            void setStartLine(::kdm::core::Integer _startLine);
+        // Attributes
+        ::kdm::core::Integer getStartLine () const;
+        void setStartLine (::kdm::core::Integer _startLine);
 
-            ::kdm::core::Integer getStartPosition() const;
-            void setStartPosition(::kdm::core::Integer _startPosition);
+        ::kdm::core::Integer getStartPosition () const;
+        void setStartPosition (::kdm::core::Integer _startPosition);
 
-            ::kdm::core::Integer getEndLine() const;
-            void setEndLine(::kdm::core::Integer _endLine);
+        ::kdm::core::Integer getEndLine () const;
+        void setEndLine (::kdm::core::Integer _endLine);
 
-            ::kdm::core::Integer getEndPosition() const;
-            void setEndPosition(::kdm::core::Integer _endPosition);
+        ::kdm::core::Integer getEndPosition () const;
+        void setEndPosition (::kdm::core::Integer _endPosition);
 
-            ::kdm::core::String getLanguage() const;
-            void setLanguage(::kdm::core::String _language);
+        ::kdm::core::String getLanguage () const;
+        void setLanguage (::kdm::core::String _language);
 
-            ::kdm::core::String getPath() const;
-            void setPath(::kdm::core::String _path);
+        ::kdm::core::String getPath () const;
+        void setPath (::kdm::core::String _path);
 
-            // References
-            ::kdm::source::SourceFile_ptr getFile();
-            void setFile(::kdm::source::SourceFile_ptr _file);
+        // References
+        ::kdm::source::SourceFile_ptr getFile ();
+        void setFile (::kdm::source::SourceFile_ptr _file);
 
-            /*PROTECTED REGION ID(SourceRegion) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(SourceRegion) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(SourceRegionImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(SourceRegionImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            ::kdm::core::Integer m_startLine;
+        ::kdm::core::Integer m_startLine;
 
-            ::kdm::core::Integer m_startPosition;
+        ::kdm::core::Integer m_startPosition;
 
-            ::kdm::core::Integer m_endLine;
+        ::kdm::core::Integer m_endLine;
 
-            ::kdm::core::Integer m_endPosition;
+        ::kdm::core::Integer m_endPosition;
 
-            ::kdm::core::String m_language;
+        ::kdm::core::String m_language;
 
-            ::kdm::core::String m_path;
+        ::kdm::core::String m_path;
 
-            // References
+        // References
 
-            ::kdm::source::SourceFile_ptr m_file;
+        ::kdm::source::SourceFile_ptr m_file;
 
-        };
+    };
 
-    } // source
-} // kdm
+}
+ // source
+}// kdm
 
 #endif // KDM_SOURCE_SOURCEREGION_HPP
 

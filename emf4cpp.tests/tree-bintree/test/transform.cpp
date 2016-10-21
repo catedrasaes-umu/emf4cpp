@@ -2,14 +2,12 @@
 #include <ecorecpp.hpp>
 #include <tree.hpp>
 #include <bintree.hpp>
-#include <boost/date_time/local_time/local_time.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
+#include <chrono>
 #include <ostream>
 
 
 using namespace tree;
 using namespace bintree;
-using namespace boost::posix_time;
 
 struct node_finder
 {
@@ -77,17 +75,19 @@ int main(int argc, char* argv[])
     ::ecorecpp::parser::parser _parser;
 
 
-    ptime loadStart = microsec_clock::local_time();
+	std::chrono::high_resolution_clock::time_point tStart =
+			std::chrono::high_resolution_clock::now();
 
     ::ecore::EObject_ptr _eobj = _parser.load(argv[1]);
     assert(_eobj);
 
-    ptime loadEnd = microsec_clock::local_time();
 
-    {
-        time_duration tVal = loadEnd - loadStart;
-        std::cout << "Load time: " <<  to_simple_string(tVal)  << std::endl;
-    }
+	std::chrono::high_resolution_clock::time_point tEnd =
+			std::chrono::high_resolution_clock::now();
+
+	std::chrono::microseconds duration =
+			std::chrono::duration_cast<std::chrono::microseconds>(tEnd - tStart);
+	std::cout << "Load time: " << duration.count() << "us" << std::endl;
 
     // In root node
     TreeNode_ptr in_root_node = ::tree::instanceOf< TreeNode >(_eobj);
@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
 
     ::ecorecpp::mapping::EList< TreeNode > const& v = in_nt_root->getChildren();
 
-    ptime transformStart = microsec_clock::local_time();
+	tStart = std::chrono::high_resolution_clock::now();
 
     for (size_t i = 0; i < v.size(); ++i)
     {
@@ -113,25 +113,20 @@ int main(int argc, char* argv[])
         selected->setData (v[i]->getData());
     }
 
-    ptime transformEnd = microsec_clock::local_time();
+	tEnd = std::chrono::high_resolution_clock::now();
 
-    {
-        time_duration tVal = transformEnd - transformStart;
-        std::cout << "Transformation time: " <<  to_simple_string(tVal)
-                  << std::endl;
-    }
+	duration = std::chrono::duration_cast<std::chrono::microseconds>(tEnd - tStart);
+	std::cout << "Transformation time: " << duration.count() << "us" << std::endl;
 
-    ptime serStart = microsec_clock::local_time();
-    std::ofstream outfile ("model2.xmi");
+	tStart = std::chrono::high_resolution_clock::now();
+    
+	std::ofstream outfile ("model2.xmi");
     ::ecorecpp::serializer::serializer ser2(outfile);
     ser2.serialize(out_bt_root);
-    ptime serEnd = microsec_clock::local_time();
-
-    {
-        time_duration tVal = serEnd - serStart;
-        std::cout << "Serialization time: " <<  to_simple_string(tVal)
-                  << std::endl;
-    }
+	
+	tEnd = std::chrono::high_resolution_clock::now();
+	duration = std::chrono::duration_cast<std::chrono::microseconds>(tEnd - tStart);
+	std::cout << "Serialization time: " << duration.count() << "us" << std::endl;
 
     return 0;
 }

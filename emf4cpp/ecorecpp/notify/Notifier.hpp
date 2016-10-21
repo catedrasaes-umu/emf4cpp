@@ -21,6 +21,8 @@
 
 #include <ecore/EObject.hpp>
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace notify

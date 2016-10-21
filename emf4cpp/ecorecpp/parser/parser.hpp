@@ -23,12 +23,14 @@
 
 #include <ecore.hpp>
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace parser
 {
 
-class parser
+class EXPORT_ECORECPP_DLL parser
 {
 public:
 

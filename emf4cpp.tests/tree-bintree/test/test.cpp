@@ -19,7 +19,7 @@
 #include <ecorecpp.hpp>
 #include <tree.hpp>
 #include <fstream>
-#include <boost/lexical_cast.hpp>
+#include <string>
 
 using namespace tree;
 
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
     for (size_t i = 0; i < 1000000; i++)
     {
         TreeNode_ptr current = _efac->createLeaf();
-        current->setData(boost::lexical_cast< std::string >(i));
+        current->setData(std::to_string(i));
 
         root_node->getChildren().push_back(current);
         current->setParent(root_node);

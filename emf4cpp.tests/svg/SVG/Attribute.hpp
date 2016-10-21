@@ -2,6 +2,7 @@
 /*
  * SVG/Attribute.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <SVG/dllSVG.hpp>
+
 #include <ecore/EObject.hpp>
 
 /*PROTECTED REGION ID(Attribute_pre) START*/
@@ -33,57 +36,53 @@
 namespace SVG
 {
 
-    class Attribute: public virtual ::ecore::EObject
+class EXPORT_SVG_DLL Attribute : public virtual ::ecore::EObject
 
-    {
-    public:
-        Attribute();
+{
+public:
+    Attribute();
 
-        virtual ~Attribute();
+    virtual ~Attribute();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner();
+    // References
+    ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner ();
 
-        /*PROTECTED REGION ID(Attribute) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Attribute) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(AttributeImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(AttributeImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::SVG::Element > > m_attOwner;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Element > > m_attOwner;
 
-    };
+};
 
-} // SVG
+}
+ // SVG
 
 #endif // SVG_ATTRIBUTE_HPP
 

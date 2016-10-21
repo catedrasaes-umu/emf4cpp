@@ -2,6 +2,7 @@
 /*
  * ecore/EAnnotation.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <ecore/dllEcore.hpp>
+
 #include <ecore/EModelElement.hpp>
 
 /*PROTECTED REGION ID(EAnnotation_pre) START*/
@@ -33,77 +36,71 @@
 namespace ecore
 {
 
-    class EAnnotation: public virtual ::ecore::EModelElement
-    {
-    public:
-        EAnnotation();
+class EXPORT_ECORE_DLL EAnnotation : public virtual ::ecore::EModelElement
+{
+public:
+    EAnnotation();
 
-        virtual ~EAnnotation();
+    virtual ~EAnnotation();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EString const& getSource() const;
-        void setSource(::ecore::EString const& _source);
+    // Attributes
+    ::ecore::EString const& getSource () const;
+    void setSource (::ecore::EString const& _source);
 
-        // References
-        ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails();
+    // References
+    ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails ();
 
-        ::ecore::EModelElement_ptr getEModelElement();
-        void setEModelElement(::ecore::EModelElement_ptr _eModelElement);
-        ::ecore::EModelElement_ptr basicgetEModelElement();
-        void basicsetEModelElement(::ecore::EModelElement_ptr _eModelElement);
+    ::ecore::EModelElement_ptr getEModelElement ();
+    void setEModelElement (::ecore::EModelElement_ptr _eModelElement);
+    ::ecore::EModelElement_ptr basicgetEModelElement ();
+    void basicsetEModelElement (::ecore::EModelElement_ptr _eModelElement);
 
-        ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents();
+    ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences();
+    ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences ();
 
-        /*PROTECTED REGION ID(EAnnotation) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EAnnotation) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(EAnnotationImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EAnnotationImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::ecore::EString m_source;
+    ::ecore::EString m_source;
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry > > m_details;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry > > m_details;
 
-        ::ecore::EModelElement_ptr m_eModelElement;
+    ::ecore::EModelElement_ptr m_eModelElement;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::ecore::EObject > > m_contents;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > m_contents;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::ecore::EObject > > m_references;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > m_references;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EANNOTATION_HPP
 

@@ -2,6 +2,7 @@
 /*
  * ecore/EDataType.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <ecore/dllEcore.hpp>
+
 #include <ecore/EClassifier.hpp>
 
 /*PROTECTED REGION ID(EDataType_pre) START*/
@@ -33,56 +36,53 @@
 namespace ecore
 {
 
-    class EDataType: public virtual ::ecore::EClassifier
-    {
-    public:
-        EDataType();
+class EXPORT_ECORE_DLL EDataType : public virtual ::ecore::EClassifier
+{
+public:
+    EDataType();
 
-        virtual ~EDataType();
+    virtual ~EDataType();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EBoolean isSerializable() const;
-        void setSerializable(::ecore::EBoolean _serializable);
+    // Attributes
+    ::ecore::EBoolean isSerializable () const;
+    void setSerializable (::ecore::EBoolean _serializable);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(EDataType) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EDataType) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(EDataTypeImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EDataTypeImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::ecore::EBoolean m_serializable;
+    ::ecore::EBoolean m_serializable;
 
-        // References
+    // References
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EDATATYPE_HPP
 

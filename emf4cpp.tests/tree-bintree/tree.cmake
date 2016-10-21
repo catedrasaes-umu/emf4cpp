@@ -2,6 +2,7 @@
 #
 # tree.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -35,17 +36,17 @@ set(tree_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/LeafImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/NonTerminal.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/NonTerminalImpl.cpp
-   )
-   
+)
+
 set(tree_HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/tree.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/tree.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree_forward.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/TreePackage.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/TreeFactory.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/TreeNode.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/Leaf.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tree/NonTerminal.hpp
-   )
+)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree.hpp DESTINATION include/emf4cpp/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree_forward.hpp DESTINATION include/emf4cpp/)
@@ -54,11 +55,15 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/TreePackage.hpp DESTINATION inclu
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/TreeNode.hpp DESTINATION include/emf4cpp/tree)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/Leaf.hpp DESTINATION include/emf4cpp/tree)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/NonTerminal.hpp DESTINATION include/emf4cpp/tree)
-   
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../emf4cpp ../../emf4cpp)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/dllTree.hpp DESTINATION include/emf4cpp/tree)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
 
 add_library(emf4cpp-tree SHARED ${tree_HEADERS} ${tree_SOURCES})
-set_target_properties(emf4cpp-tree PROPERTIES VERSION 0.0.1 SOVERSION 1)
+set_target_properties(emf4cpp-tree PROPERTIES COMPILE_FLAGS "-DMAKE_TREE_DLL" VERSION 0.0.1 SOVERSION 1)
+target_link_libraries(emf4cpp-tree emf4cpp-ecore)
+
 
 install(TARGETS emf4cpp-tree DESTINATION lib)
 

@@ -2,6 +2,7 @@
 #
 # json.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -45,10 +46,10 @@ set(json_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/json/ArrayValueImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json/NullValue.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json/NullValueImpl.cpp
-   )
-   
+)
+
 set(json_HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/json.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/json.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json_forward.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json/JsonPackage.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json/JsonFactory.hpp
@@ -60,7 +61,7 @@ set(json_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/json/BooleanValue.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json/ArrayValue.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json/NullValue.hpp
-   )
+)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/json.hpp DESTINATION include/emf4cpp/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/json_forward.hpp DESTINATION include/emf4cpp/)
@@ -74,11 +75,15 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/json/NumberValue.hpp DESTINATION inclu
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/json/BooleanValue.hpp DESTINATION include/emf4cpp/json)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/json/ArrayValue.hpp DESTINATION include/emf4cpp/json)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/json/NullValue.hpp DESTINATION include/emf4cpp/json)
-   
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../emf4cpp ../../emf4cpp)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/json/dllJson.hpp DESTINATION include/emf4cpp/json)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
 
 add_library(emf4cpp-json SHARED ${json_HEADERS} ${json_SOURCES})
-set_target_properties(emf4cpp-json PROPERTIES VERSION 0.0.1 SOVERSION 1)
+set_target_properties(emf4cpp-json PROPERTIES COMPILE_FLAGS "-DMAKE_JSON_DLL" VERSION 0.0.1 SOVERSION 1)
+target_link_libraries(emf4cpp-json emf4cpp-ecore)
+
 
 install(TARGETS emf4cpp-json DESTINATION lib)
 

@@ -1,6 +1,7 @@
 «REM»
 EClassHPP.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -38,6 +39,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <«EPackage.getFQN("/")»_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <«EPackage.getDllExtensionPrefix()».hpp>
+
 «FOREACH getNeededPackages() AS pkg-»
 #include <«pkg.getFQN("/")»_forward.hpp>
 «ENDFOREACH-»
@@ -56,7 +59,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «EXPAND namespaces_begin FOR EPackage-»
 
-class «name» «IF !ESuperTypes.isEmpty-»: «FOREACH ESuperTypes AS supertype SEPARATOR ", "-»public virtual ::«supertype.getFQN()»«ENDFOREACH-»
+class EXPORT_«EPackage.getTopLevelPackage().name.toUpperCase()»_DLL «name» «IF !ESuperTypes.isEmpty-»: «FOREACH ESuperTypes AS supertype SEPARATOR ", "-»public virtual ::«supertype.getFQN()»«ENDFOREACH-»
         «ELSE-»«IF "::"+this.getFQN() != "::ecore::EObject"»: public virtual ::ecore::EObject
         «ENDIF»«ENDIF»
 {

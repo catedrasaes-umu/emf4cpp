@@ -27,6 +27,8 @@
 #include "greedy_serializer.hpp"
 #include <ostream>
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace serializer
@@ -34,7 +36,7 @@ namespace serializer
 
 typedef ::ecorecpp::mapping::type_definitions::string_t string_t;
 
-class serializer
+class EXPORT_ECORECPP_DLL serializer
 {
 public:
 

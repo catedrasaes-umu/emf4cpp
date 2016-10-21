@@ -2,6 +2,7 @@
 /*
  * kdm/data/DataRelationship.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/data/AbstractDataRelationship.hpp>
@@ -37,62 +40,59 @@ namespace kdm
     namespace data
     {
 
-        class DataRelationship: public virtual ::kdm::data::AbstractDataRelationship
-        {
-        public:
-            DataRelationship();
+    class EXPORT_KDM_DLL DataRelationship : public virtual ::kdm::data::AbstractDataRelationship
+    {
+    public:
+        DataRelationship();
 
-            virtual ~DataRelationship();
+        virtual ~DataRelationship();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::kdm::core::KDMEntity_ptr getTo();
-            void setTo(::kdm::core::KDMEntity_ptr _to);
+        // References
+        ::kdm::core::KDMEntity_ptr getTo ();
+        void setTo (::kdm::core::KDMEntity_ptr _to);
 
-            ::kdm::data::AbstractDataElement_ptr getFrom();
-            void setFrom(::kdm::data::AbstractDataElement_ptr _from);
+        ::kdm::data::AbstractDataElement_ptr getFrom ();
+        void setFrom (::kdm::data::AbstractDataElement_ptr _from);
 
-            /*PROTECTED REGION ID(DataRelationship) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(DataRelationship) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(DataRelationshipImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(DataRelationshipImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            // References
+        // References
 
-            ::kdm::core::KDMEntity_ptr m_to;
+        ::kdm::core::KDMEntity_ptr m_to;
 
-            ::kdm::data::AbstractDataElement_ptr m_from;
+        ::kdm::data::AbstractDataElement_ptr m_from;
 
-        };
+    };
 
-    } // data
-} // kdm
+}
+ // data
+}// kdm
 
 #endif // KDM_DATA_DATARELATIONSHIP_HPP
 

@@ -27,6 +27,8 @@
 #include "json_serializer.hpp"
 #include <fstream>
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace json
@@ -34,7 +36,7 @@ namespace json
 
 typedef ::ecorecpp::mapping::type_definitions::string_t string_t;
 
-class serializer
+class EXPORT_ECORECPP_DLL serializer
 {
 public:
 

@@ -35,9 +35,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <ecore/EFactory.hpp>
 #include <«getFQN("/")».hpp>
 
+#include <«getDllExtensionPrefix()».hpp>
+
 «EXPAND template::EClassHPP::namespaces_begin FOR this-»
 
-class «name.toFirstUpper()»Factory : public virtual ::ecore::EFactory
+class EXPORT_«getTopLevelPackage().name.toUpperCase()»_DLL «name.toFirstUpper()»Factory : public virtual ::ecore::EFactory
 {
 public:
 

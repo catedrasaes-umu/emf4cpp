@@ -2,6 +2,7 @@
 /*
  * xpand3/Xpand3Factory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,10 +24,12 @@
 #include <ecore/EFactory.hpp>
 #include <xpand3.hpp>
 
+#include <xpand3/dllXpand3.hpp>
+
 namespace xpand3
 {
 
-    class Xpand3Factory: public virtual ::ecore::EFactory
+    class EXPORT_XPAND3_DLL Xpand3Factory : public virtual ::ecore::EFactory
     {
     public:
 
@@ -38,13 +41,9 @@ namespace xpand3
         virtual Identifier_ptr createIdentifier();
         virtual DeclaredParameter_ptr createDeclaredParameter();
 
-        virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-        virtual ::ecore::EJavaObject createFromString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EString const& _literalValue);
-        virtual ::ecore::EString convertToString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EJavaObject const& _instanceValue);
+        virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+        virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+        virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
     protected:
 

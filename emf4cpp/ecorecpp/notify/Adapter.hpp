@@ -21,6 +21,8 @@
 
 #include "../notify_forward.hpp"
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace notify

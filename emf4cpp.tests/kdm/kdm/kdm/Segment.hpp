@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/Segment.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/KDMFramework.hpp>
 
@@ -36,62 +39,57 @@ namespace kdm
     namespace kdm
     {
 
-        class Segment: public virtual ::kdm::kdm::KDMFramework
-        {
-        public:
-            Segment();
+    class EXPORT_KDM_DLL Segment : public virtual ::kdm::kdm::KDMFramework
+    {
+    public:
+        Segment();
 
-            virtual ~Segment();
+        virtual ~Segment();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment();
+        // References
+        ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment ();
 
-            ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel();
+        ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel ();
 
-            /*PROTECTED REGION ID(Segment) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(Segment) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(SegmentImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(SegmentImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            // References
+        // References
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::kdm::Segment > > m_segment;
+        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::Segment > > m_segment;
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel > > m_model;
+        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel > > m_model;
 
-        };
+    };
 
-    } // kdm
-} // kdm
+}
+ // kdm
+}// kdm
 
 #endif // KDM_KDM_SEGMENT_HPP
 

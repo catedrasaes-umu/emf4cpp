@@ -2,6 +2,7 @@
 /*
  * kdm/KdmPackage.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -24,40 +25,42 @@
 #include <kdm_forward.hpp>
 #include <ecorecpp/PackageDeleter.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 namespace kdm
 {
 
-    class KdmPackage: public virtual ::ecore::EPackage
-    {
-    public:
+class EXPORT_KDM_DLL KdmPackage : public virtual ::ecore::EPackage
+{
+public:
 
-        static KdmPackage_ptr _instance();
-        static KdmPackage_ptr _getInstanceAndRemoveOwnership();
+    static KdmPackage_ptr _instance();
+    static KdmPackage_ptr _getInstanceAndRemoveOwnership();
 
-        // IDs for classifiers
+    // IDs for classifiers
 
-        // EClassifiers methods
+    // EClassifiers methods
 
-        // EStructuralFeatures methods
+    // EStructuralFeatures methods
 
-    protected:
+protected:
 
-        static std::unique_ptr< KdmPackage,
-                ::ecorecpp::PackageDeleter< KdmPackage > > s_instance;
+    static std::unique_ptr< KdmPackage, ::ecorecpp::PackageDeleter<KdmPackage> > s_instance;
 
-        KdmPackage();
+    KdmPackage();
 
-        // EClass instances 
+    // EClass instances 
 
-        // EEnuminstances 
+    // EEnuminstances 
 
-        // EDataType instances 
+    // EDataType instances 
 
-        // EStructuralFeatures instances
+    // EStructuralFeatures instances
 
-    };
+};
 
-} // kdm
+}
+ // kdm
 
 #endif // _KDMPACKAGE_HPP
 

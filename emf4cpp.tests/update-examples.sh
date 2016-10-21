@@ -12,9 +12,11 @@ FILES="./tree-bintree/Tree.ecore
 ./idlmm/IDLMM.ecore
 ./json/json.ecore
 ./enumeration/enumeration.ecore
+./eopposite/eopposite.ecore
+./subpackage/subpackage.ecore
 "
 
-EMF4CPP=../../emf4cpp
+EMF4CPP=../../builds/emf4cpp-generator-1.1.0-Linux-x86
 EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_1.1.0.jar
 GENERATOR="java -jar $EMF4CPPJAR"
 
@@ -35,7 +37,7 @@ function testLicenseText ()
 	rm -f $FILES
 
 	(cd $DIR ; $GENERATOR --internal -o . -e $EMF4CPP `basename $1`)
-	grep -L "Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>" $FILES
+	grep -L "SAES-UMU 2010 <andres.senac@um.es>" $FILES
 	if [ $? -ne 0 ] ; then
 	    echo "License text failed: No internal copyright when called w/ -i"
 	    return 2
@@ -60,7 +62,7 @@ else
 
 		echo "Updating $i"
 
-	        (cd $DIRNAME && $GENERATOR --internal -o . -e $EMF4CPP $BASENAME)
+	        (cd $DIRNAME && $GENERATOR --clear --internal -o . -e $EMF4CPP $BASENAME)
 
 		echo "Done!"
 	done

@@ -2,6 +2,7 @@
 /*
  * PrimitiveTypes/PrimitiveTypesPackage.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -24,64 +25,66 @@
 #include <PrimitiveTypes_forward.hpp>
 #include <ecorecpp/PackageDeleter.hpp>
 
+#include <PrimitiveTypes/dllPrimitiveTypes.hpp>
+
 namespace PrimitiveTypes
 {
 
-    class PrimitiveTypesPackage: public virtual ::ecore::EPackage
-    {
-    public:
+class EXPORT_PRIMITIVETYPES_DLL PrimitiveTypesPackage : public virtual ::ecore::EPackage
+{
+public:
 
-        static PrimitiveTypesPackage_ptr _instance();
-        static PrimitiveTypesPackage_ptr _getInstanceAndRemoveOwnership();
+    static PrimitiveTypesPackage_ptr _instance();
+    static PrimitiveTypesPackage_ptr _getInstanceAndRemoveOwnership();
 
-        // IDs for classifiers
+    // IDs for classifiers
 
-        static const int BOOLEAN = 0;
+    static const int BOOLEAN = 0;
 
-        static const int DOUBLE = 1;
+    static const int DOUBLE = 1;
 
-        static const int INTEGER = 2;
+    static const int INTEGER = 2;
 
-        static const int STRING = 3;
+    static const int STRING = 3;
 
-        // EClassifiers methods
+    // EClassifiers methods
 
-        virtual ::ecore::EDataType_ptr getBoolean();
+    virtual ::ecore::EDataType_ptr getBoolean();
 
-        virtual ::ecore::EDataType_ptr getInteger();
+    virtual ::ecore::EDataType_ptr getInteger();
 
-        virtual ::ecore::EDataType_ptr getString();
+    virtual ::ecore::EDataType_ptr getString();
 
-        virtual ::ecore::EDataType_ptr getDouble();
+    virtual ::ecore::EDataType_ptr getDouble();
 
-        // EStructuralFeatures methods
+    // EStructuralFeatures methods
 
-    protected:
+protected:
 
-        static std::unique_ptr< PrimitiveTypesPackage,
-                ::ecorecpp::PackageDeleter< PrimitiveTypesPackage > > s_instance;
+    static std::unique_ptr< PrimitiveTypesPackage, ::ecorecpp::PackageDeleter<PrimitiveTypesPackage> > s_instance;
 
-        PrimitiveTypesPackage();
+    PrimitiveTypesPackage();
 
-        // EClass instances 
+    // EClass instances 
 
-        // EEnuminstances 
+    // EEnuminstances 
 
-        // EDataType instances 
+    // EDataType instances 
 
-        ::ecore::EDataType_ptr m_BooleanEDataType;
+    ::ecore::EDataType_ptr m_BooleanEDataType;
 
-        ::ecore::EDataType_ptr m_IntegerEDataType;
+    ::ecore::EDataType_ptr m_IntegerEDataType;
 
-        ::ecore::EDataType_ptr m_StringEDataType;
+    ::ecore::EDataType_ptr m_StringEDataType;
 
-        ::ecore::EDataType_ptr m_DoubleEDataType;
+    ::ecore::EDataType_ptr m_DoubleEDataType;
 
-        // EStructuralFeatures instances
+    // EStructuralFeatures instances
 
-    };
+};
 
-} // PrimitiveTypes
+}
+ // PrimitiveTypes
 
 #endif // _PRIMITIVETYPESPACKAGE_HPP
 

@@ -22,7 +22,7 @@ GENERATOR_DIR=${BASEDIR}
 
 # Default options
 DEST_DIR="."
-ECORECPP_PATH="${GENERATOR_DIR}/../include/emf4cpp"
+ECORECPP_PATH="${GENERATOR_DIR}/.."
 
 
 # Go go go

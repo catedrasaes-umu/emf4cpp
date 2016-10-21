@@ -2,6 +2,7 @@
 /*
  * SVG/Element.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <SVG/dllSVG.hpp>
+
 #include <PrimitiveTypes_forward.hpp>
 
 #include <ecore/EObject.hpp>
@@ -35,111 +38,106 @@
 namespace SVG
 {
 
-    class Element: public virtual ::ecore::EObject
+class EXPORT_SVG_DLL Element : public virtual ::ecore::EObject
 
-    {
-    public:
-        Element();
+{
+public:
+    Element();
 
-        virtual ~Element();
+    virtual ~Element();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::String getFill() const;
-        void setFill(::PrimitiveTypes::String _fill);
+    // Attributes
+    ::PrimitiveTypes::String getFill () const;
+    void setFill (::PrimitiveTypes::String _fill);
 
-        ::PrimitiveTypes::String getViewBox() const;
-        void setViewBox(::PrimitiveTypes::String _viewBox);
+    ::PrimitiveTypes::String getViewBox () const;
+    void setViewBox (::PrimitiveTypes::String _viewBox);
 
-        ::PrimitiveTypes::String getIdentifier() const;
-        void setIdentifier(::PrimitiveTypes::String _identifier);
+    ::PrimitiveTypes::String getIdentifier () const;
+    void setIdentifier (::PrimitiveTypes::String _identifier);
 
-        // References
-        ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner();
+    // References
+    ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner ();
 
-        ::ecorecpp::mapping::EList< ::SVG::Use >& getTarget();
+    ::ecorecpp::mapping::EList< ::SVG::Use >& getTarget ();
 
-        ::ecorecpp::mapping::EList< ::SVG::Attribute >& getAttribute();
+    ::ecorecpp::mapping::EList< ::SVG::Attribute >& getAttribute ();
 
-        ::SVG::Coordinates_ptr getPosition();
-        void setPosition(::SVG::Coordinates_ptr _position);
+    ::SVG::Coordinates_ptr getPosition ();
+    void setPosition (::SVG::Coordinates_ptr _position);
 
-        ::SVG::Dimension_ptr getSize();
-        void setSize(::SVG::Dimension_ptr _size);
+    ::SVG::Dimension_ptr getSize ();
+    void setSize (::SVG::Dimension_ptr _size);
 
-        ::SVG::Svg_ptr getRoot();
-        void setRoot(::SVG::Svg_ptr _root);
-        ::SVG::Svg_ptr basicgetRoot();
-        void basicsetRoot(::SVG::Svg_ptr _root);
+    ::SVG::Svg_ptr getRoot ();
+    void setRoot (::SVG::Svg_ptr _root);
+    ::SVG::Svg_ptr basicgetRoot ();
+    void basicsetRoot (::SVG::Svg_ptr _root);
 
-        ::SVG::GroupingElement_ptr getGroup();
-        void setGroup(::SVG::GroupingElement_ptr _group);
-        ::SVG::GroupingElement_ptr basicgetGroup();
-        void basicsetGroup(::SVG::GroupingElement_ptr _group);
+    ::SVG::GroupingElement_ptr getGroup ();
+    void setGroup (::SVG::GroupingElement_ptr _group);
+    ::SVG::GroupingElement_ptr basicgetGroup ();
+    void basicsetGroup (::SVG::GroupingElement_ptr _group);
 
-        ::SVG::Marker_ptr getDrawsMarker();
-        void setDrawsMarker(::SVG::Marker_ptr _drawsMarker);
-        ::SVG::Marker_ptr basicgetDrawsMarker();
-        void basicsetDrawsMarker(::SVG::Marker_ptr _drawsMarker);
+    ::SVG::Marker_ptr getDrawsMarker ();
+    void setDrawsMarker (::SVG::Marker_ptr _drawsMarker);
+    ::SVG::Marker_ptr basicgetDrawsMarker ();
+    void basicsetDrawsMarker (::SVG::Marker_ptr _drawsMarker);
 
-        /*PROTECTED REGION ID(Element) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Element) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(ElementImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(ElementImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::PrimitiveTypes::String m_fill;
+    ::PrimitiveTypes::String m_fill;
 
-        ::PrimitiveTypes::String m_viewBox;
+    ::PrimitiveTypes::String m_viewBox;
 
-        ::PrimitiveTypes::String m_identifier;
+    ::PrimitiveTypes::String m_identifier;
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Use > > m_target;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Use > > m_target;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::SVG::Attribute > > m_attribute;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Attribute > > m_attribute;
 
-        ::SVG::Coordinates_ptr m_position;
+    ::SVG::Coordinates_ptr m_position;
 
-        ::SVG::Dimension_ptr m_size;
+    ::SVG::Dimension_ptr m_size;
 
-        ::SVG::Svg_ptr m_root;
+    ::SVG::Svg_ptr m_root;
 
-        ::SVG::GroupingElement_ptr m_group;
+    ::SVG::GroupingElement_ptr m_group;
 
-        ::SVG::Marker_ptr m_drawsMarker;
+    ::SVG::Marker_ptr m_drawsMarker;
 
-    };
+};
 
-} // SVG
+}
+ // SVG
 
 #endif // SVG_ELEMENT_HPP
 

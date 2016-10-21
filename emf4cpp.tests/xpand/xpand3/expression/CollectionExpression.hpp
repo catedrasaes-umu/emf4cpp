@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/CollectionExpression.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <xpand3/dllXpand3.hpp>
+
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression/FeatureCall.hpp>
@@ -37,63 +40,59 @@ namespace xpand3
     namespace expression
     {
 
-        class CollectionExpression: public virtual ::xpand3::expression::FeatureCall
-        {
-        public:
-            CollectionExpression();
+    class EXPORT_XPAND3_DLL CollectionExpression : public virtual ::xpand3::expression::FeatureCall
+    {
+    public:
+        CollectionExpression();
 
-            virtual ~CollectionExpression();
+        virtual ~CollectionExpression();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::xpand3::expression::AbstractExpression_ptr getClosure();
-            void setClosure(
-                    ::xpand3::expression::AbstractExpression_ptr _closure);
+        // References
+        ::xpand3::expression::AbstractExpression_ptr getClosure ();
+        void setClosure (::xpand3::expression::AbstractExpression_ptr _closure);
 
-            ::xpand3::Identifier_ptr getEleName();
-            void setEleName(::xpand3::Identifier_ptr _eleName);
+        ::xpand3::Identifier_ptr getEleName ();
+        void setEleName (::xpand3::Identifier_ptr _eleName);
 
-            /*PROTECTED REGION ID(CollectionExpression) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(CollectionExpression) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(CollectionExpressionImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(CollectionExpressionImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            // References
+        // References
 
-            ::xpand3::expression::AbstractExpression_ptr m_closure;
+        ::xpand3::expression::AbstractExpression_ptr m_closure;
 
-            ::xpand3::Identifier_ptr m_eleName;
+        ::xpand3::Identifier_ptr m_eleName;
 
-        };
+    };
 
-    } // expression
-} // xpand3
+}
+ // expression
+}// xpand3
 
 #endif // XPAND3_EXPRESSION_COLLECTIONEXPRESSION_HPP
 

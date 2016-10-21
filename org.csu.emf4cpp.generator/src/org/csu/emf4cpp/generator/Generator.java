@@ -1,8 +1,6 @@
 package org.csu.emf4cpp.generator;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
@@ -50,15 +48,16 @@ public class Generator {
         Resource resource = rs.getResource(fileURI, true);
 
         Map<String, Variable> globalVarsMap = new HashMap<String, Variable>();
-        globalVarsMap.put("ecorePath", new Variable("ecorePath", ecPath));
-        globalVarsMap.put("ecoreCppPath", new Variable("ecoreCppPath", ecPath));
+        globalVarsMap.put("ecorePath", new Variable("ecorePath", ecPath+"/include/emf4cpp"));
+        globalVarsMap.put("ecoreCppPath", new Variable("ecoreCppPath", ecPath+"/include/emf4cpp"));
+        globalVarsMap.put("ecoreLibraryPath", new Variable("ecoreLibraryPath", ecPath+"/lib"));
         globalVarsMap.put("emf4cppVersion", new Variable("emf4cppVersion", version));
         globalVarsMap.put("internalLicense", new Variable("internalLicense", internalLicense));
         globalVarsMap.put("bootstrap", new Variable("bootstrap", bootstrap));
 
         // Configure outlets
         CppBeautifier cppBeautifier = new CppBeautifier();
-        FileList fileList = new FileList();
+        final FileList fileList = new FileList();
 
         OutputImpl output = new OutputImpl();
         NoChangesVetoStrategy vetoStrategy = new NoChangesVetoStrategy(); 

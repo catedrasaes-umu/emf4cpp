@@ -2,6 +2,7 @@
 /*
  * idlmm/AttributeDef.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <idlmm/dllIdlmm.hpp>
+
 #include <ecore_forward.hpp>
 #include <idlmm/Contained.hpp>
 #include <idlmm/Typed.hpp>
@@ -35,66 +38,60 @@
 namespace idlmm
 {
 
-    class AttributeDef: public virtual ::idlmm::Contained,
-            public virtual ::idlmm::Typed
-    {
-    public:
-        AttributeDef();
+class EXPORT_IDLMM_DLL AttributeDef : public virtual ::idlmm::Contained, public virtual ::idlmm::Typed
+{
+public:
+    AttributeDef();
 
-        virtual ~AttributeDef();
+    virtual ~AttributeDef();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EBoolean isIsReadonly() const;
-        void setIsReadonly(::ecore::EBoolean _isReadonly);
+    // Attributes
+    ::ecore::EBoolean isIsReadonly () const;
+    void setIsReadonly (::ecore::EBoolean _isReadonly);
 
-        // References
-        ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises();
+    // References
+    ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises ();
 
-        ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises();
+    ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises ();
 
-        /*PROTECTED REGION ID(AttributeDef) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(AttributeDef) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(AttributeDefImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(AttributeDefImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::ecore::EBoolean m_isReadonly;
+    ::ecore::EBoolean m_isReadonly;
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_getRaises;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_getRaises;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_setRaises;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_setRaises;
 
-    };
+};
 
-} // idlmm
+}
+ // idlmm
 
 #endif // IDLMM_ATTRIBUTEDEF_HPP
 

@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/JavaExtension.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <xpand3/dllXpand3.hpp>
+
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
@@ -38,67 +41,63 @@ namespace xpand3
     namespace declaration
     {
 
-        class JavaExtension: public virtual ::xpand3::declaration::AbstractNamedDeclaration
-        {
-        public:
-            JavaExtension();
+    class EXPORT_XPAND3_DLL JavaExtension : public virtual ::xpand3::declaration::AbstractNamedDeclaration
+    {
+    public:
+        JavaExtension();
 
-            virtual ~JavaExtension();
+        virtual ~JavaExtension();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::xpand3::Identifier_ptr getJavaType();
-            void setJavaType(::xpand3::Identifier_ptr _javaType);
+        // References
+        ::xpand3::Identifier_ptr getJavaType ();
+        void setJavaType (::xpand3::Identifier_ptr _javaType);
 
-            ::xpand3::Identifier_ptr getJavaMethod();
-            void setJavaMethod(::xpand3::Identifier_ptr _javaMethod);
+        ::xpand3::Identifier_ptr getJavaMethod ();
+        void setJavaMethod (::xpand3::Identifier_ptr _javaMethod);
 
-            ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes();
+        ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes ();
 
-            /*PROTECTED REGION ID(JavaExtension) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(JavaExtension) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(JavaExtensionImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(JavaExtensionImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            // References
+        // References
 
-            ::xpand3::Identifier_ptr m_javaType;
+        ::xpand3::Identifier_ptr m_javaType;
 
-            ::xpand3::Identifier_ptr m_javaMethod;
+        ::xpand3::Identifier_ptr m_javaMethod;
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::xpand3::Identifier > > m_javaParamTypes;
+        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::xpand3::Identifier > > m_javaParamTypes;
 
-        };
+    };
 
-    } // declaration
-} // xpand3
+}
+ // declaration
+}// xpand3
 
 #endif // XPAND3_DECLARATION_JAVAEXTENSION_HPP
 

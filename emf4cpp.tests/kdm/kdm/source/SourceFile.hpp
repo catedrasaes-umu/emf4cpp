@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceFile.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source/InventoryItem.hpp>
@@ -37,62 +40,59 @@ namespace kdm
     namespace source
     {
 
-        class SourceFile: public virtual ::kdm::source::InventoryItem
-        {
-        public:
-            SourceFile();
+    class EXPORT_KDM_DLL SourceFile : public virtual ::kdm::source::InventoryItem
+    {
+    public:
+        SourceFile();
 
-            virtual ~SourceFile();
+        virtual ~SourceFile();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::core::String getLanguage() const;
-            void setLanguage(::kdm::core::String _language);
+        // Attributes
+        ::kdm::core::String getLanguage () const;
+        void setLanguage (::kdm::core::String _language);
 
-            ::kdm::core::String getEncoding() const;
-            void setEncoding(::kdm::core::String _encoding);
+        ::kdm::core::String getEncoding () const;
+        void setEncoding (::kdm::core::String _encoding);
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(SourceFile) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(SourceFile) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(SourceFileImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(SourceFileImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            ::kdm::core::String m_language;
+        ::kdm::core::String m_language;
 
-            ::kdm::core::String m_encoding;
+        ::kdm::core::String m_encoding;
 
-            // References
+        // References
 
-        };
+    };
 
-    } // source
-} // kdm
+}
+ // source
+}// kdm
 
 #endif // KDM_SOURCE_SOURCEFILE_HPP
 

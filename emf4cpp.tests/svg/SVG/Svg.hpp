@@ -2,6 +2,7 @@
 /*
  * SVG/Svg.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <SVG/dllSVG.hpp>
+
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/StructuralElement.hpp>
 
@@ -34,75 +37,70 @@
 namespace SVG
 {
 
-    class Svg: public virtual ::SVG::StructuralElement
-    {
-    public:
-        Svg();
+class EXPORT_SVG_DLL Svg : public virtual ::SVG::StructuralElement
+{
+public:
+    Svg();
 
-        virtual ~Svg();
+    virtual ~Svg();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::String getNamespace() const;
-        void setNamespace(::PrimitiveTypes::String _namespace);
+    // Attributes
+    ::PrimitiveTypes::String getNamespace () const;
+    void setNamespace (::PrimitiveTypes::String _namespace);
 
-        ::PrimitiveTypes::String getVersion() const;
-        void setVersion(::PrimitiveTypes::String _version);
+    ::PrimitiveTypes::String getVersion () const;
+    void setVersion (::PrimitiveTypes::String _version);
 
-        ::PrimitiveTypes::String getBaseProfile() const;
-        void setBaseProfile(::PrimitiveTypes::String _baseProfile);
+    ::PrimitiveTypes::String getBaseProfile () const;
+    void setBaseProfile (::PrimitiveTypes::String _baseProfile);
 
-        // References
-        ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG();
+    // References
+    ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG ();
 
-        ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren();
+    ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren ();
 
-        /*PROTECTED REGION ID(Svg) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Svg) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(SvgImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(SvgImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::PrimitiveTypes::String m_namespace;
+    ::PrimitiveTypes::String m_namespace;
 
-        ::PrimitiveTypes::String m_version;
+    ::PrimitiveTypes::String m_version;
 
-        ::PrimitiveTypes::String m_baseProfile;
+    ::PrimitiveTypes::String m_baseProfile;
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner_SVG;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner_SVG;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::SVG::Element > > m_children;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Element > > m_children;
 
-    };
+};
 
-} // SVG
+}
+ // SVG
 
 #endif // SVG_SVG_HPP
 

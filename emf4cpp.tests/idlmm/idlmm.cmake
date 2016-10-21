@@ -2,6 +2,7 @@
 #
 # idlmm.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -81,10 +82,10 @@ set(idlmm_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/TranslationUnitImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/Include.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/IncludeImpl.cpp
-   )
-   
+)
+
 set(idlmm_HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/idlmm.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/idlmm.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm_forward.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/IdlmmPackage.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/IdlmmFactory.hpp
@@ -114,7 +115,7 @@ set(idlmm_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/StructDef.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/TranslationUnit.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/Include.hpp
-   )
+)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/idlmm.hpp DESTINATION include/emf4cpp/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/idlmm_forward.hpp DESTINATION include/emf4cpp/)
@@ -146,11 +147,15 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/EnumDef.hpp DESTINATION include/
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/StructDef.hpp DESTINATION include/emf4cpp/idlmm)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/TranslationUnit.hpp DESTINATION include/emf4cpp/idlmm)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/Include.hpp DESTINATION include/emf4cpp/idlmm)
-   
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../emf4cpp ../../emf4cpp)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/idlmm/dllIdlmm.hpp DESTINATION include/emf4cpp/idlmm)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
 
 add_library(emf4cpp-idlmm SHARED ${idlmm_HEADERS} ${idlmm_SOURCES})
-set_target_properties(emf4cpp-idlmm PROPERTIES VERSION 0.0.1 SOVERSION 1)
+set_target_properties(emf4cpp-idlmm PROPERTIES COMPILE_FLAGS "-DMAKE_IDLMM_DLL" VERSION 0.0.1 SOVERSION 1)
+target_link_libraries(emf4cpp-idlmm emf4cpp-ecore)
+
 
 install(TARGETS emf4cpp-idlmm DESTINATION lib)
 

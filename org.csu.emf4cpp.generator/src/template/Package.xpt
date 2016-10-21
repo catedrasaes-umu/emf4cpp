@@ -43,9 +43,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <«e.getFQN("/")»/«e.getPackageName()».hpp>
 «ENDFOREACH-»
 
+#include <«getDllExtensionPrefix()».hpp>
+
 «EXPAND template::EClassHPP::namespaces_begin FOR this-»
 
-class «name.toFirstUpper()»Package : public virtual ::ecore::EPackage
+class EXPORT_«getTopLevelPackage().name.toUpperCase()»_DLL «name.toFirstUpper()»Package : public virtual ::ecore::EPackage
 {
 public:
 

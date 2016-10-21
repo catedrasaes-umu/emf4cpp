@@ -2,6 +2,7 @@
 /*
  * ecore/EClassifier.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <ecore/dllEcore.hpp>
+
 #include <ecore/ENamedElement.hpp>
 
 /*PROTECTED REGION ID(EClassifier_pre) START*/
@@ -33,94 +36,89 @@
 namespace ecore
 {
 
-    class EClassifier: public virtual ::ecore::ENamedElement
-    {
-    public:
-        EClassifier();
+class EXPORT_ECORE_DLL EClassifier : public virtual ::ecore::ENamedElement
+{
+public:
+    EClassifier();
 
-        virtual ~EClassifier();
+    virtual ~EClassifier();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        virtual ::ecore::EBoolean isInstance(
-                ::ecore::EJavaObject const& _object);
+    virtual ::ecore::EBoolean isInstance ( ::ecore::EJavaObject const& _object);
 
-        virtual ::ecore::EInt getClassifierID();
+    virtual ::ecore::EInt getClassifierID ();
 
-        // Attributes
-        ::ecore::EString const& getInstanceClassName() const;
-        void setInstanceClassName(::ecore::EString const& _instanceClassName);
+    // Attributes
+    ::ecore::EString const& getInstanceClassName () const;
+    void setInstanceClassName (::ecore::EString const& _instanceClassName);
 
-        int getInstanceClass() const;
-        void setInstanceClass(int _instanceClass);
+    int getInstanceClass () const;
+    void setInstanceClass (int _instanceClass);
 
-        ::ecore::EJavaObject const& getDefaultValue() const;
-        void setDefaultValue(::ecore::EJavaObject const& _defaultValue);
+    ::ecore::EJavaObject const& getDefaultValue () const;
+    void setDefaultValue (::ecore::EJavaObject const& _defaultValue);
 
-        ::ecore::EString const& getInstanceTypeName() const;
-        void setInstanceTypeName(::ecore::EString const& _instanceTypeName);
+    ::ecore::EString const& getInstanceTypeName () const;
+    void setInstanceTypeName (::ecore::EString const& _instanceTypeName);
 
-        // References
-        ::ecore::EPackage_ptr getEPackage();
-        void setEPackage(::ecore::EPackage_ptr _ePackage);
-        ::ecore::EPackage_ptr basicgetEPackage();
-        void basicsetEPackage(::ecore::EPackage_ptr _ePackage);
+    // References
+    ::ecore::EPackage_ptr getEPackage ();
+    void setEPackage (::ecore::EPackage_ptr _ePackage);
+    ::ecore::EPackage_ptr basicgetEPackage ();
+    void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
 
-        ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters();
+    ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
 
-        /*PROTECTED REGION ID(EClassifier) ENABLED START*/
+    /*PROTECTED REGION ID(EClassifier) ENABLED START*/
 
-        // virtual void setClassifierID ( ::ecore::EInt _id) = 0;
-        /*PROTECTED REGION END*/
+    // virtual void setClassifierID ( ::ecore::EInt _id) = 0;
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(EClassifierImpl) ENABLED START*/
+    /*PROTECTED REGION ID(EClassifierImpl) ENABLED START*/
 
-    public:
+public:
 
-        virtual void setClassifierID(::ecore::EInt _id);
+    virtual void setClassifierID(::ecore::EInt _id);
 
-    protected:
+protected:
 
-        ::ecore::EInt m_id;
+    ::ecore::EInt m_id;
 
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::ecore::EString m_instanceClassName;
+    ::ecore::EString m_instanceClassName;
 
-        int m_instanceClass;
+    int m_instanceClass;
 
-        ::ecore::EJavaObject m_defaultValue;
+    ::ecore::EJavaObject m_defaultValue;
 
-        ::ecore::EString m_instanceTypeName;
+    ::ecore::EString m_instanceTypeName;
 
-        // References
+    // References
 
-        ::ecore::EPackage_ptr m_ePackage;
+    ::ecore::EPackage_ptr m_ePackage;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::ecore::ETypeParameter > > m_eTypeParameters;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::ETypeParameter > > m_eTypeParameters;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_ECLASSIFIER_HPP
 

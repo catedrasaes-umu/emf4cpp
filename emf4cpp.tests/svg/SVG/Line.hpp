@@ -2,6 +2,7 @@
 /*
  * SVG/Line.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <SVG/dllSVG.hpp>
+
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Shape.hpp>
 
@@ -34,64 +37,61 @@
 namespace SVG
 {
 
-    class Line: public virtual ::SVG::Shape
-    {
-    public:
-        Line();
+class EXPORT_SVG_DLL Line : public virtual ::SVG::Shape
+{
+public:
+    Line();
 
-        virtual ~Line();
+    virtual ~Line();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::String getMarkerEnd() const;
-        void setMarkerEnd(::PrimitiveTypes::String _markerEnd);
+    // Attributes
+    ::PrimitiveTypes::String getMarkerEnd () const;
+    void setMarkerEnd (::PrimitiveTypes::String _markerEnd);
 
-        ::PrimitiveTypes::String getMarkerStart() const;
-        void setMarkerStart(::PrimitiveTypes::String _markerStart);
+    ::PrimitiveTypes::String getMarkerStart () const;
+    void setMarkerStart (::PrimitiveTypes::String _markerStart);
 
-        // References
-        ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween();
+    // References
+    ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween ();
 
-        /*PROTECTED REGION ID(Line) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Line) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(LineImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(LineImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::PrimitiveTypes::String m_markerEnd;
+    ::PrimitiveTypes::String m_markerEnd;
 
-        ::PrimitiveTypes::String m_markerStart;
+    ::PrimitiveTypes::String m_markerStart;
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Point > > m_between;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Point > > m_between;
 
-    };
+};
 
-} // SVG
+}
+ // SVG
 
 #endif // SVG_LINE_HPP
 

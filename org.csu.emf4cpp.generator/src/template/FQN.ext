@@ -65,6 +65,25 @@ cached String getFactoryPrefix(EPackage this) :
 	getFactoryPrefix("/")
 ;
 
+EPackage getTopLevelPackage(EPackage this) :
+	if this.ESuperPackage == null then
+		this
+	else
+		this.ESuperPackage.getTopLevelPackage()
+;
+
+cached String getDllExtensionPrefix(EPackage this, String separator) : 
+	getTopLevelPackage().getFQN(separator) + separator + "dll" + getTopLevelPackage().name.toFirstUpper()
+;
+
+cached String getDllExtensionPrefix(EPackage this) : 
+	getDllExtensionPrefix("/")
+;
+
+cached String getDllExtensionInclude(EPackage this) : 
+	"dll" + getTopLevelPackage().name.toFirstUpper() + ".hpp"
+;
+
 String getPackageGetAttribute(EPackage this, EClassifier class) :
 	getNotReservedName("get"+class.name.toFirstUpper())
 ;

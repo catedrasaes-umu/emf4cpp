@@ -2,6 +2,7 @@
 /*
  * xpand3/ImportStatement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <xpand3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <xpand3/dllXpand3.hpp>
+
 #include <ecore_forward.hpp>
 #include <xpand3/SyntaxElement.hpp>
 
@@ -34,60 +37,57 @@
 namespace xpand3
 {
 
-    class ImportStatement: public virtual ::xpand3::SyntaxElement
-    {
-    public:
-        ImportStatement();
+class EXPORT_XPAND3_DLL ImportStatement : public virtual ::xpand3::SyntaxElement
+{
+public:
+    ImportStatement();
 
-        virtual ~ImportStatement();
+    virtual ~ImportStatement();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EBoolean isExported() const;
-        void setExported(::ecore::EBoolean _exported);
+    // Attributes
+    ::ecore::EBoolean isExported () const;
+    void setExported (::ecore::EBoolean _exported);
 
-        // References
-        ::xpand3::Identifier_ptr getImportedId();
-        void setImportedId(::xpand3::Identifier_ptr _importedId);
+    // References
+    ::xpand3::Identifier_ptr getImportedId ();
+    void setImportedId (::xpand3::Identifier_ptr _importedId);
 
-        /*PROTECTED REGION ID(ImportStatement) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(ImportStatement) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(ImportStatementImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(ImportStatementImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::ecore::EBoolean m_exported;
+    ::ecore::EBoolean m_exported;
 
-        // References
+    // References
 
-        ::xpand3::Identifier_ptr m_importedId;
+    ::xpand3::Identifier_ptr m_importedId;
 
-    };
+};
 
-} // xpand3
+}
+ // xpand3
 
 #endif // XPAND3_IMPORTSTATEMENT_HPP
 

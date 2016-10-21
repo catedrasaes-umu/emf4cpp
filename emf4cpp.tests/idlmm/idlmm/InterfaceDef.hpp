@@ -2,6 +2,7 @@
 /*
  * idlmm/InterfaceDef.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <idlmm/dllIdlmm.hpp>
+
 #include <ecore_forward.hpp>
 #include <idlmm/Container.hpp>
 #include <idlmm/TypedefDef.hpp>
@@ -35,71 +38,66 @@
 namespace idlmm
 {
 
-    class InterfaceDef: public virtual ::idlmm::Container,
-            public virtual ::idlmm::TypedefDef
-    {
-    public:
-        InterfaceDef();
+class EXPORT_IDLMM_DLL InterfaceDef : public virtual ::idlmm::Container, public virtual ::idlmm::TypedefDef
+{
+public:
+    InterfaceDef();
 
-        virtual ~InterfaceDef();
+    virtual ~InterfaceDef();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EBoolean isIsAbstract() const;
-        void setIsAbstract(::ecore::EBoolean _isAbstract);
+    // Attributes
+    ::ecore::EBoolean isIsAbstract () const;
+    void setIsAbstract (::ecore::EBoolean _isAbstract);
 
-        ::ecore::EBoolean isIsCustom() const;
-        void setIsCustom(::ecore::EBoolean _isCustom);
+    ::ecore::EBoolean isIsCustom () const;
+    void setIsCustom (::ecore::EBoolean _isCustom);
 
-        ::ecore::EBoolean isIsTruncatable() const;
-        void setIsTruncatable(::ecore::EBoolean _isTruncatable);
+    ::ecore::EBoolean isIsTruncatable () const;
+    void setIsTruncatable (::ecore::EBoolean _isTruncatable);
 
-        // References
-        ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom();
+    // References
+    ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom ();
 
-        /*PROTECTED REGION ID(InterfaceDef) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(InterfaceDef) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(InterfaceDefImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(InterfaceDefImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::ecore::EBoolean m_isAbstract;
+    ::ecore::EBoolean m_isAbstract;
 
-        ::ecore::EBoolean m_isCustom;
+    ::ecore::EBoolean m_isCustom;
 
-        ::ecore::EBoolean m_isTruncatable;
+    ::ecore::EBoolean m_isTruncatable;
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef > > m_derivesFrom;
+    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef > > m_derivesFrom;
 
-    };
+};
 
-} // idlmm
+}
+ // idlmm
 
 #endif // IDLMM_INTERFACEDEF_HPP
 

@@ -20,10 +20,6 @@
 
 using namespace ::ecorecpp::notify;
 
-Notification::~Notification()
-{
-}
-
 Notification::EventType Notification::getEventType()
 {
     return m_event_type;

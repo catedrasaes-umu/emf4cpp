@@ -25,13 +25,15 @@
 #include <map>
 #include <memory>
 
+#include "dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 
 class MetaModelRepository;
 typedef MetaModelRepository* MetaModelRepository_ptr;
 
-class MetaModelRepository
+class EXPORT_ECORECPP_DLL MetaModelRepository
 {
 public:
 

@@ -57,7 +57,7 @@ public:
     {
     }
 
-    virtual ~Notification();
+    virtual ~Notification() = default;
 
     static const int NO_FEATURE_ID = -1;
 

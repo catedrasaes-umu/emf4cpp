@@ -2,6 +2,7 @@
 /*
  * SVG/FontStyle.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <SVG/dllSVG.hpp>
+
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Attribute.hpp>
 
@@ -34,56 +37,53 @@
 namespace SVG
 {
 
-    class FontStyle: public virtual ::SVG::Attribute
-    {
-    public:
-        FontStyle();
+class EXPORT_SVG_DLL FontStyle : public virtual ::SVG::Attribute
+{
+public:
+    FontStyle();
 
-        virtual ~FontStyle();
+    virtual ~FontStyle();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::Boolean getItalic() const;
-        void setItalic(::PrimitiveTypes::Boolean _italic);
+    // Attributes
+    ::PrimitiveTypes::Boolean getItalic () const;
+    void setItalic (::PrimitiveTypes::Boolean _italic);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(FontStyle) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(FontStyle) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(FontStyleImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(FontStyleImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::PrimitiveTypes::Boolean m_italic;
+    ::PrimitiveTypes::Boolean m_italic;
 
-        // References
+    // References
 
-    };
+};
 
-} // SVG
+}
+ // SVG
 
 #endif // SVG_FONTSTYLE_HPP
 

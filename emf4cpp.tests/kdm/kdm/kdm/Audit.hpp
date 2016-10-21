@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/Audit.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 #include <kdm/core_forward.hpp>
 #include <kdm/core/Element.hpp>
 
@@ -36,67 +39,64 @@ namespace kdm
     namespace kdm
     {
 
-        class Audit: public virtual ::kdm::core::Element
-        {
-        public:
-            Audit();
+    class EXPORT_KDM_DLL Audit : public virtual ::kdm::core::Element
+    {
+    public:
+        Audit();
 
-            virtual ~Audit();
+        virtual ~Audit();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::core::String getDescription() const;
-            void setDescription(::kdm::core::String _description);
+        // Attributes
+        ::kdm::core::String getDescription () const;
+        void setDescription (::kdm::core::String _description);
 
-            ::kdm::core::String getAuthor() const;
-            void setAuthor(::kdm::core::String _author);
+        ::kdm::core::String getAuthor () const;
+        void setAuthor (::kdm::core::String _author);
 
-            ::kdm::core::String getDate() const;
-            void setDate(::kdm::core::String _date);
+        ::kdm::core::String getDate () const;
+        void setDate (::kdm::core::String _date);
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(Audit) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(Audit) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
-            virtual void _inverseAdd(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual void _inverseRemove(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _oldValue);
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-            /*PROTECTED REGION ID(AuditImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /*PROTECTED REGION ID(AuditImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-        protected:
-            // Attributes
+    protected:
+        // Attributes
 
-            ::kdm::core::String m_description;
+        ::kdm::core::String m_description;
 
-            ::kdm::core::String m_author;
+        ::kdm::core::String m_author;
 
-            ::kdm::core::String m_date;
+        ::kdm::core::String m_date;
 
-            // References
+        // References
 
-        };
+    };
 
-    } // kdm
-} // kdm
+}
+ // kdm
+}// kdm
 
 #endif // KDM_KDM_AUDIT_HPP
 

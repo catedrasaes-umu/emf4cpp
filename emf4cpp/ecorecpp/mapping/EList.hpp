@@ -48,7 +48,7 @@ public:
     template< typename Q >
     inline void insert_all(EList< Q >& _q)
     {
-        ptr_type _p(_q.asEListOf< T >());
+        ptr_type _p(_q.template asEListOf< T >());
 
         for (size_t i = 0; i < _p->size(); i++)
             push_back(_p->get(i));

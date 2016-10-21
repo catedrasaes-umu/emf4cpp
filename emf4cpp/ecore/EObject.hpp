@@ -2,6 +2,7 @@
 /*
  * ecore/EObject.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <ecore/dllEcore.hpp>
+
 /*PROTECTED REGION ID(EObject_pre) ENABLED START*/
 #include <ecorecpp/notify_forward.hpp>
 /*PROTECTED REGION END*/
@@ -30,134 +33,125 @@
 namespace ecore
 {
 
-    class EObject
+class EXPORT_ECORE_DLL EObject
+{
+public:
+    EObject();
+
+    virtual ~EObject();
+
+    virtual void _initialize();
+
+    // Operations
+
+    virtual ::ecore::EClass_ptr eClass ();
+
+    virtual ::ecore::EBoolean eIsProxy ();
+
+    virtual ::ecore::EResource eResource ();
+
+    virtual ::ecore::EObject_ptr eContainer ();
+
+    virtual ::ecore::EStructuralFeature_ptr eContainingFeature ();
+
+    virtual ::ecore::EReference_ptr eContainmentFeature ();
+
+    virtual std::list< ::ecore::EObject_ptr > eContents ();
+
+    virtual int eAllContents ();
+
+    virtual std::list< ::ecore::EObject_ptr > eCrossReferences ();
+
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EStructuralFeature_ptr _feature);
+
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EStructuralFeature_ptr _feature, ::ecore::EBoolean _resolve);
+
+    virtual void eSet ( ::ecore::EStructuralFeature_ptr _feature, ::ecore::EJavaObject const& _newValue);
+
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EStructuralFeature_ptr _feature);
+
+    virtual void eUnset ( ::ecore::EStructuralFeature_ptr _feature);
+
+    virtual ::ecore::EJavaObject eInvoke ( ::ecore::EOperation_ptr _operation, std::list< ::ecorecpp::mapping::any > const& _arguments);
+
+    // Attributes
+
+    // References
+
+    // Special EObject C++ mapping internal helper operation
+    template<typename T>
+    inline T* as()
     {
-    public:
-        EObject();
+        return dynamic_cast<T*>(this);
+    }
 
-        virtual ~EObject();
+    /*PROTECTED REGION ID(EObject) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        virtual void _initialize();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        // Operations
+    /*PROTECTED REGION ID(EObjectImpl) ENABLED START*/
 
-        virtual ::ecore::EClass_ptr eClass();
-
-        virtual ::ecore::EBoolean eIsProxy();
-
-        virtual ::ecore::EResource eResource();
-
-        virtual ::ecore::EObject_ptr eContainer();
-
-        virtual ::ecore::EStructuralFeature_ptr eContainingFeature();
-
-        virtual ::ecore::EReference_ptr eContainmentFeature();
-
-        virtual std::list< ::ecore::EObject_ptr > eContents();
-
-        virtual int eAllContents();
-
-        virtual std::list< ::ecore::EObject_ptr > eCrossReferences();
-
-        virtual ::ecore::EJavaObject eGet(
-                ::ecore::EStructuralFeature_ptr _feature);
-
-        virtual ::ecore::EJavaObject eGet(
-                ::ecore::EStructuralFeature_ptr _feature,
-                ::ecore::EBoolean _resolve);
-
-        virtual void eSet(::ecore::EStructuralFeature_ptr _feature,
-                ::ecore::EJavaObject const& _newValue);
-
-        virtual ::ecore::EBoolean eIsSet(
-                ::ecore::EStructuralFeature_ptr _feature);
-
-        virtual void eUnset(::ecore::EStructuralFeature_ptr _feature);
-
-        virtual ::ecore::EJavaObject eInvoke(::ecore::EOperation_ptr _operation,
-                std::list< ::ecorecpp::mapping::any > const& _arguments);
-
-        // Attributes
-
-        // References
-
-        // Special EObject C++ mapping internal helper operation
-        template< typename T >
-        inline T* as()
-        {
-            return dynamic_cast< T* >(this);
-        }
-
-        /*PROTECTED REGION ID(EObject) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
-
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
-
-        /*PROTECTED REGION ID(EObjectImpl) ENABLED START*/
-
-        void _setEContainer(::ecore::EObject_ptr _eContainer,
-                ::ecore::EStructuralFeature_ptr _eContainingFeature);
+    void _setEContainer(::ecore::EObject_ptr _eContainer,
+            ::ecore::EStructuralFeature_ptr _eContainingFeature);
 
 #ifdef ECORECPP_NOTIFICATION_API
-        // Notification API
-        /**
-         * TODO: Returns non-const reference temporarily.
-         * It will return a EList<Adapter> type non-const reference when implemented.
-         */
-        std::vector< ::ecorecpp::notify::Adapter_ptr >& eAdapters();
+    // Notification API
+    /**
+     * TODO: Returns non-const reference temporarily.
+     * It will return a EList<Adapter> type non-const reference when implemented.
+     */
+    std::vector< ::ecorecpp::notify::Adapter_ptr >& eAdapters();
 
-        void eNotify( ::ecorecpp::notify::Notification_ptr _notification);
+    void eNotify( ::ecorecpp::notify::Notification_ptr _notification);
 
-        bool eNotificationRequired();
+    bool eNotificationRequired();
 
-        inline bool eDeliver()
-        {
-            return m_eDeliver;
-        }
+    inline bool eDeliver()
+    {
+        return m_eDeliver;
+    }
 
-        inline void eSetDeliver(bool deliver)
-        {
-            m_eDeliver = deliver;
-        }
+    inline void eSetDeliver(bool deliver)
+    {
+        m_eDeliver = deliver;
+    }
 
-        // Adapter
-        virtual void notifyChanged( ::ecorecpp::notify::Notification_ptr _notification);
+    // Adapter
+    virtual void notifyChanged( ::ecorecpp::notify::Notification_ptr _notification);
 #endif
 
-    protected:
+protected:
 
-        ::ecore::EObject_ptr m_eContainer;
-        ::ecore::EStructuralFeature_ptr m_eContainingFeature;
+    ::ecore::EObject_ptr m_eContainer;
+    ::ecore::EStructuralFeature_ptr m_eContainingFeature;
 
 #ifdef ECORECPP_NOTIFICATION_API
-        // Notification API
-        std::vector< ::ecorecpp::notify::Adapter_ptr > m_eAdapters;
-        bool m_eDeliver;
+    // Notification API
+    std::vector< ::ecorecpp::notify::Adapter_ptr > m_eAdapters;
+    bool m_eDeliver;
 #endif
 
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        // References
+    // References
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EOBJECT_HPP
 

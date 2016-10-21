@@ -1,0 +1,74 @@
+«REM»
+dllExtensions.xpt
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+
+«DEFINE hpp FOR EPackage»
+«FILE getDllExtensionPrefix()+".hpp"-»
+«IF (boolean) GLOBALVAR internalLicense»
+«EXPAND template::License::License FOR getDllExtensionPrefix()+".hpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getDllExtensionPrefix()+".hpp"-»
+«ENDIF»
+#ifndef _DLL_«getHeaderDef()»_HPP
+#define _DLL_«getHeaderDef()»_HPP
+/*
+ * Defines 3 preprocessor symbols:
+ * - MAKE_«getHeaderDef()»_DLL  set to 1 when building the dll, else unset
+ * - USE_«getHeaderDef()»_DLL    set to 1 when using the dll, else unset
+ * - EXPORT_«getHeaderDef()»_DLL  always set, import when using the dll,
+ *          export when building dll
+ *
+ * Pattern taken from qglobal.h
+ */
+
+#if defined(__WIN32__) || defined(_WIN32)
+
+#   if defined(MAKE_«getHeaderDef()»_DLL)
+#       if defined(USE_«getHeaderDef()»_DLL)
+#           undef USE_«getHeaderDef()»_DLL
+#       endif
+
+#       define EXPORT_«getHeaderDef()»_DLL __declspec(dllexport)
+#       define EXTERN_«getHeaderDef()»_DLL __declspec(dllimport)
+
+#   else
+#       if !defined(USE_«getHeaderDef()»_DLL)
+#           define USE_«getHeaderDef()»_DLL 1
+#       endif
+
+#       define EXPORT_«getHeaderDef()»_DLL __declspec(dllimport)
+#       define EXTERN_«getHeaderDef()»_DLL __declspec(dllexport)
+
+#   endif
+
+
+#else
+
+#   define EXPORT_«getHeaderDef()»_DLL
+#   define EXTERN_«getHeaderDef()»_DLL
+
+#endif
+
+#endif // _«getHeaderDef()»_HPP
+
+«ENDFILE»
+
+«ENDDEFINE»

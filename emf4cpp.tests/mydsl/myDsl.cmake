@@ -2,6 +2,7 @@
 #
 # myDsl.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -41,10 +42,10 @@ set(myDsl_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/EntityImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/Property.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/PropertyImpl.cpp
-   )
-   
+)
+
 set(myDsl_HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/myDsl.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/myDsl.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl_forward.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/MyDslPackage.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/MyDslFactory.hpp
@@ -54,7 +55,7 @@ set(myDsl_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/SimpleType.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/Entity.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/Property.hpp
-   )
+)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/myDsl.hpp DESTINATION include/emf4cpp/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/myDsl_forward.hpp DESTINATION include/emf4cpp/)
@@ -66,11 +67,15 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/Type.hpp DESTINATION include/emf
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/SimpleType.hpp DESTINATION include/emf4cpp/myDsl)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/Entity.hpp DESTINATION include/emf4cpp/myDsl)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/Property.hpp DESTINATION include/emf4cpp/myDsl)
-   
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../emf4cpp ../../emf4cpp)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/myDsl/dllMyDsl.hpp DESTINATION include/emf4cpp/myDsl)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
 
 add_library(emf4cpp-myDsl SHARED ${myDsl_HEADERS} ${myDsl_SOURCES})
-set_target_properties(emf4cpp-myDsl PROPERTIES VERSION 0.0.1 SOVERSION 1)
+set_target_properties(emf4cpp-myDsl PROPERTIES COMPILE_FLAGS "-DMAKE_MYDSL_DLL" VERSION 0.0.1 SOVERSION 1)
+target_link_libraries(emf4cpp-myDsl emf4cpp-ecore)
+
 
 install(TARGETS emf4cpp-myDsl DESTINATION lib)
 

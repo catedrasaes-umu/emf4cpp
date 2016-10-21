@@ -2,6 +2,7 @@
 /*
  * ecore/ETypedElement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,6 +24,8 @@
 #include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <ecore/dllEcore.hpp>
+
 #include <ecore/ENamedElement.hpp>
 
 /*PROTECTED REGION ID(ETypedElement_pre) START*/
@@ -33,90 +36,87 @@
 namespace ecore
 {
 
-    class ETypedElement: public virtual ::ecore::ENamedElement
-    {
-    public:
-        ETypedElement();
+class EXPORT_ECORE_DLL ETypedElement : public virtual ::ecore::ENamedElement
+{
+public:
+    ETypedElement();
 
-        virtual ~ETypedElement();
+    virtual ~ETypedElement();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EBoolean isOrdered() const;
-        void setOrdered(::ecore::EBoolean _ordered);
+    // Attributes
+    ::ecore::EBoolean isOrdered () const;
+    void setOrdered (::ecore::EBoolean _ordered);
 
-        ::ecore::EBoolean isUnique() const;
-        void setUnique(::ecore::EBoolean _unique);
+    ::ecore::EBoolean isUnique () const;
+    void setUnique (::ecore::EBoolean _unique);
 
-        ::ecore::EInt getLowerBound() const;
-        void setLowerBound(::ecore::EInt _lowerBound);
+    ::ecore::EInt getLowerBound () const;
+    void setLowerBound (::ecore::EInt _lowerBound);
 
-        ::ecore::EInt getUpperBound() const;
-        void setUpperBound(::ecore::EInt _upperBound);
+    ::ecore::EInt getUpperBound () const;
+    void setUpperBound (::ecore::EInt _upperBound);
 
-        ::ecore::EBoolean isMany() const;
-        void setMany(::ecore::EBoolean _many);
+    ::ecore::EBoolean isMany () const;
+    void setMany (::ecore::EBoolean _many);
 
-        ::ecore::EBoolean isRequired() const;
-        void setRequired(::ecore::EBoolean _required);
+    ::ecore::EBoolean isRequired () const;
+    void setRequired (::ecore::EBoolean _required);
 
-        // References
-        ::ecore::EClassifier_ptr getEType();
-        void setEType(::ecore::EClassifier_ptr _eType);
+    // References
+    ::ecore::EClassifier_ptr getEType ();
+    void setEType (::ecore::EClassifier_ptr _eType);
 
-        ::ecore::EGenericType_ptr getEGenericType();
-        void setEGenericType(::ecore::EGenericType_ptr _eGenericType);
+    ::ecore::EGenericType_ptr getEGenericType ();
+    void setEGenericType (::ecore::EGenericType_ptr _eGenericType);
 
-        /*PROTECTED REGION ID(ETypedElement) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(ETypedElement) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
-        virtual void _inverseAdd(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual void _inverseRemove(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _oldValue);
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(ETypedElementImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(ETypedElementImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    // Attributes
 
-        ::ecore::EBoolean m_ordered;
+    ::ecore::EBoolean m_ordered;
 
-        ::ecore::EBoolean m_unique;
+    ::ecore::EBoolean m_unique;
 
-        ::ecore::EInt m_lowerBound;
+    ::ecore::EInt m_lowerBound;
 
-        ::ecore::EInt m_upperBound;
+    ::ecore::EInt m_upperBound;
 
-        ::ecore::EBoolean m_many;
+    ::ecore::EBoolean m_many;
 
-        ::ecore::EBoolean m_required;
+    ::ecore::EBoolean m_required;
 
-        // References
+    // References
 
-        ::ecore::EClassifier_ptr m_eType;
+    ::ecore::EClassifier_ptr m_eType;
 
-        ::ecore::EGenericType_ptr m_eGenericType;
+    ::ecore::EGenericType_ptr m_eGenericType;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_ETYPEDELEMENT_HPP
 

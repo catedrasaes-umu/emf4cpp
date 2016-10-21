@@ -2,6 +2,7 @@
 /*
  * bintree/BintreeFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,10 +24,12 @@
 #include <ecore/EFactory.hpp>
 #include <bintree.hpp>
 
+#include <bintree/dllBintree.hpp>
+
 namespace bintree
 {
 
-    class BintreeFactory: public virtual ::ecore::EFactory
+    class EXPORT_BINTREE_DLL BintreeFactory : public virtual ::ecore::EFactory
     {
     public:
 
@@ -34,13 +37,9 @@ namespace bintree
 
         virtual BinTreeNode_ptr createBinTreeNode();
 
-        virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-        virtual ::ecore::EJavaObject createFromString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EString const& _literalValue);
-        virtual ::ecore::EString convertToString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EJavaObject const& _instanceValue);
+        virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+        virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+        virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
     protected:
 

@@ -19,7 +19,7 @@
 
 cmake_minimum_required(VERSION 2.6)
 
-add_subdirectory(PyEcore)
+add_subdirectory(PyEcore EXCLUDE_FROM_ALL)
 add_subdirectory(tests)
 add_subdirectory(xpand)
 add_subdirectory(xpand/antlr EXCLUDE_FROM_ALL)
@@ -41,6 +41,9 @@ add_subdirectory(ast)
 add_subdirectory(json)
 add_subdirectory(enumeration)
 add_subdirectory(enumeration/test)
+add_subdirectory(eopposite)
+add_subdirectory(eopposite/test)
+add_subdirectory(subpackage)
 
 add_subdirectory(mapping-tests)
 
