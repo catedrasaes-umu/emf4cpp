@@ -64,7 +64,7 @@ Loads::~Loads()
 
 // Attributes
 // References
-::kdm::platform::DeployedComponent_ptr Loads::getTo()
+::kdm::platform::DeployedComponent_ptr Loads::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Loads::setTo(::kdm::platform::DeployedComponent_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Loads::getFrom()
+::kdm::action::ActionElement_ptr Loads::getFrom() const
 {
     return m_from;
 }

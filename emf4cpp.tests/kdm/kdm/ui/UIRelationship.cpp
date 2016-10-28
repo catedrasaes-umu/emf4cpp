@@ -63,7 +63,7 @@ UIRelationship::~UIRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr UIRelationship::getTo()
+::kdm::core::KDMEntity_ptr UIRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void UIRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::ui::AbstractUIElement_ptr UIRelationship::getFrom()
+::kdm::ui::AbstractUIElement_ptr UIRelationship::getFrom() const
 {
     return m_from;
 }

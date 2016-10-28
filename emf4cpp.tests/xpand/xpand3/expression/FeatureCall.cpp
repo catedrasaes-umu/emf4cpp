@@ -66,7 +66,7 @@ FeatureCall::~FeatureCall()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr FeatureCall::getTarget()
+::xpand3::expression::AbstractExpression_ptr FeatureCall::getTarget() const
 {
     return m_target;
 }
@@ -97,7 +97,7 @@ void FeatureCall::setTarget(
             ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
 }
 
-::xpand3::Identifier_ptr FeatureCall::getName()
+::xpand3::Identifier_ptr FeatureCall::getName() const
 {
     return m_name;
 }

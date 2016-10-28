@@ -64,7 +64,7 @@ DatatypeOf::~DatatypeOf()
 
 // Attributes
 // References
-::kdm::code::Datatype_ptr DatatypeOf::getTo()
+::kdm::code::Datatype_ptr DatatypeOf::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void DatatypeOf::setTo(::kdm::code::Datatype_ptr _to)
 
 }
 
-::kdm::data::ComplexContentType_ptr DatatypeOf::getFrom()
+::kdm::data::ComplexContentType_ptr DatatypeOf::getFrom() const
 {
     return m_from;
 }

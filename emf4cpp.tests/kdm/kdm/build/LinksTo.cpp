@@ -64,7 +64,7 @@ LinksTo::~LinksTo()
 
 // Attributes
 // References
-::kdm::build::AbstractBuildElement_ptr LinksTo::getTo()
+::kdm::build::AbstractBuildElement_ptr LinksTo::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void LinksTo::setTo(::kdm::build::AbstractBuildElement_ptr _to)
 
 }
 
-::kdm::build::SymbolicLink_ptr LinksTo::getFrom()
+::kdm::build::SymbolicLink_ptr LinksTo::getFrom() const
 {
     return m_from;
 }

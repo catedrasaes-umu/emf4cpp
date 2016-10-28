@@ -116,6 +116,12 @@ void Stereotype::setType(::kdm::core::String _type)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& Stereotype::getTag() const
+{
+    return *m_tag;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& Stereotype::getTag()
 {
     return *m_tag;

@@ -64,7 +64,7 @@ SupportedBy::~SupportedBy()
 
 // Attributes
 // References
-::kdm::build::Tool_ptr SupportedBy::getTo()
+::kdm::build::Tool_ptr SupportedBy::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void SupportedBy::setTo(::kdm::build::Tool_ptr _to)
 
 }
 
-::kdm::build::BuildStep_ptr SupportedBy::getFrom()
+::kdm::build::BuildStep_ptr SupportedBy::getFrom() const
 {
     return m_from;
 }

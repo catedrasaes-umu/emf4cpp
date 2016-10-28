@@ -63,7 +63,7 @@ Implements::~Implements()
 
 // Attributes
 // References
-::kdm::code::CodeItem_ptr Implements::getTo()
+::kdm::code::CodeItem_ptr Implements::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void Implements::setTo(::kdm::code::CodeItem_ptr _to)
 
 }
 
-::kdm::code::CodeItem_ptr Implements::getFrom()
+::kdm::code::CodeItem_ptr Implements::getFrom() const
 {
     return m_from;
 }

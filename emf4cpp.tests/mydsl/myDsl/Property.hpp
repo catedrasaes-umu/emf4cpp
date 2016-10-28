@@ -58,7 +58,7 @@ public:
     void setMany (::ecore::EBoolean _many);
 
     // References
-    ::myDsl::Type_ptr getType ();
+    ::myDsl::Type_ptr getType () const;
     void setType (::myDsl::Type_ptr _type);
 
     /*PROTECTED REGION ID(Property) START*/

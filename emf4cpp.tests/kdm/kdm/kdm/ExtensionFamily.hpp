@@ -55,6 +55,7 @@ namespace kdm
         void setName (::kdm::core::String _name);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype ();
 
         /*PROTECTED REGION ID(ExtensionFamily) START*/

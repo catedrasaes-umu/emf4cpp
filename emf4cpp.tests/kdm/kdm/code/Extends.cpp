@@ -63,7 +63,7 @@ Extends::~Extends()
 
 // Attributes
 // References
-::kdm::code::Datatype_ptr Extends::getTo()
+::kdm::code::Datatype_ptr Extends::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void Extends::setTo(::kdm::code::Datatype_ptr _to)
 
 }
 
-::kdm::code::Datatype_ptr Extends::getFrom()
+::kdm::code::Datatype_ptr Extends::getFrom() const
 {
     return m_from;
 }

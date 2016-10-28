@@ -51,6 +51,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::Element >& getUse () const;
     ::ecorecpp::mapping::EList< ::SVG::Element >& getUse ();
 
     /*PROTECTED REGION ID(Use) START*/

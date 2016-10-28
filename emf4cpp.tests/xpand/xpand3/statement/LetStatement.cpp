@@ -68,7 +68,7 @@ LetStatement::~LetStatement()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr LetStatement::getVarName()
+::xpand3::Identifier_ptr LetStatement::getVarName() const
 {
     return m_varName;
 }
@@ -98,7 +98,7 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
             ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
 }
 
-::xpand3::expression::AbstractExpression_ptr LetStatement::getVarValue()
+::xpand3::expression::AbstractExpression_ptr LetStatement::getVarValue() const
 {
     return m_varValue;
 }

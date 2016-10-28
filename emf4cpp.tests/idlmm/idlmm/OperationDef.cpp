@@ -147,9 +147,20 @@ void OperationDef::deleteContextsAt(size_t _position)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& OperationDef::getParameters() const
+{
+    return *m_parameters;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& OperationDef::getParameters()
 {
     return *m_parameters;
+}
+
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& OperationDef::getCanRaise() const
+{
+    return *m_canRaise;
 }
 
 ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& OperationDef::getCanRaise()

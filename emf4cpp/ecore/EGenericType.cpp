@@ -74,7 +74,7 @@ EGenericType::~EGenericType()
 
 // Attributes
 // References
-::ecore::EGenericType_ptr EGenericType::getEUpperBound()
+::ecore::EGenericType_ptr EGenericType::getEUpperBound() const
 {
     return m_eUpperBound;
 }
@@ -104,12 +104,17 @@ void EGenericType::setEUpperBound(::ecore::EGenericType_ptr _eUpperBound)
             ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EGenericType::getETypeArguments() const
+{
+    return *m_eTypeArguments;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EGenericType::getETypeArguments()
 {
     return *m_eTypeArguments;
 }
 
-::ecore::EClassifier_ptr EGenericType::getERawType()
+::ecore::EClassifier_ptr EGenericType::getERawType() const
 {
     return m_eRawType;
 }
@@ -136,7 +141,7 @@ void EGenericType::setERawType(::ecore::EClassifier_ptr _eRawType)
 
 }
 
-::ecore::EGenericType_ptr EGenericType::getELowerBound()
+::ecore::EGenericType_ptr EGenericType::getELowerBound() const
 {
     return m_eLowerBound;
 }
@@ -166,7 +171,7 @@ void EGenericType::setELowerBound(::ecore::EGenericType_ptr _eLowerBound)
             ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
 }
 
-::ecore::ETypeParameter_ptr EGenericType::getETypeParameter()
+::ecore::ETypeParameter_ptr EGenericType::getETypeParameter() const
 {
     return m_eTypeParameter;
 }
@@ -194,7 +199,7 @@ void EGenericType::setETypeParameter(
 
 }
 
-::ecore::EClassifier_ptr EGenericType::getEClassifier()
+::ecore::EClassifier_ptr EGenericType::getEClassifier() const
 {
     return m_eClassifier;
 }

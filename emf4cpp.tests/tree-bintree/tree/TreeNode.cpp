@@ -83,7 +83,8 @@ void TreeNode::setData(::ecore::EString const& _data)
 }
 
 // References
-::tree::TreeNode_ptr TreeNode::getParent()
+
+::tree::TreeNode_ptr TreeNode::getParent() const
 {
     return m_parent;
 }

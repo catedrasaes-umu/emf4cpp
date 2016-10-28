@@ -74,6 +74,11 @@ ResourceType::~ResourceType()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& ResourceType::getPlatformElement() const
+{
+    return *m_platformElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& ResourceType::getPlatformElement()
 {
     return *m_platformElement;

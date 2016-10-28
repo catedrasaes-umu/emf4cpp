@@ -69,7 +69,7 @@ IfExpression::~IfExpression()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr IfExpression::getCondition()
+::xpand3::expression::AbstractExpression_ptr IfExpression::getCondition() const
 {
     return m_condition;
 }
@@ -100,7 +100,7 @@ void IfExpression::setCondition(
             ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
 }
 
-::xpand3::expression::AbstractExpression_ptr IfExpression::getThenPart()
+::xpand3::expression::AbstractExpression_ptr IfExpression::getThenPart() const
 {
     return m_thenPart;
 }
@@ -131,7 +131,7 @@ void IfExpression::setThenPart(
             ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
 }
 
-::xpand3::expression::AbstractExpression_ptr IfExpression::getElsePart()
+::xpand3::expression::AbstractExpression_ptr IfExpression::getElsePart() const
 {
     return m_elsePart;
 }

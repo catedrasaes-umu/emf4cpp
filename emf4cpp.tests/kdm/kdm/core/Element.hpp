@@ -55,8 +55,10 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& getAttribute () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& getAttribute ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& getAnnotation () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& getAnnotation ();
 
         /*PROTECTED REGION ID(Element) START*/

@@ -69,6 +69,11 @@ ConceptualModel::~ConceptualModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& ConceptualModel::getConceptualElement() const
+{
+    return *m_conceptualElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& ConceptualModel::getConceptualElement()
 {
     return *m_conceptualElement;

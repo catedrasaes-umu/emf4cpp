@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::conceptual::ConceptualContainer_ptr getTo ();
+        ::kdm::conceptual::ConceptualContainer_ptr getTo () const;
         void setTo (::kdm::conceptual::ConceptualContainer_ptr _to);
 
-        ::kdm::conceptual::ConceptualContainer_ptr getFrom ();
+        ::kdm::conceptual::ConceptualContainer_ptr getFrom () const;
         void setFrom (::kdm::conceptual::ConceptualContainer_ptr _from);
 
         /*PROTECTED REGION ID(ConceptualFlow) START*/

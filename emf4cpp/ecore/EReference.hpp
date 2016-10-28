@@ -58,12 +58,13 @@ public:
     void setResolveProxies (::ecore::EBoolean _resolveProxies);
 
     // References
-    ::ecore::EReference_ptr getEOpposite ();
+    ::ecore::EReference_ptr getEOpposite () const;
     void setEOpposite (::ecore::EReference_ptr _eOpposite);
 
-    ::ecore::EClass_ptr getEReferenceType ();
+    ::ecore::EClass_ptr getEReferenceType () const;
     void setEReferenceType (::ecore::EClass_ptr _eReferenceType);
 
+    const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys () const;
     ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys ();
 
     /*PROTECTED REGION ID(EReference) START*/

@@ -91,7 +91,8 @@ void BinTreeNode::setData(::ecore::EString const& _data)
 }
 
 // References
-::bintree::BinTreeNode_ptr BinTreeNode::getParent()
+
+::bintree::BinTreeNode_ptr BinTreeNode::getParent() const
 {
     return m_parent;
 }
@@ -118,7 +119,7 @@ void BinTreeNode::setParent(::bintree::BinTreeNode_ptr _parent)
 
 }
 
-::bintree::BinTreeNode_ptr BinTreeNode::getLeft()
+::bintree::BinTreeNode_ptr BinTreeNode::getLeft() const
 {
     return m_left;
 }
@@ -148,7 +149,7 @@ void BinTreeNode::setLeft(::bintree::BinTreeNode_ptr _left)
             ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
 }
 
-::bintree::BinTreeNode_ptr BinTreeNode::getRight()
+::bintree::BinTreeNode_ptr BinTreeNode::getRight() const
 {
     return m_right;
 }

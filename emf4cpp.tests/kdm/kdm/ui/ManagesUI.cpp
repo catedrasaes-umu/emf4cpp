@@ -64,7 +64,7 @@ ManagesUI::~ManagesUI()
 
 // Attributes
 // References
-::kdm::ui::UIResource_ptr ManagesUI::getTo()
+::kdm::ui::UIResource_ptr ManagesUI::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ManagesUI::setTo(::kdm::ui::UIResource_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ManagesUI::getFrom()
+::kdm::action::ActionElement_ptr ManagesUI::getFrom() const
 {
     return m_from;
 }

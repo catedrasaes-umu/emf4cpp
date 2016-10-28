@@ -55,10 +55,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::code::Datatype_ptr getType ();
+        ::kdm::code::Datatype_ptr getType () const;
         void setType (::kdm::code::Datatype_ptr _type);
 
-        ::kdm::code::Datatype_ptr getCodeElement ();
+        ::kdm::code::Datatype_ptr getCodeElement () const;
         void setCodeElement (::kdm::code::Datatype_ptr _codeElement);
 
         /*PROTECTED REGION ID(DefinedType) START*/

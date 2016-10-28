@@ -221,7 +221,8 @@ void ETypedElement::setRequired(::ecore::EBoolean _required)
 }
 
 // References
-::ecore::EClassifier_ptr ETypedElement::getEType()
+
+::ecore::EClassifier_ptr ETypedElement::getEType() const
 {
     return m_eType;
 }
@@ -248,7 +249,7 @@ void ETypedElement::setEType(::ecore::EClassifier_ptr _eType)
 
 }
 
-::ecore::EGenericType_ptr ETypedElement::getEGenericType()
+::ecore::EGenericType_ptr ETypedElement::getEGenericType() const
 {
     return m_eGenericType;
 }

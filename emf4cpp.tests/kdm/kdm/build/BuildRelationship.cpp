@@ -63,7 +63,7 @@ BuildRelationship::~BuildRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr BuildRelationship::getTo()
+::kdm::core::KDMEntity_ptr BuildRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void BuildRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::build::AbstractBuildElement_ptr BuildRelationship::getFrom()
+::kdm::build::AbstractBuildElement_ptr BuildRelationship::getFrom() const
 {
     return m_from;
 }

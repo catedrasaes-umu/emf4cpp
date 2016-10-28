@@ -102,12 +102,18 @@ void EAnnotation::setSource(::ecore::EString const& _source)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& EAnnotation::getDetails() const
+{
+    return *m_details;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& EAnnotation::getDetails()
 {
     return *m_details;
 }
 
-::ecore::EModelElement_ptr EAnnotation::getEModelElement()
+::ecore::EModelElement_ptr EAnnotation::getEModelElement() const
 {
     return m_eModelElement;
 }
@@ -159,9 +165,19 @@ void EAnnotation::setEModelElement(::ecore::EModelElement_ptr _eModelElement)
     }
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getContents() const
+{
+    return *m_contents;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getContents()
 {
     return *m_contents;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getReferences() const
+{
+    return *m_references;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getReferences()

@@ -88,7 +88,8 @@ void EAttribute::setID(::ecore::EBoolean _iD)
 }
 
 // References
-::ecore::EDataType_ptr EAttribute::getEAttributeType()
+
+::ecore::EDataType_ptr EAttribute::getEAttributeType() const
 {
     return m_eAttributeType;
 }

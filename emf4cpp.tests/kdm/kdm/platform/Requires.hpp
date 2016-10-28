@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::platform::AbstractPlatformElement_ptr getTo ();
+        ::kdm::platform::AbstractPlatformElement_ptr getTo () const;
         void setTo (::kdm::platform::AbstractPlatformElement_ptr _to);
 
-        ::kdm::platform::DeployedComponent_ptr getFrom ();
+        ::kdm::platform::DeployedComponent_ptr getFrom () const;
         void setFrom (::kdm::platform::DeployedComponent_ptr _from);
 
         /*PROTECTED REGION ID(Requires) START*/

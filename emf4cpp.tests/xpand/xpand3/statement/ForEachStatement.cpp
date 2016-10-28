@@ -76,7 +76,7 @@ ForEachStatement::~ForEachStatement()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr ForEachStatement::getTarget()
+::xpand3::expression::AbstractExpression_ptr ForEachStatement::getTarget() const
 {
     return m_target;
 }
@@ -107,7 +107,7 @@ void ForEachStatement::setTarget(
             ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target());
 }
 
-::xpand3::expression::AbstractExpression_ptr ForEachStatement::getSeparator()
+::xpand3::expression::AbstractExpression_ptr ForEachStatement::getSeparator() const
 {
     return m_separator;
 }
@@ -138,7 +138,7 @@ void ForEachStatement::setSeparator(
             ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator());
 }
 
-::xpand3::Identifier_ptr ForEachStatement::getVariable()
+::xpand3::Identifier_ptr ForEachStatement::getVariable() const
 {
     return m_variable;
 }
@@ -168,7 +168,7 @@ void ForEachStatement::setVariable(::xpand3::Identifier_ptr _variable)
             ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable());
 }
 
-::xpand3::Identifier_ptr ForEachStatement::getIteratorName()
+::xpand3::Identifier_ptr ForEachStatement::getIteratorName() const
 {
     return m_iteratorName;
 }

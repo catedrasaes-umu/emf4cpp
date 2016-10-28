@@ -90,6 +90,12 @@ void ExtensionFamily::setName(::kdm::core::String _name)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ExtensionFamily::getStereotype() const
+{
+    return *m_stereotype;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ExtensionFamily::getStereotype()
 {
     return *m_stereotype;

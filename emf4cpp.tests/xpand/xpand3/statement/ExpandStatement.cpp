@@ -103,12 +103,18 @@ void ExpandStatement::setForeach(::ecore::EBoolean _foreach)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& ExpandStatement::getParameters() const
+{
+    return *m_parameters;
+}
+
 ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& ExpandStatement::getParameters()
 {
     return *m_parameters;
 }
 
-::xpand3::expression::AbstractExpression_ptr ExpandStatement::getSeparator()
+::xpand3::expression::AbstractExpression_ptr ExpandStatement::getSeparator() const
 {
     return m_separator;
 }
@@ -139,7 +145,7 @@ void ExpandStatement::setSeparator(
             ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator());
 }
 
-::xpand3::expression::AbstractExpression_ptr ExpandStatement::getTarget()
+::xpand3::expression::AbstractExpression_ptr ExpandStatement::getTarget() const
 {
     return m_target;
 }
@@ -170,7 +176,7 @@ void ExpandStatement::setTarget(
             ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target());
 }
 
-::xpand3::Identifier_ptr ExpandStatement::getDefinition()
+::xpand3::Identifier_ptr ExpandStatement::getDefinition() const
 {
     return m_definition;
 }

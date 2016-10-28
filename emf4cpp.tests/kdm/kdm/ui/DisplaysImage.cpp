@@ -64,7 +64,7 @@ DisplaysImage::~DisplaysImage()
 
 // Attributes
 // References
-::kdm::source::Image_ptr DisplaysImage::getTo()
+::kdm::source::Image_ptr DisplaysImage::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void DisplaysImage::setTo(::kdm::source::Image_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr DisplaysImage::getFrom()
+::kdm::action::ActionElement_ptr DisplaysImage::getFrom() const
 {
     return m_from;
 }

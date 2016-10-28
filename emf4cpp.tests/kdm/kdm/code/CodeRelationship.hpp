@@ -54,10 +54,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::core::KDMEntity_ptr getTo ();
+        ::kdm::core::KDMEntity_ptr getTo () const;
         void setTo (::kdm::core::KDMEntity_ptr _to);
 
-        ::kdm::code::CodeItem_ptr getFrom ();
+        ::kdm::code::CodeItem_ptr getFrom () const;
         void setFrom (::kdm::code::CodeItem_ptr _from);
 
         /*PROTECTED REGION ID(CodeRelationship) START*/

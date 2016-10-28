@@ -57,6 +57,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit () const;
         ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit ();
 
         /*PROTECTED REGION ID(ColumnSet) START*/

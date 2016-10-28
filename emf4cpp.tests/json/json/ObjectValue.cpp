@@ -62,6 +62,11 @@ ObjectValue::~ObjectValue()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::json::NVPair >& ObjectValue::getMembers() const
+{
+    return *m_members;
+}
+
 ::ecorecpp::mapping::EList< ::json::NVPair >& ObjectValue::getMembers()
 {
     return *m_members;

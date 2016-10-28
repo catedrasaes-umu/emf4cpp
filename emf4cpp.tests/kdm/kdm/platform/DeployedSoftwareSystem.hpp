@@ -57,6 +57,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& getGroupedComponent () const;
         ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& getGroupedComponent ();
 
         /*PROTECTED REGION ID(DeployedSoftwareSystem) START*/

@@ -52,7 +52,7 @@ public:
     void setID (::ecore::EBoolean _iD);
 
     // References
-    ::ecore::EDataType_ptr getEAttributeType ();
+    ::ecore::EDataType_ptr getEAttributeType () const;
     void setEAttributeType (::ecore::EDataType_ptr _eAttributeType);
 
     /*PROTECTED REGION ID(EAttribute) START*/

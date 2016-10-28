@@ -64,7 +64,7 @@ Reads::~Reads()
 
 // Attributes
 // References
-::kdm::code::DataElement_ptr Reads::getTo()
+::kdm::code::DataElement_ptr Reads::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Reads::setTo(::kdm::code::DataElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Reads::getFrom()
+::kdm::action::ActionElement_ptr Reads::getFrom() const
 {
     return m_from;
 }

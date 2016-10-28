@@ -58,7 +58,7 @@ RightHand::~RightHand()
 
 // Attributes
 // References
-::eopposite::LeftHand_ptr RightHand::getLeftee()
+::eopposite::LeftHand_ptr RightHand::getLeftee() const
 {
     return m_leftee;
 }

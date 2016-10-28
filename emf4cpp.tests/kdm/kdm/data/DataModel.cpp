@@ -68,6 +68,11 @@ DataModel::~DataModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement >& DataModel::getDataElement() const
+{
+    return *m_dataElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement >& DataModel::getDataElement()
 {
     return *m_dataElement;

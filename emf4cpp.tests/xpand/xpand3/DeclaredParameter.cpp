@@ -66,7 +66,7 @@ DeclaredParameter::~DeclaredParameter()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr DeclaredParameter::getName()
+::xpand3::Identifier_ptr DeclaredParameter::getName() const
 {
     return m_name;
 }
@@ -96,7 +96,7 @@ void DeclaredParameter::setName(::xpand3::Identifier_ptr _name)
             ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
 }
 
-::xpand3::Identifier_ptr DeclaredParameter::getType()
+::xpand3::Identifier_ptr DeclaredParameter::getType() const
 {
     return m_type;
 }

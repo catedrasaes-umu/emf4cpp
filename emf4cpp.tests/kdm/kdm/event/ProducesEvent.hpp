@@ -54,10 +54,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::event::Event_ptr getTo ();
+        ::kdm::event::Event_ptr getTo () const;
         void setTo (::kdm::event::Event_ptr _to);
 
-        ::kdm::action::ActionElement_ptr getFrom ();
+        ::kdm::action::ActionElement_ptr getFrom () const;
         void setFrom (::kdm::action::ActionElement_ptr _from);
 
         /*PROTECTED REGION ID(ProducesEvent) START*/

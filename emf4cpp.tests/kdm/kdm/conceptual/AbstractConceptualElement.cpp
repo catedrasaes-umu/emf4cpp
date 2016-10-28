@@ -84,9 +84,19 @@ AbstractConceptualElement::~AbstractConceptualElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractConceptualElement::getSource() const
+{
+    return *m_source;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractConceptualElement::getSource()
 {
     return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractConceptualElement::getImplementation() const
+{
+    return *m_implementation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractConceptualElement::getImplementation()
@@ -94,9 +104,20 @@ AbstractConceptualElement::~AbstractConceptualElement()
     return *m_implementation;
 }
 
+const ::ecorecpp::mapping::EList<
+        ::kdm::conceptual::AbstractConceptualRelationship >& AbstractConceptualElement::getConceptualRelation() const
+{
+    return *m_conceptualRelation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >& AbstractConceptualElement::getConceptualRelation()
 {
     return *m_conceptualRelation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractConceptualElement::getAbstraction() const
+{
+    return *m_abstraction;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractConceptualElement::getAbstraction()

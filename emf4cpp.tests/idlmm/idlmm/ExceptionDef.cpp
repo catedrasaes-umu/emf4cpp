@@ -89,6 +89,12 @@ void ExceptionDef::setTypeCode(::idlmm::ETypeCode _typeCode)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::idlmm::Field >& ExceptionDef::getMembers() const
+{
+    return *m_members;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::Field >& ExceptionDef::getMembers()
 {
     return *m_members;

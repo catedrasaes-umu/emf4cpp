@@ -55,6 +55,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode () const;
         ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode ();
 
         /*PROTECTED REGION ID(NamespaceUnit) START*/

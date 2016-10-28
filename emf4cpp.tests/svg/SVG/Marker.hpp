@@ -68,6 +68,7 @@ public:
     void setOrient (::PrimitiveTypes::String _orient);
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing () const;
     ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing ();
 
     /*PROTECTED REGION ID(Marker) START*/

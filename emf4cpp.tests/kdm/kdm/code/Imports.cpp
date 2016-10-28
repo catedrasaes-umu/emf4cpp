@@ -63,7 +63,7 @@ Imports::~Imports()
 
 // Attributes
 // References
-::kdm::code::CodeItem_ptr Imports::getTo()
+::kdm::code::CodeItem_ptr Imports::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void Imports::setTo(::kdm::code::CodeItem_ptr _to)
 
 }
 
-::kdm::code::CodeItem_ptr Imports::getFrom()
+::kdm::code::CodeItem_ptr Imports::getFrom() const
 {
     return m_from;
 }

@@ -186,9 +186,20 @@ void EClass::setInterface(::ecore::EBoolean _interface)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::ecore::EClass >& EClass::getESuperTypes() const
+{
+    return *m_eSuperTypes;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EClass >& EClass::getESuperTypes()
 {
     return *m_eSuperTypes;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EOperation >& EClass::getEOperations() const
+{
+    return *m_eOperations;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EOperation >& EClass::getEOperations()
@@ -196,9 +207,19 @@ void EClass::setInterface(::ecore::EBoolean _interface)
     return *m_eOperations;
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& EClass::getEAllAttributes() const
+{
+    return *m_eAllAttributes;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EAttribute >& EClass::getEAllAttributes()
 {
     return *m_eAllAttributes;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEAllReferences() const
+{
+    return *m_eAllReferences;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEAllReferences()
@@ -206,9 +227,19 @@ void EClass::setInterface(::ecore::EBoolean _interface)
     return *m_eAllReferences;
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEReferences() const
+{
+    return *m_eReferences;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEReferences()
 {
     return *m_eReferences;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& EClass::getEAttributes() const
+{
+    return *m_eAttributes;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EAttribute >& EClass::getEAttributes()
@@ -216,9 +247,19 @@ void EClass::setInterface(::ecore::EBoolean _interface)
     return *m_eAttributes;
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEAllContainments() const
+{
+    return *m_eAllContainments;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEAllContainments()
 {
     return *m_eAllContainments;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EOperation >& EClass::getEAllOperations() const
+{
+    return *m_eAllOperations;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EOperation >& EClass::getEAllOperations()
@@ -226,9 +267,19 @@ void EClass::setInterface(::ecore::EBoolean _interface)
     return *m_eAllOperations;
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& EClass::getEAllStructuralFeatures() const
+{
+    return *m_eAllStructuralFeatures;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& EClass::getEAllStructuralFeatures()
 {
     return *m_eAllStructuralFeatures;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EClass >& EClass::getEAllSuperTypes() const
+{
+    return *m_eAllSuperTypes;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EClass >& EClass::getEAllSuperTypes()
@@ -236,7 +287,7 @@ void EClass::setInterface(::ecore::EBoolean _interface)
     return *m_eAllSuperTypes;
 }
 
-::ecore::EAttribute_ptr EClass::getEIDAttribute()
+::ecore::EAttribute_ptr EClass::getEIDAttribute() const
 {
     return m_eIDAttribute;
 }
@@ -263,14 +314,29 @@ void EClass::setEIDAttribute(::ecore::EAttribute_ptr _eIDAttribute)
 
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& EClass::getEStructuralFeatures() const
+{
+    return *m_eStructuralFeatures;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& EClass::getEStructuralFeatures()
 {
     return *m_eStructuralFeatures;
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EClass::getEGenericSuperTypes() const
+{
+    return *m_eGenericSuperTypes;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EClass::getEGenericSuperTypes()
 {
     return *m_eGenericSuperTypes;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EClass::getEAllGenericSuperTypes() const
+{
+    return *m_eAllGenericSuperTypes;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EClass::getEAllGenericSuperTypes()

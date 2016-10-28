@@ -64,7 +64,7 @@ Creates::~Creates()
 
 // Attributes
 // References
-::kdm::code::Datatype_ptr Creates::getTo()
+::kdm::code::Datatype_ptr Creates::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Creates::setTo(::kdm::code::Datatype_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Creates::getFrom()
+::kdm::action::ActionElement_ptr Creates::getFrom() const
 {
     return m_from;
 }

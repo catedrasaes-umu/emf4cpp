@@ -67,10 +67,10 @@ public:
     void setRequired (::ecore::EBoolean _required);
 
     // References
-    ::ecore::EClassifier_ptr getEType ();
+    ::ecore::EClassifier_ptr getEType () const;
     void setEType (::ecore::EClassifier_ptr _eType);
 
-    ::ecore::EGenericType_ptr getEGenericType ();
+    ::ecore::EGenericType_ptr getEGenericType () const;
     void setEGenericType (::ecore::EGenericType_ptr _eGenericType);
 
     /*PROTECTED REGION ID(ETypedElement) START*/

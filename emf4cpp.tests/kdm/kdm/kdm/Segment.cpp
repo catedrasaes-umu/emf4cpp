@@ -73,9 +73,19 @@ Segment::~Segment()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& Segment::getSegment() const
+{
+    return *m_segment;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& Segment::getSegment()
 {
     return *m_segment;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& Segment::getModel() const
+{
+    return *m_model;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& Segment::getModel()

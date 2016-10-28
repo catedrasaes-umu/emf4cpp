@@ -62,6 +62,11 @@ AbstractStatementWithBody::~AbstractStatementWithBody()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& AbstractStatementWithBody::getBody() const
+{
+    return *m_body;
+}
+
 ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& AbstractStatementWithBody::getBody()
 {
     return *m_body;

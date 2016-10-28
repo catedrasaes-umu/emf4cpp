@@ -73,6 +73,11 @@ XMLSchema::~XMLSchema()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& XMLSchema::getContentElement() const
+{
+    return *m_contentElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& XMLSchema::getContentElement()
 {
     return *m_contentElement;

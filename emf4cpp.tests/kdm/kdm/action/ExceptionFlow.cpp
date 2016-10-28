@@ -63,7 +63,7 @@ ExceptionFlow::~ExceptionFlow()
 
 // Attributes
 // References
-::kdm::action::ActionElement_ptr ExceptionFlow::getTo()
+::kdm::action::ActionElement_ptr ExceptionFlow::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ExceptionFlow::setTo(::kdm::action::ActionElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ExceptionFlow::getFrom()
+::kdm::action::ActionElement_ptr ExceptionFlow::getFrom() const
 {
     return m_from;
 }

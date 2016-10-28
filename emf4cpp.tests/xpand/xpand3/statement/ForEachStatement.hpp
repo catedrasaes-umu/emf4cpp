@@ -55,16 +55,16 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getTarget ();
+        ::xpand3::expression::AbstractExpression_ptr getTarget () const;
         void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
 
-        ::xpand3::expression::AbstractExpression_ptr getSeparator ();
+        ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
         void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
 
-        ::xpand3::Identifier_ptr getVariable ();
+        ::xpand3::Identifier_ptr getVariable () const;
         void setVariable (::xpand3::Identifier_ptr _variable);
 
-        ::xpand3::Identifier_ptr getIteratorName ();
+        ::xpand3::Identifier_ptr getIteratorName () const;
         void setIteratorName (::xpand3::Identifier_ptr _iteratorName);
 
         /*PROTECTED REGION ID(ForEachStatement) START*/

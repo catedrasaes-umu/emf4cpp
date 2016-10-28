@@ -64,6 +64,11 @@ ETypeParameter::~ETypeParameter()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& ETypeParameter::getEBounds() const
+{
+    return *m_eBounds;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EGenericType >& ETypeParameter::getEBounds()
 {
     return *m_eBounds;

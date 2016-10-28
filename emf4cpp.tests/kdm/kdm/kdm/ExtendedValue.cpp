@@ -60,7 +60,7 @@ ExtendedValue::~ExtendedValue()
 
 // Attributes
 // References
-::kdm::kdm::TagDefinition_ptr ExtendedValue::getTag()
+::kdm::kdm::TagDefinition_ptr ExtendedValue::getTag() const
 {
     return m_tag;
 }

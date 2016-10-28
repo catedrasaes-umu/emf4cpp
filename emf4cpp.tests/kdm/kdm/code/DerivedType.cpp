@@ -73,7 +73,7 @@ DerivedType::~DerivedType()
 
 // Attributes
 // References
-::kdm::code::ItemUnit_ptr DerivedType::getItemUnit()
+::kdm::code::ItemUnit_ptr DerivedType::getItemUnit() const
 {
     return m_itemUnit;
 }

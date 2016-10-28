@@ -63,7 +63,7 @@ CodeRelationship::~CodeRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr CodeRelationship::getTo()
+::kdm::core::KDMEntity_ptr CodeRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void CodeRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::code::CodeItem_ptr CodeRelationship::getFrom()
+::kdm::code::CodeItem_ptr CodeRelationship::getFrom() const
 {
     return m_from;
 }

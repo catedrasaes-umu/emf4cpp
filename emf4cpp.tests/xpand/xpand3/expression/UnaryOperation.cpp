@@ -62,7 +62,7 @@ UnaryOperation::~UnaryOperation()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr UnaryOperation::getOperator()
+::xpand3::Identifier_ptr UnaryOperation::getOperator() const
 {
     return m_operator;
 }
@@ -92,7 +92,7 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
             ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
 }
 
-::xpand3::expression::AbstractExpression_ptr UnaryOperation::getOperand()
+::xpand3::expression::AbstractExpression_ptr UnaryOperation::getOperand() const
 {
     return m_operand;
 }

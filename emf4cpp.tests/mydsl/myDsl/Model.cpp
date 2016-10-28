@@ -66,9 +66,19 @@ Model::~Model()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::myDsl::Import >& Model::getImports() const
+{
+    return *m_imports;
+}
+
 ::ecorecpp::mapping::EList< ::myDsl::Import >& Model::getImports()
 {
     return *m_imports;
+}
+
+const ::ecorecpp::mapping::EList< ::myDsl::Type >& Model::getElements() const
+{
+    return *m_elements;
 }
 
 ::ecorecpp::mapping::EList< ::myDsl::Type >& Model::getElements()

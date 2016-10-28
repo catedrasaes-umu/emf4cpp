@@ -54,6 +54,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement () const;
         ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement ();
 
         /*PROTECTED REGION ID(CodeModel) START*/

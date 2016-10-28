@@ -72,6 +72,11 @@ DataContainer::~DataContainer()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& DataContainer::getDataElement() const
+{
+    return *m_dataElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& DataContainer::getDataElement()
 {
     return *m_dataElement;

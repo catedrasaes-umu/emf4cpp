@@ -59,6 +59,7 @@ namespace kdm
         void setSnippet (::kdm::core::String _snippet);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion () const;
         ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion ();
 
         /*PROTECTED REGION ID(SourceRef) START*/

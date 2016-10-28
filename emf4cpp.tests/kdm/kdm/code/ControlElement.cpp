@@ -80,7 +80,7 @@ ControlElement::~ControlElement()
 
 // Attributes
 // References
-::kdm::code::Datatype_ptr ControlElement::getType()
+::kdm::code::Datatype_ptr ControlElement::getType() const
 {
     return m_type;
 }
@@ -107,9 +107,19 @@ void ControlElement::setType(::kdm::code::Datatype_ptr _type)
 
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& ControlElement::getEntryFlow() const
+{
+    return *m_entryFlow;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& ControlElement::getEntryFlow()
 {
     return *m_entryFlow;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ControlElement::getCodeElement() const
+{
+    return *m_codeElement;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ControlElement::getCodeElement()

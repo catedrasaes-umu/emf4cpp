@@ -90,8 +90,18 @@ String getSetCPPSignature(EReference this) :
 String getGetCPPSignature(EReference this, String prefix) :
 	getReferenceReturnedType() + " " + prefix + "get"+ name.toFirstUpper() + " ()";
 
+String getGetCPPSignatureConst(EReference this, String prefix) :
+    if isMultiple() then
+		"const " + getReferenceReturnedType() + " " + prefix + "get"+ name.toFirstUpper() + " () const"
+	else
+		getReferenceReturnedType() + " " + prefix + "get"+ name.toFirstUpper() + " () const"
+;
+
 String getGetCPPSignature(EReference this) : 
 	getGetCPPSignature("");
+
+String getGetCPPSignatureConst(EReference this) :
+	getGetCPPSignatureConst("");
 
 String getSetCPPCall(EReference this, String prefix) :
        prefix + "set"+ name.toFirstUpper();

@@ -53,6 +53,7 @@ public:
     void setTypeCode (::idlmm::ETypeCode _typeCode);
 
     // References
+    const ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers () const;
     ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers ();
 
     /*PROTECTED REGION ID(ExceptionDef) START*/

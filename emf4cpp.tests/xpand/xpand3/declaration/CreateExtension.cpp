@@ -61,7 +61,7 @@ CreateExtension::~CreateExtension()
 
 // Attributes
 // References
-::xpand3::DeclaredParameter_ptr CreateExtension::getToBeCreated()
+::xpand3::DeclaredParameter_ptr CreateExtension::getToBeCreated() const
 {
     return m_toBeCreated;
 }

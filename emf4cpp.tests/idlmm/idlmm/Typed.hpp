@@ -51,10 +51,10 @@ public:
     // Attributes
 
     // References
-    ::idlmm::IDLType_ptr getContainedType ();
+    ::idlmm::IDLType_ptr getContainedType () const;
     void setContainedType (::idlmm::IDLType_ptr _containedType);
 
-    ::idlmm::TypedefDef_ptr getSharedType ();
+    ::idlmm::TypedefDef_ptr getSharedType () const;
     void setSharedType (::idlmm::TypedefDef_ptr _sharedType);
 
     /*PROTECTED REGION ID(Typed) START*/

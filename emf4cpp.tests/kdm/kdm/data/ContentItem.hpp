@@ -56,9 +56,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::data::ComplexContentType_ptr getType ();
+        ::kdm::data::ComplexContentType_ptr getType () const;
         void setType (::kdm::data::ComplexContentType_ptr _type);
 
+        const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement () const;
         ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement ();
 
         /*PROTECTED REGION ID(ContentItem) START*/

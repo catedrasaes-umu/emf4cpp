@@ -64,7 +64,7 @@ public:
     void setAbsoluteName (::ecore::EString const& _absoluteName);
 
     // References
-    ::idlmm::Container_ptr getDefinedIn ();
+    ::idlmm::Container_ptr getDefinedIn () const;
     void setDefinedIn (::idlmm::Container_ptr _definedIn);
     ::idlmm::Container_ptr basicgetDefinedIn ();
     void basicsetDefinedIn (::idlmm::Container_ptr _definedIn);

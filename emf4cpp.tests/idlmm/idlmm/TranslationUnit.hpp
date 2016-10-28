@@ -55,8 +55,10 @@ public:
     void setIdentifier (::ecore::EString const& _identifier);
 
     // References
+    const ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains () const;
     ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains ();
 
+    const ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes () const;
     ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes ();
 
     /*PROTECTED REGION ID(TranslationUnit) START*/

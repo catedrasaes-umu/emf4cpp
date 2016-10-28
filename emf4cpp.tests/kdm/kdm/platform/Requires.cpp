@@ -64,7 +64,7 @@ Requires::~Requires()
 
 // Attributes
 // References
-::kdm::platform::AbstractPlatformElement_ptr Requires::getTo()
+::kdm::platform::AbstractPlatformElement_ptr Requires::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Requires::setTo(::kdm::platform::AbstractPlatformElement_ptr _to)
 
 }
 
-::kdm::platform::DeployedComponent_ptr Requires::getFrom()
+::kdm::platform::DeployedComponent_ptr Requires::getFrom() const
 {
     return m_from;
 }

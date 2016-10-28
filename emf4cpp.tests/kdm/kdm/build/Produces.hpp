@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::build::AbstractBuildElement_ptr getTo ();
+        ::kdm::build::AbstractBuildElement_ptr getTo () const;
         void setTo (::kdm::build::AbstractBuildElement_ptr _to);
 
-        ::kdm::build::BuildStep_ptr getFrom ();
+        ::kdm::build::BuildStep_ptr getFrom () const;
         void setFrom (::kdm::build::BuildStep_ptr _from);
 
         /*PROTECTED REGION ID(Produces) START*/

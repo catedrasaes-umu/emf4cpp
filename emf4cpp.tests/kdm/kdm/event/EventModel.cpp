@@ -68,6 +68,11 @@ EventModel::~EventModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventModel::getEventElement() const
+{
+    return *m_eventElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventModel::getEventElement()
 {
     return *m_eventElement;

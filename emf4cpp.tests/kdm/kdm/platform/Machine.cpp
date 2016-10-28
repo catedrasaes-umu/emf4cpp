@@ -79,9 +79,19 @@ Machine::~Machine()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& Machine::getDeployedComponent() const
+{
+    return *m_deployedComponent;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& Machine::getDeployedComponent()
 {
     return *m_deployedComponent;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource >& Machine::getDeployedResource() const
+{
+    return *m_deployedResource;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource >& Machine::getDeployedResource()

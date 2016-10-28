@@ -69,6 +69,11 @@ InventoryModel::~InventoryModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >& InventoryModel::getInventoryElement() const
+{
+    return *m_inventoryElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >& InventoryModel::getInventoryElement()
 {
     return *m_inventoryElement;

@@ -61,29 +61,32 @@ public:
     void setIdentifier (::PrimitiveTypes::String _identifier);
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner () const;
     ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner ();
 
+    const ::ecorecpp::mapping::EList< ::SVG::Use >& getTarget () const;
     ::ecorecpp::mapping::EList< ::SVG::Use >& getTarget ();
 
+    const ::ecorecpp::mapping::EList< ::SVG::Attribute >& getAttribute () const;
     ::ecorecpp::mapping::EList< ::SVG::Attribute >& getAttribute ();
 
-    ::SVG::Coordinates_ptr getPosition ();
+    ::SVG::Coordinates_ptr getPosition () const;
     void setPosition (::SVG::Coordinates_ptr _position);
 
-    ::SVG::Dimension_ptr getSize ();
+    ::SVG::Dimension_ptr getSize () const;
     void setSize (::SVG::Dimension_ptr _size);
 
-    ::SVG::Svg_ptr getRoot ();
+    ::SVG::Svg_ptr getRoot () const;
     void setRoot (::SVG::Svg_ptr _root);
     ::SVG::Svg_ptr basicgetRoot ();
     void basicsetRoot (::SVG::Svg_ptr _root);
 
-    ::SVG::GroupingElement_ptr getGroup ();
+    ::SVG::GroupingElement_ptr getGroup () const;
     void setGroup (::SVG::GroupingElement_ptr _group);
     ::SVG::GroupingElement_ptr basicgetGroup ();
     void basicsetGroup (::SVG::GroupingElement_ptr _group);
 
-    ::SVG::Marker_ptr getDrawsMarker ();
+    ::SVG::Marker_ptr getDrawsMarker () const;
     void setDrawsMarker (::SVG::Marker_ptr _drawsMarker);
     ::SVG::Marker_ptr basicgetDrawsMarker ();
     void basicsetDrawsMarker (::SVG::Marker_ptr _drawsMarker);

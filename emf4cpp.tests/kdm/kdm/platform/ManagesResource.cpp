@@ -64,7 +64,7 @@ ManagesResource::~ManagesResource()
 
 // Attributes
 // References
-::kdm::platform::ResourceType_ptr ManagesResource::getTo()
+::kdm::platform::ResourceType_ptr ManagesResource::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ManagesResource::setTo(::kdm::platform::ResourceType_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ManagesResource::getFrom()
+::kdm::action::ActionElement_ptr ManagesResource::getFrom() const
 {
     return m_from;
 }

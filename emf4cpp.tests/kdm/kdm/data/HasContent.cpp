@@ -64,7 +64,7 @@ HasContent::~HasContent()
 
 // Attributes
 // References
-::kdm::data::AbstractDataElement_ptr HasContent::getTo()
+::kdm::data::AbstractDataElement_ptr HasContent::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void HasContent::setTo(::kdm::data::AbstractDataElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr HasContent::getFrom()
+::kdm::action::ActionElement_ptr HasContent::getFrom() const
 {
     return m_from;
 }

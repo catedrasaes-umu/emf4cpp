@@ -63,7 +63,7 @@ DependsOn::~DependsOn()
 
 // Attributes
 // References
-::kdm::source::AbstractInventoryElement_ptr DependsOn::getTo()
+::kdm::source::AbstractInventoryElement_ptr DependsOn::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void DependsOn::setTo(::kdm::source::AbstractInventoryElement_ptr _to)
 
 }
 
-::kdm::source::AbstractInventoryElement_ptr DependsOn::getFrom()
+::kdm::source::AbstractInventoryElement_ptr DependsOn::getFrom() const
 {
     return m_from;
 }

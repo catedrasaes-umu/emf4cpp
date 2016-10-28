@@ -59,8 +59,10 @@ public:
     void setBaseProfile (::PrimitiveTypes::String _baseProfile);
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG () const;
     ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG ();
 
+    const ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren () const;
     ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren ();
 
     /*PROTECTED REGION ID(Svg) START*/

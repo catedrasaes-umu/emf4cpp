@@ -63,7 +63,7 @@ VisibleIn::~VisibleIn()
 
 // Attributes
 // References
-::kdm::code::CodeItem_ptr VisibleIn::getTo()
+::kdm::code::CodeItem_ptr VisibleIn::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void VisibleIn::setTo(::kdm::code::CodeItem_ptr _to)
 
 }
 
-::kdm::code::CodeItem_ptr VisibleIn::getFrom()
+::kdm::code::CodeItem_ptr VisibleIn::getFrom() const
 {
     return m_from;
 }

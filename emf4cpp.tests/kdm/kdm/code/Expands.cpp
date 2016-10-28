@@ -63,7 +63,7 @@ Expands::~Expands()
 
 // Attributes
 // References
-::kdm::code::PreprocessorDirective_ptr Expands::getTo()
+::kdm::code::PreprocessorDirective_ptr Expands::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void Expands::setTo(::kdm::code::PreprocessorDirective_ptr _to)
 
 }
 
-::kdm::code::PreprocessorDirective_ptr Expands::getFrom()
+::kdm::code::PreprocessorDirective_ptr Expands::getFrom() const
 {
     return m_from;
 }

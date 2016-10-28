@@ -55,7 +55,7 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::Identifier_ptr getName ();
+        ::xpand3::Identifier_ptr getName () const;
         void setName (::xpand3::Identifier_ptr _name);
 
         /*PROTECTED REGION ID(AbstractNamedDeclaration) START*/

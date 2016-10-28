@@ -227,6 +227,12 @@ void Marker::setOrient(::PrimitiveTypes::String _orient)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::SVG::Element >& Marker::getDrawing() const
+{
+    return *m_drawing;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Element >& Marker::getDrawing()
 {
     return *m_drawing;

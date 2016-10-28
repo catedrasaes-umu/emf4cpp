@@ -57,6 +57,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& getPlatformElement () const;
         ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& getPlatformElement ();
 
         /*PROTECTED REGION ID(DeployedResource) START*/

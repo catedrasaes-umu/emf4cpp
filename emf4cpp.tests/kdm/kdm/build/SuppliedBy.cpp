@@ -64,7 +64,7 @@ SuppliedBy::~SuppliedBy()
 
 // Attributes
 // References
-::kdm::build::Supplier_ptr SuppliedBy::getTo()
+::kdm::build::Supplier_ptr SuppliedBy::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void SuppliedBy::setTo(::kdm::build::Supplier_ptr _to)
 
 }
 
-::kdm::build::AbstractBuildElement_ptr SuppliedBy::getFrom()
+::kdm::build::AbstractBuildElement_ptr SuppliedBy::getFrom() const
 {
     return m_from;
 }

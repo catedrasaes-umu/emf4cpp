@@ -54,10 +54,10 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getCondition ();
+        ::xpand3::expression::AbstractExpression_ptr getCondition () const;
         void setCondition (::xpand3::expression::AbstractExpression_ptr _condition);
 
-        ::xpand3::statement::IfStatement_ptr getElseIf ();
+        ::xpand3::statement::IfStatement_ptr getElseIf () const;
         void setElseIf (::xpand3::statement::IfStatement_ptr _elseIf);
 
         /*PROTECTED REGION ID(IfStatement) START*/

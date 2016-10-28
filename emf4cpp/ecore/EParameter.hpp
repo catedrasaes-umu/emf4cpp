@@ -50,7 +50,7 @@ public:
     // Attributes
 
     // References
-    ::ecore::EOperation_ptr getEOperation ();
+    ::ecore::EOperation_ptr getEOperation () const;
     void setEOperation (::ecore::EOperation_ptr _eOperation);
     ::ecore::EOperation_ptr basicgetEOperation ();
     void basicsetEOperation (::ecore::EOperation_ptr _eOperation);

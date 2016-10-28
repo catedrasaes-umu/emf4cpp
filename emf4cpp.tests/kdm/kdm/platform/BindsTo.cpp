@@ -63,7 +63,7 @@ BindsTo::~BindsTo()
 
 // Attributes
 // References
-::kdm::platform::ResourceType_ptr BindsTo::getTo()
+::kdm::platform::ResourceType_ptr BindsTo::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void BindsTo::setTo(::kdm::platform::ResourceType_ptr _to)
 
 }
 
-::kdm::platform::ResourceType_ptr BindsTo::getFrom()
+::kdm::platform::ResourceType_ptr BindsTo::getFrom() const
 {
     return m_from;
 }

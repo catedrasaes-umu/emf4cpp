@@ -51,6 +51,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::CST::Element >& getChildren () const;
     ::ecorecpp::mapping::EList< ::CST::Element >& getChildren ();
 
     /*PROTECTED REGION ID(Node) START*/

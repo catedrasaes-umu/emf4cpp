@@ -62,6 +62,11 @@ ListLiteral::~ListLiteral()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& ListLiteral::getElements() const
+{
+    return *m_elements;
+}
+
 ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& ListLiteral::getElements()
 {
     return *m_elements;

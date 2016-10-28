@@ -126,7 +126,8 @@ void DataElement::setSize(::kdm::core::Integer _size)
 }
 
 // References
-::kdm::code::Datatype_ptr DataElement::getType()
+
+::kdm::code::Datatype_ptr DataElement::getType() const
 {
     return m_type;
 }
@@ -151,6 +152,11 @@ void DataElement::setType(::kdm::code::Datatype_ptr _type)
     }
 #endif
 
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& DataElement::getCodeElement() const
+{
+    return *m_codeElement;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& DataElement::getCodeElement()

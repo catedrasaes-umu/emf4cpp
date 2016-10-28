@@ -97,9 +97,20 @@ void KDMFramework::setName(::kdm::core::String _name)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& KDMFramework::getAudit() const
+{
+    return *m_audit;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& KDMFramework::getAudit()
 {
     return *m_audit;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& KDMFramework::getExtensionFamily() const
+{
+    return *m_extensionFamily;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& KDMFramework::getExtensionFamily()

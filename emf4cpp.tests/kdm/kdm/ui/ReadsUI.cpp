@@ -64,7 +64,7 @@ ReadsUI::~ReadsUI()
 
 // Attributes
 // References
-::kdm::ui::UIResource_ptr ReadsUI::getTo()
+::kdm::ui::UIResource_ptr ReadsUI::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ReadsUI::setTo(::kdm::ui::UIResource_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ReadsUI::getFrom()
+::kdm::action::ActionElement_ptr ReadsUI::getFrom() const
 {
     return m_from;
 }

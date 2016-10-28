@@ -52,8 +52,10 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& getImports () const;
     ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& getImports ();
 
+    const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& getDeclarations () const;
     ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& getDeclarations ();
 
     /*PROTECTED REGION ID(File) START*/

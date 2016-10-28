@@ -67,7 +67,7 @@ CollectionExpression::~CollectionExpression()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr CollectionExpression::getClosure()
+::xpand3::expression::AbstractExpression_ptr CollectionExpression::getClosure() const
 {
     return m_closure;
 }
@@ -98,7 +98,7 @@ void CollectionExpression::setClosure(
             ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
 }
 
-::xpand3::Identifier_ptr CollectionExpression::getEleName()
+::xpand3::Identifier_ptr CollectionExpression::getEleName() const
 {
     return m_eleName;
 }

@@ -64,7 +64,7 @@ ReadsState::~ReadsState()
 
 // Attributes
 // References
-::kdm::event::State_ptr ReadsState::getTo()
+::kdm::event::State_ptr ReadsState::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ReadsState::setTo(::kdm::event::State_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ReadsState::getFrom()
+::kdm::action::ActionElement_ptr ReadsState::getFrom() const
 {
     return m_from;
 }

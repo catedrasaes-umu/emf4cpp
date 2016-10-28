@@ -99,7 +99,8 @@ void AbstractDeclaration::setIsPrivate(::ecore::EBoolean _isPrivate)
 }
 
 // References
-::xpand3::File_ptr AbstractDeclaration::getOwner()
+
+::xpand3::File_ptr AbstractDeclaration::getOwner() const
 {
     return m_owner;
 }
@@ -129,12 +130,17 @@ void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
             ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
 }
 
+const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& AbstractDeclaration::getParams() const
+{
+    return *m_params;
+}
+
 ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& AbstractDeclaration::getParams()
 {
     return *m_params;
 }
 
-::xpand3::expression::AbstractExpression_ptr AbstractDeclaration::getGuard()
+::xpand3::expression::AbstractExpression_ptr AbstractDeclaration::getGuard() const
 {
     return m_guard;
 }

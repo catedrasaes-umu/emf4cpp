@@ -65,7 +65,7 @@ ChainExpression::~ChainExpression()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr ChainExpression::getFirst()
+::xpand3::expression::AbstractExpression_ptr ChainExpression::getFirst() const
 {
     return m_first;
 }
@@ -96,7 +96,7 @@ void ChainExpression::setFirst(
             ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
 }
 
-::xpand3::expression::AbstractExpression_ptr ChainExpression::getNext()
+::xpand3::expression::AbstractExpression_ptr ChainExpression::getNext() const
 {
     return m_next;
 }

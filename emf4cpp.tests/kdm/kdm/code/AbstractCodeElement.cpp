@@ -80,14 +80,29 @@ AbstractCodeElement::~AbstractCodeElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractCodeElement::getSource() const
+{
+    return *m_source;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractCodeElement::getSource()
 {
     return *m_source;
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& AbstractCodeElement::getComment() const
+{
+    return *m_comment;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& AbstractCodeElement::getComment()
 {
     return *m_comment;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& AbstractCodeElement::getCodeRelation() const
+{
+    return *m_codeRelation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& AbstractCodeElement::getCodeRelation()

@@ -57,7 +57,7 @@ namespace kdm
         void setSize (::kdm::core::Integer _size);
 
         // References
-        ::kdm::code::IndexUnit_ptr getIndexUnit ();
+        ::kdm::code::IndexUnit_ptr getIndexUnit () const;
         void setIndexUnit (::kdm::code::IndexUnit_ptr _indexUnit);
 
         /*PROTECTED REGION ID(ArrayType) START*/

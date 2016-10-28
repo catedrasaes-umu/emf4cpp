@@ -73,6 +73,11 @@ Signature::~Signature()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >& Signature::getParameterUnit() const
+{
+    return *m_parameterUnit;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >& Signature::getParameterUnit()
 {
     return *m_parameterUnit;

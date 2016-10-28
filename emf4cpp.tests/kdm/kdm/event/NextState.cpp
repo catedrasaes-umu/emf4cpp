@@ -64,7 +64,7 @@ NextState::~NextState()
 
 // Attributes
 // References
-::kdm::event::State_ptr NextState::getTo()
+::kdm::event::State_ptr NextState::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void NextState::setTo(::kdm::event::State_ptr _to)
 
 }
 
-::kdm::event::Transition_ptr NextState::getFrom()
+::kdm::event::Transition_ptr NextState::getFrom() const
 {
     return m_from;
 }

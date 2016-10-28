@@ -64,7 +64,7 @@ Throws::~Throws()
 
 // Attributes
 // References
-::kdm::code::DataElement_ptr Throws::getTo()
+::kdm::code::DataElement_ptr Throws::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Throws::setTo(::kdm::code::DataElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Throws::getFrom()
+::kdm::action::ActionElement_ptr Throws::getFrom() const
 {
     return m_from;
 }

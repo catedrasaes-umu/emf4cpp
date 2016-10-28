@@ -142,6 +142,12 @@ void InterfaceDef::setIsTruncatable(::ecore::EBoolean _isTruncatable)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& InterfaceDef::getDerivesFrom() const
+{
+    return *m_derivesFrom;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& InterfaceDef::getDerivesFrom()
 {
     return *m_derivesFrom;

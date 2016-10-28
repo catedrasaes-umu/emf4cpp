@@ -52,15 +52,18 @@ public:
     void setSource (::ecore::EString const& _source);
 
     // References
+    const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails () const;
     ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails ();
 
-    ::ecore::EModelElement_ptr getEModelElement ();
+    ::ecore::EModelElement_ptr getEModelElement () const;
     void setEModelElement (::ecore::EModelElement_ptr _eModelElement);
     ::ecore::EModelElement_ptr basicgetEModelElement ();
     void basicsetEModelElement (::ecore::EModelElement_ptr _eModelElement);
 
+    const ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents () const;
     ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences () const;
     ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences ();
 
     /*PROTECTED REGION ID(EAnnotation) START*/

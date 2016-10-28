@@ -63,7 +63,7 @@ UILayout::~UILayout()
 
 // Attributes
 // References
-::kdm::ui::UIResource_ptr UILayout::getTo()
+::kdm::ui::UIResource_ptr UILayout::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void UILayout::setTo(::kdm::ui::UIResource_ptr _to)
 
 }
 
-::kdm::ui::UIResource_ptr UILayout::getFrom()
+::kdm::ui::UIResource_ptr UILayout::getFrom() const
 {
     return m_from;
 }

@@ -68,6 +68,11 @@ UIModel::~UIModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIModel::getUIElement() const
+{
+    return *m_UIElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIModel::getUIElement()
 {
     return *m_UIElement;

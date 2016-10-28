@@ -85,9 +85,19 @@ AbstractPlatformElement::~AbstractPlatformElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractPlatformElement::getSource() const
+{
+    return *m_source;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractPlatformElement::getSource()
 {
     return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformRelationship >& AbstractPlatformElement::getRelation() const
+{
+    return *m_relation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformRelationship >& AbstractPlatformElement::getRelation()
@@ -95,9 +105,19 @@ AbstractPlatformElement::~AbstractPlatformElement()
     return *m_relation;
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractPlatformElement::getAbstraction() const
+{
+    return *m_abstraction;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractPlatformElement::getAbstraction()
 {
     return *m_abstraction;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractPlatformElement::getImplementation() const
+{
+    return *m_implementation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractPlatformElement::getImplementation()

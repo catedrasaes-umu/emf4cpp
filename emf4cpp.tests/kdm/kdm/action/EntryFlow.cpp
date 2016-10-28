@@ -64,7 +64,7 @@ EntryFlow::~EntryFlow()
 
 // Attributes
 // References
-::kdm::action::ActionElement_ptr EntryFlow::getTo()
+::kdm::action::ActionElement_ptr EntryFlow::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void EntryFlow::setTo(::kdm::action::ActionElement_ptr _to)
 
 }
 
-::kdm::code::ControlElement_ptr EntryFlow::getFrom()
+::kdm::code::ControlElement_ptr EntryFlow::getFrom() const
 {
     return m_from;
 }

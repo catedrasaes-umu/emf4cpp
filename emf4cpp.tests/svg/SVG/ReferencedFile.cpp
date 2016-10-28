@@ -88,6 +88,12 @@ void ReferencedFile::setName(::PrimitiveTypes::String _name)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::SVG::Image >& ReferencedFile::getReferer() const
+{
+    return *m_referer;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Image >& ReferencedFile::getReferer()
 {
     return *m_referer;

@@ -68,9 +68,19 @@ File::~File()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& File::getImports() const
+{
+    return *m_imports;
+}
+
 ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& File::getImports()
 {
     return *m_imports;
+}
+
+const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& File::getDeclarations() const
+{
+    return *m_declarations;
 }
 
 ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& File::getDeclarations()

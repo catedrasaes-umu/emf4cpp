@@ -64,7 +64,7 @@ ManagesData::~ManagesData()
 
 // Attributes
 // References
-::kdm::data::AbstractDataElement_ptr ManagesData::getTo()
+::kdm::data::AbstractDataElement_ptr ManagesData::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ManagesData::setTo(::kdm::data::AbstractDataElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ManagesData::getFrom()
+::kdm::action::ActionElement_ptr ManagesData::getFrom() const
 {
     return m_from;
 }

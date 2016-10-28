@@ -86,7 +86,7 @@ EOperation::~EOperation()
 
 // Attributes
 // References
-::ecore::EClass_ptr EOperation::getEContainingClass()
+::ecore::EClass_ptr EOperation::getEContainingClass() const
 {
     return m_eContainingClass;
 }
@@ -137,9 +137,19 @@ void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)
     }
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EOperation::getETypeParameters() const
+{
+    return *m_eTypeParameters;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EOperation::getETypeParameters()
 {
     return *m_eTypeParameters;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EParameter >& EOperation::getEParameters() const
+{
+    return *m_eParameters;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EParameter >& EOperation::getEParameters()
@@ -147,9 +157,19 @@ void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)
     return *m_eParameters;
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& EOperation::getEExceptions() const
+{
+    return *m_eExceptions;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EClassifier >& EOperation::getEExceptions()
 {
     return *m_eExceptions;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EOperation::getEGenericExceptions() const
+{
+    return *m_eGenericExceptions;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EOperation::getEGenericExceptions()

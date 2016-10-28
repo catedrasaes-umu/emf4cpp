@@ -120,7 +120,8 @@ void Check::setFeature(::ecore::EString const& _feature)
 }
 
 // References
-::xpand3::expression::AbstractExpression_ptr Check::getMsg()
+
+::xpand3::expression::AbstractExpression_ptr Check::getMsg() const
 {
     return m_msg;
 }
@@ -150,7 +151,7 @@ void Check::setMsg(::xpand3::expression::AbstractExpression_ptr _msg)
             ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
 }
 
-::xpand3::expression::AbstractExpression_ptr Check::getConstraint()
+::xpand3::expression::AbstractExpression_ptr Check::getConstraint() const
 {
     return m_constraint;
 }

@@ -50,6 +50,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::json::Value >& getValues () const;
     ::ecorecpp::mapping::EList< ::json::Value >& getValues ();
 
     /*PROTECTED REGION ID(ArrayValue) START*/

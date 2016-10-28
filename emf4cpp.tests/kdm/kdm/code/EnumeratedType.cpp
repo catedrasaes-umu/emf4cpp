@@ -73,6 +73,11 @@ EnumeratedType::~EnumeratedType()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::Value >& EnumeratedType::getValue() const
+{
+    return *m_value;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::Value >& EnumeratedType::getValue()
 {
     return *m_value;

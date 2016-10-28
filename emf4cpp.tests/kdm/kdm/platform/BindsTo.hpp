@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::platform::ResourceType_ptr getTo ();
+        ::kdm::platform::ResourceType_ptr getTo () const;
         void setTo (::kdm::platform::ResourceType_ptr _to);
 
-        ::kdm::platform::ResourceType_ptr getFrom ();
+        ::kdm::platform::ResourceType_ptr getFrom () const;
         void setFrom (::kdm::platform::ResourceType_ptr _from);
 
         /*PROTECTED REGION ID(BindsTo) START*/

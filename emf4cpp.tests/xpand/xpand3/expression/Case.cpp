@@ -66,7 +66,7 @@ Case::~Case()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr Case::getCondition()
+::xpand3::expression::AbstractExpression_ptr Case::getCondition() const
 {
     return m_condition;
 }
@@ -96,7 +96,7 @@ void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
             ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
 }
 
-::xpand3::expression::AbstractExpression_ptr Case::getThenPart()
+::xpand3::expression::AbstractExpression_ptr Case::getThenPart() const
 {
     return m_thenPart;
 }

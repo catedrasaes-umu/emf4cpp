@@ -68,6 +68,11 @@ CodeModel::~CodeModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& CodeModel::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& CodeModel::getCodeElement()
 {
     return *m_codeElement;

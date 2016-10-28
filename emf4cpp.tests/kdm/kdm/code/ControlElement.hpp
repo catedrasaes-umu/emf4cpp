@@ -56,11 +56,13 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::code::Datatype_ptr getType ();
+        ::kdm::code::Datatype_ptr getType () const;
         void setType (::kdm::code::Datatype_ptr _type);
 
+        const ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& getEntryFlow () const;
         ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& getEntryFlow ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement () const;
         ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement ();
 
         /*PROTECTED REGION ID(ControlElement) START*/

@@ -57,6 +57,7 @@ namespace kdm
         void setText (::kdm::core::String _text);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
         ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
 
         /*PROTECTED REGION ID(BuildDescription) START*/

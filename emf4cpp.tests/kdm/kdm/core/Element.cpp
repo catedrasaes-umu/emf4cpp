@@ -66,9 +66,19 @@ Element::~Element()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& Element::getAttribute() const
+{
+    return *m_attribute;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& Element::getAttribute()
 {
     return *m_attribute;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& Element::getAnnotation() const
+{
+    return *m_annotation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& Element::getAnnotation()

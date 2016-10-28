@@ -61,7 +61,7 @@ TaggedRef::~TaggedRef()
 
 // Attributes
 // References
-::kdm::core::ModelElement_ptr TaggedRef::getReference()
+::kdm::core::ModelElement_ptr TaggedRef::getReference() const
 {
     return m_reference;
 }

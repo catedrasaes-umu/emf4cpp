@@ -72,6 +72,11 @@ ComplexContentType::~ComplexContentType()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ComplexContentType::getContentElement() const
+{
+    return *m_contentElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ComplexContentType::getContentElement()
 {
     return *m_contentElement;

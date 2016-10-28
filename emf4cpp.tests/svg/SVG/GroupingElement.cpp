@@ -71,6 +71,11 @@ GroupingElement::~GroupingElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::SVG::Element >& GroupingElement::getGroupContent() const
+{
+    return *m_groupContent;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Element >& GroupingElement::getGroupContent()
 {
     return *m_groupContent;

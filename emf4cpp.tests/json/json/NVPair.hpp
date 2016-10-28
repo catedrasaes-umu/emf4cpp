@@ -55,7 +55,7 @@ public:
     void setName (::ecore::EString const& _name);
 
     // References
-    ::json::Value_ptr getValue ();
+    ::json::Value_ptr getValue () const;
     void setValue (::json::Value_ptr _value);
 
     /*PROTECTED REGION ID(NVPair) START*/

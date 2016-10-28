@@ -58,6 +58,7 @@ namespace kdm
         void setKind (::kdm::core::String _kind);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType () const;
         ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType ();
 
         /*PROTECTED REGION ID(SimpleContentType) START*/

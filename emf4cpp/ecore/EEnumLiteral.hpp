@@ -58,7 +58,7 @@ public:
     void setLiteral (::ecore::EString const& _literal);
 
     // References
-    ::ecore::EEnum_ptr getEEnum ();
+    ::ecore::EEnum_ptr getEEnum () const;
     void setEEnum (::ecore::EEnum_ptr _eEnum);
     ::ecore::EEnum_ptr basicgetEEnum ();
     void basicsetEEnum (::ecore::EEnum_ptr _eEnum);

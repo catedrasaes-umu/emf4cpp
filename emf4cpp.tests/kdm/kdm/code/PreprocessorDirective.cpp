@@ -72,6 +72,11 @@ PreprocessorDirective::~PreprocessorDirective()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& PreprocessorDirective::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& PreprocessorDirective::getCodeElement()
 {
     return *m_codeElement;

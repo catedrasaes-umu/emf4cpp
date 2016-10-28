@@ -50,6 +50,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEBounds () const;
     ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEBounds ();
 
     /*PROTECTED REGION ID(ETypeParameter) START*/

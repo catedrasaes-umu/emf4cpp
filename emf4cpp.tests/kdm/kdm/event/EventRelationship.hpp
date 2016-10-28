@@ -54,10 +54,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::core::KDMEntity_ptr getTo ();
+        ::kdm::core::KDMEntity_ptr getTo () const;
         void setTo (::kdm::core::KDMEntity_ptr _to);
 
-        ::kdm::event::AbstractEventElement_ptr getFrom ();
+        ::kdm::event::AbstractEventElement_ptr getFrom () const;
         void setFrom (::kdm::event::AbstractEventElement_ptr _from);
 
         /*PROTECTED REGION ID(EventRelationship) START*/

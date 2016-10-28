@@ -62,7 +62,7 @@ ConstructorCallExpression::~ConstructorCallExpression()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr ConstructorCallExpression::getType()
+::xpand3::Identifier_ptr ConstructorCallExpression::getType() const
 {
     return m_type;
 }

@@ -161,7 +161,8 @@ void Contained::setAbsoluteName(::ecore::EString const& _absoluteName)
 }
 
 // References
-::idlmm::Container_ptr Contained::getDefinedIn()
+
+::idlmm::Container_ptr Contained::getDefinedIn() const
 {
     return m_definedIn;
 }

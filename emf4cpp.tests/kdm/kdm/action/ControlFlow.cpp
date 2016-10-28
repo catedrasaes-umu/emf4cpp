@@ -63,7 +63,7 @@ ControlFlow::~ControlFlow()
 
 // Attributes
 // References
-::kdm::action::ActionElement_ptr ControlFlow::getTo()
+::kdm::action::ActionElement_ptr ControlFlow::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ControlFlow::setTo(::kdm::action::ActionElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ControlFlow::getFrom()
+::kdm::action::ActionElement_ptr ControlFlow::getFrom() const
 {
     return m_from;
 }

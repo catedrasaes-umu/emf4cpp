@@ -64,7 +64,7 @@ ParameterTo::~ParameterTo()
 
 // Attributes
 // References
-::kdm::code::CodeItem_ptr ParameterTo::getTo()
+::kdm::code::CodeItem_ptr ParameterTo::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ParameterTo::setTo(::kdm::code::CodeItem_ptr _to)
 
 }
 
-::kdm::code::AbstractCodeElement_ptr ParameterTo::getFrom()
+::kdm::code::AbstractCodeElement_ptr ParameterTo::getFrom() const
 {
     return m_from;
 }

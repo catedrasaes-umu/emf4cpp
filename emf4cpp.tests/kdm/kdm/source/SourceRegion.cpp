@@ -216,7 +216,8 @@ void SourceRegion::setPath(::kdm::core::String _path)
 }
 
 // References
-::kdm::source::SourceFile_ptr SourceRegion::getFile()
+
+::kdm::source::SourceFile_ptr SourceRegion::getFile() const
 {
     return m_file;
 }

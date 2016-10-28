@@ -63,7 +63,7 @@ ExtensionTo::~ExtensionTo()
 
 // Attributes
 // References
-::kdm::data::ComplexContentType_ptr ExtensionTo::getTo()
+::kdm::data::ComplexContentType_ptr ExtensionTo::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ExtensionTo::setTo(::kdm::data::ComplexContentType_ptr _to)
 
 }
 
-::kdm::data::ComplexContentType_ptr ExtensionTo::getFrom()
+::kdm::data::ComplexContentType_ptr ExtensionTo::getFrom() const
 {
     return m_from;
 }

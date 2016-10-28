@@ -56,7 +56,7 @@ public:
     // Attributes
 
     // References
-    ::ecore::EPackage_ptr getEPackage ();
+    ::ecore::EPackage_ptr getEPackage () const;
     void setEPackage (::ecore::EPackage_ptr _ePackage);
     ::ecore::EPackage_ptr basicgetEPackage ();
     void basicsetEPackage (::ecore::EPackage_ptr _ePackage);

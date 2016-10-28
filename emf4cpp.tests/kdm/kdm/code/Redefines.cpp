@@ -63,7 +63,7 @@ Redefines::~Redefines()
 
 // Attributes
 // References
-::kdm::code::PreprocessorDirective_ptr Redefines::getTo()
+::kdm::code::PreprocessorDirective_ptr Redefines::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void Redefines::setTo(::kdm::code::PreprocessorDirective_ptr _to)
 
 }
 
-::kdm::code::PreprocessorDirective_ptr Redefines::getFrom()
+::kdm::code::PreprocessorDirective_ptr Redefines::getFrom() const
 {
     return m_from;
 }

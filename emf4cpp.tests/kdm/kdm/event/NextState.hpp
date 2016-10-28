@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::event::State_ptr getTo ();
+        ::kdm::event::State_ptr getTo () const;
         void setTo (::kdm::event::State_ptr _to);
 
-        ::kdm::event::Transition_ptr getFrom ();
+        ::kdm::event::Transition_ptr getFrom () const;
         void setFrom (::kdm::event::Transition_ptr _from);
 
         /*PROTECTED REGION ID(NextState) START*/

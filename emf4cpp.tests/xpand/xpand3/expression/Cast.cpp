@@ -66,7 +66,7 @@ Cast::~Cast()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr Cast::getType()
+::xpand3::Identifier_ptr Cast::getType() const
 {
     return m_type;
 }
@@ -96,7 +96,7 @@ void Cast::setType(::xpand3::Identifier_ptr _type)
             ::xpand3::expression::ExpressionPackage::_instance()->getCast__type());
 }
 
-::xpand3::expression::AbstractExpression_ptr Cast::getTarget()
+::xpand3::expression::AbstractExpression_ptr Cast::getTarget() const
 {
     return m_target;
 }

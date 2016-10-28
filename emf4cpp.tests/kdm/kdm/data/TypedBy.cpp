@@ -64,7 +64,7 @@ TypedBy::~TypedBy()
 
 // Attributes
 // References
-::kdm::data::ComplexContentType_ptr TypedBy::getTo()
+::kdm::data::ComplexContentType_ptr TypedBy::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void TypedBy::setTo(::kdm::data::ComplexContentType_ptr _to)
 
 }
 
-::kdm::data::ContentItem_ptr TypedBy::getFrom()
+::kdm::data::ContentItem_ptr TypedBy::getFrom() const
 {
     return m_from;
 }

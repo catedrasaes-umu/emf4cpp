@@ -100,6 +100,12 @@ void PlatformAction::setKind(::kdm::core::String _kind)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& PlatformAction::getPlatformElement() const
+{
+    return *m_platformElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& PlatformAction::getPlatformElement()
 {
     return *m_platformElement;

@@ -87,7 +87,8 @@ void NVPair::setName(::ecore::EString const& _name)
 }
 
 // References
-::json::Value_ptr NVPair::getValue()
+
+::json::Value_ptr NVPair::getValue() const
 {
     return m_value;
 }

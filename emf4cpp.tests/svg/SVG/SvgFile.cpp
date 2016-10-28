@@ -66,7 +66,7 @@ SvgFile::~SvgFile()
 
 // Attributes
 // References
-::SVG::Svg_ptr SvgFile::getTag()
+::SVG::Svg_ptr SvgFile::getTag() const
 {
     return m_tag;
 }
@@ -113,6 +113,11 @@ void SvgFile::setTag(::SVG::Svg_ptr _tag)
         }
         basicsetTag(_tag);
     }
+}
+
+const ::ecorecpp::mapping::EList< ::SVG::Element >& SvgFile::getElements() const
+{
+    return *m_elements;
 }
 
 ::ecorecpp::mapping::EList< ::SVG::Element >& SvgFile::getElements()

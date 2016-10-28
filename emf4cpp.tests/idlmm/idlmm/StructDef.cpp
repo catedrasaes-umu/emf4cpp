@@ -63,6 +63,11 @@ StructDef::~StructDef()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::idlmm::Field >& StructDef::getMembers() const
+{
+    return *m_members;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::Field >& StructDef::getMembers()
 {
     return *m_members;

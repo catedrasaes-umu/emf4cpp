@@ -62,7 +62,7 @@ Literal::~Literal()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr Literal::getLiteralValue()
+::xpand3::Identifier_ptr Literal::getLiteralValue() const
 {
     return m_literalValue;
 }

@@ -62,7 +62,7 @@ GlobalVarExpression::~GlobalVarExpression()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr GlobalVarExpression::getGlobalVarName()
+::xpand3::Identifier_ptr GlobalVarExpression::getGlobalVarName() const
 {
     return m_globalVarName;
 }

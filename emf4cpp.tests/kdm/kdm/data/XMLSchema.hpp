@@ -56,6 +56,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement () const;
         ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement ();
 
         /*PROTECTED REGION ID(XMLSchema) START*/

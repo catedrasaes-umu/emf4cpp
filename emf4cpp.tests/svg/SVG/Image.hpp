@@ -51,6 +51,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& getReferee () const;
     ::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& getReferee ();
 
     /*PROTECTED REGION ID(Image) START*/

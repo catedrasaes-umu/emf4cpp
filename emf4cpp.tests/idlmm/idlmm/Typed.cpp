@@ -62,7 +62,7 @@ Typed::~Typed()
 
 // Attributes
 // References
-::idlmm::IDLType_ptr Typed::getContainedType()
+::idlmm::IDLType_ptr Typed::getContainedType() const
 {
     return m_containedType;
 }
@@ -92,7 +92,7 @@ void Typed::setContainedType(::idlmm::IDLType_ptr _containedType)
             ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
 }
 
-::idlmm::TypedefDef_ptr Typed::getSharedType()
+::idlmm::TypedefDef_ptr Typed::getSharedType() const
 {
     return m_sharedType;
 }

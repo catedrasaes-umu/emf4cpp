@@ -63,7 +63,7 @@ EventRelationship::~EventRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr EventRelationship::getTo()
+::kdm::core::KDMEntity_ptr EventRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void EventRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::event::AbstractEventElement_ptr EventRelationship::getFrom()
+::kdm::event::AbstractEventElement_ptr EventRelationship::getFrom() const
 {
     return m_from;
 }

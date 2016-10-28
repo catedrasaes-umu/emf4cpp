@@ -51,10 +51,10 @@ public:
     // Attributes
 
     // References
-    ::xpand3::Identifier_ptr getName ();
+    ::xpand3::Identifier_ptr getName () const;
     void setName (::xpand3::Identifier_ptr _name);
 
-    ::xpand3::Identifier_ptr getType ();
+    ::xpand3::Identifier_ptr getType () const;
     void setType (::xpand3::Identifier_ptr _type);
 
     /*PROTECTED REGION ID(DeclaredParameter) START*/

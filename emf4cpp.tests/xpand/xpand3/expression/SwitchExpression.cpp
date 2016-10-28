@@ -71,7 +71,7 @@ SwitchExpression::~SwitchExpression()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr SwitchExpression::getSwitchExpr()
+::xpand3::expression::AbstractExpression_ptr SwitchExpression::getSwitchExpr() const
 {
     return m_switchExpr;
 }
@@ -102,7 +102,7 @@ void SwitchExpression::setSwitchExpr(
             ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
 }
 
-::xpand3::expression::AbstractExpression_ptr SwitchExpression::getDefaultExpr()
+::xpand3::expression::AbstractExpression_ptr SwitchExpression::getDefaultExpr() const
 {
     return m_defaultExpr;
 }
@@ -132,6 +132,11 @@ void SwitchExpression::setDefaultExpr(
     delete _old_defaultExpr;
     m_defaultExpr->_setEContainer(this,
             ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
+}
+
+const ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& SwitchExpression::getCases() const
+{
+    return *m_cases;
 }
 
 ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& SwitchExpression::getCases()

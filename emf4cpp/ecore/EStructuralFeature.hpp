@@ -74,7 +74,7 @@ public:
     void setDerived (::ecore::EBoolean _derived);
 
     // References
-    ::ecore::EClass_ptr getEContainingClass ();
+    ::ecore::EClass_ptr getEContainingClass () const;
     void setEContainingClass (::ecore::EClass_ptr _eContainingClass);
     ::ecore::EClass_ptr basicgetEContainingClass ();
     void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);

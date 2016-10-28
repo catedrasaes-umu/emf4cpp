@@ -104,9 +104,20 @@ void ActionElement::setKind(::kdm::core::String _kind)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ActionElement::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ActionElement::getCodeElement()
 {
     return *m_codeElement;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& ActionElement::getActionRelation() const
+{
+    return *m_actionRelation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& ActionElement::getActionRelation()

@@ -64,7 +64,7 @@ Addresses::~Addresses()
 
 // Attributes
 // References
-::kdm::code::ComputationalObject_ptr Addresses::getTo()
+::kdm::code::ComputationalObject_ptr Addresses::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Addresses::setTo(::kdm::code::ComputationalObject_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Addresses::getFrom()
+::kdm::action::ActionElement_ptr Addresses::getFrom() const
 {
     return m_from;
 }

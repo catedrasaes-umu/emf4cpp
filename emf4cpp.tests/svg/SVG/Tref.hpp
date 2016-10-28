@@ -51,7 +51,7 @@ public:
     // Attributes
 
     // References
-    ::SVG::TextElement_ptr getXlinkHref ();
+    ::SVG::TextElement_ptr getXlinkHref () const;
     void setXlinkHref (::SVG::TextElement_ptr _xlinkHref);
 
     /*PROTECTED REGION ID(Tref) START*/

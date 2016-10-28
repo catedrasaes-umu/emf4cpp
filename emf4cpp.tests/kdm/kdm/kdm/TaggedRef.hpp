@@ -53,7 +53,7 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::core::ModelElement_ptr getReference ();
+        ::kdm::core::ModelElement_ptr getReference () const;
         void setReference (::kdm::core::ModelElement_ptr _reference);
 
         /*PROTECTED REGION ID(TaggedRef) START*/

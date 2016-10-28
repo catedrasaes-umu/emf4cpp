@@ -88,8 +88,10 @@ public:
     
     // References
     «FOREACH this.EReferences AS ref-»
+       «ref.getGetCPPSignatureConst()»;
+       «IF ref.isMultiple()-»
        «ref.getGetCPPSignature()»;
-       «IF !ref.isMultiple()-»
+       «ELSE-»
           «ref.getSetCPPSignature()»;
           «IF ref.EOpposite != null-»
 	         «ref.getGetCPPSignature("basic")»;

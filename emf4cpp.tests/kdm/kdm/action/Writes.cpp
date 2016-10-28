@@ -64,7 +64,7 @@ Writes::~Writes()
 
 // Attributes
 // References
-::kdm::code::DataElement_ptr Writes::getTo()
+::kdm::code::DataElement_ptr Writes::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Writes::setTo(::kdm::code::DataElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Writes::getFrom()
+::kdm::action::ActionElement_ptr Writes::getFrom() const
 {
     return m_from;
 }

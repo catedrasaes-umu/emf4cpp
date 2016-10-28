@@ -56,13 +56,13 @@ namespace xpand3
         void setDisable (::ecore::EBoolean _disable);
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getCommentStart ();
+        ::xpand3::expression::AbstractExpression_ptr getCommentStart () const;
         void setCommentStart (::xpand3::expression::AbstractExpression_ptr _commentStart);
 
-        ::xpand3::expression::AbstractExpression_ptr getCommentEnd ();
+        ::xpand3::expression::AbstractExpression_ptr getCommentEnd () const;
         void setCommentEnd (::xpand3::expression::AbstractExpression_ptr _commentEnd);
 
-        ::xpand3::expression::AbstractExpression_ptr getId ();
+        ::xpand3::expression::AbstractExpression_ptr getId () const;
         void setId (::xpand3::expression::AbstractExpression_ptr _id);
 
         /*PROTECTED REGION ID(ProtectStatement) START*/

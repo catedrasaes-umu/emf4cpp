@@ -51,6 +51,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent () const;
     ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent ();
 
     /*PROTECTED REGION ID(GroupingElement) START*/

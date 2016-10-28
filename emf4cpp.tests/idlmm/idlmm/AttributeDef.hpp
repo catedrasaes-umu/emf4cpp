@@ -54,8 +54,10 @@ public:
     void setIsReadonly (::ecore::EBoolean _isReadonly);
 
     // References
+    const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises () const;
     ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises ();
 
+    const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises () const;
     ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises ();
 
     /*PROTECTED REGION ID(AttributeDef) START*/

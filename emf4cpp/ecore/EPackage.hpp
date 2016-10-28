@@ -67,16 +67,18 @@ public:
     void setNsPrefix (::ecore::EString const& _nsPrefix);
 
     // References
-    ::ecore::EFactory_ptr getEFactoryInstance ();
+    ::ecore::EFactory_ptr getEFactoryInstance () const;
     void setEFactoryInstance (::ecore::EFactory_ptr _eFactoryInstance);
     ::ecore::EFactory_ptr basicgetEFactoryInstance ();
     void basicsetEFactoryInstance (::ecore::EFactory_ptr _eFactoryInstance);
 
+    const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers () const;
     ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages () const;
     ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages ();
 
-    ::ecore::EPackage_ptr getESuperPackage ();
+    ::ecore::EPackage_ptr getESuperPackage () const;
     void setESuperPackage (::ecore::EPackage_ptr _eSuperPackage);
     ::ecore::EPackage_ptr basicgetESuperPackage ();
     void basicsetESuperPackage (::ecore::EPackage_ptr _eSuperPackage);

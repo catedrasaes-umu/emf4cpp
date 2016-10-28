@@ -58,6 +58,7 @@ namespace kdm
         void setType (::kdm::core::String _type);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag ();
 
         /*PROTECTED REGION ID(Stereotype) START*/

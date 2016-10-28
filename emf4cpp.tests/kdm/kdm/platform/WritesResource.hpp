@@ -54,10 +54,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::platform::ResourceType_ptr getTo ();
+        ::kdm::platform::ResourceType_ptr getTo () const;
         void setTo (::kdm::platform::ResourceType_ptr _to);
 
-        ::kdm::action::ActionElement_ptr getFrom ();
+        ::kdm::action::ActionElement_ptr getFrom () const;
         void setFrom (::kdm::action::ActionElement_ptr _from);
 
         /*PROTECTED REGION ID(WritesResource) START*/

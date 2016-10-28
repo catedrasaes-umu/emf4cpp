@@ -69,6 +69,11 @@ PlatformModel::~PlatformModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& PlatformModel::getPlatformElement() const
+{
+    return *m_platformElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& PlatformModel::getPlatformElement()
 {
     return *m_platformElement;

@@ -70,6 +70,11 @@ AbstractBuildElement::~AbstractBuildElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& AbstractBuildElement::getBuildRelation() const
+{
+    return *m_buildRelation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& AbstractBuildElement::getBuildRelation()
 {
     return *m_buildRelation;

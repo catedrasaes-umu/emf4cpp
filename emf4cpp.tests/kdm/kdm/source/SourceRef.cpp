@@ -116,6 +116,12 @@ void SourceRef::setSnippet(::kdm::core::String _snippet)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& SourceRef::getRegion() const
+{
+    return *m_region;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& SourceRef::getRegion()
 {
     return *m_region;

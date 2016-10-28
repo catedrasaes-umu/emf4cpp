@@ -63,7 +63,7 @@ InventoryRelationship::~InventoryRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr InventoryRelationship::getTo()
+::kdm::core::KDMEntity_ptr InventoryRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void InventoryRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::source::AbstractInventoryElement_ptr InventoryRelationship::getFrom()
+::kdm::source::AbstractInventoryElement_ptr InventoryRelationship::getFrom() const
 {
     return m_from;
 }

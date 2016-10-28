@@ -51,12 +51,12 @@ public:
     // Attributes
 
     // References
-    ::eopposite::RightHand_ptr getRightee ();
+    ::eopposite::RightHand_ptr getRightee () const;
     void setRightee (::eopposite::RightHand_ptr _rightee);
     ::eopposite::RightHand_ptr basicgetRightee ();
     void basicsetRightee (::eopposite::RightHand_ptr _rightee);
 
-    ::eopposite::RightMultiple_ptr getRightMultiple ();
+    ::eopposite::RightMultiple_ptr getRightMultiple () const;
     void setRightMultiple (::eopposite::RightMultiple_ptr _rightMultiple);
     ::eopposite::RightMultiple_ptr basicgetRightMultiple ();
     void basicsetRightMultiple (::eopposite::RightMultiple_ptr _rightMultiple);

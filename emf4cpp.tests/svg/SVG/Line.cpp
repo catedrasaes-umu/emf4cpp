@@ -122,6 +122,12 @@ void Line::setMarkerStart(::PrimitiveTypes::String _markerStart)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::SVG::Point >& Line::getBetween() const
+{
+    return *m_between;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Point >& Line::getBetween()
 {
     return *m_between;

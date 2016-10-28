@@ -70,6 +70,11 @@ AbstractInventoryElement::~AbstractInventoryElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >& AbstractInventoryElement::getInventoryRelation() const
+{
+    return *m_inventoryRelation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >& AbstractInventoryElement::getInventoryRelation()
 {
     return *m_inventoryRelation;

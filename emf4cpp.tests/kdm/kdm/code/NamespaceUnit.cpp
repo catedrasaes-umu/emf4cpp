@@ -72,6 +72,11 @@ NamespaceUnit::~NamespaceUnit()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& NamespaceUnit::getGroupedCode() const
+{
+    return *m_groupedCode;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& NamespaceUnit::getGroupedCode()
 {
     return *m_groupedCode;

@@ -64,7 +64,7 @@ Dispatches::~Dispatches()
 
 // Attributes
 // References
-::kdm::code::DataElement_ptr Dispatches::getTo()
+::kdm::code::DataElement_ptr Dispatches::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Dispatches::setTo(::kdm::code::DataElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Dispatches::getFrom()
+::kdm::action::ActionElement_ptr Dispatches::getFrom() const
 {
     return m_from;
 }

@@ -69,9 +69,19 @@ ModelElement::~ModelElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ModelElement::getStereotype() const
+{
+    return *m_stereotype;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ModelElement::getStereotype()
 {
     return *m_stereotype;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& ModelElement::getTaggedValue() const
+{
+    return *m_taggedValue;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& ModelElement::getTaggedValue()

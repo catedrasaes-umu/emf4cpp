@@ -63,7 +63,7 @@ ExitFlow::~ExitFlow()
 
 // Attributes
 // References
-::kdm::action::ActionElement_ptr ExitFlow::getTo()
+::kdm::action::ActionElement_ptr ExitFlow::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ExitFlow::setTo(::kdm::action::ActionElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ExitFlow::getFrom()
+::kdm::action::ActionElement_ptr ExitFlow::getFrom() const
 {
     return m_from;
 }

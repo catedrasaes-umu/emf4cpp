@@ -65,7 +65,7 @@ AbstractNamedDeclaration::~AbstractNamedDeclaration()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr AbstractNamedDeclaration::getName()
+::xpand3::Identifier_ptr AbstractNamedDeclaration::getName() const
 {
     return m_name;
 }

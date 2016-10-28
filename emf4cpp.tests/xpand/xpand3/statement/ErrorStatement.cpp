@@ -62,7 +62,7 @@ ErrorStatement::~ErrorStatement()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr ErrorStatement::getMessage()
+::xpand3::expression::AbstractExpression_ptr ErrorStatement::getMessage() const
 {
     return m_message;
 }

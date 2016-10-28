@@ -64,7 +64,7 @@ ConsumesEvent::~ConsumesEvent()
 
 // Attributes
 // References
-::kdm::event::Event_ptr ConsumesEvent::getTo()
+::kdm::event::Event_ptr ConsumesEvent::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ConsumesEvent::setTo(::kdm::event::Event_ptr _to)
 
 }
 
-::kdm::event::Transition_ptr ConsumesEvent::getFrom()
+::kdm::event::Transition_ptr ConsumesEvent::getFrom() const
 {
     return m_from;
 }

@@ -64,7 +64,7 @@ ReadsColumnSet::~ReadsColumnSet()
 
 // Attributes
 // References
-::kdm::data::ColumnSet_ptr ReadsColumnSet::getTo()
+::kdm::data::ColumnSet_ptr ReadsColumnSet::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ReadsColumnSet::setTo(::kdm::data::ColumnSet_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ReadsColumnSet::getFrom()
+::kdm::action::ActionElement_ptr ReadsColumnSet::getFrom() const
 {
     return m_from;
 }

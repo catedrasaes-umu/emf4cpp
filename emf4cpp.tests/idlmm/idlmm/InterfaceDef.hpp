@@ -60,6 +60,7 @@ public:
     void setIsTruncatable (::ecore::EBoolean _isTruncatable);
 
     // References
+    const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom () const;
     ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom ();
 
     /*PROTECTED REGION ID(InterfaceDef) START*/

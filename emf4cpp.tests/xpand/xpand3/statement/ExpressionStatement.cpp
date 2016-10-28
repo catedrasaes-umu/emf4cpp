@@ -62,7 +62,7 @@ ExpressionStatement::~ExpressionStatement()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr ExpressionStatement::getExpression()
+::xpand3::expression::AbstractExpression_ptr ExpressionStatement::getExpression() const
 {
     return m_expression;
 }

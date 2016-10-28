@@ -103,9 +103,20 @@ void DataAction::setKind(::kdm::core::String _kind)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& DataAction::getImplementation() const
+{
+    return *m_implementation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& DataAction::getImplementation()
 {
     return *m_implementation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::data::DataEvent >& DataAction::getDataElement() const
+{
+    return *m_dataElement;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::data::DataEvent >& DataAction::getDataElement()

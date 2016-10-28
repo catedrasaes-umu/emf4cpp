@@ -51,11 +51,12 @@ public:
     // Attributes
 
     // References
-    ::SVG::Svg_ptr getTag ();
+    ::SVG::Svg_ptr getTag () const;
     void setTag (::SVG::Svg_ptr _tag);
     ::SVG::Svg_ptr basicgetTag ();
     void basicsetTag (::SVG::Svg_ptr _tag);
 
+    const ::ecorecpp::mapping::EList< ::SVG::Element >& getElements () const;
     ::ecorecpp::mapping::EList< ::SVG::Element >& getElements ();
 
     /*PROTECTED REGION ID(SvgFile) START*/

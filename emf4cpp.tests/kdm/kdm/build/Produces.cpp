@@ -64,7 +64,7 @@ Produces::~Produces()
 
 // Attributes
 // References
-::kdm::build::AbstractBuildElement_ptr Produces::getTo()
+::kdm::build::AbstractBuildElement_ptr Produces::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Produces::setTo(::kdm::build::AbstractBuildElement_ptr _to)
 
 }
 
-::kdm::build::BuildStep_ptr Produces::getFrom()
+::kdm::build::BuildStep_ptr Produces::getFrom() const
 {
     return m_from;
 }

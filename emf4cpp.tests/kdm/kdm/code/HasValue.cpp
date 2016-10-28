@@ -63,7 +63,7 @@ HasValue::~HasValue()
 
 // Attributes
 // References
-::kdm::code::CodeItem_ptr HasValue::getTo()
+::kdm::code::CodeItem_ptr HasValue::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void HasValue::setTo(::kdm::code::CodeItem_ptr _to)
 
 }
 
-::kdm::code::CodeItem_ptr HasValue::getFrom()
+::kdm::code::CodeItem_ptr HasValue::getFrom() const
 {
     return m_from;
 }

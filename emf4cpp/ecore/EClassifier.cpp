@@ -171,7 +171,8 @@ void EClassifier::setInstanceTypeName(::ecore::EString const& _instanceTypeName)
 }
 
 // References
-::ecore::EPackage_ptr EClassifier::getEPackage()
+
+::ecore::EPackage_ptr EClassifier::getEPackage() const
 {
     return m_ePackage;
 }
@@ -220,6 +221,11 @@ void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)
         }
         basicsetEPackage(_ePackage);
     }
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EClassifier::getETypeParameters() const
+{
+    return *m_eTypeParameters;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EClassifier::getETypeParameters()

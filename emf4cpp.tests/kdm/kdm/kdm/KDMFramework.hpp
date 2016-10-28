@@ -55,8 +55,10 @@ namespace kdm
         void setName (::kdm::core::String _name);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily ();
 
         /*PROTECTED REGION ID(KDMFramework) START*/

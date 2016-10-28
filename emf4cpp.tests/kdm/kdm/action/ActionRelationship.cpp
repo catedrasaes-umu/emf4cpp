@@ -63,7 +63,7 @@ ActionRelationship::~ActionRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr ActionRelationship::getTo()
+::kdm::core::KDMEntity_ptr ActionRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ActionRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ActionRelationship::getFrom()
+::kdm::action::ActionElement_ptr ActionRelationship::getFrom() const
 {
     return m_from;
 }

@@ -63,7 +63,7 @@ VariantTo::~VariantTo()
 
 // Attributes
 // References
-::kdm::code::PreprocessorDirective_ptr VariantTo::getTo()
+::kdm::code::PreprocessorDirective_ptr VariantTo::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void VariantTo::setTo(::kdm::code::PreprocessorDirective_ptr _to)
 
 }
 
-::kdm::code::PreprocessorDirective_ptr VariantTo::getFrom()
+::kdm::code::PreprocessorDirective_ptr VariantTo::getFrom() const
 {
     return m_from;
 }

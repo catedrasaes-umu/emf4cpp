@@ -109,7 +109,8 @@ void Property::setMany(::ecore::EBoolean _many)
 }
 
 // References
-::myDsl::Type_ptr Property::getType()
+
+::myDsl::Type_ptr Property::getType() const
 {
     return m_type;
 }

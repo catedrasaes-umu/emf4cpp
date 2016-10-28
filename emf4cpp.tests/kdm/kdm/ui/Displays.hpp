@@ -54,10 +54,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::ui::UIResource_ptr getTo ();
+        ::kdm::ui::UIResource_ptr getTo () const;
         void setTo (::kdm::ui::UIResource_ptr _to);
 
-        ::kdm::action::ActionElement_ptr getFrom ();
+        ::kdm::action::ActionElement_ptr getFrom () const;
         void setFrom (::kdm::action::ActionElement_ptr _from);
 
         /*PROTECTED REGION ID(Displays) START*/

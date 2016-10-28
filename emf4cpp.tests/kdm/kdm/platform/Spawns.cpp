@@ -64,7 +64,7 @@ Spawns::~Spawns()
 
 // Attributes
 // References
-::kdm::platform::RuntimeResource_ptr Spawns::getTo()
+::kdm::platform::RuntimeResource_ptr Spawns::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Spawns::setTo(::kdm::platform::RuntimeResource_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Spawns::getFrom()
+::kdm::action::ActionElement_ptr Spawns::getFrom() const
 {
     return m_from;
 }

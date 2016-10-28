@@ -88,12 +88,18 @@ void Department::setNumber(::ecore::EInt _number)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::company::Employee >& Department::getEmployees() const
+{
+    return *m_employees;
+}
+
 ::ecorecpp::mapping::EList< ::company::Employee >& Department::getEmployees()
 {
     return *m_employees;
 }
 
-::company::Employee_ptr Department::getManager()
+::company::Employee_ptr Department::getManager() const
 {
     return m_manager;
 }

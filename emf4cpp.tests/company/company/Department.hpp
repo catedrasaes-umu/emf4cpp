@@ -55,9 +55,10 @@ public:
     void setNumber (::ecore::EInt _number);
 
     // References
+    const ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees () const;
     ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees ();
 
-    ::company::Employee_ptr getManager ();
+    ::company::Employee_ptr getManager () const;
     void setManager (::company::Employee_ptr _manager);
 
     /*PROTECTED REGION ID(Department) START*/

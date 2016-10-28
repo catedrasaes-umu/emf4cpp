@@ -57,6 +57,7 @@ namespace kdm
         void setIsAbstract (::kdm::core::Boolean _isAbstract);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement () const;
         ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement ();
 
         /*PROTECTED REGION ID(ClassUnit) START*/

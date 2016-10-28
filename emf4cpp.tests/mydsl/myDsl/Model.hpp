@@ -51,8 +51,10 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports () const;
     ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports ();
 
+    const ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements () const;
     ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements ();
 
     /*PROTECTED REGION ID(Model) START*/

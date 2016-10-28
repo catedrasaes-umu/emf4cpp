@@ -54,6 +54,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement >& getDataElement () const;
         ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement >& getDataElement ();
 
         /*PROTECTED REGION ID(DataModel) START*/

@@ -71,7 +71,7 @@ namespace kdm
         void setPath (::kdm::core::String _path);
 
         // References
-        ::kdm::source::SourceFile_ptr getFile ();
+        ::kdm::source::SourceFile_ptr getFile () const;
         void setFile (::kdm::source::SourceFile_ptr _file);
 
         /*PROTECTED REGION ID(SourceRegion) START*/

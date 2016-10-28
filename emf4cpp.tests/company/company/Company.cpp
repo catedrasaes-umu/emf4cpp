@@ -87,6 +87,12 @@ void Company::setName(::ecore::EString const& _name)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::company::Department >& Company::getDepartments() const
+{
+    return *m_departments;
+}
+
 ::ecorecpp::mapping::EList< ::company::Department >& Company::getDepartments()
 {
     return *m_departments;

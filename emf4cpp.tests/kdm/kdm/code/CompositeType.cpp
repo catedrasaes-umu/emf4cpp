@@ -73,6 +73,11 @@ CompositeType::~CompositeType()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& CompositeType::getItemUnit() const
+{
+    return *m_itemUnit;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& CompositeType::getItemUnit()
 {
     return *m_itemUnit;

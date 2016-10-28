@@ -100,6 +100,12 @@ void UIAction::setKind(::kdm::core::String _kind)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent >& UIAction::getUIElement() const
+{
+    return *m_UIElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent >& UIAction::getUIElement()
 {
     return *m_UIElement;

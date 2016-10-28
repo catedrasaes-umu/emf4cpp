@@ -64,7 +64,7 @@ DefinedBy::~DefinedBy()
 
 // Attributes
 // References
-::kdm::code::CodeItem_ptr DefinedBy::getTo()
+::kdm::code::CodeItem_ptr DefinedBy::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void DefinedBy::setTo(::kdm::code::CodeItem_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr DefinedBy::getFrom()
+::kdm::action::ActionElement_ptr DefinedBy::getFrom() const
 {
     return m_from;
 }

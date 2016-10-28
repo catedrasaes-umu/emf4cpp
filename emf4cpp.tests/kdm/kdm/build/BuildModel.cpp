@@ -68,6 +68,11 @@ BuildModel::~BuildModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildModel::getBuildElement() const
+{
+    return *m_buildElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildModel::getBuildElement()
 {
     return *m_buildElement;

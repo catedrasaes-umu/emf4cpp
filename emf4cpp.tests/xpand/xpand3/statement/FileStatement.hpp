@@ -57,10 +57,10 @@ namespace xpand3
         void setOnce (::ecore::EBoolean _once);
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getFileNameExpression ();
+        ::xpand3::expression::AbstractExpression_ptr getFileNameExpression () const;
         void setFileNameExpression (::xpand3::expression::AbstractExpression_ptr _fileNameExpression);
 
-        ::xpand3::Identifier_ptr getOutletNameIdentifier ();
+        ::xpand3::Identifier_ptr getOutletNameIdentifier () const;
         void setOutletNameIdentifier (::xpand3::Identifier_ptr _outletNameIdentifier);
 
         /*PROTECTED REGION ID(FileStatement) START*/

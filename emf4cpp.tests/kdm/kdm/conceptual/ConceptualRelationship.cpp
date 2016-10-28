@@ -63,7 +63,7 @@ ConceptualRelationship::~ConceptualRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr ConceptualRelationship::getTo()
+::kdm::core::KDMEntity_ptr ConceptualRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ConceptualRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::conceptual::AbstractConceptualElement_ptr ConceptualRelationship::getFrom()
+::kdm::conceptual::AbstractConceptualElement_ptr ConceptualRelationship::getFrom() const
 {
     return m_from;
 }

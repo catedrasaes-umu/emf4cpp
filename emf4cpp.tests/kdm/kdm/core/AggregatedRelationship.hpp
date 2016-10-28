@@ -55,12 +55,13 @@ namespace kdm
         void setDensity (::kdm::core::Integer _density);
 
         // References
-        ::kdm::core::KDMEntity_ptr getFrom ();
+        ::kdm::core::KDMEntity_ptr getFrom () const;
         void setFrom (::kdm::core::KDMEntity_ptr _from);
 
-        ::kdm::core::KDMEntity_ptr getTo ();
+        ::kdm::core::KDMEntity_ptr getTo () const;
         void setTo (::kdm::core::KDMEntity_ptr _to);
 
+        const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation () const;
         ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation ();
 
         /*PROTECTED REGION ID(AggregatedRelationship) START*/

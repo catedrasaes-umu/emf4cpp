@@ -72,14 +72,29 @@ TopLevel::~TopLevel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& TopLevel::getLeftees() const
+{
+    return *m_leftees;
+}
+
 ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& TopLevel::getLeftees()
 {
     return *m_leftees;
 }
 
+const ::ecorecpp::mapping::EList< ::eopposite::RightHand >& TopLevel::getRightees() const
+{
+    return *m_rightees;
+}
+
 ::ecorecpp::mapping::EList< ::eopposite::RightHand >& TopLevel::getRightees()
 {
     return *m_rightees;
+}
+
+const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& TopLevel::getRightMultiples() const
+{
+    return *m_rightMultiples;
 }
 
 ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& TopLevel::getRightMultiples()

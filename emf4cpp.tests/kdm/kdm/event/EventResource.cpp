@@ -73,6 +73,11 @@ EventResource::~EventResource()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventResource::getEventElement() const
+{
+    return *m_eventElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventResource::getEventElement()
 {
     return *m_eventElement;

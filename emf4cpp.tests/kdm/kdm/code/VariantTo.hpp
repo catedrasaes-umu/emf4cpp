@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::code::PreprocessorDirective_ptr getTo ();
+        ::kdm::code::PreprocessorDirective_ptr getTo () const;
         void setTo (::kdm::code::PreprocessorDirective_ptr _to);
 
-        ::kdm::code::PreprocessorDirective_ptr getFrom ();
+        ::kdm::code::PreprocessorDirective_ptr getFrom () const;
         void setFrom (::kdm::code::PreprocessorDirective_ptr _from);
 
         /*PROTECTED REGION ID(VariantTo) START*/

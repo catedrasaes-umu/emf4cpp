@@ -58,8 +58,10 @@ namespace kdm
         void setKind (::kdm::core::String _kind);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement () const;
         ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation () const;
         ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation ();
 
         /*PROTECTED REGION ID(ActionElement) START*/

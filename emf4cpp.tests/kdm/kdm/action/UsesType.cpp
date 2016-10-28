@@ -64,7 +64,7 @@ UsesType::~UsesType()
 
 // Attributes
 // References
-::kdm::code::Datatype_ptr UsesType::getTo()
+::kdm::code::Datatype_ptr UsesType::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void UsesType::setTo(::kdm::code::Datatype_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr UsesType::getFrom()
+::kdm::action::ActionElement_ptr UsesType::getFrom() const
 {
     return m_from;
 }

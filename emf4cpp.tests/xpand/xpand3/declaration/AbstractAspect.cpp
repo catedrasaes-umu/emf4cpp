@@ -91,7 +91,8 @@ void AbstractAspect::setWildparams(::ecore::EBoolean _wildparams)
 }
 
 // References
-::xpand3::Identifier_ptr AbstractAspect::getPointcut()
+
+::xpand3::Identifier_ptr AbstractAspect::getPointcut() const
 {
     return m_pointcut;
 }

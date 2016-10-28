@@ -53,8 +53,10 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel ();
 
         /*PROTECTED REGION ID(Segment) START*/

@@ -63,6 +63,11 @@ Container::~Container()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::idlmm::Contained >& Container::getContains() const
+{
+    return *m_contains;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::Contained >& Container::getContains()
 {
     return *m_contains;

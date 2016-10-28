@@ -74,7 +74,7 @@ JavaExtension::~JavaExtension()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr JavaExtension::getJavaType()
+::xpand3::Identifier_ptr JavaExtension::getJavaType() const
 {
     return m_javaType;
 }
@@ -104,7 +104,7 @@ void JavaExtension::setJavaType(::xpand3::Identifier_ptr _javaType)
             ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaType());
 }
 
-::xpand3::Identifier_ptr JavaExtension::getJavaMethod()
+::xpand3::Identifier_ptr JavaExtension::getJavaMethod() const
 {
     return m_javaMethod;
 }
@@ -132,6 +132,11 @@ void JavaExtension::setJavaMethod(::xpand3::Identifier_ptr _javaMethod)
     delete _old_javaMethod;
     m_javaMethod->_setEContainer(this,
             ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaMethod());
+}
+
+const ::ecorecpp::mapping::EList< ::xpand3::Identifier >& JavaExtension::getJavaParamTypes() const
+{
+    return *m_javaParamTypes;
 }
 
 ::ecorecpp::mapping::EList< ::xpand3::Identifier >& JavaExtension::getJavaParamTypes()

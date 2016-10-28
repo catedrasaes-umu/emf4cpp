@@ -83,33 +83,46 @@ public:
     void setInterface (::ecore::EBoolean _interface);
 
     // References
+    const ::ecorecpp::mapping::EList< ::ecore::EClass >& getESuperTypes () const;
     ::ecorecpp::mapping::EList< ::ecore::EClass >& getESuperTypes ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EOperation >& getEOperations () const;
     ::ecorecpp::mapping::EList< ::ecore::EOperation >& getEOperations ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEAllAttributes () const;
     ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEAllAttributes ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EReference >& getEAllReferences () const;
     ::ecorecpp::mapping::EList< ::ecore::EReference >& getEAllReferences ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EReference >& getEReferences () const;
     ::ecorecpp::mapping::EList< ::ecore::EReference >& getEReferences ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEAttributes () const;
     ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEAttributes ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EReference >& getEAllContainments () const;
     ::ecorecpp::mapping::EList< ::ecore::EReference >& getEAllContainments ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EOperation >& getEAllOperations () const;
     ::ecorecpp::mapping::EList< ::ecore::EOperation >& getEAllOperations ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& getEAllStructuralFeatures () const;
     ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& getEAllStructuralFeatures ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EClass >& getEAllSuperTypes () const;
     ::ecorecpp::mapping::EList< ::ecore::EClass >& getEAllSuperTypes ();
 
-    ::ecore::EAttribute_ptr getEIDAttribute ();
+    ::ecore::EAttribute_ptr getEIDAttribute () const;
     void setEIDAttribute (::ecore::EAttribute_ptr _eIDAttribute);
 
+    const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& getEStructuralFeatures () const;
     ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& getEStructuralFeatures ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericSuperTypes () const;
     ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericSuperTypes ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEAllGenericSuperTypes () const;
     ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEAllGenericSuperTypes ();
 
     /*PROTECTED REGION ID(EClass) ENABLED START*/

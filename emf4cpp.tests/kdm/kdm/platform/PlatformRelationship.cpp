@@ -63,7 +63,7 @@ PlatformRelationship::~PlatformRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr PlatformRelationship::getTo()
+::kdm::core::KDMEntity_ptr PlatformRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void PlatformRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::platform::AbstractPlatformElement_ptr PlatformRelationship::getFrom()
+::kdm::platform::AbstractPlatformElement_ptr PlatformRelationship::getFrom() const
 {
     return m_from;
 }

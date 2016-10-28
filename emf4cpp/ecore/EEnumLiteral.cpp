@@ -137,7 +137,8 @@ void EEnumLiteral::setLiteral(::ecore::EString const& _literal)
 }
 
 // References
-::ecore::EEnum_ptr EEnumLiteral::getEEnum()
+
+::ecore::EEnum_ptr EEnumLiteral::getEEnum() const
 {
     return m_eEnum;
 }

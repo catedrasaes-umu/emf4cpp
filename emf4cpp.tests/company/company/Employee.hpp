@@ -55,7 +55,7 @@ public:
     void setName (::ecore::EString const& _name);
 
     // References
-    ::company::PhonebookEntry_ptr getPhonebookEntry ();
+    ::company::PhonebookEntry_ptr getPhonebookEntry () const;
     void setPhonebookEntry (::company::PhonebookEntry_ptr _phonebookEntry);
 
     /*PROTECTED REGION ID(Employee) START*/

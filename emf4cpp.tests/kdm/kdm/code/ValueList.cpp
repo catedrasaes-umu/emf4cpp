@@ -73,6 +73,11 @@ ValueList::~ValueList()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& ValueList::getValueElement() const
+{
+    return *m_valueElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& ValueList::getValueElement()
 {
     return *m_valueElement;

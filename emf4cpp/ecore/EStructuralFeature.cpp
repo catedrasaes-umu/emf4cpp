@@ -245,7 +245,8 @@ void EStructuralFeature::setDerived(::ecore::EBoolean _derived)
 }
 
 // References
-::ecore::EClass_ptr EStructuralFeature::getEContainingClass()
+
+::ecore::EClass_ptr EStructuralFeature::getEContainingClass() const
 {
     return m_eContainingClass;
 }

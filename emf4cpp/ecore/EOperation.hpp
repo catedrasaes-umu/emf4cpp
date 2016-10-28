@@ -54,17 +54,21 @@ public:
     // Attributes
 
     // References
-    ::ecore::EClass_ptr getEContainingClass ();
+    ::ecore::EClass_ptr getEContainingClass () const;
     void setEContainingClass (::ecore::EClass_ptr _eContainingClass);
     ::ecore::EClass_ptr basicgetEContainingClass ();
     void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);
 
+    const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
     ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters () const;
     ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions () const;
     ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions ();
 
+    const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions () const;
     ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions ();
 
     /*PROTECTED REGION ID(EOperation) START*/

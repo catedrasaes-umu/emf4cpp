@@ -53,7 +53,7 @@ public:
     void setExported (::ecore::EBoolean _exported);
 
     // References
-    ::xpand3::Identifier_ptr getImportedId ();
+    ::xpand3::Identifier_ptr getImportedId () const;
     void setImportedId (::xpand3::Identifier_ptr _importedId);
 
     /*PROTECTED REGION ID(ImportStatement) START*/

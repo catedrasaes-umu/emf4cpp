@@ -55,6 +55,7 @@ public:
     void setName (::ecore::EString const& _name);
 
     // References
+    const ::ecorecpp::mapping::EList< ::company::Department >& getDepartments () const;
     ::ecorecpp::mapping::EList< ::company::Department >& getDepartments ();
 
     /*PROTECTED REGION ID(Company) START*/

@@ -61,7 +61,7 @@ EParameter::~EParameter()
 
 // Attributes
 // References
-::ecore::EOperation_ptr EParameter::getEOperation()
+::ecore::EOperation_ptr EParameter::getEOperation() const
 {
     return m_eOperation;
 }

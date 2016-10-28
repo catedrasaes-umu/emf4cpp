@@ -69,12 +69,17 @@ UnionDef::~UnionDef()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::idlmm::UnionField >& UnionDef::getUnionMembers() const
+{
+    return *m_unionMembers;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::UnionField >& UnionDef::getUnionMembers()
 {
     return *m_unionMembers;
 }
 
-::idlmm::IDLType_ptr UnionDef::getContainedDiscrim()
+::idlmm::IDLType_ptr UnionDef::getContainedDiscrim() const
 {
     return m_containedDiscrim;
 }
@@ -104,7 +109,7 @@ void UnionDef::setContainedDiscrim(::idlmm::IDLType_ptr _containedDiscrim)
             ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
 }
 
-::idlmm::TypedefDef_ptr UnionDef::getSharedDiscrim()
+::idlmm::TypedefDef_ptr UnionDef::getSharedDiscrim() const
 {
     return m_sharedDiscrim;
 }

@@ -64,7 +64,7 @@ Calls::~Calls()
 
 // Attributes
 // References
-::kdm::code::ControlElement_ptr Calls::getTo()
+::kdm::code::ControlElement_ptr Calls::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Calls::setTo(::kdm::code::ControlElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Calls::getFrom()
+::kdm::action::ActionElement_ptr Calls::getFrom() const
 {
     return m_from;
 }

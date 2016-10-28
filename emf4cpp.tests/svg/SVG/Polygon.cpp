@@ -122,6 +122,12 @@ void Polygon::setMarkerStart(::PrimitiveTypes::String _markerStart)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::SVG::Point >& Polygon::getWaypoints() const
+{
+    return *m_waypoints;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Point >& Polygon::getWaypoints()
 {
     return *m_waypoints;

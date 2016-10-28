@@ -74,6 +74,11 @@ DeployedComponent::~DeployedComponent()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::Module >& DeployedComponent::getGroupedCode() const
+{
+    return *m_groupedCode;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::Module >& DeployedComponent::getGroupedCode()
 {
     return *m_groupedCode;

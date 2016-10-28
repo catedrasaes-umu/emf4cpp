@@ -51,7 +51,7 @@ public:
     // Attributes
 
     // References
-    ::eopposite::LeftHand_ptr getLeftee ();
+    ::eopposite::LeftHand_ptr getLeftee () const;
     void setLeftee (::eopposite::LeftHand_ptr _leftee);
     ::eopposite::LeftHand_ptr basicgetLeftee ();
     void basicsetLeftee (::eopposite::LeftHand_ptr _leftee);

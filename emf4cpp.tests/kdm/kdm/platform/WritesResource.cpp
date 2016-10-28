@@ -64,7 +64,7 @@ WritesResource::~WritesResource()
 
 // Attributes
 // References
-::kdm::platform::ResourceType_ptr WritesResource::getTo()
+::kdm::platform::ResourceType_ptr WritesResource::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void WritesResource::setTo(::kdm::platform::ResourceType_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr WritesResource::getFrom()
+::kdm::action::ActionElement_ptr WritesResource::getFrom() const
 {
     return m_from;
 }

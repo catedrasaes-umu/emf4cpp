@@ -61,6 +61,11 @@ ArrayValue::~ArrayValue()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::json::Value >& ArrayValue::getValues() const
+{
+    return *m_values;
+}
+
 ::ecorecpp::mapping::EList< ::json::Value >& ArrayValue::getValues()
 {
     return *m_values;

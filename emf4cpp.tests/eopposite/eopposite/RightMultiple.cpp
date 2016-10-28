@@ -63,6 +63,11 @@ RightMultiple::~RightMultiple()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& RightMultiple::getLeftees() const
+{
+    return *m_leftees;
+}
+
 ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& RightMultiple::getLeftees()
 {
     return *m_leftees;

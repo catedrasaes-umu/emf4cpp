@@ -74,7 +74,7 @@ ContentItem::~ContentItem()
 
 // Attributes
 // References
-::kdm::data::ComplexContentType_ptr ContentItem::getType()
+::kdm::data::ComplexContentType_ptr ContentItem::getType() const
 {
     return m_type;
 }
@@ -99,6 +99,11 @@ void ContentItem::setType(::kdm::data::ComplexContentType_ptr _type)
     }
 #endif
 
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ContentItem::getContentElement() const
+{
+    return *m_contentElement;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ContentItem::getContentElement()

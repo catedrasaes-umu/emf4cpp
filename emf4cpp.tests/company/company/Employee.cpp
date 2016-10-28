@@ -87,7 +87,8 @@ void Employee::setName(::ecore::EString const& _name)
 }
 
 // References
-::company::PhonebookEntry_ptr Employee::getPhonebookEntry()
+
+::company::PhonebookEntry_ptr Employee::getPhonebookEntry() const
 {
     return m_phonebookEntry;
 }

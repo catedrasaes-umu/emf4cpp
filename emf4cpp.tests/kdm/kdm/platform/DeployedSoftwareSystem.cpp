@@ -74,6 +74,11 @@ DeployedSoftwareSystem::~DeployedSoftwareSystem()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& DeployedSoftwareSystem::getGroupedComponent() const
+{
+    return *m_groupedComponent;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& DeployedSoftwareSystem::getGroupedComponent()
 {
     return *m_groupedComponent;

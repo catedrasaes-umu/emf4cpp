@@ -55,13 +55,13 @@ public:
     void setData (::ecore::EString const& _data);
 
     // References
-    ::bintree::BinTreeNode_ptr getParent ();
+    ::bintree::BinTreeNode_ptr getParent () const;
     void setParent (::bintree::BinTreeNode_ptr _parent);
 
-    ::bintree::BinTreeNode_ptr getLeft ();
+    ::bintree::BinTreeNode_ptr getLeft () const;
     void setLeft (::bintree::BinTreeNode_ptr _left);
 
-    ::bintree::BinTreeNode_ptr getRight ();
+    ::bintree::BinTreeNode_ptr getRight () const;
     void setRight (::bintree::BinTreeNode_ptr _right);
 
     /*PROTECTED REGION ID(BinTreeNode) START*/

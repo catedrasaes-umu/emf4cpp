@@ -57,7 +57,7 @@ namespace xpand3
         void setWildparams (::ecore::EBoolean _wildparams);
 
         // References
-        ::xpand3::Identifier_ptr getPointcut ();
+        ::xpand3::Identifier_ptr getPointcut () const;
         void setPointcut (::xpand3::Identifier_ptr _pointcut);
 
         /*PROTECTED REGION ID(AbstractAspect) START*/

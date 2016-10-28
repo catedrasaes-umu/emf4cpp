@@ -98,6 +98,12 @@ void BuildDescription::setText(::kdm::core::String _text)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& BuildDescription::getSource() const
+{
+    return *m_source;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& BuildDescription::getSource()
 {
     return *m_source;

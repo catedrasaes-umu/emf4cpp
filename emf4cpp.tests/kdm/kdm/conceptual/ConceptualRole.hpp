@@ -56,7 +56,7 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::conceptual::AbstractConceptualElement_ptr getConceptualElement ();
+        ::kdm::conceptual::AbstractConceptualElement_ptr getConceptualElement () const;
         void setConceptualElement (::kdm::conceptual::AbstractConceptualElement_ptr _conceptualElement);
 
         /*PROTECTED REGION ID(ConceptualRole) START*/

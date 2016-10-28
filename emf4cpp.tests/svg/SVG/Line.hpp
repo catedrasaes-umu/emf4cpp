@@ -56,6 +56,7 @@ public:
     void setMarkerStart (::PrimitiveTypes::String _markerStart);
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween () const;
     ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween ();
 
     /*PROTECTED REGION ID(Line) START*/

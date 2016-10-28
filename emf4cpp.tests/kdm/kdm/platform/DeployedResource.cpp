@@ -74,6 +74,11 @@ DeployedResource::~DeployedResource()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& DeployedResource::getPlatformElement() const
+{
+    return *m_platformElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& DeployedResource::getPlatformElement()
 {
     return *m_platformElement;

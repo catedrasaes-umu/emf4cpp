@@ -63,7 +63,7 @@ ConceptualFlow::~ConceptualFlow()
 
 // Attributes
 // References
-::kdm::conceptual::ConceptualContainer_ptr ConceptualFlow::getTo()
+::kdm::conceptual::ConceptualContainer_ptr ConceptualFlow::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ConceptualFlow::setTo(::kdm::conceptual::ConceptualContainer_ptr _to)
 
 }
 
-::kdm::conceptual::ConceptualContainer_ptr ConceptualFlow::getFrom()
+::kdm::conceptual::ConceptualContainer_ptr ConceptualFlow::getFrom() const
 {
     return m_from;
 }

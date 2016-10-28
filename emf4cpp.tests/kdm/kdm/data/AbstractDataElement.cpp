@@ -80,14 +80,29 @@ AbstractDataElement::~AbstractDataElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractDataElement::getSource() const
+{
+    return *m_source;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractDataElement::getSource()
 {
     return *m_source;
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& AbstractDataElement::getDataRelation() const
+{
+    return *m_dataRelation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& AbstractDataElement::getDataRelation()
 {
     return *m_dataRelation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractDataElement::getAbstraction() const
+{
+    return *m_abstraction;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractDataElement::getAbstraction()

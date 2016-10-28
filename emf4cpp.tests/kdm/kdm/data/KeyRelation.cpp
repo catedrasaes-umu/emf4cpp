@@ -64,7 +64,7 @@ KeyRelation::~KeyRelation()
 
 // Attributes
 // References
-::kdm::data::UniqueKey_ptr KeyRelation::getTo()
+::kdm::data::UniqueKey_ptr KeyRelation::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void KeyRelation::setTo(::kdm::data::UniqueKey_ptr _to)
 
 }
 
-::kdm::data::ReferenceKey_ptr KeyRelation::getFrom()
+::kdm::data::ReferenceKey_ptr KeyRelation::getFrom() const
 {
     return m_from;
 }

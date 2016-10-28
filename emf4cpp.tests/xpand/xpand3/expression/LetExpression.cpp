@@ -70,7 +70,7 @@ LetExpression::~LetExpression()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr LetExpression::getVarExpression()
+::xpand3::expression::AbstractExpression_ptr LetExpression::getVarExpression() const
 {
     return m_varExpression;
 }
@@ -102,7 +102,7 @@ void LetExpression::setVarExpression(
             ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
 }
 
-::xpand3::expression::AbstractExpression_ptr LetExpression::getTargetExpression()
+::xpand3::expression::AbstractExpression_ptr LetExpression::getTargetExpression() const
 {
     return m_targetExpression;
 }
@@ -134,7 +134,7 @@ void LetExpression::setTargetExpression(
             ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
 }
 
-::xpand3::Identifier_ptr LetExpression::getVarName()
+::xpand3::Identifier_ptr LetExpression::getVarName() const
 {
     return m_varName;
 }

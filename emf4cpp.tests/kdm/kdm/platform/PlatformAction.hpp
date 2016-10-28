@@ -59,6 +59,7 @@ namespace kdm
         void setKind (::kdm::core::String _kind);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& getPlatformElement () const;
         ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& getPlatformElement ();
 
         /*PROTECTED REGION ID(PlatformAction) START*/

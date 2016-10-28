@@ -97,7 +97,8 @@ void ProtectStatement::setDisable(::ecore::EBoolean _disable)
 }
 
 // References
-::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentStart()
+
+::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentStart() const
 {
     return m_commentStart;
 }
@@ -129,7 +130,7 @@ void ProtectStatement::setCommentStart(
             ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
 }
 
-::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentEnd()
+::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentEnd() const
 {
     return m_commentEnd;
 }
@@ -160,7 +161,7 @@ void ProtectStatement::setCommentEnd(
             ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
 }
 
-::xpand3::expression::AbstractExpression_ptr ProtectStatement::getId()
+::xpand3::expression::AbstractExpression_ptr ProtectStatement::getId() const
 {
     return m_id;
 }

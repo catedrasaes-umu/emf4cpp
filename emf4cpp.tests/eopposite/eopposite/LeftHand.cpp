@@ -59,7 +59,7 @@ LeftHand::~LeftHand()
 
 // Attributes
 // References
-::eopposite::RightHand_ptr LeftHand::getRightee()
+::eopposite::RightHand_ptr LeftHand::getRightee() const
 {
     return m_rightee;
 }
@@ -110,7 +110,7 @@ void LeftHand::setRightee(::eopposite::RightHand_ptr _rightee)
     }
 }
 
-::eopposite::RightMultiple_ptr LeftHand::getRightMultiple()
+::eopposite::RightMultiple_ptr LeftHand::getRightMultiple() const
 {
     return m_rightMultiple;
 }

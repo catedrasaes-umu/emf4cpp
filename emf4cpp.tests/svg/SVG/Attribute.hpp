@@ -51,6 +51,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner () const;
     ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner ();
 
     /*PROTECTED REGION ID(Attribute) START*/

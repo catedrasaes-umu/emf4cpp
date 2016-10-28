@@ -65,11 +65,12 @@ public:
     void setInstanceTypeName (::ecore::EString const& _instanceTypeName);
 
     // References
-    ::ecore::EPackage_ptr getEPackage ();
+    ::ecore::EPackage_ptr getEPackage () const;
     void setEPackage (::ecore::EPackage_ptr _ePackage);
     ::ecore::EPackage_ptr basicgetEPackage ();
     void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
 
+    const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
     ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
 
     /*PROTECTED REGION ID(EClassifier) ENABLED START*/

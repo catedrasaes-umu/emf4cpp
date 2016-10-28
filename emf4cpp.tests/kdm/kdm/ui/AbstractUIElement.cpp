@@ -84,9 +84,19 @@ AbstractUIElement::~AbstractUIElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractUIElement::getSource() const
+{
+    return *m_source;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractUIElement::getSource()
 {
     return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >& AbstractUIElement::getUIRelation() const
+{
+    return *m_UIRelation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >& AbstractUIElement::getUIRelation()
@@ -94,9 +104,19 @@ AbstractUIElement::~AbstractUIElement()
     return *m_UIRelation;
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractUIElement::getImplementation() const
+{
+    return *m_implementation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractUIElement::getImplementation()
 {
     return *m_implementation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractUIElement::getAbstraction() const
+{
+    return *m_abstraction;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractUIElement::getAbstraction()

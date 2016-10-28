@@ -51,6 +51,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees () const;
     ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees ();
 
     /*PROTECTED REGION ID(RightMultiple) START*/

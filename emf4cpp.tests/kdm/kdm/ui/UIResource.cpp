@@ -73,6 +73,11 @@ UIResource::~UIResource()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIResource::getUIElement() const
+{
+    return *m_UIElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIResource::getUIElement()
 {
     return *m_UIElement;

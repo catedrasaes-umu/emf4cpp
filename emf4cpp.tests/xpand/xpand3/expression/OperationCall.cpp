@@ -64,6 +64,11 @@ OperationCall::~OperationCall()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& OperationCall::getParams() const
+{
+    return *m_params;
+}
+
 ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& OperationCall::getParams()
 {
     return *m_params;

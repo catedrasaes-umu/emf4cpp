@@ -78,14 +78,29 @@ BuildResource::~BuildResource()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& BuildResource::getImplementation() const
+{
+    return *m_implementation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& BuildResource::getImplementation()
 {
     return *m_implementation;
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getGroupedBuild() const
+{
+    return *m_groupedBuild;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getGroupedBuild()
 {
     return *m_groupedBuild;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getBuildElement() const
+{
+    return *m_buildElement;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getBuildElement()

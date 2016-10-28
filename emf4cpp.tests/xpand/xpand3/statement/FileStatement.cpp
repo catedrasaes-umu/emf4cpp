@@ -94,7 +94,8 @@ void FileStatement::setOnce(::ecore::EBoolean _once)
 }
 
 // References
-::xpand3::expression::AbstractExpression_ptr FileStatement::getFileNameExpression()
+
+::xpand3::expression::AbstractExpression_ptr FileStatement::getFileNameExpression() const
 {
     return m_fileNameExpression;
 }
@@ -126,7 +127,7 @@ void FileStatement::setFileNameExpression(
             ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
 }
 
-::xpand3::Identifier_ptr FileStatement::getOutletNameIdentifier()
+::xpand3::Identifier_ptr FileStatement::getOutletNameIdentifier() const
 {
     return m_outletNameIdentifier;
 }

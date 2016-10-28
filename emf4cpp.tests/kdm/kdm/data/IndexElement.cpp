@@ -73,6 +73,11 @@ IndexElement::~IndexElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& IndexElement::getImplementation() const
+{
+    return *m_implementation;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& IndexElement::getImplementation()
 {
     return *m_implementation;

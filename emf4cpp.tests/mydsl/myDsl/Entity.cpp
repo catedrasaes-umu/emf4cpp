@@ -64,7 +64,7 @@ Entity::~Entity()
 
 // Attributes
 // References
-::myDsl::Entity_ptr Entity::getExtends()
+::myDsl::Entity_ptr Entity::getExtends() const
 {
     return m_extends;
 }
@@ -89,6 +89,11 @@ void Entity::setExtends(::myDsl::Entity_ptr _extends)
     }
 #endif
 
+}
+
+const ::ecorecpp::mapping::EList< ::myDsl::Property >& Entity::getProperties() const
+{
+    return *m_properties;
 }
 
 ::ecorecpp::mapping::EList< ::myDsl::Property >& Entity::getProperties()

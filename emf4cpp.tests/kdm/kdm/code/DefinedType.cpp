@@ -72,7 +72,7 @@ DefinedType::~DefinedType()
 
 // Attributes
 // References
-::kdm::code::Datatype_ptr DefinedType::getType()
+::kdm::code::Datatype_ptr DefinedType::getType() const
 {
     return m_type;
 }
@@ -99,7 +99,7 @@ void DefinedType::setType(::kdm::code::Datatype_ptr _type)
 
 }
 
-::kdm::code::Datatype_ptr DefinedType::getCodeElement()
+::kdm::code::Datatype_ptr DefinedType::getCodeElement() const
 {
     return m_codeElement;
 }

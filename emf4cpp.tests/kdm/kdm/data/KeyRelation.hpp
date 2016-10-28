@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::data::UniqueKey_ptr getTo ();
+        ::kdm::data::UniqueKey_ptr getTo () const;
         void setTo (::kdm::data::UniqueKey_ptr _to);
 
-        ::kdm::data::ReferenceKey_ptr getFrom ();
+        ::kdm::data::ReferenceKey_ptr getFrom () const;
         void setFrom (::kdm::data::ReferenceKey_ptr _from);
 
         /*PROTECTED REGION ID(KeyRelation) START*/

@@ -64,7 +64,7 @@ HasType::~HasType()
 
 // Attributes
 // References
-::kdm::code::Datatype_ptr HasType::getTo()
+::kdm::code::Datatype_ptr HasType::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void HasType::setTo(::kdm::code::Datatype_ptr _to)
 
 }
 
-::kdm::code::CodeItem_ptr HasType::getFrom()
+::kdm::code::CodeItem_ptr HasType::getFrom() const
 {
     return m_from;
 }

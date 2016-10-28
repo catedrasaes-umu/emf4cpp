@@ -65,7 +65,7 @@ Tref::~Tref()
 
 // Attributes
 // References
-::SVG::TextElement_ptr Tref::getXlinkHref()
+::SVG::TextElement_ptr Tref::getXlinkHref() const
 {
     return m_xlinkHref;
 }

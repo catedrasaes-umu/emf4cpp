@@ -54,10 +54,10 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getTarget ();
+        ::xpand3::expression::AbstractExpression_ptr getTarget () const;
         void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
 
-        ::xpand3::Identifier_ptr getName ();
+        ::xpand3::Identifier_ptr getName () const;
         void setName (::xpand3::Identifier_ptr _name);
 
         /*PROTECTED REGION ID(FeatureCall) START*/

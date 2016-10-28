@@ -70,7 +70,7 @@ BinaryOperation::~BinaryOperation()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr BinaryOperation::getLeft()
+::xpand3::expression::AbstractExpression_ptr BinaryOperation::getLeft() const
 {
     return m_left;
 }
@@ -101,7 +101,7 @@ void BinaryOperation::setLeft(
             ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__left());
 }
 
-::xpand3::expression::AbstractExpression_ptr BinaryOperation::getRight()
+::xpand3::expression::AbstractExpression_ptr BinaryOperation::getRight() const
 {
     return m_right;
 }
@@ -132,7 +132,7 @@ void BinaryOperation::setRight(
             ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__right());
 }
 
-::xpand3::Identifier_ptr BinaryOperation::getOperator()
+::xpand3::Identifier_ptr BinaryOperation::getOperator() const
 {
     return m_operator;
 }

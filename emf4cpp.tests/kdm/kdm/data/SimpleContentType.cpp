@@ -99,6 +99,12 @@ void SimpleContentType::setKind(::kdm::core::String _kind)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& SimpleContentType::getType() const
+{
+    return *m_type;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& SimpleContentType::getType()
 {
     return *m_type;

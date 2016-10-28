@@ -53,6 +53,7 @@ namespace xpand3
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody () const;
         ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody ();
 
         /*PROTECTED REGION ID(AbstractStatementWithBody) START*/

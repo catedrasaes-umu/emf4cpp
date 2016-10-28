@@ -64,7 +64,7 @@ CompliesTo::~CompliesTo()
 
 // Attributes
 // References
-::kdm::code::CodeItem_ptr CompliesTo::getTo()
+::kdm::code::CodeItem_ptr CompliesTo::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void CompliesTo::setTo(::kdm::code::CodeItem_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr CompliesTo::getFrom()
+::kdm::action::ActionElement_ptr CompliesTo::getFrom() const
 {
     return m_from;
 }

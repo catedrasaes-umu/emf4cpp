@@ -74,6 +74,11 @@ ColumnSet::~ColumnSet()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& ColumnSet::getItemUnit() const
+{
+    return *m_itemUnit;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& ColumnSet::getItemUnit()
 {
     return *m_itemUnit;

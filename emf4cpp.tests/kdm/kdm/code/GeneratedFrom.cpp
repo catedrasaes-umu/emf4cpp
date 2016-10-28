@@ -64,7 +64,7 @@ GeneratedFrom::~GeneratedFrom()
 
 // Attributes
 // References
-::kdm::code::PreprocessorDirective_ptr GeneratedFrom::getTo()
+::kdm::code::PreprocessorDirective_ptr GeneratedFrom::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void GeneratedFrom::setTo(::kdm::code::PreprocessorDirective_ptr _to)
 
 }
 
-::kdm::code::AbstractCodeElement_ptr GeneratedFrom::getFrom()
+::kdm::code::AbstractCodeElement_ptr GeneratedFrom::getFrom() const
 {
     return m_from;
 }

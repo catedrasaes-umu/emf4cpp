@@ -64,7 +64,7 @@ ProducesEvent::~ProducesEvent()
 
 // Attributes
 // References
-::kdm::event::Event_ptr ProducesEvent::getTo()
+::kdm::event::Event_ptr ProducesEvent::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ProducesEvent::setTo(::kdm::event::Event_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ProducesEvent::getFrom()
+::kdm::action::ActionElement_ptr ProducesEvent::getFrom() const
 {
     return m_from;
 }

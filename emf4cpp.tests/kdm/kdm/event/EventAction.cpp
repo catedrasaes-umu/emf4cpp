@@ -100,6 +100,12 @@ void EventAction::setKind(::kdm::core::String _kind)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::event::Event >& EventAction::getEventElement() const
+{
+    return *m_eventElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::event::Event >& EventAction::getEventElement()
 {
     return *m_eventElement;

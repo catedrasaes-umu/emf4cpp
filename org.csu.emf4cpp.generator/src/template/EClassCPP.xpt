@@ -167,7 +167,8 @@ using namespace ::«EPackage.getFQN()»;
 
 // References
 «FOREACH this.EReferences AS ref-»
-«ref.getGetCPPSignature(name+"::")»
+	«REM»Always create a const getter«ENDREM»
+«ref.getGetCPPSignatureConst(name+"::")»
 {
     «IF !ref.isMultiple()-»
     return «ref.getRefMemberName()»;
@@ -176,15 +177,18 @@ using namespace ::«EPackage.getFQN()»;
     «ENDIF-»
 }
 
-    «IF !ref.isMultiple()-»
+    «IF ref.isMultiple()-»
+		«REM»In case of a container emit another non-const version«ENDREM»
+«ref.getGetCPPSignature(name+"::")»
+{
+    return *«ref.getRefMemberName()»;
+}
+
+    «ELSE-»
 	   «IF ref.EOpposite != null-»
 «ref.getGetCPPSignature(name+"::basic")»
 {
-    «IF !ref.isMultiple()-»
     return «ref.getRefMemberName()»;
-    «ELSE-»
-    return *«ref.getRefMemberName()»;
-    «ENDIF-»
 }
        «ENDIF-»
 

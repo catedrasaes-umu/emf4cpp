@@ -148,6 +148,12 @@ void Polyline::setMarkerStart(::PrimitiveTypes::String _markerStart)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::SVG::Point >& Polyline::getWaypoints() const
+{
+    return *m_waypoints;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Point >& Polyline::getWaypoints()
 {
     return *m_waypoints;

@@ -71,6 +71,11 @@ Use::~Use()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::SVG::Element >& Use::getUse() const
+{
+    return *m_use;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Element >& Use::getUse()
 {
     return *m_use;

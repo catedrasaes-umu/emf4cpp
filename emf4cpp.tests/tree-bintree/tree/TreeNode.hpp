@@ -55,7 +55,7 @@ public:
     void setData (::ecore::EString const& _data);
 
     // References
-    ::tree::TreeNode_ptr getParent ();
+    ::tree::TreeNode_ptr getParent () const;
     void setParent (::tree::TreeNode_ptr _parent);
 
     /*PROTECTED REGION ID(TreeNode) START*/

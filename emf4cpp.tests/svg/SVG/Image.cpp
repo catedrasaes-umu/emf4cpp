@@ -71,6 +71,11 @@ Image::~Image()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& Image::getReferee() const
+{
+    return *m_referee;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& Image::getReferee()
 {
     return *m_referee;

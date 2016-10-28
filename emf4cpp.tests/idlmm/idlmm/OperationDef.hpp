@@ -61,8 +61,10 @@ public:
     void deleteContextsAt ( size_t _position );
 
     // References
+    const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters () const;
     ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters ();
 
+    const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise () const;
     ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise ();
 
     /*PROTECTED REGION ID(OperationDef) START*/

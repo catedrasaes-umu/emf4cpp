@@ -54,6 +54,7 @@ namespace xpand3
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParams () const;
         ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParams ();
 
         /*PROTECTED REGION ID(OperationCall) START*/

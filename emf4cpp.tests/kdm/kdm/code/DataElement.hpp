@@ -60,9 +60,10 @@ namespace kdm
         void setSize (::kdm::core::Integer _size);
 
         // References
-        ::kdm::code::Datatype_ptr getType ();
+        ::kdm::code::Datatype_ptr getType () const;
         void setType (::kdm::code::Datatype_ptr _type);
 
+        const ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement () const;
         ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement ();
 
         /*PROTECTED REGION ID(DataElement) START*/

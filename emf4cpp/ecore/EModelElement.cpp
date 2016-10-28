@@ -63,6 +63,11 @@ EModelElement::~EModelElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& EModelElement::getEAnnotations() const
+{
+    return *m_eAnnotations;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& EModelElement::getEAnnotations()
 {
     return *m_eAnnotations;

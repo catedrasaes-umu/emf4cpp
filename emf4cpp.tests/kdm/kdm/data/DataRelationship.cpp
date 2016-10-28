@@ -63,7 +63,7 @@ DataRelationship::~DataRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr DataRelationship::getTo()
+::kdm::core::KDMEntity_ptr DataRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void DataRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::data::AbstractDataElement_ptr DataRelationship::getFrom()
+::kdm::data::AbstractDataElement_ptr DataRelationship::getFrom() const
 {
     return m_from;
 }

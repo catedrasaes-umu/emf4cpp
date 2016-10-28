@@ -88,7 +88,8 @@ void ImportStatement::setExported(::ecore::EBoolean _exported)
 }
 
 // References
-::xpand3::Identifier_ptr ImportStatement::getImportedId()
+
+::xpand3::Identifier_ptr ImportStatement::getImportedId() const
 {
     return m_importedId;
 }

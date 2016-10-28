@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::data::ComplexContentType_ptr getTo ();
+        ::kdm::data::ComplexContentType_ptr getTo () const;
         void setTo (::kdm::data::ComplexContentType_ptr _to);
 
-        ::kdm::data::ComplexContentType_ptr getFrom ();
+        ::kdm::data::ComplexContentType_ptr getFrom () const;
         void setFrom (::kdm::data::ComplexContentType_ptr _from);
 
         /*PROTECTED REGION ID(ExtensionTo) START*/

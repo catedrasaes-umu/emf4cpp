@@ -64,7 +64,7 @@ Consumes::~Consumes()
 
 // Attributes
 // References
-::kdm::build::AbstractBuildElement_ptr Consumes::getTo()
+::kdm::build::AbstractBuildElement_ptr Consumes::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Consumes::setTo(::kdm::build::AbstractBuildElement_ptr _to)
 
 }
 
-::kdm::build::BuildStep_ptr Consumes::getFrom()
+::kdm::build::BuildStep_ptr Consumes::getFrom() const
 {
     return m_from;
 }

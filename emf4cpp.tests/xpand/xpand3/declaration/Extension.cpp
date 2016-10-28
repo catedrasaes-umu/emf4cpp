@@ -95,7 +95,8 @@ void Extension::setCached(::ecore::EBoolean _cached)
 }
 
 // References
-::xpand3::expression::AbstractExpression_ptr Extension::getBody()
+
+::xpand3::expression::AbstractExpression_ptr Extension::getBody() const
 {
     return m_body;
 }
@@ -125,7 +126,7 @@ void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
             ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
 }
 
-::xpand3::Identifier_ptr Extension::getReturnType()
+::xpand3::Identifier_ptr Extension::getReturnType() const
 {
     return m_returnType;
 }

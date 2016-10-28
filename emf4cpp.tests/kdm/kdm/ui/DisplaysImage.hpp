@@ -55,10 +55,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::source::Image_ptr getTo ();
+        ::kdm::source::Image_ptr getTo () const;
         void setTo (::kdm::source::Image_ptr _to);
 
-        ::kdm::action::ActionElement_ptr getFrom ();
+        ::kdm::action::ActionElement_ptr getFrom () const;
         void setFrom (::kdm::action::ActionElement_ptr _from);
 
         /*PROTECTED REGION ID(DisplaysImage) START*/

@@ -67,6 +67,11 @@ EEnum::~EEnum()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& EEnum::getELiterals() const
+{
+    return *m_eLiterals;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& EEnum::getELiterals()
 {
     return *m_eLiterals;

@@ -57,15 +57,16 @@ namespace xpand3
         void setForeach (::ecore::EBoolean _foreach);
 
         // References
+        const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters () const;
         ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters ();
 
-        ::xpand3::expression::AbstractExpression_ptr getSeparator ();
+        ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
         void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
 
-        ::xpand3::expression::AbstractExpression_ptr getTarget ();
+        ::xpand3::expression::AbstractExpression_ptr getTarget () const;
         void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
 
-        ::xpand3::Identifier_ptr getDefinition ();
+        ::xpand3::Identifier_ptr getDefinition () const;
         void setDefinition (::xpand3::Identifier_ptr _definition);
 
         /*PROTECTED REGION ID(ExpandStatement) START*/

@@ -64,7 +64,7 @@ ReadsResource::~ReadsResource()
 
 // Attributes
 // References
-::kdm::platform::ResourceType_ptr ReadsResource::getTo()
+::kdm::platform::ResourceType_ptr ReadsResource::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void ReadsResource::setTo(::kdm::platform::ResourceType_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr ReadsResource::getFrom()
+::kdm::action::ActionElement_ptr ReadsResource::getFrom() const
 {
     return m_from;
 }

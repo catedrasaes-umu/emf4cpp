@@ -69,6 +69,11 @@ StructureModel::~StructureModel()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& StructureModel::getStructureElement() const
+{
+    return *m_structureElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& StructureModel::getStructureElement()
 {
     return *m_structureElement;

@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::ui::AbstractUIElement_ptr getTo ();
+        ::kdm::ui::AbstractUIElement_ptr getTo () const;
         void setTo (::kdm::ui::AbstractUIElement_ptr _to);
 
-        ::kdm::ui::AbstractUIElement_ptr getFrom ();
+        ::kdm::ui::AbstractUIElement_ptr getFrom () const;
         void setFrom (::kdm::ui::AbstractUIElement_ptr _from);
 
         /*PROTECTED REGION ID(UIFlow) START*/

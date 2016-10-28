@@ -63,7 +63,7 @@ TypeSelectExpression::~TypeSelectExpression()
 
 // Attributes
 // References
-::xpand3::Identifier_ptr TypeSelectExpression::getTypeLiteral()
+::xpand3::Identifier_ptr TypeSelectExpression::getTypeLiteral() const
 {
     return m_typeLiteral;
 }

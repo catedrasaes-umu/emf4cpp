@@ -64,7 +64,7 @@ Includes::~Includes()
 
 // Attributes
 // References
-::kdm::code::AbstractCodeElement_ptr Includes::getTo()
+::kdm::code::AbstractCodeElement_ptr Includes::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Includes::setTo(::kdm::code::AbstractCodeElement_ptr _to)
 
 }
 
-::kdm::code::PreprocessorDirective_ptr Includes::getFrom()
+::kdm::code::PreprocessorDirective_ptr Includes::getFrom() const
 {
     return m_from;
 }

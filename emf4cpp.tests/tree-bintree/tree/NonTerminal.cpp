@@ -61,6 +61,11 @@ NonTerminal::~NonTerminal()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::tree::TreeNode >& NonTerminal::getChildren() const
+{
+    return *m_children;
+}
+
 ::ecorecpp::mapping::EList< ::tree::TreeNode >& NonTerminal::getChildren()
 {
     return *m_children;

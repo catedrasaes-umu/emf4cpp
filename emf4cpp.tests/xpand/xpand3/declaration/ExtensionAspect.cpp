@@ -65,7 +65,7 @@ ExtensionAspect::~ExtensionAspect()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr ExtensionAspect::getExpression()
+::xpand3::expression::AbstractExpression_ptr ExtensionAspect::getExpression() const
 {
     return m_expression;
 }

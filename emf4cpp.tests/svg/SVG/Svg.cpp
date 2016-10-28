@@ -154,9 +154,20 @@ void Svg::setBaseProfile(::PrimitiveTypes::String _baseProfile)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& Svg::getOwner_SVG() const
+{
+    return *m_owner_SVG;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::SvgFile >& Svg::getOwner_SVG()
 {
     return *m_owner_SVG;
+}
+
+const ::ecorecpp::mapping::EList< ::SVG::Element >& Svg::getChildren() const
+{
+    return *m_children;
 }
 
 ::ecorecpp::mapping::EList< ::SVG::Element >& Svg::getChildren()

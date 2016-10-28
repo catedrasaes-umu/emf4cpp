@@ -54,10 +54,13 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
         ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild () const;
         ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement () const;
         ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement ();
 
         /*PROTECTED REGION ID(BuildResource) START*/

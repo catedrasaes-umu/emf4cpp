@@ -63,7 +63,7 @@ UIFlow::~UIFlow()
 
 // Attributes
 // References
-::kdm::ui::AbstractUIElement_ptr UIFlow::getTo()
+::kdm::ui::AbstractUIElement_ptr UIFlow::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void UIFlow::setTo(::kdm::ui::AbstractUIElement_ptr _to)
 
 }
 
-::kdm::ui::AbstractUIElement_ptr UIFlow::getFrom()
+::kdm::ui::AbstractUIElement_ptr UIFlow::getFrom() const
 {
     return m_from;
 }

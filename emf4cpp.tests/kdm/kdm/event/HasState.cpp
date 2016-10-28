@@ -64,7 +64,7 @@ HasState::~HasState()
 
 // Attributes
 // References
-::kdm::event::AbstractEventElement_ptr HasState::getTo()
+::kdm::event::AbstractEventElement_ptr HasState::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void HasState::setTo(::kdm::event::AbstractEventElement_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr HasState::getFrom()
+::kdm::action::ActionElement_ptr HasState::getFrom() const
 {
     return m_from;
 }

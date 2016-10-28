@@ -57,10 +57,10 @@ namespace xpand3
         void setCached (::ecore::EBoolean _cached);
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getBody ();
+        ::xpand3::expression::AbstractExpression_ptr getBody () const;
         void setBody (::xpand3::expression::AbstractExpression_ptr _body);
 
-        ::xpand3::Identifier_ptr getReturnType ();
+        ::xpand3::Identifier_ptr getReturnType () const;
         void setReturnType (::xpand3::Identifier_ptr _returnType);
 
         /*PROTECTED REGION ID(Extension) START*/

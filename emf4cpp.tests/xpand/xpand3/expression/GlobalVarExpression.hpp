@@ -54,7 +54,7 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::Identifier_ptr getGlobalVarName ();
+        ::xpand3::Identifier_ptr getGlobalVarName () const;
         void setGlobalVarName (::xpand3::Identifier_ptr _globalVarName);
 
         /*PROTECTED REGION ID(GlobalVarExpression) START*/

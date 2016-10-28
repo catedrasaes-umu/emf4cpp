@@ -53,10 +53,10 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::build::AbstractBuildElement_ptr getTo ();
+        ::kdm::build::AbstractBuildElement_ptr getTo () const;
         void setTo (::kdm::build::AbstractBuildElement_ptr _to);
 
-        ::kdm::build::SymbolicLink_ptr getFrom ();
+        ::kdm::build::SymbolicLink_ptr getFrom () const;
         void setFrom (::kdm::build::SymbolicLink_ptr _from);
 
         /*PROTECTED REGION ID(LinksTo) START*/

@@ -68,7 +68,7 @@ ConceptualRole::~ConceptualRole()
 
 // Attributes
 // References
-::kdm::conceptual::AbstractConceptualElement_ptr ConceptualRole::getConceptualElement()
+::kdm::conceptual::AbstractConceptualElement_ptr ConceptualRole::getConceptualElement() const
 {
     return m_conceptualElement;
 }

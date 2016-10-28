@@ -64,7 +64,7 @@ InstanceOf::~InstanceOf()
 
 // Attributes
 // References
-::kdm::code::TemplateUnit_ptr InstanceOf::getTo()
+::kdm::code::TemplateUnit_ptr InstanceOf::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void InstanceOf::setTo(::kdm::code::TemplateUnit_ptr _to)
 
 }
 
-::kdm::code::AbstractCodeElement_ptr InstanceOf::getFrom()
+::kdm::code::AbstractCodeElement_ptr InstanceOf::getFrom() const
 {
     return m_from;
 }

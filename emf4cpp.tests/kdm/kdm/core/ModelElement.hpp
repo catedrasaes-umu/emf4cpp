@@ -53,8 +53,10 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& getTaggedValue () const;
         ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& getTaggedValue ();
 
         /*PROTECTED REGION ID(ModelElement) START*/

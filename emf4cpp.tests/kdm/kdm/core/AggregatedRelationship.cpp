@@ -94,7 +94,8 @@ void AggregatedRelationship::setDensity(::kdm::core::Integer _density)
 }
 
 // References
-::kdm::core::KDMEntity_ptr AggregatedRelationship::getFrom()
+
+::kdm::core::KDMEntity_ptr AggregatedRelationship::getFrom() const
 {
     return m_from;
 }
@@ -121,7 +122,7 @@ void AggregatedRelationship::setFrom(::kdm::core::KDMEntity_ptr _from)
 
 }
 
-::kdm::core::KDMEntity_ptr AggregatedRelationship::getTo()
+::kdm::core::KDMEntity_ptr AggregatedRelationship::getTo() const
 {
     return m_to;
 }
@@ -146,6 +147,11 @@ void AggregatedRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     }
 #endif
 
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& AggregatedRelationship::getRelation() const
+{
+    return *m_relation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& AggregatedRelationship::getRelation()

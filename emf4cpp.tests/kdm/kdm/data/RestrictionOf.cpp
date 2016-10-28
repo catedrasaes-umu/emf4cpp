@@ -63,7 +63,7 @@ RestrictionOf::~RestrictionOf()
 
 // Attributes
 // References
-::kdm::data::ComplexContentType_ptr RestrictionOf::getTo()
+::kdm::data::ComplexContentType_ptr RestrictionOf::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void RestrictionOf::setTo(::kdm::data::ComplexContentType_ptr _to)
 
 }
 
-::kdm::data::ComplexContentType_ptr RestrictionOf::getFrom()
+::kdm::data::ComplexContentType_ptr RestrictionOf::getFrom() const
 {
     return m_from;
 }

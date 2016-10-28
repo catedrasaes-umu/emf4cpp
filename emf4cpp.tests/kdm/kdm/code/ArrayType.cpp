@@ -100,7 +100,8 @@ void ArrayType::setSize(::kdm::core::Integer _size)
 }
 
 // References
-::kdm::code::IndexUnit_ptr ArrayType::getIndexUnit()
+
+::kdm::code::IndexUnit_ptr ArrayType::getIndexUnit() const
 {
     return m_indexUnit;
 }

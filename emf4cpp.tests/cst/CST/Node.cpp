@@ -61,6 +61,11 @@ Node::~Node()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::CST::Element >& Node::getChildren() const
+{
+    return *m_children;
+}
+
 ::ecorecpp::mapping::EList< ::CST::Element >& Node::getChildren()
 {
     return *m_children;

@@ -63,7 +63,7 @@ ReferenceTo::~ReferenceTo()
 
 // Attributes
 // References
-::kdm::data::ContentItem_ptr ReferenceTo::getTo()
+::kdm::data::ContentItem_ptr ReferenceTo::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void ReferenceTo::setTo(::kdm::data::ContentItem_ptr _to)
 
 }
 
-::kdm::data::ContentItem_ptr ReferenceTo::getFrom()
+::kdm::data::ContentItem_ptr ReferenceTo::getFrom() const
 {
     return m_from;
 }

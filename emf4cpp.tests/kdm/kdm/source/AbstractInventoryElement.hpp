@@ -54,6 +54,7 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >& getInventoryRelation () const;
         ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >& getInventoryRelation ();
 
         /*PROTECTED REGION ID(AbstractInventoryElement) START*/

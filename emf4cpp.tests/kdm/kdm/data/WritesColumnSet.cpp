@@ -64,7 +64,7 @@ WritesColumnSet::~WritesColumnSet()
 
 // Attributes
 // References
-::kdm::data::ColumnSet_ptr WritesColumnSet::getTo()
+::kdm::data::ColumnSet_ptr WritesColumnSet::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void WritesColumnSet::setTo(::kdm::data::ColumnSet_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr WritesColumnSet::getFrom()
+::kdm::action::ActionElement_ptr WritesColumnSet::getFrom() const
 {
     return m_from;
 }

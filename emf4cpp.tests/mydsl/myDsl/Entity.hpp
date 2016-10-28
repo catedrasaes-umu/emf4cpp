@@ -51,9 +51,10 @@ public:
     // Attributes
 
     // References
-    ::myDsl::Entity_ptr getExtends ();
+    ::myDsl::Entity_ptr getExtends () const;
     void setExtends (::myDsl::Entity_ptr _extends);
 
+    const ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties () const;
     ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties ();
 
     /*PROTECTED REGION ID(Entity) START*/

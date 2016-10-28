@@ -64,7 +64,7 @@ WritesUI::~WritesUI()
 
 // Attributes
 // References
-::kdm::ui::UIResource_ptr WritesUI::getTo()
+::kdm::ui::UIResource_ptr WritesUI::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void WritesUI::setTo(::kdm::ui::UIResource_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr WritesUI::getFrom()
+::kdm::action::ActionElement_ptr WritesUI::getFrom() const
 {
     return m_from;
 }

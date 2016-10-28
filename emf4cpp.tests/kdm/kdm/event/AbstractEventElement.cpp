@@ -85,9 +85,19 @@ AbstractEventElement::~AbstractEventElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractEventElement::getSource() const
+{
+    return *m_source;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractEventElement::getSource()
 {
     return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& AbstractEventElement::getEventRelation() const
+{
+    return *m_eventRelation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& AbstractEventElement::getEventRelation()
@@ -95,9 +105,19 @@ AbstractEventElement::~AbstractEventElement()
     return *m_eventRelation;
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractEventElement::getAbstraction() const
+{
+    return *m_abstraction;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractEventElement::getAbstraction()
 {
     return *m_abstraction;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractEventElement::getImplementation() const
+{
+    return *m_implementation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractEventElement::getImplementation()

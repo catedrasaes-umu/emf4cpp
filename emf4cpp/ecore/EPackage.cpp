@@ -126,7 +126,8 @@ void EPackage::setNsPrefix(::ecore::EString const& _nsPrefix)
 }
 
 // References
-::ecore::EFactory_ptr EPackage::getEFactoryInstance()
+
+::ecore::EFactory_ptr EPackage::getEFactoryInstance() const
 {
     return m_eFactoryInstance;
 }
@@ -177,9 +178,19 @@ void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
     }
 }
 
+const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& EPackage::getEClassifiers() const
+{
+    return *m_eClassifiers;
+}
+
 ::ecorecpp::mapping::EList< ::ecore::EClassifier >& EPackage::getEClassifiers()
 {
     return *m_eClassifiers;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EPackage >& EPackage::getESubpackages() const
+{
+    return *m_eSubpackages;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EPackage >& EPackage::getESubpackages()
@@ -187,7 +198,7 @@ void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
     return *m_eSubpackages;
 }
 
-::ecore::EPackage_ptr EPackage::getESuperPackage()
+::ecore::EPackage_ptr EPackage::getESuperPackage() const
 {
     return m_eSuperPackage;
 }

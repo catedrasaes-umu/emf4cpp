@@ -56,6 +56,7 @@ public:
     // Attributes
 
     // References
+    const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals () const;
     ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals ();
 
     /*PROTECTED REGION ID(EEnum) START*/

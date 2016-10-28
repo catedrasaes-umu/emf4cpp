@@ -59,6 +59,7 @@ public:
     void setMarkerStart (::PrimitiveTypes::String _markerStart);
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::Point >& getWaypoints () const;
     ::ecorecpp::mapping::EList< ::SVG::Point >& getWaypoints ();
 
     /*PROTECTED REGION ID(Polyline) START*/

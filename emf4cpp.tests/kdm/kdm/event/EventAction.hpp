@@ -59,6 +59,7 @@ namespace kdm
         void setKind (::kdm::core::String _kind);
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::event::Event >& getEventElement () const;
         ::ecorecpp::mapping::EList< ::kdm::event::Event >& getEventElement ();
 
         /*PROTECTED REGION ID(EventAction) START*/

@@ -166,9 +166,20 @@ void Element::setIdentifier(::PrimitiveTypes::String _identifier)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& Element::getOwner() const
+{
+    return *m_owner;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::SvgFile >& Element::getOwner()
 {
     return *m_owner;
+}
+
+const ::ecorecpp::mapping::EList< ::SVG::Use >& Element::getTarget() const
+{
+    return *m_target;
 }
 
 ::ecorecpp::mapping::EList< ::SVG::Use >& Element::getTarget()
@@ -176,12 +187,17 @@ void Element::setIdentifier(::PrimitiveTypes::String _identifier)
     return *m_target;
 }
 
+const ::ecorecpp::mapping::EList< ::SVG::Attribute >& Element::getAttribute() const
+{
+    return *m_attribute;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Attribute >& Element::getAttribute()
 {
     return *m_attribute;
 }
 
-::SVG::Coordinates_ptr Element::getPosition()
+::SVG::Coordinates_ptr Element::getPosition() const
 {
     return m_position;
 }
@@ -211,7 +227,7 @@ void Element::setPosition(::SVG::Coordinates_ptr _position)
             ::SVG::SVGPackage::_instance()->getElement__position());
 }
 
-::SVG::Dimension_ptr Element::getSize()
+::SVG::Dimension_ptr Element::getSize() const
 {
     return m_size;
 }
@@ -241,7 +257,7 @@ void Element::setSize(::SVG::Dimension_ptr _size)
             ::SVG::SVGPackage::_instance()->getElement__size());
 }
 
-::SVG::Svg_ptr Element::getRoot()
+::SVG::Svg_ptr Element::getRoot() const
 {
     return m_root;
 }
@@ -290,7 +306,7 @@ void Element::setRoot(::SVG::Svg_ptr _root)
     }
 }
 
-::SVG::GroupingElement_ptr Element::getGroup()
+::SVG::GroupingElement_ptr Element::getGroup() const
 {
     return m_group;
 }
@@ -341,7 +357,7 @@ void Element::setGroup(::SVG::GroupingElement_ptr _group)
     }
 }
 
-::SVG::Marker_ptr Element::getDrawsMarker()
+::SVG::Marker_ptr Element::getDrawsMarker() const
 {
     return m_drawsMarker;
 }

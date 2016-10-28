@@ -63,7 +63,7 @@ StructureRelationship::~StructureRelationship()
 
 // Attributes
 // References
-::kdm::core::KDMEntity_ptr StructureRelationship::getTo()
+::kdm::core::KDMEntity_ptr StructureRelationship::getTo() const
 {
     return m_to;
 }
@@ -90,7 +90,7 @@ void StructureRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-::kdm::structure::AbstractStructureElement_ptr StructureRelationship::getFrom()
+::kdm::structure::AbstractStructureElement_ptr StructureRelationship::getFrom() const
 {
     return m_from;
 }

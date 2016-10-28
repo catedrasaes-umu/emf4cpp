@@ -84,9 +84,19 @@ AbstractStructureElement::~AbstractStructureElement()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& AbstractStructureElement::getAggregated() const
+{
+    return *m_aggregated;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& AbstractStructureElement::getAggregated()
 {
     return *m_aggregated;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractStructureElement::getImplementation() const
+{
+    return *m_implementation;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractStructureElement::getImplementation()
@@ -94,9 +104,20 @@ AbstractStructureElement::~AbstractStructureElement()
     return *m_implementation;
 }
 
+const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& AbstractStructureElement::getStructureElement() const
+{
+    return *m_structureElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& AbstractStructureElement::getStructureElement()
 {
     return *m_structureElement;
+}
+
+const ::ecorecpp::mapping::EList<
+        ::kdm::structure::AbstractStructureRelationship >& AbstractStructureElement::getStructureRelationship() const
+{
+    return *m_structureRelationship;
 }
 
 ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& AbstractStructureElement::getStructureRelationship()

@@ -99,6 +99,12 @@ void ClassUnit::setIsAbstract(::kdm::core::Boolean _isAbstract)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& ClassUnit::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
 ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& ClassUnit::getCodeElement()
 {
     return *m_codeElement;

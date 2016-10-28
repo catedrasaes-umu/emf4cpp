@@ -55,6 +55,7 @@ public:
     void setName (::PrimitiveTypes::String _name);
 
     // References
+    const ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer () const;
     ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer ();
 
     /*PROTECTED REGION ID(ReferencedFile) START*/

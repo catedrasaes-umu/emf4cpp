@@ -62,7 +62,7 @@ EFactory::~EFactory()
 
 // Attributes
 // References
-::ecore::EPackage_ptr EFactory::getEPackage()
+::ecore::EPackage_ptr EFactory::getEPackage() const
 {
     return m_ePackage;
 }

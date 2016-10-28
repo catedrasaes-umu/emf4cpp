@@ -67,6 +67,11 @@ DefinitionAspect::~DefinitionAspect()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& DefinitionAspect::getBody() const
+{
+    return *m_body;
+}
+
 ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& DefinitionAspect::getBody()
 {
     return *m_body;

@@ -54,12 +54,16 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated () const;
         ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
         ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement () const;
         ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship () const;
         ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship ();
 
         /*PROTECTED REGION ID(AbstractStructureElement) START*/

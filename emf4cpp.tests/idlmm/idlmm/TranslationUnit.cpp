@@ -92,9 +92,20 @@ void TranslationUnit::setIdentifier(::ecore::EString const& _identifier)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::idlmm::Contained >& TranslationUnit::getContains() const
+{
+    return *m_contains;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::Contained >& TranslationUnit::getContains()
 {
     return *m_contains;
+}
+
+const ::ecorecpp::mapping::EList< ::idlmm::Include >& TranslationUnit::getIncludes() const
+{
+    return *m_includes;
 }
 
 ::ecorecpp::mapping::EList< ::idlmm::Include >& TranslationUnit::getIncludes()

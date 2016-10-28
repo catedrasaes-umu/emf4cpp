@@ -68,7 +68,7 @@ IfStatement::~IfStatement()
 
 // Attributes
 // References
-::xpand3::expression::AbstractExpression_ptr IfStatement::getCondition()
+::xpand3::expression::AbstractExpression_ptr IfStatement::getCondition() const
 {
     return m_condition;
 }
@@ -99,7 +99,7 @@ void IfStatement::setCondition(
             ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
 }
 
-::xpand3::statement::IfStatement_ptr IfStatement::getElseIf()
+::xpand3::statement::IfStatement_ptr IfStatement::getElseIf() const
 {
     return m_elseIf;
 }

@@ -147,7 +147,8 @@ void EReference::setResolveProxies(::ecore::EBoolean _resolveProxies)
 }
 
 // References
-::ecore::EReference_ptr EReference::getEOpposite()
+
+::ecore::EReference_ptr EReference::getEOpposite() const
 {
     return m_eOpposite;
 }
@@ -174,7 +175,7 @@ void EReference::setEOpposite(::ecore::EReference_ptr _eOpposite)
 
 }
 
-::ecore::EClass_ptr EReference::getEReferenceType()
+::ecore::EClass_ptr EReference::getEReferenceType() const
 {
     return m_eReferenceType;
 }
@@ -199,6 +200,11 @@ void EReference::setEReferenceType(::ecore::EClass_ptr _eReferenceType)
     }
 #endif
 
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& EReference::getEKeys() const
+{
+    return *m_eKeys;
 }
 
 ::ecorecpp::mapping::EList< ::ecore::EAttribute >& EReference::getEKeys()

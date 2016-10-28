@@ -52,7 +52,7 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::kdm::TagDefinition_ptr getTag ();
+        ::kdm::kdm::TagDefinition_ptr getTag () const;
         void setTag (::kdm::kdm::TagDefinition_ptr _tag);
 
         /*PROTECTED REGION ID(ExtendedValue) START*/

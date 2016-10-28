@@ -64,7 +64,7 @@ Displays::~Displays()
 
 // Attributes
 // References
-::kdm::ui::UIResource_ptr Displays::getTo()
+::kdm::ui::UIResource_ptr Displays::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void Displays::setTo(::kdm::ui::UIResource_ptr _to)
 
 }
 
-::kdm::action::ActionElement_ptr Displays::getFrom()
+::kdm::action::ActionElement_ptr Displays::getFrom() const
 {
     return m_from;
 }

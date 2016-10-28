@@ -56,12 +56,16 @@ namespace kdm
         // Attributes
 
         // References
+        const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
         ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
         ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >& getConceptualRelation () const;
         ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >& getConceptualRelation ();
 
+        const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction () const;
         ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction ();
 
         /*PROTECTED REGION ID(AbstractConceptualElement) START*/

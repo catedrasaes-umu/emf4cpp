@@ -96,9 +96,20 @@ void AttributeDef::setIsReadonly(::ecore::EBoolean _isReadonly)
 }
 
 // References
+
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getGetRaises() const
+{
+    return *m_getRaises;
+}
+
 ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getGetRaises()
 {
     return *m_getRaises;
+}
+
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getSetRaises() const
+{
+    return *m_setRaises;
 }
 
 ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getSetRaises()

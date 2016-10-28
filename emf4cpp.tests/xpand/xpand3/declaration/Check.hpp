@@ -60,10 +60,10 @@ namespace xpand3
         void setFeature (::ecore::EString const& _feature);
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getMsg ();
+        ::xpand3::expression::AbstractExpression_ptr getMsg () const;
         void setMsg (::xpand3::expression::AbstractExpression_ptr _msg);
 
-        ::xpand3::expression::AbstractExpression_ptr getConstraint ();
+        ::xpand3::expression::AbstractExpression_ptr getConstraint () const;
         void setConstraint (::xpand3::expression::AbstractExpression_ptr _constraint);
 
         /*PROTECTED REGION ID(Check) START*/

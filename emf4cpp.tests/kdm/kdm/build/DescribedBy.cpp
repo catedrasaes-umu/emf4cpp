@@ -64,7 +64,7 @@ DescribedBy::~DescribedBy()
 
 // Attributes
 // References
-::kdm::build::BuildDescription_ptr DescribedBy::getTo()
+::kdm::build::BuildDescription_ptr DescribedBy::getTo() const
 {
     return m_to;
 }
@@ -91,7 +91,7 @@ void DescribedBy::setTo(::kdm::build::BuildDescription_ptr _to)
 
 }
 
-::kdm::build::BuildStep_ptr DescribedBy::getFrom()
+::kdm::build::BuildStep_ptr DescribedBy::getFrom() const
 {
     return m_from;
 }

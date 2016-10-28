@@ -62,6 +62,11 @@ Attribute::~Attribute()
 
 // Attributes
 // References
+const ::ecorecpp::mapping::EList< ::SVG::Element >& Attribute::getAttOwner() const
+{
+    return *m_attOwner;
+}
+
 ::ecorecpp::mapping::EList< ::SVG::Element >& Attribute::getAttOwner()
 {
     return *m_attOwner;
