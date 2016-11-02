@@ -392,7 +392,14 @@ void handler::resolveReferences()
 
                 // finally:
                 _any = _current;
-                eobj->eSet(esf, _any);
+
+				EJavaObject targetObject = eobj->eGet(esf);
+				if ( any::is_a<mapping::EList_ptr>(targetObject) ) {
+					ecorecpp::mapping::any::any_cast<mapping::EList_ptr >(targetObject)
+							->push_back(_current);
+				} else {
+					eobj->eSet(esf, _any);
+				}
             }
         } catch (const char* e)
         {
