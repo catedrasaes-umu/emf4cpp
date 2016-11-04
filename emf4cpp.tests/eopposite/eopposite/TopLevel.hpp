@@ -84,11 +84,11 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::eopposite::LeftHand > > m_leftees;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::LeftHand >> m_leftees;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::eopposite::RightHand > > m_rightees;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::RightHand >> m_rightees;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::eopposite::RightMultiple > > m_rightMultiples;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::RightMultiple >> m_rightMultiples;
 
 };
 

@@ -84,7 +84,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::UnionField > > m_unionMembers;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::UnionField >> m_unionMembers;
 
     ::idlmm::IDLType_ptr m_containedDiscrim;
 

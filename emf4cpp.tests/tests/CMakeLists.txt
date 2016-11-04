@@ -7,7 +7,9 @@ set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "")
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../../emf4cpp)
+find_package(Qt5Core)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../../emf4cpp ${Qt5Core_INCLUDE_DIRS})
 
 # read-metamodel
 add_executable(read-metamodel read-metamodel.cpp)
@@ -24,5 +26,3 @@ target_link_libraries(test-serializer emf4cpp-ecorecpp emf4cpp-ecore)
 # test-json-serializer
 add_executable(test-json-serializer test-json-serializer.cpp)
 target_link_libraries(test-json-serializer emf4cpp-ecorecpp emf4cpp-ecore)
-
-

@@ -92,7 +92,7 @@ namespace xpand3
 
         ::xpand3::Identifier_ptr m_javaMethod;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::xpand3::Identifier > > m_javaParamTypes;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::Identifier >> m_javaParamTypes;
 
     };
 

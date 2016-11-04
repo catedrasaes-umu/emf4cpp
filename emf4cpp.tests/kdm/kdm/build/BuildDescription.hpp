@@ -86,7 +86,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef >> m_source;
 
     };
 

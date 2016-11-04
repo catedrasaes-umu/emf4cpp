@@ -124,8 +124,9 @@ void ListLiteral::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::expression::ExpressionPackage::LISTLITERAL__ELEMENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::expression::ListLiteral::getElements().clear();
         ::xpand3::expression::ListLiteral::getElements().insert_all(*_t0);
     }

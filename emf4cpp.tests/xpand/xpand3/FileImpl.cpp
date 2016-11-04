@@ -134,16 +134,18 @@ void File::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::File::getImports().clear();
         ::xpand3::File::getImports().insert_all(*_t0);
     }
         return;
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::File::getDeclarations().clear();
         ::xpand3::File::getDeclarations().insert_all(*_t0);
     }

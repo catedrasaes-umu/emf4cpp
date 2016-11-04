@@ -84,7 +84,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::company::Department > > m_departments;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::company::Department >> m_departments;
 
 };
 

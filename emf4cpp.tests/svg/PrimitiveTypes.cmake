@@ -52,6 +52,5 @@ add_library(emf4cpp-PrimitiveTypes SHARED ${PrimitiveTypes_HEADERS} ${PrimitiveT
 set_target_properties(emf4cpp-PrimitiveTypes PROPERTIES COMPILE_FLAGS "-DMAKE_PRIMITIVETYPES_DLL" VERSION 0.0.1 SOVERSION 1)
 target_link_libraries(emf4cpp-PrimitiveTypes emf4cpp-ecore)
 
-
 install(TARGETS emf4cpp-PrimitiveTypes DESTINATION lib)
 

@@ -77,7 +77,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eBounds;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eBounds;
 
 };
 

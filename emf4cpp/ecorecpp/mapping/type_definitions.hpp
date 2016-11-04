@@ -2,7 +2,7 @@
 /*
  * mapping/type_definitions.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,11 +35,13 @@ namespace type_definitions
   typedef std::wstring string_t;
   typedef wchar_t      char_t;
   typedef std::wstringstream stringstream_t;
+  typedef std::wostringstream ostringstream_t;
 #define E_COUT std::cout
 #else // ECORECPP_USE_STRING (default)
   typedef std::string  string_t;
   typedef char         char_t;
   typedef std::stringstream stringstream_t;
+  typedef std::ostringstream ostringstream_t;
 #define E_COUT std::cout
 #endif
 

@@ -163,8 +163,9 @@ void AbstractAspect::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::declaration::AbstractDeclaration::getParams().clear();
         ::xpand3::declaration::AbstractDeclaration::getParams().insert_all(
                 *_t0);

@@ -57,7 +57,7 @@ String getListImplConstructorParametersOptional(EReference this) :
 // Reference type
 String getReferencEType(EReference this) :
  	if isMultiple() then
-		"::ecorecpp::mapping::out_ptr< "+ getList() + " >"
+		"std::shared_ptr<" + getList() + ">"
 	else
 		getPtr()
 ;

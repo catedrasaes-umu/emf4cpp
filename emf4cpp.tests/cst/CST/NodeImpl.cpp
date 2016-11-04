@@ -89,8 +89,9 @@ void Node::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::CST::CSTPackage::NODE__CHILDREN:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::CST::Node::getChildren().clear();
         ::CST::Node::getChildren().insert_all(*_t0);
     }

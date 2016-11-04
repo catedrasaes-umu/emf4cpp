@@ -80,7 +80,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EAnnotation > > m_eAnnotations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAnnotation >> m_eAnnotations;
 
 };
 

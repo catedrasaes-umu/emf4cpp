@@ -1,7 +1,7 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; c-file-offsets: ((innamespace . [4])); -*-
 /*
  * ItemProvider.hpp
- * Copyright (C) INCHRON Gmbh 2016 <matthias.doerfel@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <matthias.doerfel@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published

@@ -81,7 +81,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement > > m_platformElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >> m_platformElement;
 
     };
 

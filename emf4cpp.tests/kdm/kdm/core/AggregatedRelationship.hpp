@@ -94,7 +94,7 @@ namespace kdm
 
         ::kdm::core::KDMEntity_ptr m_to;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship > > m_relation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >> m_relation;
 
     };
 

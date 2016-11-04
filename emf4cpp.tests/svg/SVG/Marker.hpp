@@ -107,7 +107,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Element > > m_drawing;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_drawing;
 
 };
 

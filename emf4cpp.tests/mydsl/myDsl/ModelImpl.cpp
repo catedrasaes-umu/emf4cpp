@@ -87,16 +87,18 @@ void Model::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::MODEL__IMPORTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::myDsl::Model::getImports().clear();
         ::myDsl::Model::getImports().insert_all(*_t0);
     }
         return;
     case ::myDsl::MyDslPackage::MODEL__ELEMENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::myDsl::Model::getElements().clear();
         ::myDsl::Model::getElements().insert_all(*_t0);
     }

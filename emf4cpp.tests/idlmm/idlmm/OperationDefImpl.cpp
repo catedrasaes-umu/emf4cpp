@@ -193,8 +193,9 @@ void OperationDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::OPERATIONDEF__PARAMETERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::OperationDef::getParameters().clear();
         ::idlmm::OperationDef::getParameters().insert_all(*_t0);
     }
@@ -215,8 +216,9 @@ void OperationDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::OPERATIONDEF__CANRAISE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::OperationDef::getCanRaise().clear();
         ::idlmm::OperationDef::getCanRaise().insert_all(*_t0);
     }

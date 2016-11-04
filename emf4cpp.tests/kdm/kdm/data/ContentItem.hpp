@@ -88,7 +88,7 @@ namespace kdm
 
         ::kdm::data::ComplexContentType_ptr m_type;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement > > m_contentElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >> m_contentElement;
 
     };
 

@@ -101,7 +101,7 @@ protected:
 
     ::ecore::EClass_ptr m_eReferenceType;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EAttribute > > m_eKeys;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute >> m_eKeys;
 
 };
 

@@ -83,7 +83,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement > > m_conceptualElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >> m_conceptualElement;
 
     };
 

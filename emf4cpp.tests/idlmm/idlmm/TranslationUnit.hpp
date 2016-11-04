@@ -87,9 +87,9 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::Contained > > m_contains;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Contained >> m_contains;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::Include > > m_includes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Include >> m_includes;
 
 };
 

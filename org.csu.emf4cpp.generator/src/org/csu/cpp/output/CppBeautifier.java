@@ -89,7 +89,7 @@ public class CppBeautifier implements PostProcessor {
 			options.put("org.eclipse.cdt.core.formatter.insert_space_before_opening_brace_in_block", "insert");
 			options.put("org.eclipse.cdt.core.formatter.insert_space_before_closing_paren_in_method_declaration",
 					"do not insert");
-			options.put("org.eclipse.cdt.core.formatter.use_tabs_only_for_leading_indentations", "false");
+			options.put("org.eclipse.cdt.core.formatter.use_tabs_only_for_leading_indentations", "true");
 			options.put("org.eclipse.cdt.core.formatter.insert_space_before_colon_in_labeled_statement",
 					"do not insert");
 			options.put("org.eclipse.cdt.core.formatter.insert_space_after_colon_in_case", "insert");

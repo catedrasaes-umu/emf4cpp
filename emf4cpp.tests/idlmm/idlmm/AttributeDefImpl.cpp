@@ -179,16 +179,18 @@ void AttributeDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::ATTRIBUTEDEF__GETRAISES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::AttributeDef::getGetRaises().clear();
         ::idlmm::AttributeDef::getGetRaises().insert_all(*_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::ATTRIBUTEDEF__SETRAISES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::AttributeDef::getSetRaises().clear();
         ::idlmm::AttributeDef::getSetRaises().insert_all(*_t0);
     }

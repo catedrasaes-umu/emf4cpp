@@ -78,7 +78,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::tree::TreeNode > > m_children;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::tree::TreeNode >> m_children;
 
 };
 

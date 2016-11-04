@@ -142,8 +142,9 @@ void ModuleDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::Container::getContains().clear();
         ::idlmm::Container::getContains().insert_all(*_t0);
     }

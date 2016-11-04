@@ -95,9 +95,9 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner_SVG;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::SvgFile >> m_owner_SVG;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Element > > m_children;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_children;
 
 };
 

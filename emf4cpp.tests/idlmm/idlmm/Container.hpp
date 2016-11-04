@@ -78,7 +78,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::Contained > > m_contains;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Contained >> m_contains;
 
 };
 

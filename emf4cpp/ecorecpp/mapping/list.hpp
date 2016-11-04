@@ -20,7 +20,7 @@
 #ifndef ECORECPP_MAPPING_LIST_HPP
 #define ECORECPP_MAPPING_LIST_HPP
 
-#include "out_ptr.hpp"
+#include <memory>
 #include <vector>
 #include <ecore_forward.hpp>
 
@@ -47,7 +47,7 @@ protected:
     }
 };
 
-typedef out_ptr< EEListBase > EEListBase_ptr;
+typedef std::shared_ptr< EEListBase > EEListBase_ptr;
 
 template< typename T >
 class EEList: public EEListBase

@@ -126,11 +126,9 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypeParameter.hpp DESTINATION i
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/dllEcore.hpp DESTINATION include/emf4cpp/ecore)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../org.csu.emf4cpp.generator/../include/emf4cpp ../org.csu.emf4cpp.generator/../include/emf4cpp)
-link_directories(../org.csu.emf4cpp.generator/../lib)
 
 add_library(emf4cpp-ecore SHARED ${ecore_HEADERS} ${ecore_SOURCES})
 set_target_properties(emf4cpp-ecore PROPERTIES COMPILE_FLAGS "-DMAKE_ECORE_DLL" VERSION 0.0.1 SOVERSION 1)
-
 
 install(TARGETS emf4cpp-ecore DESTINATION lib)
 

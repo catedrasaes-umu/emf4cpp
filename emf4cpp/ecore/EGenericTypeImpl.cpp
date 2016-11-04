@@ -116,8 +116,9 @@ void EGenericType::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::ecore::EGenericType::getETypeArguments().clear();
         ::ecore::EGenericType::getETypeArguments().insert_all(*_t0);
     }

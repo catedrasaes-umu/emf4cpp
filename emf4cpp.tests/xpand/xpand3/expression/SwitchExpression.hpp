@@ -90,7 +90,7 @@ namespace xpand3
 
         ::xpand3::expression::AbstractExpression_ptr m_defaultExpr;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::xpand3::expression::Case > > m_cases;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::Case >> m_cases;
 
     };
 

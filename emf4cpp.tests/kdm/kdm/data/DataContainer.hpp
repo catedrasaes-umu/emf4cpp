@@ -83,7 +83,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::data::DataResource > > m_dataElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::DataResource >> m_dataElement;
 
     };
 

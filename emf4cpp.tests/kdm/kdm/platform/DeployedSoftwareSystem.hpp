@@ -84,7 +84,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent > > m_groupedComponent;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >> m_groupedComponent;
 
     };
 

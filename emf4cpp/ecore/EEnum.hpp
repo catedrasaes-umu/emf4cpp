@@ -83,7 +83,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral > > m_eLiterals;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >> m_eLiterals;
 
 };
 

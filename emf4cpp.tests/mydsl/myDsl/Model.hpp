@@ -81,9 +81,9 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::myDsl::Import > > m_imports;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Import >> m_imports;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::myDsl::Type > > m_elements;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Type >> m_elements;
 
 };
 

@@ -2,7 +2,7 @@
 /*
  * serializer/serializer.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -197,8 +197,8 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
 
                     if (current_ref->getUpperBound() != 1)
                     {
-                        mapping::EList_ptr children = boost::any_cast<
-                                mapping::EList_ptr >(any);
+                        mapping::EList<::ecore::EObject>::ptr_type children = boost::any_cast<
+                                mapping::EList<::ecore::EObject>::ptr_type >(any);
                         for (size_t j = 0; j < children->size(); j++)
                         {
                             value << get_reference(obj, (*children)[j]);

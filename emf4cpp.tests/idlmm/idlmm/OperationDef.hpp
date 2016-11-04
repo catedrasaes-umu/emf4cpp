@@ -95,9 +95,9 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::ParameterDef > > m_parameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ParameterDef >> m_parameters;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_canRaise;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >> m_canRaise;
 
 };
 

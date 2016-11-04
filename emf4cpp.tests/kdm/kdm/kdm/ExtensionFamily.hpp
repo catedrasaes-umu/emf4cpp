@@ -84,7 +84,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype > > m_stereotype;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >> m_stereotype;
 
     };
 

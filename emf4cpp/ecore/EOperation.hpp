@@ -97,13 +97,13 @@ protected:
 
     ::ecore::EClass_ptr m_eContainingClass;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::ETypeParameter > > m_eTypeParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::ETypeParameter >> m_eTypeParameters;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EParameter > > m_eParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EParameter >> m_eParameters;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EClassifier > > m_eExceptions;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClassifier >> m_eExceptions;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eGenericExceptions;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eGenericExceptions;
 
 };
 

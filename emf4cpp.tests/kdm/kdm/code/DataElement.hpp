@@ -96,7 +96,7 @@ namespace kdm
 
         ::kdm::code::Datatype_ptr m_type;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::code::Datatype > > m_codeElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::Datatype >> m_codeElement;
 
     };
 

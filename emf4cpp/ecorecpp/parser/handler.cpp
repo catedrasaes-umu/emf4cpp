@@ -2,7 +2,7 @@
 /*
  * parser/handler.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -220,8 +220,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
             {
                 // Gets the collection and adds the new element
                 _any = peobj->eGet(esf);
-                mapping::EList_ptr list = ecorecpp::mapping::any::any_cast<
-                        mapping::EList_ptr >(_any);
+                mapping::EList<::ecore::EObject>::ptr_type list = ecorecpp::mapping::any::any_cast<
+                        mapping::EList<::ecore::EObject>::ptr_type >(_any);
 
                 list->push_back(eobj);
             }
@@ -240,8 +240,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
                 {
                     // Gets the collection and adds the new element
                     _any = eobj->eGet(eopref);
-                    mapping::EList_ptr list = ecorecpp::mapping::any::any_cast<
-                            mapping::EList_ptr >(_any);
+                    mapping::EList<::ecore::EObject>::ptr_type list = ecorecpp::mapping::any::any_cast<
+                            mapping::EList<::ecore::EObject>::ptr_type >(_any);
 
                     list->push_back(peobj);
                 }
@@ -377,8 +377,8 @@ void handler::resolveReferences()
                         {
                             size_t _index = _path[j].get_index();
 
-                            mapping::EList_ptr _collection = ecorecpp::mapping::any::any_cast<
-                                    mapping::EList_ptr >(_any);
+                            mapping::EList<::ecore::EObject>::ptr_type _collection = ecorecpp::mapping::any::any_cast<
+                                    mapping::EList<::ecore::EObject>::ptr_type >(_any);
 
                             assert(_collection->size() > _index);
                             DEBUG_MSG(cout, _collection->size());
@@ -394,8 +394,8 @@ void handler::resolveReferences()
                 _any = _current;
 
 				EJavaObject targetObject = eobj->eGet(esf);
-				if ( any::is_a<mapping::EList_ptr>(targetObject) ) {
-					ecorecpp::mapping::any::any_cast<mapping::EList_ptr >(targetObject)
+				if ( any::is_a<mapping::EList<::ecore::EObject>::ptr_type>(targetObject) ) {
+					ecorecpp::mapping::any::any_cast<mapping::EList<::ecore::EObject>::ptr_type >(targetObject)
 							->push_back(_current);
 				} else {
 					eobj->eSet(esf, _any);

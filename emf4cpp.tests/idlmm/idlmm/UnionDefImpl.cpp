@@ -168,8 +168,9 @@ void UnionDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::UnionDef::getUnionMembers().clear();
         ::idlmm::UnionDef::getUnionMembers().insert_all(*_t0);
     }

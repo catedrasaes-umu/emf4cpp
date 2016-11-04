@@ -56,6 +56,5 @@ add_library(emf4cpp-bintree SHARED ${bintree_HEADERS} ${bintree_SOURCES})
 set_target_properties(emf4cpp-bintree PROPERTIES COMPILE_FLAGS "-DMAKE_BINTREE_DLL" VERSION 0.0.1 SOVERSION 1)
 target_link_libraries(emf4cpp-bintree emf4cpp-ecore)
 
-
 install(TARGETS emf4cpp-bintree DESTINATION lib)
 

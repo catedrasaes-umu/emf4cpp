@@ -87,7 +87,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Point > > m_between;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Point >> m_between;
 
 };
 

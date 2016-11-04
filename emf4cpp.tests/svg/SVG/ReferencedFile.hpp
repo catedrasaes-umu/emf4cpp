@@ -84,7 +84,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Image > > m_referer;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Image >> m_referer;
 
 };
 

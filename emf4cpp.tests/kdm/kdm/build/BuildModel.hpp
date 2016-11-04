@@ -81,7 +81,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement > > m_buildElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >> m_buildElement;
 
     };
 

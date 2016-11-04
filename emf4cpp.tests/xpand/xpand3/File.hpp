@@ -82,9 +82,9 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::xpand3::ImportStatement > > m_imports;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::ImportStatement >> m_imports;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration > > m_declarations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >> m_declarations;
 
 };
 

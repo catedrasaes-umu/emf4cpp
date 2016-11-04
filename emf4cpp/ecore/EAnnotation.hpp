@@ -92,13 +92,13 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry > > m_details;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >> m_details;
 
     ::ecore::EModelElement_ptr m_eModelElement;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > m_contents;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject >> m_contents;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > m_references;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject >> m_references;
 
 };
 

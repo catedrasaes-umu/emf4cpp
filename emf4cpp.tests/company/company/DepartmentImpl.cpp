@@ -88,8 +88,9 @@ void Department::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::company::Department::getEmployees().clear();
         ::company::Department::getEmployees().insert_all(*_t0);
     }

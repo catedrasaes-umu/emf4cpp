@@ -169,8 +169,9 @@ void DefinitionAspect::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::declaration::AbstractDeclaration::getParams().clear();
         ::xpand3::declaration::AbstractDeclaration::getParams().insert_all(
                 *_t0);
@@ -208,8 +209,9 @@ void DefinitionAspect::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::declaration::DeclarationPackage::DEFINITIONASPECT__BODY:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::declaration::DefinitionAspect::getBody().clear();
         ::xpand3::declaration::DefinitionAspect::getBody().insert_all(*_t0);
     }

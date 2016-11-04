@@ -85,9 +85,9 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute > > m_attribute;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >> m_attribute;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation > > m_annotation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >> m_annotation;
 
     };
 

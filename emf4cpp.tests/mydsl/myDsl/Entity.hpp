@@ -83,7 +83,7 @@ protected:
 
     ::myDsl::Entity_ptr m_extends;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::myDsl::Property > > m_properties;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Property >> m_properties;
 
 };
 

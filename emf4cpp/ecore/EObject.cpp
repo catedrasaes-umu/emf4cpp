@@ -40,8 +40,9 @@ EObject::EObject()
 {
 
     /*PROTECTED REGION ID(EObjectImpl__EObjectImpl) ENABLED START*/
-    m_eContainer = 0;
-    m_eContainingFeature = 0;
+    m_eContainer = nullptr;
+    m_eContainingFeature = nullptr;
+    m_eResource = nullptr;
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API

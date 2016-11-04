@@ -88,7 +88,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::event::Event > > m_eventElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::event::Event >> m_eventElement;
 
     };
 

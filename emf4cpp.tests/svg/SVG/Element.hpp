@@ -121,11 +121,11 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::SvgFile >> m_owner;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Use > > m_target;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Use >> m_target;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Attribute > > m_attribute;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Attribute >> m_attribute;
 
     ::SVG::Coordinates_ptr m_position;
 

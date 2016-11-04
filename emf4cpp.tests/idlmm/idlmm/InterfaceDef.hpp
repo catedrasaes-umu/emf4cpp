@@ -93,7 +93,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef > > m_derivesFrom;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >> m_derivesFrom;
 
 };
 

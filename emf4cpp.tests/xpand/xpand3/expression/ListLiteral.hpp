@@ -80,7 +80,7 @@ namespace xpand3
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression > > m_elements;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >> m_elements;
 
     };
 

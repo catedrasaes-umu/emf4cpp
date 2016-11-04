@@ -82,7 +82,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::code::ValueElement > > m_valueElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::ValueElement >> m_valueElement;
 
     };
 

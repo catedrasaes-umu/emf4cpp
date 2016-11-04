@@ -78,7 +78,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Element > > m_groupContent;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_groupContent;
 
 };
 

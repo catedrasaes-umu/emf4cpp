@@ -93,8 +93,9 @@ void TranslationUnit::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::TranslationUnit::getContains().clear();
         ::idlmm::TranslationUnit::getContains().insert_all(*_t0);
     }
@@ -107,8 +108,9 @@ void TranslationUnit::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::TranslationUnit::getIncludes().clear();
         ::idlmm::TranslationUnit::getIncludes().insert_all(*_t0);
     }

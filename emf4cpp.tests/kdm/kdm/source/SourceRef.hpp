@@ -90,7 +90,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion > > m_region;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >> m_region;
 
     };
 

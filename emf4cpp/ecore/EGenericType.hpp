@@ -95,7 +95,7 @@ protected:
 
     ::ecore::EGenericType_ptr m_eUpperBound;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eTypeArguments;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eTypeArguments;
 
     ::ecore::EClassifier_ptr m_eRawType;
 

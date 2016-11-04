@@ -161,8 +161,9 @@ void SwitchExpression::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__CASES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::expression::SwitchExpression::getCases().clear();
         ::xpand3::expression::SwitchExpression::getCases().insert_all(*_t0);
     }

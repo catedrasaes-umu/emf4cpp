@@ -153,8 +153,9 @@ void ExceptionDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::EXCEPTIONDEF__MEMBERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::ExceptionDef::getMembers().clear();
         ::idlmm::ExceptionDef::getMembers().insert_all(*_t0);
     }

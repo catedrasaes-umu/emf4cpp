@@ -44,6 +44,8 @@ add_subdirectory(enumeration/test)
 add_subdirectory(eopposite)
 add_subdirectory(eopposite/test)
 add_subdirectory(subpackage)
+add_subdirectory(treeiterator)
+add_subdirectory(treeiterator/test)
 
 add_subdirectory(mapping-tests)
 

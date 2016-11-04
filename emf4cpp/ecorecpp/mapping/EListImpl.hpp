@@ -62,39 +62,16 @@ public:
         m_content.clear();
     }
 
-	typename EList<T>::UnderlyingContainer_type::iterator begin() override {
-		return m_content.begin();
-	}
-
-	typename EList<T>::UnderlyingContainer_type::iterator end() override {
-		return m_content.end();
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator begin() const override {
-		return m_content.begin();
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator end() const override {
-		return m_content.end();
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator cbegin() const override {
-		return m_content.cbegin();
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator cend() const override {
-		return m_content.cend();
-	}
-
 	void remove(T* _obj) override {
 		auto it = std::find( m_content.begin(), m_content.end(), _obj );
-		remove(it);
+		if ( it != m_content.end() )
+			m_content.erase(it);
 	}
 
 	/* Better check before trusting the caller. */
-	void remove(typename EList<T>::UnderlyingContainer_type::iterator it) override {
-		if (it != m_content.end())
-			m_content.erase(it);
+	void remove(typename EList<T>::iterator it) override {
+		if (it != EList<T>::end())
+			remove(*it);
 	}
 
     virtual ~EListImpl()
@@ -153,10 +130,10 @@ public:
     }
 
 	/* Better check before trusting the caller. */
-	void remove(typename EList<T>::UnderlyingContainer_type::iterator it) override {
-		if (it != base_t::m_content.end()) {
+	void remove(typename EList<T>::iterator it) override {
+		if (it != EList<T>::end()) {
 			T* _obj = *it;
-			base_t::m_content.erase(it);
+			basicRemove(_obj);
 
 			m_containment.unset(_obj);
 			m_opposite.unset(_obj);
@@ -297,6 +274,28 @@ protected:
     containment_t< T, containment > m_containment;
     opposite_t< T, opposite > m_opposite;
 
+};
+
+template <class T>
+class ContainingEList : public EListImpl<T> {
+	using base_t = EListImpl<T>;
+public:
+
+    ContainingEList() {
+	}
+
+	virtual ~ContainingEList() {
+		for ( auto const& obj : base_t::m_content )
+			delete obj;
+	}
+
+	void clear() override
+    {
+		for ( auto const& obj : base_t::m_content )
+			delete obj;
+
+        base_t::m_content.clear();
+    }
 };
 
 } // mapping

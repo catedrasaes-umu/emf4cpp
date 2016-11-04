@@ -81,7 +81,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship > > m_inventoryRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >> m_inventoryRelation;
 
     };
 

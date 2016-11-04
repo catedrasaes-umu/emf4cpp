@@ -90,13 +90,13 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship > > m_aggregated;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >> m_aggregated;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity > > m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >> m_implementation;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement > > m_structureElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >> m_structureElement;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship > > m_structureRelationship;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >> m_structureRelationship;
 
     };
 

@@ -91,9 +91,9 @@ namespace kdm
 
         ::kdm::code::Datatype_ptr m_type;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow > > m_entryFlow;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >> m_entryFlow;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement > > m_codeElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >> m_codeElement;
 
     };
 

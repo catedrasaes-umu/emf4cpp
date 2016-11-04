@@ -153,8 +153,9 @@ void StructDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::STRUCTDEF__MEMBERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::idlmm::StructDef::getMembers().clear();
         ::idlmm::StructDef::getMembers().insert_all(*_t0);
     }

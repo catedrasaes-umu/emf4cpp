@@ -76,6 +76,5 @@ add_library(emf4cpp-myDsl SHARED ${myDsl_HEADERS} ${myDsl_SOURCES})
 set_target_properties(emf4cpp-myDsl PROPERTIES COMPILE_FLAGS "-DMAKE_MYDSL_DLL" VERSION 0.0.1 SOVERSION 1)
 target_link_libraries(emf4cpp-myDsl emf4cpp-ecore)
 
-
 install(TARGETS emf4cpp-myDsl DESTINATION lib)
 

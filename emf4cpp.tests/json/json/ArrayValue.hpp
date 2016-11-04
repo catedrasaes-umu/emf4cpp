@@ -77,7 +77,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::json::Value > > m_values;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::json::Value >> m_values;
 
 };
 

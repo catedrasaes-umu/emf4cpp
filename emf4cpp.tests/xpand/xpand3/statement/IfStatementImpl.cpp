@@ -141,8 +141,9 @@ void IfStatement::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::statement::AbstractStatementWithBody::getBody().clear();
         ::xpand3::statement::AbstractStatementWithBody::getBody().insert_all(
                 *_t0);

@@ -141,7 +141,8 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
                 «ef.getCPPTypeSignatureImpl()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»_ptr >(_t0);
                 ::«ef.EContainingClass.getFQN()»::set«ef.name.toFirstUpper()»(_t1);
                     «ELSE-»
-                ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecorecpp::mapping::EList_ptr >(_newValue);
+                ::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type _t0 =
+                		::ecorecpp::mapping::any::any_cast< ::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type >(_newValue);
                 ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().clear();
                 ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().insert_all(*_t0);
                     «ENDIF-»

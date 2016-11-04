@@ -94,7 +94,7 @@ namespace xpand3
 
         ::xpand3::File_ptr m_owner;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter > > m_params;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >> m_params;
 
         ::xpand3::expression::AbstractExpression_ptr m_guard;
 

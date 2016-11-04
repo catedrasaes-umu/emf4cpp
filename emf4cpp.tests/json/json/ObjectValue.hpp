@@ -77,7 +77,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::json::NVPair > > m_members;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::json::NVPair >> m_members;
 
 };
 

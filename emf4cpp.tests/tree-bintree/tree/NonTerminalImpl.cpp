@@ -103,8 +103,9 @@ void NonTerminal::eSet(::ecore::EInt _featureID,
         return;
     case ::tree::TreePackage::NONTERMINAL__CHILDREN:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::tree::NonTerminal::getChildren().clear();
         ::tree::NonTerminal::getChildren().insert_all(*_t0);
     }

@@ -2,7 +2,7 @@
 /*
  * serializer/greedy_serializer.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -79,7 +79,7 @@ public:
                 << "standalone=\"no\" ?>\n";
     }
 
-    inline void open_object(const string_t& _name)
+    inline void open_object(const string_t& _name, bool silent = false)
     {
         if(has_value.size() && !has_value.back())
         {
@@ -93,20 +93,24 @@ public:
             _indent();
 
         ++level;
-        out << "<" << _name;
+		if(!silent)
+			out << "<" << _name;
     }
 
-    inline void close_object(const string_t& _name)
+    inline void close_object(const string_t& _name, bool silent = false)
     {
         --level;
-        if (!has_value.back())
-            out << "/>\n";
-        else
-		{
-			if (indent)
-				_indent();
 
-            out << "</" << _name << ">\n";
+		if (!silent) {
+			if (!has_value.back())
+				out << "/>\n";
+			else
+			{
+				if (indent)
+					_indent();
+
+				out << "</" << _name << ">\n";
+			}
 		}
 
         has_value.pop_back();
@@ -126,13 +130,12 @@ public:
         out << ">" << _value;
     }
 
-	void increment_level() {
-		++level;
-	}
-
-	void decrement_level() {
-		--level;
-	}
+    inline void append(const string_t& _value)
+    {
+        assert(has_value.size());
+        has_value.back() = true;
+		out << _value;
+    }
 };
 
 } // serializer

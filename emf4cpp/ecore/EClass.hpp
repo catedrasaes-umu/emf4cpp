@@ -164,33 +164,33 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EClass > > m_eSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClass >> m_eSuperTypes;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EOperation > > m_eOperations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EOperation >> m_eOperations;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EAttribute > > m_eAllAttributes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute >> m_eAllAttributes;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EReference > > m_eAllReferences;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EReference >> m_eAllReferences;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EReference > > m_eReferences;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EReference >> m_eReferences;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EAttribute > > m_eAttributes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute >> m_eAttributes;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EReference > > m_eAllContainments;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EReference >> m_eAllContainments;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EOperation > > m_eAllOperations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EOperation >> m_eAllOperations;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature > > m_eAllStructuralFeatures;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >> m_eAllStructuralFeatures;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EClass > > m_eAllSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClass >> m_eAllSuperTypes;
 
     ::ecore::EAttribute_ptr m_eIDAttribute;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature > > m_eStructuralFeatures;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >> m_eStructuralFeatures;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eGenericSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eGenericSuperTypes;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eAllGenericSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eAllGenericSuperTypes;
 
 };
 

@@ -107,6 +107,5 @@ add_library(emf4cpp-TopLevelPackage SHARED ${TopLevelPackage_HEADERS} ${TopLevel
 set_target_properties(emf4cpp-TopLevelPackage PROPERTIES COMPILE_FLAGS "-DMAKE_TOPLEVELPACKAGE_DLL" VERSION 0.0.1 SOVERSION 1)
 target_link_libraries(emf4cpp-TopLevelPackage emf4cpp-ecore)
 
-
 install(TARGETS emf4cpp-TopLevelPackage DESTINATION lib)
 

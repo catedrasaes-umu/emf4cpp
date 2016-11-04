@@ -28,5 +28,6 @@
 #include "ecorecpp/serializer/serializer.hpp"
 #include "ecorecpp/json/serializer.hpp"
 #include "ecorecpp/util/print.hpp"
+#include "ecorecpp/util/TreeIterator.hpp"
 
 #endif // ECORECPP_HPP

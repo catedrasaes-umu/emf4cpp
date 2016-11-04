@@ -84,7 +84,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::code::Module > > m_groupedCode;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::Module >> m_groupedCode;
 
     };
 

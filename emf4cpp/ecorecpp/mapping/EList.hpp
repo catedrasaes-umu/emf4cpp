@@ -20,25 +20,92 @@
 #ifndef ECORECPP_MAPPING_ELIST_HPP
 #define ECORECPP_MAPPING_ELIST_HPP
 
+#include <memory>
+#include <type_traits>
 #include <vector>
+
 #include <ecore_forward.hpp>
-#include "out_ptr.hpp"
-#include <ecore/EObject.hpp>
 
 namespace ecorecpp
 {
 namespace mapping
 {
 
-typedef out_ptr< EList< ::ecore::EObject > > EList_ptr; // for any
-
 template< typename T >
-class EList
-{
+class EList : public std::enable_shared_from_this<EList<T>> {
 public:
 
-    typedef out_ptr< EList< T > > ptr_type;
+    typedef std::shared_ptr<EList<T>> ptr_type;
+    typedef std::shared_ptr<const EList<T>> ptr_const_type;
 	typedef std::vector<T*> UnderlyingContainer_type;
+
+	/** Iterator interfaces for an EList<T>.
+	 */
+
+	template <typename EListPtrType>
+	class EListIterator : public std::iterator<std::bidirectional_iterator_tag, T*> {
+	public:
+		EListIterator(EListPtrType el, size_t ind)
+			: _elist(el),
+			  _ind(ind) {
+		}
+
+		T* operator*() const {
+			return _elist->get(_ind);
+		}
+
+		EListIterator& operator--() {
+			--_ind;
+		    return *this;
+		}
+
+		EListIterator operator--(int) {
+			EListIterator old(*this);
+			--(*this);
+			return old;
+		}
+
+		EListIterator& operator++() {
+			++_ind;
+		    return *this;
+		}
+
+		EListIterator operator++(int) {
+			EListIterator old(*this);
+			++(*this);
+			return old;
+		}
+
+		bool operator==(const EListIterator& rhs) const {
+		    return ( _elist == rhs._elist
+					&& _ind == rhs._ind );
+		}
+
+		bool operator!=(const EListIterator& rhs) const {
+			return !(*this == rhs);
+		}
+
+		bool hasNext() const {
+			return ((int64_t)_ind < (int64_t)_elist->size() - 1);
+		}
+
+		const EList<T>::ptr_type& getEList() const {
+			return _elist;
+		}
+
+		size_t getIndex() const {
+			return _ind;
+		}
+
+	private:
+		EListPtrType _elist;
+		size_t _ind;
+	};
+
+	typedef EListIterator<ptr_type> iterator;
+	typedef EListIterator<ptr_const_type> const_iterator;
+	// End of iterator interface
+
 
     inline T* operator[](size_t _index) const
     {
@@ -62,7 +129,7 @@ public:
 
     virtual void insert_at(size_t _pos, T* _obj) = 0;
 
-    virtual T* get(size_t _index) const = 0;
+    virtual T * get(size_t _index) const = 0;
 
     virtual void push_back(T* _obj) = 0;
 
@@ -70,25 +137,44 @@ public:
 
     virtual void clear() = 0;
 
-	virtual typename UnderlyingContainer_type::iterator begin() = 0;
-	virtual typename UnderlyingContainer_type::iterator end() = 0;
+	iterator begin() {
+		auto this_shared = std::enable_shared_from_this<EList<T>>::shared_from_this();
+		return iterator(this_shared, 0);
+	}
 
-	virtual typename UnderlyingContainer_type::const_iterator begin() const = 0;
-	virtual typename UnderlyingContainer_type::const_iterator end() const = 0;
+	iterator end() {
+		auto this_shared = std::enable_shared_from_this<EList<T>>::shared_from_this();
+		return iterator(this_shared, size());
+	}
 
-	virtual typename UnderlyingContainer_type::const_iterator cbegin() const = 0;
-	virtual typename UnderlyingContainer_type::const_iterator cend() const = 0;
+	const_iterator begin() const {
+		auto this_shared = std::enable_shared_from_this<EList<T>>::shared_from_this();
+		return const_iterator(this_shared, 0);
+	}
+
+	const_iterator end() const {
+		auto this_shared = std::enable_shared_from_this<EList<T>>::shared_from_this();
+		return const_iterator(this_shared, size());
+	}
+
+	const_iterator cbegin() const {
+		return begin();
+	}
+
+	const_iterator cend() const {
+		return end();
+	}
 
 	virtual void remove(T*) = 0;
-	virtual void remove(typename UnderlyingContainer_type::iterator) = 0;
+	virtual void remove(iterator) = 0;
 
     /**
-     * Permite tratar a una EList< T > como una EList< Q >
+     * Allows for treating an EList<T> as EList<Q> (if T can be casted to Q dynamically)
      */
     template< typename Q >
     inline typename EList< Q >::ptr_type asEListOf()
     {
-        return new DelegateEList< Q, T > (*this);
+        return std::make_shared<DelegateEList< Q, T >>(*this);
     }
 
     virtual ~EList()
@@ -122,7 +208,7 @@ public:
         return _cast< Q, T >::do_cast(m_delegate[_index]);
     }
 
-    virtual void insert_at(size_t _pos, T* _obj)
+	virtual void insert_at(size_t _pos, T* _obj)
     {
         m_delegate.insert_at(_pos, _cast< T, Q >::do_cast(_obj));
     }
@@ -142,36 +228,13 @@ public:
         m_delegate.clear();
     }
 
-	typename EList<T>::UnderlyingContainer_type::iterator begin() override {
-		throw "Iterator not evailable for delegate list";
+	void remove(T* obj) override {
+		m_delegate.remove(_cast< T, Q >::do_cast(obj));
 	}
 
-	typename EList<T>::UnderlyingContainer_type::iterator end() override {
-		throw "Iterator not evailable for delegate list";
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator begin() const override {
-		throw "Iterator not evailable for delegate list";
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator end() const override {
-		throw "Iterator not evailable for delegate list";
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator cbegin() const override {
-		throw "Iterator not evailable for delegate list";
-	}
-
-	typename EList<T>::UnderlyingContainer_type::const_iterator cend() const override {
-		throw "Iterator not evailable for delegate list";
-	}
-
-	void remove(T*) override {
-		throw "remove() not evailable for delegate list";
-	}
-	
-	void remove(typename EList<T>::UnderlyingContainer_type::iterator) override {
-		throw "remove() not evailable for delegate list";
+	void remove( typename EList<T>::iterator it) override {
+		if ( it != EList<T>::end() )
+			remove(*it);
 	}
 
     virtual ~DelegateEList()
@@ -200,6 +263,7 @@ protected:
         }
     };
 };
+
 
 } // mapping
 } // ecorecpp

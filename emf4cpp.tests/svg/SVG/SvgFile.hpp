@@ -85,7 +85,7 @@ protected:
 
     ::SVG::Svg_ptr m_tag;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::SVG::Element > > m_elements;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_elements;
 
 };
 

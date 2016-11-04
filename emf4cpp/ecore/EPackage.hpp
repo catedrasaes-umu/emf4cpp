@@ -136,9 +136,9 @@ protected:
 
     ::ecore::EFactory_ptr m_eFactoryInstance;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EClassifier > > m_eClassifiers;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClassifier >> m_eClassifiers;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::EPackage > > m_eSubpackages;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EPackage >> m_eSubpackages;
 
     ::ecore::EPackage_ptr m_eSuperPackage;
 

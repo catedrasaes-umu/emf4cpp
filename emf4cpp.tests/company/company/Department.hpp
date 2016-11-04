@@ -87,7 +87,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::company::Employee > > m_employees;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::company::Employee >> m_employees;
 
     ::company::Employee_ptr m_manager;
 

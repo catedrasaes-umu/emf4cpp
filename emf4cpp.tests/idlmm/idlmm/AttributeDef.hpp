@@ -86,9 +86,9 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_getRaises;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >> m_getRaises;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_setRaises;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >> m_setRaises;
 
 };
 

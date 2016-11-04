@@ -105,8 +105,9 @@ void Entity::eSet(::ecore::EInt _featureID,
         return;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::myDsl::Entity::getProperties().clear();
         ::myDsl::Entity::getProperties().insert_all(*_t0);
     }

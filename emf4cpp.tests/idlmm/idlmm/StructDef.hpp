@@ -78,7 +78,7 @@ protected:
 
     // References
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::idlmm::Field > > m_members;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Field >> m_members;
 
 };
 

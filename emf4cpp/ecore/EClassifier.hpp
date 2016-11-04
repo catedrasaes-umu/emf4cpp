@@ -114,7 +114,7 @@ protected:
 
     ::ecore::EPackage_ptr m_ePackage;
 
-    ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::ecore::ETypeParameter > > m_eTypeParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::ETypeParameter >> m_eTypeParameters;
 
 };
 

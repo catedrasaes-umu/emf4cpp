@@ -2,7 +2,7 @@
 /*
  * serializer/serializer.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -146,8 +146,8 @@ void serializer::serialize_node(EObject_ptr obj)
 
                     if (current_ref->getUpperBound() != 1)
                     {
-                        mapping::EList_ptr children =
-                            ecorecpp::mapping::any::any_cast<mapping::EList_ptr >(any);
+                        mapping::EList<::ecore::EObject>::ptr_type children =
+                            ecorecpp::mapping::any::any_cast<mapping::EList<::ecore::EObject>::ptr_type >(any);
                         for (size_t j = 0; j < children->size(); j++)
                         {
                             value << get_reference(obj, (*children)[j]);
@@ -247,8 +247,8 @@ void serializer::serialize_node(EObject_ptr obj)
 
                     if (current_ref->getUpperBound() != 1)
                     {
-                        mapping::EList_ptr children = ecorecpp::mapping::any::any_cast<
-                                mapping::EList_ptr >(any);
+                        mapping::EList<::ecore::EObject>::ptr_type children = ecorecpp::mapping::any::any_cast<
+                                mapping::EList<::ecore::EObject>::ptr_type >(any);
                         for (size_t j = 0; j < children->size(); j++)
                         {
                             create_node(obj, (*children)[j], current_ref);
@@ -283,9 +283,9 @@ serializer::serialize(EObject_ptr obj)
 	// remove the XML processing instruction
 	m_internalBuffer.str(std::string());
 	// Serialize the top level object into m_internalBuffer
-	m_ser.increment_level();
+	m_ser.open_object("", true);
 	serialize_node(obj);
-	m_ser.decrement_level();
+	m_ser.close_object("", true);
 
 	// Create a new serializer for the real output.
 	greedy_serializer output(m_out, m_mode == XmiIndentMode::Indentation);
@@ -318,7 +318,7 @@ serializer::serialize(EObject_ptr obj)
 		output.add_attribute(root_namespace.str(),ns_uri); // root element namespace URI
 	}
 
-	output.add_value(std::string("\n") + m_internalBuffer.str());
+	output.append(m_internalBuffer.str());
 
     output.close_object(root_name);
 }
@@ -384,8 +384,8 @@ serializer::get_reference(EObject_ptr from, EObject_ptr to) const
             {
                 ecorecpp::mapping::any _any = prev->eGet(esf);
 
-                mapping::EList_ptr ef = ecorecpp::mapping::any::any_cast<
-                        mapping::EList_ptr >(_any);
+                mapping::EList<::ecore::EObject>::ptr_type ef = ecorecpp::mapping::any::any_cast<
+                        mapping::EList<::ecore::EObject>::ptr_type >(_any);
 
                 // calculate the index of back at father's collection
                 size_t index_of = 0;

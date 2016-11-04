@@ -89,7 +89,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition > > m_tag;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >> m_tag;
 
     };
 

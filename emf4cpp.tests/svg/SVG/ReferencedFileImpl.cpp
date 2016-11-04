@@ -79,8 +79,9 @@ void ReferencedFile::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::SVG::ReferencedFile::getReferer().clear();
         ::SVG::ReferencedFile::getReferer().insert_all(*_t0);
     }

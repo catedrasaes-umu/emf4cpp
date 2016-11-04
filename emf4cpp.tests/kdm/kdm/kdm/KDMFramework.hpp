@@ -87,9 +87,9 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::Audit > > m_audit;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Audit >> m_audit;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily > > m_extensionFamily;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >> m_extensionFamily;
 
     };
 

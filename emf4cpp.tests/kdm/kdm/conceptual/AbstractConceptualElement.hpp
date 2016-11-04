@@ -92,13 +92,13 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef >> m_source;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity > > m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >> m_implementation;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship > > m_conceptualRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >> m_conceptualRelation;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::action::ActionElement > > m_abstraction;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement >> m_abstraction;
 
     };
 

@@ -88,7 +88,7 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent > > m_UIElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::ui::UIEvent >> m_UIElement;
 
     };
 

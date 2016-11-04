@@ -154,8 +154,9 @@ void OperationCall::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::expression::ExpressionPackage::OPERATIONCALL__PARAMS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject > ::ptr_type > (_newValue);
         ::xpand3::expression::OperationCall::getParams().clear();
         ::xpand3::expression::OperationCall::getParams().insert_all(*_t0);
     }

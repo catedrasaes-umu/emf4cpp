@@ -83,9 +83,9 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::Segment > > m_segment;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Segment >> m_segment;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel > > m_model;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >> m_model;
 
     };
 

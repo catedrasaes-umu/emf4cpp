@@ -28,6 +28,7 @@
 
 /*PROTECTED REGION ID(EObject_pre) ENABLED START*/
 #include <ecorecpp/notify_forward.hpp>
+#include <ecorecpp/util/TreeIterator.hpp>
 /*PROTECTED REGION END*/
 
 namespace ecore
@@ -56,11 +57,11 @@ public:
 
     virtual ::ecore::EReference_ptr eContainmentFeature ();
 
-    virtual std::list< ::ecore::EObject_ptr > eContents ();
+    virtual std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject>> eContents ();
 
-    virtual int eAllContents ();
+    virtual ::ecorecpp::util::TreeIterator< ::ecore::EObject> eAllContents ();
 
-    virtual std::list< ::ecore::EObject_ptr > eCrossReferences ();
+    virtual std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject>> eCrossReferences ();
 
     virtual ::ecore::EJavaObject eGet ( ::ecore::EStructuralFeature_ptr _feature);
 
@@ -72,7 +73,7 @@ public:
 
     virtual void eUnset ( ::ecore::EStructuralFeature_ptr _feature);
 
-    virtual ::ecore::EJavaObject eInvoke ( ::ecore::EOperation_ptr _operation, std::list< ::ecorecpp::mapping::any > const& _arguments);
+    virtual ::ecore::EJavaObject eInvoke ( ::ecore::EOperation_ptr _operation, std::shared_ptr<::ecorecpp::mapping::EList< ::ecorecpp::mapping::any>> const& _arguments);
 
     // Attributes
 
@@ -103,6 +104,10 @@ public:
 
     void _setEContainer(::ecore::EObject_ptr _eContainer,
             ::ecore::EStructuralFeature_ptr _eContainingFeature);
+
+    void _setEResource(::ecorecpp::resource::Resource*);
+
+    ::ecorecpp::resource::Resource* _getDirectResource();
 
 #ifdef ECORECPP_NOTIFICATION_API
     // Notification API
@@ -140,6 +145,8 @@ protected:
     std::vector< ::ecorecpp::notify::Adapter_ptr > m_eAdapters;
     bool m_eDeliver;
 #endif
+
+    ::ecorecpp::resource::Resource* m_eResource;
 
     /*PROTECTED REGION END*/
 

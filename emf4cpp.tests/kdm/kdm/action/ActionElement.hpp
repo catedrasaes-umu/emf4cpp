@@ -90,9 +90,9 @@ namespace kdm
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement > > m_codeElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >> m_codeElement;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship > > m_actionRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >> m_actionRelation;
 
     };
 

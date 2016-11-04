@@ -24,6 +24,7 @@
 #include <ecorecpp/mapping_forward.hpp>
 
 /*PROTECTED REGION ID(ecore_forward) ENABLED START*/
+#include <ecorecpp/resource_forward.hpp>
 #ifndef ECORECPP_USE_UNORDERED_MAP
 #define ECORECPP_USE_UNORDERED_MAP
 #endif
@@ -164,12 +165,12 @@ namespace ecore
     /*PROTECTED REGION ID(ecore_EResource) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-    typedef int EResource;
+    typedef ::ecorecpp::resource::Resource* EResource;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(ecore_EResourceSet) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-    typedef int EResourceSet;
+    typedef ::ecorecpp::resource::ResourceSet* EResourceSet;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(ecore_EShort) START*/
 // Please, enable the protected region if you add manually written code.

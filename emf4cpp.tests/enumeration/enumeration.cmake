@@ -56,6 +56,5 @@ add_library(emf4cpp-enumeration SHARED ${enumeration_HEADERS} ${enumeration_SOUR
 set_target_properties(emf4cpp-enumeration PROPERTIES COMPILE_FLAGS "-DMAKE_ENUMERATION_DLL" VERSION 0.0.1 SOVERSION 1)
 target_link_libraries(emf4cpp-enumeration emf4cpp-ecore)
 
-
 install(TARGETS emf4cpp-enumeration DESTINATION lib)
 
