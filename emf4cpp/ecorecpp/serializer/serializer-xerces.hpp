@@ -61,6 +61,7 @@ protected:
     xercesc::DOMElement* m_root;
     int m_level; // current_level
     ::ecore::EObject_ptr m_root_obj;
+	std::vector<::ecore::EPackage_ptr> m_usedPackages;
 };
 
 } // serializer

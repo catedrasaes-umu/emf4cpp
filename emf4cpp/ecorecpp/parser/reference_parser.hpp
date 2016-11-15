@@ -208,10 +208,9 @@ struct path_item:
     semantic_rule< path_item,
                    seq_<
                        char_< '/' >,
-                       or_ <
-                           id_,
-                           seq_< char_< '@' >, id_, char_<'.'>, index_ >
-                           >
+					   star_< char_< '@' > >,
+					   id_,
+                       star_< seq_< char_<'.'>, index_ > >
                        >
                    >
 {

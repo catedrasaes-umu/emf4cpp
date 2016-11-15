@@ -37,7 +37,8 @@ using namespace ::xercesc;
 #define X(str) externalstr(str).unicode()
 
 serializer::serializer(const std::string& _file) :
-    m_file(_file), m_doc (0), m_level(0)
+    m_file(_file), m_doc (0), m_level(0),
+	m_usedPackages()
 {
     // TODO: every time?
     XMLPlatformUtils::Initialize();
@@ -65,8 +66,10 @@ void serializer::create_node(DOMElement * parent, EObject_ptr parent_obj,
     EClass_ptr child_cl = child_obj->eClass();
 
     // May be a subtype
-    if (child_cl != ef->getEType())
+    if (child_cl != ef->getEType()) {
         child->setAttribute(X("xsi:type"), W(get_type(child_obj)));
+		m_usedPackages.push_back(child_cl->getEPackage());
+	}
 
     parent->appendChild(child);
 
@@ -245,16 +248,34 @@ void serializer::serialize(EObject_ptr obj)
 
         m_root = m_doc->getDocumentElement();
 
-        // common attributes
+        // common attributes, following standard EMF order
+        // xmi:version="2.0"
+        m_root->setAttribute(X("xmi:version"), X("2.0"));
         // xmlns:xmi="http://www.omg.org/XMI"
         m_root->setAttribute(X("xmlns:xmi"), X("http://www.omg.org/XMI"));
         // xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         m_root->setAttribute(X("xmlns:xsi"),
                 X("http://www.w3.org/2001/XMLSchema-instance"));
-        // xmi:version="2.0"
-        m_root->setAttribute(X("xmi:version"), X("2.0"));
 
         serialize_node(m_root, obj);
+
+		// sort and unify according to EPackage name
+		std::sort(m_usedPackages.begin(), m_usedPackages.end(),
+				  [](const EPackage_ptr& lhs, const EPackage_ptr& rhs) -> bool {
+					  return lhs->getName() < rhs->getName(); });
+		m_usedPackages.erase(std::unique(m_usedPackages.begin(), m_usedPackages.end()),
+							 m_usedPackages.end());
+		m_used_packages.remove(pkg);
+
+		for ( auto pkg : m_usedPackages ) {
+
+			::ecorecpp::mapping::type_definitions::string_t const& ns_uri = pkg->getNsURI();
+
+			::ecorecpp::mapping::type_definitions::stringstream_t pkg_namespace;
+			pkg_namespace << "xmlns:" << pkg->getName();
+
+			m_root->setAttribute(W(pkg_namespace.str()), W(ns_uri));
+		}
 
         // write
         // TODO: outta here

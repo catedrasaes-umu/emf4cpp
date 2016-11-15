@@ -125,6 +125,14 @@ public:
         has_value.back() = true;
         out << ">" << _value;
     }
+
+	void increment_level() {
+		++level;
+	}
+
+	void decrement_level() {
+		--level;
+	}
 };
 
 } // serializer

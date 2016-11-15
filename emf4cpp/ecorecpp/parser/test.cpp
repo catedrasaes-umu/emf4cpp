@@ -55,9 +55,9 @@ int main()
             std::cout << "REF #/";
             for (path_t::iterator j = path.begin(); j != path.end(); j++)
             {
-                std::cout << "/";
+                std::cout << "/@";
                 if (j->is_collection())
-                    std::cout << "@" << j->get_id() << "." << j->get_index();
+                    std::cout << j->get_id() << "." << j->get_index();
                 else
                     std::cout << j->get_id();
             }

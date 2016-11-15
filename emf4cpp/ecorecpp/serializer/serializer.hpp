@@ -26,6 +26,7 @@
 #include "../mapping.hpp"
 #include "greedy_serializer.hpp"
 #include <ostream>
+#include <sstream>
 
 #include "../dllEcorecpp.hpp"
 
@@ -62,11 +63,15 @@ protected:
             ::ecore::EObject_ptr child_obj, ::ecore::EStructuralFeature_ptr ef);
 
     std::ostream& m_out;
+	XmiIndentMode m_mode;
+    std::ostringstream m_internalBuffer;
 
     int m_level; // current_level
     ::ecore::EObject_ptr m_root_obj;
 
     greedy_serializer m_ser;
+
+	std::vector<::ecore::EPackage_ptr> m_usedPackages;
 };
 
 } // serializer

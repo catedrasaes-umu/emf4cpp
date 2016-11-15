@@ -27,8 +27,12 @@ using namespace ::ecorecpp::serializer;
 using namespace ::ecore;
 
 serializer::serializer(std::ostream& _ostream, XmiIndentMode mode) :
-	m_out(_ostream), m_level(0),
-	m_ser(m_out, mode == XmiIndentMode::Indentation)
+	m_out(_ostream),
+	m_mode(mode),
+	m_internalBuffer(),
+	m_level(0),
+	m_ser(m_internalBuffer, m_mode == XmiIndentMode::Indentation),
+	m_usedPackages()
 {
 }
 
@@ -45,8 +49,10 @@ serializer::create_node(::ecore::EObject_ptr parent_obj,
     EClass_ptr child_cl = child_obj->eClass();
 
     // May be a subtype
-    if (child_cl != ef->getEType())
+    if (child_cl != ef->getEType()) {
         m_ser.add_attribute("xsi:type", get_type(child_obj));
+		m_usedPackages.push_back(child_cl->getEPackage());
+	}
 
     serialize_node(child_obj);
 
@@ -272,29 +278,49 @@ serializer::serialize(EObject_ptr obj)
 
     EClass_ptr cl = obj->eClass();
     EPackage_ptr pkg = cl->getEPackage();
+	m_usedPackages.push_back(pkg);
 
-    ::ecorecpp::mapping::type_definitions::string_t const& ns_uri = pkg->getNsURI();
+	// remove the XML processing instruction
+	m_internalBuffer.str(std::string());
+	// Serialize the top level object into m_internalBuffer
+	m_ser.increment_level();
+	serialize_node(obj);
+	m_ser.decrement_level();
 
-    ::ecorecpp::mapping::type_definitions::string_t root_name(get_type(obj));
+	// Create a new serializer for the real output.
+	greedy_serializer output(m_out, m_mode == XmiIndentMode::Indentation);
 
-    ::ecorecpp::mapping::type_definitions::stringstream_t root_namespace;
-    root_namespace << "xmlns:" << pkg->getName();
+	::ecorecpp::mapping::type_definitions::string_t root_name(get_type(obj));
+	output.open_object(root_name);
 
-    m_ser.open_object(root_name);
-
-    m_ser.add_attribute(root_namespace.str(),ns_uri); // root element namespace URI
-
-    // common attributes
-    // xmlns:xmi="http://www.omg.org/XMI"
-    m_ser.add_attribute("xmlns:xmi", "http://www.omg.org/XMI");
-    // xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    m_ser.add_attribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+    // common attributes, following standard EMF order
     // xmi:version="2.0"
-    m_ser.add_attribute("xmi:version", "2.0");
+    output.add_attribute("xmi:version", "2.0");
+    // xmlns:xmi="http://www.omg.org/XMI"
+    output.add_attribute("xmlns:xmi", "http://www.omg.org/XMI");
+    // xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    output.add_attribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
 
-    serialize_node(obj);
+	// sort and unify according to EPackage name
+	std::sort(m_usedPackages.begin(), m_usedPackages.end(),
+			  [](const EPackage_ptr& lhs, const EPackage_ptr& rhs) -> bool {
+				  return lhs->getName() < rhs->getName(); });
+	m_usedPackages.erase(std::unique(m_usedPackages.begin(), m_usedPackages.end()),
+						  m_usedPackages.end());
 
-    m_ser.close_object(root_name);
+	for ( auto pkg : m_usedPackages ) {
+
+		::ecorecpp::mapping::type_definitions::string_t const& ns_uri = pkg->getNsURI();
+
+		::ecorecpp::mapping::type_definitions::stringstream_t root_namespace;
+		root_namespace << "xmlns:" << pkg->getName();
+
+		output.add_attribute(root_namespace.str(),ns_uri); // root element namespace URI
+	}
+
+	output.add_value(std::string("\n") + m_internalBuffer.str());
+
+    output.close_object(root_name);
 }
 
 ::ecorecpp::mapping::type_definitions::string_t
@@ -353,7 +379,7 @@ serializer::get_reference(EObject_ptr from, EObject_ptr to) const
             EStructuralFeature_ptr esf =
                     to_antecessors.back()->eContainingFeature();
             if (esf->getUpperBound() == 1)
-                value << "/" << esf->getName();
+                value << "/@" << esf->getName();
             else
             {
                 ecorecpp::mapping::any _any = prev->eGet(esf);
