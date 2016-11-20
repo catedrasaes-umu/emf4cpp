@@ -73,6 +73,9 @@ public:
 	virtual typename UnderlyingContainer_type::iterator begin() = 0;
 	virtual typename UnderlyingContainer_type::iterator end() = 0;
 
+	virtual typename UnderlyingContainer_type::const_iterator begin() const = 0;
+	virtual typename UnderlyingContainer_type::const_iterator end() const = 0;
+
 	virtual typename UnderlyingContainer_type::const_iterator cbegin() const = 0;
 	virtual typename UnderlyingContainer_type::const_iterator cend() const = 0;
 
@@ -144,6 +147,14 @@ public:
 	}
 
 	typename EList<T>::UnderlyingContainer_type::iterator end() override {
+		throw "Iterator not evailable for delegate list";
+	}
+
+	typename EList<T>::UnderlyingContainer_type::const_iterator begin() const override {
+		throw "Iterator not evailable for delegate list";
+	}
+
+	typename EList<T>::UnderlyingContainer_type::const_iterator end() const override {
 		throw "Iterator not evailable for delegate list";
 	}
 

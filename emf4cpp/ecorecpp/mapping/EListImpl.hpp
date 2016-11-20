@@ -70,6 +70,14 @@ public:
 		return m_content.end();
 	}
 
+	typename EList<T>::UnderlyingContainer_type::const_iterator begin() const override {
+		return m_content.begin();
+	}
+
+	typename EList<T>::UnderlyingContainer_type::const_iterator end() const override {
+		return m_content.end();
+	}
+
 	typename EList<T>::UnderlyingContainer_type::const_iterator cbegin() const override {
 		return m_content.cbegin();
 	}

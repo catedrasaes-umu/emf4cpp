@@ -92,13 +92,13 @@ struct string_traits< type_definitions::string_t >
 template< >
 struct string_traits< unsigned char >
 {
-    static inline any fromString(const type_definitions::string_t & _str)
+    static inline any fromString(const type_definitions::string_t &)
     {
         // TODO
         throw "Not implemented!";
     }
 
-    static inline type_definitions::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const&)
     {
         // TODO
         throw "Not implemented!";
@@ -108,13 +108,13 @@ struct string_traits< unsigned char >
 template< >
 struct string_traits< char >
 {
-    static inline any fromString(const type_definitions::string_t & _str)
+    static inline any fromString(const type_definitions::string_t &)
     {
         // TODO
         throw "Not implemented!";
     }
 
-    static inline type_definitions::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const&)
     {
         // TODO
         throw "Not implemented!";
@@ -125,13 +125,13 @@ template< >
 struct string_traits< std::vector< unsigned char > >
 {
     static inline any fromString(
-            const type_definitions::string_t & _str)
+            const type_definitions::string_t &)
     {
         // TODO
         throw "Not implemented!";
     }
 
-    static inline type_definitions::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const&)
     {
         // TODO
         throw "Not implemented!";
@@ -141,12 +141,12 @@ struct string_traits< std::vector< unsigned char > >
 template< >
 struct string_traits< any >
 {
-    static inline any fromString(const type_definitions::string_t & _str)
+    static inline any fromString(const type_definitions::string_t &)
     {
         throw "Impossible!";
     }
 
-    static inline type_definitions::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const&)
     {
         throw "Impossible!";
     }
