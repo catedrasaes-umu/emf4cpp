@@ -2,7 +2,7 @@
 /*
  * ecore/EPackage.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,6 +41,10 @@
 #else
 #include <map>
 #endif // ECORECPP_USE_UNORDERED_MAP
+
+#include <memory>
+#include <ecorecpp/ItemProvider.hpp>
+
 /*PROTECTED REGION END*/
 
 namespace ecore
@@ -96,6 +100,14 @@ protected:
 #endif
 
     EClassifierMapType m_eClassifiersMap;
+
+public:
+    const std::shared_ptr<::ecorecpp::ItemProvider>& getItemProviderInstance () const;
+    void setItemProviderInstance (const std::shared_ptr<::ecorecpp::ItemProvider>&);
+
+protected:
+    std::shared_ptr<::ecorecpp::ItemProvider> m_itemProviderInstance;
+
 public:
     /*PROTECTED REGION END*/
 

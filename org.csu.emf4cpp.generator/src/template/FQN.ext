@@ -57,6 +57,14 @@ cached String getPackagePrefix(EPackage this) :
 	getPackagePrefix("/")
 ;
 
+cached String getItemProviderPrefix(EPackage this, String separator) :
+	getFQN(separator) + separator + name.toFirstUpper() + "ItemProvider"
+;
+
+cached String getItemProviderPrefix(EPackage this) :
+	getItemProviderPrefix("/")
+;
+
 cached String getFactoryPrefix(EPackage this, String separator) : 
 	getFQN(separator) + separator + name.toFirstUpper() + "Factory"
 ;
@@ -72,8 +80,15 @@ EPackage getTopLevelPackage(EPackage this) :
 		this.ESuperPackage.getTopLevelPackage()
 ;
 
+cached Boolean createQt5Editor() :
+	GLOBALVAR createqt5editor
+;
+
 cached String getDllExtensionPrefix(EPackage this, String separator) : 
-	getTopLevelPackage().getFQN(separator) + separator + "dll" + getTopLevelPackage().name.toFirstUpper()
+	if createQt5Editor() then
+		getTopLevelPackage().getFQN(separator) + separator + "dll" + getTopLevelPackage().name.toFirstUpper() + "Editor"
+	else
+		getTopLevelPackage().getFQN(separator) + separator + "dll" + getTopLevelPackage().name.toFirstUpper()
 ;
 
 cached String getDllExtensionPrefix(EPackage this) : 
@@ -108,6 +123,13 @@ cached String getFactoryName(EPackage this) :
 
 cached String getHeaderDef(EPackage this) :
 	getFQN("_").toUpperCase()
+;
+
+cached String getHeaderDefDLL(EPackage this) :
+	if createQt5Editor() then
+		getTopLevelPackage().name.toUpperCase() + "EDITOR"
+	else
+		getFQN("_").toUpperCase()
 ;
 
 cached String getHeaderDef(EClassifier this) :

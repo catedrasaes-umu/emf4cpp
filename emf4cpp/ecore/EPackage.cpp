@@ -2,7 +2,7 @@
 /*
  * ecore/EPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -67,9 +67,20 @@ EPackage::~EPackage()
 {
 }
 
-/*PROTECTED REGION ID(EPackage.cpp) START*/
+/*PROTECTED REGION ID(EPackage.cpp) ENABLED START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
+const std::shared_ptr< ::ecorecpp::ItemProvider >& EPackage::getItemProviderInstance() const
+{
+    return m_itemProviderInstance;
+}
+
+void EPackage::setItemProviderInstance(
+        const std::shared_ptr< ::ecorecpp::ItemProvider >& provider)
+{
+    m_itemProviderInstance = provider;
+}
+
 /*PROTECTED REGION END*/
 
 // Attributes

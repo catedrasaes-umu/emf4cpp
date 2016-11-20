@@ -1,0 +1,98 @@
+«REM»
+ItemProviderQmake.xpt
+Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON GmbH 2016 <matthias.doerfel@inchron.com>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Classes»
+«EXTENSION template::Operations»
+«EXTENSION template::Attributes»
+«EXTENSION template::References»
+«EXTENSION template::Types»
+«EXTENSION template::Mapping»
+
+«DEFINE sourcespro FOR EPackage-»
+    «getItemProviderPrefix("/")».cpp \
+	«EXPAND sourcespro FOREACH ESubpackages-»
+«ENDDEFINE»
+
+«DEFINE headerspro FOR EPackage-»
+	«getItemProviderPrefix("/")».hpp \
+	«EXPAND headerspro FOREACH ESubpackages-»
+«ENDDEFINE»
+
+«DEFINE qmake FOR EPackage»
+«FILE name+"-editor.pro"-»
+#
+# root-editor.pro
+# This file was created by EMF4CPP 2.0.5 and is copyrighted by the
+# respective user and/or provider of the processed ECORE model.
+#
+# EMF4CPP is free software. You can obtain it from
+# https://github.com/catedrasaes-umu/emf4cpp
+#
+
+include(../config.pri)
+
+TEMPLATE = lib
+TARGET = «name»-editor
+QT += core widgets
+
+CONFIG += dll object_parallel_to_source
+DEFINES += MAKE_«getHeaderDefDLL()»_DLL
+
+# uses definitions above
+include (../install.pri)
+
+HEADERS += \
+	«EXPAND headerspro»
+
+SOURCES += \
+	«EXPAND sourcespro»
+
+RESOURCES += \
+    «name»-editor.qrc
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE fileqrc FOR EPackage-»
+    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
+    	<file alias="/«class.getFQN("/").toLowerCase()».png">images/«class.getFQN("/").toLowerCase()».png</file>
+    «ENDFOREACH-»
+	«EXPAND fileqrc FOREACH ESubpackages-»
+«ENDDEFINE»
+
+«DEFINE qresource FOR EPackage»
+«FILE name+"-editor.qrc"-»
+<!--
+# root-editor.qrc
+# This file was created by EMF4CPP 2.0.5 and is copyrighted by the
+# respective user and/or provider of the processed ECORE model.
+#
+# EMF4CPP is free software. You can obtain it from
+# https://github.com/catedrasaes-umu/emf4cpp
+-->
+<RCC>
+	<qresource>
+	«EXPAND fileqrc-»
+	</qresource>
+</RCC>
+«ENDFILE»
+«ENDDEFINE»
+

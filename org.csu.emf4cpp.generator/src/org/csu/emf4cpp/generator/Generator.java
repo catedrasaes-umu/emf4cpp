@@ -7,13 +7,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
+import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
@@ -39,7 +39,8 @@ public class Generator {
     private static String templatePath = "template::Main::main";
 
     public void generate(URI fileURI, String targetDir, String prSrcPaths, String ecPath,
-			boolean internalLicense, boolean bootstrap, boolean clear) {
+			boolean internalLicense, boolean bootstrap, boolean clear,
+			boolean createQt5Editor) {
 
         ResourceSet rs = new ResourceSetImpl();
         rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore",
@@ -54,6 +55,7 @@ public class Generator {
         globalVarsMap.put("emf4cppVersion", new Variable("emf4cppVersion", version));
         globalVarsMap.put("internalLicense", new Variable("internalLicense", internalLicense));
         globalVarsMap.put("bootstrap", new Variable("bootstrap", bootstrap));
+        globalVarsMap.put("createqt5editor", new Variable("createqt5editor", createQt5Editor));
 
         // Configure outlets
         CppBeautifier cppBeautifier = new CppBeautifier();
@@ -162,11 +164,8 @@ public class Generator {
         }
 
         if (cmd.hasOption("h")) {
-            System.out.println("Options:");
-            for (Option opt : (Collection<Option>) options.getOptions()) {
-                System.out.println("-" + opt.getOpt() + "\t"
-                        + opt.getDescription());
-            }
+        	HelpFormatter formatter = new HelpFormatter();
+        	formatter.printHelp("emf4cpp", options);
             System.exit(0);
         }
 
@@ -198,7 +197,8 @@ public class Generator {
         }
 
         new Generator().generate(URI.createFileURI(filePath), targetDir, prSrcPaths, ecPath,
-				cmd.hasOption("i"), cmd.hasOption("b"), cmd.hasOption("c"));
+				cmd.hasOption("i"), cmd.hasOption("b"), cmd.hasOption("c"),
+				cmd.hasOption("qt5"));
     }
 
     private final static Options options = new Options(); // Command line
@@ -209,14 +209,14 @@ public class Generator {
         // options.addOption(opt, hasArg, description);
         // options.addOption(opt, longOpt, hasArg, description);
 
-        options.addOption("h", false, "Help.");
-        options.addOption("v", false, "Verbose.");
+        options.addOption("h", "help", false, "Help.");
+        options.addOption("v", "verbose", false, "Verbose.");
 
-        options.addOption("o", true,
+        options.addOption("o", "output", true,
 			  "Output directory for the generated files. Default is current directory.");
-        options.addOption("p", true,
+        options.addOption("p", "protected", true,
 			  "Protected regions directories. Default is output directory.");
-        options.addOption("e", true,
+        options.addOption("e", "emf4cpp", true,
 			  "EMF4CPP path.");
         options.addOption("V", "version", false,
 			  "Display version information and exit.");
@@ -226,5 +226,7 @@ public class Generator {
 			  "Activate special code needed to process the ecore model itself");
         options.addOption("c", "clear", false,
 			  "Remove orphaned (source code) files after code generation");
+        options.addOption("qt5", "qt5-editor", false,
+			  "Generate Qt5 editor code");
     }
 }

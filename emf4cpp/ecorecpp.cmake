@@ -4,6 +4,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops")
 
 set(ecorecpp_SOURCES
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/ItemProvider.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/MetaModelRepository.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/print.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/parser/parser.cpp
@@ -31,6 +32,7 @@ set(ecorecpp_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/set_traits.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/string_traits.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/type_definitions.hpp		
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/ItemProvider.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/MetaModelRepository.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/PackageDeleter.hpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify/Adapter.hpp		
@@ -69,6 +71,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/out_ptr.hpp DESTINATI
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/set_traits.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/string_traits.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/type_definitions.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/ItemProvider.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/MetaModelRepository.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/PackageDeleter.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/dllEcorecpp.hpp DESTINATION include/emf4cpp/ecorecpp)
