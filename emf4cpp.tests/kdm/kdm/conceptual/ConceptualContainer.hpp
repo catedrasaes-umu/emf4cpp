@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement ();
 
         /*PROTECTED REGION ID(ConceptualContainer) START*/
         // Please, enable the protected region if you add manually written code.

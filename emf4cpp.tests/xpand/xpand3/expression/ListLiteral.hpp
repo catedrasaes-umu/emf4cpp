@@ -53,8 +53,8 @@ namespace xpand3
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getElements () const;
-        ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getElements ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getElements () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getElements ();
 
         /*PROTECTED REGION ID(ListLiteral) START*/
         // Please, enable the protected region if you add manually written code.

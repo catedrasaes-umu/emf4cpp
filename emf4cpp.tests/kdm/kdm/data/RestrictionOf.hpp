@@ -53,11 +53,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::data::ComplexContentType_ptr getTo () const;
-        void setTo (::kdm::data::ComplexContentType_ptr _to);
+        virtual ::kdm::data::ComplexContentType_ptr getTo () const;
+        virtual void setTo (::kdm::data::ComplexContentType_ptr _to);
 
-        ::kdm::data::ComplexContentType_ptr getFrom () const;
-        void setFrom (::kdm::data::ComplexContentType_ptr _from);
+        virtual ::kdm::data::ComplexContentType_ptr getFrom () const;
+        virtual void setFrom (::kdm::data::ComplexContentType_ptr _from);
 
         /*PROTECTED REGION ID(RestrictionOf) START*/
         // Please, enable the protected region if you add manually written code.

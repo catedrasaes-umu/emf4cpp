@@ -48,8 +48,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isSerializable () const;
-    void setSerializable (::ecore::EBoolean _serializable);
+    virtual ::ecore::EBoolean isSerializable () const;
+    virtual void setSerializable (::ecore::EBoolean _serializable);
 
     // References
 

@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isValue () const;
-    void setValue (::ecore::EBoolean _value);
+    virtual ::ecore::EBoolean isValue () const;
+    virtual void setValue (::ecore::EBoolean _value);
 
     // References
 

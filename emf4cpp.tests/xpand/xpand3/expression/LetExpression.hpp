@@ -54,14 +54,14 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getVarExpression () const;
-        void setVarExpression (::xpand3::expression::AbstractExpression_ptr _varExpression);
+        virtual ::xpand3::expression::AbstractExpression_ptr getVarExpression () const;
+        virtual void setVarExpression (::xpand3::expression::AbstractExpression_ptr _varExpression);
 
-        ::xpand3::expression::AbstractExpression_ptr getTargetExpression () const;
-        void setTargetExpression (::xpand3::expression::AbstractExpression_ptr _targetExpression);
+        virtual ::xpand3::expression::AbstractExpression_ptr getTargetExpression () const;
+        virtual void setTargetExpression (::xpand3::expression::AbstractExpression_ptr _targetExpression);
 
-        ::xpand3::Identifier_ptr getVarName () const;
-        void setVarName (::xpand3::Identifier_ptr _varName);
+        virtual ::xpand3::Identifier_ptr getVarName () const;
+        virtual void setVarName (::xpand3::Identifier_ptr _varName);
 
         /*PROTECTED REGION ID(LetExpression) START*/
         // Please, enable the protected region if you add manually written code.

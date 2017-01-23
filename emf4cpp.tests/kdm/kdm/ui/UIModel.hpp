@@ -54,8 +54,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement ();
 
         /*PROTECTED REGION ID(UIModel) START*/
         // Please, enable the protected region if you add manually written code.

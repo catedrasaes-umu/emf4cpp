@@ -51,8 +51,8 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains () const;
-    ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains ();
 
     /*PROTECTED REGION ID(Container) START*/
     // Please, enable the protected region if you add manually written code.

@@ -49,12 +49,12 @@ public:
     // Operations
 
     // Attributes
-    std::vector< ::ecore::EString > const& getMembers () const;
-    void setMembers (std::vector< ::ecore::EString > const& _members);
+    virtual std::vector< ::ecore::EString > const& getMembers () const;
+    virtual void setMembers (std::vector< ::ecore::EString > const& _members);
 
-    void addMembers (::ecore::EString const& _new_element_in_members);
-    void setMembersAt ( size_t _position, ::ecore::EString const& _new_element_in_members);
-    void deleteMembersAt ( size_t _position );
+    virtual void addMembers (::ecore::EString const& _new_element_in_members);
+    virtual void setMembersAt ( size_t _position, ::ecore::EString const& _new_element_in_members);
+    virtual void deleteMembersAt ( size_t _position );
 
     // References
 

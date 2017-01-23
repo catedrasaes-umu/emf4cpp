@@ -55,14 +55,14 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::Identifier_ptr getJavaType () const;
-        void setJavaType (::xpand3::Identifier_ptr _javaType);
+        virtual ::xpand3::Identifier_ptr getJavaType () const;
+        virtual void setJavaType (::xpand3::Identifier_ptr _javaType);
 
-        ::xpand3::Identifier_ptr getJavaMethod () const;
-        void setJavaMethod (::xpand3::Identifier_ptr _javaMethod);
+        virtual ::xpand3::Identifier_ptr getJavaMethod () const;
+        virtual void setJavaMethod (::xpand3::Identifier_ptr _javaMethod);
 
-        const ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes () const;
-        ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes ();
 
         /*PROTECTED REGION ID(JavaExtension) START*/
         // Please, enable the protected region if you add manually written code.

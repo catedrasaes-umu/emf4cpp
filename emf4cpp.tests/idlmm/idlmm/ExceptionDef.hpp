@@ -49,12 +49,12 @@ public:
     // Operations
 
     // Attributes
-    ::idlmm::ETypeCode getTypeCode () const;
-    void setTypeCode (::idlmm::ETypeCode _typeCode);
+    virtual ::idlmm::ETypeCode getTypeCode () const;
+    virtual void setTypeCode (::idlmm::ETypeCode _typeCode);
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers () const;
-    ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers ();
 
     /*PROTECTED REGION ID(ExceptionDef) START*/
     // Please, enable the protected region if you add manually written code.

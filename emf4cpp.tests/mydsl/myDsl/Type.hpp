@@ -51,8 +51,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getName () const;
-    void setName (::ecore::EString const& _name);
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
     // References
 

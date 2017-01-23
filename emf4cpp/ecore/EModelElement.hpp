@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& getEAnnotations () const;
-    ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& getEAnnotations ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& getEAnnotations () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& getEAnnotations ();
 
     /*PROTECTED REGION ID(EModelElement) START*/
     // Please, enable the protected region if you add manually written code.

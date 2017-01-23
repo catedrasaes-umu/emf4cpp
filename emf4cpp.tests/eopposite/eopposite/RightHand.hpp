@@ -51,10 +51,10 @@ public:
     // Attributes
 
     // References
-    ::eopposite::LeftHand_ptr getLeftee () const;
-    void setLeftee (::eopposite::LeftHand_ptr _leftee);
-    ::eopposite::LeftHand_ptr basicgetLeftee ();
-    void basicsetLeftee (::eopposite::LeftHand_ptr _leftee);
+    virtual ::eopposite::LeftHand_ptr getLeftee () const;
+    virtual void setLeftee (::eopposite::LeftHand_ptr _leftee);
+    virtual ::eopposite::LeftHand_ptr basicgetLeftee ();
+    virtual void basicsetLeftee (::eopposite::LeftHand_ptr _leftee);
 
     /*PROTECTED REGION ID(RightHand) START*/
     // Please, enable the protected region if you add manually written code.

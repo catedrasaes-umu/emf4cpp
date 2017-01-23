@@ -51,23 +51,23 @@ public:
     // Attributes
 
     // References
-    ::ecore::EGenericType_ptr getEUpperBound () const;
-    void setEUpperBound (::ecore::EGenericType_ptr _eUpperBound);
+    virtual ::ecore::EGenericType_ptr getEUpperBound () const;
+    virtual void setEUpperBound (::ecore::EGenericType_ptr _eUpperBound);
 
-    const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments () const;
-    ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments ();
 
-    ::ecore::EClassifier_ptr getERawType () const;
-    void setERawType (::ecore::EClassifier_ptr _eRawType);
+    virtual ::ecore::EClassifier_ptr getERawType () const;
+    virtual void setERawType (::ecore::EClassifier_ptr _eRawType);
 
-    ::ecore::EGenericType_ptr getELowerBound () const;
-    void setELowerBound (::ecore::EGenericType_ptr _eLowerBound);
+    virtual ::ecore::EGenericType_ptr getELowerBound () const;
+    virtual void setELowerBound (::ecore::EGenericType_ptr _eLowerBound);
 
-    ::ecore::ETypeParameter_ptr getETypeParameter () const;
-    void setETypeParameter (::ecore::ETypeParameter_ptr _eTypeParameter);
+    virtual ::ecore::ETypeParameter_ptr getETypeParameter () const;
+    virtual void setETypeParameter (::ecore::ETypeParameter_ptr _eTypeParameter);
 
-    ::ecore::EClassifier_ptr getEClassifier () const;
-    void setEClassifier (::ecore::EClassifier_ptr _eClassifier);
+    virtual ::ecore::EClassifier_ptr getEClassifier () const;
+    virtual void setEClassifier (::ecore::EClassifier_ptr _eClassifier);
 
     /*PROTECTED REGION ID(EGenericType) START*/
     // Please, enable the protected region if you add manually written code.

@@ -50,18 +50,18 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isIsAbstract () const;
-    void setIsAbstract (::ecore::EBoolean _isAbstract);
+    virtual ::ecore::EBoolean isIsAbstract () const;
+    virtual void setIsAbstract (::ecore::EBoolean _isAbstract);
 
-    ::ecore::EBoolean isIsCustom () const;
-    void setIsCustom (::ecore::EBoolean _isCustom);
+    virtual ::ecore::EBoolean isIsCustom () const;
+    virtual void setIsCustom (::ecore::EBoolean _isCustom);
 
-    ::ecore::EBoolean isIsTruncatable () const;
-    void setIsTruncatable (::ecore::EBoolean _isTruncatable);
+    virtual ::ecore::EBoolean isIsTruncatable () const;
+    virtual void setIsTruncatable (::ecore::EBoolean _isTruncatable);
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom () const;
-    ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom ();
 
     /*PROTECTED REGION ID(InterfaceDef) START*/
     // Please, enable the protected region if you add manually written code.

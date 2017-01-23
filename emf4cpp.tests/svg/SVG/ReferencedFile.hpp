@@ -51,12 +51,12 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getName () const;
-    void setName (::PrimitiveTypes::String _name);
+    virtual ::PrimitiveTypes::String getName () const;
+    virtual void setName (::PrimitiveTypes::String _name);
 
     // References
-    const ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer () const;
-    ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer ();
 
     /*PROTECTED REGION ID(ReferencedFile) START*/
     // Please, enable the protected region if you add manually written code.

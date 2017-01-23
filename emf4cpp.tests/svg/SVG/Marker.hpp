@@ -49,27 +49,27 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getMarkerUnits () const;
-    void setMarkerUnits (::PrimitiveTypes::String _markerUnits);
+    virtual ::PrimitiveTypes::String getMarkerUnits () const;
+    virtual void setMarkerUnits (::PrimitiveTypes::String _markerUnits);
 
-    ::PrimitiveTypes::Double getRefX () const;
-    void setRefX (::PrimitiveTypes::Double _refX);
+    virtual ::PrimitiveTypes::Double getRefX () const;
+    virtual void setRefX (::PrimitiveTypes::Double _refX);
 
-    ::PrimitiveTypes::Double getRefY () const;
-    void setRefY (::PrimitiveTypes::Double _refY);
+    virtual ::PrimitiveTypes::Double getRefY () const;
+    virtual void setRefY (::PrimitiveTypes::Double _refY);
 
-    ::PrimitiveTypes::Double getMarkerWidth () const;
-    void setMarkerWidth (::PrimitiveTypes::Double _markerWidth);
+    virtual ::PrimitiveTypes::Double getMarkerWidth () const;
+    virtual void setMarkerWidth (::PrimitiveTypes::Double _markerWidth);
 
-    ::PrimitiveTypes::Double getMarkerHeight () const;
-    void setMarkerHeight (::PrimitiveTypes::Double _markerHeight);
+    virtual ::PrimitiveTypes::Double getMarkerHeight () const;
+    virtual void setMarkerHeight (::PrimitiveTypes::Double _markerHeight);
 
-    ::PrimitiveTypes::String getOrient () const;
-    void setOrient (::PrimitiveTypes::String _orient);
+    virtual ::PrimitiveTypes::String getOrient () const;
+    virtual void setOrient (::PrimitiveTypes::String _orient);
 
     // References
-    const ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing () const;
-    ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing ();
 
     /*PROTECTED REGION ID(Marker) START*/
     // Please, enable the protected region if you add manually written code.

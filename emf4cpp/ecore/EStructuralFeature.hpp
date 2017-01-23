@@ -52,32 +52,32 @@ public:
     virtual int getContainerClass ();
 
     // Attributes
-    ::ecore::EBoolean isChangeable () const;
-    void setChangeable (::ecore::EBoolean _changeable);
+    virtual ::ecore::EBoolean isChangeable () const;
+    virtual void setChangeable (::ecore::EBoolean _changeable);
 
-    ::ecore::EBoolean isVolatile () const;
-    void setVolatile (::ecore::EBoolean _volatile);
+    virtual ::ecore::EBoolean isVolatile () const;
+    virtual void setVolatile (::ecore::EBoolean _volatile);
 
-    ::ecore::EBoolean isTransient () const;
-    void setTransient (::ecore::EBoolean _transient);
+    virtual ::ecore::EBoolean isTransient () const;
+    virtual void setTransient (::ecore::EBoolean _transient);
 
-    ::ecore::EString const& getDefaultValueLiteral () const;
-    void setDefaultValueLiteral (::ecore::EString const& _defaultValueLiteral);
+    virtual ::ecore::EString const& getDefaultValueLiteral () const;
+    virtual void setDefaultValueLiteral (::ecore::EString const& _defaultValueLiteral);
 
-    ::ecore::EJavaObject const& getDefaultValue () const;
-    void setDefaultValue (::ecore::EJavaObject const& _defaultValue);
+    virtual ::ecore::EJavaObject const& getDefaultValue () const;
+    virtual void setDefaultValue (::ecore::EJavaObject const& _defaultValue);
 
-    ::ecore::EBoolean isUnsettable () const;
-    void setUnsettable (::ecore::EBoolean _unsettable);
+    virtual ::ecore::EBoolean isUnsettable () const;
+    virtual void setUnsettable (::ecore::EBoolean _unsettable);
 
-    ::ecore::EBoolean isDerived () const;
-    void setDerived (::ecore::EBoolean _derived);
+    virtual ::ecore::EBoolean isDerived () const;
+    virtual void setDerived (::ecore::EBoolean _derived);
 
     // References
-    ::ecore::EClass_ptr getEContainingClass () const;
-    void setEContainingClass (::ecore::EClass_ptr _eContainingClass);
-    ::ecore::EClass_ptr basicgetEContainingClass ();
-    void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);
+    virtual ::ecore::EClass_ptr getEContainingClass () const;
+    virtual void setEContainingClass (::ecore::EClass_ptr _eContainingClass);
+    virtual ::ecore::EClass_ptr basicgetEContainingClass ();
+    virtual void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);
 
     /*PROTECTED REGION ID(EStructuralFeature) ENABLED START*/
 

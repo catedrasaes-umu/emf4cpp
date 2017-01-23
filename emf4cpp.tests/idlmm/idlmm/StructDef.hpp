@@ -51,8 +51,8 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers () const;
-    ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers ();
 
     /*PROTECTED REGION ID(StructDef) START*/
     // Please, enable the protected region if you add manually written code.

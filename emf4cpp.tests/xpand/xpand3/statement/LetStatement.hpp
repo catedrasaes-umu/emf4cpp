@@ -55,11 +55,11 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::Identifier_ptr getVarName () const;
-        void setVarName (::xpand3::Identifier_ptr _varName);
+        virtual ::xpand3::Identifier_ptr getVarName () const;
+        virtual void setVarName (::xpand3::Identifier_ptr _varName);
 
-        ::xpand3::expression::AbstractExpression_ptr getVarValue () const;
-        void setVarValue (::xpand3::expression::AbstractExpression_ptr _varValue);
+        virtual ::xpand3::expression::AbstractExpression_ptr getVarValue () const;
+        virtual void setVarValue (::xpand3::expression::AbstractExpression_ptr _varValue);
 
         /*PROTECTED REGION ID(LetStatement) START*/
         // Please, enable the protected region if you add manually written code.

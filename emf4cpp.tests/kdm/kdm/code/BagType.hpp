@@ -53,8 +53,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::Integer getSize () const;
-        void setSize (::kdm::core::Integer _size);
+        virtual ::kdm::core::Integer getSize () const;
+        virtual void setSize (::kdm::core::Integer _size);
 
         // References
 

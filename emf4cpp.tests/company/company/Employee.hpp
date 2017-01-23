@@ -51,12 +51,12 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getName () const;
-    void setName (::ecore::EString const& _name);
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
     // References
-    ::company::PhonebookEntry_ptr getPhonebookEntry () const;
-    void setPhonebookEntry (::company::PhonebookEntry_ptr _phonebookEntry);
+    virtual ::company::PhonebookEntry_ptr getPhonebookEntry () const;
+    virtual void setPhonebookEntry (::company::PhonebookEntry_ptr _phonebookEntry);
 
     /*PROTECTED REGION ID(Employee) START*/
     // Please, enable the protected region if you add manually written code.

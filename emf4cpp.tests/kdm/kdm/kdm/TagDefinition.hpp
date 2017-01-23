@@ -51,11 +51,11 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getTag () const;
-        void setTag (::kdm::core::String _tag);
+        virtual ::kdm::core::String getTag () const;
+        virtual void setTag (::kdm::core::String _tag);
 
-        ::kdm::core::String getType () const;
-        void setType (::kdm::core::String _type);
+        virtual ::kdm::core::String getType () const;
+        virtual void setType (::kdm::core::String _type);
 
         // References
 

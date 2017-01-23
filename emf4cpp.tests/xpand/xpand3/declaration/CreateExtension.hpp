@@ -55,8 +55,8 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::DeclaredParameter_ptr getToBeCreated () const;
-        void setToBeCreated (::xpand3::DeclaredParameter_ptr _toBeCreated);
+        virtual ::xpand3::DeclaredParameter_ptr getToBeCreated () const;
+        virtual void setToBeCreated (::xpand3::DeclaredParameter_ptr _toBeCreated);
 
         /*PROTECTED REGION ID(CreateExtension) START*/
         // Please, enable the protected region if you add manually written code.

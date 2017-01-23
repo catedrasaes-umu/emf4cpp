@@ -54,14 +54,14 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
-        ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild () const;
-        ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement ();
 
         /*PROTECTED REGION ID(BuildResource) START*/
         // Please, enable the protected region if you add manually written code.

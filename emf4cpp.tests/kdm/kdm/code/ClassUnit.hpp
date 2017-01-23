@@ -53,12 +53,12 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::Boolean getIsAbstract () const;
-        void setIsAbstract (::kdm::core::Boolean _isAbstract);
+        virtual ::kdm::core::Boolean getIsAbstract () const;
+        virtual void setIsAbstract (::kdm::core::Boolean _isAbstract);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement ();
 
         /*PROTECTED REGION ID(ClassUnit) START*/
         // Please, enable the protected region if you add manually written code.

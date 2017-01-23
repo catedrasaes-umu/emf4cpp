@@ -50,8 +50,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getBound () const;
-    void setBound (::ecore::EString const& _bound);
+    virtual ::ecore::EString const& getBound () const;
+    virtual void setBound (::ecore::EString const& _bound);
 
     // References
 

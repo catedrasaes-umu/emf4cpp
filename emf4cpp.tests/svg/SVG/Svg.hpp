@@ -49,21 +49,21 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getNamespace () const;
-    void setNamespace (::PrimitiveTypes::String _namespace);
+    virtual ::PrimitiveTypes::String getNamespace () const;
+    virtual void setNamespace (::PrimitiveTypes::String _namespace);
 
-    ::PrimitiveTypes::String getVersion () const;
-    void setVersion (::PrimitiveTypes::String _version);
+    virtual ::PrimitiveTypes::String getVersion () const;
+    virtual void setVersion (::PrimitiveTypes::String _version);
 
-    ::PrimitiveTypes::String getBaseProfile () const;
-    void setBaseProfile (::PrimitiveTypes::String _baseProfile);
+    virtual ::PrimitiveTypes::String getBaseProfile () const;
+    virtual void setBaseProfile (::PrimitiveTypes::String _baseProfile);
 
     // References
-    const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG () const;
-    ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG ();
 
-    const ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren () const;
-    ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren ();
 
     /*PROTECTED REGION ID(Svg) START*/
     // Please, enable the protected region if you add manually written code.

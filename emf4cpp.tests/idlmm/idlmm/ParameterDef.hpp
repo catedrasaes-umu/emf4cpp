@@ -50,11 +50,11 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getIdentifier () const;
-    void setIdentifier (::ecore::EString const& _identifier);
+    virtual ::ecore::EString const& getIdentifier () const;
+    virtual void setIdentifier (::ecore::EString const& _identifier);
 
-    ::idlmm::ParameterMode getDirection () const;
-    void setDirection (::idlmm::ParameterMode _direction);
+    virtual ::idlmm::ParameterMode getDirection () const;
+    virtual void setDirection (::idlmm::ParameterMode _direction);
 
     // References
 

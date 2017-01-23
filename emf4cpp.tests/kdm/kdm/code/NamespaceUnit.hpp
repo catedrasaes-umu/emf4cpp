@@ -55,8 +55,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode ();
 
         /*PROTECTED REGION ID(NamespaceUnit) START*/
         // Please, enable the protected region if you add manually written code.

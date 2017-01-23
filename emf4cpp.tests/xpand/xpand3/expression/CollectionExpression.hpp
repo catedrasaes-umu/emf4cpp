@@ -54,11 +54,11 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getClosure () const;
-        void setClosure (::xpand3::expression::AbstractExpression_ptr _closure);
+        virtual ::xpand3::expression::AbstractExpression_ptr getClosure () const;
+        virtual void setClosure (::xpand3::expression::AbstractExpression_ptr _closure);
 
-        ::xpand3::Identifier_ptr getEleName () const;
-        void setEleName (::xpand3::Identifier_ptr _eleName);
+        virtual ::xpand3::Identifier_ptr getEleName () const;
+        virtual void setEleName (::xpand3::Identifier_ptr _eleName);
 
         /*PROTECTED REGION ID(CollectionExpression) START*/
         // Please, enable the protected region if you add manually written code.

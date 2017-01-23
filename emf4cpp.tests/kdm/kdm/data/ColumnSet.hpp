@@ -57,8 +57,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit ();
 
         /*PROTECTED REGION ID(ColumnSet) START*/
         // Please, enable the protected region if you add manually written code.

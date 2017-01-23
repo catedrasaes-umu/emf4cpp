@@ -54,15 +54,15 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getKind () const;
-        void setKind (::kdm::core::String _kind);
+        virtual ::kdm::core::String getKind () const;
+        virtual void setKind (::kdm::core::String _kind);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation () const;
-        ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation ();
 
         /*PROTECTED REGION ID(ActionElement) START*/
         // Please, enable the protected region if you add manually written code.

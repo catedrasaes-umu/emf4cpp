@@ -54,11 +54,11 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::Identifier_ptr getOperator () const;
-        void setOperator (::xpand3::Identifier_ptr _operator);
+        virtual ::xpand3::Identifier_ptr getOperator () const;
+        virtual void setOperator (::xpand3::Identifier_ptr _operator);
 
-        ::xpand3::expression::AbstractExpression_ptr getOperand () const;
-        void setOperand (::xpand3::expression::AbstractExpression_ptr _operand);
+        virtual ::xpand3::expression::AbstractExpression_ptr getOperand () const;
+        virtual void setOperand (::xpand3::expression::AbstractExpression_ptr _operand);
 
         /*PROTECTED REGION ID(UnaryOperation) START*/
         // Please, enable the protected region if you add manually written code.

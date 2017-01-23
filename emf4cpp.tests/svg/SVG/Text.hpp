@@ -49,11 +49,11 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getLengthAdjust () const;
-    void setLengthAdjust (::PrimitiveTypes::String _lengthAdjust);
+    virtual ::PrimitiveTypes::String getLengthAdjust () const;
+    virtual void setLengthAdjust (::PrimitiveTypes::String _lengthAdjust);
 
-    ::PrimitiveTypes::String getContent () const;
-    void setContent (::PrimitiveTypes::String _content);
+    virtual ::PrimitiveTypes::String getContent () const;
+    virtual void setContent (::PrimitiveTypes::String _content);
 
     // References
 

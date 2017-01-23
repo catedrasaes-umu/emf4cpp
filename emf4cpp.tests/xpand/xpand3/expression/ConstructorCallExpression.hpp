@@ -54,8 +54,8 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::Identifier_ptr getType () const;
-        void setType (::xpand3::Identifier_ptr _type);
+        virtual ::xpand3::Identifier_ptr getType () const;
+        virtual void setType (::xpand3::Identifier_ptr _type);
 
         /*PROTECTED REGION ID(ConstructorCallExpression) START*/
         // Please, enable the protected region if you add manually written code.

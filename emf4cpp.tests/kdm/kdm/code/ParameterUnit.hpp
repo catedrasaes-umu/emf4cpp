@@ -54,11 +54,11 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::code::ParameterKind getKind () const;
-        void setKind (::kdm::code::ParameterKind _kind);
+        virtual ::kdm::code::ParameterKind getKind () const;
+        virtual void setKind (::kdm::code::ParameterKind _kind);
 
-        ::kdm::core::Integer getPos () const;
-        void setPos (::kdm::core::Integer _pos);
+        virtual ::kdm::core::Integer getPos () const;
+        virtual void setPos (::kdm::core::Integer _pos);
 
         // References
 

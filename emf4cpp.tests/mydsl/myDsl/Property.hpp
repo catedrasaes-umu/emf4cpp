@@ -51,15 +51,15 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getName () const;
-    void setName (::ecore::EString const& _name);
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
-    ::ecore::EBoolean isMany () const;
-    void setMany (::ecore::EBoolean _many);
+    virtual ::ecore::EBoolean isMany () const;
+    virtual void setMany (::ecore::EBoolean _many);
 
     // References
-    ::myDsl::Type_ptr getType () const;
-    void setType (::myDsl::Type_ptr _type);
+    virtual ::myDsl::Type_ptr getType () const;
+    virtual void setType (::myDsl::Type_ptr _type);
 
     /*PROTECTED REGION ID(Property) START*/
     // Please, enable the protected region if you add manually written code.

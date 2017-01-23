@@ -49,18 +49,18 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getStrokeDashArray () const;
-    void setStrokeDashArray (::PrimitiveTypes::String _strokeDashArray);
+    virtual ::PrimitiveTypes::String getStrokeDashArray () const;
+    virtual void setStrokeDashArray (::PrimitiveTypes::String _strokeDashArray);
 
-    ::PrimitiveTypes::String getMarkerEnd () const;
-    void setMarkerEnd (::PrimitiveTypes::String _markerEnd);
+    virtual ::PrimitiveTypes::String getMarkerEnd () const;
+    virtual void setMarkerEnd (::PrimitiveTypes::String _markerEnd);
 
-    ::PrimitiveTypes::String getMarkerStart () const;
-    void setMarkerStart (::PrimitiveTypes::String _markerStart);
+    virtual ::PrimitiveTypes::String getMarkerStart () const;
+    virtual void setMarkerStart (::PrimitiveTypes::String _markerStart);
 
     // References
-    const ::ecorecpp::mapping::EList< ::SVG::Point >& getWaypoints () const;
-    ::ecorecpp::mapping::EList< ::SVG::Point >& getWaypoints ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Point >& getWaypoints () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Point >& getWaypoints ();
 
     /*PROTECTED REGION ID(Polyline) START*/
     // Please, enable the protected region if you add manually written code.

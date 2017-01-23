@@ -51,11 +51,11 @@ public:
     // Attributes
 
     // References
-    ::myDsl::Entity_ptr getExtends () const;
-    void setExtends (::myDsl::Entity_ptr _extends);
+    virtual ::myDsl::Entity_ptr getExtends () const;
+    virtual void setExtends (::myDsl::Entity_ptr _extends);
 
-    const ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties () const;
-    ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties ();
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties ();
 
     /*PROTECTED REGION ID(Entity) START*/
     // Please, enable the protected region if you add manually written code.

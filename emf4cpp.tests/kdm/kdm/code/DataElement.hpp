@@ -53,18 +53,18 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getExt () const;
-        void setExt (::kdm::core::String _ext);
+        virtual ::kdm::core::String getExt () const;
+        virtual void setExt (::kdm::core::String _ext);
 
-        ::kdm::core::Integer getSize () const;
-        void setSize (::kdm::core::Integer _size);
+        virtual ::kdm::core::Integer getSize () const;
+        virtual void setSize (::kdm::core::Integer _size);
 
         // References
-        ::kdm::code::Datatype_ptr getType () const;
-        void setType (::kdm::code::Datatype_ptr _type);
+        virtual ::kdm::code::Datatype_ptr getType () const;
+        virtual void setType (::kdm::code::Datatype_ptr _type);
 
-        const ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement ();
 
         /*PROTECTED REGION ID(DataElement) START*/
         // Please, enable the protected region if you add manually written code.

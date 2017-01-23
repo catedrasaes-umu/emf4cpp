@@ -52,11 +52,11 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getVersion () const;
-        void setVersion (::kdm::core::String _version);
+        virtual ::kdm::core::String getVersion () const;
+        virtual void setVersion (::kdm::core::String _version);
 
-        ::kdm::core::String getPath () const;
-        void setPath (::kdm::core::String _path);
+        virtual ::kdm::core::String getPath () const;
+        virtual void setPath (::kdm::core::String _path);
 
         // References
 

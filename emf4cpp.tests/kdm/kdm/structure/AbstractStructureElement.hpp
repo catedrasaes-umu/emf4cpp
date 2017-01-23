@@ -54,17 +54,17 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated () const;
-        ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
-        ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship () const;
-        ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship ();
 
         /*PROTECTED REGION ID(AbstractStructureElement) START*/
         // Please, enable the protected region if you add manually written code.

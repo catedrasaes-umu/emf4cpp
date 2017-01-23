@@ -51,11 +51,11 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports () const;
-    ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports ();
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports ();
 
-    const ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements () const;
-    ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements ();
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements ();
 
     /*PROTECTED REGION ID(Model) START*/
     // Please, enable the protected region if you add manually written code.

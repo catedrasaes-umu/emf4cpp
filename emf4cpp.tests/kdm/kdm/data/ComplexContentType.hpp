@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement ();
 
         /*PROTECTED REGION ID(ComplexContentType) START*/
         // Please, enable the protected region if you add manually written code.

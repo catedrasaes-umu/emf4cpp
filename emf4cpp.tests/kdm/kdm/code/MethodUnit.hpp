@@ -56,11 +56,11 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::code::MethodKind getKind () const;
-        void setKind (::kdm::code::MethodKind _kind);
+        virtual ::kdm::code::MethodKind getKind () const;
+        virtual void setKind (::kdm::code::MethodKind _kind);
 
-        ::kdm::code::ExportKind getExport () const;
-        void setExport (::kdm::code::ExportKind _export);
+        virtual ::kdm::code::ExportKind getExport () const;
+        virtual void setExport (::kdm::code::ExportKind _export);
 
         // References
 

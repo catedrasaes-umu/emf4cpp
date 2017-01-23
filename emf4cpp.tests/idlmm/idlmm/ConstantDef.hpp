@@ -50,8 +50,8 @@ public:
     // Operations
 
     // Attributes
-    ::idlmm::EAny getConstValue () const;
-    void setConstValue (::idlmm::EAny _constValue);
+    virtual ::idlmm::EAny getConstValue () const;
+    virtual void setConstValue (::idlmm::EAny _constValue);
 
     // References
 

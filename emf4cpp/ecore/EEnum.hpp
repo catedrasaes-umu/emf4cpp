@@ -56,8 +56,8 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals () const;
-    ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals ();
 
     /*PROTECTED REGION ID(EEnum) START*/
     // Please, enable the protected region if you add manually written code.

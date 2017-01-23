@@ -51,15 +51,15 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getIdentifier () const;
-    void setIdentifier (::ecore::EString const& _identifier);
+    virtual ::ecore::EString const& getIdentifier () const;
+    virtual void setIdentifier (::ecore::EString const& _identifier);
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains () const;
-    ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains ();
 
-    const ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes () const;
-    ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes ();
 
     /*PROTECTED REGION ID(TranslationUnit) START*/
     // Please, enable the protected region if you add manually written code.

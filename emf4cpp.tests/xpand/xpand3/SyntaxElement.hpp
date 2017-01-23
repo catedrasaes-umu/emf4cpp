@@ -51,17 +51,17 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EInt getLine () const;
-    void setLine (::ecore::EInt _line);
+    virtual ::ecore::EInt getLine () const;
+    virtual void setLine (::ecore::EInt _line);
 
-    ::ecore::EInt getStart () const;
-    void setStart (::ecore::EInt _start);
+    virtual ::ecore::EInt getStart () const;
+    virtual void setStart (::ecore::EInt _start);
 
-    ::ecore::EInt getEnd () const;
-    void setEnd (::ecore::EInt _end);
+    virtual ::ecore::EInt getEnd () const;
+    virtual void setEnd (::ecore::EInt _end);
 
-    ::ecore::EString const& getFileName () const;
-    void setFileName (::ecore::EString const& _fileName);
+    virtual ::ecore::EString const& getFileName () const;
+    virtual void setFileName (::ecore::EString const& _fileName);
 
     // References
 

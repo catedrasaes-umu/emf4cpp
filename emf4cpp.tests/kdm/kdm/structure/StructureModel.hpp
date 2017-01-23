@@ -54,8 +54,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement ();
 
         /*PROTECTED REGION ID(StructureModel) START*/
         // Please, enable the protected region if you add manually written code.

@@ -51,8 +51,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getKind () const;
-    void setKind (::ecore::EString const& _kind);
+    virtual ::ecore::EString const& getKind () const;
+    virtual void setKind (::ecore::EString const& _kind);
 
     // References
 

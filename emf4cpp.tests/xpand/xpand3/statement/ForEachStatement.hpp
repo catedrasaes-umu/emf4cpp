@@ -55,17 +55,17 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getTarget () const;
-        void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
+        virtual ::xpand3::expression::AbstractExpression_ptr getTarget () const;
+        virtual void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
 
-        ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
-        void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
+        virtual ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
+        virtual void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
 
-        ::xpand3::Identifier_ptr getVariable () const;
-        void setVariable (::xpand3::Identifier_ptr _variable);
+        virtual ::xpand3::Identifier_ptr getVariable () const;
+        virtual void setVariable (::xpand3::Identifier_ptr _variable);
 
-        ::xpand3::Identifier_ptr getIteratorName () const;
-        void setIteratorName (::xpand3::Identifier_ptr _iteratorName);
+        virtual ::xpand3::Identifier_ptr getIteratorName () const;
+        virtual void setIteratorName (::xpand3::Identifier_ptr _iteratorName);
 
         /*PROTECTED REGION ID(ForEachStatement) START*/
         // Please, enable the protected region if you add manually written code.

@@ -49,11 +49,11 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getDigits () const;
-    void setDigits (::ecore::EString const& _digits);
+    virtual ::ecore::EString const& getDigits () const;
+    virtual void setDigits (::ecore::EString const& _digits);
 
-    ::ecore::EString const& getScale () const;
-    void setScale (::ecore::EString const& _scale);
+    virtual ::ecore::EString const& getScale () const;
+    virtual void setScale (::ecore::EString const& _scale);
 
     // References
 

@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EDouble getValue () const;
-    void setValue (::ecore::EDouble _value);
+    virtual ::ecore::EDouble getValue () const;
+    virtual void setValue (::ecore::EDouble _value);
 
     // References
 

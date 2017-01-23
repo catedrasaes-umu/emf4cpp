@@ -53,18 +53,18 @@ namespace xpand3
         // Operations
 
         // Attributes
-        ::ecore::EBoolean isErrorSeverity () const;
-        void setErrorSeverity (::ecore::EBoolean _errorSeverity);
+        virtual ::ecore::EBoolean isErrorSeverity () const;
+        virtual void setErrorSeverity (::ecore::EBoolean _errorSeverity);
 
-        ::ecore::EString const& getFeature () const;
-        void setFeature (::ecore::EString const& _feature);
+        virtual ::ecore::EString const& getFeature () const;
+        virtual void setFeature (::ecore::EString const& _feature);
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getMsg () const;
-        void setMsg (::xpand3::expression::AbstractExpression_ptr _msg);
+        virtual ::xpand3::expression::AbstractExpression_ptr getMsg () const;
+        virtual void setMsg (::xpand3::expression::AbstractExpression_ptr _msg);
 
-        ::xpand3::expression::AbstractExpression_ptr getConstraint () const;
-        void setConstraint (::xpand3::expression::AbstractExpression_ptr _constraint);
+        virtual ::xpand3::expression::AbstractExpression_ptr getConstraint () const;
+        virtual void setConstraint (::xpand3::expression::AbstractExpression_ptr _constraint);
 
         /*PROTECTED REGION ID(Check) START*/
         // Please, enable the protected region if you add manually written code.

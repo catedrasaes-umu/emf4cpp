@@ -53,18 +53,18 @@ namespace xpand3
         // Operations
 
         // Attributes
-        ::ecore::EBoolean isIsPrivate () const;
-        void setIsPrivate (::ecore::EBoolean _isPrivate);
+        virtual ::ecore::EBoolean isIsPrivate () const;
+        virtual void setIsPrivate (::ecore::EBoolean _isPrivate);
 
         // References
-        ::xpand3::File_ptr getOwner () const;
-        void setOwner (::xpand3::File_ptr _owner);
+        virtual ::xpand3::File_ptr getOwner () const;
+        virtual void setOwner (::xpand3::File_ptr _owner);
 
-        const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams () const;
-        ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams ();
 
-        ::xpand3::expression::AbstractExpression_ptr getGuard () const;
-        void setGuard (::xpand3::expression::AbstractExpression_ptr _guard);
+        virtual ::xpand3::expression::AbstractExpression_ptr getGuard () const;
+        virtual void setGuard (::xpand3::expression::AbstractExpression_ptr _guard);
 
         /*PROTECTED REGION ID(AbstractDeclaration) START*/
         // Please, enable the protected region if you add manually written code.

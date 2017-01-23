@@ -51,15 +51,15 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getName () const;
-        void setName (::kdm::core::String _name);
+        virtual ::kdm::core::String getName () const;
+        virtual void setName (::kdm::core::String _name);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit () const;
-        ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily () const;
-        ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily ();
 
         /*PROTECTED REGION ID(KDMFramework) START*/
         // Please, enable the protected region if you add manually written code.

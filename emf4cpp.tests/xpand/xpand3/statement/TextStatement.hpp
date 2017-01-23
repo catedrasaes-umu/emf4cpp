@@ -51,11 +51,11 @@ namespace xpand3
         // Operations
 
         // Attributes
-        ::ecore::EString const& getValue () const;
-        void setValue (::ecore::EString const& _value);
+        virtual ::ecore::EString const& getValue () const;
+        virtual void setValue (::ecore::EString const& _value);
 
-        ::ecore::EBoolean isDeleteLine () const;
-        void setDeleteLine (::ecore::EBoolean _deleteLine);
+        virtual ::ecore::EBoolean isDeleteLine () const;
+        virtual void setDeleteLine (::ecore::EBoolean _deleteLine);
 
         // References
 

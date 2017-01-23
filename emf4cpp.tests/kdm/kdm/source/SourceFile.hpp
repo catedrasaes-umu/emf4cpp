@@ -52,11 +52,11 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getLanguage () const;
-        void setLanguage (::kdm::core::String _language);
+        virtual ::kdm::core::String getLanguage () const;
+        virtual void setLanguage (::kdm::core::String _language);
 
-        ::kdm::core::String getEncoding () const;
-        void setEncoding (::kdm::core::String _encoding);
+        virtual ::kdm::core::String getEncoding () const;
+        virtual void setEncoding (::kdm::core::String _encoding);
 
         // References
 

@@ -51,8 +51,8 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner () const;
-    ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner ();
 
     /*PROTECTED REGION ID(Attribute) START*/
     // Please, enable the protected region if you add manually written code.

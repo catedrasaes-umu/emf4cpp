@@ -50,22 +50,22 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isIsOneway () const;
-    void setIsOneway (::ecore::EBoolean _isOneway);
+    virtual ::ecore::EBoolean isIsOneway () const;
+    virtual void setIsOneway (::ecore::EBoolean _isOneway);
 
-    std::vector< ::ecore::EString > const& getContexts () const;
-    void setContexts (std::vector< ::ecore::EString > const& _contexts);
+    virtual std::vector< ::ecore::EString > const& getContexts () const;
+    virtual void setContexts (std::vector< ::ecore::EString > const& _contexts);
 
-    void addContexts (::ecore::EString const& _new_element_in_contexts);
-    void setContextsAt ( size_t _position, ::ecore::EString const& _new_element_in_contexts);
-    void deleteContextsAt ( size_t _position );
+    virtual void addContexts (::ecore::EString const& _new_element_in_contexts);
+    virtual void setContextsAt ( size_t _position, ::ecore::EString const& _new_element_in_contexts);
+    virtual void deleteContextsAt ( size_t _position );
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters () const;
-    ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters ();
 
-    const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise () const;
-    ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise ();
 
     /*PROTECTED REGION ID(OperationDef) START*/
     // Please, enable the protected region if you add manually written code.

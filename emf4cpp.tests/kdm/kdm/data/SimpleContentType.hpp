@@ -54,12 +54,12 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getKind () const;
-        void setKind (::kdm::core::String _kind);
+        virtual ::kdm::core::String getKind () const;
+        virtual void setKind (::kdm::core::String _kind);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType () const;
-        ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType ();
 
         /*PROTECTED REGION ID(SimpleContentType) START*/
         // Please, enable the protected region if you add manually written code.

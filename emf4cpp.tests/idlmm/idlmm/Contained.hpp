@@ -51,23 +51,23 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getIdentifier () const;
-    void setIdentifier (::ecore::EString const& _identifier);
+    virtual ::ecore::EString const& getIdentifier () const;
+    virtual void setIdentifier (::ecore::EString const& _identifier);
 
-    ::ecore::EString const& getRepositoryId () const;
-    void setRepositoryId (::ecore::EString const& _repositoryId);
+    virtual ::ecore::EString const& getRepositoryId () const;
+    virtual void setRepositoryId (::ecore::EString const& _repositoryId);
 
-    ::ecore::EString const& getVersion () const;
-    void setVersion (::ecore::EString const& _version);
+    virtual ::ecore::EString const& getVersion () const;
+    virtual void setVersion (::ecore::EString const& _version);
 
-    ::ecore::EString const& getAbsoluteName () const;
-    void setAbsoluteName (::ecore::EString const& _absoluteName);
+    virtual ::ecore::EString const& getAbsoluteName () const;
+    virtual void setAbsoluteName (::ecore::EString const& _absoluteName);
 
     // References
-    ::idlmm::Container_ptr getDefinedIn () const;
-    void setDefinedIn (::idlmm::Container_ptr _definedIn);
-    ::idlmm::Container_ptr basicgetDefinedIn ();
-    void basicsetDefinedIn (::idlmm::Container_ptr _definedIn);
+    virtual ::idlmm::Container_ptr getDefinedIn () const;
+    virtual void setDefinedIn (::idlmm::Container_ptr _definedIn);
+    virtual ::idlmm::Container_ptr basicgetDefinedIn ();
+    virtual void basicsetDefinedIn (::idlmm::Container_ptr _definedIn);
 
     /*PROTECTED REGION ID(Contained) START*/
     // Please, enable the protected region if you add manually written code.

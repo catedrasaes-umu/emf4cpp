@@ -54,11 +54,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::code::DataElement_ptr getTo () const;
-        void setTo (::kdm::code::DataElement_ptr _to);
+        virtual ::kdm::code::DataElement_ptr getTo () const;
+        virtual void setTo (::kdm::code::DataElement_ptr _to);
 
-        ::kdm::action::ActionElement_ptr getFrom () const;
-        void setFrom (::kdm::action::ActionElement_ptr _from);
+        virtual ::kdm::action::ActionElement_ptr getFrom () const;
+        virtual void setFrom (::kdm::action::ActionElement_ptr _from);
 
         /*PROTECTED REGION ID(Writes) START*/
         // Please, enable the protected region if you add manually written code.

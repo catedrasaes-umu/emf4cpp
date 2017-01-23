@@ -49,14 +49,14 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getValue () const;
-    void setValue (::ecore::EString const& _value);
+    virtual ::ecore::EString const& getValue () const;
+    virtual void setValue (::ecore::EString const& _value);
 
-    ::ecore::EInt getPos () const;
-    void setPos (::ecore::EInt _pos);
+    virtual ::ecore::EInt getPos () const;
+    virtual void setPos (::ecore::EInt _pos);
 
-    ::ecore::EInt getLine () const;
-    void setLine (::ecore::EInt _line);
+    virtual ::ecore::EInt getLine () const;
+    virtual void setLine (::ecore::EInt _line);
 
     // References
 

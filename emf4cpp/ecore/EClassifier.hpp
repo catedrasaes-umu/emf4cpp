@@ -52,26 +52,26 @@ public:
     virtual ::ecore::EInt getClassifierID ();
 
     // Attributes
-    ::ecore::EString const& getInstanceClassName () const;
-    void setInstanceClassName (::ecore::EString const& _instanceClassName);
+    virtual ::ecore::EString const& getInstanceClassName () const;
+    virtual void setInstanceClassName (::ecore::EString const& _instanceClassName);
 
-    int getInstanceClass () const;
-    void setInstanceClass (int _instanceClass);
+    virtual int getInstanceClass () const;
+    virtual void setInstanceClass (int _instanceClass);
 
-    ::ecore::EJavaObject const& getDefaultValue () const;
-    void setDefaultValue (::ecore::EJavaObject const& _defaultValue);
+    virtual ::ecore::EJavaObject const& getDefaultValue () const;
+    virtual void setDefaultValue (::ecore::EJavaObject const& _defaultValue);
 
-    ::ecore::EString const& getInstanceTypeName () const;
-    void setInstanceTypeName (::ecore::EString const& _instanceTypeName);
+    virtual ::ecore::EString const& getInstanceTypeName () const;
+    virtual void setInstanceTypeName (::ecore::EString const& _instanceTypeName);
 
     // References
-    ::ecore::EPackage_ptr getEPackage () const;
-    void setEPackage (::ecore::EPackage_ptr _ePackage);
-    ::ecore::EPackage_ptr basicgetEPackage ();
-    void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
+    virtual ::ecore::EPackage_ptr getEPackage () const;
+    virtual void setEPackage (::ecore::EPackage_ptr _ePackage);
+    virtual ::ecore::EPackage_ptr basicgetEPackage ();
+    virtual void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
 
-    const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
-    ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
 
     /*PROTECTED REGION ID(EClassifier) ENABLED START*/
 

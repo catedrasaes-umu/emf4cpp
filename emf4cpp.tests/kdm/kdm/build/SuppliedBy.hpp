@@ -53,11 +53,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::build::Supplier_ptr getTo () const;
-        void setTo (::kdm::build::Supplier_ptr _to);
+        virtual ::kdm::build::Supplier_ptr getTo () const;
+        virtual void setTo (::kdm::build::Supplier_ptr _to);
 
-        ::kdm::build::AbstractBuildElement_ptr getFrom () const;
-        void setFrom (::kdm::build::AbstractBuildElement_ptr _from);
+        virtual ::kdm::build::AbstractBuildElement_ptr getFrom () const;
+        virtual void setFrom (::kdm::build::AbstractBuildElement_ptr _from);
 
         /*PROTECTED REGION ID(SuppliedBy) START*/
         // Please, enable the protected region if you add manually written code.

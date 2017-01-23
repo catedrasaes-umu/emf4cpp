@@ -56,10 +56,10 @@ public:
     // Attributes
 
     // References
-    ::ecore::EPackage_ptr getEPackage () const;
-    void setEPackage (::ecore::EPackage_ptr _ePackage);
-    ::ecore::EPackage_ptr basicgetEPackage ();
-    void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
+    virtual ::ecore::EPackage_ptr getEPackage () const;
+    virtual void setEPackage (::ecore::EPackage_ptr _ePackage);
+    virtual ::ecore::EPackage_ptr basicgetEPackage ();
+    virtual void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
 
     /*PROTECTED REGION ID(EFactory) START*/
     // Please, enable the protected region if you add manually written code.

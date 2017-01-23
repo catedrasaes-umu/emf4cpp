@@ -48,24 +48,24 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isContainment () const;
-    void setContainment (::ecore::EBoolean _containment);
+    virtual ::ecore::EBoolean isContainment () const;
+    virtual void setContainment (::ecore::EBoolean _containment);
 
-    ::ecore::EBoolean isContainer () const;
-    void setContainer (::ecore::EBoolean _container);
+    virtual ::ecore::EBoolean isContainer () const;
+    virtual void setContainer (::ecore::EBoolean _container);
 
-    ::ecore::EBoolean isResolveProxies () const;
-    void setResolveProxies (::ecore::EBoolean _resolveProxies);
+    virtual ::ecore::EBoolean isResolveProxies () const;
+    virtual void setResolveProxies (::ecore::EBoolean _resolveProxies);
 
     // References
-    ::ecore::EReference_ptr getEOpposite () const;
-    void setEOpposite (::ecore::EReference_ptr _eOpposite);
+    virtual ::ecore::EReference_ptr getEOpposite () const;
+    virtual void setEOpposite (::ecore::EReference_ptr _eOpposite);
 
-    ::ecore::EClass_ptr getEReferenceType () const;
-    void setEReferenceType (::ecore::EClass_ptr _eReferenceType);
+    virtual ::ecore::EClass_ptr getEReferenceType () const;
+    virtual void setEReferenceType (::ecore::EClass_ptr _eReferenceType);
 
-    const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys () const;
-    ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys ();
 
     /*PROTECTED REGION ID(EReference) START*/
     // Please, enable the protected region if you add manually written code.

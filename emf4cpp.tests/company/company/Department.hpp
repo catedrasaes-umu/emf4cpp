@@ -51,15 +51,15 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EInt getNumber () const;
-    void setNumber (::ecore::EInt _number);
+    virtual ::ecore::EInt getNumber () const;
+    virtual void setNumber (::ecore::EInt _number);
 
     // References
-    const ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees () const;
-    ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees ();
+    virtual const ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees () const;
+    virtual ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees ();
 
-    ::company::Employee_ptr getManager () const;
-    void setManager (::company::Employee_ptr _manager);
+    virtual ::company::Employee_ptr getManager () const;
+    virtual void setManager (::company::Employee_ptr _manager);
 
     /*PROTECTED REGION ID(Department) START*/
     // Please, enable the protected region if you add manually written code.

@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getIdentifier () const;
-    void setIdentifier (::ecore::EString const& _identifier);
+    virtual ::ecore::EString const& getIdentifier () const;
+    virtual void setIdentifier (::ecore::EString const& _identifier);
 
     // References
 

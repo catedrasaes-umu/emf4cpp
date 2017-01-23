@@ -55,14 +55,14 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& getComment () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& getComment ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& getComment () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& getComment ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& getCodeRelation () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& getCodeRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& getCodeRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& getCodeRelation ();
 
         /*PROTECTED REGION ID(AbstractCodeElement) START*/
         // Please, enable the protected region if you add manually written code.

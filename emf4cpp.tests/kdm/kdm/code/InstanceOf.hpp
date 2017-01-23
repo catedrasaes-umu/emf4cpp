@@ -53,11 +53,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::code::TemplateUnit_ptr getTo () const;
-        void setTo (::kdm::code::TemplateUnit_ptr _to);
+        virtual ::kdm::code::TemplateUnit_ptr getTo () const;
+        virtual void setTo (::kdm::code::TemplateUnit_ptr _to);
 
-        ::kdm::code::AbstractCodeElement_ptr getFrom () const;
-        void setFrom (::kdm::code::AbstractCodeElement_ptr _from);
+        virtual ::kdm::code::AbstractCodeElement_ptr getFrom () const;
+        virtual void setFrom (::kdm::code::AbstractCodeElement_ptr _from);
 
         /*PROTECTED REGION ID(InstanceOf) START*/
         // Please, enable the protected region if you add manually written code.

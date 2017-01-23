@@ -53,15 +53,15 @@ namespace xpand3
         // Operations
 
         // Attributes
-        ::ecore::EBoolean isCached () const;
-        void setCached (::ecore::EBoolean _cached);
+        virtual ::ecore::EBoolean isCached () const;
+        virtual void setCached (::ecore::EBoolean _cached);
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getBody () const;
-        void setBody (::xpand3::expression::AbstractExpression_ptr _body);
+        virtual ::xpand3::expression::AbstractExpression_ptr getBody () const;
+        virtual void setBody (::xpand3::expression::AbstractExpression_ptr _body);
 
-        ::xpand3::Identifier_ptr getReturnType () const;
-        void setReturnType (::xpand3::Identifier_ptr _returnType);
+        virtual ::xpand3::Identifier_ptr getReturnType () const;
+        virtual void setReturnType (::xpand3::Identifier_ptr _returnType);
 
         /*PROTECTED REGION ID(Extension) START*/
         // Please, enable the protected region if you add manually written code.

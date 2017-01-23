@@ -75,8 +75,8 @@ namespace kdm
         virtual ::kdm::kdm::KDMModel_ptr getModel ();
 
         // Attributes
-        ::kdm::core::String getName () const;
-        void setName (::kdm::core::String _name);
+        virtual ::kdm::core::String getName () const;
+        virtual void setName (::kdm::core::String _name);
 
         // References
 

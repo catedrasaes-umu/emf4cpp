@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getContent () const;
-    void setContent (::PrimitiveTypes::String _content);
+    virtual ::PrimitiveTypes::String getContent () const;
+    virtual void setContent (::PrimitiveTypes::String _content);
 
     // References
 

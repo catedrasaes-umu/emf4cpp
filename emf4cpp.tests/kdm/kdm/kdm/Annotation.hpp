@@ -51,8 +51,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getText () const;
-        void setText (::kdm::core::String _text);
+        virtual ::kdm::core::String getText () const;
+        virtual void setText (::kdm::core::String _text);
 
         // References
 

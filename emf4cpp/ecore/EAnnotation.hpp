@@ -48,23 +48,23 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getSource () const;
-    void setSource (::ecore::EString const& _source);
+    virtual ::ecore::EString const& getSource () const;
+    virtual void setSource (::ecore::EString const& _source);
 
     // References
-    const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails () const;
-    ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails ();
 
-    ::ecore::EModelElement_ptr getEModelElement () const;
-    void setEModelElement (::ecore::EModelElement_ptr _eModelElement);
-    ::ecore::EModelElement_ptr basicgetEModelElement ();
-    void basicsetEModelElement (::ecore::EModelElement_ptr _eModelElement);
+    virtual ::ecore::EModelElement_ptr getEModelElement () const;
+    virtual void setEModelElement (::ecore::EModelElement_ptr _eModelElement);
+    virtual ::ecore::EModelElement_ptr basicgetEModelElement ();
+    virtual void basicsetEModelElement (::ecore::EModelElement_ptr _eModelElement);
 
-    const ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents () const;
-    ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents ();
 
-    const ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences () const;
-    ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences ();
 
     /*PROTECTED REGION ID(EAnnotation) START*/
     // Please, enable the protected region if you add manually written code.

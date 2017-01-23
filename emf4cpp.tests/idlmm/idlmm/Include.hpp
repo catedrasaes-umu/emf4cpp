@@ -51,8 +51,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getImportURI () const;
-    void setImportURI (::ecore::EString const& _importURI);
+    virtual ::ecore::EString const& getImportURI () const;
+    virtual void setImportURI (::ecore::EString const& _importURI);
 
     // References
 

@@ -48,30 +48,30 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isOrdered () const;
-    void setOrdered (::ecore::EBoolean _ordered);
+    virtual ::ecore::EBoolean isOrdered () const;
+    virtual void setOrdered (::ecore::EBoolean _ordered);
 
-    ::ecore::EBoolean isUnique () const;
-    void setUnique (::ecore::EBoolean _unique);
+    virtual ::ecore::EBoolean isUnique () const;
+    virtual void setUnique (::ecore::EBoolean _unique);
 
-    ::ecore::EInt getLowerBound () const;
-    void setLowerBound (::ecore::EInt _lowerBound);
+    virtual ::ecore::EInt getLowerBound () const;
+    virtual void setLowerBound (::ecore::EInt _lowerBound);
 
-    ::ecore::EInt getUpperBound () const;
-    void setUpperBound (::ecore::EInt _upperBound);
+    virtual ::ecore::EInt getUpperBound () const;
+    virtual void setUpperBound (::ecore::EInt _upperBound);
 
-    ::ecore::EBoolean isMany () const;
-    void setMany (::ecore::EBoolean _many);
+    virtual ::ecore::EBoolean isMany () const;
+    virtual void setMany (::ecore::EBoolean _many);
 
-    ::ecore::EBoolean isRequired () const;
-    void setRequired (::ecore::EBoolean _required);
+    virtual ::ecore::EBoolean isRequired () const;
+    virtual void setRequired (::ecore::EBoolean _required);
 
     // References
-    ::ecore::EClassifier_ptr getEType () const;
-    void setEType (::ecore::EClassifier_ptr _eType);
+    virtual ::ecore::EClassifier_ptr getEType () const;
+    virtual void setEType (::ecore::EClassifier_ptr _eType);
 
-    ::ecore::EGenericType_ptr getEGenericType () const;
-    void setEGenericType (::ecore::EGenericType_ptr _eGenericType);
+    virtual ::ecore::EGenericType_ptr getEGenericType () const;
+    virtual void setEGenericType (::ecore::EGenericType_ptr _eGenericType);
 
     /*PROTECTED REGION ID(ETypedElement) START*/
     // Please, enable the protected region if you add manually written code.

@@ -51,12 +51,12 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getData () const;
-    void setData (::ecore::EString const& _data);
+    virtual ::ecore::EString const& getData () const;
+    virtual void setData (::ecore::EString const& _data);
 
     // References
-    ::tree::TreeNode_ptr getParent () const;
-    void setParent (::tree::TreeNode_ptr _parent);
+    virtual ::tree::TreeNode_ptr getParent () const;
+    virtual void setParent (::tree::TreeNode_ptr _parent);
 
     /*PROTECTED REGION ID(TreeNode) START*/
     // Please, enable the protected region if you add manually written code.

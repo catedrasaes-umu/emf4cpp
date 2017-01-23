@@ -51,8 +51,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getValue () const;
-        void setValue (::kdm::core::String _value);
+        virtual ::kdm::core::String getValue () const;
+        virtual void setValue (::kdm::core::String _value);
 
         // References
 

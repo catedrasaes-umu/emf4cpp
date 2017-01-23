@@ -51,11 +51,11 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Double getWidth () const;
-    void setWidth (::PrimitiveTypes::Double _width);
+    virtual ::PrimitiveTypes::Double getWidth () const;
+    virtual void setWidth (::PrimitiveTypes::Double _width);
 
-    ::PrimitiveTypes::Double getHeight () const;
-    void setHeight (::PrimitiveTypes::Double _height);
+    virtual ::PrimitiveTypes::Double getHeight () const;
+    virtual void setHeight (::PrimitiveTypes::Double _height);
 
     // References
 

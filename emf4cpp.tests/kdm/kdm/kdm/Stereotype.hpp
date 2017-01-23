@@ -51,15 +51,15 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getName () const;
-        void setName (::kdm::core::String _name);
+        virtual ::kdm::core::String getName () const;
+        virtual void setName (::kdm::core::String _name);
 
-        ::kdm::core::String getType () const;
-        void setType (::kdm::core::String _type);
+        virtual ::kdm::core::String getType () const;
+        virtual void setType (::kdm::core::String _type);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag () const;
-        ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag ();
 
         /*PROTECTED REGION ID(Stereotype) START*/
         // Please, enable the protected region if you add manually written code.

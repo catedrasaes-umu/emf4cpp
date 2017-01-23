@@ -52,11 +52,11 @@ public:
     // Operations
 
     // Attributes
-    ::enumeration::BirdType getType () const;
-    void setType (::enumeration::BirdType _type);
+    virtual ::enumeration::BirdType getType () const;
+    virtual void setType (::enumeration::BirdType _type);
 
-    ::ecore::EString const& getName () const;
-    void setName (::ecore::EString const& _name);
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
     // References
 

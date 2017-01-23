@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getStroke () const;
-    void setStroke (::PrimitiveTypes::String _stroke);
+    virtual ::PrimitiveTypes::String getStroke () const;
+    virtual void setStroke (::PrimitiveTypes::String _stroke);
 
     // References
 

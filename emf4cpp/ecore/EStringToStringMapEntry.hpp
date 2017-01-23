@@ -49,11 +49,11 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getKey () const;
-    void setKey (::ecore::EString const& _key);
+    virtual ::ecore::EString const& getKey () const;
+    virtual void setKey (::ecore::EString const& _key);
 
-    ::ecore::EString const& getValue () const;
-    void setValue (::ecore::EString const& _value);
+    virtual ::ecore::EString const& getValue () const;
+    virtual void setValue (::ecore::EString const& _value);
 
     // References
 

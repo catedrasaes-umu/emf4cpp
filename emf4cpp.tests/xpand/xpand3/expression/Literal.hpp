@@ -54,8 +54,8 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::Identifier_ptr getLiteralValue () const;
-        void setLiteralValue (::xpand3::Identifier_ptr _literalValue);
+        virtual ::xpand3::Identifier_ptr getLiteralValue () const;
+        virtual void setLiteralValue (::xpand3::Identifier_ptr _literalValue);
 
         /*PROTECTED REGION ID(Literal) START*/
         // Please, enable the protected region if you add manually written code.

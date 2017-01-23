@@ -50,15 +50,15 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isIsReadonly () const;
-    void setIsReadonly (::ecore::EBoolean _isReadonly);
+    virtual ::ecore::EBoolean isIsReadonly () const;
+    virtual void setIsReadonly (::ecore::EBoolean _isReadonly);
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises () const;
-    ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises ();
 
-    const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises () const;
-    ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises ();
 
     /*PROTECTED REGION ID(AttributeDef) START*/
     // Please, enable the protected region if you add manually written code.

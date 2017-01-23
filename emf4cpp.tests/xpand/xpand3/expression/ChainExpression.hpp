@@ -53,11 +53,11 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getFirst () const;
-        void setFirst (::xpand3::expression::AbstractExpression_ptr _first);
+        virtual ::xpand3::expression::AbstractExpression_ptr getFirst () const;
+        virtual void setFirst (::xpand3::expression::AbstractExpression_ptr _first);
 
-        ::xpand3::expression::AbstractExpression_ptr getNext () const;
-        void setNext (::xpand3::expression::AbstractExpression_ptr _next);
+        virtual ::xpand3::expression::AbstractExpression_ptr getNext () const;
+        virtual void setNext (::xpand3::expression::AbstractExpression_ptr _next);
 
         /*PROTECTED REGION ID(ChainExpression) START*/
         // Please, enable the protected region if you add manually written code.

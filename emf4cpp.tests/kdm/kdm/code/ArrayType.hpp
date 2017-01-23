@@ -53,12 +53,12 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::Integer getSize () const;
-        void setSize (::kdm::core::Integer _size);
+        virtual ::kdm::core::Integer getSize () const;
+        virtual void setSize (::kdm::core::Integer _size);
 
         // References
-        ::kdm::code::IndexUnit_ptr getIndexUnit () const;
-        void setIndexUnit (::kdm::code::IndexUnit_ptr _indexUnit);
+        virtual ::kdm::code::IndexUnit_ptr getIndexUnit () const;
+        virtual void setIndexUnit (::kdm::code::IndexUnit_ptr _indexUnit);
 
         /*PROTECTED REGION ID(ArrayType) START*/
         // Please, enable the protected region if you add manually written code.

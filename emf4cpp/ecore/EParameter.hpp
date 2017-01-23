@@ -50,10 +50,10 @@ public:
     // Attributes
 
     // References
-    ::ecore::EOperation_ptr getEOperation () const;
-    void setEOperation (::ecore::EOperation_ptr _eOperation);
-    ::ecore::EOperation_ptr basicgetEOperation ();
-    void basicsetEOperation (::ecore::EOperation_ptr _eOperation);
+    virtual ::ecore::EOperation_ptr getEOperation () const;
+    virtual void setEOperation (::ecore::EOperation_ptr _eOperation);
+    virtual ::ecore::EOperation_ptr basicgetEOperation ();
+    virtual void basicsetEOperation (::ecore::EOperation_ptr _eOperation);
 
     /*PROTECTED REGION ID(EParameter) START*/
     // Please, enable the protected region if you add manually written code.

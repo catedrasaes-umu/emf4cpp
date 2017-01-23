@@ -53,12 +53,12 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getText () const;
-        void setText (::kdm::core::String _text);
+        virtual ::kdm::core::String getText () const;
+        virtual void setText (::kdm::core::String _text);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
 
         /*PROTECTED REGION ID(BuildDescription) START*/
         // Please, enable the protected region if you add manually written code.

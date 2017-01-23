@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Boolean getBold () const;
-    void setBold (::PrimitiveTypes::Boolean _bold);
+    virtual ::PrimitiveTypes::Boolean getBold () const;
+    virtual void setBold (::PrimitiveTypes::Boolean _bold);
 
     // References
 

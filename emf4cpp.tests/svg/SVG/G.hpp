@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getName () const;
-    void setName (::PrimitiveTypes::String _name);
+    virtual ::PrimitiveTypes::String getName () const;
+    virtual void setName (::PrimitiveTypes::String _name);
 
     // References
 

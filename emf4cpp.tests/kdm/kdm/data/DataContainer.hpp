@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& getDataElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& getDataElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& getDataElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& getDataElement ();
 
         /*PROTECTED REGION ID(DataContainer) START*/
         // Please, enable the protected region if you add manually written code.

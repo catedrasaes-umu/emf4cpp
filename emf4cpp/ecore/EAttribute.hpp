@@ -48,12 +48,12 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isID () const;
-    void setID (::ecore::EBoolean _iD);
+    virtual ::ecore::EBoolean isID () const;
+    virtual void setID (::ecore::EBoolean _iD);
 
     // References
-    ::ecore::EDataType_ptr getEAttributeType () const;
-    void setEAttributeType (::ecore::EDataType_ptr _eAttributeType);
+    virtual ::ecore::EDataType_ptr getEAttributeType () const;
+    virtual void setEAttributeType (::ecore::EDataType_ptr _eAttributeType);
 
     /*PROTECTED REGION ID(EAttribute) START*/
     // Please, enable the protected region if you add manually written code.

@@ -51,14 +51,14 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees () const;
-    ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees ();
+    virtual const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees () const;
+    virtual ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees ();
 
-    const ::ecorecpp::mapping::EList< ::eopposite::RightHand >& getRightees () const;
-    ::ecorecpp::mapping::EList< ::eopposite::RightHand >& getRightees ();
+    virtual const ::ecorecpp::mapping::EList< ::eopposite::RightHand >& getRightees () const;
+    virtual ::ecorecpp::mapping::EList< ::eopposite::RightHand >& getRightees ();
 
-    const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples () const;
-    ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples ();
+    virtual const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples () const;
+    virtual ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples ();
 
     /*PROTECTED REGION ID(TopLevel) START*/
     // Please, enable the protected region if you add manually written code.

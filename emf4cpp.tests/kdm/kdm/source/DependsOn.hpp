@@ -53,11 +53,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::source::AbstractInventoryElement_ptr getTo () const;
-        void setTo (::kdm::source::AbstractInventoryElement_ptr _to);
+        virtual ::kdm::source::AbstractInventoryElement_ptr getTo () const;
+        virtual void setTo (::kdm::source::AbstractInventoryElement_ptr _to);
 
-        ::kdm::source::AbstractInventoryElement_ptr getFrom () const;
-        void setFrom (::kdm::source::AbstractInventoryElement_ptr _from);
+        virtual ::kdm::source::AbstractInventoryElement_ptr getFrom () const;
+        virtual void setFrom (::kdm::source::AbstractInventoryElement_ptr _from);
 
         /*PROTECTED REGION ID(DependsOn) START*/
         // Please, enable the protected region if you add manually written code.

@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getValue () const;
-    void setValue (::ecore::EString const& _value);
+    virtual ::ecore::EString const& getValue () const;
+    virtual void setValue (::ecore::EString const& _value);
 
     // References
 

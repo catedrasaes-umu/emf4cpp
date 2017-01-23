@@ -51,18 +51,18 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::Integer getDensity () const;
-        void setDensity (::kdm::core::Integer _density);
+        virtual ::kdm::core::Integer getDensity () const;
+        virtual void setDensity (::kdm::core::Integer _density);
 
         // References
-        ::kdm::core::KDMEntity_ptr getFrom () const;
-        void setFrom (::kdm::core::KDMEntity_ptr _from);
+        virtual ::kdm::core::KDMEntity_ptr getFrom () const;
+        virtual void setFrom (::kdm::core::KDMEntity_ptr _from);
 
-        ::kdm::core::KDMEntity_ptr getTo () const;
-        void setTo (::kdm::core::KDMEntity_ptr _to);
+        virtual ::kdm::core::KDMEntity_ptr getTo () const;
+        virtual void setTo (::kdm::core::KDMEntity_ptr _to);
 
-        const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation () const;
-        ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation ();
 
         /*PROTECTED REGION ID(AggregatedRelationship) START*/
         // Please, enable the protected region if you add manually written code.

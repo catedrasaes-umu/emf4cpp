@@ -57,17 +57,17 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& getEventRelation () const;
-        ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& getEventRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& getEventRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& getEventRelation ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction () const;
-        ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation () const;
-        ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation ();
 
         /*PROTECTED REGION ID(AbstractEventElement) START*/
         // Please, enable the protected region if you add manually written code.

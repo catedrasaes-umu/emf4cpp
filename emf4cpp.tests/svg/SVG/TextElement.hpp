@@ -49,14 +49,14 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Double getRotate () const;
-    void setRotate (::PrimitiveTypes::Double _rotate);
+    virtual ::PrimitiveTypes::Double getRotate () const;
+    virtual void setRotate (::PrimitiveTypes::Double _rotate);
 
-    ::PrimitiveTypes::String getTextLength () const;
-    void setTextLength (::PrimitiveTypes::String _textLength);
+    virtual ::PrimitiveTypes::String getTextLength () const;
+    virtual void setTextLength (::PrimitiveTypes::String _textLength);
 
-    ::PrimitiveTypes::String getFontSize () const;
-    void setFontSize (::PrimitiveTypes::String _fontSize);
+    virtual ::PrimitiveTypes::String getFontSize () const;
+    virtual void setFontSize (::PrimitiveTypes::String _fontSize);
 
     // References
 

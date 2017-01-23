@@ -52,27 +52,27 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::Integer getStartLine () const;
-        void setStartLine (::kdm::core::Integer _startLine);
+        virtual ::kdm::core::Integer getStartLine () const;
+        virtual void setStartLine (::kdm::core::Integer _startLine);
 
-        ::kdm::core::Integer getStartPosition () const;
-        void setStartPosition (::kdm::core::Integer _startPosition);
+        virtual ::kdm::core::Integer getStartPosition () const;
+        virtual void setStartPosition (::kdm::core::Integer _startPosition);
 
-        ::kdm::core::Integer getEndLine () const;
-        void setEndLine (::kdm::core::Integer _endLine);
+        virtual ::kdm::core::Integer getEndLine () const;
+        virtual void setEndLine (::kdm::core::Integer _endLine);
 
-        ::kdm::core::Integer getEndPosition () const;
-        void setEndPosition (::kdm::core::Integer _endPosition);
+        virtual ::kdm::core::Integer getEndPosition () const;
+        virtual void setEndPosition (::kdm::core::Integer _endPosition);
 
-        ::kdm::core::String getLanguage () const;
-        void setLanguage (::kdm::core::String _language);
+        virtual ::kdm::core::String getLanguage () const;
+        virtual void setLanguage (::kdm::core::String _language);
 
-        ::kdm::core::String getPath () const;
-        void setPath (::kdm::core::String _path);
+        virtual ::kdm::core::String getPath () const;
+        virtual void setPath (::kdm::core::String _path);
 
         // References
-        ::kdm::source::SourceFile_ptr getFile () const;
-        void setFile (::kdm::source::SourceFile_ptr _file);
+        virtual ::kdm::source::SourceFile_ptr getFile () const;
+        virtual void setFile (::kdm::source::SourceFile_ptr _file);
 
         /*PROTECTED REGION ID(SourceRegion) START*/
         // Please, enable the protected region if you add manually written code.

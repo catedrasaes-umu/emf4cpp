@@ -51,18 +51,18 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getData () const;
-    void setData (::ecore::EString const& _data);
+    virtual ::ecore::EString const& getData () const;
+    virtual void setData (::ecore::EString const& _data);
 
     // References
-    ::bintree::BinTreeNode_ptr getParent () const;
-    void setParent (::bintree::BinTreeNode_ptr _parent);
+    virtual ::bintree::BinTreeNode_ptr getParent () const;
+    virtual void setParent (::bintree::BinTreeNode_ptr _parent);
 
-    ::bintree::BinTreeNode_ptr getLeft () const;
-    void setLeft (::bintree::BinTreeNode_ptr _left);
+    virtual ::bintree::BinTreeNode_ptr getLeft () const;
+    virtual void setLeft (::bintree::BinTreeNode_ptr _left);
 
-    ::bintree::BinTreeNode_ptr getRight () const;
-    void setRight (::bintree::BinTreeNode_ptr _right);
+    virtual ::bintree::BinTreeNode_ptr getRight () const;
+    virtual void setRight (::bintree::BinTreeNode_ptr _right);
 
     /*PROTECTED REGION ID(BinTreeNode) START*/
     // Please, enable the protected region if you add manually written code.

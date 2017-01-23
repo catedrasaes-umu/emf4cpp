@@ -54,8 +54,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::code::StorableKind getKind () const;
-        void setKind (::kdm::code::StorableKind _kind);
+        virtual ::kdm::code::StorableKind getKind () const;
+        virtual void setKind (::kdm::code::StorableKind _kind);
 
         // References
 

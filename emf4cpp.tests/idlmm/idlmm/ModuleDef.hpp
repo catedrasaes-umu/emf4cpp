@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getPrefix () const;
-    void setPrefix (::ecore::EString const& _prefix);
+    virtual ::ecore::EString const& getPrefix () const;
+    virtual void setPrefix (::ecore::EString const& _prefix);
 
     // References
 

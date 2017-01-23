@@ -54,14 +54,14 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getLeft () const;
-        void setLeft (::xpand3::expression::AbstractExpression_ptr _left);
+        virtual ::xpand3::expression::AbstractExpression_ptr getLeft () const;
+        virtual void setLeft (::xpand3::expression::AbstractExpression_ptr _left);
 
-        ::xpand3::expression::AbstractExpression_ptr getRight () const;
-        void setRight (::xpand3::expression::AbstractExpression_ptr _right);
+        virtual ::xpand3::expression::AbstractExpression_ptr getRight () const;
+        virtual void setRight (::xpand3::expression::AbstractExpression_ptr _right);
 
-        ::xpand3::Identifier_ptr getOperator () const;
-        void setOperator (::xpand3::Identifier_ptr _operator);
+        virtual ::xpand3::Identifier_ptr getOperator () const;
+        virtual void setOperator (::xpand3::Identifier_ptr _operator);
 
         /*PROTECTED REGION ID(BinaryOperation) START*/
         // Please, enable the protected region if you add manually written code.

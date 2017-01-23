@@ -49,15 +49,15 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::String getMarkerEnd () const;
-    void setMarkerEnd (::PrimitiveTypes::String _markerEnd);
+    virtual ::PrimitiveTypes::String getMarkerEnd () const;
+    virtual void setMarkerEnd (::PrimitiveTypes::String _markerEnd);
 
-    ::PrimitiveTypes::String getMarkerStart () const;
-    void setMarkerStart (::PrimitiveTypes::String _markerStart);
+    virtual ::PrimitiveTypes::String getMarkerStart () const;
+    virtual void setMarkerStart (::PrimitiveTypes::String _markerStart);
 
     // References
-    const ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween () const;
-    ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween ();
 
     /*PROTECTED REGION ID(Line) START*/
     // Please, enable the protected region if you add manually written code.

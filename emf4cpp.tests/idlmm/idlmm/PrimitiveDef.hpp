@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::idlmm::PrimitiveKind getKind () const;
-    void setKind (::idlmm::PrimitiveKind _kind);
+    virtual ::idlmm::PrimitiveKind getKind () const;
+    virtual void setKind (::idlmm::PrimitiveKind _kind);
 
     // References
 

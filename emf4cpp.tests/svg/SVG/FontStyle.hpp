@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Boolean getItalic () const;
-    void setItalic (::PrimitiveTypes::Boolean _italic);
+    virtual ::PrimitiveTypes::Boolean getItalic () const;
+    virtual void setItalic (::PrimitiveTypes::Boolean _italic);
 
     // References
 

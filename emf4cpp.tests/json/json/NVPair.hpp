@@ -51,12 +51,12 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getName () const;
-    void setName (::ecore::EString const& _name);
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
     // References
-    ::json::Value_ptr getValue () const;
-    void setValue (::json::Value_ptr _value);
+    virtual ::json::Value_ptr getValue () const;
+    virtual void setValue (::json::Value_ptr _value);
 
     /*PROTECTED REGION ID(NVPair) START*/
     // Please, enable the protected region if you add manually written code.

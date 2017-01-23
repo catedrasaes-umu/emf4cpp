@@ -49,14 +49,14 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Double getAngle () const;
-    void setAngle (::PrimitiveTypes::Double _angle);
+    virtual ::PrimitiveTypes::Double getAngle () const;
+    virtual void setAngle (::PrimitiveTypes::Double _angle);
 
-    ::PrimitiveTypes::Double getCx () const;
-    void setCx (::PrimitiveTypes::Double _cx);
+    virtual ::PrimitiveTypes::Double getCx () const;
+    virtual void setCx (::PrimitiveTypes::Double _cx);
 
-    ::PrimitiveTypes::Double getCy () const;
-    void setCy (::PrimitiveTypes::Double _cy);
+    virtual ::PrimitiveTypes::Double getCy () const;
+    virtual void setCy (::PrimitiveTypes::Double _cy);
 
     // References
 

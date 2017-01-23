@@ -54,11 +54,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::action::ActionElement_ptr getTo () const;
-        void setTo (::kdm::action::ActionElement_ptr _to);
+        virtual ::kdm::action::ActionElement_ptr getTo () const;
+        virtual void setTo (::kdm::action::ActionElement_ptr _to);
 
-        ::kdm::code::ControlElement_ptr getFrom () const;
-        void setFrom (::kdm::code::ControlElement_ptr _from);
+        virtual ::kdm::code::ControlElement_ptr getFrom () const;
+        virtual void setFrom (::kdm::code::ControlElement_ptr _from);
 
         /*PROTECTED REGION ID(EntryFlow) START*/
         // Please, enable the protected region if you add manually written code.

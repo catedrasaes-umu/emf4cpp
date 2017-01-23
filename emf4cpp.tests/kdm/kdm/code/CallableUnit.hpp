@@ -55,8 +55,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::code::CallableKind getKind () const;
-        void setKind (::kdm::code::CallableKind _kind);
+        virtual ::kdm::code::CallableKind getKind () const;
+        virtual void setKind (::kdm::code::CallableKind _kind);
 
         // References
 

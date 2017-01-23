@@ -55,8 +55,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getKind () const;
-        void setKind (::kdm::core::String _kind);
+        virtual ::kdm::core::String getKind () const;
+        virtual void setKind (::kdm::core::String _kind);
 
         // References
 

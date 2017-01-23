@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::idlmm::ETypeCode getTypeCode () const;
-    void setTypeCode (::idlmm::ETypeCode _typeCode);
+    virtual ::idlmm::ETypeCode getTypeCode () const;
+    virtual void setTypeCode (::idlmm::ETypeCode _typeCode);
 
     // References
 

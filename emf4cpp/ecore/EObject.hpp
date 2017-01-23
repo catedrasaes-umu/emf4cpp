@@ -79,11 +79,19 @@ public:
 
     // References
 
-    // Special EObject C++ mapping internal helper operation
+    /* Special EObject C++ mapping internal helper operation but also
+     * very useful if a Factory is reimplemented and returns derived
+     * classes. */
     template<typename T>
-    inline T* as()
+    T* as()
     {
         return dynamic_cast<T*>(this);
+    }
+
+    template<typename T>
+    const T* as() const
+    {
+        return dynamic_cast<const T*>(this);
     }
 
     /*PROTECTED REGION ID(EObject) START*/

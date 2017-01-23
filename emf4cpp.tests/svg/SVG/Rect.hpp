@@ -49,11 +49,11 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Double getRx () const;
-    void setRx (::PrimitiveTypes::Double _rx);
+    virtual ::PrimitiveTypes::Double getRx () const;
+    virtual void setRx (::PrimitiveTypes::Double _rx);
 
-    ::PrimitiveTypes::Double getRy () const;
-    void setRy (::PrimitiveTypes::Double _ry);
+    virtual ::PrimitiveTypes::Double getRy () const;
+    virtual void setRy (::PrimitiveTypes::Double _ry);
 
     // References
 

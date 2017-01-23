@@ -55,8 +55,8 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getExpression () const;
-        void setExpression (::xpand3::expression::AbstractExpression_ptr _expression);
+        virtual ::xpand3::expression::AbstractExpression_ptr getExpression () const;
+        virtual void setExpression (::xpand3::expression::AbstractExpression_ptr _expression);
 
         /*PROTECTED REGION ID(ExtensionAspect) START*/
         // Please, enable the protected region if you add manually written code.

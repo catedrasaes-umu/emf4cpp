@@ -49,12 +49,12 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EBoolean isExported () const;
-    void setExported (::ecore::EBoolean _exported);
+    virtual ::ecore::EBoolean isExported () const;
+    virtual void setExported (::ecore::EBoolean _exported);
 
     // References
-    ::xpand3::Identifier_ptr getImportedId () const;
-    void setImportedId (::xpand3::Identifier_ptr _importedId);
+    virtual ::xpand3::Identifier_ptr getImportedId () const;
+    virtual void setImportedId (::xpand3::Identifier_ptr _importedId);
 
     /*PROTECTED REGION ID(ImportStatement) START*/
     // Please, enable the protected region if you add manually written code.

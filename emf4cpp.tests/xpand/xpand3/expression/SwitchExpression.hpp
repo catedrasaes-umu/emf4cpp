@@ -53,14 +53,14 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getSwitchExpr () const;
-        void setSwitchExpr (::xpand3::expression::AbstractExpression_ptr _switchExpr);
+        virtual ::xpand3::expression::AbstractExpression_ptr getSwitchExpr () const;
+        virtual void setSwitchExpr (::xpand3::expression::AbstractExpression_ptr _switchExpr);
 
-        ::xpand3::expression::AbstractExpression_ptr getDefaultExpr () const;
-        void setDefaultExpr (::xpand3::expression::AbstractExpression_ptr _defaultExpr);
+        virtual ::xpand3::expression::AbstractExpression_ptr getDefaultExpr () const;
+        virtual void setDefaultExpr (::xpand3::expression::AbstractExpression_ptr _defaultExpr);
 
-        const ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& getCases () const;
-        ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& getCases ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& getCases () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& getCases ();
 
         /*PROTECTED REGION ID(SwitchExpression) START*/
         // Please, enable the protected region if you add manually written code.

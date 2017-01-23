@@ -55,11 +55,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::code::Datatype_ptr getType () const;
-        void setType (::kdm::code::Datatype_ptr _type);
+        virtual ::kdm::code::Datatype_ptr getType () const;
+        virtual void setType (::kdm::code::Datatype_ptr _type);
 
-        ::kdm::code::Datatype_ptr getCodeElement () const;
-        void setCodeElement (::kdm::code::Datatype_ptr _codeElement);
+        virtual ::kdm::code::Datatype_ptr getCodeElement () const;
+        virtual void setCodeElement (::kdm::code::Datatype_ptr _codeElement);
 
         /*PROTECTED REGION ID(DefinedType) START*/
         // Please, enable the protected region if you add manually written code.

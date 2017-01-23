@@ -53,11 +53,11 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment () const;
-        ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment ();
 
-        const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel () const;
-        ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel ();
 
         /*PROTECTED REGION ID(Segment) START*/
         // Please, enable the protected region if you add manually written code.

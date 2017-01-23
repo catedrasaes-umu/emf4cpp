@@ -48,20 +48,20 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EInt getValue () const;
-    void setValue (::ecore::EInt _value);
+    virtual ::ecore::EInt getValue () const;
+    virtual void setValue (::ecore::EInt _value);
 
-    ::ecore::EEnumerator getInstance () const;
-    void setInstance (::ecore::EEnumerator _instance);
+    virtual ::ecore::EEnumerator getInstance () const;
+    virtual void setInstance (::ecore::EEnumerator _instance);
 
-    ::ecore::EString const& getLiteral () const;
-    void setLiteral (::ecore::EString const& _literal);
+    virtual ::ecore::EString const& getLiteral () const;
+    virtual void setLiteral (::ecore::EString const& _literal);
 
     // References
-    ::ecore::EEnum_ptr getEEnum () const;
-    void setEEnum (::ecore::EEnum_ptr _eEnum);
-    ::ecore::EEnum_ptr basicgetEEnum ();
-    void basicsetEEnum (::ecore::EEnum_ptr _eEnum);
+    virtual ::ecore::EEnum_ptr getEEnum () const;
+    virtual void setEEnum (::ecore::EEnum_ptr _eEnum);
+    virtual ::ecore::EEnum_ptr basicgetEEnum ();
+    virtual void basicsetEEnum (::ecore::EEnum_ptr _eEnum);
 
     /*PROTECTED REGION ID(EEnumLiteral) START*/
     // Please, enable the protected region if you add manually written code.

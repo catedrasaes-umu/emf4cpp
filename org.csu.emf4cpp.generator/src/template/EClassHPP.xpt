@@ -77,37 +77,44 @@ public:
     
     // Attributes
     «FOREACH this.EAttributes AS at-»
-    «at.getGetCPPSignatureConst()»;
-    «at.getSetCPPSignature()-»;
+    virtual «at.getGetCPPSignatureConst()»;
+    virtual «at.getSetCPPSignature()-»;
     «IF at.isList() || at.isMultiple()»
-    «at.getAddCPPSignature()»;
-    «at.getSetAtCPPSignature()»;
-    «at.getDeleteAtCPPSignature()»;
+    virtual «at.getAddCPPSignature()»;
+    virtual «at.getSetAtCPPSignature()»;
+    virtual «at.getDeleteAtCPPSignature()»;
     «ENDIF»
     «ENDFOREACH-»
     
     // References
     «FOREACH this.EReferences AS ref-»
-       «ref.getGetCPPSignatureConst()»;
+       virtual «ref.getGetCPPSignatureConst()»;
        «IF ref.isMultiple()-»
-       «ref.getGetCPPSignature()»;
+       virtual «ref.getGetCPPSignature()»;
        «ELSE-»
-          «ref.getSetCPPSignature()»;
+          virtual «ref.getSetCPPSignature()»;
           «IF ref.EOpposite != null-»
-	         «ref.getGetCPPSignature("basic")»;
-	         «ref.getSetCPPSignature("basic")»;
+	         virtual «ref.getGetCPPSignature("basic")»;
+	         virtual «ref.getSetCPPSignature("basic")»;
           «ENDIF-»
        «ENDIF-»
        
     «ENDFOREACH-»
     
     «IF "::"+this.getFQN() == "::ecore::EObject"-»
-    «REM»This is a special case for EObject...«ENDREM»
-    // Special EObject C++ mapping internal helper operation
+    /* Special EObject C++ mapping internal helper operation but also
+     * very useful if a Factory is reimplemented and returns derived
+     * classes. */
     template<typename T>
-    inline T* as()
+    T* as()
     {
         return dynamic_cast<T*>(this);
+    }
+    
+    template<typename T>
+    const T* as() const
+    {
+        return dynamic_cast<const T*>(this);
     }
     «ENDIF-»
     

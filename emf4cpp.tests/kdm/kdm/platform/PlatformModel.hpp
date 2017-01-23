@@ -54,8 +54,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement ();
 
         /*PROTECTED REGION ID(PlatformModel) START*/
         // Please, enable the protected region if you add manually written code.

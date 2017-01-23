@@ -53,11 +53,11 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::Integer getLower () const;
-        void setLower (::kdm::core::Integer _lower);
+        virtual ::kdm::core::Integer getLower () const;
+        virtual void setLower (::kdm::core::Integer _lower);
 
-        ::kdm::core::Integer getUpper () const;
-        void setUpper (::kdm::core::Integer _upper);
+        virtual ::kdm::core::Integer getUpper () const;
+        virtual void setUpper (::kdm::core::Integer _upper);
 
         // References
 

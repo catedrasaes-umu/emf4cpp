@@ -49,15 +49,15 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getIdentifier () const;
-    void setIdentifier (::ecore::EString const& _identifier);
+    virtual ::ecore::EString const& getIdentifier () const;
+    virtual void setIdentifier (::ecore::EString const& _identifier);
 
-    std::vector< ::idlmm::EAny > const& getLabel () const;
-    void setLabel (std::vector< ::idlmm::EAny > _label);
+    virtual std::vector< ::idlmm::EAny > const& getLabel () const;
+    virtual void setLabel (std::vector< ::idlmm::EAny > _label);
 
-    void addLabel (::idlmm::EAny const& _new_element_in_label);
-    void setLabelAt ( size_t _position, ::idlmm::EAny const& _new_element_in_label);
-    void deleteLabelAt ( size_t _position );
+    virtual void addLabel (::idlmm::EAny const& _new_element_in_label);
+    virtual void setLabelAt ( size_t _position, ::idlmm::EAny const& _new_element_in_label);
+    virtual void deleteLabelAt ( size_t _position );
 
     // References
 

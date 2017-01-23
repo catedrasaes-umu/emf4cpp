@@ -53,14 +53,14 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getCondition () const;
-        void setCondition (::xpand3::expression::AbstractExpression_ptr _condition);
+        virtual ::xpand3::expression::AbstractExpression_ptr getCondition () const;
+        virtual void setCondition (::xpand3::expression::AbstractExpression_ptr _condition);
 
-        ::xpand3::expression::AbstractExpression_ptr getThenPart () const;
-        void setThenPart (::xpand3::expression::AbstractExpression_ptr _thenPart);
+        virtual ::xpand3::expression::AbstractExpression_ptr getThenPart () const;
+        virtual void setThenPart (::xpand3::expression::AbstractExpression_ptr _thenPart);
 
-        ::xpand3::expression::AbstractExpression_ptr getElsePart () const;
-        void setElsePart (::xpand3::expression::AbstractExpression_ptr _elsePart);
+        virtual ::xpand3::expression::AbstractExpression_ptr getElsePart () const;
+        virtual void setElsePart (::xpand3::expression::AbstractExpression_ptr _elsePart);
 
         /*PROTECTED REGION ID(IfExpression) START*/
         // Please, enable the protected region if you add manually written code.

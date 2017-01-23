@@ -51,14 +51,14 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::idlmm::UnionField >& getUnionMembers () const;
-    ::ecorecpp::mapping::EList< ::idlmm::UnionField >& getUnionMembers ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::UnionField >& getUnionMembers () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::UnionField >& getUnionMembers ();
 
-    ::idlmm::IDLType_ptr getContainedDiscrim () const;
-    void setContainedDiscrim (::idlmm::IDLType_ptr _containedDiscrim);
+    virtual ::idlmm::IDLType_ptr getContainedDiscrim () const;
+    virtual void setContainedDiscrim (::idlmm::IDLType_ptr _containedDiscrim);
 
-    ::idlmm::TypedefDef_ptr getSharedDiscrim () const;
-    void setSharedDiscrim (::idlmm::TypedefDef_ptr _sharedDiscrim);
+    virtual ::idlmm::TypedefDef_ptr getSharedDiscrim () const;
+    virtual void setSharedDiscrim (::idlmm::TypedefDef_ptr _sharedDiscrim);
 
     /*PROTECTED REGION ID(UnionDef) START*/
     // Please, enable the protected region if you add manually written code.

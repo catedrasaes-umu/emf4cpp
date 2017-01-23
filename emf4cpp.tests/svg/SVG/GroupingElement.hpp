@@ -51,8 +51,8 @@ public:
     // Attributes
 
     // References
-    const ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent () const;
-    ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent ();
 
     /*PROTECTED REGION ID(GroupingElement) START*/
     // Please, enable the protected region if you add manually written code.

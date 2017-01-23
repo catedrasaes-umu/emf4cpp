@@ -56,8 +56,8 @@ namespace xpand3
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody () const;
-        ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody ();
 
         /*PROTECTED REGION ID(Definition) START*/
         // Please, enable the protected region if you add manually written code.

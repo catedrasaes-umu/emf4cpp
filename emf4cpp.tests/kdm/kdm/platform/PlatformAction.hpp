@@ -55,12 +55,12 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getKind () const;
-        void setKind (::kdm::core::String _kind);
+        virtual ::kdm::core::String getKind () const;
+        virtual void setKind (::kdm::core::String _kind);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& getPlatformElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& getPlatformElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& getPlatformElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& getPlatformElement ();
 
         /*PROTECTED REGION ID(PlatformAction) START*/
         // Please, enable the protected region if you add manually written code.

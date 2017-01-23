@@ -54,8 +54,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation () const;
-        ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation ();
 
         /*PROTECTED REGION ID(AbstractBuildElement) START*/
         // Please, enable the protected region if you add manually written code.

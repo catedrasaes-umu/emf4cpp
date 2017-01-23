@@ -54,8 +54,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::code::ExportKind getExport () const;
-        void setExport (::kdm::code::ExportKind _export);
+        virtual ::kdm::code::ExportKind getExport () const;
+        virtual void setExport (::kdm::code::ExportKind _export);
 
         // References
 

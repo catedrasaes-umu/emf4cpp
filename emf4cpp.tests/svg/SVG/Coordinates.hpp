@@ -51,11 +51,11 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Double getX () const;
-    void setX (::PrimitiveTypes::Double _x);
+    virtual ::PrimitiveTypes::Double getX () const;
+    virtual void setX (::PrimitiveTypes::Double _x);
 
-    ::PrimitiveTypes::Double getY () const;
-    void setY (::PrimitiveTypes::Double _y);
+    virtual ::PrimitiveTypes::Double getY () const;
+    virtual void setY (::PrimitiveTypes::Double _y);
 
     // References
 

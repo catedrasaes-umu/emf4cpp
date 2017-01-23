@@ -54,11 +54,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::core::KDMEntity_ptr getTo () const;
-        void setTo (::kdm::core::KDMEntity_ptr _to);
+        virtual ::kdm::core::KDMEntity_ptr getTo () const;
+        virtual void setTo (::kdm::core::KDMEntity_ptr _to);
 
-        ::kdm::structure::AbstractStructureElement_ptr getFrom () const;
-        void setFrom (::kdm::structure::AbstractStructureElement_ptr _from);
+        virtual ::kdm::structure::AbstractStructureElement_ptr getFrom () const;
+        virtual void setFrom (::kdm::structure::AbstractStructureElement_ptr _from);
 
         /*PROTECTED REGION ID(StructureRelationship) START*/
         // Please, enable the protected region if you add manually written code.

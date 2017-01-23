@@ -52,15 +52,15 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getLanguage () const;
-        void setLanguage (::kdm::core::String _language);
+        virtual ::kdm::core::String getLanguage () const;
+        virtual void setLanguage (::kdm::core::String _language);
 
-        ::kdm::core::String getSnippet () const;
-        void setSnippet (::kdm::core::String _snippet);
+        virtual ::kdm::core::String getSnippet () const;
+        virtual void setSnippet (::kdm::core::String _snippet);
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion () const;
-        ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion ();
 
         /*PROTECTED REGION ID(SourceRef) START*/
         // Please, enable the protected region if you add manually written code.

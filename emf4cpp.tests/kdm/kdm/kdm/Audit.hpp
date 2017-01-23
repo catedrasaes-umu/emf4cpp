@@ -51,14 +51,14 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::core::String getDescription () const;
-        void setDescription (::kdm::core::String _description);
+        virtual ::kdm::core::String getDescription () const;
+        virtual void setDescription (::kdm::core::String _description);
 
-        ::kdm::core::String getAuthor () const;
-        void setAuthor (::kdm::core::String _author);
+        virtual ::kdm::core::String getAuthor () const;
+        virtual void setAuthor (::kdm::core::String _author);
 
-        ::kdm::core::String getDate () const;
-        void setDate (::kdm::core::String _date);
+        virtual ::kdm::core::String getDate () const;
+        virtual void setDate (::kdm::core::String _date);
 
         // References
 

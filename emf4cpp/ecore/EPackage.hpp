@@ -64,28 +64,28 @@ public:
     virtual ::ecore::EClassifier_ptr getEClassifier ( ::ecore::EString const& _name);
 
     // Attributes
-    ::ecore::EString const& getNsURI () const;
-    void setNsURI (::ecore::EString const& _nsURI);
+    virtual ::ecore::EString const& getNsURI () const;
+    virtual void setNsURI (::ecore::EString const& _nsURI);
 
-    ::ecore::EString const& getNsPrefix () const;
-    void setNsPrefix (::ecore::EString const& _nsPrefix);
+    virtual ::ecore::EString const& getNsPrefix () const;
+    virtual void setNsPrefix (::ecore::EString const& _nsPrefix);
 
     // References
-    ::ecore::EFactory_ptr getEFactoryInstance () const;
-    void setEFactoryInstance (::ecore::EFactory_ptr _eFactoryInstance);
-    ::ecore::EFactory_ptr basicgetEFactoryInstance ();
-    void basicsetEFactoryInstance (::ecore::EFactory_ptr _eFactoryInstance);
+    virtual ::ecore::EFactory_ptr getEFactoryInstance () const;
+    virtual void setEFactoryInstance (::ecore::EFactory_ptr _eFactoryInstance);
+    virtual ::ecore::EFactory_ptr basicgetEFactoryInstance ();
+    virtual void basicsetEFactoryInstance (::ecore::EFactory_ptr _eFactoryInstance);
 
-    const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers () const;
-    ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers ();
 
-    const ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages () const;
-    ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages ();
 
-    ::ecore::EPackage_ptr getESuperPackage () const;
-    void setESuperPackage (::ecore::EPackage_ptr _eSuperPackage);
-    ::ecore::EPackage_ptr basicgetESuperPackage ();
-    void basicsetESuperPackage (::ecore::EPackage_ptr _eSuperPackage);
+    virtual ::ecore::EPackage_ptr getESuperPackage () const;
+    virtual void setESuperPackage (::ecore::EPackage_ptr _eSuperPackage);
+    virtual ::ecore::EPackage_ptr basicgetESuperPackage ();
+    virtual void basicsetESuperPackage (::ecore::EPackage_ptr _eSuperPackage);
 
     /*PROTECTED REGION ID(EPackage) ENABLED START*/
     // Please, enable the protected region if you add manually written code.

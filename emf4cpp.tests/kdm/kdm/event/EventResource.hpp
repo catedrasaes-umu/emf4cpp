@@ -57,8 +57,8 @@ namespace kdm
         // Attributes
 
         // References
-        const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement () const;
-        ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement ();
 
         /*PROTECTED REGION ID(EventResource) START*/
         // Please, enable the protected region if you add manually written code.

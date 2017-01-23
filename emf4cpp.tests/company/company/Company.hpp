@@ -51,12 +51,12 @@ public:
     // Operations
 
     // Attributes
-    ::ecore::EString const& getName () const;
-    void setName (::ecore::EString const& _name);
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
     // References
-    const ::ecorecpp::mapping::EList< ::company::Department >& getDepartments () const;
-    ::ecorecpp::mapping::EList< ::company::Department >& getDepartments ();
+    virtual const ::ecorecpp::mapping::EList< ::company::Department >& getDepartments () const;
+    virtual ::ecorecpp::mapping::EList< ::company::Department >& getDepartments ();
 
     /*PROTECTED REGION ID(Company) START*/
     // Please, enable the protected region if you add manually written code.

@@ -54,8 +54,8 @@ namespace xpand3
         // Attributes
 
         // References
-        ::xpand3::expression::AbstractExpression_ptr getMessage () const;
-        void setMessage (::xpand3::expression::AbstractExpression_ptr _message);
+        virtual ::xpand3::expression::AbstractExpression_ptr getMessage () const;
+        virtual void setMessage (::xpand3::expression::AbstractExpression_ptr _message);
 
         /*PROTECTED REGION ID(ErrorStatement) START*/
         // Please, enable the protected region if you add manually written code.

@@ -54,8 +54,8 @@ namespace kdm
         // Operations
 
         // Attributes
-        ::kdm::code::MacroKind getKind () const;
-        void setKind (::kdm::code::MacroKind _kind);
+        virtual ::kdm::code::MacroKind getKind () const;
+        virtual void setKind (::kdm::code::MacroKind _kind);
 
         // References
 

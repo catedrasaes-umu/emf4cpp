@@ -53,11 +53,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::event::Event_ptr getTo () const;
-        void setTo (::kdm::event::Event_ptr _to);
+        virtual ::kdm::event::Event_ptr getTo () const;
+        virtual void setTo (::kdm::event::Event_ptr _to);
 
-        ::kdm::event::Transition_ptr getFrom () const;
-        void setFrom (::kdm::event::Transition_ptr _from);
+        virtual ::kdm::event::Transition_ptr getFrom () const;
+        virtual void setFrom (::kdm::event::Transition_ptr _from);
 
         /*PROTECTED REGION ID(ConsumesEvent) START*/
         // Please, enable the protected region if you add manually written code.

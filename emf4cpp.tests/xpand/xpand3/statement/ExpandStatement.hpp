@@ -53,21 +53,21 @@ namespace xpand3
         // Operations
 
         // Attributes
-        ::ecore::EBoolean isForeach () const;
-        void setForeach (::ecore::EBoolean _foreach);
+        virtual ::ecore::EBoolean isForeach () const;
+        virtual void setForeach (::ecore::EBoolean _foreach);
 
         // References
-        const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters () const;
-        ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters ();
 
-        ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
-        void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
+        virtual ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
+        virtual void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
 
-        ::xpand3::expression::AbstractExpression_ptr getTarget () const;
-        void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
+        virtual ::xpand3::expression::AbstractExpression_ptr getTarget () const;
+        virtual void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
 
-        ::xpand3::Identifier_ptr getDefinition () const;
-        void setDefinition (::xpand3::Identifier_ptr _definition);
+        virtual ::xpand3::Identifier_ptr getDefinition () const;
+        virtual void setDefinition (::xpand3::Identifier_ptr _definition);
 
         /*PROTECTED REGION ID(ExpandStatement) START*/
         // Please, enable the protected region if you add manually written code.

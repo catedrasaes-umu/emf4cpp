@@ -55,8 +55,8 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::code::ItemUnit_ptr getItemUnit () const;
-        void setItemUnit (::kdm::code::ItemUnit_ptr _itemUnit);
+        virtual ::kdm::code::ItemUnit_ptr getItemUnit () const;
+        virtual void setItemUnit (::kdm::code::ItemUnit_ptr _itemUnit);
 
         /*PROTECTED REGION ID(DerivedType) START*/
         // Please, enable the protected region if you add manually written code.

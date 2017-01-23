@@ -51,15 +51,15 @@ public:
     // Attributes
 
     // References
-    ::eopposite::RightHand_ptr getRightee () const;
-    void setRightee (::eopposite::RightHand_ptr _rightee);
-    ::eopposite::RightHand_ptr basicgetRightee ();
-    void basicsetRightee (::eopposite::RightHand_ptr _rightee);
+    virtual ::eopposite::RightHand_ptr getRightee () const;
+    virtual void setRightee (::eopposite::RightHand_ptr _rightee);
+    virtual ::eopposite::RightHand_ptr basicgetRightee ();
+    virtual void basicsetRightee (::eopposite::RightHand_ptr _rightee);
 
-    ::eopposite::RightMultiple_ptr getRightMultiple () const;
-    void setRightMultiple (::eopposite::RightMultiple_ptr _rightMultiple);
-    ::eopposite::RightMultiple_ptr basicgetRightMultiple ();
-    void basicsetRightMultiple (::eopposite::RightMultiple_ptr _rightMultiple);
+    virtual ::eopposite::RightMultiple_ptr getRightMultiple () const;
+    virtual void setRightMultiple (::eopposite::RightMultiple_ptr _rightMultiple);
+    virtual ::eopposite::RightMultiple_ptr basicgetRightMultiple ();
+    virtual void basicsetRightMultiple (::eopposite::RightMultiple_ptr _rightMultiple);
 
     /*PROTECTED REGION ID(LeftHand) START*/
     // Please, enable the protected region if you add manually written code.

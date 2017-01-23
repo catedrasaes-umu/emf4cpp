@@ -49,8 +49,8 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Boolean getVisible () const;
-    void setVisible (::PrimitiveTypes::Boolean _visible);
+    virtual ::PrimitiveTypes::Boolean getVisible () const;
+    virtual void setVisible (::PrimitiveTypes::Boolean _visible);
 
     // References
 

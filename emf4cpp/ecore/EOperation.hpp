@@ -54,22 +54,22 @@ public:
     // Attributes
 
     // References
-    ::ecore::EClass_ptr getEContainingClass () const;
-    void setEContainingClass (::ecore::EClass_ptr _eContainingClass);
-    ::ecore::EClass_ptr basicgetEContainingClass ();
-    void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);
+    virtual ::ecore::EClass_ptr getEContainingClass () const;
+    virtual void setEContainingClass (::ecore::EClass_ptr _eContainingClass);
+    virtual ::ecore::EClass_ptr basicgetEContainingClass ();
+    virtual void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);
 
-    const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
-    ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
 
-    const ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters () const;
-    ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters ();
 
-    const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions () const;
-    ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions ();
 
-    const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions () const;
-    ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions ();
 
     /*PROTECTED REGION ID(EOperation) START*/
     // Please, enable the protected region if you add manually written code.

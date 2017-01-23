@@ -49,17 +49,17 @@ public:
     // Operations
 
     // Attributes
-    ::PrimitiveTypes::Double getPathLength () const;
-    void setPathLength (::PrimitiveTypes::Double _pathLength);
+    virtual ::PrimitiveTypes::Double getPathLength () const;
+    virtual void setPathLength (::PrimitiveTypes::Double _pathLength);
 
-    ::PrimitiveTypes::String getD () const;
-    void setD (::PrimitiveTypes::String _d);
+    virtual ::PrimitiveTypes::String getD () const;
+    virtual void setD (::PrimitiveTypes::String _d);
 
-    ::PrimitiveTypes::String getMarkerEnd () const;
-    void setMarkerEnd (::PrimitiveTypes::String _markerEnd);
+    virtual ::PrimitiveTypes::String getMarkerEnd () const;
+    virtual void setMarkerEnd (::PrimitiveTypes::String _markerEnd);
 
-    ::PrimitiveTypes::String getMarkerStart () const;
-    void setMarkerStart (::PrimitiveTypes::String _markerStart);
+    virtual ::PrimitiveTypes::String getMarkerStart () const;
+    virtual void setMarkerStart (::PrimitiveTypes::String _markerStart);
 
     // References
 

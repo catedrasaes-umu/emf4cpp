@@ -53,11 +53,11 @@ namespace kdm
         // Attributes
 
         // References
-        ::kdm::ui::UIResource_ptr getTo () const;
-        void setTo (::kdm::ui::UIResource_ptr _to);
+        virtual ::kdm::ui::UIResource_ptr getTo () const;
+        virtual void setTo (::kdm::ui::UIResource_ptr _to);
 
-        ::kdm::ui::UIResource_ptr getFrom () const;
-        void setFrom (::kdm::ui::UIResource_ptr _from);
+        virtual ::kdm::ui::UIResource_ptr getFrom () const;
+        virtual void setFrom (::kdm::ui::UIResource_ptr _from);
 
         /*PROTECTED REGION ID(UILayout) START*/
         // Please, enable the protected region if you add manually written code.
