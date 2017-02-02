@@ -118,7 +118,7 @@ void UnionField::setLabelAt(size_t _position,
         ::idlmm::EAny const& _new_element_in_label)
 {
     if (_position >= m_label.size())
-        m_label.resize(_position + 1, 0);
+        m_label.resize(_position + 1, ::idlmm::EAny());
 
     m_label[_position] = _new_element_in_label;
 }

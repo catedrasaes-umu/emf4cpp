@@ -141,7 +141,7 @@ using namespace ::«EPackage.getFQN()»;
         throw "Attribute counter out of bounds!";
     «ENDIF-»
     if ( _position >= «attrn».size() )
-        «attrn».resize(_position + 1, 0);
+        «attrn».resize(_position + 1, «at.getCPPTypeSignatureImpl()»());
 
     «attrn»[_position] = _new_element_in_«at.name»;
     «ENDLET-»

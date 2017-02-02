@@ -131,7 +131,7 @@ void OperationDef::setContextsAt(size_t _position,
         ::ecore::EString const& _new_element_in_contexts)
 {
     if (_position >= m_contexts.size())
-        m_contexts.resize(_position + 1, 0);
+        m_contexts.resize(_position + 1, ::ecore::EString());
 
     m_contexts[_position] = _new_element_in_contexts;
 }

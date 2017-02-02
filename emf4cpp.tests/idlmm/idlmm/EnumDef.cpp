@@ -91,7 +91,7 @@ void EnumDef::setMembersAt(size_t _position,
         ::ecore::EString const& _new_element_in_members)
 {
     if (_position >= m_members.size())
-        m_members.resize(_position + 1, 0);
+        m_members.resize(_position + 1, ::ecore::EString());
 
     m_members[_position] = _new_element_in_members;
 }
