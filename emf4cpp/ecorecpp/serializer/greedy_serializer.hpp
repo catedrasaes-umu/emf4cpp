@@ -61,7 +61,14 @@ struct greedy_serializer
 private:
     std::ostream& out;
     unsigned int level;
-    std::list< bool > has_value;
+	enum class ClosingState { Open, Closed };
+	enum class NewLineRequired { NoLineBreak, LineBreak };
+	struct TagManagement {
+		TagManagement(ClosingState c, NewLineRequired n) : closing(c), newLine(n) { }
+		ClosingState closing;
+		NewLineRequired newLine;
+	};
+    std::list< TagManagement > has_value;
     bool indent;
 
     inline void _indent()
@@ -81,13 +88,14 @@ public:
 
     inline void open_object(const string_t& _name, bool silent = false)
     {
-        if(has_value.size() && !has_value.back())
+        if (has_value.size() && has_value.back().closing == ClosingState::Open)
         {
-            has_value.back() = true;
+            has_value.back().closing = ClosingState::Closed;
+			has_value.back().newLine = NewLineRequired::LineBreak;
             out << ">\n";
         }
 
-        has_value.push_back(false);
+        has_value.push_back(TagManagement(ClosingState::Open, NewLineRequired::NoLineBreak));
 
         if (indent)
             _indent();
@@ -102,11 +110,11 @@ public:
         --level;
 
 		if (!silent) {
-			if (!has_value.back())
+			if (has_value.back().closing == ClosingState::Open)
 				out << "/>\n";
 			else
 			{
-				if (indent)
+				if (indent && has_value.back().newLine == NewLineRequired::LineBreak)
 					_indent();
 
 				out << "</" << _name << ">\n";
@@ -124,16 +132,17 @@ public:
     inline void add_value(const string_t& _value)
     {
         assert(has_value.size());
-        assert(!has_value.back());
+        assert(has_value.back().closing == ClosingState::Open);
 
-        has_value.back() = true;
+        has_value.back().closing = ClosingState::Closed;
+        has_value.back().newLine = NewLineRequired::NoLineBreak;
         out << ">" << _value;
     }
 
     inline void append(const string_t& _value)
     {
         assert(has_value.size());
-        has_value.back() = true;
+        has_value.back().closing = ClosingState::Closed;
 		out << _value;
     }
 };
