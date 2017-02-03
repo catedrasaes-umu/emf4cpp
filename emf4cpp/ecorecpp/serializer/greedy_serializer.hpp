@@ -27,6 +27,7 @@
 #include <cassert>
 
 #include "../mapping.hpp"
+#include "../util/escape_html.hpp"
 
 namespace ecorecpp
 {
@@ -35,6 +36,7 @@ namespace serializer
 
 using ::ecorecpp::mapping::type_definitions::string_t;
 using ::ecorecpp::mapping::type_definitions::char_t;
+using ::ecorecpp::util::escape_html;
 
 static const char_t *_indent_precalc[] = {
     "",
@@ -126,7 +128,9 @@ public:
 
     inline void add_attribute(const string_t& _name, const string_t& _value)
     {
-        out << " " << _name << "=\"" << _value << "\"";
+		std::string safe_value(_value);
+		escape_html(safe_value);
+        out << " " << _name << "=\"" << safe_value << "\"";
     }
 
     inline void add_value(const string_t& _value)
@@ -136,7 +140,10 @@ public:
 
         has_value.back().closing = ClosingState::Closed;
         has_value.back().newLine = NewLineRequired::NoLineBreak;
-        out << ">" << _value;
+
+		std::string safe_value(_value);
+		escape_html(safe_value);
+		out << ">" << safe_value;
     }
 
     inline void append(const string_t& _value)

@@ -21,6 +21,7 @@
 #include "handler.hpp"
 #include "../MetaModelRepository.hpp"
 #include "../util/debug.hpp"
+#include "../util/escape_html.hpp"
 #include "../mapping.hpp"
 #include <iostream>
 #include <vector>
@@ -50,6 +51,8 @@ void handler::characters(xml_parser::match_pair const& chars)
             assert( m_level);
 
             ::ecorecpp::mapping::type_definitions::string_t _literal(chars.first, chars.second);
+
+			util::unescape_html(_literal);
 
             // DEBUG_MSG(cout, "expected!! " << length << " " << _literal);
 
@@ -111,6 +114,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
                               attributes[i].first.second),
                 ::ecorecpp::mapping::type_definitions::string_t (attributes[i].second.first,
                               attributes[i].second.second));
+
+			util::unescape_html(attr_list[i].second);
 
             if (!_type && (attr_list[i].first == "xsi:type"))
                 _type = &attr_list[i].second;

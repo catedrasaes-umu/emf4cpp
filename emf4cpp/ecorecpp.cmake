@@ -11,6 +11,7 @@ set(ecorecpp_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/ItemProvider.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/MetaModelRepository.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/print.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/escape_html.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/parser/parser.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/parser/handler.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/parser/XMLHandler.cpp
@@ -68,6 +69,7 @@ set(ecorecpp_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/serializer/serializer-xerces.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/debug.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/print.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/escape_html.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource_forward.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/Resource.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.hpp
@@ -115,6 +117,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/serializer/XMLSerializer.hpp 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/serializer/serializer-xerces.hpp DESTINATION include/emf4cpp/ecorecpp/serializer)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/debug.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/print.hpp DESTINATION include/emf4cpp/ecorecpp/util)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/escape_html.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource_forward.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/Resource.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
