@@ -31,6 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     	«EXPAND template::CMakeLists::MainCMake FOR this»
     	«EXPAND template::CMakeLists::CMake FOR this»
     	«EXPAND template::dllExtensions::hpp FOR this»
+    	«EXPAND template::Qmake::QMake FOR this»
     	«REM»«EXPAND template::Makefile::MainMakefile FOR this»«ENDREM»
 	«ENDIF»
 «ENDDEFINE»

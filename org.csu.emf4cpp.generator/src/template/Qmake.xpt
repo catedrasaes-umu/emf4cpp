@@ -1,0 +1,67 @@
+«REM»
+QMake.xpt
+Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Packages»
+
+«DEFINE SOURCES FOR EPackage-»
+    «getFQN("/")».cpp \
+    «getPackagePrefix("/")».cpp \
+    «getFactoryPrefix("/")».cpp \
+    «getPackagePrefix("/")»Impl.cpp \
+    «getFactoryPrefix("/")»Impl.cpp\ 
+    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
+    «class.getFQN("/")».cpp \
+    «class.getFQN("/")»Impl.cpp \
+    «ENDFOREACH-»
+«EXPAND SOURCES FOREACH ESubpackages-»
+«ENDDEFINE»
+
+«DEFINE HEADERS FOR EPackage-»
+    «getFQN("/")».hpp \
+    «getFQN("/")»_forward.hpp \
+    «getPackagePrefix("/")».hpp \
+    «getFactoryPrefix("/")».hpp \
+    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
+    «class.getFQN("/")».hpp \
+    «ENDFOREACH-»
+«EXPAND HEADERS FOREACH ESubpackages-»
+«ENDDEFINE»
+
+
+«DEFINE QMake FOR EPackage»
+«LET getFQN("_") AS fqn»
+«FILE fqn+".pri"-»
+«IF (boolean) GLOBALVAR internalLicense»
+«EXPAND template::License::LicenseMakefile FOR fqn+".pri"-»
+«ELSE»
+«EXPAND template::EndUserLicense::LicenseMakefile FOR fqn+".pri"-»
+«ENDIF»
+SOURCES += \
+«EXPAND SOURCES FOR this-»
+
+
+HEADERS += \
+«EXPAND HEADERS FOR this-»
+
+«ENDFILE»
+«ENDLET»
+«ENDDEFINE»

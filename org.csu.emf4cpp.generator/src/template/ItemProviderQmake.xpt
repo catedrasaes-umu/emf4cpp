@@ -54,8 +54,15 @@ TEMPLATE = lib
 TARGET = «name»-editor
 QT += core widgets
 
-CONFIG += dll object_parallel_to_source
+CONFIG += dll
 DEFINES += MAKE_«getHeaderDefDLL()»_DLL
+
+«PROTECT CSTART '#' CEND '' ID "qmake_local_config"»
+# Please, add the path to the created model files here
+#INCLUDEPATH +=
+«ENDPROTECT»
+
+INCLUDEPATH += .
 
 # uses definitions above
 include (../install.pri)
