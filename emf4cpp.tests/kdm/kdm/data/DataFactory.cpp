@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::data::DataFactory > DataFactory::s_instance;
 ::kdm::data::DataFactory_ptr DataFactory::_instance()
 {
     if (!s_instance.get())
-        new DataFactory();
+        s_instance.reset(new DataFactory());
     return s_instance.get();
 }
 

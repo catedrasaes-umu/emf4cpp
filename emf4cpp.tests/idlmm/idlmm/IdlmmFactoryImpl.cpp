@@ -54,7 +54,6 @@ using namespace ::idlmm;
 
 IdlmmFactory::IdlmmFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr IdlmmFactory::create(::ecore::EClass_ptr _eClass)

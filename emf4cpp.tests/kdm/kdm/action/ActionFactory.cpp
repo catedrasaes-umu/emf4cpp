@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::action::ActionFactory > ActionFactory::s_instance;
 ::kdm::action::ActionFactory_ptr ActionFactory::_instance()
 {
     if (!s_instance.get())
-        new ActionFactory();
+        s_instance.reset(new ActionFactory());
     return s_instance.get();
 }
 

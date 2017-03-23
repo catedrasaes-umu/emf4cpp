@@ -29,7 +29,6 @@ using namespace ::TopLevelPackage;
 
 TopLevelPackageFactory::TopLevelPackageFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr TopLevelPackageFactory::create(::ecore::EClass_ptr _eClass)

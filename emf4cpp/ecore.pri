@@ -25,7 +25,7 @@ SOURCES += \
     ecore/EcorePackage.cpp \
     ecore/EcoreFactory.cpp \
     ecore/EcorePackageImpl.cpp \
-    ecore/EcoreFactoryImpl.cpp \
+    ecore/EcoreFactoryImpl.cpp\ 
     ecore/EAttribute.cpp \
     ecore/EAttributeImpl.cpp \
     ecore/EAnnotation.cpp \

@@ -28,7 +28,6 @@ using namespace ::enduserlicense;
 
 EnduserlicenseFactory::EnduserlicenseFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr EnduserlicenseFactory::create(::ecore::EClass_ptr _eClass)

@@ -27,7 +27,7 @@ std::unique_ptr< ::json::JsonFactory > JsonFactory::s_instance;
 ::json::JsonFactory_ptr JsonFactory::_instance()
 {
     if (!s_instance.get())
-        new JsonFactory();
+        s_instance.reset(new JsonFactory());
     return s_instance.get();
 }
 

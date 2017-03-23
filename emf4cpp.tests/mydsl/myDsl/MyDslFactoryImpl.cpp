@@ -34,7 +34,6 @@ using namespace ::myDsl;
 
 MyDslFactory::MyDslFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr MyDslFactory::create(::ecore::EClass_ptr _eClass)

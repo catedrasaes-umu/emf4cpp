@@ -27,7 +27,7 @@ std::unique_ptr< ::myDsl::MyDslFactory > MyDslFactory::s_instance;
 ::myDsl::MyDslFactory_ptr MyDslFactory::_instance()
 {
     if (!s_instance.get())
-        new MyDslFactory();
+        s_instance.reset(new MyDslFactory());
     return s_instance.get();
 }
 

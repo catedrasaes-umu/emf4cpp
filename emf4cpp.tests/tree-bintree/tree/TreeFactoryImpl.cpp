@@ -31,7 +31,6 @@ using namespace ::tree;
 
 TreeFactory::TreeFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr TreeFactory::create(::ecore::EClass_ptr _eClass)

@@ -22,6 +22,7 @@
 #define    ECORECPP_MAPPING_ANYTRAITS_HPP
 
 #include <type_traits>
+#include <typeinfo>
 #include "type_definitions.hpp"
 
 namespace ecorecpp
@@ -80,9 +81,9 @@ struct any_traits< type_definitions::string_t >
 {
     static inline void fromAny(const any& _any, type_definitions::string_t& _t)
     {
-        if (_any.type() == type_id<const type_definitions::string_t*>::id())
+        if (_any.type() == typeid(const type_definitions::string_t*))
             _t = *any::any_cast< const type_definitions::string_t* >(_any);
-        else if (_any.type() == type_id<type_definitions::string_t*>::id())
+        else if (_any.type() == typeid(type_definitions::string_t*))
             _t = *any::any_cast< type_definitions::string_t* >(_any);
     }
 

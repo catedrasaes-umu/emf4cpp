@@ -41,9 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using namespace ::«getFQN()»;
 
 «name.toFirstUpper()»Factory::«name.toFirstUpper()»Factory()
-{
-    s_instance.reset(this);
-}
+{}
 
 ::ecore::EObject_ptr «name.toFirstUpper()»Factory::create ( ::ecore::EClass_ptr _eClass)
 {

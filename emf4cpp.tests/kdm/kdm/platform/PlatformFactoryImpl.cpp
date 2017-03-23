@@ -60,7 +60,6 @@ using namespace ::kdm::platform;
 
 PlatformFactory::PlatformFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr PlatformFactory::create(::ecore::EClass_ptr _eClass)

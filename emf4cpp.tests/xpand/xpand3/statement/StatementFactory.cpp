@@ -27,7 +27,7 @@ std::unique_ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_ins
 ::xpand3::statement::StatementFactory_ptr StatementFactory::_instance()
 {
     if (!s_instance.get())
-        new StatementFactory();
+        s_instance.reset(new StatementFactory());
     return s_instance.get();
 }
 

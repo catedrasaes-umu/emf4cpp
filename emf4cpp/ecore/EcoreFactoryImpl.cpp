@@ -48,7 +48,6 @@ using namespace ::ecore;
 
 EcoreFactory::EcoreFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr EcoreFactory::create(::ecore::EClass_ptr _eClass)

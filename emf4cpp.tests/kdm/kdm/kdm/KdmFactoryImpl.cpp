@@ -40,7 +40,6 @@ using namespace ::kdm::kdm;
 
 KdmFactory::KdmFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr KdmFactory::create(::ecore::EClass_ptr _eClass)

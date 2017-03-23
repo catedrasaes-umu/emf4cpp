@@ -51,7 +51,6 @@ using namespace ::xpand3::expression;
 
 ExpressionFactory::ExpressionFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr ExpressionFactory::create(::ecore::EClass_ptr _eClass)

@@ -27,7 +27,7 @@ std::unique_ptr< ::idlmm::IdlmmFactory > IdlmmFactory::s_instance;
 ::idlmm::IdlmmFactory_ptr IdlmmFactory::_instance()
 {
     if (!s_instance.get())
-        new IdlmmFactory();
+        s_instance.reset(new IdlmmFactory());
     return s_instance.get();
 }
 

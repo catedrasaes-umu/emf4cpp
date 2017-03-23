@@ -27,7 +27,7 @@ std::unique_ptr< ::enduserlicense::EnduserlicenseFactory > EnduserlicenseFactory
 ::enduserlicense::EnduserlicenseFactory_ptr EnduserlicenseFactory::_instance()
 {
     if (!s_instance.get())
-        new EnduserlicenseFactory();
+        s_instance.reset(new EnduserlicenseFactory());
     return s_instance.get();
 }
 

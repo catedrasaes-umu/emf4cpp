@@ -27,7 +27,7 @@ std::unique_ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_
 ::xpand3::expression::ExpressionFactory_ptr ExpressionFactory::_instance()
 {
     if (!s_instance.get())
-        new ExpressionFactory();
+        s_instance.reset(new ExpressionFactory());
     return s_instance.get();
 }
 

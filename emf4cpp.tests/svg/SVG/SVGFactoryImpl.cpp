@@ -66,7 +66,6 @@ using namespace ::SVG;
 
 SVGFactory::SVGFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr SVGFactory::create(::ecore::EClass_ptr _eClass)

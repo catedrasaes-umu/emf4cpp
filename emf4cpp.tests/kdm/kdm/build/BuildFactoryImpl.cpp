@@ -48,7 +48,6 @@ using namespace ::kdm::build;
 
 BuildFactory::BuildFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr BuildFactory::create(::ecore::EClass_ptr _eClass)

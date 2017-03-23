@@ -111,7 +111,6 @@ using namespace ::kdm::code;
 
 CodeFactory::CodeFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CodeFactory::create(::ecore::EClass_ptr _eClass)

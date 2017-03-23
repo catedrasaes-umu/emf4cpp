@@ -27,7 +27,7 @@ std::unique_ptr< ::xpand3::Xpand3Factory > Xpand3Factory::s_instance;
 ::xpand3::Xpand3Factory_ptr Xpand3Factory::_instance()
 {
     if (!s_instance.get())
-        new Xpand3Factory();
+        s_instance.reset(new Xpand3Factory());
     return s_instance.get();
 }
 

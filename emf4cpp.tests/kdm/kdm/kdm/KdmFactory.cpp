@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::kdm::KdmFactory > KdmFactory::s_instance;
 ::kdm::kdm::KdmFactory_ptr KdmFactory::_instance()
 {
     if (!s_instance.get())
-        new KdmFactory();
+        s_instance.reset(new KdmFactory());
     return s_instance.get();
 }
 

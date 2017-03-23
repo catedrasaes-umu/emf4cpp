@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::ui::UiFactory > UiFactory::s_instance;
 ::kdm::ui::UiFactory_ptr UiFactory::_instance()
 {
     if (!s_instance.get())
-        new UiFactory();
+        s_instance.reset(new UiFactory());
     return s_instance.get();
 }
 

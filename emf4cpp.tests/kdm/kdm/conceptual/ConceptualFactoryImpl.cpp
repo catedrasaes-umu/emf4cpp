@@ -41,7 +41,6 @@ using namespace ::kdm::conceptual;
 
 ConceptualFactory::ConceptualFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr ConceptualFactory::create(::ecore::EClass_ptr _eClass)

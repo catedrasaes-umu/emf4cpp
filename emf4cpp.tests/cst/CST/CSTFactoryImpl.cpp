@@ -32,7 +32,6 @@ using namespace ::CST;
 
 CSTFactory::CSTFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CSTFactory::create(::ecore::EClass_ptr _eClass)

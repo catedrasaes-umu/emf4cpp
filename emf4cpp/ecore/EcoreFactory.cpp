@@ -27,7 +27,7 @@ std::unique_ptr< ::ecore::EcoreFactory > EcoreFactory::s_instance;
 ::ecore::EcoreFactory_ptr EcoreFactory::_instance()
 {
     if (!s_instance.get())
-        new EcoreFactory();
+        s_instance.reset(new EcoreFactory());
     return s_instance.get();
 }
 

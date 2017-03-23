@@ -38,7 +38,6 @@ using namespace ::xpand3::declaration;
 
 DeclarationFactory::DeclarationFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr DeclarationFactory::create(::ecore::EClass_ptr _eClass)

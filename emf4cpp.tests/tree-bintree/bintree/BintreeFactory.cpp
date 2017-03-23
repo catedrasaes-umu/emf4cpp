@@ -27,7 +27,7 @@ std::unique_ptr< ::bintree::BintreeFactory > BintreeFactory::s_instance;
 ::bintree::BintreeFactory_ptr BintreeFactory::_instance()
 {
     if (!s_instance.get())
-        new BintreeFactory();
+        s_instance.reset(new BintreeFactory());
     return s_instance.get();
 }
 

@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::build::BuildFactory > BuildFactory::s_instance;
 ::kdm::build::BuildFactory_ptr BuildFactory::_instance()
 {
     if (!s_instance.get())
-        new BuildFactory();
+        s_instance.reset(new BuildFactory());
     return s_instance.get();
 }
 

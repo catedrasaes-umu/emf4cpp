@@ -27,7 +27,7 @@ std::unique_ptr< ::company::CompanyFactory > CompanyFactory::s_instance;
 ::company::CompanyFactory_ptr CompanyFactory::_instance()
 {
     if (!s_instance.get())
-        new CompanyFactory();
+        s_instance.reset(new CompanyFactory());
     return s_instance.get();
 }
 

@@ -27,7 +27,7 @@ std::unique_ptr< ::CST::CSTFactory > CSTFactory::s_instance;
 ::CST::CSTFactory_ptr CSTFactory::_instance()
 {
     if (!s_instance.get())
-        new CSTFactory();
+        s_instance.reset(new CSTFactory());
     return s_instance.get();
 }
 

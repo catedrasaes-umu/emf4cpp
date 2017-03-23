@@ -27,7 +27,7 @@ std::unique_ptr< ::PrimitiveTypes::PrimitiveTypesFactory > PrimitiveTypesFactory
 ::PrimitiveTypes::PrimitiveTypesFactory_ptr PrimitiveTypesFactory::_instance()
 {
     if (!s_instance.get())
-        new PrimitiveTypesFactory();
+        s_instance.reset(new PrimitiveTypesFactory());
     return s_instance.get();
 }
 

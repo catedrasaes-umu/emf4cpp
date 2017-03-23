@@ -100,7 +100,7 @@ std::unique_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::
 ::«getFactoryPrefix("::")»_ptr «name.toFirstUpper()»Factory::_instance()
 {
     if (!s_instance.get())
-        new «name.toFirstUpper()»Factory();
+        s_instance.reset(new «name.toFirstUpper()»Factory());
     return s_instance.get();
 }
 

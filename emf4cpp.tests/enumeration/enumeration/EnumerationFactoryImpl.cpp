@@ -29,7 +29,6 @@ using namespace ::enumeration;
 
 EnumerationFactory::EnumerationFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr EnumerationFactory::create(::ecore::EClass_ptr _eClass)

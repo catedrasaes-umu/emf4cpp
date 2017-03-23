@@ -27,7 +27,7 @@ std::unique_ptr< ::eopposite::EoppositeFactory > EoppositeFactory::s_instance;
 ::eopposite::EoppositeFactory_ptr EoppositeFactory::_instance()
 {
     if (!s_instance.get())
-        new EoppositeFactory();
+        s_instance.reset(new EoppositeFactory());
     return s_instance.get();
 }
 

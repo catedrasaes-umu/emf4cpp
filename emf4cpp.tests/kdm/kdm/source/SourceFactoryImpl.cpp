@@ -46,7 +46,6 @@ using namespace ::kdm::source;
 
 SourceFactory::SourceFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr SourceFactory::create(::ecore::EClass_ptr _eClass)

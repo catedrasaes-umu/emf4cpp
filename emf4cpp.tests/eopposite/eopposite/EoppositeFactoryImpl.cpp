@@ -33,7 +33,6 @@ using namespace ::eopposite;
 
 EoppositeFactory::EoppositeFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr EoppositeFactory::create(::ecore::EClass_ptr _eClass)

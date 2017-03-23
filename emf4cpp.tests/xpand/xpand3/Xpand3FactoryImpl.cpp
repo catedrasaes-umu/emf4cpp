@@ -33,7 +33,6 @@ using namespace ::xpand3;
 
 Xpand3Factory::Xpand3Factory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr Xpand3Factory::create(::ecore::EClass_ptr _eClass)

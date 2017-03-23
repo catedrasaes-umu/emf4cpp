@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::code::CodeFactory > CodeFactory::s_instance;
 ::kdm::code::CodeFactory_ptr CodeFactory::_instance()
 {
     if (!s_instance.get())
-        new CodeFactory();
+        s_instance.reset(new CodeFactory());
     return s_instance.get();
 }
 

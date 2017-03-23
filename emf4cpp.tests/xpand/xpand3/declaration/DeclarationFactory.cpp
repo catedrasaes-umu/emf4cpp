@@ -27,7 +27,7 @@ std::unique_ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory:
 ::xpand3::declaration::DeclarationFactory_ptr DeclarationFactory::_instance()
 {
     if (!s_instance.get())
-        new DeclarationFactory();
+        s_instance.reset(new DeclarationFactory());
     return s_instance.get();
 }
 

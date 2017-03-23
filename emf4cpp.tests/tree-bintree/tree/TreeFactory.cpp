@@ -27,7 +27,7 @@ std::unique_ptr< ::tree::TreeFactory > TreeFactory::s_instance;
 ::tree::TreeFactory_ptr TreeFactory::_instance()
 {
     if (!s_instance.get())
-        new TreeFactory();
+        s_instance.reset(new TreeFactory());
     return s_instance.get();
 }
 

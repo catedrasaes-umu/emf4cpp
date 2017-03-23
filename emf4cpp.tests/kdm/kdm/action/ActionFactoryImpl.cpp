@@ -53,7 +53,6 @@ using namespace ::kdm::action;
 
 ActionFactory::ActionFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr ActionFactory::create(::ecore::EClass_ptr _eClass)

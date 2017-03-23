@@ -29,7 +29,6 @@ using namespace ::bintree;
 
 BintreeFactory::BintreeFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr BintreeFactory::create(::ecore::EClass_ptr _eClass)

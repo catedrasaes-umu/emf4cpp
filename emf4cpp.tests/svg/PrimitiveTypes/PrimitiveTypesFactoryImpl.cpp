@@ -28,7 +28,6 @@ using namespace ::PrimitiveTypes;
 
 PrimitiveTypesFactory::PrimitiveTypesFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr PrimitiveTypesFactory::create(::ecore::EClass_ptr _eClass)

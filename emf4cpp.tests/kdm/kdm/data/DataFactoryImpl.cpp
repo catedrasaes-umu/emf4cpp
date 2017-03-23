@@ -73,7 +73,6 @@ using namespace ::kdm::data;
 
 DataFactory::DataFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr DataFactory::create(::ecore::EClass_ptr _eClass)

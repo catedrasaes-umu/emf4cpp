@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::conceptual::ConceptualFactory > ConceptualFactory::s_ins
 ::kdm::conceptual::ConceptualFactory_ptr ConceptualFactory::_instance()
 {
     if (!s_instance.get())
-        new ConceptualFactory();
+        s_instance.reset(new ConceptualFactory());
     return s_instance.get();
 }
 

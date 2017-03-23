@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::structure::StructureFactory > StructureFactory::s_instan
 ::kdm::structure::StructureFactory_ptr StructureFactory::_instance()
 {
     if (!s_instance.get())
-        new StructureFactory();
+        s_instance.reset(new StructureFactory());
     return s_instance.get();
 }
 

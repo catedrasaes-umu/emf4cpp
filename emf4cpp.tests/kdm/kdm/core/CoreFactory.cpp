@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::core::CoreFactory > CoreFactory::s_instance;
 ::kdm::core::CoreFactory_ptr CoreFactory::_instance()
 {
     if (!s_instance.get())
-        new CoreFactory();
+        s_instance.reset(new CoreFactory());
     return s_instance.get();
 }
 

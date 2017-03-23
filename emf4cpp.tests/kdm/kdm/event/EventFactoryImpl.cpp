@@ -46,7 +46,6 @@ using namespace ::kdm::event;
 
 EventFactory::EventFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr EventFactory::create(::ecore::EClass_ptr _eClass)

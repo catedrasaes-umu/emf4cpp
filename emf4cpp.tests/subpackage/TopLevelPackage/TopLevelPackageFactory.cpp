@@ -27,7 +27,7 @@ std::unique_ptr< ::TopLevelPackage::TopLevelPackageFactory > TopLevelPackageFact
 ::TopLevelPackage::TopLevelPackageFactory_ptr TopLevelPackageFactory::_instance()
 {
     if (!s_instance.get())
-        new TopLevelPackageFactory();
+        s_instance.reset(new TopLevelPackageFactory());
     return s_instance.get();
 }
 

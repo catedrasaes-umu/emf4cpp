@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::source::SourceFactory > SourceFactory::s_instance;
 ::kdm::source::SourceFactory_ptr SourceFactory::_instance()
 {
     if (!s_instance.get())
-        new SourceFactory();
+        s_instance.reset(new SourceFactory());
     return s_instance.get();
 }
 

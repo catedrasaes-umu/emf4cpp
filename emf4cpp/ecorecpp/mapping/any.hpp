@@ -23,24 +23,12 @@
 #include <stdexcept>
 #include <string>
 #include <cstddef>
+#include <typeinfo>
 
 namespace ecorecpp
 {
 namespace mapping
 {
-
-typedef ptrdiff_t type_id_t;
-
-// Type identifier class
-template< typename T >
-struct type_id
-{
-    static type_id_t id()
-    {
-        static char c;
-        return reinterpret_cast< type_id_t > (&c);
-    }
-};
 
 // Poor man's any class
 struct any
@@ -101,10 +89,10 @@ struct any
         return store_ == 0;
     }
 
-    type_id_t type() const
+    const std::type_info& type() const
     {
         if (!store_)
-            return 0;
+            return typeid(nullptr);
         return store_->type__id();
     }
 
@@ -112,7 +100,7 @@ struct any
     static T&
     any_cast(any const& a)
     {
-        if (type_id< T >::id() != a.type())
+        if (typeid(T) != a.type())
             throw bad_any_cast();
 
         return dynamic_cast< holder< T >* > (a.store_)->v_;
@@ -122,7 +110,7 @@ struct any
     static bool
     is_a(any const& a)
     {
-        return type_id< T >::id() == a.type();
+        return typeid(T) == a.type();
     }
 
     // Inner classes
@@ -132,7 +120,7 @@ struct any
         {
         }
 
-        virtual type_id_t type__id() const = 0;
+        virtual const std::type_info& type__id() const = 0;
         virtual holder_base* copy() const = 0;
     };
 
@@ -144,9 +132,9 @@ struct any
         {
         }
 
-        type_id_t type__id() const
+        const std::type_info& type__id() const
         {
-            return type_id< T >::id();
+            return typeid(T);
         }
 
         holder_base* copy() const

@@ -27,7 +27,7 @@ std::unique_ptr< ::enumeration::EnumerationFactory > EnumerationFactory::s_insta
 ::enumeration::EnumerationFactory_ptr EnumerationFactory::_instance()
 {
     if (!s_instance.get())
-        new EnumerationFactory();
+        s_instance.reset(new EnumerationFactory());
     return s_instance.get();
 }
 

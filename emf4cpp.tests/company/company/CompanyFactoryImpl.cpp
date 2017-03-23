@@ -32,7 +32,6 @@ using namespace ::company;
 
 CompanyFactory::CompanyFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CompanyFactory::create(::ecore::EClass_ptr _eClass)

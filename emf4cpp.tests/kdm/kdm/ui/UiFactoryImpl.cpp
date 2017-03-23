@@ -47,7 +47,6 @@ using namespace ::kdm::ui;
 
 UiFactory::UiFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr UiFactory::create(::ecore::EClass_ptr _eClass)

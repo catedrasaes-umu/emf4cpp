@@ -33,7 +33,6 @@ using namespace ::kdm::core;
 
 CoreFactory::CoreFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CoreFactory::create(::ecore::EClass_ptr _eClass)

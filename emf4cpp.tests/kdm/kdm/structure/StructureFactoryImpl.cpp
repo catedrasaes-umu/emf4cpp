@@ -38,7 +38,6 @@ using namespace ::kdm::structure;
 
 StructureFactory::StructureFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr StructureFactory::create(::ecore::EClass_ptr _eClass)

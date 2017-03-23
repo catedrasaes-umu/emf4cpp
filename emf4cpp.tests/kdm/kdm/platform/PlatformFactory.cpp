@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_instance;
 ::kdm::platform::PlatformFactory_ptr PlatformFactory::_instance()
 {
     if (!s_instance.get())
-        new PlatformFactory();
+        s_instance.reset(new PlatformFactory());
     return s_instance.get();
 }
 

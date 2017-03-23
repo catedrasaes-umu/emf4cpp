@@ -39,7 +39,6 @@ using namespace ::xpand3::statement;
 
 StatementFactory::StatementFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr StatementFactory::create(::ecore::EClass_ptr _eClass)

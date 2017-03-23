@@ -27,7 +27,7 @@ std::unique_ptr< ::TopLevelPackage::Level1::Level1Factory > Level1Factory::s_ins
 ::TopLevelPackage::Level1::Level1Factory_ptr Level1Factory::_instance()
 {
     if (!s_instance.get())
-        new Level1Factory();
+        s_instance.reset(new Level1Factory());
     return s_instance.get();
 }
 

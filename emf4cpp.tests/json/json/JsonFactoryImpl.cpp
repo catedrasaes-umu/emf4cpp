@@ -36,7 +36,6 @@ using namespace ::json;
 
 JsonFactory::JsonFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr JsonFactory::create(::ecore::EClass_ptr _eClass)

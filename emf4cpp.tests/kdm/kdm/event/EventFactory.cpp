@@ -27,7 +27,7 @@ std::unique_ptr< ::kdm::event::EventFactory > EventFactory::s_instance;
 ::kdm::event::EventFactory_ptr EventFactory::_instance()
 {
     if (!s_instance.get())
-        new EventFactory();
+        s_instance.reset(new EventFactory());
     return s_instance.get();
 }
 
