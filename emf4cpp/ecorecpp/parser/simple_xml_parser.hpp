@@ -141,7 +141,10 @@ struct spaces_: plus_< space >
 
 struct string_:
         semantic_rule<string_,
-                      seq_< char_<'"'> , star_< notchar_<'"'> >, char_<'"'> > >
+                      or_<
+					  seq_< char_<'"'> , star_< notchar_<'"'> >, char_<'"'> >,
+                      seq_< char_<'\''> , star_< notchar_<'\''> >, char_<'\''> >
+					  > >
 {
     // Semantic rule
     template< typename S >
