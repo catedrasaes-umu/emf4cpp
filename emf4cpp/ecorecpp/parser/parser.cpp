@@ -73,6 +73,11 @@ parser::load(const char* _file)
         // read data as a block:
         is.read (buffer.get(),length);
 
+        // The file is read in text mode. If it contains \r\n line
+        // endings, the number of bytes read can be smaller than the
+        // file size calculated by seekg().
+        length = is.gcount();
+
         is.close();
     }
 
