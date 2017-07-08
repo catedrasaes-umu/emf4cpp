@@ -42,9 +42,15 @@ public:
         return m_content[_index];
     }
 
+	/* The container grows as std::vector<>::insert() does. */
     virtual void insert_at(size_t _pos, T* _obj)
     {
-        m_content[_pos] = _obj;
+		/* Out-of-range positions are appended. */
+		if (_pos >= m_content.size())
+			return push_back(_obj);
+
+		auto it = m_content.begin() + _pos;
+		m_content.insert(it, _obj);
     }
 
     virtual void push_back(T* _obj)
@@ -101,14 +107,24 @@ public:
     {
     }
 
-    virtual void insert_at(size_t _pos, T* _obj)
+	/* The container grows as std::vector<>::insert() does. */
+	virtual void insert_at(size_t _pos, T* _obj)
     {
-        containment_t< T, containment >::free(base_t::m_content[_pos]);
+		/* Out-of-range positions are appended. */
+		if (_pos >= base_t::m_content.size())
+			return push_back(_obj);
 
-        base_t::m_content[_pos] = _obj;
+		/* Do not insert a second reference to the same object. */
+		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
+		if (it == base_t::m_content.end()) {
+			/* Removed deletion of element at previous position. */
 
-		m_containment.set(_obj);
-		m_opposite.set(_obj);
+			it = base_t::m_content.begin() + _pos;
+			base_t::m_content.insert(it, _obj);
+
+			m_containment.set(_obj);
+			m_opposite.set(_obj);
+		}
     }
 
     virtual void push_back(T* _obj)
