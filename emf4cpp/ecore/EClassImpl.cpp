@@ -37,8 +37,6 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EClassImpl.cpp) ENABLED START*/
 #include <iostream>
 
@@ -156,6 +154,8 @@ void EClass::_init_collections()
     }
 }
 /*PROTECTED REGION END*/
+
+using namespace ::ecore;
 
 void EClass::_initialize()
 {

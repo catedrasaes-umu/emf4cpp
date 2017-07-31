@@ -38,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(GroupingElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -64,13 +69,10 @@ GroupingElement::~GroupingElement()
 {
 }
 
-/*PROTECTED REGION ID(GroupingElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::SVG::Element >& GroupingElement::getGroupContent() const
 {
     return *m_groupContent;

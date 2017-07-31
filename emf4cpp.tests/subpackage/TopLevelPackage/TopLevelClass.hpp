@@ -21,12 +21,13 @@
 #ifndef TOPLEVELPACKAGE_TOPLEVELCLASS_HPP
 #define TOPLEVELPACKAGE_TOPLEVELCLASS_HPP
 
-#include <TopLevelPackage_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <TopLevelPackage/dllTopLevelPackage.hpp>
+#include <TopLevelPackage_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "TopLevelPackagePackage.hpp"
 
 /*PROTECTED REGION ID(TopLevelClass_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -51,6 +52,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = TopLevelPackagePackage::TOPLEVELCLASS;
 
     /*PROTECTED REGION ID(TopLevelClass) START*/
     // Please, enable the protected region if you add manually written code.

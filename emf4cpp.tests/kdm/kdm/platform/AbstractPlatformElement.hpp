@@ -21,10 +21,10 @@
 #ifndef KDM_PLATFORM_ABSTRACTPLATFORMELEMENT_HPP
 #define KDM_PLATFORM_ABSTRACTPLATFORMELEMENT_HPP
 
-#include <kdm/platform_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/platform_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -32,6 +32,8 @@
 #include <kdm/action_forward.hpp>
 #include <kdm/code_forward.hpp>
 #include <kdm/core/KDMEntity.hpp>
+
+#include "PlatformPackage.hpp"
 
 /*PROTECTED REGION ID(AbstractPlatformElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -68,6 +70,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = PlatformPackage::ABSTRACTPLATFORMELEMENT;
 
         /*PROTECTED REGION ID(AbstractPlatformElement) START*/
         // Please, enable the protected region if you add manually written code.

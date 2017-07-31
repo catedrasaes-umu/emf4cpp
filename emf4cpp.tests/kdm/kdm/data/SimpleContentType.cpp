@@ -41,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SimpleContentType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -66,12 +71,8 @@ SimpleContentType::~SimpleContentType()
 {
 }
 
-/*PROTECTED REGION ID(SimpleContentType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String SimpleContentType::getKind() const
 {
     return m_kind;

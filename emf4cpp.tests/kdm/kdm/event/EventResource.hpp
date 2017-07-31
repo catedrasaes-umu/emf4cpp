@@ -21,10 +21,10 @@
 #ifndef KDM_EVENT_EVENTRESOURCE_HPP
 #define KDM_EVENT_EVENTRESOURCE_HPP
 
-#include <kdm/event_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/event_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -32,6 +32,8 @@
 #include <kdm/action_forward.hpp>
 #include <kdm/code_forward.hpp>
 #include <kdm/event/AbstractEventElement.hpp>
+
+#include "EventPackage.hpp"
 
 /*PROTECTED REGION ID(EventResource_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = EventPackage::EVENTRESOURCE;
 
         /*PROTECTED REGION ID(EventResource) START*/
         // Please, enable the protected region if you add manually written code.

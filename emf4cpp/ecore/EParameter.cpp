@@ -33,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EParameter.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -54,13 +59,10 @@ EParameter::~EParameter()
 {
 }
 
-/*PROTECTED REGION ID(EParameter.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::ecore::EOperation_ptr EParameter::getEOperation() const
 {
     return m_eOperation;

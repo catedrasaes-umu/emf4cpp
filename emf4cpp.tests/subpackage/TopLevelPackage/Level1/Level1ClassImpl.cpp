@@ -27,12 +27,12 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::TopLevelPackage::Level1;
-
 /*PROTECTED REGION ID(Level1ClassImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::TopLevelPackage::Level1;
 
 void Level1Class::_initialize()
 {

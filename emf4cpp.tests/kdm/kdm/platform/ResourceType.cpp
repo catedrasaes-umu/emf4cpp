@@ -41,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ResourceType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::platform;
 
 // Default constructor
@@ -67,13 +72,10 @@ ResourceType::~ResourceType()
 {
 }
 
-/*PROTECTED REGION ID(ResourceType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& ResourceType::getPlatformElement() const
 {
     return *m_platformElement;

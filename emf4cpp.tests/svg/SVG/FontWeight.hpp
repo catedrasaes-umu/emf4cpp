@@ -21,13 +21,15 @@
 #ifndef SVG_FONTWEIGHT_HPP
 #define SVG_FONTWEIGHT_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Attribute.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(FontWeight_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setBold (::PrimitiveTypes::Boolean _bold);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::FONTWEIGHT;
 
     /*PROTECTED REGION ID(FontWeight) START*/
     // Please, enable the protected region if you add manually written code.

@@ -21,14 +21,16 @@
 #ifndef KDM_PLATFORM_PLATFORMRELATIONSHIP_HPP
 #define KDM_PLATFORM_PLATFORMRELATIONSHIP_HPP
 
-#include <kdm/platform_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/platform_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/platform/AbstractPlatformRelationship.hpp>
+
+#include "PlatformPackage.hpp"
 
 /*PROTECTED REGION ID(PlatformRelationship_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
 
         virtual ::kdm::platform::AbstractPlatformElement_ptr getFrom () const;
         virtual void setFrom (::kdm::platform::AbstractPlatformElement_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = PlatformPackage::PLATFORMRELATIONSHIP;
 
         /*PROTECTED REGION ID(PlatformRelationship) START*/
         // Please, enable the protected region if you add manually written code.

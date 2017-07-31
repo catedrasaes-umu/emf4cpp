@@ -21,14 +21,15 @@
 #ifndef BINTREE_BINTREENODE_HPP
 #define BINTREE_BINTREENODE_HPP
 
-#include <bintree_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <bintree/dllBintree.hpp>
+#include <bintree_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "BintreePackage.hpp"
 
 /*PROTECTED REGION ID(BinTreeNode_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -63,6 +64,10 @@ public:
 
     virtual ::bintree::BinTreeNode_ptr getRight () const;
     virtual void setRight (::bintree::BinTreeNode_ptr _right);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = BintreePackage::BINTREENODE;
 
     /*PROTECTED REGION ID(BinTreeNode) START*/
     // Please, enable the protected region if you add manually written code.

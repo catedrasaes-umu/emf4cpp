@@ -36,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(KeyRelation.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -57,13 +62,10 @@ KeyRelation::~KeyRelation()
 {
 }
 
-/*PROTECTED REGION ID(KeyRelation.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::kdm::data::UniqueKey_ptr KeyRelation::getTo() const
 {
     return m_to;

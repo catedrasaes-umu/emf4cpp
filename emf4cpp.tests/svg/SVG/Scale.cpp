@@ -30,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Scale.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -50,12 +55,8 @@ Scale::~Scale()
 {
 }
 
-/*PROTECTED REGION ID(Scale.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::Double Scale::getSx() const
 {
     return m_sx;

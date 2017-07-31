@@ -21,13 +21,15 @@
 #ifndef KDM_KDM_TAGGEDVALUE_HPP
 #define KDM_KDM_TAGGEDVALUE_HPP
 
-#include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/kdm_forward.hpp>
 
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/ExtendedValue.hpp>
+
+#include "KdmPackage.hpp"
 
 /*PROTECTED REGION ID(TaggedValue_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +57,10 @@ namespace kdm
         virtual void setValue (::kdm::core::String _value);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = KdmPackage::TAGGEDVALUE;
 
         /*PROTECTED REGION ID(TaggedValue) START*/
         // Please, enable the protected region if you add manually written code.

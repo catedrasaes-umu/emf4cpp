@@ -21,14 +21,15 @@
 #ifndef SVG_ELEMENT_HPP
 #define SVG_ELEMENT_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Element_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -90,6 +91,10 @@ public:
     virtual void setDrawsMarker (::SVG::Marker_ptr _drawsMarker);
     virtual ::SVG::Marker_ptr basicgetDrawsMarker ();
     virtual void basicsetDrawsMarker (::SVG::Marker_ptr _drawsMarker);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::ELEMENT;
 
     /*PROTECTED REGION ID(Element) START*/
     // Please, enable the protected region if you add manually written code.

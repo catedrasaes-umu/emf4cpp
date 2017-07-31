@@ -21,15 +21,17 @@
 #ifndef KDM_UI_DISPLAYSIMAGE_HPP
 #define KDM_UI_DISPLAYSIMAGE_HPP
 
-#include <kdm/ui_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/ui_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/ui/AbstractUIRelationship.hpp>
+
+#include "UiPackage.hpp"
 
 /*PROTECTED REGION ID(DisplaysImage_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,6 +62,10 @@ namespace kdm
 
         virtual ::kdm::action::ActionElement_ptr getFrom () const;
         virtual void setFrom (::kdm::action::ActionElement_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = UiPackage::DISPLAYSIMAGE;
 
         /*PROTECTED REGION ID(DisplaysImage) START*/
         // Please, enable the protected region if you add manually written code.

@@ -21,16 +21,18 @@
 #ifndef KDM_DATA_CHOICECONTENT_HPP
 #define KDM_DATA_CHOICECONTENT_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/data/ComplexContentType.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(ChoiceContent_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::CHOICECONTENT;
 
         /*PROTECTED REGION ID(ChoiceContent) START*/
         // Please, enable the protected region if you add manually written code.

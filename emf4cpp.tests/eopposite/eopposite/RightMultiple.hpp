@@ -21,13 +21,15 @@
 #ifndef EOPPOSITE_RIGHTMULTIPLE_HPP
 #define EOPPOSITE_RIGHTMULTIPLE_HPP
 
-#include <eopposite_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <eopposite/dllEopposite.hpp>
+#include <eopposite_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <eopposite/NamedObject.hpp>
+
+#include "EoppositePackage.hpp"
 
 /*PROTECTED REGION ID(RightMultiple_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     // References
     virtual const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees () const;
     virtual ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = EoppositePackage::RIGHTMULTIPLE;
 
     /*PROTECTED REGION ID(RightMultiple) START*/
     // Please, enable the protected region if you add manually written code.

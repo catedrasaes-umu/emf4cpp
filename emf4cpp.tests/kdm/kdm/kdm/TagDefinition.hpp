@@ -21,13 +21,15 @@
 #ifndef KDM_KDM_TAGDEFINITION_HPP
 #define KDM_KDM_TAGDEFINITION_HPP
 
-#include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/kdm_forward.hpp>
 
 #include <kdm/core_forward.hpp>
 #include <kdm/core/Element.hpp>
+
+#include "KdmPackage.hpp"
 
 /*PROTECTED REGION ID(TagDefinition_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
         virtual void setType (::kdm::core::String _type);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = KdmPackage::TAGDEFINITION;
 
         /*PROTECTED REGION ID(TagDefinition) START*/
         // Please, enable the protected region if you add manually written code.

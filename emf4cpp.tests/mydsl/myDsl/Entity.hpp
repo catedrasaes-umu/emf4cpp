@@ -21,13 +21,15 @@
 #ifndef MYDSL_ENTITY_HPP
 #define MYDSL_ENTITY_HPP
 
-#include <myDsl_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <myDsl/dllMyDsl.hpp>
+#include <myDsl_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <myDsl/Type.hpp>
+
+#include "MyDslPackage.hpp"
 
 /*PROTECTED REGION ID(Entity_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ public:
 
     virtual const ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties () const;
     virtual ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = MyDslPackage::ENTITY;
 
     /*PROTECTED REGION ID(Entity) START*/
     // Please, enable the protected region if you add manually written code.

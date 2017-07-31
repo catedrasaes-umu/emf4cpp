@@ -21,14 +21,15 @@
 #ifndef COMPANY_EMPLOYEE_HPP
 #define COMPANY_EMPLOYEE_HPP
 
-#include <company_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <company/dllCompany.hpp>
+#include <company_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "CompanyPackage.hpp"
 
 /*PROTECTED REGION ID(Employee_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +58,10 @@ public:
     // References
     virtual ::company::PhonebookEntry_ptr getPhonebookEntry () const;
     virtual void setPhonebookEntry (::company::PhonebookEntry_ptr _phonebookEntry);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CompanyPackage::EMPLOYEE;
 
     /*PROTECTED REGION ID(Employee) START*/
     // Please, enable the protected region if you add manually written code.

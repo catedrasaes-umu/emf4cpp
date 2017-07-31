@@ -21,14 +21,15 @@
 #ifndef SVG_REFERENCEDFILE_HPP
 #define SVG_REFERENCEDFILE_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(ReferencedFile_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +58,10 @@ public:
     // References
     virtual const ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer () const;
     virtual ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::REFERENCEDFILE;
 
     /*PROTECTED REGION ID(ReferencedFile) START*/
     // Please, enable the protected region if you add manually written code.

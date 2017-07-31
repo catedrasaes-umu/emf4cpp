@@ -21,13 +21,15 @@
 #ifndef XPAND3_EXPRESSION_CHAINEXPRESSION_HPP
 #define XPAND3_EXPRESSION_CHAINEXPRESSION_HPP
 
-#include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/expression_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/expression/AbstractExpression.hpp>
+
+#include "ExpressionPackage.hpp"
 
 /*PROTECTED REGION ID(ChainExpression_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace xpand3
 
         virtual ::xpand3::expression::AbstractExpression_ptr getNext () const;
         virtual void setNext (::xpand3::expression::AbstractExpression_ptr _next);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ExpressionPackage::CHAINEXPRESSION;
 
         /*PROTECTED REGION ID(ChainExpression) START*/
         // Please, enable the protected region if you add manually written code.

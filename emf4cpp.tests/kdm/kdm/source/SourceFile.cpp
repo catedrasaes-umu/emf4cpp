@@ -38,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SourceFile.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::source;
 
 // Default constructor
@@ -58,12 +63,8 @@ SourceFile::~SourceFile()
 {
 }
 
-/*PROTECTED REGION ID(SourceFile.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String SourceFile::getLanguage() const
 {
     return m_language;

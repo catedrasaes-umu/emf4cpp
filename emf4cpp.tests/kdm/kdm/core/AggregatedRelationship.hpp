@@ -21,13 +21,15 @@
 #ifndef KDM_CORE_AGGREGATEDRELATIONSHIP_HPP
 #define KDM_CORE_AGGREGATEDRELATIONSHIP_HPP
 
-#include <kdm/core_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/core_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core/ModelElement.hpp>
+
+#include "CorePackage.hpp"
 
 /*PROTECTED REGION ID(AggregatedRelationship_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -63,6 +65,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CorePackage::AGGREGATEDRELATIONSHIP;
 
         /*PROTECTED REGION ID(AggregatedRelationship) START*/
         // Please, enable the protected region if you add manually written code.

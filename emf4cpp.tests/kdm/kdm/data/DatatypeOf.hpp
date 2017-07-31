@@ -21,14 +21,16 @@
 #ifndef KDM_DATA_DATATYPEOF_HPP
 #define KDM_DATA_DATATYPEOF_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/code_forward.hpp>
 #include <kdm/data/AbstractDataRelationship.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(DatatypeOf_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
 
         virtual ::kdm::data::ComplexContentType_ptr getFrom () const;
         virtual void setFrom (::kdm::data::ComplexContentType_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::DATATYPEOF;
 
         /*PROTECTED REGION ID(DatatypeOf) START*/
         // Please, enable the protected region if you add manually written code.

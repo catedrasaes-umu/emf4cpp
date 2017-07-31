@@ -30,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Element.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::core;
 
 // Default constructor
@@ -59,13 +64,10 @@ Element::~Element()
 {
 }
 
-/*PROTECTED REGION ID(Element.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& Element::getAttribute() const
 {
     return *m_attribute;

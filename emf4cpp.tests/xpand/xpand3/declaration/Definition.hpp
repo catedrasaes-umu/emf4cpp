@@ -21,16 +21,18 @@
 #ifndef XPAND3_DECLARATION_DEFINITION_HPP
 #define XPAND3_DECLARATION_DEFINITION_HPP
 
-#include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/statement_forward.hpp>
 #include <xpand3/declaration/AbstractNamedDeclaration.hpp>
+
+#include "DeclarationPackage.hpp"
 
 /*PROTECTED REGION ID(Definition_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace xpand3
         // References
         virtual const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody () const;
         virtual ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DeclarationPackage::DEFINITION;
 
         /*PROTECTED REGION ID(Definition) START*/
         // Please, enable the protected region if you add manually written code.

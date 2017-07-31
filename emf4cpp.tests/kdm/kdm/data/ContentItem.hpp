@@ -21,16 +21,18 @@
 #ifndef KDM_DATA_CONTENTITEM_HPP
 #define KDM_DATA_CONTENTITEM_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/data/AbstractContentElement.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(ContentItem_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,6 +63,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::CONTENTITEM;
 
         /*PROTECTED REGION ID(ContentItem) START*/
         // Please, enable the protected region if you add manually written code.

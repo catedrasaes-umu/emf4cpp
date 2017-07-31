@@ -21,14 +21,15 @@
 #ifndef COMPANY_DEPARTMENT_HPP
 #define COMPANY_DEPARTMENT_HPP
 
-#include <company_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <company/dllCompany.hpp>
+#include <company_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "CompanyPackage.hpp"
 
 /*PROTECTED REGION ID(Department_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,6 +61,10 @@ public:
 
     virtual ::company::Employee_ptr getManager () const;
     virtual void setManager (::company::Employee_ptr _manager);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CompanyPackage::DEPARTMENT;
 
     /*PROTECTED REGION ID(Department) START*/
     // Please, enable the protected region if you add manually written code.

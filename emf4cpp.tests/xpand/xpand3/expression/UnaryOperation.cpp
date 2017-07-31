@@ -30,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(UnaryOperation.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -55,13 +60,10 @@ UnaryOperation::~UnaryOperation()
     }
 }
 
-/*PROTECTED REGION ID(UnaryOperation.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::xpand3::Identifier_ptr UnaryOperation::getOperator() const
 {
     return m_operator;

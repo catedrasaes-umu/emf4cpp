@@ -28,6 +28,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Element.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::CST;
 
 // Default constructor
@@ -48,12 +53,8 @@ Element::~Element()
 {
 }
 
-/*PROTECTED REGION ID(Element.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& Element::getKind() const
 {
     return m_kind;

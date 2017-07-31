@@ -21,13 +21,15 @@
 #ifndef SVG_RELATIVECOORD_HPP
 #define SVG_RELATIVECOORD_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Coordinates.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(RelativeCoord_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -51,6 +53,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::RELATIVECOORD;
 
     /*PROTECTED REGION ID(RelativeCoord) START*/
     // Please, enable the protected region if you add manually written code.

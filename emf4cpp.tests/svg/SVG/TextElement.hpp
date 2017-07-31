@@ -21,13 +21,15 @@
 #ifndef SVG_TEXTELEMENT_HPP
 #define SVG_TEXTELEMENT_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/GraphicalElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(TextElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ public:
     virtual void setFontSize (::PrimitiveTypes::String _fontSize);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::TEXTELEMENT;
 
     /*PROTECTED REGION ID(TextElement) START*/
     // Please, enable the protected region if you add manually written code.

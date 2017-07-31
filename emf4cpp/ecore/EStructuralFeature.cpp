@@ -33,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EStructuralFeature.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -54,12 +59,8 @@ EStructuralFeature::~EStructuralFeature()
 {
 }
 
-/*PROTECTED REGION ID(EStructuralFeature.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean EStructuralFeature::isChangeable() const
 {
     return m_changeable;

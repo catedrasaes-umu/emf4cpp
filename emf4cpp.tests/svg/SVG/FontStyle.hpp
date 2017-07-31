@@ -21,13 +21,15 @@
 #ifndef SVG_FONTSTYLE_HPP
 #define SVG_FONTSTYLE_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Attribute.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(FontStyle_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setItalic (::PrimitiveTypes::Boolean _italic);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::FONTSTYLE;
 
     /*PROTECTED REGION ID(FontStyle) START*/
     // Please, enable the protected region if you add manually written code.

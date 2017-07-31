@@ -21,10 +21,10 @@
 #ifndef KDM_UI_UIACTION_HPP
 #define KDM_UI_UIACTION_HPP
 
-#include <kdm/ui_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/ui_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -32,6 +32,8 @@
 #include <kdm/code_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/ui/AbstractUIElement.hpp>
+
+#include "UiPackage.hpp"
 
 /*PROTECTED REGION ID(UIAction_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,6 +63,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent >& getUIElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent >& getUIElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = UiPackage::UIACTION;
 
         /*PROTECTED REGION ID(UIAction) START*/
         // Please, enable the protected region if you add manually written code.

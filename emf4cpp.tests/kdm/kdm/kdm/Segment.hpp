@@ -21,13 +21,15 @@
 #ifndef KDM_KDM_SEGMENT_HPP
 #define KDM_KDM_SEGMENT_HPP
 
-#include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/kdm_forward.hpp>
 
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/KDMFramework.hpp>
+
+#include "KdmPackage.hpp"
 
 /*PROTECTED REGION ID(Segment_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = KdmPackage::SEGMENT;
 
         /*PROTECTED REGION ID(Segment) START*/
         // Please, enable the protected region if you add manually written code.

@@ -21,14 +21,16 @@
 #ifndef KDM_STRUCTURE_STRUCTUREELEMENT_HPP
 #define KDM_STRUCTURE_STRUCTUREELEMENT_HPP
 
-#include <kdm/structure_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/structure_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/structure/AbstractStructureElement.hpp>
+
+#include "StructurePackage.hpp"
 
 /*PROTECTED REGION ID(StructureElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -54,6 +56,10 @@ namespace kdm
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StructurePackage::STRUCTUREELEMENT;
 
         /*PROTECTED REGION ID(StructureElement) START*/
         // Please, enable the protected region if you add manually written code.

@@ -21,13 +21,15 @@
 #ifndef KDM_CONCEPTUAL_CONCEPTUALFLOW_HPP
 #define KDM_CONCEPTUAL_CONCEPTUALFLOW_HPP
 
-#include <kdm/conceptual_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/conceptual_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/conceptual/AbstractConceptualRelationship.hpp>
+
+#include "ConceptualPackage.hpp"
 
 /*PROTECTED REGION ID(ConceptualFlow_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual ::kdm::conceptual::ConceptualContainer_ptr getFrom () const;
         virtual void setFrom (::kdm::conceptual::ConceptualContainer_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ConceptualPackage::CONCEPTUALFLOW;
 
         /*PROTECTED REGION ID(ConceptualFlow) START*/
         // Please, enable the protected region if you add manually written code.

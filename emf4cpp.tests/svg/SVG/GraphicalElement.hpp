@@ -21,13 +21,15 @@
 #ifndef SVG_GRAPHICALELEMENT_HPP
 #define SVG_GRAPHICALELEMENT_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Element.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(GraphicalElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setStroke (::PrimitiveTypes::String _stroke);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::GRAPHICALELEMENT;
 
     /*PROTECTED REGION ID(GraphicalElement) START*/
     // Please, enable the protected region if you add manually written code.

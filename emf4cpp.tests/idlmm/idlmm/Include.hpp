@@ -21,14 +21,15 @@
 #ifndef IDLMM_INCLUDE_HPP
 #define IDLMM_INCLUDE_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(Include_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +56,10 @@ public:
     virtual void setImportURI (::ecore::EString const& _importURI);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::INCLUDE;
 
     /*PROTECTED REGION ID(Include) START*/
     // Please, enable the protected region if you add manually written code.

@@ -21,14 +21,16 @@
 #ifndef XPAND3_EXPRESSION_COLLECTIONEXPRESSION_HPP
 #define XPAND3_EXPRESSION_COLLECTIONEXPRESSION_HPP
 
-#include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/expression_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression/FeatureCall.hpp>
+
+#include "ExpressionPackage.hpp"
 
 /*PROTECTED REGION ID(CollectionExpression_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace xpand3
 
         virtual ::xpand3::Identifier_ptr getEleName () const;
         virtual void setEleName (::xpand3::Identifier_ptr _eleName);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ExpressionPackage::COLLECTIONEXPRESSION;
 
         /*PROTECTED REGION ID(CollectionExpression) START*/
         // Please, enable the protected region if you add manually written code.

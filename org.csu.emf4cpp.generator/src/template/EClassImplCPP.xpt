@@ -49,12 +49,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::«EPackage.getFQN()»;
-
 «PROTECT CSTART '/*' CEND '*/' ID name+"Impl.cpp" DISABLE»
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 «ENDPROTECT»
+
+using namespace ::«EPackage.getFQN()»;
 
 void «name»::_initialize()
 {

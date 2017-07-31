@@ -21,15 +21,17 @@
 #ifndef KDM_BUILD_BUILDDESCRIPTION_HPP
 #define KDM_BUILD_BUILDDESCRIPTION_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/build/BuildResource.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(BuildDescription_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::BUILDDESCRIPTION;
 
         /*PROTECTED REGION ID(BuildDescription) START*/
         // Please, enable the protected region if you add manually written code.

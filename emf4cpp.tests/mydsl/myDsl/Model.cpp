@@ -30,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Model.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::myDsl;
 
 // Default constructor
@@ -59,13 +64,10 @@ Model::~Model()
 {
 }
 
-/*PROTECTED REGION ID(Model.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::myDsl::Import >& Model::getImports() const
 {
     return *m_imports;

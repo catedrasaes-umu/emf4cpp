@@ -34,6 +34,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EFactory.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -55,13 +60,10 @@ EFactory::~EFactory()
 {
 }
 
-/*PROTECTED REGION ID(EFactory.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::ecore::EPackage_ptr EFactory::getEPackage() const
 {
     return m_ePackage;

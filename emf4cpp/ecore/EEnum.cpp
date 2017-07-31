@@ -33,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EEnum.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -60,13 +65,10 @@ EEnum::~EEnum()
 {
 }
 
-/*PROTECTED REGION ID(EEnum.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& EEnum::getELiterals() const
 {
     return *m_eLiterals;

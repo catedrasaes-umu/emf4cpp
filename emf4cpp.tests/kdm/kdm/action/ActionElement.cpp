@@ -41,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ActionElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::action;
 
 // Default constructor
@@ -71,12 +76,8 @@ ActionElement::~ActionElement()
 {
 }
 
-/*PROTECTED REGION ID(ActionElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String ActionElement::getKind() const
 {
     return m_kind;

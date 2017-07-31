@@ -21,14 +21,16 @@
 #ifndef XPAND3_EXPRESSION_INTEGERLITERAL_HPP
 #define XPAND3_EXPRESSION_INTEGERLITERAL_HPP
 
-#include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/expression_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression/Literal.hpp>
+
+#include "ExpressionPackage.hpp"
 
 /*PROTECTED REGION ID(IntegerLiteral_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -54,6 +56,10 @@ namespace xpand3
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ExpressionPackage::INTEGERLITERAL;
 
         /*PROTECTED REGION ID(IntegerLiteral) START*/
         // Please, enable the protected region if you add manually written code.

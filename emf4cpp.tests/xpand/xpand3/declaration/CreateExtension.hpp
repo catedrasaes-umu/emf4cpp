@@ -21,15 +21,17 @@
 #ifndef XPAND3_DECLARATION_CREATEEXTENSION_HPP
 #define XPAND3_DECLARATION_CREATEEXTENSION_HPP
 
-#include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/declaration/Extension.hpp>
+
+#include "DeclarationPackage.hpp"
 
 /*PROTECTED REGION ID(CreateExtension_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +59,10 @@ namespace xpand3
         // References
         virtual ::xpand3::DeclaredParameter_ptr getToBeCreated () const;
         virtual void setToBeCreated (::xpand3::DeclaredParameter_ptr _toBeCreated);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DeclarationPackage::CREATEEXTENSION;
 
         /*PROTECTED REGION ID(CreateExtension) START*/
         // Please, enable the protected region if you add manually written code.

@@ -21,10 +21,10 @@
 #ifndef KDM_UI_UIEVENT_HPP
 #define KDM_UI_UIEVENT_HPP
 
-#include <kdm/ui_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/ui_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -32,6 +32,8 @@
 #include <kdm/code_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/ui/AbstractUIElement.hpp>
+
+#include "UiPackage.hpp"
 
 /*PROTECTED REGION ID(UIEvent_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
         virtual void setKind (::kdm::core::String _kind);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = UiPackage::UIEVENT;
 
         /*PROTECTED REGION ID(UIEvent) START*/
         // Please, enable the protected region if you add manually written code.

@@ -21,13 +21,15 @@
 #ifndef XPAND3_STATEMENT_TEXTSTATEMENT_HPP
 #define XPAND3_STATEMENT_TEXTSTATEMENT_HPP
 
-#include <xpand3/statement_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/statement_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/statement/AbstractStatement.hpp>
+
+#include "StatementPackage.hpp"
 
 /*PROTECTED REGION ID(TextStatement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace xpand3
         virtual void setDeleteLine (::ecore::EBoolean _deleteLine);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StatementPackage::TEXTSTATEMENT;
 
         /*PROTECTED REGION ID(TextStatement) START*/
         // Please, enable the protected region if you add manually written code.

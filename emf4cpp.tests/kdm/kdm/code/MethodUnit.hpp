@@ -21,10 +21,10 @@
 #ifndef KDM_CODE_METHODUNIT_HPP
 #define KDM_CODE_METHODUNIT_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -33,6 +33,8 @@
 #include <kdm/code/ControlElement.hpp>
 #include <kdm/code/MethodKind.hpp>
 #include <kdm/code/ExportKind.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(MethodUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -63,6 +65,10 @@ namespace kdm
         virtual void setExport (::kdm::code::ExportKind _export);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::METHODUNIT;
 
         /*PROTECTED REGION ID(MethodUnit) START*/
         // Please, enable the protected region if you add manually written code.

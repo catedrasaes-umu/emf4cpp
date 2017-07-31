@@ -21,13 +21,15 @@
 #ifndef KDM_BUILD_SUPPORTEDBY_HPP
 #define KDM_BUILD_SUPPORTEDBY_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/build/AbstractBuildRelationship.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(SupportedBy_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual ::kdm::build::BuildStep_ptr getFrom () const;
         virtual void setFrom (::kdm::build::BuildStep_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::SUPPORTEDBY;
 
         /*PROTECTED REGION ID(SupportedBy) START*/
         // Please, enable the protected region if you add manually written code.

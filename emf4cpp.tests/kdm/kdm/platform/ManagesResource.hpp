@@ -21,14 +21,16 @@
 #ifndef KDM_PLATFORM_MANAGESRESOURCE_HPP
 #define KDM_PLATFORM_MANAGESRESOURCE_HPP
 
-#include <kdm/platform_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/platform_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/action/AbstractActionRelationship.hpp>
+
+#include "PlatformPackage.hpp"
 
 /*PROTECTED REGION ID(ManagesResource_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
 
         virtual ::kdm::action::ActionElement_ptr getFrom () const;
         virtual void setFrom (::kdm::action::ActionElement_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = PlatformPackage::MANAGESRESOURCE;
 
         /*PROTECTED REGION ID(ManagesResource) START*/
         // Please, enable the protected region if you add manually written code.

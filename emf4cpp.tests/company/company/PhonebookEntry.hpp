@@ -21,12 +21,13 @@
 #ifndef COMPANY_PHONEBOOKENTRY_HPP
 #define COMPANY_PHONEBOOKENTRY_HPP
 
-#include <company_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <company/dllCompany.hpp>
+#include <company_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "CompanyPackage.hpp"
 
 /*PROTECTED REGION ID(PhonebookEntry_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -51,6 +52,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CompanyPackage::PHONEBOOKENTRY;
 
     /*PROTECTED REGION ID(PhonebookEntry) START*/
     // Please, enable the protected region if you add manually written code.

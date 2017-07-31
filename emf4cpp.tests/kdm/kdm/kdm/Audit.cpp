@@ -31,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Audit.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -51,12 +56,8 @@ Audit::~Audit()
 {
 }
 
-/*PROTECTED REGION ID(Audit.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String Audit::getDescription() const
 {
     return m_description;

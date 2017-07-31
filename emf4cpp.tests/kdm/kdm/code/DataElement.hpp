@@ -21,15 +21,17 @@
 #ifndef KDM_CODE_DATAELEMENT_HPP
 #define KDM_CODE_DATAELEMENT_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/ComputationalObject.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(DataElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,6 +67,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::DATAELEMENT;
 
         /*PROTECTED REGION ID(DataElement) START*/
         // Please, enable the protected region if you add manually written code.

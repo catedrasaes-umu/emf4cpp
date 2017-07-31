@@ -21,13 +21,15 @@
 #ifndef IDLMM_UNIONFIELD_HPP
 #define IDLMM_UNIONFIELD_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/Typed.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(UnionField_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,6 +62,10 @@ public:
     virtual void deleteLabelAt ( size_t _position );
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::UNIONFIELD;
 
     /*PROTECTED REGION ID(UnionField) START*/
     // Please, enable the protected region if you add manually written code.

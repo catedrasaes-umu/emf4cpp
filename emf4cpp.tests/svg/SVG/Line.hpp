@@ -21,13 +21,15 @@
 #ifndef SVG_LINE_HPP
 #define SVG_LINE_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Shape.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Line_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ public:
     // References
     virtual const ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween () const;
     virtual ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::LINE;
 
     /*PROTECTED REGION ID(Line) START*/
     // Please, enable the protected region if you add manually written code.

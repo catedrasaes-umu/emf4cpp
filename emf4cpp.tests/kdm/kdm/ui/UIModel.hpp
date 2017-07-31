@@ -21,14 +21,16 @@
 #ifndef KDM_UI_UIMODEL_HPP
 #define KDM_UI_UIMODEL_HPP
 
-#include <kdm/ui_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/ui_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/KDMModel.hpp>
+
+#include "UiPackage.hpp"
 
 /*PROTECTED REGION ID(UIModel_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = UiPackage::UIMODEL;
 
         /*PROTECTED REGION ID(UIModel) START*/
         // Please, enable the protected region if you add manually written code.

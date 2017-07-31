@@ -21,12 +21,14 @@
 #ifndef JSON_NULLVALUE_HPP
 #define JSON_NULLVALUE_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <json/dllJson.hpp>
+#include <json_forward.hpp>
 
 #include <json/Value.hpp>
+
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(NullValue_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -50,6 +52,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::NULLVALUE;
 
     /*PROTECTED REGION ID(NullValue) START*/
     // Please, enable the protected region if you add manually written code.

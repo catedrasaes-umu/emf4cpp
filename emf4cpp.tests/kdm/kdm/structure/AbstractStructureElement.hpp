@@ -21,14 +21,16 @@
 #ifndef KDM_STRUCTURE_ABSTRACTSTRUCTUREELEMENT_HPP
 #define KDM_STRUCTURE_ABSTRACTSTRUCTUREELEMENT_HPP
 
-#include <kdm/structure_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/structure_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/core/KDMEntity.hpp>
+
+#include "StructurePackage.hpp"
 
 /*PROTECTED REGION ID(AbstractStructureElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,6 +67,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StructurePackage::ABSTRACTSTRUCTUREELEMENT;
 
         /*PROTECTED REGION ID(AbstractStructureElement) START*/
         // Please, enable the protected region if you add manually written code.

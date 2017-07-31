@@ -33,6 +33,22 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EPackage.cpp) ENABLED START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+const std::shared_ptr< ::ecorecpp::ItemProvider >& EPackage::getItemProviderInstance() const
+{
+    return m_itemProviderInstance;
+}
+
+void EPackage::setItemProviderInstance(
+        const std::shared_ptr< ::ecorecpp::ItemProvider >& provider)
+{
+    m_itemProviderInstance = provider;
+}
+
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -67,23 +83,8 @@ EPackage::~EPackage()
 {
 }
 
-/*PROTECTED REGION ID(EPackage.cpp) ENABLED START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-const std::shared_ptr< ::ecorecpp::ItemProvider >& EPackage::getItemProviderInstance() const
-{
-    return m_itemProviderInstance;
-}
-
-void EPackage::setItemProviderInstance(
-        const std::shared_ptr< ::ecorecpp::ItemProvider >& provider)
-{
-    m_itemProviderInstance = provider;
-}
-
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& EPackage::getNsURI() const
 {
     return m_nsURI;

@@ -33,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ConstantDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -53,12 +58,8 @@ ConstantDef::~ConstantDef()
 {
 }
 
-/*PROTECTED REGION ID(ConstantDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::idlmm::EAny ConstantDef::getConstValue() const
 {
     return m_constValue;

@@ -33,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractNamedDeclaration.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -58,13 +63,10 @@ AbstractNamedDeclaration::~AbstractNamedDeclaration()
     }
 }
 
-/*PROTECTED REGION ID(AbstractNamedDeclaration.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::xpand3::Identifier_ptr AbstractNamedDeclaration::getName() const
 {
     return m_name;

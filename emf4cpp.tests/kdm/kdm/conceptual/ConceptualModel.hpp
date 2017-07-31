@@ -21,14 +21,16 @@
 #ifndef KDM_CONCEPTUAL_CONCEPTUALMODEL_HPP
 #define KDM_CONCEPTUAL_CONCEPTUALMODEL_HPP
 
-#include <kdm/conceptual_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/conceptual_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/KDMModel.hpp>
+
+#include "ConceptualPackage.hpp"
 
 /*PROTECTED REGION ID(ConceptualModel_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ConceptualPackage::CONCEPTUALMODEL;
 
         /*PROTECTED REGION ID(ConceptualModel) START*/
         // Please, enable the protected region if you add manually written code.

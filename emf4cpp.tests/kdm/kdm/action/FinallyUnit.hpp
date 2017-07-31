@@ -21,16 +21,18 @@
 #ifndef KDM_ACTION_FINALLYUNIT_HPP
 #define KDM_ACTION_FINALLYUNIT_HPP
 
-#include <kdm/action_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/action_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code_forward.hpp>
 #include <kdm/action/ExceptionUnit.hpp>
+
+#include "ActionPackage.hpp"
 
 /*PROTECTED REGION ID(FinallyUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ActionPackage::FINALLYUNIT;
 
         /*PROTECTED REGION ID(FinallyUnit) START*/
         // Please, enable the protected region if you add manually written code.

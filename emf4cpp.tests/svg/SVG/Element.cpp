@@ -36,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Element.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -81,12 +86,8 @@ Element::~Element()
     }
 }
 
-/*PROTECTED REGION ID(Element.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::String Element::getFill() const
 {
     return m_fill;

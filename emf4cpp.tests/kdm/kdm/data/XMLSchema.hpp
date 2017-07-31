@@ -21,16 +21,18 @@
 #ifndef KDM_DATA_XMLSCHEMA_HPP
 #define KDM_DATA_XMLSCHEMA_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/data/AbstractDataElement.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(XMLSchema_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::XMLSCHEMA;
 
         /*PROTECTED REGION ID(XMLSchema) START*/
         // Please, enable the protected region if you add manually written code.

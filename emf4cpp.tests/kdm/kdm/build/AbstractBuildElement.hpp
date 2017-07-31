@@ -21,14 +21,16 @@
 #ifndef KDM_BUILD_ABSTRACTBUILDELEMENT_HPP
 #define KDM_BUILD_ABSTRACTBUILDELEMENT_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/core/KDMEntity.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(AbstractBuildElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::ABSTRACTBUILDELEMENT;
 
         /*PROTECTED REGION ID(AbstractBuildElement) START*/
         // Please, enable the protected region if you add manually written code.

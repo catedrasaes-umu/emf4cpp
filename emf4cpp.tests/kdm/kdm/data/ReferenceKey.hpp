@@ -21,10 +21,10 @@
 #ifndef KDM_DATA_REFERENCEKEY_HPP
 #define KDM_DATA_REFERENCEKEY_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -32,6 +32,8 @@
 #include <kdm/action_forward.hpp>
 #include <kdm/code_forward.hpp>
 #include <kdm/data/IndexElement.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(ReferenceKey_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +59,10 @@ namespace kdm
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::REFERENCEKEY;
 
         /*PROTECTED REGION ID(ReferenceKey) START*/
         // Please, enable the protected region if you add manually written code.

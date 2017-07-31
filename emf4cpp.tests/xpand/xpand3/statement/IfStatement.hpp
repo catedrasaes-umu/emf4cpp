@@ -21,14 +21,16 @@
 #ifndef XPAND3_STATEMENT_IFSTATEMENT_HPP
 #define XPAND3_STATEMENT_IFSTATEMENT_HPP
 
-#include <xpand3/statement_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/statement_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/statement/AbstractStatementWithBody.hpp>
+
+#include "StatementPackage.hpp"
 
 /*PROTECTED REGION ID(IfStatement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace xpand3
 
         virtual ::xpand3::statement::IfStatement_ptr getElseIf () const;
         virtual void setElseIf (::xpand3::statement::IfStatement_ptr _elseIf);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StatementPackage::IFSTATEMENT;
 
         /*PROTECTED REGION ID(IfStatement) START*/
         // Please, enable the protected region if you add manually written code.

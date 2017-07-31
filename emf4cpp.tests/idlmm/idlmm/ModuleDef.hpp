@@ -21,13 +21,15 @@
 #ifndef IDLMM_MODULEDEF_HPP
 #define IDLMM_MODULEDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/Container.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(ModuleDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setPrefix (::ecore::EString const& _prefix);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::MODULEDEF;
 
     /*PROTECTED REGION ID(ModuleDef) START*/
     // Please, enable the protected region if you add manually written code.

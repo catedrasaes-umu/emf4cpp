@@ -31,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(CollectionExpression.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -60,13 +65,10 @@ CollectionExpression::~CollectionExpression()
     }
 }
 
-/*PROTECTED REGION ID(CollectionExpression.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::xpand3::expression::AbstractExpression_ptr CollectionExpression::getClosure() const
 {
     return m_closure;

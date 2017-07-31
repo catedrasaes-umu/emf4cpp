@@ -21,14 +21,16 @@
 #ifndef KDM_BUILD_BUILDELEMENT_HPP
 #define KDM_BUILD_BUILDELEMENT_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/build/AbstractBuildElement.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(BuildElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -54,6 +56,10 @@ namespace kdm
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::BUILDELEMENT;
 
         /*PROTECTED REGION ID(BuildElement) START*/
         // Please, enable the protected region if you add manually written code.

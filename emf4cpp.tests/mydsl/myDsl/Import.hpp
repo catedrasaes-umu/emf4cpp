@@ -21,14 +21,15 @@
 #ifndef MYDSL_IMPORT_HPP
 #define MYDSL_IMPORT_HPP
 
-#include <myDsl_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <myDsl/dllMyDsl.hpp>
+#include <myDsl_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "MyDslPackage.hpp"
 
 /*PROTECTED REGION ID(Import_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +56,10 @@ public:
     virtual void setImportURI (::ecore::EString const& _importURI);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = MyDslPackage::IMPORT;
 
     /*PROTECTED REGION ID(Import) START*/
     // Please, enable the protected region if you add manually written code.

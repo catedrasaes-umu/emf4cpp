@@ -21,12 +21,14 @@
 #ifndef JSON_OBJECTVALUE_HPP
 #define JSON_OBJECTVALUE_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <json/dllJson.hpp>
+#include <json_forward.hpp>
 
 #include <json/Value.hpp>
+
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(ObjectValue_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -52,6 +54,10 @@ public:
     // References
     virtual const ::ecorecpp::mapping::EList< ::json::NVPair >& getMembers () const;
     virtual ::ecorecpp::mapping::EList< ::json::NVPair >& getMembers ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::OBJECTVALUE;
 
     /*PROTECTED REGION ID(ObjectValue) START*/
     // Please, enable the protected region if you add manually written code.

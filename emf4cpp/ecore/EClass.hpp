@@ -21,10 +21,10 @@
 #ifndef ECORE_ECLASS_HPP
 #define ECORE_ECLASS_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/EClassifier.hpp>
 

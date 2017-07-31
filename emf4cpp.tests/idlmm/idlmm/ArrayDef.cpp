@@ -31,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ArrayDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -51,12 +56,8 @@ ArrayDef::~ArrayDef()
 {
 }
 
-/*PROTECTED REGION ID(ArrayDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& ArrayDef::getBound() const
 {
     return m_bound;

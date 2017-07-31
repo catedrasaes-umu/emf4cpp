@@ -37,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(TextElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -57,12 +62,8 @@ TextElement::~TextElement()
 {
 }
 
-/*PROTECTED REGION ID(TextElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::Double TextElement::getRotate() const
 {
     return m_rotate;

@@ -21,14 +21,16 @@
 #ifndef KDM_SOURCE_SOURCEREGION_HPP
 #define KDM_SOURCE_SOURCEREGION_HPP
 
-#include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/source_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/core/Element.hpp>
+
+#include "SourcePackage.hpp"
 
 /*PROTECTED REGION ID(SourceRegion_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -73,6 +75,10 @@ namespace kdm
         // References
         virtual ::kdm::source::SourceFile_ptr getFile () const;
         virtual void setFile (::kdm::source::SourceFile_ptr _file);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = SourcePackage::SOURCEREGION;
 
         /*PROTECTED REGION ID(SourceRegion) START*/
         // Please, enable the protected region if you add manually written code.

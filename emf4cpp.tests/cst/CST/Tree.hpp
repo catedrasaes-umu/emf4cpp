@@ -21,13 +21,15 @@
 #ifndef CST_TREE_HPP
 #define CST_TREE_HPP
 
-#include <CST_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <CST/dllCST.hpp>
+#include <CST_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <CST/Node.hpp>
+
+#include "CSTPackage.hpp"
 
 /*PROTECTED REGION ID(Tree_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -51,6 +53,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CSTPackage::TREE;
 
     /*PROTECTED REGION ID(Tree) START*/
     // Please, enable the protected region if you add manually written code.

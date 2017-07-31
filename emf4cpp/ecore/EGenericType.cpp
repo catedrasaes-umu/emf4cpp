@@ -31,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EGenericType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -67,13 +72,10 @@ EGenericType::~EGenericType()
     }
 }
 
-/*PROTECTED REGION ID(EGenericType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::ecore::EGenericType_ptr EGenericType::getEUpperBound() const
 {
     return m_eUpperBound;

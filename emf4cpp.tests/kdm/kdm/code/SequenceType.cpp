@@ -41,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SequenceType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -61,12 +66,8 @@ SequenceType::~SequenceType()
 {
 }
 
-/*PROTECTED REGION ID(SequenceType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::Integer SequenceType::getSize() const
 {
     return m_size;

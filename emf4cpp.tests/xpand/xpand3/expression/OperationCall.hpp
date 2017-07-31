@@ -21,14 +21,16 @@
 #ifndef XPAND3_EXPRESSION_OPERATIONCALL_HPP
 #define XPAND3_EXPRESSION_OPERATIONCALL_HPP
 
-#include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/expression_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression/FeatureCall.hpp>
+
+#include "ExpressionPackage.hpp"
 
 /*PROTECTED REGION ID(OperationCall_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace xpand3
         // References
         virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParams () const;
         virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParams ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ExpressionPackage::OPERATIONCALL;
 
         /*PROTECTED REGION ID(OperationCall) START*/
         // Please, enable the protected region if you add manually written code.

@@ -29,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(PrimitiveDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -49,12 +54,8 @@ PrimitiveDef::~PrimitiveDef()
 {
 }
 
-/*PROTECTED REGION ID(PrimitiveDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::idlmm::PrimitiveKind PrimitiveDef::getKind() const
 {
     return m_kind;

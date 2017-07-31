@@ -21,13 +21,15 @@
 #ifndef KDM_BUILD_LINKSTO_HPP
 #define KDM_BUILD_LINKSTO_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/build/AbstractBuildRelationship.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(LinksTo_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual ::kdm::build::SymbolicLink_ptr getFrom () const;
         virtual void setFrom (::kdm::build::SymbolicLink_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::LINKSTO;
 
         /*PROTECTED REGION ID(LinksTo) START*/
         // Please, enable the protected region if you add manually written code.

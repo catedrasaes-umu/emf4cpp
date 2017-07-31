@@ -21,15 +21,17 @@
 #ifndef KDM_CODE_NAMESPACEUNIT_HPP
 #define KDM_CODE_NAMESPACEUNIT_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/CodeItem.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(NamespaceUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +59,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getGroupedCode ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::NAMESPACEUNIT;
 
         /*PROTECTED REGION ID(NamespaceUnit) START*/
         // Please, enable the protected region if you add manually written code.

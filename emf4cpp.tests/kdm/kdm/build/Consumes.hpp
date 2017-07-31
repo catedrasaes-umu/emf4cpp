@@ -21,13 +21,15 @@
 #ifndef KDM_BUILD_CONSUMES_HPP
 #define KDM_BUILD_CONSUMES_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/build/AbstractBuildRelationship.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(Consumes_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual ::kdm::build::BuildStep_ptr getFrom () const;
         virtual void setFrom (::kdm::build::BuildStep_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::CONSUMES;
 
         /*PROTECTED REGION ID(Consumes) START*/
         // Please, enable the protected region if you add manually written code.

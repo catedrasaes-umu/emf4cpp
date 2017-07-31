@@ -29,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Department.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::company;
 
 // Default constructor
@@ -55,12 +60,8 @@ Department::~Department()
 {
 }
 
-/*PROTECTED REGION ID(Department.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EInt Department::getNumber() const
 {
     return m_number;

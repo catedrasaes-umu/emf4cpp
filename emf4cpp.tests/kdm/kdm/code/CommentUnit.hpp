@@ -21,14 +21,16 @@
 #ifndef KDM_CODE_COMMENTUNIT_HPP
 #define KDM_CODE_COMMENTUNIT_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/core/ModelElement.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(CommentUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         virtual void setText (::kdm::core::String _text);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::COMMENTUNIT;
 
         /*PROTECTED REGION ID(CommentUnit) START*/
         // Please, enable the protected region if you add manually written code.

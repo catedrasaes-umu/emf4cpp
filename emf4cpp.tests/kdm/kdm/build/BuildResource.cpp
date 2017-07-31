@@ -38,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(BuildResource.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -71,13 +76,10 @@ BuildResource::~BuildResource()
 {
 }
 
-/*PROTECTED REGION ID(BuildResource.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& BuildResource::getImplementation() const
 {
     return *m_implementation;

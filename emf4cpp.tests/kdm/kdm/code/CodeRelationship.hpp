@@ -21,14 +21,16 @@
 #ifndef KDM_CODE_CODERELATIONSHIP_HPP
 #define KDM_CODE_CODERELATIONSHIP_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/code/AbstractCodeRelationship.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(CodeRelationship_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
 
         virtual ::kdm::code::CodeItem_ptr getFrom () const;
         virtual void setFrom (::kdm::code::CodeItem_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::CODERELATIONSHIP;
 
         /*PROTECTED REGION ID(CodeRelationship) START*/
         // Please, enable the protected region if you add manually written code.

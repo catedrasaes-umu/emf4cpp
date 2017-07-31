@@ -29,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(BinTreeNode.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::bintree;
 
 // Default constructor
@@ -58,12 +63,8 @@ BinTreeNode::~BinTreeNode()
     }
 }
 
-/*PROTECTED REGION ID(BinTreeNode.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& BinTreeNode::getData() const
 {
     return m_data;

@@ -31,14 +31,14 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EClassifierImpl.cpp) ENABLED START*/
 void EClassifier::setClassifierID(::ecore::EInt _id)
 {
     m_id = _id;
 }
 /*PROTECTED REGION END*/
+
+using namespace ::ecore;
 
 void EClassifier::_initialize()
 {

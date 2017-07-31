@@ -21,13 +21,15 @@
 #ifndef SVG_SCALE_HPP
 #define SVG_SCALE_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Transform.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Scale_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ public:
     virtual void setSy (::PrimitiveTypes::Double _sy);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::SCALE;
 
     /*PROTECTED REGION ID(Scale) START*/
     // Please, enable the protected region if you add manually written code.

@@ -41,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Signature.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -66,13 +71,10 @@ Signature::~Signature()
 {
 }
 
-/*PROTECTED REGION ID(Signature.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >& Signature::getParameterUnit() const
 {
     return *m_parameterUnit;

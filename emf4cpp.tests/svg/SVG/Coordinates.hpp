@@ -21,14 +21,15 @@
 #ifndef SVG_COORDINATES_HPP
 #define SVG_COORDINATES_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Coordinates_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +59,10 @@ public:
     virtual void setY (::PrimitiveTypes::Double _y);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::COORDINATES;
 
     /*PROTECTED REGION ID(Coordinates) START*/
     // Please, enable the protected region if you add manually written code.

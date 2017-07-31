@@ -28,6 +28,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Level3Class.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::TopLevelPackage::Level1::Level2::Level3;
 
 // Default constructor
@@ -48,10 +53,7 @@ Level3Class::~Level3Class()
 {
 }
 
-/*PROTECTED REGION ID(Level3Class.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+

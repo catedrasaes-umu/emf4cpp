@@ -34,6 +34,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractUIRelationship.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::ui;
 
 // Default constructor
@@ -54,10 +59,7 @@ AbstractUIRelationship::~AbstractUIRelationship()
 {
 }
 
-/*PROTECTED REGION ID(AbstractUIRelationship.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+

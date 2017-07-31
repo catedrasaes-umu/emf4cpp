@@ -21,12 +21,13 @@
 #ifndef JSON_VALUE_HPP
 #define JSON_VALUE_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <json/dllJson.hpp>
+#include <json_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(Value_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -51,6 +52,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::VALUE;
 
     /*PROTECTED REGION ID(Value) START*/
     // Please, enable the protected region if you add manually written code.

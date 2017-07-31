@@ -35,6 +35,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(UIFlow.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::ui;
 
 // Default constructor
@@ -56,13 +61,10 @@ UIFlow::~UIFlow()
 {
 }
 
-/*PROTECTED REGION ID(UIFlow.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::kdm::ui::AbstractUIElement_ptr UIFlow::getTo() const
 {
     return m_to;

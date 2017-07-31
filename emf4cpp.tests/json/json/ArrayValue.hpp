@@ -21,12 +21,14 @@
 #ifndef JSON_ARRAYVALUE_HPP
 #define JSON_ARRAYVALUE_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <json/dllJson.hpp>
+#include <json_forward.hpp>
 
 #include <json/Value.hpp>
+
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(ArrayValue_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -52,6 +54,10 @@ public:
     // References
     virtual const ::ecorecpp::mapping::EList< ::json::Value >& getValues () const;
     virtual ::ecorecpp::mapping::EList< ::json::Value >& getValues ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::ARRAYVALUE;
 
     /*PROTECTED REGION ID(ArrayValue) START*/
     // Please, enable the protected region if you add manually written code.

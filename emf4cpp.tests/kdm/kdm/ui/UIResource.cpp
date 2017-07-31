@@ -41,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(UIResource.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::ui;
 
 // Default constructor
@@ -66,13 +71,10 @@ UIResource::~UIResource()
 {
 }
 
-/*PROTECTED REGION ID(UIResource.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIResource::getUIElement() const
 {
     return *m_UIElement;

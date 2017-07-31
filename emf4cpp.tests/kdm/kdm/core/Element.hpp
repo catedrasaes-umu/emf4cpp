@@ -21,14 +21,15 @@
 #ifndef KDM_CORE_ELEMENT_HPP
 #define KDM_CORE_ELEMENT_HPP
 
-#include <kdm/core_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/core_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "CorePackage.hpp"
 
 /*PROTECTED REGION ID(Element_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,6 +61,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& getAnnotation () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& getAnnotation ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CorePackage::ELEMENT;
 
         /*PROTECTED REGION ID(Element) START*/
         // Please, enable the protected region if you add manually written code.

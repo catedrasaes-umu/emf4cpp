@@ -30,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Container.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -56,13 +61,10 @@ Container::~Container()
 {
 }
 
-/*PROTECTED REGION ID(Container.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::idlmm::Contained >& Container::getContains() const
 {
     return *m_contains;

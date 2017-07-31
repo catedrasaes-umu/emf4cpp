@@ -41,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EventResource.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::event;
 
 // Default constructor
@@ -66,13 +71,10 @@ EventResource::~EventResource()
 {
 }
 
-/*PROTECTED REGION ID(EventResource.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventResource::getEventElement() const
 {
     return *m_eventElement;

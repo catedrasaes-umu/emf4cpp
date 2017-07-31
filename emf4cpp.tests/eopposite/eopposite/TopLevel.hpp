@@ -21,13 +21,15 @@
 #ifndef EOPPOSITE_TOPLEVEL_HPP
 #define EOPPOSITE_TOPLEVEL_HPP
 
-#include <eopposite_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <eopposite/dllEopposite.hpp>
+#include <eopposite_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <eopposite/NamedObject.hpp>
+
+#include "EoppositePackage.hpp"
 
 /*PROTECTED REGION ID(TopLevel_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ public:
 
     virtual const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples () const;
     virtual ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = EoppositePackage::TOPLEVEL;
 
     /*PROTECTED REGION ID(TopLevel) START*/
     // Please, enable the protected region if you add manually written code.

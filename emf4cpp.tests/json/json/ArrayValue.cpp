@@ -29,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ArrayValue.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::json;
 
 // Default constructor
@@ -54,13 +59,10 @@ ArrayValue::~ArrayValue()
 {
 }
 
-/*PROTECTED REGION ID(ArrayValue.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::json::Value >& ArrayValue::getValues() const
 {
     return *m_values;

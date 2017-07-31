@@ -21,16 +21,18 @@
 #ifndef KDM_DATA_ABSTRACTDATAELEMENT_HPP
 #define KDM_DATA_ABSTRACTDATAELEMENT_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/core/KDMEntity.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(AbstractDataElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,6 +66,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::ABSTRACTDATAELEMENT;
 
         /*PROTECTED REGION ID(AbstractDataElement) START*/
         // Please, enable the protected region if you add manually written code.

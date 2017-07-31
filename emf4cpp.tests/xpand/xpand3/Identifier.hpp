@@ -21,13 +21,15 @@
 #ifndef XPAND3_IDENTIFIER_HPP
 #define XPAND3_IDENTIFIER_HPP
 
-#include <xpand3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/SyntaxElement.hpp>
+
+#include "Xpand3Package.hpp"
 
 /*PROTECTED REGION ID(Identifier_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setValue (::ecore::EString const& _value);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = Xpand3Package::IDENTIFIER;
 
     /*PROTECTED REGION ID(Identifier) START*/
     // Please, enable the protected region if you add manually written code.

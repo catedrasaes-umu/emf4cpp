@@ -33,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ModelElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::core;
 
 // Default constructor
@@ -62,13 +67,10 @@ ModelElement::~ModelElement()
 {
 }
 
-/*PROTECTED REGION ID(ModelElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ModelElement::getStereotype() const
 {
     return *m_stereotype;

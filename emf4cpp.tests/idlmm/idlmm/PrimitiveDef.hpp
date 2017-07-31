@@ -21,13 +21,15 @@
 #ifndef IDLMM_PRIMITIVEDEF_HPP
 #define IDLMM_PRIMITIVEDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <idlmm/IDLType.hpp>
 #include <idlmm/PrimitiveKind.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(PrimitiveDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setKind (::idlmm::PrimitiveKind _kind);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::PRIMITIVEDEF;
 
     /*PROTECTED REGION ID(PrimitiveDef) START*/
     // Please, enable the protected region if you add manually written code.

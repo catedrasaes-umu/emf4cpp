@@ -29,12 +29,12 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::SVG;
-
 /*PROTECTED REGION ID(TranslateImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::SVG;
 
 void Translate::_initialize()
 {

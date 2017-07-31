@@ -30,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(RightHand.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::eopposite;
 
 // Default constructor
@@ -51,13 +56,10 @@ RightHand::~RightHand()
 {
 }
 
-/*PROTECTED REGION ID(RightHand.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::eopposite::LeftHand_ptr RightHand::getLeftee() const
 {
     return m_leftee;

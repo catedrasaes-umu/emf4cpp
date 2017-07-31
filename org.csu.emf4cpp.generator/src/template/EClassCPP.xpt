@@ -47,6 +47,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <ecorecpp/notify.hpp>
 #endif
 
+«PROTECT CSTART '/*' CEND '*/' ID name+".cpp" DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+«ENDPROTECT»
+
 using namespace ::«EPackage.getFQN()»;
 
 // Default constructor
@@ -93,11 +98,6 @@ using namespace ::«EPackage.getFQN()»;
         «ENDIF-»
     «ENDFOREACH-»
 }
-
-«PROTECT CSTART '/*' CEND '*/' ID name+".cpp" DISABLE»
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-«ENDPROTECT»
 
 // Attributes
 «FOREACH this.EAttributes AS at»

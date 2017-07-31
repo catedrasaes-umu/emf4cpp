@@ -21,13 +21,15 @@
 #ifndef XPAND3_IMPORTSTATEMENT_HPP
 #define XPAND3_IMPORTSTATEMENT_HPP
 
-#include <xpand3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/SyntaxElement.hpp>
+
+#include "Xpand3Package.hpp"
 
 /*PROTECTED REGION ID(ImportStatement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +57,10 @@ public:
     // References
     virtual ::xpand3::Identifier_ptr getImportedId () const;
     virtual void setImportedId (::xpand3::Identifier_ptr _importedId);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = Xpand3Package::IMPORTSTATEMENT;
 
     /*PROTECTED REGION ID(ImportStatement) START*/
     // Please, enable the protected region if you add manually written code.

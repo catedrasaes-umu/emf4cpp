@@ -21,14 +21,15 @@
 #ifndef COMPANY_COMPANY_HPP
 #define COMPANY_COMPANY_HPP
 
-#include <company_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <company/dllCompany.hpp>
+#include <company_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "CompanyPackage.hpp"
 
 /*PROTECTED REGION ID(Company_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +58,10 @@ public:
     // References
     virtual const ::ecorecpp::mapping::EList< ::company::Department >& getDepartments () const;
     virtual ::ecorecpp::mapping::EList< ::company::Department >& getDepartments ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CompanyPackage::COMPANY;
 
     /*PROTECTED REGION ID(Company) START*/
     // Please, enable the protected region if you add manually written code.

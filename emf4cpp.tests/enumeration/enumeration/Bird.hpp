@@ -21,15 +21,16 @@
 #ifndef ENUMERATION_BIRD_HPP
 #define ENUMERATION_BIRD_HPP
 
-#include <enumeration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <enumeration/dllEnumeration.hpp>
+#include <enumeration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <enumeration/BirdType.hpp>
 
-#include <ecore/EObject.hpp>
+#include "EnumerationPackage.hpp"
 
 /*PROTECTED REGION ID(Bird_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +60,10 @@ public:
     virtual void setName (::ecore::EString const& _name);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = EnumerationPackage::BIRD;
 
     /*PROTECTED REGION ID(Bird) START*/
     // Please, enable the protected region if you add manually written code.

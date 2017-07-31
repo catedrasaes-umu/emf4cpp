@@ -21,14 +21,15 @@
 #ifndef XPAND3_SYNTAXELEMENT_HPP
 #define XPAND3_SYNTAXELEMENT_HPP
 
-#include <xpand3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "Xpand3Package.hpp"
 
 /*PROTECTED REGION ID(SyntaxElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,6 +65,10 @@ public:
     virtual void setFileName (::ecore::EString const& _fileName);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = Xpand3Package::SYNTAXELEMENT;
 
     /*PROTECTED REGION ID(SyntaxElement) START*/
     // Please, enable the protected region if you add manually written code.

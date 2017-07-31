@@ -21,16 +21,18 @@
 #ifndef KDM_CONCEPTUAL_CONCEPTUALROLE_HPP
 #define KDM_CONCEPTUAL_CONCEPTUALROLE_HPP
 
-#include <kdm/conceptual_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/conceptual_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/conceptual/AbstractConceptualElement.hpp>
+
+#include "ConceptualPackage.hpp"
 
 /*PROTECTED REGION ID(ConceptualRole_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
         // References
         virtual ::kdm::conceptual::AbstractConceptualElement_ptr getConceptualElement () const;
         virtual void setConceptualElement (::kdm::conceptual::AbstractConceptualElement_ptr _conceptualElement);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ConceptualPackage::CONCEPTUALROLE;
 
         /*PROTECTED REGION ID(ConceptualRole) START*/
         // Please, enable the protected region if you add manually written code.

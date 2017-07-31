@@ -21,14 +21,16 @@
 #ifndef KDM_PLATFORM_PLATFORMMODEL_HPP
 #define KDM_PLATFORM_PLATFORMMODEL_HPP
 
-#include <kdm/platform_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/platform_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/KDMModel.hpp>
+
+#include "PlatformPackage.hpp"
 
 /*PROTECTED REGION ID(PlatformModel_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = PlatformPackage::PLATFORMMODEL;
 
         /*PROTECTED REGION ID(PlatformModel) START*/
         // Please, enable the protected region if you add manually written code.

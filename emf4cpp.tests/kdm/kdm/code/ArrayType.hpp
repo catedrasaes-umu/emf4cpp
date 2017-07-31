@@ -21,15 +21,17 @@
 #ifndef KDM_CODE_ARRAYTYPE_HPP
 #define KDM_CODE_ARRAYTYPE_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/DerivedType.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(ArrayType_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
         // References
         virtual ::kdm::code::IndexUnit_ptr getIndexUnit () const;
         virtual void setIndexUnit (::kdm::code::IndexUnit_ptr _indexUnit);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::ARRAYTYPE;
 
         /*PROTECTED REGION ID(ArrayType) START*/
         // Please, enable the protected region if you add manually written code.

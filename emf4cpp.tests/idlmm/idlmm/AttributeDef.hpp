@@ -21,14 +21,16 @@
 #ifndef IDLMM_ATTRIBUTEDEF_HPP
 #define IDLMM_ATTRIBUTEDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/Contained.hpp>
 #include <idlmm/Typed.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(AttributeDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ public:
 
     virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises () const;
     virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::ATTRIBUTEDEF;
 
     /*PROTECTED REGION ID(AttributeDef) START*/
     // Please, enable the protected region if you add manually written code.

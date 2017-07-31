@@ -21,13 +21,15 @@
 #ifndef KDM_KDM_STEREOTYPE_HPP
 #define KDM_KDM_STEREOTYPE_HPP
 
-#include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/kdm_forward.hpp>
 
 #include <kdm/core_forward.hpp>
 #include <kdm/core/Element.hpp>
+
+#include "KdmPackage.hpp"
 
 /*PROTECTED REGION ID(Stereotype_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,6 +62,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = KdmPackage::STEREOTYPE;
 
         /*PROTECTED REGION ID(Stereotype) START*/
         // Please, enable the protected region if you add manually written code.

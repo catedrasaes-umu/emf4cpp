@@ -21,15 +21,17 @@
 #ifndef XPAND3_DECLARATION_JAVAEXTENSION_HPP
 #define XPAND3_DECLARATION_JAVAEXTENSION_HPP
 
-#include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/declaration/AbstractNamedDeclaration.hpp>
+
+#include "DeclarationPackage.hpp"
 
 /*PROTECTED REGION ID(JavaExtension_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -63,6 +65,10 @@ namespace xpand3
 
         virtual const ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes () const;
         virtual ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DeclarationPackage::JAVAEXTENSION;
 
         /*PROTECTED REGION ID(JavaExtension) START*/
         // Please, enable the protected region if you add manually written code.

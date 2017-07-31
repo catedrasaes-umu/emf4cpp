@@ -21,15 +21,17 @@
 #ifndef KDM_CODE_TIMETYPE_HPP
 #define KDM_CODE_TIMETYPE_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/PrimitiveType.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(TimeType_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +57,10 @@ namespace kdm
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::TIMETYPE;
 
         /*PROTECTED REGION ID(TimeType) START*/
         // Please, enable the protected region if you add manually written code.

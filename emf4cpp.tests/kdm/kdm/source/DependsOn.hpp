@@ -21,13 +21,15 @@
 #ifndef KDM_SOURCE_DEPENDSON_HPP
 #define KDM_SOURCE_DEPENDSON_HPP
 
-#include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/source_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/source/AbstractInventoryRelationship.hpp>
+
+#include "SourcePackage.hpp"
 
 /*PROTECTED REGION ID(DependsOn_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual ::kdm::source::AbstractInventoryElement_ptr getFrom () const;
         virtual void setFrom (::kdm::source::AbstractInventoryElement_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = SourcePackage::DEPENDSON;
 
         /*PROTECTED REGION ID(DependsOn) START*/
         // Please, enable the protected region if you add manually written code.

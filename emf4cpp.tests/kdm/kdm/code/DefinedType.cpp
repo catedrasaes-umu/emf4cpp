@@ -40,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DefinedType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -65,13 +70,10 @@ DefinedType::~DefinedType()
     }
 }
 
-/*PROTECTED REGION ID(DefinedType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::kdm::code::Datatype_ptr DefinedType::getType() const
 {
     return m_type;

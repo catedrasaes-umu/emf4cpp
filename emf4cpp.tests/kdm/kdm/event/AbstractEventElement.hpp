@@ -21,10 +21,10 @@
 #ifndef KDM_EVENT_ABSTRACTEVENTELEMENT_HPP
 #define KDM_EVENT_ABSTRACTEVENTELEMENT_HPP
 
-#include <kdm/event_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/event_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -32,6 +32,8 @@
 #include <kdm/action_forward.hpp>
 #include <kdm/code_forward.hpp>
 #include <kdm/core/KDMEntity.hpp>
+
+#include "EventPackage.hpp"
 
 /*PROTECTED REGION ID(AbstractEventElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -68,6 +70,10 @@ namespace kdm
 
         virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = EventPackage::ABSTRACTEVENTELEMENT;
 
         /*PROTECTED REGION ID(AbstractEventElement) START*/
         // Please, enable the protected region if you add manually written code.

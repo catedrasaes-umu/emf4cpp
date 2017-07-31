@@ -42,6 +42,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(PlatformAction.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::platform;
 
 // Default constructor
@@ -67,12 +72,8 @@ PlatformAction::~PlatformAction()
 {
 }
 
-/*PROTECTED REGION ID(PlatformAction.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String PlatformAction::getKind() const
 {
     return m_kind;

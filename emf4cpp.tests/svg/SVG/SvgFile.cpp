@@ -32,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SvgFile.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -59,13 +64,10 @@ SvgFile::~SvgFile()
 {
 }
 
-/*PROTECTED REGION ID(SvgFile.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::SVG::Svg_ptr SvgFile::getTag() const
 {
     return m_tag;

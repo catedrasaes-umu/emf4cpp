@@ -21,14 +21,15 @@
 #ifndef EOPPOSITE_NAMEDOBJECT_HPP
 #define EOPPOSITE_NAMEDOBJECT_HPP
 
-#include <eopposite_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <eopposite/dllEopposite.hpp>
+#include <eopposite_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "EoppositePackage.hpp"
 
 /*PROTECTED REGION ID(NamedObject_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +56,10 @@ public:
     virtual void setName (::ecore::EString const& _name);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = EoppositePackage::NAMEDOBJECT;
 
     /*PROTECTED REGION ID(NamedObject) START*/
     // Please, enable the protected region if you add manually written code.

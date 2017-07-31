@@ -21,13 +21,15 @@
 #ifndef IDLMM_UNIONDEF_HPP
 #define IDLMM_UNIONDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/TypedefDef.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(UnionDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ public:
 
     virtual ::idlmm::TypedefDef_ptr getSharedDiscrim () const;
     virtual void setSharedDiscrim (::idlmm::TypedefDef_ptr _sharedDiscrim);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::UNIONDEF;
 
     /*PROTECTED REGION ID(UnionDef) START*/
     // Please, enable the protected region if you add manually written code.

@@ -35,6 +35,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Expands.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -56,13 +61,10 @@ Expands::~Expands()
 {
 }
 
-/*PROTECTED REGION ID(Expands.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::kdm::code::PreprocessorDirective_ptr Expands::getTo() const
 {
     return m_to;

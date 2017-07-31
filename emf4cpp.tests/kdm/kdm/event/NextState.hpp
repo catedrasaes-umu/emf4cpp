@@ -21,13 +21,15 @@
 #ifndef KDM_EVENT_NEXTSTATE_HPP
 #define KDM_EVENT_NEXTSTATE_HPP
 
-#include <kdm/event_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/event_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/event/AbstractEventRelationship.hpp>
+
+#include "EventPackage.hpp"
 
 /*PROTECTED REGION ID(NextState_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual ::kdm::event::Transition_ptr getFrom () const;
         virtual void setFrom (::kdm::event::Transition_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = EventPackage::NEXTSTATE;
 
         /*PROTECTED REGION ID(NextState) START*/
         // Please, enable the protected region if you add manually written code.

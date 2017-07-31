@@ -21,13 +21,15 @@
 #ifndef IDLMM_FIELD_HPP
 #define IDLMM_FIELD_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/Typed.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(Field_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setIdentifier (::ecore::EString const& _identifier);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::FIELD;
 
     /*PROTECTED REGION ID(Field) START*/
     // Please, enable the protected region if you add manually written code.

@@ -21,13 +21,15 @@
 #ifndef SVG_TSPAN_HPP
 #define SVG_TSPAN_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/TextElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Tspan_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     virtual void setContent (::PrimitiveTypes::String _content);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::TSPAN;
 
     /*PROTECTED REGION ID(Tspan) START*/
     // Please, enable the protected region if you add manually written code.

@@ -30,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Typed.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -55,13 +60,10 @@ Typed::~Typed()
     }
 }
 
-/*PROTECTED REGION ID(Typed.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::idlmm::IDLType_ptr Typed::getContainedType() const
 {
     return m_containedType;

@@ -21,15 +21,17 @@
 #ifndef XPAND3_STATEMENT_FOREACHSTATEMENT_HPP
 #define XPAND3_STATEMENT_FOREACHSTATEMENT_HPP
 
-#include <xpand3/statement_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/statement_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/statement/AbstractStatementWithBody.hpp>
+
+#include "StatementPackage.hpp"
 
 /*PROTECTED REGION ID(ForEachStatement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -66,6 +68,10 @@ namespace xpand3
 
         virtual ::xpand3::Identifier_ptr getIteratorName () const;
         virtual void setIteratorName (::xpand3::Identifier_ptr _iteratorName);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StatementPackage::FOREACHSTATEMENT;
 
         /*PROTECTED REGION ID(ForEachStatement) START*/
         // Please, enable the protected region if you add manually written code.

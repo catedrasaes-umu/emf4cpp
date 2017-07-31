@@ -36,10 +36,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef «getHeaderDef()»_HPP
 #define «getHeaderDef()»_HPP
 
-#include <«EPackage.getFQN("/")»_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+«IF ESuperTypes.isEmpty && "::"+this.getFQN() != "::ecore::EObject"-»
+#include <ecore/EObject.hpp>
+«ENDIF-»
 
 #include <«EPackage.getDllExtensionPrefix()».hpp>
+#include <«EPackage.getFQN("/")»_forward.hpp>
 
 «FOREACH getNeededPackages() AS pkg-»
 #include <«pkg.getFQN("/")»_forward.hpp>
@@ -48,8 +51,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <«include».hpp>
 «ENDFOREACH-»
 
-«IF ESuperTypes.isEmpty && "::"+this.getFQN() != "::ecore::EObject"-»
-#include <ecore/EObject.hpp>
+«IF (boolean) GLOBALVAR bootstrap == false-»
+#include "«EPackage.name.toFirstUpper()»Package.hpp"
 «ENDIF-»
 
 «PROTECT CSTART '/*' CEND '*/' ID name + "_pre" DISABLE»
@@ -100,7 +103,13 @@ public:
        «ENDIF-»
        
     «ENDFOREACH-»
-    
+	
+    «IF (boolean) GLOBALVAR bootstrap == false -»
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = «EPackage.name.toFirstUpper()»Package::«name.toUpperCase()»;
+	«ENDIF-»
+	
     «IF "::"+this.getFQN() == "::ecore::EObject"-»
     /* Special EObject C++ mapping internal helper operation but also
      * very useful if a Factory is reimplemented and returns derived

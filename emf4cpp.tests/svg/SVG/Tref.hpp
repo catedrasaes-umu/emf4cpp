@@ -21,13 +21,15 @@
 #ifndef SVG_TREF_HPP
 #define SVG_TREF_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/TextElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Tref_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +55,10 @@ public:
     // References
     virtual ::SVG::TextElement_ptr getXlinkHref () const;
     virtual void setXlinkHref (::SVG::TextElement_ptr _xlinkHref);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::TREF;
 
     /*PROTECTED REGION ID(Tref) START*/
     // Please, enable the protected region if you add manually written code.

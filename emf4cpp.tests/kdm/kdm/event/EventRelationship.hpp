@@ -21,14 +21,16 @@
 #ifndef KDM_EVENT_EVENTRELATIONSHIP_HPP
 #define KDM_EVENT_EVENTRELATIONSHIP_HPP
 
-#include <kdm/event_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/event_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/event/AbstractEventRelationship.hpp>
+
+#include "EventPackage.hpp"
 
 /*PROTECTED REGION ID(EventRelationship_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
 
         virtual ::kdm::event::AbstractEventElement_ptr getFrom () const;
         virtual void setFrom (::kdm::event::AbstractEventElement_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = EventPackage::EVENTRELATIONSHIP;
 
         /*PROTECTED REGION ID(EventRelationship) START*/
         // Please, enable the protected region if you add manually written code.

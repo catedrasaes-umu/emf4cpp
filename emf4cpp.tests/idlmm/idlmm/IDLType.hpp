@@ -21,12 +21,13 @@
 #ifndef IDLMM_IDLTYPE_HPP
 #define IDLMM_IDLTYPE_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(IDLType_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,6 +54,10 @@ public:
     virtual void setTypeCode (::idlmm::ETypeCode _typeCode);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::IDLTYPE;
 
     /*PROTECTED REGION ID(IDLType) START*/
     // Please, enable the protected region if you add manually written code.

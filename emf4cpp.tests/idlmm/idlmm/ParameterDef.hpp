@@ -21,14 +21,16 @@
 #ifndef IDLMM_PARAMETERDEF_HPP
 #define IDLMM_PARAMETERDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/Typed.hpp>
 #include <idlmm/ParameterMode.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(ParameterDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +59,10 @@ public:
     virtual void setDirection (::idlmm::ParameterMode _direction);
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::PARAMETERDEF;
 
     /*PROTECTED REGION ID(ParameterDef) START*/
     // Please, enable the protected region if you add manually written code.

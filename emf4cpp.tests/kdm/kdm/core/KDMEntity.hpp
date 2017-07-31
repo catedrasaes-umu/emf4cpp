@@ -21,13 +21,15 @@
 #ifndef KDM_CORE_KDMENTITY_HPP
 #define KDM_CORE_KDMENTITY_HPP
 
-#include <kdm/core_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/core_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core/ModelElement.hpp>
+
+#include "CorePackage.hpp"
 
 /*PROTECTED REGION ID(KDMEntity_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -79,6 +81,10 @@ namespace kdm
         virtual void setName (::kdm::core::String _name);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CorePackage::KDMENTITY;
 
         /*PROTECTED REGION ID(KDMEntity) START*/
         // Please, enable the protected region if you add manually written code.

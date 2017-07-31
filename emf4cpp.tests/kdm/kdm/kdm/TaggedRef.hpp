@@ -21,13 +21,15 @@
 #ifndef KDM_KDM_TAGGEDREF_HPP
 #define KDM_KDM_TAGGEDREF_HPP
 
-#include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/kdm_forward.hpp>
 
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/ExtendedValue.hpp>
+
+#include "KdmPackage.hpp"
 
 /*PROTECTED REGION ID(TaggedRef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +57,10 @@ namespace kdm
         // References
         virtual ::kdm::core::ModelElement_ptr getReference () const;
         virtual void setReference (::kdm::core::ModelElement_ptr _reference);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = KdmPackage::TAGGEDREF;
 
         /*PROTECTED REGION ID(TaggedRef) START*/
         // Please, enable the protected region if you add manually written code.

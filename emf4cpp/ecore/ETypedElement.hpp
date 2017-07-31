@@ -21,10 +21,10 @@
 #ifndef ECORE_ETYPEDELEMENT_HPP
 #define ECORE_ETYPEDELEMENT_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/ENamedElement.hpp>
 

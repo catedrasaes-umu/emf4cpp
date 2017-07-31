@@ -21,15 +21,17 @@
 #ifndef XPAND3_STATEMENT_FILESTATEMENT_HPP
 #define XPAND3_STATEMENT_FILESTATEMENT_HPP
 
-#include <xpand3/statement_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/statement_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/statement/AbstractStatementWithBody.hpp>
+
+#include "StatementPackage.hpp"
 
 /*PROTECTED REGION ID(FileStatement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -62,6 +64,10 @@ namespace xpand3
 
         virtual ::xpand3::Identifier_ptr getOutletNameIdentifier () const;
         virtual void setOutletNameIdentifier (::xpand3::Identifier_ptr _outletNameIdentifier);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StatementPackage::FILESTATEMENT;
 
         /*PROTECTED REGION ID(FileStatement) START*/
         // Please, enable the protected region if you add manually written code.

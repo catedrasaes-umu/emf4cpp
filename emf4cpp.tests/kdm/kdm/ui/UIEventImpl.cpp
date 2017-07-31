@@ -40,12 +40,12 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::kdm::ui;
-
 /*PROTECTED REGION ID(UIEventImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::kdm::ui;
 
 void UIEvent::_initialize()
 {

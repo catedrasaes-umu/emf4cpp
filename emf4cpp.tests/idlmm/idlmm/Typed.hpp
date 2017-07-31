@@ -21,12 +21,13 @@
 #ifndef IDLMM_TYPED_HPP
 #define IDLMM_TYPED_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(Typed_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +57,10 @@ public:
 
     virtual ::idlmm::TypedefDef_ptr getSharedType () const;
     virtual void setSharedType (::idlmm::TypedefDef_ptr _sharedType);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::TYPED;
 
     /*PROTECTED REGION ID(Typed) START*/
     // Please, enable the protected region if you add manually written code.

@@ -21,12 +21,14 @@
 #ifndef SVG_TRANSFORM_HPP
 #define SVG_TRANSFORM_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <SVG/Attribute.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Transform_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -50,6 +52,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::TRANSFORM;
 
     /*PROTECTED REGION ID(Transform) START*/
     // Please, enable the protected region if you add manually written code.

@@ -21,13 +21,15 @@
 #ifndef SVG_DEFS_HPP
 #define SVG_DEFS_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/GroupingElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Defs_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -51,6 +53,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::DEFS;
 
     /*PROTECTED REGION ID(Defs) START*/
     // Please, enable the protected region if you add manually written code.

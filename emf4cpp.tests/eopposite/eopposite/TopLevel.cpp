@@ -32,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(TopLevel.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::eopposite;
 
 // Default constructor
@@ -65,13 +70,10 @@ TopLevel::~TopLevel()
 {
 }
 
-/*PROTECTED REGION ID(TopLevel.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& TopLevel::getLeftees() const
 {
     return *m_leftees;

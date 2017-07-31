@@ -21,14 +21,16 @@
 #ifndef XPAND3_EXPRESSION_UNARYOPERATION_HPP
 #define XPAND3_EXPRESSION_UNARYOPERATION_HPP
 
-#include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/expression_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression/AbstractExpression.hpp>
+
+#include "ExpressionPackage.hpp"
 
 /*PROTECTED REGION ID(UnaryOperation_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace xpand3
 
         virtual ::xpand3::expression::AbstractExpression_ptr getOperand () const;
         virtual void setOperand (::xpand3::expression::AbstractExpression_ptr _operand);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ExpressionPackage::UNARYOPERATION;
 
         /*PROTECTED REGION ID(UnaryOperation) START*/
         // Please, enable the protected region if you add manually written code.

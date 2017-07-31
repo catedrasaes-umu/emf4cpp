@@ -32,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractDeclaration.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -66,12 +71,8 @@ AbstractDeclaration::~AbstractDeclaration()
     }
 }
 
-/*PROTECTED REGION ID(AbstractDeclaration.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean AbstractDeclaration::isIsPrivate() const
 {
     return m_isPrivate;

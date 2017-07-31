@@ -21,14 +21,16 @@
 #ifndef KDM_SOURCE_SOURCEFILE_HPP
 #define KDM_SOURCE_SOURCEFILE_HPP
 
-#include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/source_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source/InventoryItem.hpp>
+
+#include "SourcePackage.hpp"
 
 /*PROTECTED REGION ID(SourceFile_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,6 +61,10 @@ namespace kdm
         virtual void setEncoding (::kdm::core::String _encoding);
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = SourcePackage::SOURCEFILE;
 
         /*PROTECTED REGION ID(SourceFile) START*/
         // Please, enable the protected region if you add manually written code.

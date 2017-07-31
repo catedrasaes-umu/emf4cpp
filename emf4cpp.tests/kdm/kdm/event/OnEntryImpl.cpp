@@ -41,12 +41,12 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::kdm::event;
-
 /*PROTECTED REGION ID(OnEntryImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::kdm::event;
 
 void OnEntry::_initialize()
 {

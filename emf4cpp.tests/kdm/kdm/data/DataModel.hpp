@@ -21,14 +21,16 @@
 #ifndef KDM_DATA_DATAMODEL_HPP
 #define KDM_DATA_DATAMODEL_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/KDMModel.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(DataModel_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement >& getDataElement () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement >& getDataElement ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::DATAMODEL;
 
         /*PROTECTED REGION ID(DataModel) START*/
         // Please, enable the protected region if you add manually written code.

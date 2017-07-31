@@ -36,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Dispatches.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::action;
 
 // Default constructor
@@ -57,13 +62,10 @@ Dispatches::~Dispatches()
 {
 }
 
-/*PROTECTED REGION ID(Dispatches.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::kdm::code::DataElement_ptr Dispatches::getTo() const
 {
     return m_to;

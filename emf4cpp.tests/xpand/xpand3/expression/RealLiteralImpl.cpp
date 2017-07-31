@@ -29,12 +29,12 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::expression;
-
 /*PROTECTED REGION ID(RealLiteralImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::expression;
 
 void RealLiteral::_initialize()
 {

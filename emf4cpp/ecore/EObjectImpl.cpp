@@ -32,8 +32,6 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EObjectImpl.cpp) ENABLED START*/
 
 void EObject::_setEContainer(::ecore::EObject_ptr _eContainer,
@@ -106,6 +104,8 @@ void EObject::notifyChanged( ::ecorecpp::notify::Notification_ptr _notification)
 
 #endif
 /*PROTECTED REGION END*/
+
+using namespace ::ecore;
 
 void EObject::_initialize()
 {

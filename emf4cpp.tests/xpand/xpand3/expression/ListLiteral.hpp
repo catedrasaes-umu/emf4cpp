@@ -21,13 +21,15 @@
 #ifndef XPAND3_EXPRESSION_LISTLITERAL_HPP
 #define XPAND3_EXPRESSION_LISTLITERAL_HPP
 
-#include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <xpand3/dllXpand3.hpp>
+#include <xpand3/expression_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/expression/AbstractExpression.hpp>
+
+#include "ExpressionPackage.hpp"
 
 /*PROTECTED REGION ID(ListLiteral_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +57,10 @@ namespace xpand3
         // References
         virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getElements () const;
         virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getElements ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ExpressionPackage::LISTLITERAL;
 
         /*PROTECTED REGION ID(ListLiteral) START*/
         // Please, enable the protected region if you add manually written code.

@@ -21,16 +21,18 @@
 #ifndef KDM_CONCEPTUAL_FACTUNIT_HPP
 #define KDM_CONCEPTUAL_FACTUNIT_HPP
 
-#include <kdm/conceptual_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/conceptual_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/conceptual/ConceptualContainer.hpp>
+
+#include "ConceptualPackage.hpp"
 
 /*PROTECTED REGION ID(FactUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +58,10 @@ namespace kdm
         // Attributes
 
         // References
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ConceptualPackage::FACTUNIT;
 
         /*PROTECTED REGION ID(FactUnit) START*/
         // Please, enable the protected region if you add manually written code.

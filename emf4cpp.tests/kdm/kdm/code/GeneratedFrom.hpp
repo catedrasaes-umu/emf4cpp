@@ -21,13 +21,15 @@
 #ifndef KDM_CODE_GENERATEDFROM_HPP
 #define KDM_CODE_GENERATEDFROM_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/code/AbstractCodeRelationship.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(GeneratedFrom_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,6 +60,10 @@ namespace kdm
 
         virtual ::kdm::code::AbstractCodeElement_ptr getFrom () const;
         virtual void setFrom (::kdm::code::AbstractCodeElement_ptr _from);
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::GENERATEDFROM;
 
         /*PROTECTED REGION ID(GeneratedFrom) START*/
         // Please, enable the protected region if you add manually written code.

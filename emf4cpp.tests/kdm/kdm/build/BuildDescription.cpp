@@ -40,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(BuildDescription.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -65,12 +70,8 @@ BuildDescription::~BuildDescription()
 {
 }
 
-/*PROTECTED REGION ID(BuildDescription.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String BuildDescription::getText() const
 {
     return m_text;

@@ -21,14 +21,16 @@
 #ifndef KDM_SOURCE_SOURCEREF_HPP
 #define KDM_SOURCE_SOURCEREF_HPP
 
-#include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <kdm/dllKdm.hpp>
+#include <kdm/source_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/core/Element.hpp>
+
+#include "SourcePackage.hpp"
 
 /*PROTECTED REGION ID(SourceRef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,6 +63,10 @@ namespace kdm
         // References
         virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion () const;
         virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion ();
+
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = SourcePackage::SOURCEREF;
 
         /*PROTECTED REGION ID(SourceRef) START*/
         // Please, enable the protected region if you add manually written code.

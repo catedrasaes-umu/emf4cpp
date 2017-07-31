@@ -42,6 +42,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DeployedComponent.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::platform;
 
 // Default constructor
@@ -67,13 +72,10 @@ DeployedComponent::~DeployedComponent()
 {
 }
 
-/*PROTECTED REGION ID(DeployedComponent.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::code::Module >& DeployedComponent::getGroupedCode() const
 {
     return *m_groupedCode;

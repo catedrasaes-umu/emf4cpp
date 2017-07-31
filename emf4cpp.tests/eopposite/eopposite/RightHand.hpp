@@ -21,13 +21,15 @@
 #ifndef EOPPOSITE_RIGHTHAND_HPP
 #define EOPPOSITE_RIGHTHAND_HPP
 
-#include <eopposite_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <eopposite/dllEopposite.hpp>
+#include <eopposite_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <eopposite/NamedObject.hpp>
+
+#include "EoppositePackage.hpp"
 
 /*PROTECTED REGION ID(RightHand_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,6 +57,10 @@ public:
     virtual void setLeftee (::eopposite::LeftHand_ptr _leftee);
     virtual ::eopposite::LeftHand_ptr basicgetLeftee ();
     virtual void basicsetLeftee (::eopposite::LeftHand_ptr _leftee);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = EoppositePackage::RIGHTHAND;
 
     /*PROTECTED REGION ID(RightHand) START*/
     // Please, enable the protected region if you add manually written code.

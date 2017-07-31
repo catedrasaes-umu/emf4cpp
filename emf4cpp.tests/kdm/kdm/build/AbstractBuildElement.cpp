@@ -37,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractBuildElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -63,13 +68,10 @@ AbstractBuildElement::~AbstractBuildElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractBuildElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& AbstractBuildElement::getBuildRelation() const
 {
     return *m_buildRelation;

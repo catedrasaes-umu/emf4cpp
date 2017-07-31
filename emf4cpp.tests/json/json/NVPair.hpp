@@ -21,14 +21,15 @@
 #ifndef JSON_NVPAIR_HPP
 #define JSON_NVPAIR_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <json/dllJson.hpp>
+#include <json_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(NVPair_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +58,10 @@ public:
     // References
     virtual ::json::Value_ptr getValue () const;
     virtual void setValue (::json::Value_ptr _value);
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::NVPAIR;
 
     /*PROTECTED REGION ID(NVPair) START*/
     // Please, enable the protected region if you add manually written code.

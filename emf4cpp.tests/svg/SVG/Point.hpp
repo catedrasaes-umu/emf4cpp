@@ -21,13 +21,15 @@
 #ifndef SVG_POINT_HPP
 #define SVG_POINT_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Shape.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Point_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -51,6 +53,10 @@ public:
     // Attributes
 
     // References
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::POINT;
 
     /*PROTECTED REGION ID(Point) START*/
     // Please, enable the protected region if you add manually written code.

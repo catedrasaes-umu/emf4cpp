@@ -35,6 +35,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(StructureRelationship.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::structure;
 
 // Default constructor
@@ -56,13 +61,10 @@ StructureRelationship::~StructureRelationship()
 {
 }
 
-/*PROTECTED REGION ID(StructureRelationship.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
+
 ::kdm::core::KDMEntity_ptr StructureRelationship::getTo() const
 {
     return m_to;

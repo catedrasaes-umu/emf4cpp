@@ -21,12 +21,13 @@
 #ifndef TOPLEVELPACKAGE_LEVEL1_LEVEL2_LEVEL3_LEVEL3CLASS_HPP
 #define TOPLEVELPACKAGE_LEVEL1_LEVEL2_LEVEL3_LEVEL3CLASS_HPP
 
-#include <TopLevelPackage/Level1/Level2/Level3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <TopLevelPackage/dllTopLevelPackage.hpp>
+#include <TopLevelPackage/Level1/Level2/Level3_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "Level3Package.hpp"
 
 /*PROTECTED REGION ID(Level3Class_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -57,6 +58,10 @@ namespace TopLevelPackage
                 // Attributes
 
                 // References
+
+                /* This is the same value as getClassifierId() returns, but as a static
+                 * value it can be used in template expansions. */
+                static const int classifierId = Level3Package::LEVEL3CLASS;
 
                 /*PROTECTED REGION ID(Level3Class) START*/
                 // Please, enable the protected region if you add manually written code.

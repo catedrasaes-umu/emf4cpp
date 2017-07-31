@@ -21,12 +21,13 @@
 #ifndef MYDSL_MODEL_HPP
 #define MYDSL_MODEL_HPP
 
-#include <myDsl_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
 
 #include <myDsl/dllMyDsl.hpp>
+#include <myDsl_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "MyDslPackage.hpp"
 
 /*PROTECTED REGION ID(Model_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,6 +57,10 @@ public:
 
     virtual const ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements () const;
     virtual ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements ();
+
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = MyDslPackage::MODEL;
 
     /*PROTECTED REGION ID(Model) START*/
     // Please, enable the protected region if you add manually written code.

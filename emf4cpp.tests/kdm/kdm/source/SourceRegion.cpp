@@ -32,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SourceRegion.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::source;
 
 // Default constructor
@@ -53,12 +58,8 @@ SourceRegion::~SourceRegion()
 {
 }
 
-/*PROTECTED REGION ID(SourceRegion.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::Integer SourceRegion::getStartLine() const
 {
     return m_startLine;
