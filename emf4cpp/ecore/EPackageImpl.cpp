@@ -79,7 +79,7 @@ void EPackage::_initialize()
     if ((it = m_eClassifiersMap.find(_name)) != m_eClassifiersMap.end())
         return it->second;
 
-    throw "EPackage: EClassifier not found!";
+    throw std::logic_error(std::string("EPackage: EClassifier not found: ") + _name);
     /*PROTECTED REGION END*/
 }
 

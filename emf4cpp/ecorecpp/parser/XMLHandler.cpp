@@ -21,6 +21,7 @@
 #include "XMLHandler.hpp"
 #include "../MetaModelRepository.hpp"
 #include "../util/debug.hpp"
+#include "../util/escape_html.hpp"
 #include "../mapping.hpp"
 #include "../resource/ResourceSet.hpp"
 #include <iostream>
@@ -51,6 +52,8 @@ void XMLHandler::characters(xml_parser::match_pair const& chars) {
 		assert( m_level);
 
 		::ecorecpp::mapping::type_definitions::string_t literal(chars.first, chars.second);
+
+		util::unescape_html(literal);
 
 		EObject_ptr const& eobj = m_objects.back();
 		EClass_ptr const eclass = eobj->eClass();
@@ -109,6 +112,8 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 				::ecorecpp::mapping::type_definitions::string_t( attributes[i].second.first,
 						attributes[i].second.second));
 
+		util::unescape_html(attr_list[i].second);
+
 		if (!type && (attr_list[i].first == "xsi:type"))
 			type = &attr_list[i].second;
 
@@ -141,6 +146,8 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 		::ecorecpp::mapping::type_definitions::string_t type_name = type->substr(double_dot+1);
 
 		epkg = _mmr->getByName(type_ns);
+		if (!epkg)
+			throw std::logic_error(std::string("missing package: ") + type_ns);
 
 		if (!m_level) {
 			m_current_metamodel = epkg;
@@ -352,7 +359,8 @@ void XMLHandler::resolveCrossDocumentReferences() {
 				: resource->getEObject(refUri.fragment().toStdString());
 
 		if (!resolvedObj) {
-			std::cerr << "Cannot resolve cross reference: " << ref._href;
+			std::cerr << "Cannot resolve cross reference: " << ref._href
+					  << std::endl;
 			continue;
 		}
 

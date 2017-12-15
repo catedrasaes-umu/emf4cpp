@@ -47,10 +47,11 @@ public:
 
 	Resource(const Resource&)    = delete;
 	void operator=(const Resource&) = delete;
-	virtual ~Resource() = default;
+	virtual ~Resource();
 
 	class EXPORT_ECORECPP_DLL Factory {
 	public:
+		virtual ~Factory();
 		virtual Resource_ptr createResource(const QUrl& uri);
 
 		class EXPORT_ECORECPP_DLL Registry {
@@ -61,12 +62,9 @@ public:
 			using FactoryMap =
 					std::unordered_map<std::string, std::unique_ptr<Factory>>;
 
-			static Registry& getInstance() {
-				static Registry instance;
+			static Registry& getInstance();
 
-				return instance;
-			}
-
+			~Registry();
 			Registry(const Registry&)       = delete;
 			void operator=(const Registry&) = delete;
 

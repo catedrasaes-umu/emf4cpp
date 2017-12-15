@@ -31,6 +31,7 @@
 #include <ecore/EReference.hpp>
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
+#include <ecorecpp/resource/Resource.hpp>
 
 /*PROTECTED REGION ID(EObjectImpl.cpp) ENABLED START*/
 
@@ -39,6 +40,17 @@ using namespace ::ecore;
 void EObject::_setEContainer(::ecore::EObject_ptr _eContainer,
         ::ecore::EStructuralFeature_ptr _eContainingFeature)
 {
+	if (m_eContainer == _eContainer
+		&& m_eContainingFeature == _eContainingFeature)
+		return;
+
+	if (m_eResource) {
+		auto list = m_eResource->getContents();
+		list->remove(_this());
+
+		m_eResource = nullptr;
+	}
+
     m_eContainer = _eContainer;
     m_eContainingFeature = _eContainingFeature;
 }
@@ -146,13 +158,14 @@ void EObject::_initialize()
     /*PROTECTED REGION ID(EObjectImpl_eResource) ENABLED START*/
     // Please, enable the protected region if you add manually written code.
     // To do this, add the keyword ENABLED before START.
-    if (m_eResource)
+    if (m_eResource || !eContainer())
         return m_eResource;
 
     EObject_ptr current = eContainer();
     size_t count = 0;
-    while (current && current->eContainer() && current != this // prevent cyclic containments
-    && count < 10000000) // last resort
+    while ( current && current->eContainer()
+			&& current.get() != this // prevent cyclic containments
+			&& count < 10000000) // last resort
     {
         count++;
         current = current->eContainer();

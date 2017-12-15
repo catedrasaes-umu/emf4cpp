@@ -22,7 +22,10 @@
 #include <ecorecpp/parser/XMLHandler.hpp>
 #include <ecorecpp/serializer/XMLSerializer.hpp>
 
-using namespace ::ecorecpp::resource;
+namespace ecorecpp {
+namespace resource {
+
+XMLResourceFactory::~XMLResourceFactory() = default;
 
 Resource_ptr XMLResourceFactory::createResource(const QUrl& uri) {
 	return Resource_ptr(new XMLResource(uri));
@@ -31,6 +34,8 @@ Resource_ptr XMLResourceFactory::createResource(const QUrl& uri) {
 XMLResource::XMLResource(const QUrl& uri)
 	: Resource(uri) {
 }
+
+XMLResource::~XMLResource() = default;
 
 void XMLResource::setID(::ecore::EObject* eobj, const std::string& id) {
 	_eObjectToIDMap[eobj] = id;
@@ -122,3 +127,6 @@ bool XMLResource::useIDs() const {
 bool XMLResource::useUUIDs() const {
 	return false;
 }
+
+} // resource
+} // ecorecpp

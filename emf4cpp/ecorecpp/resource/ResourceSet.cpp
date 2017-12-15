@@ -21,7 +21,13 @@
 
 #include <mapping/EListImpl.hpp>
 
-using namespace ::ecorecpp::resource;
+namespace ecorecpp {
+namespace resource {
+
+ResourceSet& ResourceSet::getInstance() {
+	static ResourceSet instance;
+	return instance;
+}
 
 ResourceSet::ResourceSet()
 	: _resources(std::make_shared<::ecorecpp::mapping::EListImpl<Resource_ptr>>()),
@@ -70,6 +76,8 @@ Resource_ptr ResourceSet::getResource(const QUrl& uri, bool loadOnDemand) {
 
 	for (const auto& res : *_resources) {
 		if ( res->getURI().matches(uri, QUrl::RemoveFragment | QUrl::RemoveQuery) ) {
+			if (loadOnDemand && !res->isLoaded())
+				res->load();
 			return res;
 		}
 	}
@@ -110,3 +118,6 @@ Resource::Factory::Registry* ResourceSet::getResourceFactoryRegistry() const {
 void ResourceSet::setResourceFactoryRegistry(Resource::Factory::Registry* reg) {
 	_resourceRegistry.reset(reg);
 }
+
+} // resource
+} // ecorecpp

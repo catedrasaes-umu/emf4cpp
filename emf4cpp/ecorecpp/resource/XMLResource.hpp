@@ -37,8 +37,8 @@ namespace resource {
 //Factory
 class EXPORT_ECORECPP_DLL XMLResourceFactory : public Resource::Factory {
 public:
-
 	XMLResourceFactory() = default;
+	~XMLResourceFactory() override;
 
 	Resource_ptr createResource(const QUrl&) override;
 };
@@ -46,9 +46,8 @@ public:
 //Resource
 class EXPORT_ECORECPP_DLL XMLResource : public Resource {
 public:
-
 	explicit XMLResource(const QUrl&);
-	virtual ~XMLResource() = default;
+	~XMLResource() override;
 
 	void load(std::istream&) override;
 	void save(std::ostream&) override;

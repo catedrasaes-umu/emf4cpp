@@ -116,7 +116,7 @@ XMLSerializer::get_type(EObject_ptr obj) const {
 #ifdef ECORECPP_USE_WSTRING
 	if (crossDocument) {
 		return ( fromResource == toResource )
-				? (QString("#") + referenceUri.fragment()).toStdString()
+				? (QString("#") + referenceUri.fragment()).toStdWString()
 				: referenceUri.toString().toStdWString();
 	}
 

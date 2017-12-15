@@ -37,13 +37,8 @@ namespace ecorecpp {
 namespace resource {
 
 class EXPORT_ECORECPP_DLL ResourceSet {
-
 public:
-
-	static ResourceSet& getInstance() {
-		static ResourceSet instance;
-		return instance;
-	}
+	static ResourceSet& getInstance();
 
 	ResourceSet(const ResourceSet&)    = delete;
 	void operator=(const ResourceSet&) = delete;

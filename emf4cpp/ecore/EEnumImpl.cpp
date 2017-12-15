@@ -94,7 +94,7 @@ void EEnum::_initialize()
             return literal;
     }
 
-    throw "InvalidLiteral";
+    throw std::logic_error(std::string("InvalidLiteral: ") + _literal);
     /*PROTECTED REGION END*/
 }
 

@@ -44,8 +44,8 @@ public:
 
 	void push_back(::ecore::EObject_ptr _obj) override {
 		base_t::m_content.push_back(_obj);
-        	if ( auto other = _obj->_getDirectResource() ) {
-        		other->getContents()->remove(_obj);
+		if ( auto other = _obj->_getDirectResource() ) {
+			other->getContents()->remove(_obj);
 		}
 		_obj->_setEResource(_this);
 	}
@@ -53,10 +53,7 @@ public:
 private:
 	Resource* _this;
 };
-}
-}
 
-using namespace ::ecorecpp::resource;
 //Resource::Factory::Registry
 const std::string Resource::Factory::Registry::DEFAULT_EXTENSION = "*";
 const std::string Resource::Factory::Registry::DEFAULT_CONTENT_TYPE_IDENTIFIER = "*";
@@ -64,6 +61,14 @@ const std::string Resource::Factory::Registry::DEFAULT_CONTENT_TYPE_IDENTIFIER =
 Resource::Factory::Registry::Registry()
 	: _protocolToFactoryMap(),
 	  _extensionToFactoryMap() {
+}
+
+Resource::Factory::Registry::~Registry() = default;
+
+Resource::Factory::Registry& Resource::Factory::Registry::getInstance() {
+	static Registry instance;
+
+	return instance;
 }
 
 Resource::Factory* Resource::Factory::Registry::getFactory(const QUrl& uri) {
@@ -101,6 +106,8 @@ Resource::Factory::Registry::FactoryMap&
 
 
 //Resource::Factory
+Resource::Factory::~Factory() = default;
+
 Resource_ptr Resource::Factory::createResource(const QUrl& uri) {
 	throw "Not implemented!";
 }
@@ -112,6 +119,20 @@ Resource::Resource(const QUrl& uri)
 	  _contents(new ResourceContentEList(this)),
 	  _resourceSet(nullptr),
 	  _loaded(false) {
+}
+
+Resource::~Resource() {
+	if (_resourceSet) {
+		/* boost::intrusive_ptr(p, false) creates a pointer, which does not
+		 * increment the reference counter in the beginning, but does
+		 * decrement it at the end. But as we are here in the destructor, and
+		 * the object, including the reference counter, will be destroyed
+		 * anyways, we do not care about leaving the reference counter with a
+		 * value of -1. */
+		_resourceSet->getResources().remove( Resource_ptr(this, /*add_ref*/false) );
+	}
+	for (auto obj : *_contents)
+		obj->_setEResource(nullptr);
 }
 
 const QUrl& Resource::getURI() const {
@@ -323,3 +344,6 @@ std::string Resource::getURIFragment( ::ecore::EObject_ptr obj ) {
 const ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type& Resource::getContents() {
 	return _contents;
 }
+
+} // resource
+} // ecorecpp
