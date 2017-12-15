@@ -87,6 +87,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    UnionField_ptr _this()
+    {   return UnionField_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_identifier;

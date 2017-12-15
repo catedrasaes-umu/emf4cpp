@@ -56,7 +56,7 @@ ExpressionStatement::~ExpressionStatement()
 {
     if (m_expression)
     {
-        delete m_expression;
+        m_expression.reset();
     }
 }
 
@@ -81,8 +81,8 @@ void ExpressionStatement::setExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression(),
                 _old_expression,
                 m_expression
         );
@@ -90,8 +90,10 @@ void ExpressionStatement::setExpression(
     }
 #endif
 
-    delete _old_expression;
-    m_expression->_setEContainer(this,
+    if (_old_expression)
+        _old_expression->_setEContainer(ExpressionStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
+    m_expression->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
 }
 

@@ -171,7 +171,7 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 	* Node attributes
 	*
 	*/
-	::ecorecpp::mapping::EList<EAttribute>& attributes =
+	::ecorecpp::mapping::EList<EAttribute_ptr>& attributes =
 			cl->getEAllAttributes();
 
 	// Multiplicity-one attributes
@@ -211,7 +211,7 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 	}
 
 	// Non-containment references
-	::ecorecpp::mapping::EList<EReference>& references =
+	::ecorecpp::mapping::EList<EReference_ptr>& references =
 			cl->getEAllReferences();
 
 	std::vector<std::array<::ecorecpp::mapping::type_definitions::string_t, 3>> crossReferences;
@@ -229,9 +229,9 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 			::ecorecpp::mapping::type_definitions::stringstream_t value;
 
 			if (current_ref->getUpperBound() != 1) {
-				mapping::EList<::ecore::EObject>::ptr_type children =
+				mapping::EList<::ecore::EObject_ptr>::ptr_type children =
 						ecorecpp::mapping::any::any_cast<
-							mapping::EList<::ecore::EObject>::ptr_type >(any);
+							mapping::EList<::ecore::EObject_ptr>::ptr_type >(any);
 
 				const bool isCrossDocumentReference =
 						std::any_of( children->begin(), children->end(),
@@ -343,7 +343,7 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 }
 
 void XMLSerializer::serialize_node_children(EObject_ptr obj) {
-	::ecorecpp::mapping::EList<EReference>& references =
+	::ecorecpp::mapping::EList<EReference_ptr>& references =
 			obj->eClass()->getEAllReferences();
 
 #ifdef DEBUG
@@ -363,9 +363,9 @@ void XMLSerializer::serialize_node_children(EObject_ptr obj) {
 			ecorecpp::mapping::any any = obj->eGet(current_ref);
 
 			if (current_ref->getUpperBound() != 1) {
-				mapping::EList<::ecore::EObject>::ptr_type children =
+				mapping::EList<::ecore::EObject_ptr>::ptr_type children =
 						ecorecpp::mapping::any::any_cast<
-							mapping::EList<::ecore::EObject>::ptr_type >(any);
+							mapping::EList<::ecore::EObject_ptr>::ptr_type >(any);
 
 				for ( auto const& child : *children ) {
 					create_node(obj, child, current_ref);

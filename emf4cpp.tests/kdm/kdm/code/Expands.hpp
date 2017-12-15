@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Expands_ptr _this()
+        {   return Expands_ptr(this);}
+
         // Attributes
 
         // References

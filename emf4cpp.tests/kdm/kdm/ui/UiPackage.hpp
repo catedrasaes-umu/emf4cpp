@@ -528,9 +528,10 @@ namespace kdm
 
     protected:
 
-        static std::unique_ptr< UiPackage, ::ecorecpp::PackageDeleter<UiPackage> > s_instance;
+        static boost::intrusive_ptr< UiPackage > s_instance;
 
         UiPackage();
+        void _initPackage();
 
         // EClass instances 
 

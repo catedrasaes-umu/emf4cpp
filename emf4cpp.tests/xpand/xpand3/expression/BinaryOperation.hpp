@@ -89,6 +89,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        BinaryOperation_ptr _this()
+        {   return BinaryOperation_ptr(this);}
+
         // Attributes
 
         // References

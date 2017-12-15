@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        VoidType_ptr _this()
+        {   return VoidType_ptr(this);}
+
         // Attributes
 
         // References

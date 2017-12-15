@@ -41,7 +41,7 @@ namespace PrimitiveTypes
 
     protected:
 
-        static std::unique_ptr< PrimitiveTypesFactory > s_instance;
+        static boost::intrusive_ptr< PrimitiveTypesFactory > s_holder;
 
         PrimitiveTypesFactory();
 
@@ -53,9 +53,9 @@ namespace PrimitiveTypes
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
 } // PrimitiveTypes

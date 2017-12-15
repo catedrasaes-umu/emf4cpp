@@ -42,7 +42,7 @@ ObjectValue::ObjectValue()
 {
 
     m_members.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::json::NVPair, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::json::NVPair_ptr, -1,
                     true, false >(this,
                     ::json::JsonPackage::_instance()->getObjectValue__members()));
 
@@ -64,12 +64,12 @@ ObjectValue::~ObjectValue()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::json::NVPair >& ObjectValue::getMembers() const
+const ::ecorecpp::mapping::EList< ::json::NVPair_ptr >& ObjectValue::getMembers() const
 {
     return *m_members;
 }
 
-::ecorecpp::mapping::EList< ::json::NVPair >& ObjectValue::getMembers()
+::ecorecpp::mapping::EList< ::json::NVPair_ptr >& ObjectValue::getMembers()
 {
     return *m_members;
 }

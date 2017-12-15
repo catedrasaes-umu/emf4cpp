@@ -71,8 +71,8 @@ void Coordinates::setX(::PrimitiveTypes::Double _x)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getCoordinates__x(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getCoordinates__x(),
                 _old_x,
                 m_x
         );
@@ -97,8 +97,8 @@ void Coordinates::setY(::PrimitiveTypes::Double _y)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getCoordinates__y(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getCoordinates__y(),
                 _old_y,
                 m_y
         );

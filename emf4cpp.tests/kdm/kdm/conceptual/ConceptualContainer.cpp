@@ -53,7 +53,7 @@ ConceptualContainer::ConceptualContainer()
 
     m_conceptualElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::conceptual::AbstractConceptualElement, -1, true,
+                    ::kdm::conceptual::AbstractConceptualElement_ptr, -1, true,
                     false >(this,
                     ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualContainer__conceptualElement()));
 
@@ -75,12 +75,13 @@ ConceptualContainer::~ConceptualContainer()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& ConceptualContainer::getConceptualElement() const
+const ::ecorecpp::mapping::EList<
+        ::kdm::conceptual::AbstractConceptualElement_ptr >& ConceptualContainer::getConceptualElement() const
 {
     return *m_conceptualElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& ConceptualContainer::getConceptualElement()
+::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement_ptr >& ConceptualContainer::getConceptualElement()
 {
     return *m_conceptualElement;
 }

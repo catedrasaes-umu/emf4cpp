@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        CharType_ptr _this()
+        {   return CharType_ptr(this);}
+
         // Attributes
 
         // References

@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        OnExit_ptr _this()
+        {   return OnExit_ptr(this);}
+
         // Attributes
 
         // References

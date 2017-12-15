@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        WritesResource_ptr _this()
+        {   return WritesResource_ptr(this);}
+
         // Attributes
 
         // References

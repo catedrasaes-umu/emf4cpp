@@ -302,9 +302,10 @@ namespace kdm
 
     protected:
 
-        static std::unique_ptr< StructurePackage, ::ecorecpp::PackageDeleter<StructurePackage> > s_instance;
+        static boost::intrusive_ptr< StructurePackage > s_instance;
 
         StructurePackage();
+        void _initPackage();
 
         // EClass instances 
 

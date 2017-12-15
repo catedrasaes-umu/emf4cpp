@@ -57,7 +57,7 @@ namespace kdm
 
         protected:
 
-            static std::unique_ptr< ConceptualFactory > s_instance;
+            static boost::intrusive_ptr< ConceptualFactory > s_holder;
 
             ConceptualFactory();
 
@@ -69,103 +69,128 @@ namespace kdm
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline T* create()
+        template< class T > inline boost::intrusive_ptr< T > create()
         {
-            return (T*) nullptr;
+            return boost::intrusive_ptr< T >();
         }
 
         template< > inline ConceptualModel_ptr create< ConceptualModel >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createConceptualModel();
         }
+
         template< > inline AbstractConceptualElement_ptr create<
                 AbstractConceptualElement >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createAbstractConceptualElement();
         }
+
         template< > inline TermUnit_ptr create< TermUnit >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createTermUnit();
         }
+
         template< > inline ConceptualContainer_ptr create< ConceptualContainer >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createConceptualContainer();
         }
+
         template< > inline FactUnit_ptr create< FactUnit >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createFactUnit();
         }
+
         template< > inline AbstractConceptualRelationship_ptr create<
                 AbstractConceptualRelationship >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createAbstractConceptualRelationship();
         }
+
         template< > inline ConceptualRelationship_ptr create<
                 ConceptualRelationship >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createConceptualRelationship();
         }
+
         template< > inline BehaviorUnit_ptr create< BehaviorUnit >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createBehaviorUnit();
         }
+
         template< > inline RuleUnit_ptr create< RuleUnit >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createRuleUnit();
         }
+
         template< > inline ScenarioUnit_ptr create< ScenarioUnit >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createScenarioUnit();
         }
+
         template< > inline ConceptualFlow_ptr create< ConceptualFlow >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createConceptualFlow();
         }
+
         template< > inline ConceptualElement_ptr create< ConceptualElement >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createConceptualElement();
         }
+
         template< > inline ConceptualRole_ptr create< ConceptualRole >()
         {
             auto eFactory =
                     ConceptualPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ConceptualFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< ConceptualFactory* >(eFactory.get());
             return packageFactory->createConceptualRole();
         }
 

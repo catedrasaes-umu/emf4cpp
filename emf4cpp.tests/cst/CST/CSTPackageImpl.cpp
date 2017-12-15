@@ -42,55 +42,64 @@ CSTPackage::CSTPackage()
     // Feature definitions of Tree
 
     // Feature definitions of Element
-    m_Element__kind = new ::ecore::EAttribute();
+    m_Element__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of Node
-    m_Node__children = new ::ecore::EReference();
+    m_Node__children = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Leaf
-    m_Leaf__value = new ::ecore::EAttribute();
-    m_Leaf__pos = new ::ecore::EAttribute();
-    m_Leaf__line = new ::ecore::EAttribute();
+    m_Leaf__value = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Leaf__pos = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Leaf__line = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void CSTPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = CSTFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Tree
-    m_TreeEClass = new ::ecore::EClass();
+    m_TreeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TreeEClass->setClassifierID(TREE);
-    m_TreeEClass->setEPackage(this);
+    m_TreeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TreeEClass);
 
     // Element
-    m_ElementEClass = new ::ecore::EClass();
+    m_ElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ElementEClass->setClassifierID(ELEMENT);
-    m_ElementEClass->setEPackage(this);
+    m_ElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ElementEClass);
     // m_Element__kind has already been allocated above
     m_Element__kind->setFeatureID(::CST::CSTPackage::ELEMENT__KIND);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__kind);
 
     // Node
-    m_NodeEClass = new ::ecore::EClass();
+    m_NodeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NodeEClass->setClassifierID(NODE);
-    m_NodeEClass->setEPackage(this);
+    m_NodeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NodeEClass);
     // m_Node__children has already been allocated above
     m_Node__children->setFeatureID(::CST::CSTPackage::NODE__CHILDREN);
     m_NodeEClass->getEStructuralFeatures().push_back(m_Node__children);
 
     // Leaf
-    m_LeafEClass = new ::ecore::EClass();
+    m_LeafEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LeafEClass->setClassifierID(LEAF);
-    m_LeafEClass->setEPackage(this);
+    m_LeafEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeafEClass);
     // m_Leaf__value has already been allocated above
     m_Leaf__value->setFeatureID(::CST::CSTPackage::LEAF__VALUE);
@@ -129,7 +138,7 @@ CSTPackage::CSTPackage()
     m_ElementEClass->setAbstract(false);
     m_ElementEClass->setInterface(false);
     m_Element__kind->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Element__kind->setName("kind");
     m_Element__kind->setDefaultValueLiteral("");
     m_Element__kind->setLowerBound(0);
@@ -164,7 +173,7 @@ CSTPackage::CSTPackage()
     m_LeafEClass->setAbstract(false);
     m_LeafEClass->setInterface(false);
     m_Leaf__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Leaf__value->setName("value");
     m_Leaf__value->setDefaultValueLiteral("");
     m_Leaf__value->setLowerBound(0);
@@ -178,7 +187,7 @@ CSTPackage::CSTPackage()
     m_Leaf__value->setDerived(false);
     m_Leaf__value->setOrdered(true);
     m_Leaf__pos->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEInt());
     m_Leaf__pos->setName("pos");
     m_Leaf__pos->setDefaultValueLiteral("");
     m_Leaf__pos->setLowerBound(0);
@@ -192,7 +201,7 @@ CSTPackage::CSTPackage()
     m_Leaf__pos->setDerived(false);
     m_Leaf__pos->setOrdered(true);
     m_Leaf__line->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEInt());
     m_Leaf__line->setName("line");
     m_Leaf__line->setDefaultValueLiteral("");
     m_Leaf__line->setLowerBound(0);

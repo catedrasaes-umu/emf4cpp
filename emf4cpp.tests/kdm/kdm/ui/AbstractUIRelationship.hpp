@@ -80,6 +80,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractUIRelationship_ptr _this()
+        {   return AbstractUIRelationship_ptr(this);}
+
         // Attributes
 
         // References

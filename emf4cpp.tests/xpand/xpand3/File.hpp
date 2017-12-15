@@ -54,11 +54,11 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& getImports () const;
-    virtual ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& getImports ();
+    virtual const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& getImports () const;
+    virtual ::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& getImports ();
 
-    virtual const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& getDeclarations () const;
-    virtual ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& getDeclarations ();
+    virtual const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& getDeclarations () const;
+    virtual ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& getDeclarations ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -84,13 +84,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    File_ptr _this()
+    {   return File_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::ImportStatement >> m_imports;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >> m_imports;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >> m_declarations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >> m_declarations;
 
 };
 

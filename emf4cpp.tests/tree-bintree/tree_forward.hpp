@@ -42,28 +42,28 @@ namespace tree
 
 // TreeNode
     class TreeNode;
-    typedef TreeNode* TreeNode_ptr;
+    using TreeNode_ptr = boost::intrusive_ptr<TreeNode>;
 
 // Leaf
     class Leaf;
-    typedef Leaf* Leaf_ptr;
+    using Leaf_ptr = boost::intrusive_ptr<Leaf>;
 
 // NonTerminal
     class NonTerminal;
-    typedef NonTerminal* NonTerminal_ptr;
+    using NonTerminal_ptr = boost::intrusive_ptr<NonTerminal>;
 
 // EEnum
 
 // Package & Factory
     class TreeFactory;
-    typedef TreeFactory * TreeFactory_ptr;
+    using TreeFactory_ptr = boost::intrusive_ptr<TreeFactory>;
     class TreePackage;
-    typedef TreePackage * TreePackage_ptr;
+    using TreePackage_ptr = boost::intrusive_ptr<TreePackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // tree

@@ -81,6 +81,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EFactory_ptr _this()
+    {   return EFactory_ptr(this);}
+
     // Attributes
 
     // References

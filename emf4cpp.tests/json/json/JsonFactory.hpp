@@ -50,7 +50,7 @@ namespace json
 
     protected:
 
-        static std::unique_ptr< JsonFactory > s_instance;
+        static boost::intrusive_ptr< JsonFactory > s_holder;
 
         JsonFactory();
 
@@ -62,57 +62,64 @@ namespace json
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline ObjectValue_ptr create< ObjectValue >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createObjectValue();
     }
+
     template< > inline NVPair_ptr create< NVPair >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createNVPair();
     }
+
     template< > inline Value_ptr create< Value >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createValue();
     }
+
     template< > inline StringValue_ptr create< StringValue >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createStringValue();
     }
+
     template< > inline NumberValue_ptr create< NumberValue >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createNumberValue();
     }
+
     template< > inline BooleanValue_ptr create< BooleanValue >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createBooleanValue();
     }
+
     template< > inline ArrayValue_ptr create< ArrayValue >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createArrayValue();
     }
+
     template< > inline NullValue_ptr create< NullValue >()
     {
         auto eFactory = JsonPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< JsonFactory* >(eFactory.get());
         return packageFactory->createNullValue();
     }
 

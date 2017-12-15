@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        StreamResource_ptr _this()
+        {   return StreamResource_ptr(this);}
+
         // Attributes
 
         // References

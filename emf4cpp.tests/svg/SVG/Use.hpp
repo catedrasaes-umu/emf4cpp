@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getUse () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getUse ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getUse () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getUse ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -80,11 +80,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Use_ptr _this()
+    {   return Use_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_use;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element_ptr >> m_use;
 
 };
 

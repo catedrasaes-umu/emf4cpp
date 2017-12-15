@@ -22,6 +22,7 @@
 #define KDM_CONCEPTUAL_HPP
 
 #include "conceptual_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

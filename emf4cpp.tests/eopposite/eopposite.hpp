@@ -22,6 +22,7 @@
 #define EOPPOSITE_HPP
 
 #include "eopposite_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

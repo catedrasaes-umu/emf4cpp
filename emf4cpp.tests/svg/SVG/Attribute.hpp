@@ -38,7 +38,6 @@ namespace SVG
 {
 
 class EXPORT_SVG_DLL Attribute : public virtual ::ecore::EObject
-
 {
 public:
     Attribute();
@@ -52,8 +51,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getAttOwner ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getAttOwner () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getAttOwner ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -79,11 +78,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Attribute_ptr _this()
+    {   return Attribute_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_attOwner;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element_ptr >> m_attOwner;
 
 };
 

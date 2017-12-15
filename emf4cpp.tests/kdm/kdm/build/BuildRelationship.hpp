@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BuildRelationship_ptr _this()
+        {   return BuildRelationship_ptr(this);}
+
         // Attributes
 
         // References

@@ -80,6 +80,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        TrueFlow_ptr _this()
+        {   return TrueFlow_ptr(this);}
+
         // Attributes
 
         // References

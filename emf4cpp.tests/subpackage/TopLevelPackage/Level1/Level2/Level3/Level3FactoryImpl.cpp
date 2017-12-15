@@ -66,6 +66,6 @@ Level3Factory::Level3Factory()
 
 Level3Class_ptr Level3Factory::createLevel3Class()
 {
-    return new Level3Class();
+    return boost::intrusive_ptr < Level3Class > (new Level3Class);
 }
 

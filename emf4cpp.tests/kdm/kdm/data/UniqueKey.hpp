@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UniqueKey_ptr _this()
+        {   return UniqueKey_ptr(this);}
+
         // Attributes
 
         // References

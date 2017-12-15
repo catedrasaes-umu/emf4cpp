@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    FontStyle_ptr _this()
+    {   return FontStyle_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Boolean m_italic;

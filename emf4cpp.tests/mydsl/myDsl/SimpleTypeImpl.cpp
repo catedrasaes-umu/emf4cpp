@@ -108,7 +108,7 @@ void SimpleType::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr SimpleType::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getSimpleType();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getSimpleType();
     return _eclass;
 }
 

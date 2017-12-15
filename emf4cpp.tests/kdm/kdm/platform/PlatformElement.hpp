@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        PlatformElement_ptr _this()
+        {   return PlatformElement_ptr(this);}
+
         // Attributes
 
         // References

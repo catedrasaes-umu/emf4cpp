@@ -80,17 +80,17 @@ void TopLevel::_initialize()
         return _any;
     case ::eopposite::EoppositePackage::TOPLEVEL__LEFTEES:
     {
-        _any = m_leftees->asEListOf< ::ecore::EObject >();
+        _any = m_leftees->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::eopposite::EoppositePackage::TOPLEVEL__RIGHTEES:
     {
-        _any = m_rightees->asEListOf< ::ecore::EObject >();
+        _any = m_rightees->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::eopposite::EoppositePackage::TOPLEVEL__RIGHTMULTIPLES:
     {
-        _any = m_rightMultiples->asEListOf< ::ecore::EObject >();
+        _any = m_rightMultiples->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -111,27 +111,27 @@ void TopLevel::eSet(::ecore::EInt _featureID,
         return;
     case ::eopposite::EoppositePackage::TOPLEVEL__LEFTEES:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::eopposite::TopLevel::getLeftees().clear();
         ::eopposite::TopLevel::getLeftees().insert_all(*_t0);
     }
         return;
     case ::eopposite::EoppositePackage::TOPLEVEL__RIGHTEES:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::eopposite::TopLevel::getRightees().clear();
         ::eopposite::TopLevel::getRightees().insert_all(*_t0);
     }
         return;
     case ::eopposite::EoppositePackage::TOPLEVEL__RIGHTMULTIPLES:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::eopposite::TopLevel::getRightMultiples().clear();
         ::eopposite::TopLevel::getRightMultiples().insert_all(*_t0);
     }
@@ -171,7 +171,7 @@ void TopLevel::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr TopLevel::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::eopposite::EoppositePackage_ptr >(::eopposite::EoppositePackage::_instance())->getTopLevel();
+            dynamic_cast< ::eopposite::EoppositePackage* >(::eopposite::EoppositePackage::_instance().get())->getTopLevel();
     return _eclass;
 }
 

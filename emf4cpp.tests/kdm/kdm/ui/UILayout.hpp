@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UILayout_ptr _this()
+        {   return UILayout_ptr(this);}
+
         // Attributes
 
         // References

@@ -829,9 +829,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< EcorePackage, ::ecorecpp::PackageDeleter<EcorePackage> > s_instance;
+    static boost::intrusive_ptr< EcorePackage > s_instance;
 
     EcorePackage();
+    void _initPackage();
 
     // EClass instances 
 

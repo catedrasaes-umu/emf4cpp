@@ -89,12 +89,14 @@ void ChainExpression::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
     {
-        _any = static_cast< ::ecore::EObject* >(m_first);
+        if (m_first)
+            _any = m_first->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_next);
+        if (m_next)
+            _any = m_next->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -136,7 +138,7 @@ void ChainExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::ChainExpression::setFirst(_t1);
     }
         return;
@@ -145,7 +147,7 @@ void ChainExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::ChainExpression::setNext(_t1);
     }
         return;
@@ -170,9 +172,9 @@ void ChainExpression::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
-        return m_first;
+        return (bool) m_first;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT:
-        return m_next;
+        return (bool) m_next;
 
     }
     throw "Error";
@@ -190,7 +192,7 @@ void ChainExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ChainExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getChainExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getChainExpression();
     return _eclass;
 }
 

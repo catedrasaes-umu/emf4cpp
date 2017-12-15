@@ -80,8 +80,8 @@ void Text::setLengthAdjust(::PrimitiveTypes::String _lengthAdjust)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getText__lengthAdjust(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getText__lengthAdjust(),
                 _old_lengthAdjust,
                 m_lengthAdjust
         );
@@ -106,8 +106,8 @@ void Text::setContent(::PrimitiveTypes::String _content)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getText__content(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getText__content(),
                 _old_content,
                 m_content
         );

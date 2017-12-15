@@ -53,19 +53,21 @@ AbstractUIElement::AbstractUIElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
                     ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__source()));
     m_UIRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::ui::AbstractUIRelationship, -1, true, false >(this,
+                    ::kdm::ui::AbstractUIRelationship_ptr, -1, true, false >(
+                    this,
                     ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__UIRelation()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, false, false >(this,
+                    ::kdm::code::AbstractCodeElement_ptr, -1, false, false >(
+                    this,
                     ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__implementation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
                     ::kdm::ui::UiPackage::_instance()->getAbstractUIElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractUIElementImpl__AbstractUIElementImpl) START*/
@@ -86,42 +88,42 @@ AbstractUIElement::~AbstractUIElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractUIElement::getSource() const
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractUIElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractUIElement::getSource()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractUIElement::getSource()
 {
     return *m_source;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >& AbstractUIElement::getUIRelation() const
+const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >& AbstractUIElement::getUIRelation() const
 {
     return *m_UIRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >& AbstractUIElement::getUIRelation()
+::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >& AbstractUIElement::getUIRelation()
 {
     return *m_UIRelation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractUIElement::getImplementation() const
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractUIElement::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractUIElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractUIElement::getImplementation()
 {
     return *m_implementation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractUIElement::getAbstraction() const
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractUIElement::getAbstraction() const
 {
     return *m_abstraction;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractUIElement::getAbstraction()
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractUIElement::getAbstraction()
 {
     return *m_abstraction;
 }

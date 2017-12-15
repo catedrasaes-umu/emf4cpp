@@ -83,8 +83,8 @@ void DataEvent::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getDataEvent__kind(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getDataEvent__kind(),
                 _old_kind,
                 m_kind
         );

@@ -49,7 +49,8 @@ BuildModel::BuildModel()
 
     m_buildElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildElement, -1, true, false >(this,
+                    ::kdm::build::AbstractBuildElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::build::BuildPackage::_instance()->getBuildModel__buildElement()));
 
     /*PROTECTED REGION ID(BuildModelImpl__BuildModelImpl) START*/
@@ -70,12 +71,12 @@ BuildModel::~BuildModel()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildModel::getBuildElement() const
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildModel::getBuildElement() const
 {
     return *m_buildElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildModel::getBuildElement()
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildModel::getBuildElement()
 {
     return *m_buildElement;
 }

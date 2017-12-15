@@ -42,20 +42,20 @@ namespace bintree
 
 // BinTreeNode
     class BinTreeNode;
-    typedef BinTreeNode* BinTreeNode_ptr;
+    using BinTreeNode_ptr = boost::intrusive_ptr<BinTreeNode>;
 
 // EEnum
 
 // Package & Factory
     class BintreeFactory;
-    typedef BintreeFactory * BintreeFactory_ptr;
+    using BintreeFactory_ptr = boost::intrusive_ptr<BintreeFactory>;
     class BintreePackage;
-    typedef BintreePackage * BintreePackage_ptr;
+    using BintreePackage_ptr = boost::intrusive_ptr<BintreePackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // bintree

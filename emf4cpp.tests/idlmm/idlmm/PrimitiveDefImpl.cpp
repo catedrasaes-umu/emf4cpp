@@ -123,7 +123,7 @@ void PrimitiveDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr PrimitiveDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getPrimitiveDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getPrimitiveDef();
     return _eclass;
 }
 

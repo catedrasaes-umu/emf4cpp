@@ -48,10 +48,10 @@ EReference::EReference() :
 {
 
     m_eKeys.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAttribute,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EAttribute_ptr, -1, false, false >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEReference__eKeys() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(EReferenceImpl__EReferenceImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -85,8 +85,8 @@ void EReference::setContainment(::ecore::EBoolean _containment)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEReference__containment(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEReference__containment(),
                 _old_containment,
                 m_containment
         );
@@ -111,8 +111,8 @@ void EReference::setContainer(::ecore::EBoolean _container)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEReference__container(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEReference__container(),
                 _old_container,
                 m_container
         );
@@ -137,8 +137,8 @@ void EReference::setResolveProxies(::ecore::EBoolean _resolveProxies)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEReference__resolveProxies(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEReference__resolveProxies(),
                 _old_resolveProxies,
                 m_resolveProxies
         );
@@ -165,8 +165,8 @@ void EReference::setEOpposite(::ecore::EReference_ptr _eOpposite)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEReference__eOpposite(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEReference__eOpposite(),
                 _old_eOpposite,
                 m_eOpposite
         );
@@ -192,8 +192,8 @@ void EReference::setEReferenceType(::ecore::EClass_ptr _eReferenceType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEReference__eReferenceType(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEReference__eReferenceType(),
                 _old_eReferenceType,
                 m_eReferenceType
         );
@@ -203,12 +203,12 @@ void EReference::setEReferenceType(::ecore::EClass_ptr _eReferenceType)
 
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& EReference::getEKeys() const
+const ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& EReference::getEKeys() const
 {
     return *m_eKeys;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EAttribute >& EReference::getEKeys()
+::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& EReference::getEKeys()
 {
     return *m_eKeys;
 }

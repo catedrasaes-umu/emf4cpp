@@ -71,8 +71,8 @@ void Include::setImportURI(::ecore::EString const& _importURI)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getInclude__importURI(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getInclude__importURI(),
                 _old_importURI,
                 m_importURI
         );

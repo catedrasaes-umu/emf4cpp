@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ExecutableFile_ptr _this()
+        {   return ExecutableFile_ptr(this);}
+
         // Attributes
 
         // References

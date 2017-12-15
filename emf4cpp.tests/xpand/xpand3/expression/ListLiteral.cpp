@@ -42,8 +42,8 @@ ListLiteral::ListLiteral()
 
     m_elements.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::expression::AbstractExpression, -1, true, false >(
-                    this,
+                    ::xpand3::expression::AbstractExpression_ptr, -1, true,
+                    false >(this,
                     ::xpand3::expression::ExpressionPackage::_instance()->getListLiteral__elements()));
 
     /*PROTECTED REGION ID(ListLiteralImpl__ListLiteralImpl) START*/
@@ -64,12 +64,12 @@ ListLiteral::~ListLiteral()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& ListLiteral::getElements() const
+const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& ListLiteral::getElements() const
 {
     return *m_elements;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& ListLiteral::getElements()
+::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& ListLiteral::getElements()
 {
     return *m_elements;
 }

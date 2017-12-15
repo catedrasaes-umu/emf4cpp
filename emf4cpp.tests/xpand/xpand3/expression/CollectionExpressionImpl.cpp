@@ -91,22 +91,26 @@ void CollectionExpression::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
     {
-        _any = static_cast< ::ecore::EObject* >(m_target);
+        if (m_target)
+            _any = m_target->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_name);
+        if (m_name)
+            _any = m_name->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_closure);
+        if (m_closure)
+            _any = m_closure->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eleName);
+        if (m_eleName)
+            _any = m_eleName->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -148,7 +152,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::FeatureCall::setTarget(_t1);
     }
         return;
@@ -157,7 +161,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::FeatureCall::setName(_t1);
     }
         return;
@@ -166,7 +170,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::CollectionExpression::setClosure(_t1);
     }
         return;
@@ -175,7 +179,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::CollectionExpression::setEleName(_t1);
     }
         return;
@@ -200,13 +204,13 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
-        return m_target;
+        return (bool) m_target;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
-        return m_name;
+        return (bool) m_name;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE:
-        return m_closure;
+        return (bool) m_closure;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME:
-        return m_eleName;
+        return (bool) m_eleName;
 
     }
     throw "Error";
@@ -224,7 +228,7 @@ void CollectionExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr CollectionExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getCollectionExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getCollectionExpression();
     return _eclass;
 }
 

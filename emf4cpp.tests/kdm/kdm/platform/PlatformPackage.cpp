@@ -22,8 +22,7 @@
 
 using namespace ::kdm::platform;
 
-std::unique_ptr< ::kdm::platform::PlatformPackage,
-        ::ecorecpp::PackageDeleter< ::kdm::platform::PlatformPackage > > PlatformPackage::s_instance;
+boost::intrusive_ptr< ::kdm::platform::PlatformPackage > PlatformPackage::s_instance;
 
 ::kdm::platform::PlatformPackage_ptr PlatformPackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::kdm::platform::PlatformPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< PlatformPackage >();
         duringConstruction = true;
-        new PlatformPackage();
+        s_instance = boost::intrusive_ptr < PlatformPackage
+                > (new PlatformPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::kdm::platform::PlatformPackage_ptr PlatformPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

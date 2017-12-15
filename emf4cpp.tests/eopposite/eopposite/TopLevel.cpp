@@ -44,16 +44,16 @@ TopLevel::TopLevel()
 {
 
     m_leftees.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::eopposite::LeftHand,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::eopposite::LeftHand_ptr, -1, true, false >(this,
                     ::eopposite::EoppositePackage::_instance()->getTopLevel__leftees()));
     m_rightees.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::eopposite::RightHand,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::eopposite::RightHand_ptr, -1, true, false >(this,
                     ::eopposite::EoppositePackage::_instance()->getTopLevel__rightees()));
     m_rightMultiples.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::eopposite::RightMultiple, -1, true, false >(this,
+                    ::eopposite::RightMultiple_ptr, -1, true, false >(this,
                     ::eopposite::EoppositePackage::_instance()->getTopLevel__rightMultiples()));
 
     /*PROTECTED REGION ID(TopLevelImpl__TopLevelImpl) START*/
@@ -74,32 +74,32 @@ TopLevel::~TopLevel()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& TopLevel::getLeftees() const
+const ::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& TopLevel::getLeftees() const
 {
     return *m_leftees;
 }
 
-::ecorecpp::mapping::EList< ::eopposite::LeftHand >& TopLevel::getLeftees()
+::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& TopLevel::getLeftees()
 {
     return *m_leftees;
 }
 
-const ::ecorecpp::mapping::EList< ::eopposite::RightHand >& TopLevel::getRightees() const
+const ::ecorecpp::mapping::EList< ::eopposite::RightHand_ptr >& TopLevel::getRightees() const
 {
     return *m_rightees;
 }
 
-::ecorecpp::mapping::EList< ::eopposite::RightHand >& TopLevel::getRightees()
+::ecorecpp::mapping::EList< ::eopposite::RightHand_ptr >& TopLevel::getRightees()
 {
     return *m_rightees;
 }
 
-const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& TopLevel::getRightMultiples() const
+const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple_ptr >& TopLevel::getRightMultiples() const
 {
     return *m_rightMultiples;
 }
 
-::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& TopLevel::getRightMultiples()
+::ecorecpp::mapping::EList< ::eopposite::RightMultiple_ptr >& TopLevel::getRightMultiples()
 {
     return *m_rightMultiples;
 }

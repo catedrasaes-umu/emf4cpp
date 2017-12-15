@@ -50,8 +50,8 @@ Line::Line()
 {
 
     m_between.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, 2, false,
-                    false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point_ptr, 2,
+                    false, false >(this,
                     ::SVG::SVGPackage::_instance()->getLine__between()));
 
     /*PROTECTED REGION ID(LineImpl__LineImpl) START*/
@@ -86,8 +86,8 @@ void Line::setMarkerEnd(::PrimitiveTypes::String _markerEnd)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getLine__markerEnd(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getLine__markerEnd(),
                 _old_markerEnd,
                 m_markerEnd
         );
@@ -112,8 +112,8 @@ void Line::setMarkerStart(::PrimitiveTypes::String _markerStart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getLine__markerStart(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getLine__markerStart(),
                 _old_markerStart,
                 m_markerStart
         );
@@ -124,12 +124,12 @@ void Line::setMarkerStart(::PrimitiveTypes::String _markerStart)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::Point >& Line::getBetween() const
+const ::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Line::getBetween() const
 {
     return *m_between;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Point >& Line::getBetween()
+::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Line::getBetween()
 {
     return *m_between;
 }

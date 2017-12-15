@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RuleUnit_ptr _this()
+        {   return RuleUnit_ptr(this);}
+
         // Attributes
 
         // References

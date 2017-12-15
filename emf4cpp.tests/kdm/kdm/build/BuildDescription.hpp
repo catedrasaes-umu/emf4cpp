@@ -59,8 +59,8 @@ namespace kdm
         virtual void setText (::kdm::core::String _text);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -86,13 +86,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BuildDescription_ptr _this()
+        {   return BuildDescription_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_text;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef >> m_source;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >> m_source;
 
     };
 

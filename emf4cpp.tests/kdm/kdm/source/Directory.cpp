@@ -82,8 +82,8 @@ void Directory::setPath(::kdm::core::String _path)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getDirectory__path(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getDirectory__path(),
                 _old_path,
                 m_path
         );

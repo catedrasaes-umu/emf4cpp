@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Library_ptr _this()
+        {   return Library_ptr(this);}
+
         // Attributes
 
         // References

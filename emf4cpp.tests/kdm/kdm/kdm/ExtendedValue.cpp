@@ -78,8 +78,8 @@ void ExtendedValue::setTag(::kdm::kdm::TagDefinition_ptr _tag)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getExtendedValue__tag(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getExtendedValue__tag(),
                 _old_tag,
                 m_tag
         );

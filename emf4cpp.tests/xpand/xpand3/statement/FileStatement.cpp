@@ -58,11 +58,11 @@ FileStatement::~FileStatement()
 {
     if (m_fileNameExpression)
     {
-        delete m_fileNameExpression;
+        m_fileNameExpression.reset();
     }
     if (m_outletNameIdentifier)
     {
-        delete m_outletNameIdentifier;
+        m_outletNameIdentifier.reset();
     }
 }
 
@@ -84,8 +84,8 @@ void FileStatement::setOnce(::ecore::EBoolean _once)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getFileStatement__once(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__once(),
                 _old_once,
                 m_once
         );
@@ -114,8 +114,8 @@ void FileStatement::setFileNameExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression(),
                 _old_fileNameExpression,
                 m_fileNameExpression
         );
@@ -123,8 +123,10 @@ void FileStatement::setFileNameExpression(
     }
 #endif
 
-    delete _old_fileNameExpression;
-    m_fileNameExpression->_setEContainer(this,
+    if (_old_fileNameExpression)
+        _old_fileNameExpression->_setEContainer(FileStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
+    m_fileNameExpression->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
 }
 
@@ -145,8 +147,8 @@ void FileStatement::setOutletNameIdentifier(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier(),
                 _old_outletNameIdentifier,
                 m_outletNameIdentifier
         );
@@ -154,8 +156,10 @@ void FileStatement::setOutletNameIdentifier(
     }
 #endif
 
-    delete _old_outletNameIdentifier;
-    m_outletNameIdentifier->_setEContainer(this,
+    if (_old_outletNameIdentifier)
+        _old_outletNameIdentifier->_setEContainer(FileStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
+    m_outletNameIdentifier->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
 }
 

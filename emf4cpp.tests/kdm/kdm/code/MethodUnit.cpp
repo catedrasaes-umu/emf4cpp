@@ -86,8 +86,8 @@ void MethodUnit::setKind(::kdm::code::MethodKind _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getMethodUnit__kind(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getMethodUnit__kind(),
                 _old_kind,
                 m_kind
         );
@@ -112,8 +112,8 @@ void MethodUnit::setExport(::kdm::code::ExportKind _export)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getMethodUnit__export(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getMethodUnit__export(),
                 _old_export,
                 m_export
         );

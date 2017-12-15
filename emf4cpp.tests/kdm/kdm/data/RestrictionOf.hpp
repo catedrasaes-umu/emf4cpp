@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RestrictionOf_ptr _this()
+        {   return RestrictionOf_ptr(this);}
+
         // Attributes
 
         // References

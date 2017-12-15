@@ -48,7 +48,7 @@ namespace myDsl
 
     protected:
 
-        static std::unique_ptr< MyDslFactory > s_instance;
+        static boost::intrusive_ptr< MyDslFactory > s_holder;
 
         MyDslFactory();
 
@@ -60,45 +60,50 @@ namespace myDsl
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline Model_ptr create< Model >()
     {
         auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory.get());
         return packageFactory->createModel();
     }
+
     template< > inline Import_ptr create< Import >()
     {
         auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory.get());
         return packageFactory->createImport();
     }
+
     template< > inline Type_ptr create< Type >()
     {
         auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory.get());
         return packageFactory->createType();
     }
+
     template< > inline SimpleType_ptr create< SimpleType >()
     {
         auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory.get());
         return packageFactory->createSimpleType();
     }
+
     template< > inline Entity_ptr create< Entity >()
     {
         auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory.get());
         return packageFactory->createEntity();
     }
+
     template< > inline Property_ptr create< Property >()
     {
         auto eFactory = MyDslPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< MyDslFactory* >(eFactory.get());
         return packageFactory->createProperty();
     }
 

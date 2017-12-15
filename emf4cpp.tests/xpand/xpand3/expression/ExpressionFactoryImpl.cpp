@@ -132,94 +132,98 @@ ExpressionFactory::ExpressionFactory()
 
 AbstractExpression_ptr ExpressionFactory::createAbstractExpression()
 {
-    return new AbstractExpression();
+    return boost::intrusive_ptr < AbstractExpression > (new AbstractExpression);
 }
 BooleanOperation_ptr ExpressionFactory::createBooleanOperation()
 {
-    return new BooleanOperation();
+    return boost::intrusive_ptr < BooleanOperation > (new BooleanOperation);
 }
 Cast_ptr ExpressionFactory::createCast()
 {
-    return new Cast();
+    return boost::intrusive_ptr < Cast > (new Cast);
 }
 ChainExpression_ptr ExpressionFactory::createChainExpression()
 {
-    return new ChainExpression();
+    return boost::intrusive_ptr < ChainExpression > (new ChainExpression);
 }
 ConstructorCallExpression_ptr ExpressionFactory::createConstructorCallExpression()
 {
-    return new ConstructorCallExpression();
+    return boost::intrusive_ptr < ConstructorCallExpression
+            > (new ConstructorCallExpression);
 }
 FeatureCall_ptr ExpressionFactory::createFeatureCall()
 {
-    return new FeatureCall();
+    return boost::intrusive_ptr < FeatureCall > (new FeatureCall);
 }
 CollectionExpression_ptr ExpressionFactory::createCollectionExpression()
 {
-    return new CollectionExpression();
+    return boost::intrusive_ptr < CollectionExpression
+            > (new CollectionExpression);
 }
 OperationCall_ptr ExpressionFactory::createOperationCall()
 {
-    return new OperationCall();
+    return boost::intrusive_ptr < OperationCall > (new OperationCall);
 }
 TypeSelectExpression_ptr ExpressionFactory::createTypeSelectExpression()
 {
-    return new TypeSelectExpression();
+    return boost::intrusive_ptr < TypeSelectExpression
+            > (new TypeSelectExpression);
 }
 GlobalVarExpression_ptr ExpressionFactory::createGlobalVarExpression()
 {
-    return new GlobalVarExpression();
+    return boost::intrusive_ptr < GlobalVarExpression
+            > (new GlobalVarExpression);
 }
 IfExpression_ptr ExpressionFactory::createIfExpression()
 {
-    return new IfExpression();
+    return boost::intrusive_ptr < IfExpression > (new IfExpression);
 }
 LetExpression_ptr ExpressionFactory::createLetExpression()
 {
-    return new LetExpression();
+    return boost::intrusive_ptr < LetExpression > (new LetExpression);
 }
 ListLiteral_ptr ExpressionFactory::createListLiteral()
 {
-    return new ListLiteral();
+    return boost::intrusive_ptr < ListLiteral > (new ListLiteral);
 }
 Literal_ptr ExpressionFactory::createLiteral()
 {
-    return new Literal();
+    return boost::intrusive_ptr < Literal > (new Literal);
 }
 BooleanLiteral_ptr ExpressionFactory::createBooleanLiteral()
 {
-    return new BooleanLiteral();
+    return boost::intrusive_ptr < BooleanLiteral > (new BooleanLiteral);
 }
 IntegerLiteral_ptr ExpressionFactory::createIntegerLiteral()
 {
-    return new IntegerLiteral();
+    return boost::intrusive_ptr < IntegerLiteral > (new IntegerLiteral);
 }
 NullLiteral_ptr ExpressionFactory::createNullLiteral()
 {
-    return new NullLiteral();
+    return boost::intrusive_ptr < NullLiteral > (new NullLiteral);
 }
 RealLiteral_ptr ExpressionFactory::createRealLiteral()
 {
-    return new RealLiteral();
+    return boost::intrusive_ptr < RealLiteral > (new RealLiteral);
 }
 StringLiteral_ptr ExpressionFactory::createStringLiteral()
 {
-    return new StringLiteral();
+    return boost::intrusive_ptr < StringLiteral > (new StringLiteral);
 }
 SwitchExpression_ptr ExpressionFactory::createSwitchExpression()
 {
-    return new SwitchExpression();
+    return boost::intrusive_ptr < SwitchExpression > (new SwitchExpression);
 }
 Case_ptr ExpressionFactory::createCase()
 {
-    return new Case();
+    return boost::intrusive_ptr < Case > (new Case);
 }
 BinaryOperation_ptr ExpressionFactory::createBinaryOperation()
 {
-    return new BinaryOperation();
+    return boost::intrusive_ptr < BinaryOperation > (new BinaryOperation);
 }
 UnaryOperation_ptr ExpressionFactory::createUnaryOperation()
 {
-    return new UnaryOperation();
+    return boost::intrusive_ptr < UnaryOperation > (new UnaryOperation);
 }
 

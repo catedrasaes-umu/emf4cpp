@@ -66,6 +66,6 @@ Level2Factory::Level2Factory()
 
 Level2Class_ptr Level2Factory::createLevel2Class()
 {
-    return new Level2Class();
+    return boost::intrusive_ptr < Level2Class > (new Level2Class);
 }
 

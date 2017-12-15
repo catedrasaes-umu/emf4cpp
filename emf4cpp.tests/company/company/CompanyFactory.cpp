@@ -22,12 +22,14 @@
 
 using namespace ::company;
 
-std::unique_ptr< ::company::CompanyFactory > CompanyFactory::s_instance;
+boost::intrusive_ptr< ::company::CompanyFactory > CompanyFactory::s_holder;
 
 ::company::CompanyFactory_ptr CompanyFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new CompanyFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < CompanyFactory
+                > (new CompanyFactory());
+
+    return s_holder;
 }
 

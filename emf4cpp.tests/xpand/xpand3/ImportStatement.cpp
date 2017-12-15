@@ -56,7 +56,7 @@ ImportStatement::~ImportStatement()
 {
     if (m_importedId)
     {
-        delete m_importedId;
+        m_importedId.reset();
     }
 }
 
@@ -78,8 +78,8 @@ void ImportStatement::setExported(::ecore::EBoolean _exported)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getImportStatement__exported(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__exported(),
                 _old_exported,
                 m_exported
         );
@@ -106,8 +106,8 @@ void ImportStatement::setImportedId(::xpand3::Identifier_ptr _importedId)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId(),
                 _old_importedId,
                 m_importedId
         );
@@ -115,8 +115,10 @@ void ImportStatement::setImportedId(::xpand3::Identifier_ptr _importedId)
     }
 #endif
 
-    delete _old_importedId;
-    m_importedId->_setEContainer(this,
+    if (_old_importedId)
+        _old_importedId->_setEContainer(ImportStatement_ptr(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
+    m_importedId->_setEContainer(_this(),
             ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
 }
 

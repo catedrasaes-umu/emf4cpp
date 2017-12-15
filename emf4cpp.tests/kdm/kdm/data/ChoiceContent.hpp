@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ChoiceContent_ptr _this()
+        {   return ChoiceContent_ptr(this);}
+
         // Attributes
 
         // References

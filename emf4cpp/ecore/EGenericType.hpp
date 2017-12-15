@@ -36,7 +36,6 @@ namespace ecore
 {
 
 class EXPORT_ECORE_DLL EGenericType : public virtual ::ecore::EObject
-
 {
 public:
     EGenericType();
@@ -53,8 +52,8 @@ public:
     virtual ::ecore::EGenericType_ptr getEUpperBound () const;
     virtual void setEUpperBound (::ecore::EGenericType_ptr _eUpperBound);
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getETypeArguments () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getETypeArguments ();
 
     virtual ::ecore::EClassifier_ptr getERawType () const;
     virtual void setERawType (::ecore::EClassifier_ptr _eRawType);
@@ -88,13 +87,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EGenericType_ptr _this()
+    {   return EGenericType_ptr(this);}
+
     // Attributes
 
     // References
 
     ::ecore::EGenericType_ptr m_eUpperBound;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eTypeArguments;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >> m_eTypeArguments;
 
     ::ecore::EClassifier_ptr m_eRawType;
 

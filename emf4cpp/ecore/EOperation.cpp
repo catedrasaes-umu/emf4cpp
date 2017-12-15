@@ -50,25 +50,25 @@ EOperation::EOperation() :
 
     m_eTypeParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::ETypeParameter, -1, true, false >(this,
+                    ::ecore::ETypeParameter_ptr, -1, true, false >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eTypeParameters() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
     m_eParameters.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EParameter,
-                    -1, true, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EParameter_ptr, -1, true, true >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eParameters() :
-                            nullptr,
+                            ::ecore::EReference_ptr(),
                     ::ecore::EcorePackage::EPARAMETER__EOPERATION));
     m_eExceptions.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClassifier,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EClassifier_ptr, -1, false, false >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eExceptions() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
     m_eGenericExceptions.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EGenericType_ptr, -1, true, false >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEOperation__eGenericExceptions() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(EOperationImpl__EOperationImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -109,8 +109,8 @@ void EOperation::basicsetEContainingClass(::ecore::EClass_ptr _eContainingClass)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEOperation__eContainingClass(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEOperation__eContainingClass(),
                 _old_eContainingClass,
                 m_eContainingClass
         );
@@ -124,7 +124,7 @@ void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)
 {
     if (_eContainingClass != m_eContainingClass)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_eContainingClass != nullptr)
         {
             m_eContainingClass->_inverseRemove(
@@ -139,42 +139,42 @@ void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)
     }
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EOperation::getETypeParameters() const
+const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& EOperation::getETypeParameters() const
 {
     return *m_eTypeParameters;
 }
 
-::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EOperation::getETypeParameters()
+::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& EOperation::getETypeParameters()
 {
     return *m_eTypeParameters;
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EParameter >& EOperation::getEParameters() const
+const ::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >& EOperation::getEParameters() const
 {
     return *m_eParameters;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EParameter >& EOperation::getEParameters()
+::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >& EOperation::getEParameters()
 {
     return *m_eParameters;
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& EOperation::getEExceptions() const
+const ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& EOperation::getEExceptions() const
 {
     return *m_eExceptions;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EClassifier >& EOperation::getEExceptions()
+::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& EOperation::getEExceptions()
 {
     return *m_eExceptions;
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EOperation::getEGenericExceptions() const
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EOperation::getEGenericExceptions() const
 {
     return *m_eGenericExceptions;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EGenericType >& EOperation::getEGenericExceptions()
+::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EOperation::getEGenericExceptions()
 {
     return *m_eGenericExceptions;
 }

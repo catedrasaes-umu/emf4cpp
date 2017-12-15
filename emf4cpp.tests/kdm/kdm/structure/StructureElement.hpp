@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        StructureElement_ptr _this()
+        {   return StructureElement_ptr(this);}
+
         // Attributes
 
         // References

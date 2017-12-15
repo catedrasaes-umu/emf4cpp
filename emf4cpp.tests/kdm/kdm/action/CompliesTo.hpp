@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        CompliesTo_ptr _this()
+        {   return CompliesTo_ptr(this);}
+
         // Attributes
 
         // References

@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Report_ptr _this()
+        {   return Report_ptr(this);}
+
         // Attributes
 
         // References

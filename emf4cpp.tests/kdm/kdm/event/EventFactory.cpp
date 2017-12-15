@@ -22,12 +22,13 @@
 
 using namespace ::kdm::event;
 
-std::unique_ptr< ::kdm::event::EventFactory > EventFactory::s_instance;
+boost::intrusive_ptr< ::kdm::event::EventFactory > EventFactory::s_holder;
 
 ::kdm::event::EventFactory_ptr EventFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new EventFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < EventFactory > (new EventFactory());
+
+    return s_holder;
 }
 

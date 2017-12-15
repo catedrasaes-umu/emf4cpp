@@ -86,12 +86,14 @@ void UnaryOperation::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR:
     {
-        _any = static_cast< ::ecore::EObject* >(m_operator);
+        if (m_operator)
+            _any = m_operator->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND:
     {
-        _any = static_cast< ::ecore::EObject* >(m_operand);
+        if (m_operand)
+            _any = m_operand->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -133,7 +135,7 @@ void UnaryOperation::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::UnaryOperation::setOperator(_t1);
     }
         return;
@@ -142,7 +144,7 @@ void UnaryOperation::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::UnaryOperation::setOperand(_t1);
     }
         return;
@@ -167,9 +169,9 @@ void UnaryOperation::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR:
-        return m_operator;
+        return (bool) m_operator;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND:
-        return m_operand;
+        return (bool) m_operand;
 
     }
     throw "Error";
@@ -187,7 +189,7 @@ void UnaryOperation::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr UnaryOperation::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getUnaryOperation();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getUnaryOperation();
     return _eclass;
 }
 

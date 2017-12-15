@@ -106,7 +106,7 @@ void Element::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Element::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getElement();
+            dynamic_cast< ::CST::CSTPackage* >(::CST::CSTPackage::_instance().get())->getElement();
     return _eclass;
 }
 

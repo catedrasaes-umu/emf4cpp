@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ExceptionFlow_ptr _this()
+        {   return ExceptionFlow_ptr(this);}
+
         // Attributes
 
         // References

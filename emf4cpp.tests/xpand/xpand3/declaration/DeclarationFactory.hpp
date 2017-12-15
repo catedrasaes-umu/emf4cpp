@@ -54,7 +54,7 @@ namespace xpand3
 
         protected:
 
-            static std::unique_ptr< DeclarationFactory > s_instance;
+            static boost::intrusive_ptr< DeclarationFactory > s_holder;
 
             DeclarationFactory();
 
@@ -66,80 +66,99 @@ namespace xpand3
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline T* create()
+        template< class T > inline boost::intrusive_ptr< T > create()
         {
-            return (T*) nullptr;
+            return boost::intrusive_ptr< T >();
         }
 
         template< > inline AbstractDeclaration_ptr create< AbstractDeclaration >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createAbstractDeclaration();
         }
+
         template< > inline AbstractNamedDeclaration_ptr create<
                 AbstractNamedDeclaration >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createAbstractNamedDeclaration();
         }
+
         template< > inline Definition_ptr create< Definition >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createDefinition();
         }
+
         template< > inline Extension_ptr create< Extension >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createExtension();
         }
+
         template< > inline AbstractAspect_ptr create< AbstractAspect >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createAbstractAspect();
         }
+
         template< > inline ExtensionAspect_ptr create< ExtensionAspect >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createExtensionAspect();
         }
+
         template< > inline DefinitionAspect_ptr create< DefinitionAspect >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createDefinitionAspect();
         }
+
         template< > inline Check_ptr create< Check >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createCheck();
         }
+
         template< > inline CreateExtension_ptr create< CreateExtension >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createCreateExtension();
         }
+
         template< > inline JavaExtension_ptr create< JavaExtension >()
         {
             auto eFactory =
                     DeclarationPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< DeclarationFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< DeclarationFactory* >(eFactory.get());
             return packageFactory->createJavaExtension();
         }
 

@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    FontWeight_ptr _this()
+    {   return FontWeight_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Boolean m_bold;

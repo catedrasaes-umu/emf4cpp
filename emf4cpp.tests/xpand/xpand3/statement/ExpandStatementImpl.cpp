@@ -105,22 +105,25 @@ void ExpandStatement::_initialize()
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
     {
-        _any = m_parameters->asEListOf< ::ecore::EObject >();
+        _any = m_parameters->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
     {
-        _any = static_cast< ::ecore::EObject* >(m_separator);
+        if (m_separator)
+            _any = m_separator->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET:
     {
-        _any = static_cast< ::ecore::EObject* >(m_target);
+        if (m_target)
+            _any = m_target->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_definition);
+        if (m_definition)
+            _any = m_definition->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -165,9 +168,9 @@ void ExpandStatement::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::statement::ExpandStatement::getParameters().clear();
         ::xpand3::statement::ExpandStatement::getParameters().insert_all(*_t0);
     }
@@ -177,7 +180,7 @@ void ExpandStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::ExpandStatement::setSeparator(_t1);
     }
         return;
@@ -186,7 +189,7 @@ void ExpandStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::ExpandStatement::setTarget(_t1);
     }
         return;
@@ -195,7 +198,7 @@ void ExpandStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::statement::ExpandStatement::setDefinition(_t1);
     }
         return;
@@ -225,11 +228,11 @@ void ExpandStatement::eSet(::ecore::EInt _featureID,
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__PARAMETERS:
         return m_parameters && m_parameters->size();
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
-        return m_separator;
+        return (bool) m_separator;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET:
-        return m_target;
+        return (bool) m_target;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION:
-        return m_definition;
+        return (bool) m_definition;
 
     }
     throw "Error";
@@ -247,7 +250,7 @@ void ExpandStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ExpandStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getExpandStatement();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getExpandStatement();
     return _eclass;
 }
 

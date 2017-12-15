@@ -55,7 +55,7 @@ namespace xpand3
 
         protected:
 
-            static std::unique_ptr< StatementFactory > s_instance;
+            static boost::intrusive_ptr< StatementFactory > s_holder;
 
             StatementFactory();
 
@@ -67,87 +67,108 @@ namespace xpand3
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline T* create()
+        template< class T > inline boost::intrusive_ptr< T > create()
         {
-            return (T*) nullptr;
+            return boost::intrusive_ptr< T >();
         }
 
         template< > inline AbstractStatement_ptr create< AbstractStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createAbstractStatement();
         }
+
         template< > inline ExpandStatement_ptr create< ExpandStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createExpandStatement();
         }
+
         template< > inline ExpressionStatement_ptr create< ExpressionStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createExpressionStatement();
         }
+
         template< > inline ErrorStatement_ptr create< ErrorStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createErrorStatement();
         }
+
         template< > inline AbstractStatementWithBody_ptr create<
                 AbstractStatementWithBody >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createAbstractStatementWithBody();
         }
+
         template< > inline FileStatement_ptr create< FileStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createFileStatement();
         }
+
         template< > inline ForEachStatement_ptr create< ForEachStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createForEachStatement();
         }
+
         template< > inline IfStatement_ptr create< IfStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createIfStatement();
         }
+
         template< > inline LetStatement_ptr create< LetStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createLetStatement();
         }
+
         template< > inline ProtectStatement_ptr create< ProtectStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createProtectStatement();
         }
+
         template< > inline TextStatement_ptr create< TextStatement >()
         {
             auto eFactory =
                     StatementPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< StatementFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< StatementFactory* >(eFactory.get());
             return packageFactory->createTextStatement();
         }
 

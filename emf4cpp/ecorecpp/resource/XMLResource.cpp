@@ -24,8 +24,8 @@
 
 using namespace ::ecorecpp::resource;
 
-Resource* XMLResourceFactory::createResource(const QUrl& uri) {
-	return new XMLResource(uri);
+Resource_ptr XMLResourceFactory::createResource(const QUrl& uri) {
+	return Resource_ptr(new XMLResource(uri));
 }
 
 XMLResource::XMLResource(const QUrl& uri)

@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Annotation_ptr _this()
+        {   return Annotation_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_text;

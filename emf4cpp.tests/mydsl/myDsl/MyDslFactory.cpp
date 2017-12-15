@@ -22,12 +22,13 @@
 
 using namespace ::myDsl;
 
-std::unique_ptr< ::myDsl::MyDslFactory > MyDslFactory::s_instance;
+boost::intrusive_ptr< ::myDsl::MyDslFactory > MyDslFactory::s_holder;
 
 ::myDsl::MyDslFactory_ptr MyDslFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new MyDslFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < MyDslFactory > (new MyDslFactory());
+
+    return s_holder;
 }
 

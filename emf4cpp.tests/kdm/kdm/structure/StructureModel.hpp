@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& getStructureElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& getStructureElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -83,11 +83,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        StructureModel_ptr _this()
+        {   return StructureModel_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >> m_structureElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >> m_structureElement;
 
     };
 

@@ -44,8 +44,8 @@ ExtensionFamily::ExtensionFamily()
 {
 
     m_stereotype.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Stereotype_ptr, -1, true, false >(this,
                     ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__stereotype()));
 
     /*PROTECTED REGION ID(ExtensionFamilyImpl__ExtensionFamilyImpl) START*/
@@ -80,8 +80,8 @@ void ExtensionFamily::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__name(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__name(),
                 _old_name,
                 m_name
         );
@@ -92,12 +92,12 @@ void ExtensionFamily::setName(::kdm::core::String _name)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ExtensionFamily::getStereotype() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ExtensionFamily::getStereotype() const
 {
     return *m_stereotype;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ExtensionFamily::getStereotype()
+::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ExtensionFamily::getStereotype()
 {
     return *m_stereotype;
 }

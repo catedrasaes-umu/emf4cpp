@@ -22,8 +22,7 @@
 
 using namespace ::kdm::action;
 
-std::unique_ptr< ::kdm::action::ActionPackage,
-        ::ecorecpp::PackageDeleter< ::kdm::action::ActionPackage > > ActionPackage::s_instance;
+boost::intrusive_ptr< ::kdm::action::ActionPackage > ActionPackage::s_instance;
 
 ::kdm::action::ActionPackage_ptr ActionPackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::kdm::action::ActionPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< ActionPackage >();
         duringConstruction = true;
-        new ActionPackage();
+        s_instance = boost::intrusive_ptr < ActionPackage
+                > (new ActionPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::kdm::action::ActionPackage_ptr ActionPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

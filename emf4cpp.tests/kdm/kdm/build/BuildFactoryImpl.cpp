@@ -123,82 +123,84 @@ BuildFactory::BuildFactory()
 
 AbstractBuildElement_ptr BuildFactory::createAbstractBuildElement()
 {
-    return new AbstractBuildElement();
+    return boost::intrusive_ptr < AbstractBuildElement
+            > (new AbstractBuildElement);
 }
 BuildResource_ptr BuildFactory::createBuildResource()
 {
-    return new BuildResource();
+    return boost::intrusive_ptr < BuildResource > (new BuildResource);
 }
 BuildDescription_ptr BuildFactory::createBuildDescription()
 {
-    return new BuildDescription();
+    return boost::intrusive_ptr < BuildDescription > (new BuildDescription);
 }
 SymbolicLink_ptr BuildFactory::createSymbolicLink()
 {
-    return new SymbolicLink();
+    return boost::intrusive_ptr < SymbolicLink > (new SymbolicLink);
 }
 AbstractBuildRelationship_ptr BuildFactory::createAbstractBuildRelationship()
 {
-    return new AbstractBuildRelationship();
+    return boost::intrusive_ptr < AbstractBuildRelationship
+            > (new AbstractBuildRelationship);
 }
 LinksTo_ptr BuildFactory::createLinksTo()
 {
-    return new LinksTo();
+    return boost::intrusive_ptr < LinksTo > (new LinksTo);
 }
 Consumes_ptr BuildFactory::createConsumes()
 {
-    return new Consumes();
+    return boost::intrusive_ptr < Consumes > (new Consumes);
 }
 BuildModel_ptr BuildFactory::createBuildModel()
 {
-    return new BuildModel();
+    return boost::intrusive_ptr < BuildModel > (new BuildModel);
 }
 BuildComponent_ptr BuildFactory::createBuildComponent()
 {
-    return new BuildComponent();
+    return boost::intrusive_ptr < BuildComponent > (new BuildComponent);
 }
 Supplier_ptr BuildFactory::createSupplier()
 {
-    return new Supplier();
+    return boost::intrusive_ptr < Supplier > (new Supplier);
 }
 Tool_ptr BuildFactory::createTool()
 {
-    return new Tool();
+    return boost::intrusive_ptr < Tool > (new Tool);
 }
 BuildElement_ptr BuildFactory::createBuildElement()
 {
-    return new BuildElement();
+    return boost::intrusive_ptr < BuildElement > (new BuildElement);
 }
 BuildRelationship_ptr BuildFactory::createBuildRelationship()
 {
-    return new BuildRelationship();
+    return boost::intrusive_ptr < BuildRelationship > (new BuildRelationship);
 }
 SuppliedBy_ptr BuildFactory::createSuppliedBy()
 {
-    return new SuppliedBy();
+    return boost::intrusive_ptr < SuppliedBy > (new SuppliedBy);
 }
 Library_ptr BuildFactory::createLibrary()
 {
-    return new Library();
+    return boost::intrusive_ptr < Library > (new Library);
 }
 BuildStep_ptr BuildFactory::createBuildStep()
 {
-    return new BuildStep();
+    return boost::intrusive_ptr < BuildStep > (new BuildStep);
 }
 Produces_ptr BuildFactory::createProduces()
 {
-    return new Produces();
+    return boost::intrusive_ptr < Produces > (new Produces);
 }
 SupportedBy_ptr BuildFactory::createSupportedBy()
 {
-    return new SupportedBy();
+    return boost::intrusive_ptr < SupportedBy > (new SupportedBy);
 }
 BuildProduct_ptr BuildFactory::createBuildProduct()
 {
-    return new BuildProduct();
+    return boost::intrusive_ptr < BuildProduct > (new BuildProduct);
 }
 DescribedBy_ptr BuildFactory::createDescribedBy()
 {
-    return new DescribedBy();
+    return boost::intrusive_ptr < DescribedBy > (new DescribedBy);
 }
 

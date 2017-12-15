@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     EoppositeFactory_ptr eoppositeFactory = EoppositeFactory::_instance()->as< EoppositeFactory >();
 
     {
-        std::shared_ptr<TopLevel> tl ( create<TopLevel>());
+		boost::intrusive_ptr<TopLevel> tl ( create<TopLevel>());
         tl->setName("MyTopLevel");
 
         auto myLeft = create<LeftHand>();
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
 	ec::EObject_ptr eobj = _dser.load ("myTopLevel.xmi");
 
     {
-        std::shared_ptr<TopLevel> tl (eobj->as< TopLevel >());
+		boost::intrusive_ptr<TopLevel> tl (eobj->as< TopLevel >());
     }
 }
 

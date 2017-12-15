@@ -80,6 +80,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        KDMModel_ptr _this()
+        {   return KDMModel_ptr(this);}
+
         // Attributes
 
         // References

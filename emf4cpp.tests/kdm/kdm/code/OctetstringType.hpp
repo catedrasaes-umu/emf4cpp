@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        OctetstringType_ptr _this()
+        {   return OctetstringType_ptr(this);}
+
         // Attributes
 
         // References

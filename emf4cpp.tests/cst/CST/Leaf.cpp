@@ -72,8 +72,8 @@ void Leaf::setValue(::ecore::EString const& _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::CST::CSTPackage::_instance()->getLeaf__value(),
+                _this(),
+                ::CST::CSTPackage::_instance()->getLeaf__value(),
                 _old_value,
                 m_value
         );
@@ -98,8 +98,8 @@ void Leaf::setPos(::ecore::EInt _pos)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::CST::CSTPackage::_instance()->getLeaf__pos(),
+                _this(),
+                ::CST::CSTPackage::_instance()->getLeaf__pos(),
                 _old_pos,
                 m_pos
         );
@@ -124,8 +124,8 @@ void Leaf::setLine(::ecore::EInt _line)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::CST::CSTPackage::_instance()->getLeaf__line(),
+                _this(),
+                ::CST::CSTPackage::_instance()->getLeaf__line(),
                 _old_line,
                 m_line
         );

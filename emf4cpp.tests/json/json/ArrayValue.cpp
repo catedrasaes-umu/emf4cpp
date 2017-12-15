@@ -41,7 +41,7 @@ ArrayValue::ArrayValue()
 {
 
     m_values.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::json::Value, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::json::Value_ptr, -1,
                     true, false >(this,
                     ::json::JsonPackage::_instance()->getArrayValue__values()));
 
@@ -63,12 +63,12 @@ ArrayValue::~ArrayValue()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::json::Value >& ArrayValue::getValues() const
+const ::ecorecpp::mapping::EList< ::json::Value_ptr >& ArrayValue::getValues() const
 {
     return *m_values;
 }
 
-::ecorecpp::mapping::EList< ::json::Value >& ArrayValue::getValues()
+::ecorecpp::mapping::EList< ::json::Value_ptr >& ArrayValue::getValues()
 {
     return *m_values;
 }

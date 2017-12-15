@@ -150,7 +150,7 @@ void AbstractExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr AbstractExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getAbstractExpression();
     return _eclass;
 }
 

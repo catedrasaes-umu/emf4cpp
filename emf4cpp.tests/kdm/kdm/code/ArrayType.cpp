@@ -68,7 +68,7 @@ ArrayType::~ArrayType()
 {
     if (m_indexUnit)
     {
-        delete m_indexUnit;
+        m_indexUnit.reset();
     }
 }
 
@@ -90,8 +90,8 @@ void ArrayType::setSize(::kdm::core::Integer _size)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getArrayType__size(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__size(),
                 _old_size,
                 m_size
         );
@@ -118,8 +118,8 @@ void ArrayType::setIndexUnit(::kdm::code::IndexUnit_ptr _indexUnit)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit(),
                 _old_indexUnit,
                 m_indexUnit
         );
@@ -127,8 +127,10 @@ void ArrayType::setIndexUnit(::kdm::code::IndexUnit_ptr _indexUnit)
     }
 #endif
 
-    delete _old_indexUnit;
-    m_indexUnit->_setEContainer(this,
+    if (_old_indexUnit)
+        _old_indexUnit->_setEContainer(ArrayType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
+    m_indexUnit->_setEContainer(_this(),
             ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
 }
 

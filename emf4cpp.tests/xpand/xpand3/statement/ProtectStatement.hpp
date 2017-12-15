@@ -91,6 +91,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        ProtectStatement_ptr _this()
+        {   return ProtectStatement_ptr(this);}
+
         // Attributes
 
         ::ecore::EBoolean m_disable;

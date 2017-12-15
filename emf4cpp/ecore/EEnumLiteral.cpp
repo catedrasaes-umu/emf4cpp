@@ -75,8 +75,8 @@ void EEnumLiteral::setValue(::ecore::EInt _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__value(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__value(),
                 _old_value,
                 m_value
         );
@@ -101,8 +101,8 @@ void EEnumLiteral::setInstance(::ecore::EEnumerator _instance)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__instance(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__instance(),
                 _old_instance,
                 m_instance
         );
@@ -127,8 +127,8 @@ void EEnumLiteral::setLiteral(::ecore::EString const& _literal)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__literal(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__literal(),
                 _old_literal,
                 m_literal
         );
@@ -160,8 +160,8 @@ void EEnumLiteral::basicsetEEnum(::ecore::EEnum_ptr _eEnum)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__eEnum(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__eEnum(),
                 _old_eEnum,
                 m_eEnum
         );
@@ -175,7 +175,7 @@ void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)
 {
     if (_eEnum != m_eEnum)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_eEnum != nullptr)
         {
             m_eEnum->_inverseRemove(::ecore::EcorePackage::EENUM__ELITERALS,

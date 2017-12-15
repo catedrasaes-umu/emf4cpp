@@ -196,96 +196,96 @@ namespace ecore
 // EClass
 // EAttribute
     class EAttribute;
-    typedef EAttribute* EAttribute_ptr;
+    using EAttribute_ptr = boost::intrusive_ptr<EAttribute>;
 
 // EAnnotation
     class EAnnotation;
-    typedef EAnnotation* EAnnotation_ptr;
+    using EAnnotation_ptr = boost::intrusive_ptr<EAnnotation>;
 
 // EClass
     class EClass;
-    typedef EClass* EClass_ptr;
+    using EClass_ptr = boost::intrusive_ptr<EClass>;
 
 // EClassifier
     class EClassifier;
-    typedef EClassifier* EClassifier_ptr;
+    using EClassifier_ptr = boost::intrusive_ptr<EClassifier>;
 
 // EDataType
     class EDataType;
-    typedef EDataType* EDataType_ptr;
+    using EDataType_ptr = boost::intrusive_ptr<EDataType>;
 
 // EEnum
     class EEnum;
-    typedef EEnum* EEnum_ptr;
+    using EEnum_ptr = boost::intrusive_ptr<EEnum>;
 
 // EEnumLiteral
     class EEnumLiteral;
-    typedef EEnumLiteral* EEnumLiteral_ptr;
+    using EEnumLiteral_ptr = boost::intrusive_ptr<EEnumLiteral>;
 
 // EFactory
     class EFactory;
-    typedef EFactory* EFactory_ptr;
+    using EFactory_ptr = boost::intrusive_ptr<EFactory>;
 
 // EModelElement
     class EModelElement;
-    typedef EModelElement* EModelElement_ptr;
+    using EModelElement_ptr = boost::intrusive_ptr<EModelElement>;
 
 // ENamedElement
     class ENamedElement;
-    typedef ENamedElement* ENamedElement_ptr;
+    using ENamedElement_ptr = boost::intrusive_ptr<ENamedElement>;
 
 // EObject
     class EObject;
-    typedef EObject* EObject_ptr;
+    using EObject_ptr = boost::intrusive_ptr<EObject>;
 
 // EOperation
     class EOperation;
-    typedef EOperation* EOperation_ptr;
+    using EOperation_ptr = boost::intrusive_ptr<EOperation>;
 
 // EPackage
     class EPackage;
-    typedef EPackage* EPackage_ptr;
+    using EPackage_ptr = boost::intrusive_ptr<EPackage>;
 
 // EParameter
     class EParameter;
-    typedef EParameter* EParameter_ptr;
+    using EParameter_ptr = boost::intrusive_ptr<EParameter>;
 
 // EReference
     class EReference;
-    typedef EReference* EReference_ptr;
+    using EReference_ptr = boost::intrusive_ptr<EReference>;
 
 // EStructuralFeature
     class EStructuralFeature;
-    typedef EStructuralFeature* EStructuralFeature_ptr;
+    using EStructuralFeature_ptr = boost::intrusive_ptr<EStructuralFeature>;
 
 // ETypedElement
     class ETypedElement;
-    typedef ETypedElement* ETypedElement_ptr;
+    using ETypedElement_ptr = boost::intrusive_ptr<ETypedElement>;
 
 // EStringToStringMapEntry
     class EStringToStringMapEntry;
-    typedef EStringToStringMapEntry* EStringToStringMapEntry_ptr;
+    using EStringToStringMapEntry_ptr = boost::intrusive_ptr<EStringToStringMapEntry>;
 
 // EGenericType
     class EGenericType;
-    typedef EGenericType* EGenericType_ptr;
+    using EGenericType_ptr = boost::intrusive_ptr<EGenericType>;
 
 // ETypeParameter
     class ETypeParameter;
-    typedef ETypeParameter* ETypeParameter_ptr;
+    using ETypeParameter_ptr = boost::intrusive_ptr<ETypeParameter>;
 
 // EEnum
 
 // Package & Factory
     class EcoreFactory;
-    typedef EcoreFactory * EcoreFactory_ptr;
+    using EcoreFactory_ptr = boost::intrusive_ptr<EcoreFactory>;
     class EcorePackage;
-    typedef EcorePackage * EcorePackage_ptr;
+    using EcorePackage_ptr = boost::intrusive_ptr<EcorePackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // ecore

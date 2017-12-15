@@ -22,8 +22,7 @@
 
 using namespace ::kdm::ui;
 
-std::unique_ptr< ::kdm::ui::UiPackage,
-        ::ecorecpp::PackageDeleter< ::kdm::ui::UiPackage > > UiPackage::s_instance;
+boost::intrusive_ptr< ::kdm::ui::UiPackage > UiPackage::s_instance;
 
 ::kdm::ui::UiPackage_ptr UiPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::kdm::ui::UiPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< UiPackage >();
         duringConstruction = true;
-        new UiPackage();
+        s_instance = boost::intrusive_ptr < UiPackage > (new UiPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::kdm::ui::UiPackage_ptr UiPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

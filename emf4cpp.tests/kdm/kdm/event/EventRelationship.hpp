@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        EventRelationship_ptr _this()
+        {   return EventRelationship_ptr(this);}
+
         // Attributes
 
         // References

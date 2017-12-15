@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ArchitectureView_ptr _this()
+        {   return ArchitectureView_ptr(this);}
+
         // Attributes
 
         // References

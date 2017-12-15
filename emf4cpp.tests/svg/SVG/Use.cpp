@@ -50,7 +50,7 @@ Use::Use()
 {
 
     m_use.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getUse__use(),
                     ::SVG::SVGPackage::ELEMENT__TARGET));
@@ -73,12 +73,12 @@ Use::~Use()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::Element >& Use::getUse() const
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Use::getUse() const
 {
     return *m_use;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Element >& Use::getUse()
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Use::getUse()
 {
     return *m_use;
 }

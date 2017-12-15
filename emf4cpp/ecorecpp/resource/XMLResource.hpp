@@ -40,13 +40,14 @@ public:
 
 	XMLResourceFactory() = default;
 
-	Resource* createResource(const QUrl&) override;
+	Resource_ptr createResource(const QUrl&) override;
 };
 
 //Resource
 class EXPORT_ECORECPP_DLL XMLResource : public Resource {
 public:
 
+	explicit XMLResource(const QUrl&);
 	virtual ~XMLResource() = default;
 
 	void load(std::istream&) override;
@@ -56,9 +57,6 @@ public:
 	std::string getID(::ecore::EObject*);
 
 protected:
-	friend Resource* XMLResourceFactory::createResource(const QUrl&);
-	explicit XMLResource(const QUrl&);
-
 	bool useIDAttributes() const;
 	bool useIDs() const;
 	bool useUUIDs() const;

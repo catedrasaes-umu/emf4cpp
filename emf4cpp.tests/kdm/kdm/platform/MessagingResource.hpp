@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        MessagingResource_ptr _this()
+        {   return MessagingResource_ptr(this);}
+
         // Attributes
 
         // References

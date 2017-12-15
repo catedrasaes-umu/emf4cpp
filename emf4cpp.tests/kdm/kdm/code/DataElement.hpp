@@ -65,8 +65,8 @@ namespace kdm
         virtual ::kdm::code::Datatype_ptr getType () const;
         virtual void setType (::kdm::code::Datatype_ptr _type);
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& getCodeElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >& getCodeElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -92,6 +92,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DataElement_ptr _this()
+        {   return DataElement_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_ext;
@@ -102,7 +105,7 @@ namespace kdm
 
         ::kdm::code::Datatype_ptr m_type;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::Datatype >> m_codeElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >> m_codeElement;
 
     };
 

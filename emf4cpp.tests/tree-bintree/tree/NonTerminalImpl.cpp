@@ -69,12 +69,13 @@ void NonTerminal::_initialize()
         return _any;
     case ::tree::TreePackage::TREENODE__PARENT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_parent);
+        if (m_parent)
+            _any = m_parent->as< ::ecore::EObject >();
     }
         return _any;
     case ::tree::TreePackage::NONTERMINAL__CHILDREN:
     {
-        _any = m_children->asEListOf< ::ecore::EObject >();
+        _any = m_children->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -97,15 +98,15 @@ void NonTerminal::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::tree::TreeNode_ptr _t1 = dynamic_cast< ::tree::TreeNode_ptr >(_t0);
+        ::tree::TreeNode_ptr _t1 = dynamic_cast< ::tree::TreeNode* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::tree::TreeNode >(_t0);*/
         ::tree::TreeNode::setParent(_t1);
     }
         return;
     case ::tree::TreePackage::NONTERMINAL__CHILDREN:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::tree::NonTerminal::getChildren().clear();
         ::tree::NonTerminal::getChildren().insert_all(*_t0);
     }
@@ -123,7 +124,7 @@ void NonTerminal::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_data);
     case ::tree::TreePackage::TREENODE__PARENT:
-        return m_parent;
+        return (bool) m_parent;
     case ::tree::TreePackage::NONTERMINAL__CHILDREN:
         return m_children && m_children->size();
 
@@ -143,7 +144,7 @@ void NonTerminal::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr NonTerminal::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::tree::TreePackage_ptr >(::tree::TreePackage::_instance())->getNonTerminal();
+            dynamic_cast< ::tree::TreePackage* >(::tree::TreePackage::_instance().get())->getNonTerminal();
     return _eclass;
 }
 

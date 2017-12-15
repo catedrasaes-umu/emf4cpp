@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        TaggedRef_ptr _this()
+        {   return TaggedRef_ptr(this);}
+
         // Attributes
 
         // References

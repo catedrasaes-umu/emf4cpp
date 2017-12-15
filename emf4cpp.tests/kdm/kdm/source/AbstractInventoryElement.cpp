@@ -50,7 +50,7 @@ AbstractInventoryElement::AbstractInventoryElement()
 
     m_inventoryRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::AbstractInventoryRelationship, -1, true,
+                    ::kdm::source::AbstractInventoryRelationship_ptr, -1, true,
                     false >(this,
                     ::kdm::source::SourcePackage::_instance()->getAbstractInventoryElement__inventoryRelation()));
 
@@ -72,12 +72,13 @@ AbstractInventoryElement::~AbstractInventoryElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >& AbstractInventoryElement::getInventoryRelation() const
+const ::ecorecpp::mapping::EList<
+        ::kdm::source::AbstractInventoryRelationship_ptr >& AbstractInventoryElement::getInventoryRelation() const
 {
     return *m_inventoryRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >& AbstractInventoryElement::getInventoryRelation()
+::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship_ptr >& AbstractInventoryElement::getInventoryRelation()
 {
     return *m_inventoryRelation;
 }

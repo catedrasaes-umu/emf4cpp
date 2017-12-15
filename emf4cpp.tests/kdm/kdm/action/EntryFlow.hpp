@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        EntryFlow_ptr _this()
+        {   return EntryFlow_ptr(this);}
+
         // Attributes
 
         // References

@@ -61,11 +61,11 @@ namespace kdm
         virtual ::kdm::code::Datatype_ptr getType () const;
         virtual void setType (::kdm::code::Datatype_ptr _type);
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& getEntryFlow () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& getEntryFlow ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow_ptr >& getEntryFlow () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow_ptr >& getEntryFlow ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getCodeElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -91,15 +91,18 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ControlElement_ptr _this()
+        {   return ControlElement_ptr(this);}
+
         // Attributes
 
         // References
 
         ::kdm::code::Datatype_ptr m_type;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >> m_entryFlow;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::EntryFlow_ptr >> m_entryFlow;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >> m_codeElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >> m_codeElement;
 
     };
 

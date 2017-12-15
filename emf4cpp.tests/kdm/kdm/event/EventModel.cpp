@@ -49,7 +49,8 @@ EventModel::EventModel()
 
     m_eventElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::event::AbstractEventElement, -1, true, false >(this,
+                    ::kdm::event::AbstractEventElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::event::EventPackage::_instance()->getEventModel__eventElement()));
 
     /*PROTECTED REGION ID(EventModelImpl__EventModelImpl) START*/
@@ -70,12 +71,12 @@ EventModel::~EventModel()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventModel::getEventElement() const
+const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement_ptr >& EventModel::getEventElement() const
 {
     return *m_eventElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventModel::getEventElement()
+::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement_ptr >& EventModel::getEventElement()
 {
     return *m_eventElement;
 }

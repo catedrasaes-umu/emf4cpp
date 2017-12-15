@@ -56,8 +56,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& getELiterals ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral_ptr >& getELiterals () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral_ptr >& getELiterals ();
 
     /*PROTECTED REGION ID(EEnum) START*/
     // Please, enable the protected region if you add manually written code.
@@ -79,11 +79,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EEnum_ptr _this()
+    {   return EEnum_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >> m_eLiterals;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EEnumLiteral_ptr >> m_eLiterals;
 
 };
 

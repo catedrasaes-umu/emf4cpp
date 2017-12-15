@@ -83,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Scale_ptr _this()
+    {   return Scale_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_sx;

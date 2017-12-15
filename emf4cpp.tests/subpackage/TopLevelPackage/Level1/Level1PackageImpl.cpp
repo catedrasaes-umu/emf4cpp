@@ -40,21 +40,22 @@ Level1Package::Level1Package()
 
     // Feature definitions of Level1Class
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void Level1Package::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = Level1Factory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Level1Class
-    m_Level1ClassEClass = new ::ecore::EClass();
+    m_Level1ClassEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_Level1ClassEClass->setClassifierID(LEVEL1CLASS);
-    m_Level1ClassEClass->setEPackage(this);
+    m_Level1ClassEClass->setEPackage(_this());
     getEClassifiers().push_back(m_Level1ClassEClass);
 
     // Create enums

@@ -72,8 +72,8 @@ void Identifier::setValue(::ecore::EString const& _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getIdentifier__value(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getIdentifier__value(),
                 _old_value,
                 m_value
         );

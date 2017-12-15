@@ -13,7 +13,7 @@ PyEObject::PyEObject(ecore::EObject_ptr obj, bool release) :
 PyEObject::~PyEObject()
 {
     if (m_release)
-        delete m_obj;
+        m_obj.reset();
 }
 
 Py::Object PyEObject::getattr(const char *name)

@@ -527,9 +527,10 @@ namespace xpand3
 
     protected:
 
-        static std::unique_ptr< ExpressionPackage, ::ecorecpp::PackageDeleter<ExpressionPackage> > s_instance;
+        static boost::intrusive_ptr< ExpressionPackage > s_instance;
 
         ExpressionPackage();
+        void _initPackage();
 
         // EClass instances 
 

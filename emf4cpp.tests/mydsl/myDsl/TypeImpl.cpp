@@ -105,7 +105,7 @@ void Type::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Type::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getType();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getType();
     return _eclass;
 }
 

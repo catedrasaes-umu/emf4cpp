@@ -56,15 +56,15 @@ LetExpression::~LetExpression()
 {
     if (m_varExpression)
     {
-        delete m_varExpression;
+        m_varExpression.reset();
     }
     if (m_targetExpression)
     {
-        delete m_targetExpression;
+        m_targetExpression.reset();
     }
     if (m_varName)
     {
-        delete m_varName;
+        m_varName.reset();
     }
 }
 
@@ -90,8 +90,8 @@ void LetExpression::setVarExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression(),
                 _old_varExpression,
                 m_varExpression
         );
@@ -99,8 +99,10 @@ void LetExpression::setVarExpression(
     }
 #endif
 
-    delete _old_varExpression;
-    m_varExpression->_setEContainer(this,
+    if (_old_varExpression)
+        _old_varExpression->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
+    m_varExpression->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
 }
 
@@ -122,8 +124,8 @@ void LetExpression::setTargetExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression(),
                 _old_targetExpression,
                 m_targetExpression
         );
@@ -131,8 +133,10 @@ void LetExpression::setTargetExpression(
     }
 #endif
 
-    delete _old_targetExpression;
-    m_targetExpression->_setEContainer(this,
+    if (_old_targetExpression)
+        _old_targetExpression->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
+    m_targetExpression->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
 }
 
@@ -152,8 +156,8 @@ void LetExpression::setVarName(::xpand3::Identifier_ptr _varName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName(),
                 _old_varName,
                 m_varName
         );
@@ -161,8 +165,10 @@ void LetExpression::setVarName(::xpand3::Identifier_ptr _varName)
     }
 #endif
 
-    delete _old_varName;
-    m_varName->_setEContainer(this,
+    if (_old_varName)
+        _old_varName->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
+    m_varName->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
 }
 

@@ -55,11 +55,11 @@ ChainExpression::~ChainExpression()
 {
     if (m_first)
     {
-        delete m_first;
+        m_first.reset();
     }
     if (m_next)
     {
-        delete m_next;
+        m_next.reset();
     }
 }
 
@@ -84,8 +84,8 @@ void ChainExpression::setFirst(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first(),
                 _old_first,
                 m_first
         );
@@ -93,8 +93,10 @@ void ChainExpression::setFirst(
     }
 #endif
 
-    delete _old_first;
-    m_first->_setEContainer(this,
+    if (_old_first)
+        _old_first->_setEContainer(ChainExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
+    m_first->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
 }
 
@@ -115,8 +117,8 @@ void ChainExpression::setNext(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next(),
                 _old_next,
                 m_next
         );
@@ -124,8 +126,10 @@ void ChainExpression::setNext(
     }
 #endif
 
-    delete _old_next;
-    m_next->_setEContainer(this,
+    if (_old_next)
+        _old_next->_setEContainer(ChainExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
+    m_next->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
 }
 

@@ -81,6 +81,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ArrayDef_ptr _this()
+    {   return ArrayDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_bound;

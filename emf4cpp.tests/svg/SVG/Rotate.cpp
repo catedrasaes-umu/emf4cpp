@@ -73,8 +73,8 @@ void Rotate::setAngle(::PrimitiveTypes::Double _angle)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRotate__angle(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRotate__angle(),
                 _old_angle,
                 m_angle
         );
@@ -99,8 +99,8 @@ void Rotate::setCx(::PrimitiveTypes::Double _cx)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRotate__cx(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRotate__cx(),
                 _old_cx,
                 m_cx
         );
@@ -125,8 +125,8 @@ void Rotate::setCy(::PrimitiveTypes::Double _cy)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRotate__cy(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRotate__cy(),
                 _old_cy,
                 m_cy
         );

@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ConceptualRole_ptr _this()
+        {   return ConceptualRole_ptr(this);}
+
         // Attributes
 
         // References

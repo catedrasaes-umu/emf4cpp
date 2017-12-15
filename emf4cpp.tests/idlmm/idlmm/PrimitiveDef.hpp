@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    PrimitiveDef_ptr _this()
+    {   return PrimitiveDef_ptr(this);}
+
     // Attributes
 
     ::idlmm::PrimitiveKind m_kind;

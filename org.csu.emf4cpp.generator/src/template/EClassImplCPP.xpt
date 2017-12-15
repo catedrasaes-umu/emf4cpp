@@ -107,9 +107,10 @@ void «name»::_initialize()
             {
                 «IF EReference.isInstance(ef)-»
                     «IF ef.upperBound == 1-»
-                _any = static_cast< ::ecore::EObject* >(«ef.getMemberName()»);
+                        if («ef.getMemberName()»)
+                            _any = «ef.getMemberName()»->as< ::ecore::EObject >();
                     «ELSE-»
-                _any = «ef.getMemberName()»->asEListOf< ::ecore::EObject >();
+                        _any = «ef.getMemberName()»->asEListOf< ::ecore::EObject_ptr >();
                     «ENDIF-»
                 «ELSE-»
                     «IF ef.upperBound == 1-»
@@ -137,22 +138,22 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
             {
                 «IF EReference.isInstance(ef)-»
                     «IF ef.upperBound == 1-»
-                ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
-                «ef.getCPPTypeSignatureImpl()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»_ptr >(_t0);
-                ::«ef.EContainingClass.getFQN()»::set«ef.name.toFirstUpper()»(_t1);
+		        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
+			«((EReference)ef).getPtr()» _t1 = dynamic_cast<::«ef.EType.getFQN()»*>(_t0.get()); /*/// std::dynamic_pointer_cast< ::«ef.EType.getFQN()» >(_t0);*/
+ 			::«ef.EContainingClass.getFQN()»::set«ef.name.toFirstUpper()»(_t1);
                     «ELSE-»
-                ::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type _t0 =
-                		::ecorecpp::mapping::any::any_cast< ::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type >(_newValue);
-                ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().clear();
-                ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().insert_all(*_t0);
+                        ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type _t0 =
+                            ::ecorecpp::mapping::any::any_cast< ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type >(_newValue);
+                        ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().clear();
+                        ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().insert_all(*_t0);
                     «ENDIF-»
                 «ELSE-»
                     «IF ef.isList() || ef.isMultiple()-»
-                «ef.getCPPTypeSignatureImpl()» _t0;
-                ::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, _t0);
-                ::«ef.EContainingClass.getFQN()»::add«ef.name.toFirstUpper()»(_t0);
+                        «ef.getCPPTypeSignatureImpl()» _t0;
+ 			::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, _t0);
+ 			::«ef.EContainingClass.getFQN()»::add«ef.name.toFirstUpper()»(_t0);
                     «ELSE-»
-                ::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, «ef.getMemberName()»);
+ 		        ::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, «ef.getMemberName()»);
                     «ENDIF-»
                 «ENDIF-»
             }
@@ -170,7 +171,7 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
         case «ef.getCPPFQN()» :
             «IF EReference.isInstance(ef)-»
                 «IF ef.upperBound == 1-»
-            		return «ef.getMemberName()»;
+            	    return (bool)«ef.getMemberName()»;
                 «ELSE-»
             		return «ef.getMemberName()» && «ef.getMemberName()»->size();
                 «ENDIF-»
@@ -230,7 +231,7 @@ void «name»::eUnset ( ::ecore::EInt _featureID)
 ::ecore::EClass_ptr «name»::_eClass ()
 {
     «LET "::"+EPackage.getFQN()+"::"+EPackage.getPackageName() AS pkg-»
-    static ::ecore::EClass_ptr _eclass = dynamic_cast< «pkg»_ptr > («pkg»::_instance())->«EPackage.getPackageGetAttribute(this)»();
+    static ::ecore::EClass_ptr _eclass = dynamic_cast< «pkg»* > («pkg»::_instance().get())->«EPackage.getPackageGetAttribute(this)»();
     return _eclass;
     «ENDLET-»
 }
@@ -246,18 +247,18 @@ void «name»::_inverseAdd( ::ecore::EInt _featureID, ::ecore::EJavaObject const
         case «ef.getCPPFQN()» :
             {
       «IF ((EReference)ef).EOpposite != null-»
-                ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
-                «ef.getCPPTypeSignatureImpl()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»_ptr >(_t0);
+          ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
+          «((EReference)ef).getPtr()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»* >(_t0.get());
 
           «IF ef.upperBound == 1-»
-	      // set reference
+              // set reference
 	      basicset«ef.name.toFirstUpper()»(_t1);
           «ELSE-»
 	      // add to a list
 	      auto& container =
 	          («((EReference)ef).getListImpl()»&)
 	          ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»();
-	      container.basicAdd(_t1);
+	        container.basicAdd(_t1);
           «ENDIF-»
       «ENDIF-»
             }
@@ -279,8 +280,8 @@ void «name»::_inverseRemove( ::ecore::EInt _featureID, ::ecore::EJavaObject co
         case «ef.getCPPFQN()» :
             {
       «IF ((EReference)ef).EOpposite != null-»
-                ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_oldValue);
-                «ef.getCPPTypeSignatureImpl()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»_ptr >(_t0);
+          ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_oldValue);
+          «((EReference)ef).getPtr()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»* >(_t0.get());
 
           «IF ef.upperBound == 1-»
 	      // set reference

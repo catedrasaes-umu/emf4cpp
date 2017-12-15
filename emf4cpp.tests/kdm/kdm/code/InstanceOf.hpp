@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        InstanceOf_ptr _this()
+        {   return InstanceOf_ptr(this);}
+
         // Attributes
 
         // References

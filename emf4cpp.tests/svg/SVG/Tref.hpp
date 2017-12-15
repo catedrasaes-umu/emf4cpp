@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Tref_ptr _this()
+    {   return Tref_ptr(this);}
+
     // Attributes
 
     // References

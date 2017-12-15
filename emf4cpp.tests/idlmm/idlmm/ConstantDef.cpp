@@ -76,8 +76,8 @@ void ConstantDef::setConstValue(::idlmm::EAny _constValue)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getConstantDef__constValue(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getConstantDef__constValue(),
                 _old_constValue,
                 m_constValue
         );

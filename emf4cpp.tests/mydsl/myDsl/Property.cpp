@@ -73,8 +73,8 @@ void Property::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getProperty__name(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getProperty__name(),
                 _old_name,
                 m_name
         );
@@ -99,8 +99,8 @@ void Property::setMany(::ecore::EBoolean _many)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getProperty__many(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getProperty__many(),
                 _old_many,
                 m_many
         );
@@ -127,8 +127,8 @@ void Property::setType(::myDsl::Type_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getProperty__type(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getProperty__type(),
                 _old_type,
                 m_type
         );

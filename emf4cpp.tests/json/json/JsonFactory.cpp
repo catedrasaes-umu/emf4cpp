@@ -22,12 +22,13 @@
 
 using namespace ::json;
 
-std::unique_ptr< ::json::JsonFactory > JsonFactory::s_instance;
+boost::intrusive_ptr< ::json::JsonFactory > JsonFactory::s_holder;
 
 ::json::JsonFactory_ptr JsonFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new JsonFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < JsonFactory > (new JsonFactory());
+
+    return s_holder;
 }
 

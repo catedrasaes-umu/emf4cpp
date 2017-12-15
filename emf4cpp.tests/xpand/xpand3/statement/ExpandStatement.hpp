@@ -59,8 +59,8 @@ namespace xpand3
         virtual void setForeach (::ecore::EBoolean _foreach);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters () const;
-        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParameters ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& getParameters () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& getParameters ();
 
         virtual ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
         virtual void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
@@ -95,13 +95,16 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        ExpandStatement_ptr _this()
+        {   return ExpandStatement_ptr(this);}
+
         // Attributes
 
         ::ecore::EBoolean m_foreach;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >> m_parameters;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >> m_parameters;
 
         ::xpand3::expression::AbstractExpression_ptr m_separator;
 

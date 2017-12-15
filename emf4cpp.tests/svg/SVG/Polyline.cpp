@@ -50,8 +50,8 @@ Polyline::Polyline()
 {
 
     m_waypoints.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1, true,
-                    false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point_ptr, -1,
+                    true, false >(this,
                     ::SVG::SVGPackage::_instance()->getPolyline__waypoints()));
 
     /*PROTECTED REGION ID(PolylineImpl__PolylineImpl) START*/
@@ -86,8 +86,8 @@ void Polyline::setStrokeDashArray(::PrimitiveTypes::String _strokeDashArray)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolyline__strokeDashArray(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolyline__strokeDashArray(),
                 _old_strokeDashArray,
                 m_strokeDashArray
         );
@@ -112,8 +112,8 @@ void Polyline::setMarkerEnd(::PrimitiveTypes::String _markerEnd)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolyline__markerEnd(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolyline__markerEnd(),
                 _old_markerEnd,
                 m_markerEnd
         );
@@ -138,8 +138,8 @@ void Polyline::setMarkerStart(::PrimitiveTypes::String _markerStart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolyline__markerStart(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolyline__markerStart(),
                 _old_markerStart,
                 m_markerStart
         );
@@ -150,12 +150,12 @@ void Polyline::setMarkerStart(::PrimitiveTypes::String _markerStart)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::Point >& Polyline::getWaypoints() const
+const ::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polyline::getWaypoints() const
 {
     return *m_waypoints;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Point >& Polyline::getWaypoints()
+::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polyline::getWaypoints()
 {
     return *m_waypoints;
 }

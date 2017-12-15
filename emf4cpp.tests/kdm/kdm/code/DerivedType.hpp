@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DerivedType_ptr _this()
+        {   return DerivedType_ptr(this);}
+
         // Attributes
 
         // References

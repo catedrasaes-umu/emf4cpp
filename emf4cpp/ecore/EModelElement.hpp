@@ -36,7 +36,6 @@ namespace ecore
 {
 
 class EXPORT_ECORE_DLL EModelElement : public virtual ::ecore::EObject
-
 {
 public:
     EModelElement();
@@ -52,8 +51,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& getEAnnotations () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& getEAnnotations ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EAnnotation_ptr >& getEAnnotations () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EAnnotation_ptr >& getEAnnotations ();
 
     /*PROTECTED REGION ID(EModelElement) START*/
     // Please, enable the protected region if you add manually written code.
@@ -75,11 +74,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EModelElement_ptr _this()
+    {   return EModelElement_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAnnotation >> m_eAnnotations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAnnotation_ptr >> m_eAnnotations;
 
 };
 

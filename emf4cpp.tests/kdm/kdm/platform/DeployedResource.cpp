@@ -55,7 +55,7 @@ DeployedResource::DeployedResource()
 
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::ResourceType, -1, true, false >(this,
+                    ::kdm::platform::ResourceType_ptr, -1, true, false >(this,
                     ::kdm::platform::PlatformPackage::_instance()->getDeployedResource__platformElement()));
 
     /*PROTECTED REGION ID(DeployedResourceImpl__DeployedResourceImpl) START*/
@@ -76,12 +76,12 @@ DeployedResource::~DeployedResource()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& DeployedResource::getPlatformElement() const
+const ::ecorecpp::mapping::EList< ::kdm::platform::ResourceType_ptr >& DeployedResource::getPlatformElement() const
 {
     return *m_platformElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::platform::ResourceType >& DeployedResource::getPlatformElement()
+::ecorecpp::mapping::EList< ::kdm::platform::ResourceType_ptr >& DeployedResource::getPlatformElement()
 {
     return *m_platformElement;
 }

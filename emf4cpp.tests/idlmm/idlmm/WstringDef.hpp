@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    WstringDef_ptr _this()
+    {   return WstringDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_bound;

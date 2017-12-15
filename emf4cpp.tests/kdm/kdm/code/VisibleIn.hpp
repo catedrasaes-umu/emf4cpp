@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        VisibleIn_ptr _this()
+        {   return VisibleIn_ptr(this);}
+
         // Attributes
 
         // References

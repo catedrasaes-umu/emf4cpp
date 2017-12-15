@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        HasContent_ptr _this()
+        {   return HasContent_ptr(this);}
+
         // Attributes
 
         // References

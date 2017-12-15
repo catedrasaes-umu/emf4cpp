@@ -94,17 +94,20 @@ void LetExpression::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VAREXPRESSION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_varExpression);
+        if (m_varExpression)
+            _any = m_varExpression->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__TARGETEXPRESSION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_targetExpression);
+        if (m_targetExpression)
+            _any = m_targetExpression->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VARNAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_varName);
+        if (m_varName)
+            _any = m_varName->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -146,7 +149,7 @@ void LetExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::LetExpression::setVarExpression(_t1);
     }
         return;
@@ -155,7 +158,7 @@ void LetExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::LetExpression::setTargetExpression(_t1);
     }
         return;
@@ -164,7 +167,7 @@ void LetExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::LetExpression::setVarName(_t1);
     }
         return;
@@ -189,11 +192,11 @@ void LetExpression::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VAREXPRESSION:
-        return m_varExpression;
+        return (bool) m_varExpression;
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__TARGETEXPRESSION:
-        return m_targetExpression;
+        return (bool) m_targetExpression;
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VARNAME:
-        return m_varName;
+        return (bool) m_varName;
 
     }
     throw "Error";
@@ -211,7 +214,7 @@ void LetExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr LetExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getLetExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getLetExpression();
     return _eclass;
 }
 

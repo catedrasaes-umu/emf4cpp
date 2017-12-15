@@ -40,29 +40,33 @@ TreePackage::TreePackage()
 {
 
     // Feature definitions of TreeNode
-    m_TreeNode__data = new ::ecore::EAttribute();
-    m_TreeNode__parent = new ::ecore::EReference();
+    m_TreeNode__data = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_TreeNode__parent = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Leaf
 
     // Feature definitions of NonTerminal
-    m_NonTerminal__children = new ::ecore::EReference();
+    m_NonTerminal__children = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void TreePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = TreeFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // TreeNode
-    m_TreeNodeEClass = new ::ecore::EClass();
+    m_TreeNodeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TreeNodeEClass->setClassifierID(TREENODE);
-    m_TreeNodeEClass->setEPackage(this);
+    m_TreeNodeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TreeNodeEClass);
     // m_TreeNode__data has already been allocated above
     m_TreeNode__data->setFeatureID(::tree::TreePackage::TREENODE__DATA);
@@ -72,15 +76,17 @@ TreePackage::TreePackage()
     m_TreeNodeEClass->getEStructuralFeatures().push_back(m_TreeNode__parent);
 
     // Leaf
-    m_LeafEClass = new ::ecore::EClass();
+    m_LeafEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LeafEClass->setClassifierID(LEAF);
-    m_LeafEClass->setEPackage(this);
+    m_LeafEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeafEClass);
 
     // NonTerminal
-    m_NonTerminalEClass = new ::ecore::EClass();
+    m_NonTerminalEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NonTerminalEClass->setClassifierID(NONTERMINAL);
-    m_NonTerminalEClass->setEPackage(this);
+    m_NonTerminalEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NonTerminalEClass);
     // m_NonTerminal__children has already been allocated above
     m_NonTerminal__children->setFeatureID(
@@ -110,7 +116,7 @@ TreePackage::TreePackage()
     m_TreeNodeEClass->setAbstract(true);
     m_TreeNodeEClass->setInterface(false);
     m_TreeNode__data->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_TreeNode__data->setName("data");
     m_TreeNode__data->setDefaultValueLiteral("");
     m_TreeNode__data->setLowerBound(0);

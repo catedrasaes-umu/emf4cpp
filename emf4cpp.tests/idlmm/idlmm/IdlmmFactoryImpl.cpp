@@ -127,7 +127,7 @@ IdlmmFactory::IdlmmFactory()
     {
         ::ecore::EJavaObject _any;
         IdlmmPackage_ptr _epkg =
-                dynamic_cast< ::idlmm::IdlmmPackage_ptr >(getEPackage());
+                dynamic_cast< ::idlmm::IdlmmPackage* >(getEPackage().get());
         return _epkg->getParameterMode()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
@@ -135,7 +135,7 @@ IdlmmFactory::IdlmmFactory()
     {
         ::ecore::EJavaObject _any;
         IdlmmPackage_ptr _epkg =
-                dynamic_cast< ::idlmm::IdlmmPackage_ptr >(getEPackage());
+                dynamic_cast< ::idlmm::IdlmmPackage* >(getEPackage().get());
         return _epkg->getPrimitiveKind()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
@@ -185,106 +185,106 @@ IdlmmFactory::IdlmmFactory()
 
 Container_ptr IdlmmFactory::createContainer()
 {
-    return new Container();
+    return boost::intrusive_ptr < Container > (new Container);
 }
 Contained_ptr IdlmmFactory::createContained()
 {
-    return new Contained();
+    return boost::intrusive_ptr < Contained > (new Contained);
 }
 InterfaceDef_ptr IdlmmFactory::createInterfaceDef()
 {
-    return new InterfaceDef();
+    return boost::intrusive_ptr < InterfaceDef > (new InterfaceDef);
 }
 ModuleDef_ptr IdlmmFactory::createModuleDef()
 {
-    return new ModuleDef();
+    return boost::intrusive_ptr < ModuleDef > (new ModuleDef);
 }
 IDLType_ptr IdlmmFactory::createIDLType()
 {
-    return new IDLType();
+    return boost::intrusive_ptr < IDLType > (new IDLType);
 }
 OperationDef_ptr IdlmmFactory::createOperationDef()
 {
-    return new OperationDef();
+    return boost::intrusive_ptr < OperationDef > (new OperationDef);
 }
 AttributeDef_ptr IdlmmFactory::createAttributeDef()
 {
-    return new AttributeDef();
+    return boost::intrusive_ptr < AttributeDef > (new AttributeDef);
 }
 ConstantDef_ptr IdlmmFactory::createConstantDef()
 {
-    return new ConstantDef();
+    return boost::intrusive_ptr < ConstantDef > (new ConstantDef);
 }
 Typed_ptr IdlmmFactory::createTyped()
 {
-    return new Typed();
+    return boost::intrusive_ptr < Typed > (new Typed);
 }
 ParameterDef_ptr IdlmmFactory::createParameterDef()
 {
-    return new ParameterDef();
+    return boost::intrusive_ptr < ParameterDef > (new ParameterDef);
 }
 PrimitiveDef_ptr IdlmmFactory::createPrimitiveDef()
 {
-    return new PrimitiveDef();
+    return boost::intrusive_ptr < PrimitiveDef > (new PrimitiveDef);
 }
 ExceptionDef_ptr IdlmmFactory::createExceptionDef()
 {
-    return new ExceptionDef();
+    return boost::intrusive_ptr < ExceptionDef > (new ExceptionDef);
 }
 Field_ptr IdlmmFactory::createField()
 {
-    return new Field();
+    return boost::intrusive_ptr < Field > (new Field);
 }
 FixedDef_ptr IdlmmFactory::createFixedDef()
 {
-    return new FixedDef();
+    return boost::intrusive_ptr < FixedDef > (new FixedDef);
 }
 WstringDef_ptr IdlmmFactory::createWstringDef()
 {
-    return new WstringDef();
+    return boost::intrusive_ptr < WstringDef > (new WstringDef);
 }
 StringDef_ptr IdlmmFactory::createStringDef()
 {
-    return new StringDef();
+    return boost::intrusive_ptr < StringDef > (new StringDef);
 }
 AliasDef_ptr IdlmmFactory::createAliasDef()
 {
-    return new AliasDef();
+    return boost::intrusive_ptr < AliasDef > (new AliasDef);
 }
 ArrayDef_ptr IdlmmFactory::createArrayDef()
 {
-    return new ArrayDef();
+    return boost::intrusive_ptr < ArrayDef > (new ArrayDef);
 }
 SequenceDef_ptr IdlmmFactory::createSequenceDef()
 {
-    return new SequenceDef();
+    return boost::intrusive_ptr < SequenceDef > (new SequenceDef);
 }
 UnionField_ptr IdlmmFactory::createUnionField()
 {
-    return new UnionField();
+    return boost::intrusive_ptr < UnionField > (new UnionField);
 }
 TypedefDef_ptr IdlmmFactory::createTypedefDef()
 {
-    return new TypedefDef();
+    return boost::intrusive_ptr < TypedefDef > (new TypedefDef);
 }
 UnionDef_ptr IdlmmFactory::createUnionDef()
 {
-    return new UnionDef();
+    return boost::intrusive_ptr < UnionDef > (new UnionDef);
 }
 EnumDef_ptr IdlmmFactory::createEnumDef()
 {
-    return new EnumDef();
+    return boost::intrusive_ptr < EnumDef > (new EnumDef);
 }
 StructDef_ptr IdlmmFactory::createStructDef()
 {
-    return new StructDef();
+    return boost::intrusive_ptr < StructDef > (new StructDef);
 }
 TranslationUnit_ptr IdlmmFactory::createTranslationUnit()
 {
-    return new TranslationUnit();
+    return boost::intrusive_ptr < TranslationUnit > (new TranslationUnit);
 }
 Include_ptr IdlmmFactory::createInclude()
 {
-    return new Include();
+    return boost::intrusive_ptr < Include > (new Include);
 }
 

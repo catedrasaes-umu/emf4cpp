@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Screen_ptr _this()
+        {   return Screen_ptr(this);}
+
         // Attributes
 
         // References

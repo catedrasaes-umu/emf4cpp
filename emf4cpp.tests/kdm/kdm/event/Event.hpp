@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Event_ptr _this()
+        {   return Event_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_kind;

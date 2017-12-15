@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DependsOn_ptr _this()
+        {   return DependsOn_ptr(this);}
+
         // Attributes
 
         // References

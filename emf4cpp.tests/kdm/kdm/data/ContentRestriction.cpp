@@ -83,8 +83,8 @@ void ContentRestriction::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getContentRestriction__kind(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getContentRestriction__kind(),
                 _old_kind,
                 m_kind
         );
@@ -109,8 +109,8 @@ void ContentRestriction::setValue(::kdm::core::String _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getContentRestriction__value(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getContentRestriction__value(),
                 _old_value,
                 m_value
         );

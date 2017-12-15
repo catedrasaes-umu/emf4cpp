@@ -81,6 +81,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        RealLiteral_ptr _this()
+        {   return RealLiteral_ptr(this);}
+
         // Attributes
 
         // References

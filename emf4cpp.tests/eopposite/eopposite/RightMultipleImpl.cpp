@@ -66,7 +66,7 @@ void RightMultiple::_initialize()
         return _any;
     case ::eopposite::EoppositePackage::RIGHTMULTIPLE__LEFTEES:
     {
-        _any = m_leftees->asEListOf< ::ecore::EObject >();
+        _any = m_leftees->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -87,9 +87,9 @@ void RightMultiple::eSet(::ecore::EInt _featureID,
         return;
     case ::eopposite::EoppositePackage::RIGHTMULTIPLE__LEFTEES:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::eopposite::RightMultiple::getLeftees().clear();
         ::eopposite::RightMultiple::getLeftees().insert_all(*_t0);
     }
@@ -125,7 +125,7 @@ void RightMultiple::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr RightMultiple::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::eopposite::EoppositePackage_ptr >(::eopposite::EoppositePackage::_instance())->getRightMultiple();
+            dynamic_cast< ::eopposite::EoppositePackage* >(::eopposite::EoppositePackage::_instance().get())->getRightMultiple();
     return _eclass;
 }
 
@@ -141,12 +141,12 @@ void RightMultiple::_inverseAdd(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::eopposite::LeftHand_ptr _t1 =
-                dynamic_cast< ::eopposite::LeftHand_ptr >(_t0);
+                dynamic_cast< ::eopposite::LeftHand* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::eopposite::LeftHand,
-                        -1, false, true >&) ::eopposite::RightMultiple::getLeftees();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::eopposite::LeftHand_ptr, -1, false, true >&) ::eopposite::RightMultiple::getLeftees();
         container.basicAdd(_t1);
     }
         return;
@@ -167,12 +167,12 @@ void RightMultiple::_inverseRemove(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
         ::eopposite::LeftHand_ptr _t1 =
-                dynamic_cast< ::eopposite::LeftHand_ptr >(_t0);
+                dynamic_cast< ::eopposite::LeftHand* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::eopposite::LeftHand,
-                        -1, false, true >&) ::eopposite::RightMultiple::getLeftees();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::eopposite::LeftHand_ptr, -1, false, true >&) ::eopposite::RightMultiple::getLeftees();
         container.basicRemove(_t1);
     }
         return;

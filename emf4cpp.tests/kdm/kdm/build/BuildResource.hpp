@@ -56,14 +56,14 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getGroupedBuild () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getGroupedBuild ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getBuildElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getBuildElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -89,15 +89,18 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BuildResource_ptr _this()
+        {   return BuildResource_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >> m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >> m_implementation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >> m_groupedBuild;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >> m_groupedBuild;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >> m_buildElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >> m_buildElement;
 
     };
 

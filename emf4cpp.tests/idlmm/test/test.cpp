@@ -7,7 +7,7 @@
 template<typename T>
 void print_container(T container, int level)
 {
-    typedef ::ecorecpp::mapping::EList< ::idlmm::Contained > containeds_t;
+    typedef ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr > containeds_t;
 
     std::string indent(level, '\t');
 

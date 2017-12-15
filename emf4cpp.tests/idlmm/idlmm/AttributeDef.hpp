@@ -56,11 +56,11 @@ public:
     virtual void setIsReadonly (::ecore::EBoolean _isReadonly);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getGetRaises ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getGetRaises () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getGetRaises ();
 
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getSetRaises ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getSetRaises () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getSetRaises ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -86,15 +86,18 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    AttributeDef_ptr _this()
+    {   return AttributeDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_isReadonly;
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >> m_getRaises;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >> m_getRaises;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >> m_setRaises;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >> m_setRaises;
 
 };
 

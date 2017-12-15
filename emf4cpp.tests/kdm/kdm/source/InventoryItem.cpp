@@ -81,8 +81,8 @@ void InventoryItem::setVersion(::kdm::core::String _version)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getInventoryItem__version(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getInventoryItem__version(),
                 _old_version,
                 m_version
         );
@@ -107,8 +107,8 @@ void InventoryItem::setPath(::kdm::core::String _path)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getInventoryItem__path(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getInventoryItem__path(),
                 _old_path,
                 m_path
         );

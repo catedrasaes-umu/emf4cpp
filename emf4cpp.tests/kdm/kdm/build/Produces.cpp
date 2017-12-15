@@ -82,8 +82,8 @@ void Produces::setTo(::kdm::build::AbstractBuildElement_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getProduces__to(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getProduces__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void Produces::setFrom(::kdm::build::BuildStep_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getProduces__from(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getProduces__from(),
                 _old_from,
                 m_from
         );

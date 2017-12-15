@@ -22,6 +22,7 @@
 #define KDM_UI_HPP
 
 #include "ui_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

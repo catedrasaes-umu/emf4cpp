@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DateType_ptr _this()
+        {   return DateType_ptr(this);}
+
         // Attributes
 
         // References

@@ -46,19 +46,20 @@ EAnnotation::EAnnotation() :
 
     m_details.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::EStringToStringMapEntry, -1, true, false >(this,
+                    ::ecore::EStringToStringMapEntry_ptr, -1, true, false >(
+                    this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEAnnotation__details() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
     m_contents.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject_ptr,
+                    -1, true, false >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEAnnotation__contents() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
     m_references.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject, -1,
-                    false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EObject_ptr,
+                    -1, false, false >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEAnnotation__references() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(EAnnotationImpl__EAnnotationImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -92,8 +93,8 @@ void EAnnotation::setSource(::ecore::EString const& _source)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEAnnotation__source(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEAnnotation__source(),
                 _old_source,
                 m_source
         );
@@ -104,12 +105,12 @@ void EAnnotation::setSource(::ecore::EString const& _source)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& EAnnotation::getDetails() const
+const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry_ptr >& EAnnotation::getDetails() const
 {
     return *m_details;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& EAnnotation::getDetails()
+::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry_ptr >& EAnnotation::getDetails()
 {
     return *m_details;
 }
@@ -136,8 +137,8 @@ void EAnnotation::basicsetEModelElement(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEAnnotation__eModelElement(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEAnnotation__eModelElement(),
                 _old_eModelElement,
                 m_eModelElement
         );
@@ -151,7 +152,7 @@ void EAnnotation::setEModelElement(::ecore::EModelElement_ptr _eModelElement)
 {
     if (_eModelElement != m_eModelElement)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_eModelElement != nullptr)
         {
             m_eModelElement->_inverseRemove(
@@ -166,22 +167,22 @@ void EAnnotation::setEModelElement(::ecore::EModelElement_ptr _eModelElement)
     }
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getContents() const
+const ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& EAnnotation::getContents() const
 {
     return *m_contents;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getContents()
+::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& EAnnotation::getContents()
 {
     return *m_contents;
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getReferences() const
+const ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& EAnnotation::getReferences() const
 {
     return *m_references;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EObject >& EAnnotation::getReferences()
+::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& EAnnotation::getReferences()
 {
     return *m_references;
 }

@@ -67,7 +67,7 @@ DerivedType::~DerivedType()
 {
     if (m_itemUnit)
     {
-        delete m_itemUnit;
+        m_itemUnit.reset();
     }
 }
 
@@ -91,8 +91,8 @@ void DerivedType::setItemUnit(::kdm::code::ItemUnit_ptr _itemUnit)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit(),
                 _old_itemUnit,
                 m_itemUnit
         );
@@ -100,8 +100,10 @@ void DerivedType::setItemUnit(::kdm::code::ItemUnit_ptr _itemUnit)
     }
 #endif
 
-    delete _old_itemUnit;
-    m_itemUnit->_setEContainer(this,
+    if (_old_itemUnit)
+        _old_itemUnit->_setEContainer(DerivedType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
+    m_itemUnit->_setEContainer(_this(),
             ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
 }
 

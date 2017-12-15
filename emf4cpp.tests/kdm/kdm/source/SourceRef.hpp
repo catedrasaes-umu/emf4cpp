@@ -61,8 +61,8 @@ namespace kdm
         virtual void setSnippet (::kdm::core::String _snippet);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& getRegion () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& getRegion ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -88,6 +88,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SourceRef_ptr _this()
+        {   return SourceRef_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_language;
@@ -96,7 +99,7 @@ namespace kdm
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >> m_region;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >> m_region;
 
     };
 

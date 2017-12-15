@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Point_ptr _this()
+    {   return Point_ptr(this);}
+
     // Attributes
 
     // References

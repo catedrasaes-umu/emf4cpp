@@ -76,7 +76,7 @@ namespace kdm
 
         protected:
 
-            static std::unique_ptr< PlatformFactory > s_instance;
+            static boost::intrusive_ptr< PlatformFactory > s_holder;
 
             PlatformFactory();
 
@@ -88,204 +88,267 @@ namespace kdm
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline T* create()
+        template< class T > inline boost::intrusive_ptr< T > create()
         {
-            return (T*) nullptr;
+            return boost::intrusive_ptr< T >();
         }
 
         template< > inline AbstractPlatformElement_ptr create<
                 AbstractPlatformElement >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createAbstractPlatformElement();
         }
+
         template< > inline PlatformModel_ptr create< PlatformModel >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createPlatformModel();
         }
+
         template< > inline AbstractPlatformRelationship_ptr create<
                 AbstractPlatformRelationship >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createAbstractPlatformRelationship();
         }
+
         template< > inline Requires_ptr create< Requires >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createRequires();
         }
+
         template< > inline ResourceType_ptr create< ResourceType >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createResourceType();
         }
+
         template< > inline NamingResource_ptr create< NamingResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createNamingResource();
         }
+
         template< > inline MarshalledResource_ptr create< MarshalledResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createMarshalledResource();
         }
+
         template< > inline MessagingResource_ptr create< MessagingResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createMessagingResource();
         }
+
         template< > inline FileResource_ptr create< FileResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createFileResource();
         }
+
         template< > inline ExecutionResource_ptr create< ExecutionResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createExecutionResource();
         }
+
         template< > inline PlatformAction_ptr create< PlatformAction >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createPlatformAction();
         }
+
         template< > inline ExternalActor_ptr create< ExternalActor >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createExternalActor();
         }
+
         template< > inline DataManager_ptr create< DataManager >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createDataManager();
         }
+
         template< > inline BindsTo_ptr create< BindsTo >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createBindsTo();
         }
+
         template< > inline PlatformElement_ptr create< PlatformElement >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createPlatformElement();
         }
+
         template< > inline PlatformRelationship_ptr create< PlatformRelationship >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createPlatformRelationship();
         }
+
         template< > inline PlatformEvent_ptr create< PlatformEvent >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createPlatformEvent();
         }
+
         template< > inline LockResource_ptr create< LockResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createLockResource();
         }
+
         template< > inline DeployedSoftwareSystem_ptr create<
                 DeployedSoftwareSystem >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createDeployedSoftwareSystem();
         }
+
         template< > inline Machine_ptr create< Machine >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createMachine();
         }
+
         template< > inline DeployedComponent_ptr create< DeployedComponent >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createDeployedComponent();
         }
+
         template< > inline DeployedResource_ptr create< DeployedResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createDeployedResource();
         }
+
         template< > inline Loads_ptr create< Loads >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createLoads();
         }
+
         template< > inline Spawns_ptr create< Spawns >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createSpawns();
         }
+
         template< > inline RuntimeResource_ptr create< RuntimeResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createRuntimeResource();
         }
+
         template< > inline Thread_ptr create< Thread >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createThread();
         }
+
         template< > inline Process_ptr create< Process >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createProcess();
         }
+
         template< > inline ReadsResource_ptr create< ReadsResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createReadsResource();
         }
+
         template< > inline WritesResource_ptr create< WritesResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createWritesResource();
         }
+
         template< > inline ManagesResource_ptr create< ManagesResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createManagesResource();
         }
+
         template< > inline DefinedBy_ptr create< DefinedBy >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createDefinedBy();
         }
+
         template< > inline StreamResource_ptr create< StreamResource >()
         {
             auto eFactory = PlatformPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< PlatformFactory* >(eFactory);
+            auto packageFactory =
+                    dynamic_cast< PlatformFactory* >(eFactory.get());
             return packageFactory->createStreamResource();
         }
 

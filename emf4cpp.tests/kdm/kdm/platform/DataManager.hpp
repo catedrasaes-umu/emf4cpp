@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DataManager_ptr _this()
+        {   return DataManager_ptr(this);}
+
         // Attributes
 
         // References

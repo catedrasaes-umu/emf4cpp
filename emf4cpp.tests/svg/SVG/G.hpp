@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    G_ptr _this()
+    {   return G_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_name;

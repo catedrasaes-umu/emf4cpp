@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     CompanyFactory_ptr companyFactory = CompanyFactory::_instance()->as< CompanyFactory >();
 
     {
-        std::shared_ptr<Company> umu ( companyFactory->createCompany());
+		boost::intrusive_ptr<Company> umu ( companyFactory->createCompany());
         umu->setName("UMU");
 
         Department_ptr catedraSAES = companyFactory->createDepartment();
@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
     EObject_ptr eobj = _dser.load ("UMU.xmi");
 
     {
-        std::shared_ptr<Company> umu (eobj->as< Company >());
+		boost::intrusive_ptr<Company> umu (eobj->as< Company >());
     }
 }
 

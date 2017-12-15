@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Addresses_ptr _this()
+        {   return Addresses_ptr(this);}
+
         // Attributes
 
         // References

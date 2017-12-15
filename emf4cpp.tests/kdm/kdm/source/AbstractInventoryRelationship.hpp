@@ -80,6 +80,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractInventoryRelationship_ptr _this()
+        {   return AbstractInventoryRelationship_ptr(this);}
+
         // Attributes
 
         // References

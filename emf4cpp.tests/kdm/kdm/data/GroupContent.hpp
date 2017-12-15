@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        GroupContent_ptr _this()
+        {   return GroupContent_ptr(this);}
+
         // Attributes
 
         // References

@@ -57,15 +57,15 @@ ProtectStatement::~ProtectStatement()
 {
     if (m_commentStart)
     {
-        delete m_commentStart;
+        m_commentStart.reset();
     }
     if (m_commentEnd)
     {
-        delete m_commentEnd;
+        m_commentEnd.reset();
     }
     if (m_id)
     {
-        delete m_id;
+        m_id.reset();
     }
 }
 
@@ -87,8 +87,8 @@ void ProtectStatement::setDisable(::ecore::EBoolean _disable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__disable(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__disable(),
                 _old_disable,
                 m_disable
         );
@@ -117,8 +117,8 @@ void ProtectStatement::setCommentStart(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart(),
                 _old_commentStart,
                 m_commentStart
         );
@@ -126,8 +126,10 @@ void ProtectStatement::setCommentStart(
     }
 #endif
 
-    delete _old_commentStart;
-    m_commentStart->_setEContainer(this,
+    if (_old_commentStart)
+        _old_commentStart->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
+    m_commentStart->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
 }
 
@@ -148,8 +150,8 @@ void ProtectStatement::setCommentEnd(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd(),
                 _old_commentEnd,
                 m_commentEnd
         );
@@ -157,8 +159,10 @@ void ProtectStatement::setCommentEnd(
     }
 #endif
 
-    delete _old_commentEnd;
-    m_commentEnd->_setEContainer(this,
+    if (_old_commentEnd)
+        _old_commentEnd->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
+    m_commentEnd->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
 }
 
@@ -178,8 +182,8 @@ void ProtectStatement::setId(::xpand3::expression::AbstractExpression_ptr _id)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id(),
                 _old_id,
                 m_id
         );
@@ -187,8 +191,10 @@ void ProtectStatement::setId(::xpand3::expression::AbstractExpression_ptr _id)
     }
 #endif
 
-    delete _old_id;
-    m_id->_setEContainer(this,
+    if (_old_id)
+        _old_id->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
+    m_id->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
 }
 

@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        CompilationUnit_ptr _this()
+        {   return CompilationUnit_ptr(this);}
+
         // Attributes
 
         // References

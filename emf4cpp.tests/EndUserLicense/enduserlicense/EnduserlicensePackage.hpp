@@ -45,9 +45,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< EnduserlicensePackage, ::ecorecpp::PackageDeleter<EnduserlicensePackage> > s_instance;
+    static boost::intrusive_ptr< EnduserlicensePackage > s_instance;
 
     EnduserlicensePackage();
+    void _initPackage();
 
     // EClass instances 
 

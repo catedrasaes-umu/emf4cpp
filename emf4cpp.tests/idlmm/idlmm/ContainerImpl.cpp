@@ -88,12 +88,13 @@ void Container::_initialize()
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
-        _any = static_cast< ::ecore::EObject* >(m_definedIn);
+        if (m_definedIn)
+            _any = m_definedIn->as< ::ecore::EObject >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
     {
-        _any = m_contains->asEListOf< ::ecore::EObject >();
+        _any = m_contains->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -134,15 +135,16 @@ void Container::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::Container >(_t0);*/
         ::idlmm::Contained::setDefinedIn(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::idlmm::Container::getContains().clear();
         ::idlmm::Container::getContains().insert_all(*_t0);
     }
@@ -169,7 +171,7 @@ void Container::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_absoluteName);
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
-        return m_definedIn;
+        return (bool) m_definedIn;
     case ::idlmm::IdlmmPackage::CONTAINER__CONTAINS:
         return m_contains && m_contains->size();
 
@@ -189,7 +191,7 @@ void Container::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Container::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getContainer();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getContainer();
     return _eclass;
 }
 
@@ -204,7 +206,8 @@ void Container::_inverseAdd(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get());
 
         // set reference
         basicsetDefinedIn(_t1);
@@ -214,12 +217,13 @@ void Container::_inverseAdd(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::Contained_ptr _t1 = dynamic_cast< ::idlmm::Contained_ptr >(_t0);
+        ::idlmm::Contained_ptr _t1 =
+                dynamic_cast< ::idlmm::Contained* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained,
-                        -1, true, true >&) ::idlmm::Container::getContains();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::idlmm::Contained_ptr, -1, true, true >&) ::idlmm::Container::getContains();
         container.basicAdd(_t1);
     }
         return;
@@ -239,7 +243,8 @@ void Container::_inverseRemove(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
-        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get());
 
         // set reference
         if (basicgetDefinedIn() == _t1)
@@ -250,12 +255,13 @@ void Container::_inverseRemove(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
-        ::idlmm::Contained_ptr _t1 = dynamic_cast< ::idlmm::Contained_ptr >(_t0);
+        ::idlmm::Contained_ptr _t1 =
+                dynamic_cast< ::idlmm::Contained* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained,
-                        -1, true, true >&) ::idlmm::Container::getContains();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::idlmm::Contained_ptr, -1, true, true >&) ::idlmm::Container::getContains();
         container.basicRemove(_t1);
     }
         return;

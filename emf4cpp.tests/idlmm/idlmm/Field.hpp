@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Field_ptr _this()
+    {   return Field_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_identifier;

@@ -81,6 +81,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ConstantDef_ptr _this()
+    {   return ConstantDef_ptr(this);}
+
     // Attributes
 
     ::idlmm::EAny m_constValue;

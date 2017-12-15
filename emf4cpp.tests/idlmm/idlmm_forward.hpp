@@ -51,107 +51,107 @@ namespace idlmm
 // EClass
 // Container
     class Container;
-    typedef Container* Container_ptr;
+    using Container_ptr = boost::intrusive_ptr<Container>;
 
 // Contained
     class Contained;
-    typedef Contained* Contained_ptr;
+    using Contained_ptr = boost::intrusive_ptr<Contained>;
 
 // InterfaceDef
     class InterfaceDef;
-    typedef InterfaceDef* InterfaceDef_ptr;
+    using InterfaceDef_ptr = boost::intrusive_ptr<InterfaceDef>;
 
 // ModuleDef
     class ModuleDef;
-    typedef ModuleDef* ModuleDef_ptr;
+    using ModuleDef_ptr = boost::intrusive_ptr<ModuleDef>;
 
 // IDLType
     class IDLType;
-    typedef IDLType* IDLType_ptr;
+    using IDLType_ptr = boost::intrusive_ptr<IDLType>;
 
 // OperationDef
     class OperationDef;
-    typedef OperationDef* OperationDef_ptr;
+    using OperationDef_ptr = boost::intrusive_ptr<OperationDef>;
 
 // AttributeDef
     class AttributeDef;
-    typedef AttributeDef* AttributeDef_ptr;
+    using AttributeDef_ptr = boost::intrusive_ptr<AttributeDef>;
 
 // ConstantDef
     class ConstantDef;
-    typedef ConstantDef* ConstantDef_ptr;
+    using ConstantDef_ptr = boost::intrusive_ptr<ConstantDef>;
 
 // Typed
     class Typed;
-    typedef Typed* Typed_ptr;
+    using Typed_ptr = boost::intrusive_ptr<Typed>;
 
 // ParameterDef
     class ParameterDef;
-    typedef ParameterDef* ParameterDef_ptr;
+    using ParameterDef_ptr = boost::intrusive_ptr<ParameterDef>;
 
 // PrimitiveDef
     class PrimitiveDef;
-    typedef PrimitiveDef* PrimitiveDef_ptr;
+    using PrimitiveDef_ptr = boost::intrusive_ptr<PrimitiveDef>;
 
 // ExceptionDef
     class ExceptionDef;
-    typedef ExceptionDef* ExceptionDef_ptr;
+    using ExceptionDef_ptr = boost::intrusive_ptr<ExceptionDef>;
 
 // Field
     class Field;
-    typedef Field* Field_ptr;
+    using Field_ptr = boost::intrusive_ptr<Field>;
 
 // FixedDef
     class FixedDef;
-    typedef FixedDef* FixedDef_ptr;
+    using FixedDef_ptr = boost::intrusive_ptr<FixedDef>;
 
 // WstringDef
     class WstringDef;
-    typedef WstringDef* WstringDef_ptr;
+    using WstringDef_ptr = boost::intrusive_ptr<WstringDef>;
 
 // StringDef
     class StringDef;
-    typedef StringDef* StringDef_ptr;
+    using StringDef_ptr = boost::intrusive_ptr<StringDef>;
 
 // AliasDef
     class AliasDef;
-    typedef AliasDef* AliasDef_ptr;
+    using AliasDef_ptr = boost::intrusive_ptr<AliasDef>;
 
 // ArrayDef
     class ArrayDef;
-    typedef ArrayDef* ArrayDef_ptr;
+    using ArrayDef_ptr = boost::intrusive_ptr<ArrayDef>;
 
 // SequenceDef
     class SequenceDef;
-    typedef SequenceDef* SequenceDef_ptr;
+    using SequenceDef_ptr = boost::intrusive_ptr<SequenceDef>;
 
 // UnionField
     class UnionField;
-    typedef UnionField* UnionField_ptr;
+    using UnionField_ptr = boost::intrusive_ptr<UnionField>;
 
 // TypedefDef
     class TypedefDef;
-    typedef TypedefDef* TypedefDef_ptr;
+    using TypedefDef_ptr = boost::intrusive_ptr<TypedefDef>;
 
 // UnionDef
     class UnionDef;
-    typedef UnionDef* UnionDef_ptr;
+    using UnionDef_ptr = boost::intrusive_ptr<UnionDef>;
 
 // EnumDef
     class EnumDef;
-    typedef EnumDef* EnumDef_ptr;
+    using EnumDef_ptr = boost::intrusive_ptr<EnumDef>;
 
 // StructDef
     class StructDef;
-    typedef StructDef* StructDef_ptr;
+    using StructDef_ptr = boost::intrusive_ptr<StructDef>;
 
 // TranslationUnit
     class TranslationUnit;
-    typedef TranslationUnit* TranslationUnit_ptr;
+    using TranslationUnit_ptr = boost::intrusive_ptr<TranslationUnit>;
 
 // Include
     class Include;
-    typedef Include* Include_ptr;
+    using Include_ptr = boost::intrusive_ptr<Include>;
 
 // EEnum
 
@@ -165,14 +165,14 @@ namespace idlmm
 
 // Package & Factory
     class IdlmmFactory;
-    typedef IdlmmFactory * IdlmmFactory_ptr;
+    using IdlmmFactory_ptr = boost::intrusive_ptr<IdlmmFactory>;
     class IdlmmPackage;
-    typedef IdlmmPackage * IdlmmPackage_ptr;
+    using IdlmmPackage_ptr = boost::intrusive_ptr<IdlmmPackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // idlmm

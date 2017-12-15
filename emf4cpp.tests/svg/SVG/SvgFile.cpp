@@ -45,7 +45,7 @@ SvgFile::SvgFile() :
 {
 
     m_elements.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getSvgFile__elements(),
                     ::SVG::SVGPackage::ELEMENT__OWNER));
@@ -89,8 +89,8 @@ void SvgFile::basicsetTag(::SVG::Svg_ptr _tag)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvgFile__tag(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvgFile__tag(),
                 _old_tag,
                 m_tag
         );
@@ -104,7 +104,7 @@ void SvgFile::setTag(::SVG::Svg_ptr _tag)
 {
     if (_tag != m_tag)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_tag != nullptr)
         {
             m_tag->_inverseRemove(::SVG::SVGPackage::SVG__OWNER_SVG, _this);
@@ -117,12 +117,12 @@ void SvgFile::setTag(::SVG::Svg_ptr _tag)
     }
 }
 
-const ::ecorecpp::mapping::EList< ::SVG::Element >& SvgFile::getElements() const
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& SvgFile::getElements() const
 {
     return *m_elements;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Element >& SvgFile::getElements()
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& SvgFile::getElements()
 {
     return *m_elements;
 }

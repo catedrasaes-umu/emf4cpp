@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        MixedContent_ptr _this()
+        {   return MixedContent_ptr(this);}
+
         // Attributes
 
         // References

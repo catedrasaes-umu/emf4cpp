@@ -82,8 +82,8 @@ void Reads::setTo(::kdm::code::DataElement_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getReads__to(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getReads__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void Reads::setFrom(::kdm::action::ActionElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getReads__from(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getReads__from(),
                 _old_from,
                 m_from
         );

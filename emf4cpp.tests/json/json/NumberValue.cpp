@@ -72,8 +72,8 @@ void NumberValue::setValue(::ecore::EDouble _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::json::JsonPackage::_instance()->getNumberValue__value(),
+                _this(),
+                ::json::JsonPackage::_instance()->getNumberValue__value(),
                 _old_value,
                 m_value
         );

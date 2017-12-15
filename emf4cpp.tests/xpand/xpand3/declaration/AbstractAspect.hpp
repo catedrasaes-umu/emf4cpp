@@ -86,6 +86,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractAspect_ptr _this()
+        {   return AbstractAspect_ptr(this);}
+
         // Attributes
 
         ::ecore::EBoolean m_wildparams;

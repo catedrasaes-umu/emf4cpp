@@ -53,20 +53,21 @@ AbstractEventElement::AbstractEventElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
                     ::kdm::event::EventPackage::_instance()->getAbstractEventElement__source()));
     m_eventRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::event::AbstractEventRelationship, -1, true, false >(
+                    ::kdm::event::AbstractEventRelationship_ptr, -1, true, false >(
                     this,
                     ::kdm::event::EventPackage::_instance()->getAbstractEventElement__eventRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
                     ::kdm::event::EventPackage::_instance()->getAbstractEventElement__abstraction()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, false, false >(this,
+                    ::kdm::code::AbstractCodeElement_ptr, -1, false, false >(
+                    this,
                     ::kdm::event::EventPackage::_instance()->getAbstractEventElement__implementation()));
 
     /*PROTECTED REGION ID(AbstractEventElementImpl__AbstractEventElementImpl) START*/
@@ -87,42 +88,42 @@ AbstractEventElement::~AbstractEventElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractEventElement::getSource() const
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractEventElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractEventElement::getSource()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractEventElement::getSource()
 {
     return *m_source;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& AbstractEventElement::getEventRelation() const
+const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship_ptr >& AbstractEventElement::getEventRelation() const
 {
     return *m_eventRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& AbstractEventElement::getEventRelation()
+::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship_ptr >& AbstractEventElement::getEventRelation()
 {
     return *m_eventRelation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractEventElement::getAbstraction() const
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractEventElement::getAbstraction() const
 {
     return *m_abstraction;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractEventElement::getAbstraction()
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractEventElement::getAbstraction()
 {
     return *m_abstraction;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractEventElement::getImplementation() const
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractEventElement::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractEventElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractEventElement::getImplementation()
 {
     return *m_implementation;
 }

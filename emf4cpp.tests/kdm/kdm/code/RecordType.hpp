@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RecordType_ptr _this()
+        {   return RecordType_ptr(this);}
+
         // Attributes
 
         // References

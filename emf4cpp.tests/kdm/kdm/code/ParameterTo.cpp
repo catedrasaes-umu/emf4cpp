@@ -82,8 +82,8 @@ void ParameterTo::setTo(::kdm::code::CodeItem_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getParameterTo__to(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getParameterTo__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void ParameterTo::setFrom(::kdm::code::AbstractCodeElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getParameterTo__from(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getParameterTo__from(),
                 _old_from,
                 m_from
         );

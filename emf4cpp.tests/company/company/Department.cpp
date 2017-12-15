@@ -42,8 +42,8 @@ Department::Department() :
 {
 
     m_employees.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::company::Employee,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::company::Employee_ptr, -1, true, false >(this,
                     ::company::CompanyPackage::_instance()->getDepartment__employees()));
 
     /*PROTECTED REGION ID(DepartmentImpl__DepartmentImpl) START*/
@@ -78,8 +78,8 @@ void Department::setNumber(::ecore::EInt _number)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getDepartment__number(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getDepartment__number(),
                 _old_number,
                 m_number
         );
@@ -90,12 +90,12 @@ void Department::setNumber(::ecore::EInt _number)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::company::Employee >& Department::getEmployees() const
+const ::ecorecpp::mapping::EList< ::company::Employee_ptr >& Department::getEmployees() const
 {
     return *m_employees;
 }
 
-::ecorecpp::mapping::EList< ::company::Employee >& Department::getEmployees()
+::ecorecpp::mapping::EList< ::company::Employee_ptr >& Department::getEmployees()
 {
     return *m_employees;
 }
@@ -116,8 +116,8 @@ void Department::setManager(::company::Employee_ptr _manager)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getDepartment__manager(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getDepartment__manager(),
                 _old_manager,
                 m_manager
         );

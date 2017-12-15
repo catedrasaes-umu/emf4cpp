@@ -121,7 +121,7 @@ void EStringToStringMapEntry::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr EStringToStringMapEntry::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEStringToStringMapEntry();
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEStringToStringMapEntry();
     return _eclass;
 }
 

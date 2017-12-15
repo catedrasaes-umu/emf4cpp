@@ -40,7 +40,6 @@ namespace SVG
 {
 
 class EXPORT_SVG_DLL Dimension : public virtual ::ecore::EObject
-
 {
 public:
     Dimension();
@@ -84,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Dimension_ptr _this()
+    {   return Dimension_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_width;

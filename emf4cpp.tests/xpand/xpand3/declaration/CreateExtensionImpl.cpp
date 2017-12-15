@@ -85,12 +85,13 @@ void CreateExtension::_initialize()
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
-        _any = static_cast< ::ecore::EObject* >(m_owner);
+        if (m_owner)
+            _any = m_owner->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        _any = m_params->asEListOf< ::ecore::EObject >();
+        _any = m_params->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
@@ -101,12 +102,14 @@ void CreateExtension::_initialize()
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
-        _any = static_cast< ::ecore::EObject* >(m_guard);
+        if (m_guard)
+            _any = m_guard->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_name);
+        if (m_name)
+            _any = m_name->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__CACHED:
@@ -117,17 +120,20 @@ void CreateExtension::_initialize()
         return _any;
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__BODY:
     {
-        _any = static_cast< ::ecore::EObject* >(m_body);
+        if (m_body)
+            _any = m_body->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__RETURNTYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_returnType);
+        if (m_returnType)
+            _any = m_returnType->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::CREATEEXTENSION__TOBECREATED:
     {
-        _any = static_cast< ::ecore::EObject* >(m_toBeCreated);
+        if (m_toBeCreated)
+            _any = m_toBeCreated->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -168,15 +174,15 @@ void CreateExtension::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File_ptr >(_t0);
+        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::File >(_t0);*/
         ::xpand3::declaration::AbstractDeclaration::setOwner(_t1);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::declaration::AbstractDeclaration::getParams().clear();
         ::xpand3::declaration::AbstractDeclaration::getParams().insert_all(
                 *_t0);
@@ -193,7 +199,7 @@ void CreateExtension::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::declaration::AbstractDeclaration::setGuard(_t1);
     }
         return;
@@ -202,7 +208,7 @@ void CreateExtension::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::declaration::AbstractNamedDeclaration::setName(_t1);
     }
         return;
@@ -217,7 +223,7 @@ void CreateExtension::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::declaration::Extension::setBody(_t1);
     }
         return;
@@ -226,7 +232,7 @@ void CreateExtension::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::declaration::Extension::setReturnType(_t1);
     }
         return;
@@ -235,7 +241,7 @@ void CreateExtension::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::DeclaredParameter_ptr _t1 =
-                dynamic_cast< ::xpand3::DeclaredParameter_ptr >(_t0);
+                dynamic_cast< ::xpand3::DeclaredParameter* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::DeclaredParameter >(_t0);*/
         ::xpand3::declaration::CreateExtension::setToBeCreated(_t1);
     }
         return;
@@ -260,25 +266,25 @@ void CreateExtension::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
-        return m_owner;
+        return (bool) m_owner;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
         return m_params && m_params->size();
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_isPrivate);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
-        return m_guard;
+        return (bool) m_guard;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
-        return m_name;
+        return (bool) m_name;
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__CACHED:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_cached);
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__BODY:
-        return m_body;
+        return (bool) m_body;
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__RETURNTYPE:
-        return m_returnType;
+        return (bool) m_returnType;
     case ::xpand3::declaration::DeclarationPackage::CREATEEXTENSION__TOBECREATED:
-        return m_toBeCreated;
+        return (bool) m_toBeCreated;
 
     }
     throw "Error";
@@ -296,7 +302,7 @@ void CreateExtension::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr CreateExtension::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::declaration::DeclarationPackage_ptr >(::xpand3::declaration::DeclarationPackage::_instance())->getCreateExtension();
+            dynamic_cast< ::xpand3::declaration::DeclarationPackage* >(::xpand3::declaration::DeclarationPackage::_instance().get())->getCreateExtension();
     return _eclass;
 }
 

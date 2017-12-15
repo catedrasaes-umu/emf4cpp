@@ -55,7 +55,8 @@ ContentItem::ContentItem() :
 
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractContentElement, -1, true, false >(this,
+                    ::kdm::data::AbstractContentElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::data::DataPackage::_instance()->getContentItem__contentElement()));
 
     /*PROTECTED REGION ID(ContentItemImpl__ContentItemImpl) START*/
@@ -92,8 +93,8 @@ void ContentItem::setType(::kdm::data::ComplexContentType_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getContentItem__type(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getContentItem__type(),
                 _old_type,
                 m_type
         );
@@ -103,12 +104,12 @@ void ContentItem::setType(::kdm::data::ComplexContentType_ptr _type)
 
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ContentItem::getContentElement() const
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& ContentItem::getContentElement() const
 {
     return *m_contentElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ContentItem::getContentElement()
+::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& ContentItem::getContentElement()
 {
     return *m_contentElement;
 }

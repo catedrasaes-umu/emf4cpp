@@ -40,7 +40,6 @@ namespace bintree
 {
 
 class EXPORT_BINTREE_DLL BinTreeNode : public virtual ::ecore::EObject
-
 {
 public:
     BinTreeNode();
@@ -89,6 +88,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    BinTreeNode_ptr _this()
+    {   return BinTreeNode_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_data;

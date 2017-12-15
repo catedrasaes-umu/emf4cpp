@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& getEventElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement_ptr >& getEventElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement_ptr >& getEventElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -83,11 +83,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        EventModel_ptr _this()
+        {   return EventModel_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >> m_eventElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement_ptr >> m_eventElement;
 
     };
 

@@ -59,8 +59,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& getUIElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement_ptr >& getUIElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement_ptr >& getUIElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -86,11 +86,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UIResource_ptr _this()
+        {   return UIResource_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >> m_UIElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement_ptr >> m_UIElement;
 
     };
 

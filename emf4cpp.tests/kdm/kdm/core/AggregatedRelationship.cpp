@@ -49,7 +49,7 @@ AggregatedRelationship::AggregatedRelationship() :
 
     m_relation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::KDMRelationship, -1, false, false >(this,
+                    ::kdm::core::KDMRelationship_ptr, -1, false, false >(this,
                     ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__relation()));
 
     /*PROTECTED REGION ID(AggregatedRelationshipImpl__AggregatedRelationshipImpl) START*/
@@ -84,8 +84,8 @@ void AggregatedRelationship::setDensity(::kdm::core::Integer _density)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__density(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__density(),
                 _old_density,
                 m_density
         );
@@ -112,8 +112,8 @@ void AggregatedRelationship::setFrom(::kdm::core::KDMEntity_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__from(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__from(),
                 _old_from,
                 m_from
         );
@@ -139,8 +139,8 @@ void AggregatedRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__to(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__to(),
                 _old_to,
                 m_to
         );
@@ -150,12 +150,12 @@ void AggregatedRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& AggregatedRelationship::getRelation() const
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >& AggregatedRelationship::getRelation() const
 {
     return *m_relation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& AggregatedRelationship::getRelation()
+::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >& AggregatedRelationship::getRelation()
 {
     return *m_relation;
 }

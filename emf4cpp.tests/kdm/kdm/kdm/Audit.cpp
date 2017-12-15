@@ -74,8 +74,8 @@ void Audit::setDescription(::kdm::core::String _description)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAudit__description(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAudit__description(),
                 _old_description,
                 m_description
         );
@@ -100,8 +100,8 @@ void Audit::setAuthor(::kdm::core::String _author)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAudit__author(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAudit__author(),
                 _old_author,
                 m_author
         );
@@ -126,8 +126,8 @@ void Audit::setDate(::kdm::core::String _date)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAudit__date(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAudit__date(),
                 _old_date,
                 m_date
         );

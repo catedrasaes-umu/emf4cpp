@@ -54,11 +54,11 @@ DataAction::DataAction()
 
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, false, false >(this,
+                    ::kdm::action::ActionElement_ptr, -1, false, false >(this,
                     ::kdm::data::DataPackage::_instance()->getDataAction__implementation()));
     m_dataElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::data::DataEvent,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::data::DataEvent_ptr, -1, true, false >(this,
                     ::kdm::data::DataPackage::_instance()->getDataAction__dataElement()));
 
     /*PROTECTED REGION ID(DataActionImpl__DataActionImpl) START*/
@@ -93,8 +93,8 @@ void DataAction::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getDataAction__kind(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getDataAction__kind(),
                 _old_kind,
                 m_kind
         );
@@ -105,22 +105,22 @@ void DataAction::setKind(::kdm::core::String _kind)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& DataAction::getImplementation() const
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& DataAction::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& DataAction::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& DataAction::getImplementation()
 {
     return *m_implementation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::data::DataEvent >& DataAction::getDataElement() const
+const ::ecorecpp::mapping::EList< ::kdm::data::DataEvent_ptr >& DataAction::getDataElement() const
 {
     return *m_dataElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::DataEvent >& DataAction::getDataElement()
+::ecorecpp::mapping::EList< ::kdm::data::DataEvent_ptr >& DataAction::getDataElement()
 {
     return *m_dataElement;
 }

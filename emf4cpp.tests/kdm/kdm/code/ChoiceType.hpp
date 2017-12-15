@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ChoiceType_ptr _this()
+        {   return ChoiceType_ptr(this);}
+
         // Attributes
 
         // References

@@ -159,130 +159,134 @@ PlatformFactory::PlatformFactory()
 
 AbstractPlatformElement_ptr PlatformFactory::createAbstractPlatformElement()
 {
-    return new AbstractPlatformElement();
+    return boost::intrusive_ptr < AbstractPlatformElement
+            > (new AbstractPlatformElement);
 }
 PlatformModel_ptr PlatformFactory::createPlatformModel()
 {
-    return new PlatformModel();
+    return boost::intrusive_ptr < PlatformModel > (new PlatformModel);
 }
 AbstractPlatformRelationship_ptr PlatformFactory::createAbstractPlatformRelationship()
 {
-    return new AbstractPlatformRelationship();
+    return boost::intrusive_ptr < AbstractPlatformRelationship
+            > (new AbstractPlatformRelationship);
 }
 Requires_ptr PlatformFactory::createRequires()
 {
-    return new Requires();
+    return boost::intrusive_ptr < Requires > (new Requires);
 }
 ResourceType_ptr PlatformFactory::createResourceType()
 {
-    return new ResourceType();
+    return boost::intrusive_ptr < ResourceType > (new ResourceType);
 }
 NamingResource_ptr PlatformFactory::createNamingResource()
 {
-    return new NamingResource();
+    return boost::intrusive_ptr < NamingResource > (new NamingResource);
 }
 MarshalledResource_ptr PlatformFactory::createMarshalledResource()
 {
-    return new MarshalledResource();
+    return boost::intrusive_ptr < MarshalledResource > (new MarshalledResource);
 }
 MessagingResource_ptr PlatformFactory::createMessagingResource()
 {
-    return new MessagingResource();
+    return boost::intrusive_ptr < MessagingResource > (new MessagingResource);
 }
 FileResource_ptr PlatformFactory::createFileResource()
 {
-    return new FileResource();
+    return boost::intrusive_ptr < FileResource > (new FileResource);
 }
 ExecutionResource_ptr PlatformFactory::createExecutionResource()
 {
-    return new ExecutionResource();
+    return boost::intrusive_ptr < ExecutionResource > (new ExecutionResource);
 }
 PlatformAction_ptr PlatformFactory::createPlatformAction()
 {
-    return new PlatformAction();
+    return boost::intrusive_ptr < PlatformAction > (new PlatformAction);
 }
 ExternalActor_ptr PlatformFactory::createExternalActor()
 {
-    return new ExternalActor();
+    return boost::intrusive_ptr < ExternalActor > (new ExternalActor);
 }
 DataManager_ptr PlatformFactory::createDataManager()
 {
-    return new DataManager();
+    return boost::intrusive_ptr < DataManager > (new DataManager);
 }
 BindsTo_ptr PlatformFactory::createBindsTo()
 {
-    return new BindsTo();
+    return boost::intrusive_ptr < BindsTo > (new BindsTo);
 }
 PlatformElement_ptr PlatformFactory::createPlatformElement()
 {
-    return new PlatformElement();
+    return boost::intrusive_ptr < PlatformElement > (new PlatformElement);
 }
 PlatformRelationship_ptr PlatformFactory::createPlatformRelationship()
 {
-    return new PlatformRelationship();
+    return boost::intrusive_ptr < PlatformRelationship
+            > (new PlatformRelationship);
 }
 PlatformEvent_ptr PlatformFactory::createPlatformEvent()
 {
-    return new PlatformEvent();
+    return boost::intrusive_ptr < PlatformEvent > (new PlatformEvent);
 }
 LockResource_ptr PlatformFactory::createLockResource()
 {
-    return new LockResource();
+    return boost::intrusive_ptr < LockResource > (new LockResource);
 }
 DeployedSoftwareSystem_ptr PlatformFactory::createDeployedSoftwareSystem()
 {
-    return new DeployedSoftwareSystem();
+    return boost::intrusive_ptr < DeployedSoftwareSystem
+            > (new DeployedSoftwareSystem);
 }
 Machine_ptr PlatformFactory::createMachine()
 {
-    return new Machine();
+    return boost::intrusive_ptr < Machine > (new Machine);
 }
 DeployedComponent_ptr PlatformFactory::createDeployedComponent()
 {
-    return new DeployedComponent();
+    return boost::intrusive_ptr < DeployedComponent > (new DeployedComponent);
 }
 DeployedResource_ptr PlatformFactory::createDeployedResource()
 {
-    return new DeployedResource();
+    return boost::intrusive_ptr < DeployedResource > (new DeployedResource);
 }
 Loads_ptr PlatformFactory::createLoads()
 {
-    return new Loads();
+    return boost::intrusive_ptr < Loads > (new Loads);
 }
 Spawns_ptr PlatformFactory::createSpawns()
 {
-    return new Spawns();
+    return boost::intrusive_ptr < Spawns > (new Spawns);
 }
 RuntimeResource_ptr PlatformFactory::createRuntimeResource()
 {
-    return new RuntimeResource();
+    return boost::intrusive_ptr < RuntimeResource > (new RuntimeResource);
 }
 Thread_ptr PlatformFactory::createThread()
 {
-    return new Thread();
+    return boost::intrusive_ptr < Thread > (new Thread);
 }
 Process_ptr PlatformFactory::createProcess()
 {
-    return new Process();
+    return boost::intrusive_ptr < Process > (new Process);
 }
 ReadsResource_ptr PlatformFactory::createReadsResource()
 {
-    return new ReadsResource();
+    return boost::intrusive_ptr < ReadsResource > (new ReadsResource);
 }
 WritesResource_ptr PlatformFactory::createWritesResource()
 {
-    return new WritesResource();
+    return boost::intrusive_ptr < WritesResource > (new WritesResource);
 }
 ManagesResource_ptr PlatformFactory::createManagesResource()
 {
-    return new ManagesResource();
+    return boost::intrusive_ptr < ManagesResource > (new ManagesResource);
 }
 DefinedBy_ptr PlatformFactory::createDefinedBy()
 {
-    return new DefinedBy();
+    return boost::intrusive_ptr < DefinedBy > (new DefinedBy);
 }
 StreamResource_ptr PlatformFactory::createStreamResource()
 {
-    return new StreamResource();
+    return boost::intrusive_ptr < StreamResource > (new StreamResource);
 }
 

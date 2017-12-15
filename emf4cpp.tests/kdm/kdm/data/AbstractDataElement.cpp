@@ -52,16 +52,16 @@ AbstractDataElement::AbstractDataElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
                     ::kdm::data::DataPackage::_instance()->getAbstractDataElement__source()));
     m_dataRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractDataRelationship, -1, true, false >(
+                    ::kdm::data::AbstractDataRelationship_ptr, -1, true, false >(
                     this,
                     ::kdm::data::DataPackage::_instance()->getAbstractDataElement__dataRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
                     ::kdm::data::DataPackage::_instance()->getAbstractDataElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractDataElementImpl__AbstractDataElementImpl) START*/
@@ -82,32 +82,32 @@ AbstractDataElement::~AbstractDataElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractDataElement::getSource() const
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractDataElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractDataElement::getSource()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractDataElement::getSource()
 {
     return *m_source;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& AbstractDataElement::getDataRelation() const
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship_ptr >& AbstractDataElement::getDataRelation() const
 {
     return *m_dataRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& AbstractDataElement::getDataRelation()
+::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship_ptr >& AbstractDataElement::getDataRelation()
 {
     return *m_dataRelation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractDataElement::getAbstraction() const
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractDataElement::getAbstraction() const
 {
     return *m_abstraction;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractDataElement::getAbstraction()
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractDataElement::getAbstraction()
 {
     return *m_abstraction;
 }

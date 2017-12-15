@@ -44,8 +44,8 @@ Entity::Entity() :
 {
 
     m_properties.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Property, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Property_ptr,
+                    -1, true, false >(this,
                     ::myDsl::MyDslPackage::_instance()->getEntity__properties()));
 
     /*PROTECTED REGION ID(EntityImpl__EntityImpl) START*/
@@ -82,8 +82,8 @@ void Entity::setExtends(::myDsl::Entity_ptr _extends)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getEntity__extends(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getEntity__extends(),
                 _old_extends,
                 m_extends
         );
@@ -93,12 +93,12 @@ void Entity::setExtends(::myDsl::Entity_ptr _extends)
 
 }
 
-const ::ecorecpp::mapping::EList< ::myDsl::Property >& Entity::getProperties() const
+const ::ecorecpp::mapping::EList< ::myDsl::Property_ptr >& Entity::getProperties() const
 {
     return *m_properties;
 }
 
-::ecorecpp::mapping::EList< ::myDsl::Property >& Entity::getProperties()
+::ecorecpp::mapping::EList< ::myDsl::Property_ptr >& Entity::getProperties()
 {
     return *m_properties;
 }

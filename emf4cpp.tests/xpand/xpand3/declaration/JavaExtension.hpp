@@ -63,8 +63,8 @@ namespace xpand3
         virtual ::xpand3::Identifier_ptr getJavaMethod () const;
         virtual void setJavaMethod (::xpand3::Identifier_ptr _javaMethod);
 
-        virtual const ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes () const;
-        virtual ::ecorecpp::mapping::EList< ::xpand3::Identifier >& getJavaParamTypes ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::Identifier_ptr >& getJavaParamTypes () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::Identifier_ptr >& getJavaParamTypes ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -90,6 +90,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        JavaExtension_ptr _this()
+        {   return JavaExtension_ptr(this);}
+
         // Attributes
 
         // References
@@ -98,7 +101,7 @@ namespace xpand3
 
         ::xpand3::Identifier_ptr m_javaMethod;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::Identifier >> m_javaParamTypes;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::Identifier_ptr >> m_javaParamTypes;
 
     };
 

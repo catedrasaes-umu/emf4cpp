@@ -83,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    FixedDef_ptr _this()
+    {   return FixedDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_digits;

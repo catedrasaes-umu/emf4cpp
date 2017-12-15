@@ -56,7 +56,7 @@ GlobalVarExpression::~GlobalVarExpression()
 {
     if (m_globalVarName)
     {
-        delete m_globalVarName;
+        m_globalVarName.reset();
     }
 }
 
@@ -81,8 +81,8 @@ void GlobalVarExpression::setGlobalVarName(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName(),
                 _old_globalVarName,
                 m_globalVarName
         );
@@ -90,8 +90,10 @@ void GlobalVarExpression::setGlobalVarName(
     }
 #endif
 
-    delete _old_globalVarName;
-    m_globalVarName->_setEContainer(this,
+    if (_old_globalVarName)
+        _old_globalVarName->_setEContainer(GlobalVarExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
+    m_globalVarName->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
 }
 

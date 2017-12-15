@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& getBuildRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship_ptr >& getBuildRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship_ptr >& getBuildRelation ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -83,11 +83,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractBuildElement_ptr _this()
+        {   return AbstractBuildElement_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >> m_buildRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship_ptr >> m_buildRelation;
 
     };
 

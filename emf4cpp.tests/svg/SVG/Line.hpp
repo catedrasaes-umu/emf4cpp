@@ -58,8 +58,8 @@ public:
     virtual void setMarkerStart (::PrimitiveTypes::String _markerStart);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Point >& getBetween ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Point_ptr >& getBetween () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Point_ptr >& getBetween ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -85,6 +85,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Line_ptr _this()
+    {   return Line_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_markerEnd;
@@ -93,7 +96,7 @@ protected:
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Point >> m_between;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Point_ptr >> m_between;
 
 };
 

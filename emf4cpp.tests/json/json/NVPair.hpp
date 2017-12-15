@@ -40,7 +40,6 @@ namespace json
 {
 
 class EXPORT_JSON_DLL NVPair : public virtual ::ecore::EObject
-
 {
 public:
     NVPair();
@@ -83,6 +82,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    NVPair_ptr _this()
+    {   return NVPair_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_name;

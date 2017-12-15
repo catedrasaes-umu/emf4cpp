@@ -53,8 +53,8 @@ InterfaceUnit::InterfaceUnit()
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::CodeItem_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getInterfaceUnit__codeElement()));
 
     /*PROTECTED REGION ID(InterfaceUnitImpl__InterfaceUnitImpl) START*/
@@ -75,12 +75,12 @@ InterfaceUnit::~InterfaceUnit()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& InterfaceUnit::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& InterfaceUnit::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& InterfaceUnit::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& InterfaceUnit::getCodeElement()
 {
     return *m_codeElement;
 }

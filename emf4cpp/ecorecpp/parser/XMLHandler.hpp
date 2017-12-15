@@ -26,6 +26,7 @@
 
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
+#include <ecore/EPackage.hpp>
 
 #include "simple_xml_parser.hpp"
 #include "../dllEcorecpp.hpp"

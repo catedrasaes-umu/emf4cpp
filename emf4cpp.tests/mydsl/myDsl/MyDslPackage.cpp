@@ -22,8 +22,7 @@
 
 using namespace ::myDsl;
 
-std::unique_ptr< ::myDsl::MyDslPackage,
-        ::ecorecpp::PackageDeleter< ::myDsl::MyDslPackage > > MyDslPackage::s_instance;
+boost::intrusive_ptr< ::myDsl::MyDslPackage > MyDslPackage::s_instance;
 
 ::myDsl::MyDslPackage_ptr MyDslPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::myDsl::MyDslPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< MyDslPackage >();
         duringConstruction = true;
-        new MyDslPackage();
+        s_instance = boost::intrusive_ptr < MyDslPackage > (new MyDslPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::myDsl::MyDslPackage_ptr MyDslPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

@@ -72,8 +72,8 @@ void FixedDef::setDigits(::ecore::EString const& _digits)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getFixedDef__digits(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getFixedDef__digits(),
                 _old_digits,
                 m_digits
         );
@@ -98,8 +98,8 @@ void FixedDef::setScale(::ecore::EString const& _scale)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getFixedDef__scale(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getFixedDef__scale(),
                 _old_scale,
                 m_scale
         );

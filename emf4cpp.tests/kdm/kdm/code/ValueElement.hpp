@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ValueElement_ptr _this()
+        {   return ValueElement_ptr(this);}
+
         // Attributes
 
         // References

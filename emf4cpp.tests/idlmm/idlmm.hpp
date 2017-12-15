@@ -22,6 +22,7 @@
 #define IDLMM_HPP
 
 #include "idlmm_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

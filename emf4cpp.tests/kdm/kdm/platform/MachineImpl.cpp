@@ -81,22 +81,22 @@ void Machine::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject >();
+        _any = m_attribute->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject >();
+        _any = m_annotation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject >();
+        _any = m_stereotype->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
@@ -107,32 +107,32 @@ void Machine::_initialize()
         return _any;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__SOURCE:
     {
-        _any = m_source->asEListOf< ::ecore::EObject >();
+        _any = m_source->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__RELATION:
     {
-        _any = m_relation->asEListOf< ::ecore::EObject >();
+        _any = m_relation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__ABSTRACTION:
     {
-        _any = m_abstraction->asEListOf< ::ecore::EObject >();
+        _any = m_abstraction->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__IMPLEMENTATION:
     {
-        _any = m_implementation->asEListOf< ::ecore::EObject >();
+        _any = m_implementation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::platform::PlatformPackage::MACHINE__DEPLOYEDCOMPONENT:
     {
-        _any = m_deployedComponent->asEListOf< ::ecore::EObject >();
+        _any = m_deployedComponent->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::platform::PlatformPackage::MACHINE__DEPLOYEDRESOURCE:
     {
-        _any = m_deployedResource->asEListOf< ::ecore::EObject >();
+        _any = m_deployedResource->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -147,36 +147,36 @@ void Machine::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
@@ -189,18 +189,18 @@ void Machine::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__SOURCE:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::platform::AbstractPlatformElement::getSource().clear();
         ::kdm::platform::AbstractPlatformElement::getSource().insert_all(*_t0);
     }
         return;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__RELATION:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::platform::AbstractPlatformElement::getRelation().clear();
         ::kdm::platform::AbstractPlatformElement::getRelation().insert_all(
                 *_t0);
@@ -208,9 +208,9 @@ void Machine::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__ABSTRACTION:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::platform::AbstractPlatformElement::getAbstraction().clear();
         ::kdm::platform::AbstractPlatformElement::getAbstraction().insert_all(
                 *_t0);
@@ -218,9 +218,9 @@ void Machine::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__IMPLEMENTATION:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::platform::AbstractPlatformElement::getImplementation().clear();
         ::kdm::platform::AbstractPlatformElement::getImplementation().insert_all(
                 *_t0);
@@ -228,18 +228,18 @@ void Machine::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::platform::PlatformPackage::MACHINE__DEPLOYEDCOMPONENT:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::platform::Machine::getDeployedComponent().clear();
         ::kdm::platform::Machine::getDeployedComponent().insert_all(*_t0);
     }
         return;
     case ::kdm::platform::PlatformPackage::MACHINE__DEPLOYEDRESOURCE:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::platform::Machine::getDeployedResource().clear();
         ::kdm::platform::Machine::getDeployedResource().insert_all(*_t0);
     }
@@ -293,7 +293,7 @@ void Machine::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Machine::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::kdm::platform::PlatformPackage_ptr >(::kdm::platform::PlatformPackage::_instance())->getMachine();
+            dynamic_cast< ::kdm::platform::PlatformPackage* >(::kdm::platform::PlatformPackage::_instance().get())->getMachine();
     return _eclass;
 }
 

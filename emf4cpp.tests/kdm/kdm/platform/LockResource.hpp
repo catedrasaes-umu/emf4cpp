@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        LockResource_ptr _this()
+        {   return LockResource_ptr(this);}
+
         // Attributes
 
         // References

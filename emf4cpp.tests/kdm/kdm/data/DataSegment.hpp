@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DataSegment_ptr _this()
+        {   return DataSegment_ptr(this);}
+
         // Attributes
 
         // References

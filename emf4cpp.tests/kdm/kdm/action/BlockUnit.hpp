@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BlockUnit_ptr _this()
+        {   return BlockUnit_ptr(this);}
+
         // Attributes
 
         // References

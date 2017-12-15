@@ -82,8 +82,8 @@ void ProducesDataEvent::setTo(::kdm::data::DataEvent_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getProducesDataEvent__to(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getProducesDataEvent__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void ProducesDataEvent::setFrom(::kdm::action::ActionElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getProducesDataEvent__from(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getProducesDataEvent__from(),
                 _old_from,
                 m_from
         );

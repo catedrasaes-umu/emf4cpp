@@ -81,8 +81,8 @@ void UILayout::setTo(::kdm::ui::UIResource_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::ui::UiPackage::_instance()->getUILayout__to(),
+                _this(),
+                ::kdm::ui::UiPackage::_instance()->getUILayout__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void UILayout::setFrom(::kdm::ui::UIResource_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::ui::UiPackage::_instance()->getUILayout__from(),
+                _this(),
+                ::kdm::ui::UiPackage::_instance()->getUILayout__from(),
                 _old_from,
                 m_from
         );

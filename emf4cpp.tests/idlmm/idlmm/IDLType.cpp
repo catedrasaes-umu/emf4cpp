@@ -71,8 +71,8 @@ void IDLType::setTypeCode(::idlmm::ETypeCode _typeCode)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getIDLType__typeCode(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getIDLType__typeCode(),
                 _old_typeCode,
                 m_typeCode
         );

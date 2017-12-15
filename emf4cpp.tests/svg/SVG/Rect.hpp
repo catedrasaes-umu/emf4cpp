@@ -83,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Rect_ptr _this()
+    {   return Rect_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_rx;

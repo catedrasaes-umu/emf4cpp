@@ -40,7 +40,6 @@ namespace myDsl
 {
 
 class EXPORT_MYDSL_DLL Import : public virtual ::ecore::EObject
-
 {
 public:
     Import();
@@ -81,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Import_ptr _this()
+    {   return Import_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_importURI;

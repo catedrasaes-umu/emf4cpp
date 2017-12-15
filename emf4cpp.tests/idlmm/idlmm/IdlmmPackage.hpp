@@ -581,9 +581,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< IdlmmPackage, ::ecorecpp::PackageDeleter<IdlmmPackage> > s_instance;
+    static boost::intrusive_ptr< IdlmmPackage > s_instance;
 
     IdlmmPackage();
+    void _initPackage();
 
     // EClass instances 
 

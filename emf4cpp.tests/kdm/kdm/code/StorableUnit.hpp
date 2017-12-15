@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        StorableUnit_ptr _this()
+        {   return StorableUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::code::StorableKind m_kind;

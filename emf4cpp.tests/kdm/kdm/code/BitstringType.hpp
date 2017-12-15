@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BitstringType_ptr _this()
+        {   return BitstringType_ptr(this);}
+
         // Attributes
 
         // References

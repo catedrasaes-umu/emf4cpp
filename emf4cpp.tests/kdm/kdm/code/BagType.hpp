@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BagType_ptr _this()
+        {   return BagType_ptr(this);}
+
         // Attributes
 
         ::kdm::core::Integer m_size;

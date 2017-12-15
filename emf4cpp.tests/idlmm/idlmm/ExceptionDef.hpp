@@ -55,8 +55,8 @@ public:
     virtual void setTypeCode (::idlmm::ETypeCode _typeCode);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::Field >& getMembers ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& getMembers () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& getMembers ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -82,13 +82,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ExceptionDef_ptr _this()
+    {   return ExceptionDef_ptr(this);}
+
     // Attributes
 
     ::idlmm::ETypeCode m_typeCode;
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Field >> m_members;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Field_ptr >> m_members;
 
 };
 

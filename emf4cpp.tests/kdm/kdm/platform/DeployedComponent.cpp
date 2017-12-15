@@ -54,8 +54,8 @@ DeployedComponent::DeployedComponent()
 {
 
     m_groupedCode.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Module,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::Module_ptr, -1, false, false >(this,
                     ::kdm::platform::PlatformPackage::_instance()->getDeployedComponent__groupedCode()));
 
     /*PROTECTED REGION ID(DeployedComponentImpl__DeployedComponentImpl) START*/
@@ -76,12 +76,12 @@ DeployedComponent::~DeployedComponent()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::Module >& DeployedComponent::getGroupedCode() const
+const ::ecorecpp::mapping::EList< ::kdm::code::Module_ptr >& DeployedComponent::getGroupedCode() const
 {
     return *m_groupedCode;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::Module >& DeployedComponent::getGroupedCode()
+::ecorecpp::mapping::EList< ::kdm::code::Module_ptr >& DeployedComponent::getGroupedCode()
 {
     return *m_groupedCode;
 }

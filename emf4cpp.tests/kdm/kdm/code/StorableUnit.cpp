@@ -84,8 +84,8 @@ void StorableUnit::setKind(::kdm::code::StorableKind _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getStorableUnit__kind(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getStorableUnit__kind(),
                 _old_kind,
                 m_kind
         );

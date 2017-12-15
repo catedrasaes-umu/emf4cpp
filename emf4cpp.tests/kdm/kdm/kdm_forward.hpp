@@ -44,64 +44,64 @@ namespace kdm
 
 // KDMFramework
         class KDMFramework;
-        typedef KDMFramework* KDMFramework_ptr;
+        using KDMFramework_ptr = boost::intrusive_ptr<KDMFramework>;
 
 // KDMModel
         class KDMModel;
-        typedef KDMModel* KDMModel_ptr;
+        using KDMModel_ptr = boost::intrusive_ptr<KDMModel>;
 
 // Audit
         class Audit;
-        typedef Audit* Audit_ptr;
+        using Audit_ptr = boost::intrusive_ptr<Audit>;
 
 // Segment
         class Segment;
-        typedef Segment* Segment_ptr;
+        using Segment_ptr = boost::intrusive_ptr<Segment>;
 
 // Attribute
         class Attribute;
-        typedef Attribute* Attribute_ptr;
+        using Attribute_ptr = boost::intrusive_ptr<Attribute>;
 
 // Annotation
         class Annotation;
-        typedef Annotation* Annotation_ptr;
+        using Annotation_ptr = boost::intrusive_ptr<Annotation>;
 
 // TagDefinition
         class TagDefinition;
-        typedef TagDefinition* TagDefinition_ptr;
+        using TagDefinition_ptr = boost::intrusive_ptr<TagDefinition>;
 
 // ExtendedValue
         class ExtendedValue;
-        typedef ExtendedValue* ExtendedValue_ptr;
+        using ExtendedValue_ptr = boost::intrusive_ptr<ExtendedValue>;
 
 // Stereotype
         class Stereotype;
-        typedef Stereotype* Stereotype_ptr;
+        using Stereotype_ptr = boost::intrusive_ptr<Stereotype>;
 
 // ExtensionFamily
         class ExtensionFamily;
-        typedef ExtensionFamily* ExtensionFamily_ptr;
+        using ExtensionFamily_ptr = boost::intrusive_ptr<ExtensionFamily>;
 
 // TaggedRef
         class TaggedRef;
-        typedef TaggedRef* TaggedRef_ptr;
+        using TaggedRef_ptr = boost::intrusive_ptr<TaggedRef>;
 
 // TaggedValue
         class TaggedValue;
-        typedef TaggedValue* TaggedValue_ptr;
+        using TaggedValue_ptr = boost::intrusive_ptr<TaggedValue>;
 
 // EEnum
 
 // Package & Factory
         class KdmFactory;
-        typedef KdmFactory * KdmFactory_ptr;
+        using KdmFactory_ptr = boost::intrusive_ptr<KdmFactory>;
         class KdmPackage;
-        typedef KdmPackage * KdmPackage_ptr;
+        using KdmPackage_ptr = boost::intrusive_ptr<KdmPackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // kdm

@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SeqContent_ptr _this()
+        {   return SeqContent_ptr(this);}
+
         // Attributes
 
         // References

@@ -86,34 +86,34 @@ JsonFactory::JsonFactory()
 
 ObjectValue_ptr JsonFactory::createObjectValue()
 {
-    return new ObjectValue();
+    return boost::intrusive_ptr < ObjectValue > (new ObjectValue);
 }
 NVPair_ptr JsonFactory::createNVPair()
 {
-    return new NVPair();
+    return boost::intrusive_ptr < NVPair > (new NVPair);
 }
 Value_ptr JsonFactory::createValue()
 {
-    return new Value();
+    return boost::intrusive_ptr < Value > (new Value);
 }
 StringValue_ptr JsonFactory::createStringValue()
 {
-    return new StringValue();
+    return boost::intrusive_ptr < StringValue > (new StringValue);
 }
 NumberValue_ptr JsonFactory::createNumberValue()
 {
-    return new NumberValue();
+    return boost::intrusive_ptr < NumberValue > (new NumberValue);
 }
 BooleanValue_ptr JsonFactory::createBooleanValue()
 {
-    return new BooleanValue();
+    return boost::intrusive_ptr < BooleanValue > (new BooleanValue);
 }
 ArrayValue_ptr JsonFactory::createArrayValue()
 {
-    return new ArrayValue();
+    return boost::intrusive_ptr < ArrayValue > (new ArrayValue);
 }
 NullValue_ptr JsonFactory::createNullValue()
 {
-    return new NullValue();
+    return boost::intrusive_ptr < NullValue > (new NullValue);
 }
 

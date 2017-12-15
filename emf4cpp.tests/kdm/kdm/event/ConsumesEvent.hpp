@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ConsumesEvent_ptr _this()
+        {   return ConsumesEvent_ptr(this);}
+
         // Attributes
 
         // References

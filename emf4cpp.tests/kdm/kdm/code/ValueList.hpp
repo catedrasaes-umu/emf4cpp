@@ -57,8 +57,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& getValueElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& getValueElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::ValueElement_ptr >& getValueElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::ValueElement_ptr >& getValueElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -84,11 +84,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ValueList_ptr _this()
+        {   return ValueList_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::ValueElement >> m_valueElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::ValueElement_ptr >> m_valueElement;
 
     };
 

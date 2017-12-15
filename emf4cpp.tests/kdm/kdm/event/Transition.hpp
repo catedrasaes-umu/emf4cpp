@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Transition_ptr _this()
+        {   return Transition_ptr(this);}
+
         // Attributes
 
         // References

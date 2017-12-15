@@ -52,15 +52,15 @@ AbstractCodeElement::AbstractCodeElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__source()));
     m_comment.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::CommentUnit, -1, true, false >(this,
+                    ::kdm::code::CommentUnit_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__comment()));
     m_codeRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeRelationship, -1, true, false >(
+                    ::kdm::code::AbstractCodeRelationship_ptr, -1, true, false >(
                     this,
                     ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__codeRelation()));
 
@@ -82,32 +82,32 @@ AbstractCodeElement::~AbstractCodeElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractCodeElement::getSource() const
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractCodeElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractCodeElement::getSource()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractCodeElement::getSource()
 {
     return *m_source;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& AbstractCodeElement::getComment() const
+const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit_ptr >& AbstractCodeElement::getComment() const
 {
     return *m_comment;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& AbstractCodeElement::getComment()
+::ecorecpp::mapping::EList< ::kdm::code::CommentUnit_ptr >& AbstractCodeElement::getComment()
 {
     return *m_comment;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& AbstractCodeElement::getCodeRelation() const
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship_ptr >& AbstractCodeElement::getCodeRelation() const
 {
     return *m_codeRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& AbstractCodeElement::getCodeRelation()
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship_ptr >& AbstractCodeElement::getCodeRelation()
 {
     return *m_codeRelation;
 }

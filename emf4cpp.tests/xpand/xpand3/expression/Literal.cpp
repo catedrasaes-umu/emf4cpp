@@ -56,7 +56,7 @@ Literal::~Literal()
 {
     if (m_literalValue)
     {
-        delete m_literalValue;
+        m_literalValue.reset();
     }
 }
 
@@ -80,8 +80,8 @@ void Literal::setLiteralValue(::xpand3::Identifier_ptr _literalValue)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue(),
                 _old_literalValue,
                 m_literalValue
         );
@@ -89,8 +89,10 @@ void Literal::setLiteralValue(::xpand3::Identifier_ptr _literalValue)
     }
 #endif
 
-    delete _old_literalValue;
-    m_literalValue->_setEContainer(this,
+    if (_old_literalValue)
+        _old_literalValue->_setEContainer(Literal_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
+    m_literalValue->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
 }
 

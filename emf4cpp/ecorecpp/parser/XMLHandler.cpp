@@ -63,7 +63,7 @@ void XMLHandler::characters(xml_parser::match_pair const& chars) {
 		EStructuralFeature_ptr const esf =
 				eclass->getEStructuralFeature(name);
 
-		EDataType_ptr const edt = dynamic_cast<EDataType_ptr>(esf->getEType());
+		EDataType_ptr const edt = esf->getEType()->as<EDataType>();
 
 		EFactory_ptr const efac = edt->getEPackage()->getEFactoryInstance();
 		assert(efac);
@@ -230,9 +230,9 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 			if (eref && eref->getUpperBound() != 1) {
 				// Gets the collection and adds the new element
 				anyRef = peobj->eGet(esf);
-				mapping::EList<::ecore::EObject>::ptr_type list =
+				mapping::EList<::ecore::EObject_ptr>::ptr_type list =
 						ecorecpp::mapping::any::any_cast<
-						mapping::EList<::ecore::EObject>::ptr_type>(anyRef);
+						mapping::EList<::ecore::EObject_ptr>::ptr_type>(anyRef);
 
 				list->push_back(eobj);
 			} else {
@@ -247,9 +247,9 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 				if (eopref->getUpperBound() != 1) {
 					// Gets the collection and adds the new element
 					anyRef = eobj->eGet(eopref);
-					mapping::EList<::ecore::EObject>::ptr_type list =
+					mapping::EList<::ecore::EObject_ptr>::ptr_type list =
 							ecorecpp::mapping::any::any_cast<
-							mapping::EList<::ecore::EObject>::ptr_type>(anyRef);
+							mapping::EList<::ecore::EObject_ptr>::ptr_type>(anyRef);
 
 					list->push_back(peobj);
 				} else {
@@ -317,9 +317,9 @@ void XMLHandler::resolveReferences() {
 			EJavaObject owner = eobj->eGet(esf);
 
 			if ( ::ecorecpp::mapping::any::is_a<
-					mapping::EList<::ecore::EObject>::ptr_type>(owner) ) {
+					mapping::EList<::ecore::EObject_ptr>::ptr_type>(owner) ) {
 				ecorecpp::mapping::any::any_cast<
-						mapping::EList<::ecore::EObject>::ptr_type >(owner)->push_back(resolvedObj);
+						mapping::EList<::ecore::EObject_ptr>::ptr_type >(owner)->push_back(resolvedObj);
 			} else {
 				eobj->eSet(esf, resolvedObj);
 			}
@@ -371,9 +371,9 @@ void XMLHandler::resolveCrossDocumentReferences() {
 		EJavaObject owner = eobj->eGet(esf);
 
 		if ( ::ecorecpp::mapping::any::is_a<
-				mapping::EList<::ecore::EObject>::ptr_type>(owner) ) {
+				mapping::EList<::ecore::EObject_ptr>::ptr_type>(owner) ) {
 			ecorecpp::mapping::any::any_cast<
-					mapping::EList<::ecore::EObject>::ptr_type >(owner)->push_back(resolvedObj);
+					mapping::EList<::ecore::EObject_ptr>::ptr_type >(owner)->push_back(resolvedObj);
 		} else {
 			eobj->eSet(esf, resolvedObj);
 		}

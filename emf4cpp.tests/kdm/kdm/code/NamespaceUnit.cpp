@@ -52,8 +52,8 @@ NamespaceUnit::NamespaceUnit()
 {
 
     m_groupedCode.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::CodeItem_ptr, -1, false, false >(this,
                     ::kdm::code::CodePackage::_instance()->getNamespaceUnit__groupedCode()));
 
     /*PROTECTED REGION ID(NamespaceUnitImpl__NamespaceUnitImpl) START*/
@@ -74,12 +74,12 @@ NamespaceUnit::~NamespaceUnit()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& NamespaceUnit::getGroupedCode() const
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& NamespaceUnit::getGroupedCode() const
 {
     return *m_groupedCode;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& NamespaceUnit::getGroupedCode()
+::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& NamespaceUnit::getGroupedCode()
 {
     return *m_groupedCode;
 }

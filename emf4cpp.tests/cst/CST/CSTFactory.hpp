@@ -46,7 +46,7 @@ namespace CST
 
     protected:
 
-        static std::unique_ptr< CSTFactory > s_instance;
+        static boost::intrusive_ptr< CSTFactory > s_holder;
 
         CSTFactory();
 
@@ -58,33 +58,36 @@ namespace CST
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline Tree_ptr create< Tree >()
     {
         auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
         return packageFactory->createTree();
     }
+
     template< > inline Element_ptr create< Element >()
     {
         auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
         return packageFactory->createElement();
     }
+
     template< > inline Node_ptr create< Node >()
     {
         auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
         return packageFactory->createNode();
     }
+
     template< > inline Leaf_ptr create< Leaf >()
     {
         auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
         return packageFactory->createLeaf();
     }
 

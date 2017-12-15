@@ -40,7 +40,6 @@ namespace idlmm
 {
 
 class EXPORT_IDLMM_DLL Contained : public virtual ::ecore::EObject
-
 {
 public:
     Contained();
@@ -94,6 +93,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Contained_ptr _this()
+    {   return Contained_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_identifier;

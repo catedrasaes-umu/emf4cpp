@@ -22,12 +22,13 @@
 
 using namespace ::idlmm;
 
-std::unique_ptr< ::idlmm::IdlmmFactory > IdlmmFactory::s_instance;
+boost::intrusive_ptr< ::idlmm::IdlmmFactory > IdlmmFactory::s_holder;
 
 ::idlmm::IdlmmFactory_ptr IdlmmFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new IdlmmFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < IdlmmFactory > (new IdlmmFactory());
+
+    return s_holder;
 }
 

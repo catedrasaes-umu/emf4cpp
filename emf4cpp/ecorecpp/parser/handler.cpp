@@ -66,7 +66,7 @@ void handler::characters(xml_parser::match_pair const& chars)
             EStructuralFeature_ptr const esf = peclass->getEStructuralFeature(
                     _name);
 
-            EDataType_ptr const edt = dynamic_cast< EDataType_ptr >(esf->getEType());
+            EDataType_ptr const edt = esf->getEType()->as<EDataType>();
 
             EFactory_ptr const efac = edt->getEPackage()->getEFactoryInstance();
             assert(efac);
@@ -225,8 +225,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
             {
                 // Gets the collection and adds the new element
                 _any = peobj->eGet(esf);
-                mapping::EList<::ecore::EObject>::ptr_type list = ecorecpp::mapping::any::any_cast<
-                        mapping::EList<::ecore::EObject>::ptr_type >(_any);
+                mapping::EList<::ecore::EObject_ptr>::ptr_type list = ecorecpp::mapping::any::any_cast<
+                        mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
                 list->push_back(eobj);
             }
@@ -245,8 +245,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
                 {
                     // Gets the collection and adds the new element
                     _any = eobj->eGet(eopref);
-                    mapping::EList<::ecore::EObject>::ptr_type list = ecorecpp::mapping::any::any_cast<
-                            mapping::EList<::ecore::EObject>::ptr_type >(_any);
+                    mapping::EList<::ecore::EObject_ptr>::ptr_type list = ecorecpp::mapping::any::any_cast<
+                            mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
                     list->push_back(peobj);
                 }
@@ -348,7 +348,7 @@ void handler::resolveReferences()
                     {
                         // Is it a subpackage?
                         bool is_subpackage = false;
-                        ::ecorecpp::mapping::EList< EPackage > const& subpkgs =
+                        ::ecorecpp::mapping::EList< EPackage_ptr > const& subpkgs =
                                 pkg->getESubpackages();
 
                         for (size_t k = 0; k < subpkgs.size() && !is_subpackage; ++k)
@@ -382,8 +382,8 @@ void handler::resolveReferences()
                         {
                             size_t _index = _path[j].get_index();
 
-                            mapping::EList<::ecore::EObject>::ptr_type _collection = ecorecpp::mapping::any::any_cast<
-                                    mapping::EList<::ecore::EObject>::ptr_type >(_any);
+                            mapping::EList<::ecore::EObject_ptr>::ptr_type _collection = ecorecpp::mapping::any::any_cast<
+                                    mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
                             assert(_collection->size() > _index);
                             DEBUG_MSG(cout, _collection->size());
@@ -399,8 +399,8 @@ void handler::resolveReferences()
                 _any = _current;
 
 				EJavaObject targetObject = eobj->eGet(esf);
-				if ( any::is_a<mapping::EList<::ecore::EObject>::ptr_type>(targetObject) ) {
-					ecorecpp::mapping::any::any_cast<mapping::EList<::ecore::EObject>::ptr_type >(targetObject)
+				if ( any::is_a<mapping::EList<::ecore::EObject_ptr>::ptr_type>(targetObject) ) {
+					ecorecpp::mapping::any::any_cast<mapping::EList<::ecore::EObject_ptr>::ptr_type >(targetObject)
 							->push_back(_current);
 				} else {
 					eobj->eSet(esf, _any);

@@ -82,6 +82,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    RightHand_ptr _this()
+    {   return RightHand_ptr(this);}
+
     // Attributes
 
     // References

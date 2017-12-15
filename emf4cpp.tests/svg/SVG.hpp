@@ -22,6 +22,7 @@
 #define SVG_HPP
 
 #include "SVG_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

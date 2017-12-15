@@ -61,12 +61,14 @@ void ParameterDef::_initialize()
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_containedType);
+        if (m_containedType)
+            _any = m_containedType->as< ::ecore::EObject >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_sharedType);
+        if (m_sharedType)
+            _any = m_sharedType->as< ::ecore::EObject >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::PARAMETERDEF__IDENTIFIER:
@@ -95,7 +97,7 @@ void ParameterDef::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr >(_t0);
+        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::IDLType >(_t0);*/
         ::idlmm::Typed::setContainedType(_t1);
     }
         return;
@@ -104,7 +106,7 @@ void ParameterDef::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::idlmm::TypedefDef_ptr _t1 =
-                dynamic_cast< ::idlmm::TypedefDef_ptr >(_t0);
+                dynamic_cast< ::idlmm::TypedefDef* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::TypedefDef >(_t0);*/
         ::idlmm::Typed::setSharedType(_t1);
     }
         return;
@@ -130,9 +132,9 @@ void ParameterDef::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
-        return m_containedType;
+        return (bool) m_containedType;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
-        return m_sharedType;
+        return (bool) m_sharedType;
     case ::idlmm::IdlmmPackage::PARAMETERDEF__IDENTIFIER:
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_identifier);
@@ -156,7 +158,7 @@ void ParameterDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ParameterDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getParameterDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getParameterDef();
     return _eclass;
 }
 

@@ -40,7 +40,6 @@ namespace CST
 {
 
 class EXPORT_CST_DLL Element : public virtual ::ecore::EObject
-
 {
 public:
     Element();
@@ -81,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Element_ptr _this()
+    {   return Element_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_kind;

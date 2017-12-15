@@ -22,8 +22,7 @@
 
 using namespace ::ecore;
 
-std::unique_ptr< ::ecore::EcorePackage,
-        ::ecorecpp::PackageDeleter< ::ecore::EcorePackage > > EcorePackage::s_instance;
+boost::intrusive_ptr< ::ecore::EcorePackage > EcorePackage::s_instance;
 
 ::ecore::EcorePackage_ptr EcorePackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::ecore::EcorePackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< EcorePackage >();
         duringConstruction = true;
-        new EcorePackage();
+        s_instance = boost::intrusive_ptr < EcorePackage > (new EcorePackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::ecore::EcorePackage_ptr EcorePackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

@@ -68,7 +68,7 @@ namespace idlmm
 
     protected:
 
-        static std::unique_ptr< IdlmmFactory > s_instance;
+        static boost::intrusive_ptr< IdlmmFactory > s_holder;
 
         IdlmmFactory();
 
@@ -80,165 +80,190 @@ namespace idlmm
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline Container_ptr create< Container >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createContainer();
     }
+
     template< > inline Contained_ptr create< Contained >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createContained();
     }
+
     template< > inline InterfaceDef_ptr create< InterfaceDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createInterfaceDef();
     }
+
     template< > inline ModuleDef_ptr create< ModuleDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createModuleDef();
     }
+
     template< > inline IDLType_ptr create< IDLType >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createIDLType();
     }
+
     template< > inline OperationDef_ptr create< OperationDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createOperationDef();
     }
+
     template< > inline AttributeDef_ptr create< AttributeDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createAttributeDef();
     }
+
     template< > inline ConstantDef_ptr create< ConstantDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createConstantDef();
     }
+
     template< > inline Typed_ptr create< Typed >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createTyped();
     }
+
     template< > inline ParameterDef_ptr create< ParameterDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createParameterDef();
     }
+
     template< > inline PrimitiveDef_ptr create< PrimitiveDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createPrimitiveDef();
     }
+
     template< > inline ExceptionDef_ptr create< ExceptionDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createExceptionDef();
     }
+
     template< > inline Field_ptr create< Field >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createField();
     }
+
     template< > inline FixedDef_ptr create< FixedDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createFixedDef();
     }
+
     template< > inline WstringDef_ptr create< WstringDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createWstringDef();
     }
+
     template< > inline StringDef_ptr create< StringDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createStringDef();
     }
+
     template< > inline AliasDef_ptr create< AliasDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createAliasDef();
     }
+
     template< > inline ArrayDef_ptr create< ArrayDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createArrayDef();
     }
+
     template< > inline SequenceDef_ptr create< SequenceDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createSequenceDef();
     }
+
     template< > inline UnionField_ptr create< UnionField >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createUnionField();
     }
+
     template< > inline TypedefDef_ptr create< TypedefDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createTypedefDef();
     }
+
     template< > inline UnionDef_ptr create< UnionDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createUnionDef();
     }
+
     template< > inline EnumDef_ptr create< EnumDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createEnumDef();
     }
+
     template< > inline StructDef_ptr create< StructDef >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createStructDef();
     }
+
     template< > inline TranslationUnit_ptr create< TranslationUnit >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createTranslationUnit();
     }
+
     template< > inline Include_ptr create< Include >()
     {
         auto eFactory = IdlmmPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< IdlmmFactory* >(eFactory.get());
         return packageFactory->createInclude();
     }
 

@@ -67,9 +67,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< BintreePackage, ::ecorecpp::PackageDeleter<BintreePackage> > s_instance;
+    static boost::intrusive_ptr< BintreePackage > s_instance;
 
     BintreePackage();
+    void _initPackage();
 
     // EClass instances 
 

@@ -90,6 +90,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        MethodUnit_ptr _this()
+        {   return MethodUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::code::MethodKind m_kind;

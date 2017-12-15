@@ -81,8 +81,8 @@ void ImplementationOf::setTo(::kdm::code::CodeItem_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getImplementationOf__to(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getImplementationOf__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void ImplementationOf::setFrom(::kdm::code::CodeItem_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getImplementationOf__from(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getImplementationOf__from(),
                 _old_from,
                 m_from
         );

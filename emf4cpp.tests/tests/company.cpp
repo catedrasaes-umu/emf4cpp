@@ -83,6 +83,6 @@ int main(int argc, char* argv[])
     ::ecorecpp::serializer::serializer _ser(outfile);
     _ser.serialize(companyPackage);
 
-    delete companyPackage;
+    companyPackage.reset();
 }
 

@@ -90,12 +90,14 @@ void Case::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::CASE__CONDITION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_condition);
+        if (m_condition)
+            _any = m_condition->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::CASE__THENPART:
     {
-        _any = static_cast< ::ecore::EObject* >(m_thenPart);
+        if (m_thenPart)
+            _any = m_thenPart->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -136,7 +138,7 @@ void Case::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::Case::setCondition(_t1);
     }
         return;
@@ -145,7 +147,7 @@ void Case::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::Case::setThenPart(_t1);
     }
         return;
@@ -170,9 +172,9 @@ void Case::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::CASE__CONDITION:
-        return m_condition;
+        return (bool) m_condition;
     case ::xpand3::expression::ExpressionPackage::CASE__THENPART:
-        return m_thenPart;
+        return (bool) m_thenPart;
 
     }
     throw "Error";
@@ -190,7 +192,7 @@ void Case::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Case::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getCase();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getCase();
     return _eclass;
 }
 

@@ -43,8 +43,25 @@ using namespace ::ecore;
 // Default constructor
 EObject::EObject()
 {
+    m_refCount = 0u;
 
     /*PROTECTED REGION ID(EObjectImpl__EObjectImpl) ENABLED START*/
+    m_eContainer = nullptr;
+    m_eContainingFeature = nullptr;
+    m_eResource = nullptr;
+    /*PROTECTED REGION END*/
+
+#ifdef ECORECPP_NOTIFICATION_API
+    m_eDeliver = false;
+#endif
+}
+
+// Copy constructor only for EObject, needed to properly initialize reference counting
+EObject::EObject(const EObject&)
+{
+    m_refCount = 0u;
+
+    /*PROTECTED REGION ID(EObjectImpl__EObjectImplConst) ENABLED START*/
     m_eContainer = nullptr;
     m_eContainingFeature = nullptr;
     m_eResource = nullptr;

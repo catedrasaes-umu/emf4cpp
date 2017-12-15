@@ -1,11 +1,21 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
  * treeiterator/Leaf.cpp
- * This file was created by EMF4CPP 2.0.5 and is copyrighted by the
- * respective user and/or provider of the processed ECORE model.
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
- * EMF4CPP is free software. You can obtain it from
- * https://github.com/catedrasaes-umu/emf4cpp
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "Leaf.hpp"
@@ -17,6 +27,11 @@
 #ifdef ECORECPP_NOTIFICATION_API
 #include <ecorecpp/notify.hpp>
 #endif
+
+/*PROTECTED REGION ID(Leaf.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
 
 using namespace ::treeiterator;
 
@@ -38,12 +53,8 @@ Leaf::~Leaf()
 {
 }
 
-/*PROTECTED REGION ID(Leaf.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& Leaf::getName() const
 {
     return m_name;
@@ -60,8 +71,8 @@ void Leaf::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::treeiterator::TreeiteratorPackage::_instance()->getLeaf__name(),
+                _this(),
+                ::treeiterator::TreeiteratorPackage::_instance()->getLeaf__name(),
                 _old_name,
                 m_name
         );

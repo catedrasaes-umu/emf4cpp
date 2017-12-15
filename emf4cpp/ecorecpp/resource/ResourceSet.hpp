@@ -48,16 +48,16 @@ public:
 	ResourceSet(const ResourceSet&)    = delete;
 	void operator=(const ResourceSet&) = delete;
 
-	::ecorecpp::mapping::EList<Resource>& getResources();
+	::ecorecpp::mapping::EList<Resource_ptr>& getResources();
 
-	Resource* createResource(const QUrl& uri);
-	Resource* createResource(const QUrl& uri, const std::string& contentType);
+	Resource_ptr createResource(const QUrl& uri);
+	Resource_ptr createResource(const QUrl& uri, const std::string& contentType);
 
-	Resource* getResource(const QUrl& uri, bool loadOnDemand);
+	Resource_ptr getResource(const QUrl& uri, bool loadOnDemand);
 
-	::ecorecpp::util::TreeIterator<::ecore::EObject> getAllContents();
+	::ecorecpp::util::TreeIterator<::ecore::EObject_ptr> getAllContents();
 
-	::ecore::EObject* getEObject(const QUrl& uri, bool loadOnDemand);
+	::ecore::EObject_ptr getEObject(const QUrl& uri, bool loadOnDemand);
 
 	Resource::Factory::Registry* getResourceFactoryRegistry() const;
 	void setResourceFactoryRegistry(Resource::Factory::Registry*);
@@ -65,7 +65,7 @@ public:
 private:
 	ResourceSet();
 
-	::ecorecpp::mapping::EList<Resource>::ptr_type _resources;
+	::ecorecpp::mapping::EList<Resource_ptr>::ptr_type _resources;
 	std::unique_ptr<Resource::Factory::Registry> _resourceRegistry;
 };
 

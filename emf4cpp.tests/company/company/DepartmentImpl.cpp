@@ -62,12 +62,13 @@ void Department::_initialize()
     {
     case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
     {
-        _any = m_employees->asEListOf< ::ecore::EObject >();
+        _any = m_employees->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::company::CompanyPackage::DEPARTMENT__MANAGER:
     {
-        _any = static_cast< ::ecore::EObject* >(m_manager);
+        if (m_manager)
+            _any = m_manager->as< ::ecore::EObject >();
     }
         return _any;
     case ::company::CompanyPackage::DEPARTMENT__NUMBER:
@@ -88,9 +89,9 @@ void Department::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::company::Department::getEmployees().clear();
         ::company::Department::getEmployees().insert_all(*_t0);
     }
@@ -100,7 +101,7 @@ void Department::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::company::Employee_ptr _t1 =
-                dynamic_cast< ::company::Employee_ptr >(_t0);
+                dynamic_cast< ::company::Employee* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::company::Employee >(_t0);*/
         ::company::Department::setManager(_t1);
     }
         return;
@@ -122,7 +123,7 @@ void Department::eSet(::ecore::EInt _featureID,
     case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
         return m_employees && m_employees->size();
     case ::company::CompanyPackage::DEPARTMENT__MANAGER:
-        return m_manager;
+        return (bool) m_manager;
     case ::company::CompanyPackage::DEPARTMENT__NUMBER:
         return ::ecorecpp::mapping::set_traits < ::ecore::EInt
                 > ::is_set(m_number);
@@ -143,7 +144,7 @@ void Department::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Department::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::company::CompanyPackage_ptr >(::company::CompanyPackage::_instance())->getDepartment();
+            dynamic_cast< ::company::CompanyPackage* >(::company::CompanyPackage::_instance().get())->getDepartment();
     return _eclass;
 }
 

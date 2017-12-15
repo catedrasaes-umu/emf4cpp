@@ -82,8 +82,8 @@ void Loads::setTo(::kdm::platform::DeployedComponent_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getLoads__to(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getLoads__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void Loads::setFrom(::kdm::action::ActionElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getLoads__from(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getLoads__from(),
                 _old_from,
                 m_from
         );

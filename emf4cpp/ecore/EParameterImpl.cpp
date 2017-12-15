@@ -63,7 +63,7 @@ void EParameter::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
@@ -98,17 +98,20 @@ void EParameter::_initialize()
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eType);
+        if (m_eType)
+            _any = m_eType->as< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eGenericType);
+        if (m_eGenericType)
+            _any = m_eGenericType->as< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::EPARAMETER__EOPERATION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eOperation);
+        if (m_eOperation)
+            _any = m_eOperation->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -123,9 +126,9 @@ void EParameter::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
@@ -165,7 +168,7 @@ void EParameter::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EClassifier_ptr _t1 =
-                dynamic_cast< ::ecore::EClassifier_ptr >(_t0);
+                dynamic_cast< ::ecore::EClassifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EClassifier >(_t0);*/
         ::ecore::ETypedElement::setEType(_t1);
     }
         return;
@@ -174,7 +177,7 @@ void EParameter::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EGenericType_ptr _t1 =
-                dynamic_cast< ::ecore::EGenericType_ptr >(_t0);
+                dynamic_cast< ::ecore::EGenericType* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EGenericType >(_t0);*/
         ::ecore::ETypedElement::setEGenericType(_t1);
     }
         return;
@@ -183,7 +186,7 @@ void EParameter::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EOperation_ptr _t1 =
-                dynamic_cast< ::ecore::EOperation_ptr >(_t0);
+                dynamic_cast< ::ecore::EOperation* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EOperation >(_t0);*/
         ::ecore::EParameter::setEOperation(_t1);
     }
         return;
@@ -217,11 +220,11 @@ void EParameter::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_required);
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
-        return m_eType;
+        return (bool) m_eType;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
-        return m_eGenericType;
+        return (bool) m_eGenericType;
     case ::ecore::EcorePackage::EPARAMETER__EOPERATION:
-        return m_eOperation;
+        return (bool) m_eOperation;
 
     }
     throw "Error";
@@ -239,7 +242,7 @@ void EParameter::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr EParameter::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEParameter();
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEParameter();
     return _eclass;
 }
 
@@ -255,12 +258,12 @@ void EParameter::_inverseAdd(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicAdd(_t1);
     }
         return;
@@ -277,7 +280,7 @@ void EParameter::_inverseAdd(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EOperation_ptr _t1 =
-                dynamic_cast< ::ecore::EOperation_ptr >(_t0);
+                dynamic_cast< ::ecore::EOperation* >(_t0.get());
 
         // set reference
         basicsetEOperation(_t1);
@@ -300,12 +303,12 @@ void EParameter::_inverseRemove(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicRemove(_t1);
     }
         return;
@@ -322,7 +325,7 @@ void EParameter::_inverseRemove(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
         ::ecore::EOperation_ptr _t1 =
-                dynamic_cast< ::ecore::EOperation_ptr >(_t0);
+                dynamic_cast< ::ecore::EOperation* >(_t0.get());
 
         // set reference
         if (basicgetEOperation() == _t1)

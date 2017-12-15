@@ -81,6 +81,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        StringLiteral_ptr _this()
+        {   return StringLiteral_ptr(this);}
+
         // Attributes
 
         // References

@@ -47,7 +47,7 @@ namespace eopposite
 
     protected:
 
-        static std::unique_ptr< EoppositeFactory > s_instance;
+        static boost::intrusive_ptr< EoppositeFactory > s_holder;
 
         EoppositeFactory();
 
@@ -59,39 +59,43 @@ namespace eopposite
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline TopLevel_ptr create< TopLevel >()
     {
         auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory.get());
         return packageFactory->createTopLevel();
     }
+
     template< > inline NamedObject_ptr create< NamedObject >()
     {
         auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory.get());
         return packageFactory->createNamedObject();
     }
+
     template< > inline LeftHand_ptr create< LeftHand >()
     {
         auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory.get());
         return packageFactory->createLeftHand();
     }
+
     template< > inline RightHand_ptr create< RightHand >()
     {
         auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory.get());
         return packageFactory->createRightHand();
     }
+
     template< > inline RightMultiple_ptr create< RightMultiple >()
     {
         auto eFactory = EoppositePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< EoppositeFactory* >(eFactory.get());
         return packageFactory->createRightMultiple();
     }
 

@@ -40,38 +40,47 @@ EoppositePackage::EoppositePackage()
 {
 
     // Feature definitions of TopLevel
-    m_TopLevel__leftees = new ::ecore::EReference();
-    m_TopLevel__rightees = new ::ecore::EReference();
-    m_TopLevel__rightMultiples = new ::ecore::EReference();
+    m_TopLevel__leftees = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_TopLevel__rightees = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_TopLevel__rightMultiples = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of NamedObject
-    m_NamedObject__name = new ::ecore::EAttribute();
+    m_NamedObject__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of LeftHand
-    m_LeftHand__rightee = new ::ecore::EReference();
-    m_LeftHand__rightMultiple = new ::ecore::EReference();
+    m_LeftHand__rightee = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_LeftHand__rightMultiple = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of RightHand
-    m_RightHand__leftee = new ::ecore::EReference();
+    m_RightHand__leftee = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of RightMultiple
-    m_RightMultiple__leftees = new ::ecore::EReference();
+    m_RightMultiple__leftees = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void EoppositePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = EoppositeFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // TopLevel
-    m_TopLevelEClass = new ::ecore::EClass();
+    m_TopLevelEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TopLevelEClass->setClassifierID(TOPLEVEL);
-    m_TopLevelEClass->setEPackage(this);
+    m_TopLevelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TopLevelEClass);
     // m_TopLevel__leftees has already been allocated above
     m_TopLevel__leftees->setFeatureID(
@@ -88,9 +97,10 @@ EoppositePackage::EoppositePackage()
             m_TopLevel__rightMultiples);
 
     // NamedObject
-    m_NamedObjectEClass = new ::ecore::EClass();
+    m_NamedObjectEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NamedObjectEClass->setClassifierID(NAMEDOBJECT);
-    m_NamedObjectEClass->setEPackage(this);
+    m_NamedObjectEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NamedObjectEClass);
     // m_NamedObject__name has already been allocated above
     m_NamedObject__name->setFeatureID(
@@ -99,9 +109,10 @@ EoppositePackage::EoppositePackage()
             m_NamedObject__name);
 
     // LeftHand
-    m_LeftHandEClass = new ::ecore::EClass();
+    m_LeftHandEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LeftHandEClass->setClassifierID(LEFTHAND);
-    m_LeftHandEClass->setEPackage(this);
+    m_LeftHandEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeftHandEClass);
     // m_LeftHand__rightee has already been allocated above
     m_LeftHand__rightee->setFeatureID(
@@ -114,9 +125,10 @@ EoppositePackage::EoppositePackage()
             m_LeftHand__rightMultiple);
 
     // RightHand
-    m_RightHandEClass = new ::ecore::EClass();
+    m_RightHandEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_RightHandEClass->setClassifierID(RIGHTHAND);
-    m_RightHandEClass->setEPackage(this);
+    m_RightHandEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RightHandEClass);
     // m_RightHand__leftee has already been allocated above
     m_RightHand__leftee->setFeatureID(
@@ -124,9 +136,10 @@ EoppositePackage::EoppositePackage()
     m_RightHandEClass->getEStructuralFeatures().push_back(m_RightHand__leftee);
 
     // RightMultiple
-    m_RightMultipleEClass = new ::ecore::EClass();
+    m_RightMultipleEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_RightMultipleEClass->setClassifierID(RIGHTMULTIPLE);
-    m_RightMultipleEClass->setEPackage(this);
+    m_RightMultipleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RightMultipleEClass);
     // m_RightMultiple__leftees has already been allocated above
     m_RightMultiple__leftees->setFeatureID(
@@ -201,7 +214,7 @@ EoppositePackage::EoppositePackage()
     m_NamedObjectEClass->setAbstract(false);
     m_NamedObjectEClass->setInterface(false);
     m_NamedObject__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_NamedObject__name->setName("name");
     m_NamedObject__name->setDefaultValueLiteral("");
     m_NamedObject__name->setLowerBound(0);

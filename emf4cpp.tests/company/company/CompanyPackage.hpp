@@ -97,9 +97,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< CompanyPackage, ::ecorecpp::PackageDeleter<CompanyPackage> > s_instance;
+    static boost::intrusive_ptr< CompanyPackage > s_instance;
 
     CompanyPackage();
+    void _initPackage();
 
     // EClass instances 
 

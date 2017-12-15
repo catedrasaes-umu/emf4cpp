@@ -36,7 +36,6 @@ namespace ecore
 {
 
 class EXPORT_ECORE_DLL EStringToStringMapEntry : public virtual ::ecore::EObject
-
 {
 public:
     EStringToStringMapEntry();
@@ -76,6 +75,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EStringToStringMapEntry_ptr _this()
+    {   return EStringToStringMapEntry_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_key;

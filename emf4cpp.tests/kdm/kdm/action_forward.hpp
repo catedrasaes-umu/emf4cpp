@@ -44,116 +44,116 @@ namespace kdm
 
 // ActionElement
         class ActionElement;
-        typedef ActionElement* ActionElement_ptr;
+        using ActionElement_ptr = boost::intrusive_ptr<ActionElement>;
 
 // AbstractActionRelationship
         class AbstractActionRelationship;
-        typedef AbstractActionRelationship* AbstractActionRelationship_ptr;
+        using AbstractActionRelationship_ptr = boost::intrusive_ptr<AbstractActionRelationship>;
 
 // ControlFlow
         class ControlFlow;
-        typedef ControlFlow* ControlFlow_ptr;
+        using ControlFlow_ptr = boost::intrusive_ptr<ControlFlow>;
 
 // Calls
         class Calls;
-        typedef Calls* Calls_ptr;
+        using Calls_ptr = boost::intrusive_ptr<Calls>;
 
 // Creates
         class Creates;
-        typedef Creates* Creates_ptr;
+        using Creates_ptr = boost::intrusive_ptr<Creates>;
 
 // Reads
         class Reads;
-        typedef Reads* Reads_ptr;
+        using Reads_ptr = boost::intrusive_ptr<Reads>;
 
 // Writes
         class Writes;
-        typedef Writes* Writes_ptr;
+        using Writes_ptr = boost::intrusive_ptr<Writes>;
 
 // CompliesTo
         class CompliesTo;
-        typedef CompliesTo* CompliesTo_ptr;
+        using CompliesTo_ptr = boost::intrusive_ptr<CompliesTo>;
 
 // Flow
         class Flow;
-        typedef Flow* Flow_ptr;
+        using Flow_ptr = boost::intrusive_ptr<Flow>;
 
 // TrueFlow
         class TrueFlow;
-        typedef TrueFlow* TrueFlow_ptr;
+        using TrueFlow_ptr = boost::intrusive_ptr<TrueFlow>;
 
 // FalseFlow
         class FalseFlow;
-        typedef FalseFlow* FalseFlow_ptr;
+        using FalseFlow_ptr = boost::intrusive_ptr<FalseFlow>;
 
 // GuardedFlow
         class GuardedFlow;
-        typedef GuardedFlow* GuardedFlow_ptr;
+        using GuardedFlow_ptr = boost::intrusive_ptr<GuardedFlow>;
 
 // UsesType
         class UsesType;
-        typedef UsesType* UsesType_ptr;
+        using UsesType_ptr = boost::intrusive_ptr<UsesType>;
 
 // Addresses
         class Addresses;
-        typedef Addresses* Addresses_ptr;
+        using Addresses_ptr = boost::intrusive_ptr<Addresses>;
 
 // ActionRelationship
         class ActionRelationship;
-        typedef ActionRelationship* ActionRelationship_ptr;
+        using ActionRelationship_ptr = boost::intrusive_ptr<ActionRelationship>;
 
 // Throws
         class Throws;
-        typedef Throws* Throws_ptr;
+        using Throws_ptr = boost::intrusive_ptr<Throws>;
 
 // Dispatches
         class Dispatches;
-        typedef Dispatches* Dispatches_ptr;
+        using Dispatches_ptr = boost::intrusive_ptr<Dispatches>;
 
 // EntryFlow
         class EntryFlow;
-        typedef EntryFlow* EntryFlow_ptr;
+        using EntryFlow_ptr = boost::intrusive_ptr<EntryFlow>;
 
 // BlockUnit
         class BlockUnit;
-        typedef BlockUnit* BlockUnit_ptr;
+        using BlockUnit_ptr = boost::intrusive_ptr<BlockUnit>;
 
 // ExceptionUnit
         class ExceptionUnit;
-        typedef ExceptionUnit* ExceptionUnit_ptr;
+        using ExceptionUnit_ptr = boost::intrusive_ptr<ExceptionUnit>;
 
 // TryUnit
         class TryUnit;
-        typedef TryUnit* TryUnit_ptr;
+        using TryUnit_ptr = boost::intrusive_ptr<TryUnit>;
 
 // FinallyUnit
         class FinallyUnit;
-        typedef FinallyUnit* FinallyUnit_ptr;
+        using FinallyUnit_ptr = boost::intrusive_ptr<FinallyUnit>;
 
 // CatchUnit
         class CatchUnit;
-        typedef CatchUnit* CatchUnit_ptr;
+        using CatchUnit_ptr = boost::intrusive_ptr<CatchUnit>;
 
 // ExitFlow
         class ExitFlow;
-        typedef ExitFlow* ExitFlow_ptr;
+        using ExitFlow_ptr = boost::intrusive_ptr<ExitFlow>;
 
 // ExceptionFlow
         class ExceptionFlow;
-        typedef ExceptionFlow* ExceptionFlow_ptr;
+        using ExceptionFlow_ptr = boost::intrusive_ptr<ExceptionFlow>;
 
 // EEnum
 
 // Package & Factory
         class ActionFactory;
-        typedef ActionFactory * ActionFactory_ptr;
+        using ActionFactory_ptr = boost::intrusive_ptr<ActionFactory>;
         class ActionPackage;
-        typedef ActionPackage * ActionPackage_ptr;
+        using ActionPackage_ptr = boost::intrusive_ptr<ActionPackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // action

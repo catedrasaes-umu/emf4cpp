@@ -60,11 +60,11 @@ namespace kdm
         virtual void setKind (::kdm::core::String _kind);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getImplementation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getImplementation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::data::DataEvent >& getDataElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::data::DataEvent >& getDataElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::data::DataEvent_ptr >& getDataElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::data::DataEvent_ptr >& getDataElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -90,15 +90,18 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DataAction_ptr _this()
+        {   return DataAction_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_kind;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement >> m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >> m_implementation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::DataEvent >> m_dataElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::DataEvent_ptr >> m_dataElement;
 
     };
 

@@ -68,7 +68,7 @@ void Company::_initialize()
         return _any;
     case ::company::CompanyPackage::COMPANY__DEPARTMENTS:
     {
-        _any = m_departments->asEListOf< ::ecore::EObject >();
+        _any = m_departments->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -89,9 +89,9 @@ void Company::eSet(::ecore::EInt _featureID,
         return;
     case ::company::CompanyPackage::COMPANY__DEPARTMENTS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::company::Company::getDepartments().clear();
         ::company::Company::getDepartments().insert_all(*_t0);
     }
@@ -127,7 +127,7 @@ void Company::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Company::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::company::CompanyPackage_ptr >(::company::CompanyPackage::_instance())->getCompany();
+            dynamic_cast< ::company::CompanyPackage* >(::company::CompanyPackage::_instance().get())->getCompany();
     return _eclass;
 }
 

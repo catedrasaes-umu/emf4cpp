@@ -70,8 +70,8 @@ public:
     virtual ::ecore::EPackage_ptr basicgetEPackage ();
     virtual void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& getETypeParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& getETypeParameters ();
 
     /*PROTECTED REGION ID(EClassifier) ENABLED START*/
 
@@ -100,6 +100,9 @@ protected:
     /*PROTECTED REGION END*/
 
 protected:
+    EClassifier_ptr _this()
+    {   return EClassifier_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_instanceClassName;
@@ -114,7 +117,7 @@ protected:
 
     ::ecore::EPackage_ptr m_ePackage;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::ETypeParameter >> m_eTypeParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >> m_eTypeParameters;
 
 };
 

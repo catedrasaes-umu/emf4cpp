@@ -84,8 +84,8 @@ void RangeType::setLower(::kdm::core::Integer _lower)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getRangeType__lower(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getRangeType__lower(),
                 _old_lower,
                 m_lower
         );
@@ -110,8 +110,8 @@ void RangeType::setUpper(::kdm::core::Integer _upper)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getRangeType__upper(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getRangeType__upper(),
                 _old_upper,
                 m_upper
         );

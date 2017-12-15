@@ -58,19 +58,19 @@ ForEachStatement::~ForEachStatement()
 {
     if (m_target)
     {
-        delete m_target;
+        m_target.reset();
     }
     if (m_separator)
     {
-        delete m_separator;
+        m_separator.reset();
     }
     if (m_variable)
     {
-        delete m_variable;
+        m_variable.reset();
     }
     if (m_iteratorName)
     {
-        delete m_iteratorName;
+        m_iteratorName.reset();
     }
 }
 
@@ -95,8 +95,8 @@ void ForEachStatement::setTarget(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target(),
                 _old_target,
                 m_target
         );
@@ -104,8 +104,10 @@ void ForEachStatement::setTarget(
     }
 #endif
 
-    delete _old_target;
-    m_target->_setEContainer(this,
+    if (_old_target)
+        _old_target->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target());
+    m_target->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target());
 }
 
@@ -126,8 +128,8 @@ void ForEachStatement::setSeparator(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator(),
                 _old_separator,
                 m_separator
         );
@@ -135,8 +137,10 @@ void ForEachStatement::setSeparator(
     }
 #endif
 
-    delete _old_separator;
-    m_separator->_setEContainer(this,
+    if (_old_separator)
+        _old_separator->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator());
+    m_separator->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator());
 }
 
@@ -156,8 +160,8 @@ void ForEachStatement::setVariable(::xpand3::Identifier_ptr _variable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable(),
                 _old_variable,
                 m_variable
         );
@@ -165,8 +169,10 @@ void ForEachStatement::setVariable(::xpand3::Identifier_ptr _variable)
     }
 #endif
 
-    delete _old_variable;
-    m_variable->_setEContainer(this,
+    if (_old_variable)
+        _old_variable->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable());
+    m_variable->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable());
 }
 
@@ -186,8 +192,8 @@ void ForEachStatement::setIteratorName(::xpand3::Identifier_ptr _iteratorName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName(),
                 _old_iteratorName,
                 m_iteratorName
         );
@@ -195,8 +201,10 @@ void ForEachStatement::setIteratorName(::xpand3::Identifier_ptr _iteratorName)
     }
 #endif
 
-    delete _old_iteratorName;
-    m_iteratorName->_setEContainer(this,
+    if (_old_iteratorName)
+        _old_iteratorName->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName());
+    m_iteratorName->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName());
 }
 

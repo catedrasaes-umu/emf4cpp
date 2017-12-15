@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Symbol_ptr _this()
+    {   return Symbol_ptr(this);}
+
     // Attributes
 
     // References

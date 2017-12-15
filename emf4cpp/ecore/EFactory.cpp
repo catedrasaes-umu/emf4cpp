@@ -85,8 +85,8 @@ void EFactory::basicsetEPackage(::ecore::EPackage_ptr _ePackage)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEFactory__ePackage(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEFactory__ePackage(),
                 _old_ePackage,
                 m_ePackage
         );
@@ -100,7 +100,7 @@ void EFactory::setEPackage(::ecore::EPackage_ptr _ePackage)
 {
     if (_ePackage != m_ePackage)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_ePackage != nullptr)
         {
             m_ePackage->_inverseRemove(

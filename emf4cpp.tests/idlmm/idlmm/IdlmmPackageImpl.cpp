@@ -40,117 +40,163 @@ IdlmmPackage::IdlmmPackage()
 {
 
     // Feature definitions of Container
-    m_Container__contains = new ::ecore::EReference();
+    m_Container__contains = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Contained
-    m_Contained__identifier = new ::ecore::EAttribute();
-    m_Contained__repositoryId = new ::ecore::EAttribute();
-    m_Contained__version = new ::ecore::EAttribute();
-    m_Contained__absoluteName = new ::ecore::EAttribute();
-    m_Contained__definedIn = new ::ecore::EReference();
+    m_Contained__identifier = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Contained__repositoryId = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Contained__version = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Contained__absoluteName = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Contained__definedIn = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of InterfaceDef
-    m_InterfaceDef__isAbstract = new ::ecore::EAttribute();
-    m_InterfaceDef__isCustom = new ::ecore::EAttribute();
-    m_InterfaceDef__isTruncatable = new ::ecore::EAttribute();
-    m_InterfaceDef__derivesFrom = new ::ecore::EReference();
+    m_InterfaceDef__isAbstract = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_InterfaceDef__isCustom = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_InterfaceDef__isTruncatable = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_InterfaceDef__derivesFrom = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ModuleDef
-    m_ModuleDef__prefix = new ::ecore::EAttribute();
+    m_ModuleDef__prefix = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of IDLType
-    m_IDLType__typeCode = new ::ecore::EAttribute();
+    m_IDLType__typeCode = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of OperationDef
-    m_OperationDef__isOneway = new ::ecore::EAttribute();
-    m_OperationDef__contexts = new ::ecore::EAttribute();
-    m_OperationDef__parameters = new ::ecore::EReference();
-    m_OperationDef__canRaise = new ::ecore::EReference();
+    m_OperationDef__isOneway = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_OperationDef__contexts = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_OperationDef__parameters = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_OperationDef__canRaise = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of AttributeDef
-    m_AttributeDef__isReadonly = new ::ecore::EAttribute();
-    m_AttributeDef__getRaises = new ::ecore::EReference();
-    m_AttributeDef__setRaises = new ::ecore::EReference();
+    m_AttributeDef__isReadonly = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_AttributeDef__getRaises = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AttributeDef__setRaises = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ConstantDef
-    m_ConstantDef__constValue = new ::ecore::EAttribute();
+    m_ConstantDef__constValue = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of Typed
-    m_Typed__containedType = new ::ecore::EReference();
-    m_Typed__sharedType = new ::ecore::EReference();
+    m_Typed__containedType = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Typed__sharedType = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ParameterDef
-    m_ParameterDef__identifier = new ::ecore::EAttribute();
-    m_ParameterDef__direction = new ::ecore::EAttribute();
+    m_ParameterDef__identifier = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ParameterDef__direction = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of PrimitiveDef
-    m_PrimitiveDef__kind = new ::ecore::EAttribute();
+    m_PrimitiveDef__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of ExceptionDef
-    m_ExceptionDef__typeCode = new ::ecore::EAttribute();
-    m_ExceptionDef__members = new ::ecore::EReference();
+    m_ExceptionDef__typeCode = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ExceptionDef__members = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Field
-    m_Field__identifier = new ::ecore::EAttribute();
+    m_Field__identifier = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of FixedDef
-    m_FixedDef__digits = new ::ecore::EAttribute();
-    m_FixedDef__scale = new ::ecore::EAttribute();
+    m_FixedDef__digits = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_FixedDef__scale = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of WstringDef
-    m_WstringDef__bound = new ::ecore::EAttribute();
+    m_WstringDef__bound = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of StringDef
-    m_StringDef__bound = new ::ecore::EAttribute();
+    m_StringDef__bound = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of AliasDef
 
     // Feature definitions of ArrayDef
-    m_ArrayDef__bound = new ::ecore::EAttribute();
+    m_ArrayDef__bound = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of SequenceDef
-    m_SequenceDef__bound = new ::ecore::EAttribute();
+    m_SequenceDef__bound = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of UnionField
-    m_UnionField__identifier = new ::ecore::EAttribute();
-    m_UnionField__label = new ::ecore::EAttribute();
+    m_UnionField__identifier = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_UnionField__label = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of TypedefDef
 
     // Feature definitions of UnionDef
-    m_UnionDef__unionMembers = new ::ecore::EReference();
-    m_UnionDef__containedDiscrim = new ::ecore::EReference();
-    m_UnionDef__sharedDiscrim = new ::ecore::EReference();
+    m_UnionDef__unionMembers = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_UnionDef__containedDiscrim = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_UnionDef__sharedDiscrim = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EnumDef
-    m_EnumDef__members = new ::ecore::EAttribute();
+    m_EnumDef__members = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of StructDef
-    m_StructDef__members = new ::ecore::EReference();
+    m_StructDef__members = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of TranslationUnit
-    m_TranslationUnit__identifier = new ::ecore::EAttribute();
-    m_TranslationUnit__contains = new ::ecore::EReference();
-    m_TranslationUnit__includes = new ::ecore::EReference();
+    m_TranslationUnit__identifier = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_TranslationUnit__contains = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_TranslationUnit__includes = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Include
-    m_Include__importURI = new ::ecore::EAttribute();
+    m_Include__importURI = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void IdlmmPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = IdlmmFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Container
-    m_ContainerEClass = new ::ecore::EClass();
+    m_ContainerEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ContainerEClass->setClassifierID(CONTAINER);
-    m_ContainerEClass->setEPackage(this);
+    m_ContainerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ContainerEClass);
     // m_Container__contains has already been allocated above
     m_Container__contains->setFeatureID(
@@ -159,9 +205,10 @@ IdlmmPackage::IdlmmPackage()
             m_Container__contains);
 
     // Contained
-    m_ContainedEClass = new ::ecore::EClass();
+    m_ContainedEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ContainedEClass->setClassifierID(CONTAINED);
-    m_ContainedEClass->setEPackage(this);
+    m_ContainedEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ContainedEClass);
     // m_Contained__identifier has already been allocated above
     m_Contained__identifier->setFeatureID(
@@ -189,9 +236,10 @@ IdlmmPackage::IdlmmPackage()
             m_Contained__definedIn);
 
     // InterfaceDef
-    m_InterfaceDefEClass = new ::ecore::EClass();
+    m_InterfaceDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InterfaceDefEClass->setClassifierID(INTERFACEDEF);
-    m_InterfaceDefEClass->setEPackage(this);
+    m_InterfaceDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InterfaceDefEClass);
     // m_InterfaceDef__isAbstract has already been allocated above
     m_InterfaceDef__isAbstract->setFeatureID(
@@ -215,27 +263,30 @@ IdlmmPackage::IdlmmPackage()
             m_InterfaceDef__derivesFrom);
 
     // ModuleDef
-    m_ModuleDefEClass = new ::ecore::EClass();
+    m_ModuleDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ModuleDefEClass->setClassifierID(MODULEDEF);
-    m_ModuleDefEClass->setEPackage(this);
+    m_ModuleDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ModuleDefEClass);
     // m_ModuleDef__prefix has already been allocated above
     m_ModuleDef__prefix->setFeatureID(::idlmm::IdlmmPackage::MODULEDEF__PREFIX);
     m_ModuleDefEClass->getEStructuralFeatures().push_back(m_ModuleDef__prefix);
 
     // IDLType
-    m_IDLTypeEClass = new ::ecore::EClass();
+    m_IDLTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IDLTypeEClass->setClassifierID(IDLTYPE);
-    m_IDLTypeEClass->setEPackage(this);
+    m_IDLTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IDLTypeEClass);
     // m_IDLType__typeCode has already been allocated above
     m_IDLType__typeCode->setFeatureID(::idlmm::IdlmmPackage::IDLTYPE__TYPECODE);
     m_IDLTypeEClass->getEStructuralFeatures().push_back(m_IDLType__typeCode);
 
     // OperationDef
-    m_OperationDefEClass = new ::ecore::EClass();
+    m_OperationDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_OperationDefEClass->setClassifierID(OPERATIONDEF);
-    m_OperationDefEClass->setEPackage(this);
+    m_OperationDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OperationDefEClass);
     // m_OperationDef__isOneway has already been allocated above
     m_OperationDef__isOneway->setFeatureID(
@@ -259,9 +310,10 @@ IdlmmPackage::IdlmmPackage()
             m_OperationDef__canRaise);
 
     // AttributeDef
-    m_AttributeDefEClass = new ::ecore::EClass();
+    m_AttributeDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AttributeDefEClass->setClassifierID(ATTRIBUTEDEF);
-    m_AttributeDefEClass->setEPackage(this);
+    m_AttributeDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AttributeDefEClass);
     // m_AttributeDef__isReadonly has already been allocated above
     m_AttributeDef__isReadonly->setFeatureID(
@@ -280,9 +332,10 @@ IdlmmPackage::IdlmmPackage()
             m_AttributeDef__setRaises);
 
     // ConstantDef
-    m_ConstantDefEClass = new ::ecore::EClass();
+    m_ConstantDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ConstantDefEClass->setClassifierID(CONSTANTDEF);
-    m_ConstantDefEClass->setEPackage(this);
+    m_ConstantDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConstantDefEClass);
     // m_ConstantDef__constValue has already been allocated above
     m_ConstantDef__constValue->setFeatureID(
@@ -291,9 +344,10 @@ IdlmmPackage::IdlmmPackage()
             m_ConstantDef__constValue);
 
     // Typed
-    m_TypedEClass = new ::ecore::EClass();
+    m_TypedEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TypedEClass->setClassifierID(TYPED);
-    m_TypedEClass->setEPackage(this);
+    m_TypedEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TypedEClass);
     // m_Typed__containedType has already been allocated above
     m_Typed__containedType->setFeatureID(
@@ -304,9 +358,10 @@ IdlmmPackage::IdlmmPackage()
     m_TypedEClass->getEStructuralFeatures().push_back(m_Typed__sharedType);
 
     // ParameterDef
-    m_ParameterDefEClass = new ::ecore::EClass();
+    m_ParameterDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ParameterDefEClass->setClassifierID(PARAMETERDEF);
-    m_ParameterDefEClass->setEPackage(this);
+    m_ParameterDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ParameterDefEClass);
     // m_ParameterDef__identifier has already been allocated above
     m_ParameterDef__identifier->setFeatureID(
@@ -320,9 +375,10 @@ IdlmmPackage::IdlmmPackage()
             m_ParameterDef__direction);
 
     // PrimitiveDef
-    m_PrimitiveDefEClass = new ::ecore::EClass();
+    m_PrimitiveDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_PrimitiveDefEClass->setClassifierID(PRIMITIVEDEF);
-    m_PrimitiveDefEClass->setEPackage(this);
+    m_PrimitiveDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PrimitiveDefEClass);
     // m_PrimitiveDef__kind has already been allocated above
     m_PrimitiveDef__kind->setFeatureID(
@@ -331,9 +387,10 @@ IdlmmPackage::IdlmmPackage()
             m_PrimitiveDef__kind);
 
     // ExceptionDef
-    m_ExceptionDefEClass = new ::ecore::EClass();
+    m_ExceptionDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ExceptionDefEClass->setClassifierID(EXCEPTIONDEF);
-    m_ExceptionDefEClass->setEPackage(this);
+    m_ExceptionDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExceptionDefEClass);
     // m_ExceptionDef__typeCode has already been allocated above
     m_ExceptionDef__typeCode->setFeatureID(
@@ -347,18 +404,20 @@ IdlmmPackage::IdlmmPackage()
             m_ExceptionDef__members);
 
     // Field
-    m_FieldEClass = new ::ecore::EClass();
+    m_FieldEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_FieldEClass->setClassifierID(FIELD);
-    m_FieldEClass->setEPackage(this);
+    m_FieldEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FieldEClass);
     // m_Field__identifier has already been allocated above
     m_Field__identifier->setFeatureID(::idlmm::IdlmmPackage::FIELD__IDENTIFIER);
     m_FieldEClass->getEStructuralFeatures().push_back(m_Field__identifier);
 
     // FixedDef
-    m_FixedDefEClass = new ::ecore::EClass();
+    m_FixedDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_FixedDefEClass->setClassifierID(FIXEDDEF);
-    m_FixedDefEClass->setEPackage(this);
+    m_FixedDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FixedDefEClass);
     // m_FixedDef__digits has already been allocated above
     m_FixedDef__digits->setFeatureID(::idlmm::IdlmmPackage::FIXEDDEF__DIGITS);
@@ -368,42 +427,47 @@ IdlmmPackage::IdlmmPackage()
     m_FixedDefEClass->getEStructuralFeatures().push_back(m_FixedDef__scale);
 
     // WstringDef
-    m_WstringDefEClass = new ::ecore::EClass();
+    m_WstringDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_WstringDefEClass->setClassifierID(WSTRINGDEF);
-    m_WstringDefEClass->setEPackage(this);
+    m_WstringDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_WstringDefEClass);
     // m_WstringDef__bound has already been allocated above
     m_WstringDef__bound->setFeatureID(::idlmm::IdlmmPackage::WSTRINGDEF__BOUND);
     m_WstringDefEClass->getEStructuralFeatures().push_back(m_WstringDef__bound);
 
     // StringDef
-    m_StringDefEClass = new ::ecore::EClass();
+    m_StringDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StringDefEClass->setClassifierID(STRINGDEF);
-    m_StringDefEClass->setEPackage(this);
+    m_StringDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StringDefEClass);
     // m_StringDef__bound has already been allocated above
     m_StringDef__bound->setFeatureID(::idlmm::IdlmmPackage::STRINGDEF__BOUND);
     m_StringDefEClass->getEStructuralFeatures().push_back(m_StringDef__bound);
 
     // AliasDef
-    m_AliasDefEClass = new ::ecore::EClass();
+    m_AliasDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AliasDefEClass->setClassifierID(ALIASDEF);
-    m_AliasDefEClass->setEPackage(this);
+    m_AliasDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AliasDefEClass);
 
     // ArrayDef
-    m_ArrayDefEClass = new ::ecore::EClass();
+    m_ArrayDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ArrayDefEClass->setClassifierID(ARRAYDEF);
-    m_ArrayDefEClass->setEPackage(this);
+    m_ArrayDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ArrayDefEClass);
     // m_ArrayDef__bound has already been allocated above
     m_ArrayDef__bound->setFeatureID(::idlmm::IdlmmPackage::ARRAYDEF__BOUND);
     m_ArrayDefEClass->getEStructuralFeatures().push_back(m_ArrayDef__bound);
 
     // SequenceDef
-    m_SequenceDefEClass = new ::ecore::EClass();
+    m_SequenceDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SequenceDefEClass->setClassifierID(SEQUENCEDEF);
-    m_SequenceDefEClass->setEPackage(this);
+    m_SequenceDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SequenceDefEClass);
     // m_SequenceDef__bound has already been allocated above
     m_SequenceDef__bound->setFeatureID(
@@ -412,9 +476,10 @@ IdlmmPackage::IdlmmPackage()
             m_SequenceDef__bound);
 
     // UnionField
-    m_UnionFieldEClass = new ::ecore::EClass();
+    m_UnionFieldEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_UnionFieldEClass->setClassifierID(UNIONFIELD);
-    m_UnionFieldEClass->setEPackage(this);
+    m_UnionFieldEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UnionFieldEClass);
     // m_UnionField__identifier has already been allocated above
     m_UnionField__identifier->setFeatureID(
@@ -426,15 +491,17 @@ IdlmmPackage::IdlmmPackage()
     m_UnionFieldEClass->getEStructuralFeatures().push_back(m_UnionField__label);
 
     // TypedefDef
-    m_TypedefDefEClass = new ::ecore::EClass();
+    m_TypedefDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TypedefDefEClass->setClassifierID(TYPEDEFDEF);
-    m_TypedefDefEClass->setEPackage(this);
+    m_TypedefDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TypedefDefEClass);
 
     // UnionDef
-    m_UnionDefEClass = new ::ecore::EClass();
+    m_UnionDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_UnionDefEClass->setClassifierID(UNIONDEF);
-    m_UnionDefEClass->setEPackage(this);
+    m_UnionDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UnionDefEClass);
     // m_UnionDef__unionMembers has already been allocated above
     m_UnionDef__unionMembers->setFeatureID(
@@ -453,18 +520,20 @@ IdlmmPackage::IdlmmPackage()
             m_UnionDef__sharedDiscrim);
 
     // EnumDef
-    m_EnumDefEClass = new ::ecore::EClass();
+    m_EnumDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EnumDefEClass->setClassifierID(ENUMDEF);
-    m_EnumDefEClass->setEPackage(this);
+    m_EnumDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EnumDefEClass);
     // m_EnumDef__members has already been allocated above
     m_EnumDef__members->setFeatureID(::idlmm::IdlmmPackage::ENUMDEF__MEMBERS);
     m_EnumDefEClass->getEStructuralFeatures().push_back(m_EnumDef__members);
 
     // StructDef
-    m_StructDefEClass = new ::ecore::EClass();
+    m_StructDefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StructDefEClass->setClassifierID(STRUCTDEF);
-    m_StructDefEClass->setEPackage(this);
+    m_StructDefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StructDefEClass);
     // m_StructDef__members has already been allocated above
     m_StructDef__members->setFeatureID(
@@ -472,9 +541,10 @@ IdlmmPackage::IdlmmPackage()
     m_StructDefEClass->getEStructuralFeatures().push_back(m_StructDef__members);
 
     // TranslationUnit
-    m_TranslationUnitEClass = new ::ecore::EClass();
+    m_TranslationUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TranslationUnitEClass->setClassifierID(TRANSLATIONUNIT);
-    m_TranslationUnitEClass->setEPackage(this);
+    m_TranslationUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TranslationUnitEClass);
     // m_TranslationUnit__identifier has already been allocated above
     m_TranslationUnit__identifier->setFeatureID(
@@ -493,9 +563,10 @@ IdlmmPackage::IdlmmPackage()
             m_TranslationUnit__includes);
 
     // Include
-    m_IncludeEClass = new ::ecore::EClass();
+    m_IncludeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IncludeEClass->setClassifierID(INCLUDE);
-    m_IncludeEClass->setEPackage(this);
+    m_IncludeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IncludeEClass);
     // m_Include__importURI has already been allocated above
     m_Include__importURI->setFeatureID(
@@ -504,26 +575,30 @@ IdlmmPackage::IdlmmPackage()
 
     // Create enums
 
-    m_ParameterModeEEnum = new ::ecore::EEnum();
+    m_ParameterModeEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_ParameterModeEEnum->setClassifierID(PARAMETERMODE);
-    m_ParameterModeEEnum->setEPackage(this);
+    m_ParameterModeEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_ParameterModeEEnum);
 
-    m_PrimitiveKindEEnum = new ::ecore::EEnum();
+    m_PrimitiveKindEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_PrimitiveKindEEnum->setClassifierID(PRIMITIVEKIND);
-    m_PrimitiveKindEEnum->setEPackage(this);
+    m_PrimitiveKindEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_PrimitiveKindEEnum);
 
     // Create data types
 
-    m_EAnyEDataType = new ::ecore::EDataType();
+    m_EAnyEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EAnyEDataType->setClassifierID(EANY);
-    m_EAnyEDataType->setEPackage(this);
+    m_EAnyEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EAnyEDataType);
 
-    m_ETypeCodeEDataType = new ::ecore::EDataType();
+    m_ETypeCodeEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_ETypeCodeEDataType->setClassifierID(ETYPECODE);
-    m_ETypeCodeEDataType->setEPackage(this);
+    m_ETypeCodeEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_ETypeCodeEDataType);
 
     // Initialize package
@@ -591,7 +666,7 @@ IdlmmPackage::IdlmmPackage()
     m_ContainedEClass->setAbstract(true);
     m_ContainedEClass->setInterface(false);
     m_Contained__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Contained__identifier->setName("identifier");
     m_Contained__identifier->setDefaultValueLiteral("");
     m_Contained__identifier->setLowerBound(0);
@@ -605,7 +680,7 @@ IdlmmPackage::IdlmmPackage()
     m_Contained__identifier->setDerived(false);
     m_Contained__identifier->setOrdered(true);
     m_Contained__repositoryId->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Contained__repositoryId->setName("repositoryId");
     m_Contained__repositoryId->setDefaultValueLiteral("");
     m_Contained__repositoryId->setLowerBound(0);
@@ -619,7 +694,7 @@ IdlmmPackage::IdlmmPackage()
     m_Contained__repositoryId->setDerived(false);
     m_Contained__repositoryId->setOrdered(true);
     m_Contained__version->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Contained__version->setName("version");
     m_Contained__version->setDefaultValueLiteral("");
     m_Contained__version->setLowerBound(0);
@@ -633,7 +708,7 @@ IdlmmPackage::IdlmmPackage()
     m_Contained__version->setDerived(false);
     m_Contained__version->setOrdered(true);
     m_Contained__absoluteName->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Contained__absoluteName->setName("absoluteName");
     m_Contained__absoluteName->setDefaultValueLiteral("");
     m_Contained__absoluteName->setLowerBound(0);
@@ -667,7 +742,7 @@ IdlmmPackage::IdlmmPackage()
     m_InterfaceDefEClass->setAbstract(false);
     m_InterfaceDefEClass->setInterface(false);
     m_InterfaceDef__isAbstract->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
     m_InterfaceDef__isAbstract->setName("isAbstract");
     m_InterfaceDef__isAbstract->setDefaultValueLiteral("");
     m_InterfaceDef__isAbstract->setLowerBound(0);
@@ -681,7 +756,7 @@ IdlmmPackage::IdlmmPackage()
     m_InterfaceDef__isAbstract->setDerived(false);
     m_InterfaceDef__isAbstract->setOrdered(true);
     m_InterfaceDef__isCustom->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
     m_InterfaceDef__isCustom->setName("isCustom");
     m_InterfaceDef__isCustom->setDefaultValueLiteral("");
     m_InterfaceDef__isCustom->setLowerBound(0);
@@ -695,7 +770,7 @@ IdlmmPackage::IdlmmPackage()
     m_InterfaceDef__isCustom->setDerived(false);
     m_InterfaceDef__isCustom->setOrdered(true);
     m_InterfaceDef__isTruncatable->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
     m_InterfaceDef__isTruncatable->setName("isTruncatable");
     m_InterfaceDef__isTruncatable->setDefaultValueLiteral("");
     m_InterfaceDef__isTruncatable->setLowerBound(0);
@@ -726,7 +801,7 @@ IdlmmPackage::IdlmmPackage()
     m_ModuleDefEClass->setAbstract(false);
     m_ModuleDefEClass->setInterface(false);
     m_ModuleDef__prefix->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_ModuleDef__prefix->setName("prefix");
     m_ModuleDef__prefix->setDefaultValueLiteral("");
     m_ModuleDef__prefix->setLowerBound(0);
@@ -761,7 +836,7 @@ IdlmmPackage::IdlmmPackage()
     m_OperationDefEClass->setAbstract(false);
     m_OperationDefEClass->setInterface(false);
     m_OperationDef__isOneway->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
     m_OperationDef__isOneway->setName("isOneway");
     m_OperationDef__isOneway->setDefaultValueLiteral("");
     m_OperationDef__isOneway->setLowerBound(0);
@@ -775,7 +850,7 @@ IdlmmPackage::IdlmmPackage()
     m_OperationDef__isOneway->setDerived(false);
     m_OperationDef__isOneway->setOrdered(true);
     m_OperationDef__contexts->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_OperationDef__contexts->setName("contexts");
     m_OperationDef__contexts->setDefaultValueLiteral("");
     m_OperationDef__contexts->setLowerBound(0);
@@ -819,7 +894,7 @@ IdlmmPackage::IdlmmPackage()
     m_AttributeDefEClass->setAbstract(false);
     m_AttributeDefEClass->setInterface(false);
     m_AttributeDef__isReadonly->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
     m_AttributeDef__isReadonly->setName("isReadonly");
     m_AttributeDef__isReadonly->setDefaultValueLiteral("");
     m_AttributeDef__isReadonly->setLowerBound(0);
@@ -910,7 +985,7 @@ IdlmmPackage::IdlmmPackage()
     m_ParameterDefEClass->setAbstract(false);
     m_ParameterDefEClass->setInterface(false);
     m_ParameterDef__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_ParameterDef__identifier->setName("identifier");
     m_ParameterDef__identifier->setDefaultValueLiteral("");
     m_ParameterDef__identifier->setLowerBound(0);
@@ -988,7 +1063,7 @@ IdlmmPackage::IdlmmPackage()
     m_FieldEClass->setAbstract(false);
     m_FieldEClass->setInterface(false);
     m_Field__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Field__identifier->setName("identifier");
     m_Field__identifier->setDefaultValueLiteral("");
     m_Field__identifier->setLowerBound(0);
@@ -1006,7 +1081,7 @@ IdlmmPackage::IdlmmPackage()
     m_FixedDefEClass->setAbstract(false);
     m_FixedDefEClass->setInterface(false);
     m_FixedDef__digits->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_FixedDef__digits->setName("digits");
     m_FixedDef__digits->setDefaultValueLiteral("");
     m_FixedDef__digits->setLowerBound(0);
@@ -1020,7 +1095,7 @@ IdlmmPackage::IdlmmPackage()
     m_FixedDef__digits->setDerived(false);
     m_FixedDef__digits->setOrdered(true);
     m_FixedDef__scale->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_FixedDef__scale->setName("scale");
     m_FixedDef__scale->setDefaultValueLiteral("");
     m_FixedDef__scale->setLowerBound(0);
@@ -1038,7 +1113,7 @@ IdlmmPackage::IdlmmPackage()
     m_WstringDefEClass->setAbstract(false);
     m_WstringDefEClass->setInterface(false);
     m_WstringDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_WstringDef__bound->setName("bound");
     m_WstringDef__bound->setDefaultValueLiteral("");
     m_WstringDef__bound->setLowerBound(0);
@@ -1056,7 +1131,7 @@ IdlmmPackage::IdlmmPackage()
     m_StringDefEClass->setAbstract(false);
     m_StringDefEClass->setInterface(false);
     m_StringDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_StringDef__bound->setName("bound");
     m_StringDef__bound->setDefaultValueLiteral("");
     m_StringDef__bound->setLowerBound(0);
@@ -1078,7 +1153,7 @@ IdlmmPackage::IdlmmPackage()
     m_ArrayDefEClass->setAbstract(false);
     m_ArrayDefEClass->setInterface(false);
     m_ArrayDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_ArrayDef__bound->setName("bound");
     m_ArrayDef__bound->setDefaultValueLiteral("");
     m_ArrayDef__bound->setLowerBound(0);
@@ -1096,7 +1171,7 @@ IdlmmPackage::IdlmmPackage()
     m_SequenceDefEClass->setAbstract(false);
     m_SequenceDefEClass->setInterface(false);
     m_SequenceDef__bound->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_SequenceDef__bound->setName("bound");
     m_SequenceDef__bound->setDefaultValueLiteral("");
     m_SequenceDef__bound->setLowerBound(0);
@@ -1114,7 +1189,7 @@ IdlmmPackage::IdlmmPackage()
     m_UnionFieldEClass->setAbstract(false);
     m_UnionFieldEClass->setInterface(false);
     m_UnionField__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_UnionField__identifier->setName("identifier");
     m_UnionField__identifier->setDefaultValueLiteral("");
     m_UnionField__identifier->setLowerBound(0);
@@ -1192,7 +1267,7 @@ IdlmmPackage::IdlmmPackage()
     m_EnumDefEClass->setAbstract(false);
     m_EnumDefEClass->setInterface(false);
     m_EnumDef__members->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_EnumDef__members->setName("members");
     m_EnumDef__members->setDefaultValueLiteral("");
     m_EnumDef__members->setLowerBound(0);
@@ -1227,7 +1302,7 @@ IdlmmPackage::IdlmmPackage()
     m_TranslationUnitEClass->setAbstract(false);
     m_TranslationUnitEClass->setInterface(false);
     m_TranslationUnit__identifier->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_TranslationUnit__identifier->setName("identifier");
     m_TranslationUnit__identifier->setDefaultValueLiteral("");
     m_TranslationUnit__identifier->setLowerBound(0);
@@ -1271,7 +1346,7 @@ IdlmmPackage::IdlmmPackage()
     m_IncludeEClass->setAbstract(false);
     m_IncludeEClass->setInterface(false);
     m_Include__importURI->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Include__importURI->setName("importURI");
     m_Include__importURI->setDefaultValueLiteral("");
     m_Include__importURI->setLowerBound(0);
@@ -1300,7 +1375,8 @@ IdlmmPackage::IdlmmPackage()
     m_ParameterModeEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PARAM_IN
         _el->setName("PARAM_IN");
         _el->setValue(0);
@@ -1310,7 +1386,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PARAM_OUT
         _el->setName("PARAM_OUT");
         _el->setValue(1);
@@ -1320,7 +1397,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PARAM_INOUT
         _el->setName("PARAM_INOUT");
         _el->setValue(2);
@@ -1334,7 +1412,8 @@ IdlmmPackage::IdlmmPackage()
     m_PrimitiveKindEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_NULL
         _el->setName("PK_NULL");
         _el->setValue(0);
@@ -1344,7 +1423,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_VOID
         _el->setName("PK_VOID");
         _el->setValue(1);
@@ -1354,7 +1434,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_SHORT
         _el->setName("PK_SHORT");
         _el->setValue(2);
@@ -1364,7 +1445,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_LONG
         _el->setName("PK_LONG");
         _el->setValue(3);
@@ -1374,7 +1456,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_USHORT
         _el->setName("PK_USHORT");
         _el->setValue(4);
@@ -1384,7 +1467,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_ULONG
         _el->setName("PK_ULONG");
         _el->setValue(5);
@@ -1394,7 +1478,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_FLOAT
         _el->setName("PK_FLOAT");
         _el->setValue(6);
@@ -1404,7 +1489,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_DOUBLE
         _el->setName("PK_DOUBLE");
         _el->setValue(7);
@@ -1414,7 +1500,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_BOOLEAN
         _el->setName("PK_BOOLEAN");
         _el->setValue(8);
@@ -1424,7 +1511,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_CHAR
         _el->setName("PK_CHAR");
         _el->setValue(9);
@@ -1434,7 +1522,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_OCTET
         _el->setName("PK_OCTET");
         _el->setValue(10);
@@ -1444,7 +1533,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_ANY
         _el->setName("PK_ANY");
         _el->setValue(11);
@@ -1454,7 +1544,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_LONGDOUBLE
         _el->setName("PK_LONGDOUBLE");
         _el->setValue(12);
@@ -1464,7 +1555,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_WSTRING
         _el->setName("PK_WSTRING");
         _el->setValue(13);
@@ -1474,7 +1566,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_TYPECODE
         _el->setName("PK_TYPECODE");
         _el->setValue(14);
@@ -1484,7 +1577,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_WCHAR
         _el->setName("PK_WCHAR");
         _el->setValue(15);
@@ -1494,7 +1588,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_PRINCIPAL
         _el->setName("PK_PRINCIPAL");
         _el->setValue(16);
@@ -1504,7 +1599,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_STRING
         _el->setName("PK_STRING");
         _el->setValue(17);
@@ -1514,7 +1610,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_ULONGLONG
         _el->setName("PK_ULONGLONG");
         _el->setValue(18);
@@ -1524,7 +1621,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_OBJREF
         _el->setName("PK_OBJREF");
         _el->setValue(19);
@@ -1534,7 +1632,8 @@ IdlmmPackage::IdlmmPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // PK_LONGLONG
         _el->setName("PK_LONGLONG");
         _el->setValue(20);

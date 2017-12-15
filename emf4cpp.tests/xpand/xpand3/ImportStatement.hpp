@@ -82,6 +82,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ImportStatement_ptr _this()
+    {   return ImportStatement_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_exported;

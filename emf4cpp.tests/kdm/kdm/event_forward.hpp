@@ -44,88 +44,88 @@ namespace kdm
 
 // EventModel
         class EventModel;
-        typedef EventModel* EventModel_ptr;
+        using EventModel_ptr = boost::intrusive_ptr<EventModel>;
 
 // AbstractEventElement
         class AbstractEventElement;
-        typedef AbstractEventElement* AbstractEventElement_ptr;
+        using AbstractEventElement_ptr = boost::intrusive_ptr<AbstractEventElement>;
 
 // Event
         class Event;
-        typedef Event* Event_ptr;
+        using Event_ptr = boost::intrusive_ptr<Event>;
 
 // AbstractEventRelationship
         class AbstractEventRelationship;
-        typedef AbstractEventRelationship* AbstractEventRelationship_ptr;
+        using AbstractEventRelationship_ptr = boost::intrusive_ptr<AbstractEventRelationship>;
 
 // EventRelationship
         class EventRelationship;
-        typedef EventRelationship* EventRelationship_ptr;
+        using EventRelationship_ptr = boost::intrusive_ptr<EventRelationship>;
 
 // EventResource
         class EventResource;
-        typedef EventResource* EventResource_ptr;
+        using EventResource_ptr = boost::intrusive_ptr<EventResource>;
 
 // State
         class State;
-        typedef State* State_ptr;
+        using State_ptr = boost::intrusive_ptr<State>;
 
 // Transition
         class Transition;
-        typedef Transition* Transition_ptr;
+        using Transition_ptr = boost::intrusive_ptr<Transition>;
 
 // OnEntry
         class OnEntry;
-        typedef OnEntry* OnEntry_ptr;
+        using OnEntry_ptr = boost::intrusive_ptr<OnEntry>;
 
 // OnExit
         class OnExit;
-        typedef OnExit* OnExit_ptr;
+        using OnExit_ptr = boost::intrusive_ptr<OnExit>;
 
 // EventAction
         class EventAction;
-        typedef EventAction* EventAction_ptr;
+        using EventAction_ptr = boost::intrusive_ptr<EventAction>;
 
 // ReadsState
         class ReadsState;
-        typedef ReadsState* ReadsState_ptr;
+        using ReadsState_ptr = boost::intrusive_ptr<ReadsState>;
 
 // ProducesEvent
         class ProducesEvent;
-        typedef ProducesEvent* ProducesEvent_ptr;
+        using ProducesEvent_ptr = boost::intrusive_ptr<ProducesEvent>;
 
 // ConsumesEvent
         class ConsumesEvent;
-        typedef ConsumesEvent* ConsumesEvent_ptr;
+        using ConsumesEvent_ptr = boost::intrusive_ptr<ConsumesEvent>;
 
 // NextState
         class NextState;
-        typedef NextState* NextState_ptr;
+        using NextState_ptr = boost::intrusive_ptr<NextState>;
 
 // InitialState
         class InitialState;
-        typedef InitialState* InitialState_ptr;
+        using InitialState_ptr = boost::intrusive_ptr<InitialState>;
 
 // EventElement
         class EventElement;
-        typedef EventElement* EventElement_ptr;
+        using EventElement_ptr = boost::intrusive_ptr<EventElement>;
 
 // HasState
         class HasState;
-        typedef HasState* HasState_ptr;
+        using HasState_ptr = boost::intrusive_ptr<HasState>;
 
 // EEnum
 
 // Package & Factory
         class EventFactory;
-        typedef EventFactory * EventFactory_ptr;
+        using EventFactory_ptr = boost::intrusive_ptr<EventFactory>;
         class EventPackage;
-        typedef EventPackage * EventPackage_ptr;
+        using EventPackage_ptr = boost::intrusive_ptr<EventPackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // event

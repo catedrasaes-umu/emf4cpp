@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SoftwareSystem_ptr _this()
+        {   return SoftwareSystem_ptr(this);}
+
         // Attributes
 
         // References

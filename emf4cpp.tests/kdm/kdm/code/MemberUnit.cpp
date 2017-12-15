@@ -84,8 +84,8 @@ void MemberUnit::setExport(::kdm::code::ExportKind _export)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getMemberUnit__export(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getMemberUnit__export(),
                 _old_export,
                 m_export
         );

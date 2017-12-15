@@ -82,8 +82,8 @@ void LeftHand::basicsetRightee(::eopposite::RightHand_ptr _rightee)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::eopposite::EoppositePackage::_instance()->getLeftHand__rightee(),
+                _this(),
+                ::eopposite::EoppositePackage::_instance()->getLeftHand__rightee(),
                 _old_rightee,
                 m_rightee
         );
@@ -97,7 +97,7 @@ void LeftHand::setRightee(::eopposite::RightHand_ptr _rightee)
 {
     if (_rightee != m_rightee)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_rightee != nullptr)
         {
             m_rightee->_inverseRemove(
@@ -134,8 +134,8 @@ void LeftHand::basicsetRightMultiple(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::eopposite::EoppositePackage::_instance()->getLeftHand__rightMultiple(),
+                _this(),
+                ::eopposite::EoppositePackage::_instance()->getLeftHand__rightMultiple(),
                 _old_rightMultiple,
                 m_rightMultiple
         );
@@ -149,7 +149,7 @@ void LeftHand::setRightMultiple(::eopposite::RightMultiple_ptr _rightMultiple)
 {
     if (_rightMultiple != m_rightMultiple)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_rightMultiple != nullptr)
         {
             m_rightMultiple->_inverseRemove(

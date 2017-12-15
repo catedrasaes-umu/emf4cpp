@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ExecutionResource_ptr _this()
+        {   return ExecutionResource_ptr(this);}
+
         // Attributes
 
         // References

@@ -88,6 +88,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ParameterUnit_ptr _this()
+        {   return ParameterUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::code::ParameterKind m_kind;

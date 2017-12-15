@@ -44,8 +44,8 @@ OperationCall::OperationCall()
 
     m_params.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::expression::AbstractExpression, -1, true, false >(
-                    this,
+                    ::xpand3::expression::AbstractExpression_ptr, -1, true,
+                    false >(this,
                     ::xpand3::expression::ExpressionPackage::_instance()->getOperationCall__params()));
 
     /*PROTECTED REGION ID(OperationCallImpl__OperationCallImpl) START*/
@@ -66,12 +66,12 @@ OperationCall::~OperationCall()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& OperationCall::getParams() const
+const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& OperationCall::getParams() const
 {
     return *m_params;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& OperationCall::getParams()
+::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& OperationCall::getParams()
 {
     return *m_params;
 }

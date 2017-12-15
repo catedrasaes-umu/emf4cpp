@@ -45,7 +45,7 @@ SourceRef::SourceRef()
 
     m_region.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRegion, -1, true, false >(this,
+                    ::kdm::source::SourceRegion_ptr, -1, true, false >(this,
                     ::kdm::source::SourcePackage::_instance()->getSourceRef__region()));
 
     /*PROTECTED REGION ID(SourceRefImpl__SourceRefImpl) START*/
@@ -80,8 +80,8 @@ void SourceRef::setLanguage(::kdm::core::String _language)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRef__language(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRef__language(),
                 _old_language,
                 m_language
         );
@@ -106,8 +106,8 @@ void SourceRef::setSnippet(::kdm::core::String _snippet)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRef__snippet(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRef__snippet(),
                 _old_snippet,
                 m_snippet
         );
@@ -118,12 +118,12 @@ void SourceRef::setSnippet(::kdm::core::String _snippet)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& SourceRef::getRegion() const
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& SourceRef::getRegion() const
 {
     return *m_region;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& SourceRef::getRegion()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& SourceRef::getRegion()
 {
     return *m_region;
 }

@@ -54,12 +54,13 @@ ActionElement::ActionElement()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, true, false >(this,
+                    ::kdm::code::AbstractCodeElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::action::ActionPackage::_instance()->getActionElement__codeElement()));
     m_actionRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::AbstractActionRelationship, -1, true, false >(
-                    this,
+                    ::kdm::action::AbstractActionRelationship_ptr, -1, true,
+                    false >(this,
                     ::kdm::action::ActionPackage::_instance()->getActionElement__actionRelation()));
 
     /*PROTECTED REGION ID(ActionElementImpl__ActionElementImpl) START*/
@@ -94,8 +95,8 @@ void ActionElement::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getActionElement__kind(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getActionElement__kind(),
                 _old_kind,
                 m_kind
         );
@@ -106,22 +107,22 @@ void ActionElement::setKind(::kdm::core::String _kind)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ActionElement::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ActionElement::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ActionElement::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ActionElement::getCodeElement()
 {
     return *m_codeElement;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& ActionElement::getActionRelation() const
+const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship_ptr >& ActionElement::getActionRelation() const
 {
     return *m_actionRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& ActionElement::getActionRelation()
+::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship_ptr >& ActionElement::getActionRelation()
 {
     return *m_actionRelation;
 }

@@ -22,12 +22,14 @@
 
 using namespace ::xpand3::declaration;
 
-std::unique_ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory::s_instance;
+boost::intrusive_ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory::s_holder;
 
 ::xpand3::declaration::DeclarationFactory_ptr DeclarationFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new DeclarationFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < DeclarationFactory
+                > (new DeclarationFactory());
+
+    return s_holder;
 }
 

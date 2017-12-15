@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        CommentUnit_ptr _this()
+        {   return CommentUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_text;

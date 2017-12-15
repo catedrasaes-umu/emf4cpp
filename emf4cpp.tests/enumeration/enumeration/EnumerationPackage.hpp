@@ -63,9 +63,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< EnumerationPackage, ::ecorecpp::PackageDeleter<EnumerationPackage> > s_instance;
+    static boost::intrusive_ptr< EnumerationPackage > s_instance;
 
     EnumerationPackage();
+    void _initPackage();
 
     // EClass instances 
 

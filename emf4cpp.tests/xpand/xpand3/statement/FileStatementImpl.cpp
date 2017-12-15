@@ -92,17 +92,19 @@ void FileStatement::_initialize()
         return _any;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        _any = m_body->asEListOf< ::ecore::EObject >();
+        _any = m_body->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__FILENAMEEXPRESSION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_fileNameExpression);
+        if (m_fileNameExpression)
+            _any = m_fileNameExpression->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__OUTLETNAMEIDENTIFIER:
     {
-        _any = static_cast< ::ecore::EObject* >(m_outletNameIdentifier);
+        if (m_outletNameIdentifier)
+            _any = m_outletNameIdentifier->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__ONCE:
@@ -147,9 +149,9 @@ void FileStatement::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::statement::AbstractStatementWithBody::getBody().clear();
         ::xpand3::statement::AbstractStatementWithBody::getBody().insert_all(
                 *_t0);
@@ -160,7 +162,7 @@ void FileStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::FileStatement::setFileNameExpression(_t1);
     }
         return;
@@ -169,7 +171,7 @@ void FileStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::statement::FileStatement::setOutletNameIdentifier(_t1);
     }
         return;
@@ -202,9 +204,9 @@ void FileStatement::eSet(::ecore::EInt _featureID,
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
         return m_body && m_body->size();
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__FILENAMEEXPRESSION:
-        return m_fileNameExpression;
+        return (bool) m_fileNameExpression;
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__OUTLETNAMEIDENTIFIER:
-        return m_outletNameIdentifier;
+        return (bool) m_outletNameIdentifier;
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__ONCE:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_once);
@@ -225,7 +227,7 @@ void FileStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr FileStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getFileStatement();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getFileStatement();
     return _eclass;
 }
 

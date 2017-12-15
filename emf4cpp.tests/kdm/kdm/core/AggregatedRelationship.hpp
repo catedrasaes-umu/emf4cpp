@@ -63,8 +63,8 @@ namespace kdm
         virtual ::kdm::core::KDMEntity_ptr getTo () const;
         virtual void setTo (::kdm::core::KDMEntity_ptr _to);
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& getRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >& getRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >& getRelation ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -90,6 +90,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AggregatedRelationship_ptr _this()
+        {   return AggregatedRelationship_ptr(this);}
+
         // Attributes
 
         ::kdm::core::Integer m_density;
@@ -100,7 +103,7 @@ namespace kdm
 
         ::kdm::core::KDMEntity_ptr m_to;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >> m_relation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >> m_relation;
 
     };
 

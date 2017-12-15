@@ -59,7 +59,7 @@ AbstractNamedDeclaration::~AbstractNamedDeclaration()
 {
     if (m_name)
     {
-        delete m_name;
+        m_name.reset();
     }
 }
 
@@ -83,8 +83,8 @@ void AbstractNamedDeclaration::setName(::xpand3::Identifier_ptr _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name(),
                 _old_name,
                 m_name
         );
@@ -92,8 +92,10 @@ void AbstractNamedDeclaration::setName(::xpand3::Identifier_ptr _name)
     }
 #endif
 
-    delete _old_name;
-    m_name->_setEContainer(this,
+    if (_old_name)
+        _old_name->_setEContainer(AbstractNamedDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
+    m_name->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
 }
 

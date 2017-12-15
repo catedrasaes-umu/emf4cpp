@@ -49,18 +49,18 @@ Element::Element() :
 {
 
     m_owner.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile_ptr, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getElement__owner(),
                     ::SVG::SVGPackage::SVGFILE__ELEMENTS));
     m_target.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Use, -1, false,
-                    true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Use_ptr, -1,
+                    false, true >(this,
                     ::SVG::SVGPackage::_instance()->getElement__target(),
                     ::SVG::SVGPackage::USE__USE));
     m_attribute.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute, -1,
-                    false, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute_ptr,
+                    -1, false, true >(this,
                     ::SVG::SVGPackage::_instance()->getElement__attribute(),
                     ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER));
 
@@ -78,11 +78,11 @@ Element::~Element()
 {
     if (m_position)
     {
-        delete m_position;
+        m_position.reset();
     }
     if (m_size)
     {
-        delete m_size;
+        m_size.reset();
     }
 }
 
@@ -104,8 +104,8 @@ void Element::setFill(::PrimitiveTypes::String _fill)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__fill(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__fill(),
                 _old_fill,
                 m_fill
         );
@@ -130,8 +130,8 @@ void Element::setViewBox(::PrimitiveTypes::String _viewBox)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__viewBox(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__viewBox(),
                 _old_viewBox,
                 m_viewBox
         );
@@ -156,8 +156,8 @@ void Element::setIdentifier(::PrimitiveTypes::String _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__identifier(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__identifier(),
                 _old_identifier,
                 m_identifier
         );
@@ -168,32 +168,32 @@ void Element::setIdentifier(::PrimitiveTypes::String _identifier)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& Element::getOwner() const
+const ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& Element::getOwner() const
 {
     return *m_owner;
 }
 
-::ecorecpp::mapping::EList< ::SVG::SvgFile >& Element::getOwner()
+::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& Element::getOwner()
 {
     return *m_owner;
 }
 
-const ::ecorecpp::mapping::EList< ::SVG::Use >& Element::getTarget() const
+const ::ecorecpp::mapping::EList< ::SVG::Use_ptr >& Element::getTarget() const
 {
     return *m_target;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Use >& Element::getTarget()
+::ecorecpp::mapping::EList< ::SVG::Use_ptr >& Element::getTarget()
 {
     return *m_target;
 }
 
-const ::ecorecpp::mapping::EList< ::SVG::Attribute >& Element::getAttribute() const
+const ::ecorecpp::mapping::EList< ::SVG::Attribute_ptr >& Element::getAttribute() const
 {
     return *m_attribute;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Attribute >& Element::getAttribute()
+::ecorecpp::mapping::EList< ::SVG::Attribute_ptr >& Element::getAttribute()
 {
     return *m_attribute;
 }
@@ -214,8 +214,8 @@ void Element::setPosition(::SVG::Coordinates_ptr _position)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__position(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__position(),
                 _old_position,
                 m_position
         );
@@ -223,8 +223,10 @@ void Element::setPosition(::SVG::Coordinates_ptr _position)
     }
 #endif
 
-    delete _old_position;
-    m_position->_setEContainer(this,
+    if (_old_position)
+        _old_position->_setEContainer(Element_ptr(),
+                ::SVG::SVGPackage::_instance()->getElement__position());
+    m_position->_setEContainer(_this(),
             ::SVG::SVGPackage::_instance()->getElement__position());
 }
 
@@ -244,8 +246,8 @@ void Element::setSize(::SVG::Dimension_ptr _size)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__size(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__size(),
                 _old_size,
                 m_size
         );
@@ -253,8 +255,10 @@ void Element::setSize(::SVG::Dimension_ptr _size)
     }
 #endif
 
-    delete _old_size;
-    m_size->_setEContainer(this,
+    if (_old_size)
+        _old_size->_setEContainer(Element_ptr(),
+                ::SVG::SVGPackage::_instance()->getElement__size());
+    m_size->_setEContainer(_this(),
             ::SVG::SVGPackage::_instance()->getElement__size());
 }
 
@@ -279,8 +283,8 @@ void Element::basicsetRoot(::SVG::Svg_ptr _root)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__root(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__root(),
                 _old_root,
                 m_root
         );
@@ -294,7 +298,7 @@ void Element::setRoot(::SVG::Svg_ptr _root)
 {
     if (_root != m_root)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_root != nullptr)
         {
             m_root->_inverseRemove(::SVG::SVGPackage::SVG__CHILDREN, _this);
@@ -328,8 +332,8 @@ void Element::basicsetGroup(::SVG::GroupingElement_ptr _group)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__group(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__group(),
                 _old_group,
                 m_group
         );
@@ -343,7 +347,7 @@ void Element::setGroup(::SVG::GroupingElement_ptr _group)
 {
     if (_group != m_group)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_group != nullptr)
         {
             m_group->_inverseRemove(
@@ -379,8 +383,8 @@ void Element::basicsetDrawsMarker(::SVG::Marker_ptr _drawsMarker)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getElement__drawsMarker(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getElement__drawsMarker(),
                 _old_drawsMarker,
                 m_drawsMarker
         );
@@ -394,7 +398,7 @@ void Element::setDrawsMarker(::SVG::Marker_ptr _drawsMarker)
 {
     if (_drawsMarker != m_drawsMarker)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_drawsMarker != nullptr)
         {
             m_drawsMarker->_inverseRemove(::SVG::SVGPackage::MARKER__DRAWING,

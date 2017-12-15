@@ -56,7 +56,7 @@ namespace kdm
 
         protected:
 
-            static std::unique_ptr< KdmFactory > s_instance;
+            static boost::intrusive_ptr< KdmFactory > s_holder;
 
             KdmFactory();
 
@@ -68,81 +68,92 @@ namespace kdm
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline T* create()
+        template< class T > inline boost::intrusive_ptr< T > create()
         {
-            return (T*) nullptr;
+            return boost::intrusive_ptr< T >();
         }
 
         template< > inline KDMFramework_ptr create< KDMFramework >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createKDMFramework();
         }
+
         template< > inline KDMModel_ptr create< KDMModel >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createKDMModel();
         }
+
         template< > inline Audit_ptr create< Audit >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createAudit();
         }
+
         template< > inline Segment_ptr create< Segment >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createSegment();
         }
+
         template< > inline Attribute_ptr create< Attribute >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createAttribute();
         }
+
         template< > inline Annotation_ptr create< Annotation >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createAnnotation();
         }
+
         template< > inline TagDefinition_ptr create< TagDefinition >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createTagDefinition();
         }
+
         template< > inline ExtendedValue_ptr create< ExtendedValue >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createExtendedValue();
         }
+
         template< > inline Stereotype_ptr create< Stereotype >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createStereotype();
         }
+
         template< > inline ExtensionFamily_ptr create< ExtensionFamily >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createExtensionFamily();
         }
+
         template< > inline TaggedRef_ptr create< TaggedRef >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createTaggedRef();
         }
+
         template< > inline TaggedValue_ptr create< TaggedValue >()
         {
             auto eFactory = KdmPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< KdmFactory* >(eFactory.get());
             return packageFactory->createTaggedValue();
         }
 

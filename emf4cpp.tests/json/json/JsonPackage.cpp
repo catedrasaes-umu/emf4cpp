@@ -22,8 +22,7 @@
 
 using namespace ::json;
 
-std::unique_ptr< ::json::JsonPackage,
-        ::ecorecpp::PackageDeleter< ::json::JsonPackage > > JsonPackage::s_instance;
+boost::intrusive_ptr< ::json::JsonPackage > JsonPackage::s_instance;
 
 ::json::JsonPackage_ptr JsonPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::json::JsonPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< JsonPackage >();
         duringConstruction = true;
-        new JsonPackage();
+        s_instance = boost::intrusive_ptr < JsonPackage > (new JsonPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::json::JsonPackage_ptr JsonPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

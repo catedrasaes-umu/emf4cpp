@@ -93,6 +93,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ETypedElement_ptr _this()
+    {   return ETypedElement_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_ordered;

@@ -88,8 +88,8 @@ void ConceptualRole::setConceptualElement(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualRole__conceptualElement(),
+                _this(),
+                ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualRole__conceptualElement(),
                 _old_conceptualElement,
                 m_conceptualElement
         );

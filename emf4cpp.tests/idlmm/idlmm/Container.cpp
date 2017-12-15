@@ -42,8 +42,8 @@ Container::Container()
 {
 
     m_contains.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained, -1,
-                    true, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained_ptr,
+                    -1, true, true >(this,
                     ::idlmm::IdlmmPackage::_instance()->getContainer__contains(),
                     ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN));
 
@@ -65,12 +65,12 @@ Container::~Container()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::idlmm::Contained >& Container::getContains() const
+const ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& Container::getContains() const
 {
     return *m_contains;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::Contained >& Container::getContains()
+::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& Container::getContains()
 {
     return *m_contains;
 }

@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UIDisplay_ptr _this()
+        {   return UIDisplay_ptr(this);}
+
         // Attributes
 
         // References

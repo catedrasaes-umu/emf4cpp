@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    SimpleType_ptr _this()
+    {   return SimpleType_ptr(this);}
+
     // Attributes
 
     // References

@@ -23,8 +23,8 @@
 #include "../dllEcorecpp.hpp"
 
 #include <iostream>
-#include <memory>
 #include <unordered_map>
+#include <boost/intrusive_ptr.hpp>
 
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
@@ -38,6 +38,10 @@ namespace ecore {
 namespace ecorecpp {
 namespace resource {
 
+class Resource;
+using Resource_ptr = boost::intrusive_ptr<Resource>;
+
+
 class EXPORT_ECORECPP_DLL Resource {
 public:
 
@@ -45,11 +49,11 @@ public:
 	void operator=(const Resource&) = delete;
 	virtual ~Resource() = default;
 
-	class Factory {
+	class EXPORT_ECORECPP_DLL Factory {
 	public:
-		virtual Resource* createResource(const QUrl& uri);
+		virtual Resource_ptr createResource(const QUrl& uri);
 
-		class Registry {
+		class EXPORT_ECORECPP_DLL Registry {
 		public:
 			static const std::string DEFAULT_EXTENSION;
 			static const std::string DEFAULT_CONTENT_TYPE_IDENTIFIER;
@@ -79,8 +83,8 @@ public:
 		};
 	};
 
-	::ecorecpp::util::TreeIterator<::ecore::EObject> getAllContents();
-	const ::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type& getContents();
+	virtual ::ecorecpp::util::TreeIterator<::ecore::EObject_ptr> getAllContents();
+	virtual const ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type& getContents();
 
 	const QUrl& getURI() const;
 	void setURI(const QUrl&);
@@ -98,18 +102,24 @@ public:
 
 	bool isLoaded() const;
 
-	virtual ::ecore::EObject* getEObjectForURIFragmentRootSegment(const std::string&);
+	virtual ::ecore::EObject_ptr getEObjectForURIFragmentRootSegment(const std::string&);
 	virtual std::string getURIFragmentRootSegment(::ecore::EObject_ptr);
 
-	virtual ::ecore::EObject* getEObject(const std::string& uriFragment);
+	virtual ::ecore::EObject_ptr getEObject(const std::string& uriFragment);
 	virtual std::string getURIFragment(::ecore::EObject_ptr);
 
 protected:
 	explicit Resource(const QUrl&);
 
+    friend void intrusive_ptr_add_ref(Resource* p) { ++p->_refCount; }
+    friend void intrusive_ptr_release(Resource* p) {
+		if (--p->_refCount == 0u)
+			delete p; }
+    mutable std::atomic_size_t _refCount;
+
 private:
 	QUrl _qurl;
-	::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type _contents;
+	::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type _contents;
 	ResourceSet* _resourceSet;
 
 	bool _loaded;

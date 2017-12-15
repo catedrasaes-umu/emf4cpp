@@ -58,17 +58,17 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >& getConceptualRelation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >& getConceptualRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship_ptr >& getConceptualRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship_ptr >& getConceptualRelation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -94,17 +94,20 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractConceptualElement_ptr _this()
+        {   return AbstractConceptualElement_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef >> m_source;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >> m_source;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >> m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >> m_implementation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >> m_conceptualRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship_ptr >> m_conceptualRelation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement >> m_abstraction;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >> m_abstraction;
 
     };
 

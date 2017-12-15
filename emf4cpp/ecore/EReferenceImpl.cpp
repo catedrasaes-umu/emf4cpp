@@ -65,7 +65,7 @@ void EReference::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
@@ -100,12 +100,14 @@ void EReference::_initialize()
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eType);
+        if (m_eType)
+            _any = m_eType->as< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eGenericType);
+        if (m_eGenericType)
+            _any = m_eGenericType->as< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ESTRUCTURALFEATURE__CHANGEABLE:
@@ -146,7 +148,8 @@ void EReference::_initialize()
         return _any;
     case ::ecore::EcorePackage::ESTRUCTURALFEATURE__ECONTAININGCLASS:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eContainingClass);
+        if (m_eContainingClass)
+            _any = m_eContainingClass->as< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::EREFERENCE__CONTAINMENT:
@@ -163,12 +166,13 @@ void EReference::_initialize()
         return _any;
     case ::ecore::EcorePackage::EREFERENCE__EOPPOSITE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eOpposite);
+        if (m_eOpposite)
+            _any = m_eOpposite->as< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::EREFERENCE__EKEYS:
     {
-        _any = m_eKeys->asEListOf< ::ecore::EObject >();
+        _any = m_eKeys->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -183,9 +187,9 @@ void EReference::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
@@ -225,7 +229,7 @@ void EReference::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EClassifier_ptr _t1 =
-                dynamic_cast< ::ecore::EClassifier_ptr >(_t0);
+                dynamic_cast< ::ecore::EClassifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EClassifier >(_t0);*/
         ::ecore::ETypedElement::setEType(_t1);
     }
         return;
@@ -234,7 +238,7 @@ void EReference::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EGenericType_ptr _t1 =
-                dynamic_cast< ::ecore::EGenericType_ptr >(_t0);
+                dynamic_cast< ::ecore::EGenericType* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EGenericType >(_t0);*/
         ::ecore::ETypedElement::setEGenericType(_t1);
     }
         return;
@@ -278,7 +282,7 @@ void EReference::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass_ptr >(_t0);
+        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EClass >(_t0);*/
         ::ecore::EStructuralFeature::setEContainingClass(_t1);
     }
         return;
@@ -299,15 +303,15 @@ void EReference::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EReference_ptr _t1 =
-                dynamic_cast< ::ecore::EReference_ptr >(_t0);
+                dynamic_cast< ::ecore::EReference* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EReference >(_t0);*/
         ::ecore::EReference::setEOpposite(_t1);
     }
         return;
     case ::ecore::EcorePackage::EREFERENCE__EKEYS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EReference::getEKeys().clear();
         ::ecore::EReference::getEKeys().insert_all(*_t0);
     }
@@ -342,9 +346,9 @@ void EReference::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_required);
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
-        return m_eType;
+        return (bool) m_eType;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
-        return m_eGenericType;
+        return (bool) m_eGenericType;
     case ::ecore::EcorePackage::ESTRUCTURALFEATURE__CHANGEABLE:
         return m_changeable != true;
     case ::ecore::EcorePackage::ESTRUCTURALFEATURE__VOLATILE:
@@ -366,7 +370,7 @@ void EReference::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_derived);
     case ::ecore::EcorePackage::ESTRUCTURALFEATURE__ECONTAININGCLASS:
-        return m_eContainingClass;
+        return (bool) m_eContainingClass;
     case ::ecore::EcorePackage::EREFERENCE__CONTAINMENT:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_containment);
@@ -376,9 +380,9 @@ void EReference::eSet(::ecore::EInt _featureID,
     case ::ecore::EcorePackage::EREFERENCE__RESOLVEPROXIES:
         return m_resolveProxies != true;
     case ::ecore::EcorePackage::EREFERENCE__EOPPOSITE:
-        return m_eOpposite;
+        return (bool) m_eOpposite;
     case ::ecore::EcorePackage::EREFERENCE__EREFERENCETYPE:
-        return m_eReferenceType;
+        return (bool) m_eReferenceType;
     case ::ecore::EcorePackage::EREFERENCE__EKEYS:
         return m_eKeys && m_eKeys->size();
 
@@ -398,7 +402,7 @@ void EReference::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr EReference::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEReference();
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEReference();
     return _eclass;
 }
 
@@ -414,12 +418,12 @@ void EReference::_inverseAdd(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicAdd(_t1);
     }
         return;
@@ -435,7 +439,7 @@ void EReference::_inverseAdd(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass_ptr >(_t0);
+        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass* >(_t0.get());
 
         // set reference
         basicsetEContainingClass(_t1);
@@ -466,12 +470,12 @@ void EReference::_inverseRemove(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicRemove(_t1);
     }
         return;
@@ -487,7 +491,7 @@ void EReference::_inverseRemove(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
-        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass_ptr >(_t0);
+        ::ecore::EClass_ptr _t1 = dynamic_cast< ::ecore::EClass* >(_t0.get());
 
         // set reference
         if (basicgetEContainingClass() == _t1)

@@ -55,7 +55,8 @@ DeployedSoftwareSystem::DeployedSoftwareSystem()
 
     m_groupedComponent.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::DeployedComponent, -1, false, false >(this,
+                    ::kdm::platform::DeployedComponent_ptr, -1, false, false >(
+                    this,
                     ::kdm::platform::PlatformPackage::_instance()->getDeployedSoftwareSystem__groupedComponent()));
 
     /*PROTECTED REGION ID(DeployedSoftwareSystemImpl__DeployedSoftwareSystemImpl) START*/
@@ -76,12 +77,12 @@ DeployedSoftwareSystem::~DeployedSoftwareSystem()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& DeployedSoftwareSystem::getGroupedComponent() const
+const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& DeployedSoftwareSystem::getGroupedComponent() const
 {
     return *m_groupedComponent;
 }
 
-::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& DeployedSoftwareSystem::getGroupedComponent()
+::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& DeployedSoftwareSystem::getGroupedComponent()
 {
     return *m_groupedComponent;
 }

@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ComputationalObject_ptr _this()
+        {   return ComputationalObject_ptr(this);}
+
         // Attributes
 
         // References

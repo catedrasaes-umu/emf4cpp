@@ -56,7 +56,7 @@ ConstructorCallExpression::~ConstructorCallExpression()
 {
     if (m_type)
     {
-        delete m_type;
+        m_type.reset();
     }
 }
 
@@ -80,8 +80,8 @@ void ConstructorCallExpression::setType(::xpand3::Identifier_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type(),
                 _old_type,
                 m_type
         );
@@ -89,8 +89,10 @@ void ConstructorCallExpression::setType(::xpand3::Identifier_ptr _type)
     }
 #endif
 
-    delete _old_type;
-    m_type->_setEContainer(this,
+    if (_old_type)
+        _old_type->_setEContainer(ConstructorCallExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
+    m_type->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
 }
 

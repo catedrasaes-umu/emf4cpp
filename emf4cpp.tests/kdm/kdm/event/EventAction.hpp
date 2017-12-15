@@ -61,8 +61,8 @@ namespace kdm
         virtual void setKind (::kdm::core::String _kind);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::event::Event >& getEventElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::event::Event >& getEventElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::event::Event_ptr >& getEventElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::event::Event_ptr >& getEventElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -88,13 +88,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        EventAction_ptr _this()
+        {   return EventAction_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_kind;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::event::Event >> m_eventElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::event::Event_ptr >> m_eventElement;
 
     };
 

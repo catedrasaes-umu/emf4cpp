@@ -40,7 +40,6 @@ namespace company
 {
 
 class EXPORT_COMPANY_DLL Department : public virtual ::ecore::EObject
-
 {
 public:
     Department();
@@ -56,8 +55,8 @@ public:
     virtual void setNumber (::ecore::EInt _number);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees () const;
-    virtual ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees ();
+    virtual const ::ecorecpp::mapping::EList< ::company::Employee_ptr >& getEmployees () const;
+    virtual ::ecorecpp::mapping::EList< ::company::Employee_ptr >& getEmployees ();
 
     virtual ::company::Employee_ptr getManager () const;
     virtual void setManager (::company::Employee_ptr _manager);
@@ -86,13 +85,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Department_ptr _this()
+    {   return Department_ptr(this);}
+
     // Attributes
 
     ::ecore::EInt m_number;
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::company::Employee >> m_employees;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::company::Employee_ptr >> m_employees;
 
     ::company::Employee_ptr m_manager;
 

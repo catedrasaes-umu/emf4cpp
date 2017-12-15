@@ -89,6 +89,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        FileStatement_ptr _this()
+        {   return FileStatement_ptr(this);}
+
         // Attributes
 
         ::ecore::EBoolean m_once;

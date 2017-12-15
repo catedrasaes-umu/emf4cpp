@@ -16,7 +16,7 @@ PyEPackage::PyEPackage(ecore::EPackage_ptr pkg) :
     PyEModuleBase(pkg->getName().c_str()), m_pkg(pkg), m_fac(
             pkg->getEFactoryInstance())
 {
-    ::ecorecpp::mapping::EList< EClassifier > const& classifiers = pkg->getEClassifiers();
+    ::ecorecpp::mapping::EList< EClassifier_ptr > const& classifiers = pkg->getEClassifiers();
     Py::Dict dict(moduleDictionary());
 
     // Register methods

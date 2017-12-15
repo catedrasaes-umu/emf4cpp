@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BooleanType_ptr _this()
+        {   return BooleanType_ptr(this);}
+
         // Attributes
 
         // References

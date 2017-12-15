@@ -59,7 +59,7 @@ AbstractAspect::~AbstractAspect()
 {
     if (m_pointcut)
     {
-        delete m_pointcut;
+        m_pointcut.reset();
     }
 }
 
@@ -81,8 +81,8 @@ void AbstractAspect::setWildparams(::ecore::EBoolean _wildparams)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__wildparams(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__wildparams(),
                 _old_wildparams,
                 m_wildparams
         );
@@ -109,8 +109,8 @@ void AbstractAspect::setPointcut(::xpand3::Identifier_ptr _pointcut)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut(),
                 _old_pointcut,
                 m_pointcut
         );
@@ -118,8 +118,10 @@ void AbstractAspect::setPointcut(::xpand3::Identifier_ptr _pointcut)
     }
 #endif
 
-    delete _old_pointcut;
-    m_pointcut->_setEContainer(this,
+    if (_old_pointcut)
+        _old_pointcut->_setEContainer(AbstractAspect_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
+    m_pointcut->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
 }
 

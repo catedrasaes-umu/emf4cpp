@@ -53,8 +53,8 @@ ClassUnit::ClassUnit()
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::CodeItem_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getClassUnit__codeElement()));
 
     /*PROTECTED REGION ID(ClassUnitImpl__ClassUnitImpl) START*/
@@ -89,8 +89,8 @@ void ClassUnit::setIsAbstract(::kdm::core::Boolean _isAbstract)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getClassUnit__isAbstract(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getClassUnit__isAbstract(),
                 _old_isAbstract,
                 m_isAbstract
         );
@@ -101,12 +101,12 @@ void ClassUnit::setIsAbstract(::kdm::core::Boolean _isAbstract)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& ClassUnit::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& ClassUnit::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& ClassUnit::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& ClassUnit::getCodeElement()
 {
     return *m_codeElement;
 }

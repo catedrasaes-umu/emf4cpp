@@ -22,8 +22,7 @@
 
 using namespace ::idlmm;
 
-std::unique_ptr< ::idlmm::IdlmmPackage,
-        ::ecorecpp::PackageDeleter< ::idlmm::IdlmmPackage > > IdlmmPackage::s_instance;
+boost::intrusive_ptr< ::idlmm::IdlmmPackage > IdlmmPackage::s_instance;
 
 ::idlmm::IdlmmPackage_ptr IdlmmPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::idlmm::IdlmmPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< IdlmmPackage >();
         duringConstruction = true;
-        new IdlmmPackage();
+        s_instance = boost::intrusive_ptr < IdlmmPackage > (new IdlmmPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::idlmm::IdlmmPackage_ptr IdlmmPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

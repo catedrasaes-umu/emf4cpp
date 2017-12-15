@@ -93,42 +93,44 @@ DeclarationFactory::DeclarationFactory()
 
 AbstractDeclaration_ptr DeclarationFactory::createAbstractDeclaration()
 {
-    return new AbstractDeclaration();
+    return boost::intrusive_ptr < AbstractDeclaration
+            > (new AbstractDeclaration);
 }
 AbstractNamedDeclaration_ptr DeclarationFactory::createAbstractNamedDeclaration()
 {
-    return new AbstractNamedDeclaration();
+    return boost::intrusive_ptr < AbstractNamedDeclaration
+            > (new AbstractNamedDeclaration);
 }
 Definition_ptr DeclarationFactory::createDefinition()
 {
-    return new Definition();
+    return boost::intrusive_ptr < Definition > (new Definition);
 }
 Extension_ptr DeclarationFactory::createExtension()
 {
-    return new Extension();
+    return boost::intrusive_ptr < Extension > (new Extension);
 }
 AbstractAspect_ptr DeclarationFactory::createAbstractAspect()
 {
-    return new AbstractAspect();
+    return boost::intrusive_ptr < AbstractAspect > (new AbstractAspect);
 }
 ExtensionAspect_ptr DeclarationFactory::createExtensionAspect()
 {
-    return new ExtensionAspect();
+    return boost::intrusive_ptr < ExtensionAspect > (new ExtensionAspect);
 }
 DefinitionAspect_ptr DeclarationFactory::createDefinitionAspect()
 {
-    return new DefinitionAspect();
+    return boost::intrusive_ptr < DefinitionAspect > (new DefinitionAspect);
 }
 Check_ptr DeclarationFactory::createCheck()
 {
-    return new Check();
+    return boost::intrusive_ptr < Check > (new Check);
 }
 CreateExtension_ptr DeclarationFactory::createCreateExtension()
 {
-    return new CreateExtension();
+    return boost::intrusive_ptr < CreateExtension > (new CreateExtension);
 }
 JavaExtension_ptr DeclarationFactory::createJavaExtension()
 {
-    return new JavaExtension();
+    return boost::intrusive_ptr < JavaExtension > (new JavaExtension);
 }
 

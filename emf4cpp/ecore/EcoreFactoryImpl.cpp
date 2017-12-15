@@ -255,82 +255,83 @@ EcoreFactory::EcoreFactory()
 
 EAttribute_ptr EcoreFactory::createEAttribute()
 {
-    return new EAttribute();
+    return boost::intrusive_ptr < EAttribute > (new EAttribute);
 }
 EAnnotation_ptr EcoreFactory::createEAnnotation()
 {
-    return new EAnnotation();
+    return boost::intrusive_ptr < EAnnotation > (new EAnnotation);
 }
 EClass_ptr EcoreFactory::createEClass()
 {
-    return new EClass();
+    return boost::intrusive_ptr < EClass > (new EClass);
 }
 EClassifier_ptr EcoreFactory::createEClassifier()
 {
-    return new EClassifier();
+    return boost::intrusive_ptr < EClassifier > (new EClassifier);
 }
 EDataType_ptr EcoreFactory::createEDataType()
 {
-    return new EDataType();
+    return boost::intrusive_ptr < EDataType > (new EDataType);
 }
 EEnum_ptr EcoreFactory::createEEnum()
 {
-    return new EEnum();
+    return boost::intrusive_ptr < EEnum > (new EEnum);
 }
 EEnumLiteral_ptr EcoreFactory::createEEnumLiteral()
 {
-    return new EEnumLiteral();
+    return boost::intrusive_ptr < EEnumLiteral > (new EEnumLiteral);
 }
 EFactory_ptr EcoreFactory::createEFactory()
 {
-    return new EFactory();
+    return boost::intrusive_ptr < EFactory > (new EFactory);
 }
 EModelElement_ptr EcoreFactory::createEModelElement()
 {
-    return new EModelElement();
+    return boost::intrusive_ptr < EModelElement > (new EModelElement);
 }
 ENamedElement_ptr EcoreFactory::createENamedElement()
 {
-    return new ENamedElement();
+    return boost::intrusive_ptr < ENamedElement > (new ENamedElement);
 }
 EObject_ptr EcoreFactory::createEObject()
 {
-    return new EObject();
+    return boost::intrusive_ptr < EObject > (new EObject);
 }
 EOperation_ptr EcoreFactory::createEOperation()
 {
-    return new EOperation();
+    return boost::intrusive_ptr < EOperation > (new EOperation);
 }
 EPackage_ptr EcoreFactory::createEPackage()
 {
-    return new EPackage();
+    return boost::intrusive_ptr < EPackage > (new EPackage);
 }
 EParameter_ptr EcoreFactory::createEParameter()
 {
-    return new EParameter();
+    return boost::intrusive_ptr < EParameter > (new EParameter);
 }
 EReference_ptr EcoreFactory::createEReference()
 {
-    return new EReference();
+    return boost::intrusive_ptr < EReference > (new EReference);
 }
 EStructuralFeature_ptr EcoreFactory::createEStructuralFeature()
 {
-    return new EStructuralFeature();
+    return boost::intrusive_ptr < EStructuralFeature > (new EStructuralFeature);
 }
 ETypedElement_ptr EcoreFactory::createETypedElement()
 {
-    return new ETypedElement();
+    return boost::intrusive_ptr < ETypedElement > (new ETypedElement);
 }
 EStringToStringMapEntry_ptr EcoreFactory::createEStringToStringMapEntry()
 {
-    return new EStringToStringMapEntry();
+    return boost::intrusive_ptr < EStringToStringMapEntry
+            > (new EStringToStringMapEntry);
 }
 EGenericType_ptr EcoreFactory::createEGenericType()
 {
-    return new EGenericType();
+    return boost::intrusive_ptr < EGenericType > (new EGenericType);
 }
 ETypeParameter_ptr EcoreFactory::createETypeParameter()
 {
-    return new ETypeParameter();
+    return boost::intrusive_ptr < ETypeParameter > (new ETypeParameter);
 }
 

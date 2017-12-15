@@ -50,16 +50,16 @@ protected:
 typedef std::shared_ptr< EEListBase > EEListBase_ptr;
 
 template< typename T >
-class EEList: public EEListBase
+class EEListx: public EEListBase
 {
 public:
 
-    EEList(std::vector< T* >& t) :
+    EEListx(std::vector< T >& t) :
         m_vector(t)
     {
     }
 
-    virtual ~EEList()
+    virtual ~EEListx()
     {
     }
 
@@ -75,7 +75,7 @@ public:
 
 protected:
 
-    std::vector< T* >& m_vector;
+    std::vector< T >& m_vector;
 };
 
 } // mapping

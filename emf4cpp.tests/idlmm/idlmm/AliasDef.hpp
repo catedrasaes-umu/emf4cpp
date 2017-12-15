@@ -79,6 +79,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    AliasDef_ptr _this()
+    {   return AliasDef_ptr(this);}
+
     // Attributes
 
     // References

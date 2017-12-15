@@ -83,17 +83,20 @@ void BooleanOperation::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__LEFT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_left);
+        if (m_left)
+            _any = m_left->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__RIGHT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_right);
+        if (m_right)
+            _any = m_right->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__OPERATOR:
     {
-        _any = static_cast< ::ecore::EObject* >(m_operator);
+        if (m_operator)
+            _any = m_operator->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -135,7 +138,7 @@ void BooleanOperation::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::BinaryOperation::setLeft(_t1);
     }
         return;
@@ -144,7 +147,7 @@ void BooleanOperation::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::BinaryOperation::setRight(_t1);
     }
         return;
@@ -153,7 +156,7 @@ void BooleanOperation::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::BinaryOperation::setOperator(_t1);
     }
         return;
@@ -178,11 +181,11 @@ void BooleanOperation::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__LEFT:
-        return m_left;
+        return (bool) m_left;
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__RIGHT:
-        return m_right;
+        return (bool) m_right;
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__OPERATOR:
-        return m_operator;
+        return (bool) m_operator;
 
     }
     throw "Error";
@@ -200,7 +203,7 @@ void BooleanOperation::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr BooleanOperation::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getBooleanOperation();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getBooleanOperation();
     return _eclass;
 }
 

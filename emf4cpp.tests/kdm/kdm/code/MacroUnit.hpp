@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        MacroUnit_ptr _this()
+        {   return MacroUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::code::MacroKind m_kind;

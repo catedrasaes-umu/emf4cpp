@@ -41,10 +41,10 @@ EModelElement::EModelElement()
 {
 
     m_eAnnotations.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                    -1, true, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EAnnotation_ptr, -1, true, true >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEModelElement__eAnnotations() :
-                            nullptr,
+                            ::ecore::EReference_ptr(),
                     ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT));
 
     /*PROTECTED REGION ID(EModelElementImpl__EModelElementImpl) START*/
@@ -65,12 +65,12 @@ EModelElement::~EModelElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& EModelElement::getEAnnotations() const
+const ::ecorecpp::mapping::EList< ::ecore::EAnnotation_ptr >& EModelElement::getEAnnotations() const
 {
     return *m_eAnnotations;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EAnnotation >& EModelElement::getEAnnotations()
+::ecorecpp::mapping::EList< ::ecore::EAnnotation_ptr >& EModelElement::getEAnnotations()
 {
     return *m_eAnnotations;
 }

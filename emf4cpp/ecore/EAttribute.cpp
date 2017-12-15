@@ -78,8 +78,8 @@ void EAttribute::setID(::ecore::EBoolean _iD)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEAttribute__iD(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEAttribute__iD(),
                 _old_iD,
                 m_iD
         );
@@ -106,8 +106,8 @@ void EAttribute::setEAttributeType(::ecore::EDataType_ptr _eAttributeType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEAttribute__eAttributeType(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEAttribute__eAttributeType(),
                 _old_eAttributeType,
                 m_eAttributeType
         );

@@ -96,46 +96,48 @@ StatementFactory::StatementFactory()
 
 AbstractStatement_ptr StatementFactory::createAbstractStatement()
 {
-    return new AbstractStatement();
+    return boost::intrusive_ptr < AbstractStatement > (new AbstractStatement);
 }
 ExpandStatement_ptr StatementFactory::createExpandStatement()
 {
-    return new ExpandStatement();
+    return boost::intrusive_ptr < ExpandStatement > (new ExpandStatement);
 }
 ExpressionStatement_ptr StatementFactory::createExpressionStatement()
 {
-    return new ExpressionStatement();
+    return boost::intrusive_ptr < ExpressionStatement
+            > (new ExpressionStatement);
 }
 ErrorStatement_ptr StatementFactory::createErrorStatement()
 {
-    return new ErrorStatement();
+    return boost::intrusive_ptr < ErrorStatement > (new ErrorStatement);
 }
 AbstractStatementWithBody_ptr StatementFactory::createAbstractStatementWithBody()
 {
-    return new AbstractStatementWithBody();
+    return boost::intrusive_ptr < AbstractStatementWithBody
+            > (new AbstractStatementWithBody);
 }
 FileStatement_ptr StatementFactory::createFileStatement()
 {
-    return new FileStatement();
+    return boost::intrusive_ptr < FileStatement > (new FileStatement);
 }
 ForEachStatement_ptr StatementFactory::createForEachStatement()
 {
-    return new ForEachStatement();
+    return boost::intrusive_ptr < ForEachStatement > (new ForEachStatement);
 }
 IfStatement_ptr StatementFactory::createIfStatement()
 {
-    return new IfStatement();
+    return boost::intrusive_ptr < IfStatement > (new IfStatement);
 }
 LetStatement_ptr StatementFactory::createLetStatement()
 {
-    return new LetStatement();
+    return boost::intrusive_ptr < LetStatement > (new LetStatement);
 }
 ProtectStatement_ptr StatementFactory::createProtectStatement()
 {
-    return new ProtectStatement();
+    return boost::intrusive_ptr < ProtectStatement > (new ProtectStatement);
 }
 TextStatement_ptr StatementFactory::createTextStatement()
 {
-    return new TextStatement();
+    return boost::intrusive_ptr < TextStatement > (new TextStatement);
 }
 

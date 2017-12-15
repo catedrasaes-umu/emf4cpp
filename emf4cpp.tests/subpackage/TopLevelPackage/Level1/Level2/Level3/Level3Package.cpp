@@ -22,9 +22,7 @@
 
 using namespace ::TopLevelPackage::Level1::Level2::Level3;
 
-std::unique_ptr< ::TopLevelPackage::Level1::Level2::Level3::Level3Package,
-        ::ecorecpp::PackageDeleter<
-                ::TopLevelPackage::Level1::Level2::Level3::Level3Package > > Level3Package::s_instance;
+boost::intrusive_ptr< ::TopLevelPackage::Level1::Level2::Level3::Level3Package > Level3Package::s_instance;
 
 ::TopLevelPackage::Level1::Level2::Level3::Level3Package_ptr Level3Package::_instance()
 {
@@ -32,17 +30,19 @@ std::unique_ptr< ::TopLevelPackage::Level1::Level2::Level3::Level3Package,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< Level3Package >();
         duringConstruction = true;
-        new Level3Package();
+        s_instance = boost::intrusive_ptr < Level3Package
+                > (new Level3Package());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::TopLevelPackage::Level1::Level2::Level3::Level3Package_ptr Level3Package::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UIFlow_ptr _this()
+        {   return UIFlow_ptr(this);}
+
         // Attributes
 
         // References

@@ -40,7 +40,6 @@ namespace idlmm
 {
 
 class EXPORT_IDLMM_DLL TranslationUnit : public virtual ::ecore::EObject
-
 {
 public:
     TranslationUnit();
@@ -56,11 +55,11 @@ public:
     virtual void setIdentifier (::ecore::EString const& _identifier);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& getContains () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& getContains ();
 
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::Include >& getIncludes ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Include_ptr >& getIncludes () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Include_ptr >& getIncludes ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -86,15 +85,18 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    TranslationUnit_ptr _this()
+    {   return TranslationUnit_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_identifier;
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Contained >> m_contains;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >> m_contains;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Include >> m_includes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Include_ptr >> m_includes;
 
 };
 

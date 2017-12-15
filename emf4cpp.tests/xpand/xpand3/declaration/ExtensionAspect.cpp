@@ -59,7 +59,7 @@ ExtensionAspect::~ExtensionAspect()
 {
     if (m_expression)
     {
-        delete m_expression;
+        m_expression.reset();
     }
 }
 
@@ -84,8 +84,8 @@ void ExtensionAspect::setExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression(),
                 _old_expression,
                 m_expression
         );
@@ -93,8 +93,10 @@ void ExtensionAspect::setExpression(
     }
 #endif
 
-    delete _old_expression;
-    m_expression->_setEContainer(this,
+    if (_old_expression)
+        _old_expression->_setEContainer(ExtensionAspect_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression());
+    m_expression->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression());
 }
 

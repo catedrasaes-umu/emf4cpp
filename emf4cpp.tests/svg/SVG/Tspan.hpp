@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Tspan_ptr _this()
+    {   return Tspan_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_content;

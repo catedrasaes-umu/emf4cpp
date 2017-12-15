@@ -80,8 +80,8 @@ void Tspan::setContent(::PrimitiveTypes::String _content)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTspan__content(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTspan__content(),
                 _old_content,
                 m_content
         );

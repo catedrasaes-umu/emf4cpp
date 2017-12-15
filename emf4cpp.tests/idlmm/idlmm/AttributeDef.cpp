@@ -46,12 +46,12 @@ AttributeDef::AttributeDef()
 {
 
     m_getRaises.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::ExceptionDef_ptr, -1, false, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getAttributeDef__getRaises()));
     m_setRaises.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::ExceptionDef_ptr, -1, false, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getAttributeDef__setRaises()));
 
     /*PROTECTED REGION ID(AttributeDefImpl__AttributeDefImpl) START*/
@@ -86,8 +86,8 @@ void AttributeDef::setIsReadonly(::ecore::EBoolean _isReadonly)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getAttributeDef__isReadonly(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getAttributeDef__isReadonly(),
                 _old_isReadonly,
                 m_isReadonly
         );
@@ -98,22 +98,22 @@ void AttributeDef::setIsReadonly(::ecore::EBoolean _isReadonly)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getGetRaises() const
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getGetRaises() const
 {
     return *m_getRaises;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getGetRaises()
+::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getGetRaises()
 {
     return *m_getRaises;
 }
 
-const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getSetRaises() const
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getSetRaises() const
 {
     return *m_setRaises;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getSetRaises()
+::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getSetRaises()
 {
     return *m_setRaises;
 }

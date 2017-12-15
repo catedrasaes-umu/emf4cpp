@@ -73,8 +73,8 @@ void TreeNode::setData(::ecore::EString const& _data)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::tree::TreePackage::_instance()->getTreeNode__data(),
+                _this(),
+                ::tree::TreePackage::_instance()->getTreeNode__data(),
                 _old_data,
                 m_data
         );
@@ -101,8 +101,8 @@ void TreeNode::setParent(::tree::TreeNode_ptr _parent)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::tree::TreePackage::_instance()->getTreeNode__parent(),
+                _this(),
+                ::tree::TreePackage::_instance()->getTreeNode__parent(),
                 _old_parent,
                 m_parent
         );

@@ -46,7 +46,7 @@ namespace company
 
     protected:
 
-        static std::unique_ptr< CompanyFactory > s_instance;
+        static boost::intrusive_ptr< CompanyFactory > s_holder;
 
         CompanyFactory();
 
@@ -58,33 +58,36 @@ namespace company
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline Employee_ptr create< Employee >()
     {
         auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
         return packageFactory->createEmployee();
     }
+
     template< > inline Department_ptr create< Department >()
     {
         auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
         return packageFactory->createDepartment();
     }
+
     template< > inline Company_ptr create< Company >()
     {
         auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
         return packageFactory->createCompany();
     }
+
     template< > inline PhonebookEntry_ptr create< PhonebookEntry >()
     {
         auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
         return packageFactory->createPhonebookEntry();
     }
 

@@ -58,11 +58,11 @@ LetStatement::~LetStatement()
 {
     if (m_varName)
     {
-        delete m_varName;
+        m_varName.reset();
     }
     if (m_varValue)
     {
-        delete m_varValue;
+        m_varValue.reset();
     }
 }
 
@@ -86,8 +86,8 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName(),
                 _old_varName,
                 m_varName
         );
@@ -95,8 +95,10 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
     }
 #endif
 
-    delete _old_varName;
-    m_varName->_setEContainer(this,
+    if (_old_varName)
+        _old_varName->_setEContainer(LetStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
+    m_varName->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
 }
 
@@ -117,8 +119,8 @@ void LetStatement::setVarValue(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue(),
                 _old_varValue,
                 m_varValue
         );
@@ -126,8 +128,10 @@ void LetStatement::setVarValue(
     }
 #endif
 
-    delete _old_varValue;
-    m_varValue->_setEContainer(this,
+    if (_old_varValue)
+        _old_varValue->_setEContainer(LetStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
+    m_varValue->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
 }
 

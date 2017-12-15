@@ -81,8 +81,8 @@ void DependsOn::setTo(::kdm::source::AbstractInventoryElement_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getDependsOn__to(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getDependsOn__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void DependsOn::setFrom(::kdm::source::AbstractInventoryElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getDependsOn__from(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getDependsOn__from(),
                 _old_from,
                 m_from
         );

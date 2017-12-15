@@ -71,12 +71,13 @@ void Entity::_initialize()
         return _any;
     case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
     {
-        _any = static_cast< ::ecore::EObject* >(m_extends);
+        if (m_extends)
+            _any = m_extends->as< ::ecore::EObject >();
     }
         return _any;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
     {
-        _any = m_properties->asEListOf< ::ecore::EObject >();
+        _any = m_properties->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -99,15 +100,15 @@ void Entity::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::myDsl::Entity_ptr _t1 = dynamic_cast< ::myDsl::Entity_ptr >(_t0);
+        ::myDsl::Entity_ptr _t1 = dynamic_cast< ::myDsl::Entity* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::myDsl::Entity >(_t0);*/
         ::myDsl::Entity::setExtends(_t1);
     }
         return;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::myDsl::Entity::getProperties().clear();
         ::myDsl::Entity::getProperties().insert_all(*_t0);
     }
@@ -125,7 +126,7 @@ void Entity::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
     case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
-        return m_extends;
+        return (bool) m_extends;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
         return m_properties && m_properties->size();
 
@@ -145,7 +146,7 @@ void Entity::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Entity::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getEntity();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getEntity();
     return _eclass;
 }
 

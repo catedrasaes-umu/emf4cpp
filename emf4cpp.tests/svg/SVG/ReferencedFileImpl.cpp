@@ -58,7 +58,7 @@ void ReferencedFile::_initialize()
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        _any = m_referer->asEListOf< ::ecore::EObject >();
+        _any = m_referer->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
@@ -79,9 +79,9 @@ void ReferencedFile::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::SVG::ReferencedFile::getReferer().clear();
         ::SVG::ReferencedFile::getReferer().insert_all(*_t0);
     }
@@ -123,7 +123,7 @@ void ReferencedFile::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ReferencedFile::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getReferencedFile();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getReferencedFile();
     return _eclass;
 }
 
@@ -138,11 +138,11 @@ void ReferencedFile::_inverseAdd(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image_ptr >(_t0);
+        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image, -1,
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image_ptr, -1,
                         false, true >&) ::SVG::ReferencedFile::getReferer();
         container.basicAdd(_t1);
     }
@@ -163,11 +163,11 @@ void ReferencedFile::_inverseRemove(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
-        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image_ptr >(_t0);
+        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image, -1,
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image_ptr, -1,
                         false, true >&) ::SVG::ReferencedFile::getReferer();
         container.basicRemove(_t1);
     }

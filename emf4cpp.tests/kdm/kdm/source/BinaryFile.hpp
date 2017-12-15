@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BinaryFile_ptr _this()
+        {   return BinaryFile_ptr(this);}
+
         // Attributes
 
         // References

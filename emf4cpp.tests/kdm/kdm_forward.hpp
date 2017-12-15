@@ -56,14 +56,14 @@ namespace kdm
 
 // Package & Factory
     class KdmFactory;
-    typedef KdmFactory * KdmFactory_ptr;
+    using KdmFactory_ptr = boost::intrusive_ptr<KdmFactory>;
     class KdmPackage;
-    typedef KdmPackage * KdmPackage_ptr;
+    using KdmPackage_ptr = boost::intrusive_ptr<KdmPackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // kdm

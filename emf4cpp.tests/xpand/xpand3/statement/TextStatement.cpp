@@ -72,8 +72,8 @@ void TextStatement::setValue(::ecore::EString const& _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getTextStatement__value(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getTextStatement__value(),
                 _old_value,
                 m_value
         );
@@ -98,8 +98,8 @@ void TextStatement::setDeleteLine(::ecore::EBoolean _deleteLine)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getTextStatement__deleteLine(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getTextStatement__deleteLine(),
                 _old_deleteLine,
                 m_deleteLine
         );

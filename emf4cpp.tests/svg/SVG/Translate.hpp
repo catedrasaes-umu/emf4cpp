@@ -83,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Translate_ptr _this()
+    {   return Translate_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_tx;

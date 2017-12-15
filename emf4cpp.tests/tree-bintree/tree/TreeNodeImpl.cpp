@@ -64,7 +64,8 @@ void TreeNode::_initialize()
         return _any;
     case ::tree::TreePackage::TREENODE__PARENT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_parent);
+        if (m_parent)
+            _any = m_parent->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -87,7 +88,7 @@ void TreeNode::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::tree::TreeNode_ptr _t1 = dynamic_cast< ::tree::TreeNode_ptr >(_t0);
+        ::tree::TreeNode_ptr _t1 = dynamic_cast< ::tree::TreeNode* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::tree::TreeNode >(_t0);*/
         ::tree::TreeNode::setParent(_t1);
     }
         return;
@@ -104,7 +105,7 @@ void TreeNode::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_data);
     case ::tree::TreePackage::TREENODE__PARENT:
-        return m_parent;
+        return (bool) m_parent;
 
     }
     throw "Error";
@@ -122,7 +123,7 @@ void TreeNode::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr TreeNode::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::tree::TreePackage_ptr >(::tree::TreePackage::_instance())->getTreeNode();
+            dynamic_cast< ::tree::TreePackage* >(::tree::TreePackage::_instance().get())->getTreeNode();
     return _eclass;
 }
 

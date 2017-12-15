@@ -197,182 +197,186 @@ DataFactory::DataFactory()
 
 DataModel_ptr DataFactory::createDataModel()
 {
-    return new DataModel();
+    return boost::intrusive_ptr < DataModel > (new DataModel);
 }
 AbstractDataElement_ptr DataFactory::createAbstractDataElement()
 {
-    return new AbstractDataElement();
+    return boost::intrusive_ptr < AbstractDataElement
+            > (new AbstractDataElement);
 }
 DataResource_ptr DataFactory::createDataResource()
 {
-    return new DataResource();
+    return boost::intrusive_ptr < DataResource > (new DataResource);
 }
 IndexElement_ptr DataFactory::createIndexElement()
 {
-    return new IndexElement();
+    return boost::intrusive_ptr < IndexElement > (new IndexElement);
 }
 UniqueKey_ptr DataFactory::createUniqueKey()
 {
-    return new UniqueKey();
+    return boost::intrusive_ptr < UniqueKey > (new UniqueKey);
 }
 Index_ptr DataFactory::createIndex()
 {
-    return new Index();
+    return boost::intrusive_ptr < Index > (new Index);
 }
 AbstractDataRelationship_ptr DataFactory::createAbstractDataRelationship()
 {
-    return new AbstractDataRelationship();
+    return boost::intrusive_ptr < AbstractDataRelationship
+            > (new AbstractDataRelationship);
 }
 KeyRelation_ptr DataFactory::createKeyRelation()
 {
-    return new KeyRelation();
+    return boost::intrusive_ptr < KeyRelation > (new KeyRelation);
 }
 ReferenceKey_ptr DataFactory::createReferenceKey()
 {
-    return new ReferenceKey();
+    return boost::intrusive_ptr < ReferenceKey > (new ReferenceKey);
 }
 DataContainer_ptr DataFactory::createDataContainer()
 {
-    return new DataContainer();
+    return boost::intrusive_ptr < DataContainer > (new DataContainer);
 }
 Catalog_ptr DataFactory::createCatalog()
 {
-    return new Catalog();
+    return boost::intrusive_ptr < Catalog > (new Catalog);
 }
 RelationalSchema_ptr DataFactory::createRelationalSchema()
 {
-    return new RelationalSchema();
+    return boost::intrusive_ptr < RelationalSchema > (new RelationalSchema);
 }
 ColumnSet_ptr DataFactory::createColumnSet()
 {
-    return new ColumnSet();
+    return boost::intrusive_ptr < ColumnSet > (new ColumnSet);
 }
 RelationalTable_ptr DataFactory::createRelationalTable()
 {
-    return new RelationalTable();
+    return boost::intrusive_ptr < RelationalTable > (new RelationalTable);
 }
 RelationalView_ptr DataFactory::createRelationalView()
 {
-    return new RelationalView();
+    return boost::intrusive_ptr < RelationalView > (new RelationalView);
 }
 RecordFile_ptr DataFactory::createRecordFile()
 {
-    return new RecordFile();
+    return boost::intrusive_ptr < RecordFile > (new RecordFile);
 }
 DataEvent_ptr DataFactory::createDataEvent()
 {
-    return new DataEvent();
+    return boost::intrusive_ptr < DataEvent > (new DataEvent);
 }
 XMLSchema_ptr DataFactory::createXMLSchema()
 {
-    return new XMLSchema();
+    return boost::intrusive_ptr < XMLSchema > (new XMLSchema);
 }
 AbstractContentElement_ptr DataFactory::createAbstractContentElement()
 {
-    return new AbstractContentElement();
+    return boost::intrusive_ptr < AbstractContentElement
+            > (new AbstractContentElement);
 }
 ComplexContentType_ptr DataFactory::createComplexContentType()
 {
-    return new ComplexContentType();
+    return boost::intrusive_ptr < ComplexContentType > (new ComplexContentType);
 }
 AllContent_ptr DataFactory::createAllContent()
 {
-    return new AllContent();
+    return boost::intrusive_ptr < AllContent > (new AllContent);
 }
 SeqContent_ptr DataFactory::createSeqContent()
 {
-    return new SeqContent();
+    return boost::intrusive_ptr < SeqContent > (new SeqContent);
 }
 ChoiceContent_ptr DataFactory::createChoiceContent()
 {
-    return new ChoiceContent();
+    return boost::intrusive_ptr < ChoiceContent > (new ChoiceContent);
 }
 ContentItem_ptr DataFactory::createContentItem()
 {
-    return new ContentItem();
+    return boost::intrusive_ptr < ContentItem > (new ContentItem);
 }
 GroupContent_ptr DataFactory::createGroupContent()
 {
-    return new GroupContent();
+    return boost::intrusive_ptr < GroupContent > (new GroupContent);
 }
 ContentRestriction_ptr DataFactory::createContentRestriction()
 {
-    return new ContentRestriction();
+    return boost::intrusive_ptr < ContentRestriction > (new ContentRestriction);
 }
 SimpleContentType_ptr DataFactory::createSimpleContentType()
 {
-    return new SimpleContentType();
+    return boost::intrusive_ptr < SimpleContentType > (new SimpleContentType);
 }
 ExtendedDataElement_ptr DataFactory::createExtendedDataElement()
 {
-    return new ExtendedDataElement();
+    return boost::intrusive_ptr < ExtendedDataElement
+            > (new ExtendedDataElement);
 }
 DataRelationship_ptr DataFactory::createDataRelationship()
 {
-    return new DataRelationship();
+    return boost::intrusive_ptr < DataRelationship > (new DataRelationship);
 }
 MixedContent_ptr DataFactory::createMixedContent()
 {
-    return new MixedContent();
+    return boost::intrusive_ptr < MixedContent > (new MixedContent);
 }
 ContentReference_ptr DataFactory::createContentReference()
 {
-    return new ContentReference();
+    return boost::intrusive_ptr < ContentReference > (new ContentReference);
 }
 DataAction_ptr DataFactory::createDataAction()
 {
-    return new DataAction();
+    return boost::intrusive_ptr < DataAction > (new DataAction);
 }
 ReadsColumnSet_ptr DataFactory::createReadsColumnSet()
 {
-    return new ReadsColumnSet();
+    return boost::intrusive_ptr < ReadsColumnSet > (new ReadsColumnSet);
 }
 ContentAttribute_ptr DataFactory::createContentAttribute()
 {
-    return new ContentAttribute();
+    return boost::intrusive_ptr < ContentAttribute > (new ContentAttribute);
 }
 TypedBy_ptr DataFactory::createTypedBy()
 {
-    return new TypedBy();
+    return boost::intrusive_ptr < TypedBy > (new TypedBy);
 }
 ReferenceTo_ptr DataFactory::createReferenceTo()
 {
-    return new ReferenceTo();
+    return boost::intrusive_ptr < ReferenceTo > (new ReferenceTo);
 }
 RestrictionOf_ptr DataFactory::createRestrictionOf()
 {
-    return new RestrictionOf();
+    return boost::intrusive_ptr < RestrictionOf > (new RestrictionOf);
 }
 ExtensionTo_ptr DataFactory::createExtensionTo()
 {
-    return new ExtensionTo();
+    return boost::intrusive_ptr < ExtensionTo > (new ExtensionTo);
 }
 DatatypeOf_ptr DataFactory::createDatatypeOf()
 {
-    return new DatatypeOf();
+    return boost::intrusive_ptr < DatatypeOf > (new DatatypeOf);
 }
 HasContent_ptr DataFactory::createHasContent()
 {
-    return new HasContent();
+    return boost::intrusive_ptr < HasContent > (new HasContent);
 }
 WritesColumnSet_ptr DataFactory::createWritesColumnSet()
 {
-    return new WritesColumnSet();
+    return boost::intrusive_ptr < WritesColumnSet > (new WritesColumnSet);
 }
 ProducesDataEvent_ptr DataFactory::createProducesDataEvent()
 {
-    return new ProducesDataEvent();
+    return boost::intrusive_ptr < ProducesDataEvent > (new ProducesDataEvent);
 }
 DataSegment_ptr DataFactory::createDataSegment()
 {
-    return new DataSegment();
+    return boost::intrusive_ptr < DataSegment > (new DataSegment);
 }
 ContentElement_ptr DataFactory::createContentElement()
 {
-    return new ContentElement();
+    return boost::intrusive_ptr < ContentElement > (new ContentElement);
 }
 ManagesData_ptr DataFactory::createManagesData()
 {
-    return new ManagesData();
+    return boost::intrusive_ptr < ManagesData > (new ManagesData);
 }
 

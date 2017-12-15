@@ -89,6 +89,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        LetExpression_ptr _this()
+        {   return LetExpression_ptr(this);}
+
         // Attributes
 
         // References

@@ -36,6 +36,8 @@
 /*PROTECTED REGION ID(EPackage.cpp) ENABLED START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
+using namespace ::ecore;
+
 const std::shared_ptr< ::ecorecpp::ItemProvider >& EPackage::getItemProviderInstance() const
 {
     return m_itemProviderInstance;
@@ -57,16 +59,16 @@ EPackage::EPackage() :
 {
 
     m_eClassifiers.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClassifier,
-                    -1, true, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EClassifier_ptr, -1, true, true >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEPackage__eClassifiers() :
-                            nullptr,
+                            ::ecore::EReference_ptr(),
                     ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE));
     m_eSubpackages.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EPackage, -1,
-                    true, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EPackage_ptr,
+                    -1, true, true >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEPackage__eSubpackages() :
-                            nullptr,
+                            ::ecore::EReference_ptr(),
                     ::ecore::EcorePackage::EPACKAGE__ESUPERPACKAGE));
 
     /*PROTECTED REGION ID(EPackageImpl__EPackageImpl) START*/
@@ -101,8 +103,8 @@ void EPackage::setNsURI(::ecore::EString const& _nsURI)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEPackage__nsURI(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEPackage__nsURI(),
                 _old_nsURI,
                 m_nsURI
         );
@@ -127,8 +129,8 @@ void EPackage::setNsPrefix(::ecore::EString const& _nsPrefix)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEPackage__nsPrefix(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEPackage__nsPrefix(),
                 _old_nsPrefix,
                 m_nsPrefix
         );
@@ -160,8 +162,8 @@ void EPackage::basicsetEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEPackage__eFactoryInstance(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEPackage__eFactoryInstance(),
                 _old_eFactoryInstance,
                 m_eFactoryInstance
         );
@@ -175,7 +177,7 @@ void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
 {
     if (_eFactoryInstance != m_eFactoryInstance)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_eFactoryInstance != nullptr)
         {
             m_eFactoryInstance->_inverseRemove(
@@ -190,22 +192,22 @@ void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
     }
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& EPackage::getEClassifiers() const
+const ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& EPackage::getEClassifiers() const
 {
     return *m_eClassifiers;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EClassifier >& EPackage::getEClassifiers()
+::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& EPackage::getEClassifiers()
 {
     return *m_eClassifiers;
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EPackage >& EPackage::getESubpackages() const
+const ::ecorecpp::mapping::EList< ::ecore::EPackage_ptr >& EPackage::getESubpackages() const
 {
     return *m_eSubpackages;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EPackage >& EPackage::getESubpackages()
+::ecorecpp::mapping::EList< ::ecore::EPackage_ptr >& EPackage::getESubpackages()
 {
     return *m_eSubpackages;
 }
@@ -231,8 +233,8 @@ void EPackage::basicsetESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEPackage__eSuperPackage(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEPackage__eSuperPackage(),
                 _old_eSuperPackage,
                 m_eSuperPackage
         );
@@ -246,7 +248,7 @@ void EPackage::setESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
 {
     if (_eSuperPackage != m_eSuperPackage)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_eSuperPackage != nullptr)
         {
             m_eSuperPackage->_inverseRemove(

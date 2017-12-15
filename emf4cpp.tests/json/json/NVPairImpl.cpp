@@ -68,7 +68,8 @@ void NVPair::_initialize()
         return _any;
     case ::json::JsonPackage::NVPAIR__VALUE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_value);
+        if (m_value)
+            _any = m_value->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -91,7 +92,7 @@ void NVPair::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::json::Value_ptr _t1 = dynamic_cast< ::json::Value_ptr >(_t0);
+        ::json::Value_ptr _t1 = dynamic_cast< ::json::Value* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::json::Value >(_t0);*/
         ::json::NVPair::setValue(_t1);
     }
         return;
@@ -108,7 +109,7 @@ void NVPair::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
     case ::json::JsonPackage::NVPAIR__VALUE:
-        return m_value;
+        return (bool) m_value;
 
     }
     throw "Error";
@@ -126,7 +127,7 @@ void NVPair::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr NVPair::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getNVPair();
+            dynamic_cast< ::json::JsonPackage* >(::json::JsonPackage::_instance().get())->getNVPair();
     return _eclass;
 }
 

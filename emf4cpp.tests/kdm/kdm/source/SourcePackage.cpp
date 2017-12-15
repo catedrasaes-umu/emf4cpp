@@ -22,8 +22,7 @@
 
 using namespace ::kdm::source;
 
-std::unique_ptr< ::kdm::source::SourcePackage,
-        ::ecorecpp::PackageDeleter< ::kdm::source::SourcePackage > > SourcePackage::s_instance;
+boost::intrusive_ptr< ::kdm::source::SourcePackage > SourcePackage::s_instance;
 
 ::kdm::source::SourcePackage_ptr SourcePackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::kdm::source::SourcePackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< SourcePackage >();
         duringConstruction = true;
-        new SourcePackage();
+        s_instance = boost::intrusive_ptr < SourcePackage
+                > (new SourcePackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::kdm::source::SourcePackage_ptr SourcePackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

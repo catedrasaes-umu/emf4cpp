@@ -45,7 +45,7 @@ Stereotype::Stereotype()
 
     m_tag.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::TagDefinition, -1, true, false >(this,
+                    ::kdm::kdm::TagDefinition_ptr, -1, true, false >(this,
                     ::kdm::kdm::KdmPackage::_instance()->getStereotype__tag()));
 
     /*PROTECTED REGION ID(StereotypeImpl__StereotypeImpl) START*/
@@ -80,8 +80,8 @@ void Stereotype::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getStereotype__name(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getStereotype__name(),
                 _old_name,
                 m_name
         );
@@ -106,8 +106,8 @@ void Stereotype::setType(::kdm::core::String _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getStereotype__type(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getStereotype__type(),
                 _old_type,
                 m_type
         );
@@ -118,12 +118,12 @@ void Stereotype::setType(::kdm::core::String _type)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& Stereotype::getTag() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition_ptr >& Stereotype::getTag() const
 {
     return *m_tag;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& Stereotype::getTag()
+::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition_ptr >& Stereotype::getTag()
 {
     return *m_tag;
 }

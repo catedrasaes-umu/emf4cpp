@@ -176,154 +176,154 @@ SVGFactory::SVGFactory()
 
 Element_ptr SVGFactory::createElement()
 {
-    return new Element();
+    return boost::intrusive_ptr < Element > (new Element);
 }
 StructuralElement_ptr SVGFactory::createStructuralElement()
 {
-    return new StructuralElement();
+    return boost::intrusive_ptr < StructuralElement > (new StructuralElement);
 }
 Image_ptr SVGFactory::createImage()
 {
-    return new Image();
+    return boost::intrusive_ptr < Image > (new Image);
 }
 Svg_ptr SVGFactory::createSvg()
 {
-    return new Svg();
+    return boost::intrusive_ptr < Svg > (new Svg);
 }
 GroupingElement_ptr SVGFactory::createGroupingElement()
 {
-    return new GroupingElement();
+    return boost::intrusive_ptr < GroupingElement > (new GroupingElement);
 }
 G_ptr SVGFactory::createG()
 {
-    return new G();
+    return boost::intrusive_ptr < G > (new G);
 }
 Defs_ptr SVGFactory::createDefs()
 {
-    return new Defs();
+    return boost::intrusive_ptr < Defs > (new Defs);
 }
 Symbol_ptr SVGFactory::createSymbol()
 {
-    return new Symbol();
+    return boost::intrusive_ptr < Symbol > (new Symbol);
 }
 Use_ptr SVGFactory::createUse()
 {
-    return new Use();
+    return boost::intrusive_ptr < Use > (new Use);
 }
 GraphicalElement_ptr SVGFactory::createGraphicalElement()
 {
-    return new GraphicalElement();
+    return boost::intrusive_ptr < GraphicalElement > (new GraphicalElement);
 }
 Shape_ptr SVGFactory::createShape()
 {
-    return new Shape();
+    return boost::intrusive_ptr < Shape > (new Shape);
 }
 TextElement_ptr SVGFactory::createTextElement()
 {
-    return new TextElement();
+    return boost::intrusive_ptr < TextElement > (new TextElement);
 }
 Rect_ptr SVGFactory::createRect()
 {
-    return new Rect();
+    return boost::intrusive_ptr < Rect > (new Rect);
 }
 Circle_ptr SVGFactory::createCircle()
 {
-    return new Circle();
+    return boost::intrusive_ptr < Circle > (new Circle);
 }
 Ellipse_ptr SVGFactory::createEllipse()
 {
-    return new Ellipse();
+    return boost::intrusive_ptr < Ellipse > (new Ellipse);
 }
 Line_ptr SVGFactory::createLine()
 {
-    return new Line();
+    return boost::intrusive_ptr < Line > (new Line);
 }
 Polyline_ptr SVGFactory::createPolyline()
 {
-    return new Polyline();
+    return boost::intrusive_ptr < Polyline > (new Polyline);
 }
 Polygon_ptr SVGFactory::createPolygon()
 {
-    return new Polygon();
+    return boost::intrusive_ptr < Polygon > (new Polygon);
 }
 Path_ptr SVGFactory::createPath()
 {
-    return new Path();
+    return boost::intrusive_ptr < Path > (new Path);
 }
 Point_ptr SVGFactory::createPoint()
 {
-    return new Point();
+    return boost::intrusive_ptr < Point > (new Point);
 }
 Marker_ptr SVGFactory::createMarker()
 {
-    return new Marker();
+    return boost::intrusive_ptr < Marker > (new Marker);
 }
 Text_ptr SVGFactory::createText()
 {
-    return new Text();
+    return boost::intrusive_ptr < Text > (new Text);
 }
 Tspan_ptr SVGFactory::createTspan()
 {
-    return new Tspan();
+    return boost::intrusive_ptr < Tspan > (new Tspan);
 }
 Tref_ptr SVGFactory::createTref()
 {
-    return new Tref();
+    return boost::intrusive_ptr < Tref > (new Tref);
 }
 Attribute_ptr SVGFactory::createAttribute()
 {
-    return new Attribute();
+    return boost::intrusive_ptr < Attribute > (new Attribute);
 }
 Transform_ptr SVGFactory::createTransform()
 {
-    return new Transform();
+    return boost::intrusive_ptr < Transform > (new Transform);
 }
 Scale_ptr SVGFactory::createScale()
 {
-    return new Scale();
+    return boost::intrusive_ptr < Scale > (new Scale);
 }
 Translate_ptr SVGFactory::createTranslate()
 {
-    return new Translate();
+    return boost::intrusive_ptr < Translate > (new Translate);
 }
 Rotate_ptr SVGFactory::createRotate()
 {
-    return new Rotate();
+    return boost::intrusive_ptr < Rotate > (new Rotate);
 }
 Visibility_ptr SVGFactory::createVisibility()
 {
-    return new Visibility();
+    return boost::intrusive_ptr < Visibility > (new Visibility);
 }
 FontWeight_ptr SVGFactory::createFontWeight()
 {
-    return new FontWeight();
+    return boost::intrusive_ptr < FontWeight > (new FontWeight);
 }
 FontStyle_ptr SVGFactory::createFontStyle()
 {
-    return new FontStyle();
+    return boost::intrusive_ptr < FontStyle > (new FontStyle);
 }
 Dimension_ptr SVGFactory::createDimension()
 {
-    return new Dimension();
+    return boost::intrusive_ptr < Dimension > (new Dimension);
 }
 Coordinates_ptr SVGFactory::createCoordinates()
 {
-    return new Coordinates();
+    return boost::intrusive_ptr < Coordinates > (new Coordinates);
 }
 RelativeCoord_ptr SVGFactory::createRelativeCoord()
 {
-    return new RelativeCoord();
+    return boost::intrusive_ptr < RelativeCoord > (new RelativeCoord);
 }
 AbsoluteCoord_ptr SVGFactory::createAbsoluteCoord()
 {
-    return new AbsoluteCoord();
+    return boost::intrusive_ptr < AbsoluteCoord > (new AbsoluteCoord);
 }
 ReferencedFile_ptr SVGFactory::createReferencedFile()
 {
-    return new ReferencedFile();
+    return boost::intrusive_ptr < ReferencedFile > (new ReferencedFile);
 }
 SvgFile_ptr SVGFactory::createSvgFile()
 {
-    return new SvgFile();
+    return boost::intrusive_ptr < SvgFile > (new SvgFile);
 }
 

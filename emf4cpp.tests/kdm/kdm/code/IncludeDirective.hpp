@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        IncludeDirective_ptr _this()
+        {   return IncludeDirective_ptr(this);}
+
         // Attributes
 
         // References

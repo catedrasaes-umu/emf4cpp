@@ -66,7 +66,7 @@ void Tree::_initialize()
         return _any;
     case ::CST::CSTPackage::NODE__CHILDREN:
     {
-        _any = m_children->asEListOf< ::ecore::EObject >();
+        _any = m_children->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -86,9 +86,9 @@ void Tree::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::CST::CSTPackage::NODE__CHILDREN:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::CST::Node::getChildren().clear();
         ::CST::Node::getChildren().insert_all(*_t0);
     }
@@ -124,7 +124,7 @@ void Tree::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Tree::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getTree();
+            dynamic_cast< ::CST::CSTPackage* >(::CST::CSTPackage::_instance().get())->getTree();
     return _eclass;
 }
 

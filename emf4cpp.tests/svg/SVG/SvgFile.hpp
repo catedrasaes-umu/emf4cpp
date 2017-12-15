@@ -58,8 +58,8 @@ public:
     virtual ::SVG::Svg_ptr basicgetTag ();
     virtual void basicsetTag (::SVG::Svg_ptr _tag);
 
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getElements () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getElements ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getElements () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getElements ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -85,13 +85,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    SvgFile_ptr _this()
+    {   return SvgFile_ptr(this);}
+
     // Attributes
 
     // References
 
     ::SVG::Svg_ptr m_tag;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_elements;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element_ptr >> m_elements;
 
 };
 

@@ -22,12 +22,14 @@
 
 using namespace ::kdm::platform;
 
-std::unique_ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_instance;
+boost::intrusive_ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_holder;
 
 ::kdm::platform::PlatformFactory_ptr PlatformFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new PlatformFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < PlatformFactory
+                > (new PlatformFactory());
+
+    return s_holder;
 }
 

@@ -53,14 +53,14 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees () const;
-    virtual ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees ();
+    virtual const ::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& getLeftees () const;
+    virtual ::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& getLeftees ();
 
-    virtual const ::ecorecpp::mapping::EList< ::eopposite::RightHand >& getRightees () const;
-    virtual ::ecorecpp::mapping::EList< ::eopposite::RightHand >& getRightees ();
+    virtual const ::ecorecpp::mapping::EList< ::eopposite::RightHand_ptr >& getRightees () const;
+    virtual ::ecorecpp::mapping::EList< ::eopposite::RightHand_ptr >& getRightees ();
 
-    virtual const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples () const;
-    virtual ::ecorecpp::mapping::EList< ::eopposite::RightMultiple >& getRightMultiples ();
+    virtual const ::ecorecpp::mapping::EList< ::eopposite::RightMultiple_ptr >& getRightMultiples () const;
+    virtual ::ecorecpp::mapping::EList< ::eopposite::RightMultiple_ptr >& getRightMultiples ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -86,15 +86,18 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    TopLevel_ptr _this()
+    {   return TopLevel_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::LeftHand >> m_leftees;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >> m_leftees;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::RightHand >> m_rightees;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::RightHand_ptr >> m_rightees;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::RightMultiple >> m_rightMultiples;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::RightMultiple_ptr >> m_rightMultiples;
 
 };
 

@@ -149,7 +149,7 @@ void Leaf::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Leaf::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getLeaf();
+            dynamic_cast< ::CST::CSTPackage* >(::CST::CSTPackage::_instance().get())->getLeaf();
     return _eclass;
 }
 

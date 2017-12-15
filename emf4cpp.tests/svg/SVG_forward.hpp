@@ -42,168 +42,168 @@ namespace SVG
 
 // Element
     class Element;
-    typedef Element* Element_ptr;
+    using Element_ptr = boost::intrusive_ptr<Element>;
 
 // StructuralElement
     class StructuralElement;
-    typedef StructuralElement* StructuralElement_ptr;
+    using StructuralElement_ptr = boost::intrusive_ptr<StructuralElement>;
 
 // Image
     class Image;
-    typedef Image* Image_ptr;
+    using Image_ptr = boost::intrusive_ptr<Image>;
 
 // Svg
     class Svg;
-    typedef Svg* Svg_ptr;
+    using Svg_ptr = boost::intrusive_ptr<Svg>;
 
 // GroupingElement
     class GroupingElement;
-    typedef GroupingElement* GroupingElement_ptr;
+    using GroupingElement_ptr = boost::intrusive_ptr<GroupingElement>;
 
 // G
     class G;
-    typedef G* G_ptr;
+    using G_ptr = boost::intrusive_ptr<G>;
 
 // Defs
     class Defs;
-    typedef Defs* Defs_ptr;
+    using Defs_ptr = boost::intrusive_ptr<Defs>;
 
 // Symbol
     class Symbol;
-    typedef Symbol* Symbol_ptr;
+    using Symbol_ptr = boost::intrusive_ptr<Symbol>;
 
 // Use
     class Use;
-    typedef Use* Use_ptr;
+    using Use_ptr = boost::intrusive_ptr<Use>;
 
 // GraphicalElement
     class GraphicalElement;
-    typedef GraphicalElement* GraphicalElement_ptr;
+    using GraphicalElement_ptr = boost::intrusive_ptr<GraphicalElement>;
 
 // Shape
     class Shape;
-    typedef Shape* Shape_ptr;
+    using Shape_ptr = boost::intrusive_ptr<Shape>;
 
 // TextElement
     class TextElement;
-    typedef TextElement* TextElement_ptr;
+    using TextElement_ptr = boost::intrusive_ptr<TextElement>;
 
 // Rect
     class Rect;
-    typedef Rect* Rect_ptr;
+    using Rect_ptr = boost::intrusive_ptr<Rect>;
 
 // Circle
     class Circle;
-    typedef Circle* Circle_ptr;
+    using Circle_ptr = boost::intrusive_ptr<Circle>;
 
 // Ellipse
     class Ellipse;
-    typedef Ellipse* Ellipse_ptr;
+    using Ellipse_ptr = boost::intrusive_ptr<Ellipse>;
 
 // Line
     class Line;
-    typedef Line* Line_ptr;
+    using Line_ptr = boost::intrusive_ptr<Line>;
 
 // Polyline
     class Polyline;
-    typedef Polyline* Polyline_ptr;
+    using Polyline_ptr = boost::intrusive_ptr<Polyline>;
 
 // Polygon
     class Polygon;
-    typedef Polygon* Polygon_ptr;
+    using Polygon_ptr = boost::intrusive_ptr<Polygon>;
 
 // Path
     class Path;
-    typedef Path* Path_ptr;
+    using Path_ptr = boost::intrusive_ptr<Path>;
 
 // Point
     class Point;
-    typedef Point* Point_ptr;
+    using Point_ptr = boost::intrusive_ptr<Point>;
 
 // Marker
     class Marker;
-    typedef Marker* Marker_ptr;
+    using Marker_ptr = boost::intrusive_ptr<Marker>;
 
 // Text
     class Text;
-    typedef Text* Text_ptr;
+    using Text_ptr = boost::intrusive_ptr<Text>;
 
 // Tspan
     class Tspan;
-    typedef Tspan* Tspan_ptr;
+    using Tspan_ptr = boost::intrusive_ptr<Tspan>;
 
 // Tref
     class Tref;
-    typedef Tref* Tref_ptr;
+    using Tref_ptr = boost::intrusive_ptr<Tref>;
 
 // Attribute
     class Attribute;
-    typedef Attribute* Attribute_ptr;
+    using Attribute_ptr = boost::intrusive_ptr<Attribute>;
 
 // Transform
     class Transform;
-    typedef Transform* Transform_ptr;
+    using Transform_ptr = boost::intrusive_ptr<Transform>;
 
 // Scale
     class Scale;
-    typedef Scale* Scale_ptr;
+    using Scale_ptr = boost::intrusive_ptr<Scale>;
 
 // Translate
     class Translate;
-    typedef Translate* Translate_ptr;
+    using Translate_ptr = boost::intrusive_ptr<Translate>;
 
 // Rotate
     class Rotate;
-    typedef Rotate* Rotate_ptr;
+    using Rotate_ptr = boost::intrusive_ptr<Rotate>;
 
 // Visibility
     class Visibility;
-    typedef Visibility* Visibility_ptr;
+    using Visibility_ptr = boost::intrusive_ptr<Visibility>;
 
 // FontWeight
     class FontWeight;
-    typedef FontWeight* FontWeight_ptr;
+    using FontWeight_ptr = boost::intrusive_ptr<FontWeight>;
 
 // FontStyle
     class FontStyle;
-    typedef FontStyle* FontStyle_ptr;
+    using FontStyle_ptr = boost::intrusive_ptr<FontStyle>;
 
 // Dimension
     class Dimension;
-    typedef Dimension* Dimension_ptr;
+    using Dimension_ptr = boost::intrusive_ptr<Dimension>;
 
 // Coordinates
     class Coordinates;
-    typedef Coordinates* Coordinates_ptr;
+    using Coordinates_ptr = boost::intrusive_ptr<Coordinates>;
 
 // RelativeCoord
     class RelativeCoord;
-    typedef RelativeCoord* RelativeCoord_ptr;
+    using RelativeCoord_ptr = boost::intrusive_ptr<RelativeCoord>;
 
 // AbsoluteCoord
     class AbsoluteCoord;
-    typedef AbsoluteCoord* AbsoluteCoord_ptr;
+    using AbsoluteCoord_ptr = boost::intrusive_ptr<AbsoluteCoord>;
 
 // ReferencedFile
     class ReferencedFile;
-    typedef ReferencedFile* ReferencedFile_ptr;
+    using ReferencedFile_ptr = boost::intrusive_ptr<ReferencedFile>;
 
 // SvgFile
     class SvgFile;
-    typedef SvgFile* SvgFile_ptr;
+    using SvgFile_ptr = boost::intrusive_ptr<SvgFile>;
 
 // EEnum
 
 // Package & Factory
     class SVGFactory;
-    typedef SVGFactory * SVGFactory_ptr;
+    using SVGFactory_ptr = boost::intrusive_ptr<SVGFactory>;
     class SVGPackage;
-    typedef SVGPackage * SVGPackage_ptr;
+    using SVGPackage_ptr = boost::intrusive_ptr<SVGPackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // SVG

@@ -53,7 +53,8 @@ ComplexContentType::ComplexContentType()
 
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractContentElement, -1, true, false >(this,
+                    ::kdm::data::AbstractContentElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::data::DataPackage::_instance()->getComplexContentType__contentElement()));
 
     /*PROTECTED REGION ID(ComplexContentTypeImpl__ComplexContentTypeImpl) START*/
@@ -74,12 +75,12 @@ ComplexContentType::~ComplexContentType()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ComplexContentType::getContentElement() const
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& ComplexContentType::getContentElement() const
 {
     return *m_contentElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ComplexContentType::getContentElement()
+::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& ComplexContentType::getContentElement()
 {
     return *m_contentElement;
 }

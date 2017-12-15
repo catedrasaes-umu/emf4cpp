@@ -41,7 +41,6 @@ namespace enumeration
 {
 
 class EXPORT_ENUMERATION_DLL Bird : public virtual ::ecore::EObject
-
 {
 public:
     Bird();
@@ -85,6 +84,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Bird_ptr _this()
+    {   return Bird_ptr(this);}
+
     // Attributes
 
     ::enumeration::BirdType m_type;

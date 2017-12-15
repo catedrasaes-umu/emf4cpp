@@ -89,6 +89,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        Extension_ptr _this()
+        {   return Extension_ptr(this);}
+
         // Attributes
 
         ::ecore::EBoolean m_cached;

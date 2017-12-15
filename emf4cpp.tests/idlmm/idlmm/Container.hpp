@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::Contained >& getContains ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& getContains () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& getContains ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -80,11 +80,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Container_ptr _this()
+    {   return Container_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Contained >> m_contains;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >> m_contains;
 
 };
 

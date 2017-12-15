@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ConditionalDirective_ptr _this()
+        {   return ConditionalDirective_ptr(this);}
+
         // Attributes
 
         // References

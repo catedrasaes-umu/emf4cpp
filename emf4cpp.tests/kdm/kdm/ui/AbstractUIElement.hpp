@@ -59,17 +59,17 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >& getUIRelation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >& getUIRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >& getUIRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >& getUIRelation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getImplementation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -95,17 +95,20 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractUIElement_ptr _this()
+        {   return AbstractUIElement_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef >> m_source;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >> m_source;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >> m_UIRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >> m_UIRelation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >> m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >> m_implementation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement >> m_abstraction;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >> m_abstraction;
 
     };
 

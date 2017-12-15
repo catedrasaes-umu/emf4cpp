@@ -79,6 +79,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    TypedefDef_ptr _this()
+    {   return TypedefDef_ptr(this);}
+
     // Attributes
 
     // References

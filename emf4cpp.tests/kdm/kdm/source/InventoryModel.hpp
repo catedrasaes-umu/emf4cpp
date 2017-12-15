@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >& getInventoryElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >& getInventoryElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement_ptr >& getInventoryElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement_ptr >& getInventoryElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -83,11 +83,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        InventoryModel_ptr _this()
+        {   return InventoryModel_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >> m_inventoryElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement_ptr >> m_inventoryElement;
 
     };
 

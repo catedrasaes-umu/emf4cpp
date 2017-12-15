@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
     // Create the node finder in the process
     node_finder finder (b_efac, out_bt_root);
 
-    ::ecorecpp::mapping::EList< TreeNode > const& v = in_nt_root->getChildren();
+    ::ecorecpp::mapping::EList< TreeNode_ptr > const& v = in_nt_root->getChildren();
 
 	tStart = std::chrono::high_resolution_clock::now();
 

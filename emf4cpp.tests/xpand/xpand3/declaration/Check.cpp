@@ -58,11 +58,11 @@ Check::~Check()
 {
     if (m_msg)
     {
-        delete m_msg;
+        m_msg.reset();
     }
     if (m_constraint)
     {
-        delete m_constraint;
+        m_constraint.reset();
     }
 }
 
@@ -84,8 +84,8 @@ void Check::setErrorSeverity(::ecore::EBoolean _errorSeverity)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__errorSeverity(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__errorSeverity(),
                 _old_errorSeverity,
                 m_errorSeverity
         );
@@ -110,8 +110,8 @@ void Check::setFeature(::ecore::EString const& _feature)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__feature(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__feature(),
                 _old_feature,
                 m_feature
         );
@@ -138,8 +138,8 @@ void Check::setMsg(::xpand3::expression::AbstractExpression_ptr _msg)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg(),
                 _old_msg,
                 m_msg
         );
@@ -147,8 +147,10 @@ void Check::setMsg(::xpand3::expression::AbstractExpression_ptr _msg)
     }
 #endif
 
-    delete _old_msg;
-    m_msg->_setEContainer(this,
+    if (_old_msg)
+        _old_msg->_setEContainer(Check_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
+    m_msg->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
 }
 
@@ -169,8 +171,8 @@ void Check::setConstraint(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint(),
                 _old_constraint,
                 m_constraint
         );
@@ -178,8 +180,10 @@ void Check::setConstraint(
     }
 #endif
 
-    delete _old_constraint;
-    m_constraint->_setEContainer(this,
+    if (_old_constraint)
+        _old_constraint->_setEContainer(Check_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
+    m_constraint->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
 }
 

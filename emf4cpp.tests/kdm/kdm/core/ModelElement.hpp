@@ -55,11 +55,11 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& getStereotype () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& getStereotype ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& getTaggedValue () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& getTaggedValue ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& getTaggedValue () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& getTaggedValue ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -85,13 +85,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ModelElement_ptr _this()
+        {   return ModelElement_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >> m_stereotype;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >> m_stereotype;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >> m_taggedValue;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >> m_taggedValue;
 
     };
 

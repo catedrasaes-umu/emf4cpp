@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ManagesUI_ptr _this()
+        {   return ManagesUI_ptr(this);}
+
         // Attributes
 
         // References

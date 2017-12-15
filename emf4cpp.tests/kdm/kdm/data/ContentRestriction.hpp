@@ -88,6 +88,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ContentRestriction_ptr _this()
+        {   return ContentRestriction_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_kind;

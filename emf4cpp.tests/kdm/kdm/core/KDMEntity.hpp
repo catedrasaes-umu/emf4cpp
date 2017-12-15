@@ -106,6 +106,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        KDMEntity_ptr _this()
+        {   return KDMEntity_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_name;

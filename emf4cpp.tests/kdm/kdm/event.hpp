@@ -22,6 +22,7 @@
 #define KDM_EVENT_HPP
 
 #include "event_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

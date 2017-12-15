@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        FactUnit_ptr _this()
+        {   return FactUnit_ptr(this);}
+
         // Attributes
 
         // References

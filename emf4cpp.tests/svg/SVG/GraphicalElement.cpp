@@ -80,8 +80,8 @@ void GraphicalElement::setStroke(::PrimitiveTypes::String _stroke)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getGraphicalElement__stroke(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getGraphicalElement__stroke(),
                 _old_stroke,
                 m_stroke
         );

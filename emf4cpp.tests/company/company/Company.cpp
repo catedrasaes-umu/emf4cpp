@@ -41,8 +41,8 @@ Company::Company()
 {
 
     m_departments.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::company::Department,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::company::Department_ptr, -1, true, false >(this,
                     ::company::CompanyPackage::_instance()->getCompany__departments()));
 
     /*PROTECTED REGION ID(CompanyImpl__CompanyImpl) START*/
@@ -77,8 +77,8 @@ void Company::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getCompany__name(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getCompany__name(),
                 _old_name,
                 m_name
         );
@@ -89,12 +89,12 @@ void Company::setName(::ecore::EString const& _name)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::company::Department >& Company::getDepartments() const
+const ::ecorecpp::mapping::EList< ::company::Department_ptr >& Company::getDepartments() const
 {
     return *m_departments;
 }
 
-::ecorecpp::mapping::EList< ::company::Department >& Company::getDepartments()
+::ecorecpp::mapping::EList< ::company::Department_ptr >& Company::getDepartments()
 {
     return *m_departments;
 }

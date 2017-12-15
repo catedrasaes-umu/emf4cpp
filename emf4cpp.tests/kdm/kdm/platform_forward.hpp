@@ -44,144 +44,144 @@ namespace kdm
 
 // AbstractPlatformElement
         class AbstractPlatformElement;
-        typedef AbstractPlatformElement* AbstractPlatformElement_ptr;
+        using AbstractPlatformElement_ptr = boost::intrusive_ptr<AbstractPlatformElement>;
 
 // PlatformModel
         class PlatformModel;
-        typedef PlatformModel* PlatformModel_ptr;
+        using PlatformModel_ptr = boost::intrusive_ptr<PlatformModel>;
 
 // AbstractPlatformRelationship
         class AbstractPlatformRelationship;
-        typedef AbstractPlatformRelationship* AbstractPlatformRelationship_ptr;
+        using AbstractPlatformRelationship_ptr = boost::intrusive_ptr<AbstractPlatformRelationship>;
 
 // Requires
         class Requires;
-        typedef Requires* Requires_ptr;
+        using Requires_ptr = boost::intrusive_ptr<Requires>;
 
 // ResourceType
         class ResourceType;
-        typedef ResourceType* ResourceType_ptr;
+        using ResourceType_ptr = boost::intrusive_ptr<ResourceType>;
 
 // NamingResource
         class NamingResource;
-        typedef NamingResource* NamingResource_ptr;
+        using NamingResource_ptr = boost::intrusive_ptr<NamingResource>;
 
 // MarshalledResource
         class MarshalledResource;
-        typedef MarshalledResource* MarshalledResource_ptr;
+        using MarshalledResource_ptr = boost::intrusive_ptr<MarshalledResource>;
 
 // MessagingResource
         class MessagingResource;
-        typedef MessagingResource* MessagingResource_ptr;
+        using MessagingResource_ptr = boost::intrusive_ptr<MessagingResource>;
 
 // FileResource
         class FileResource;
-        typedef FileResource* FileResource_ptr;
+        using FileResource_ptr = boost::intrusive_ptr<FileResource>;
 
 // ExecutionResource
         class ExecutionResource;
-        typedef ExecutionResource* ExecutionResource_ptr;
+        using ExecutionResource_ptr = boost::intrusive_ptr<ExecutionResource>;
 
 // PlatformAction
         class PlatformAction;
-        typedef PlatformAction* PlatformAction_ptr;
+        using PlatformAction_ptr = boost::intrusive_ptr<PlatformAction>;
 
 // ExternalActor
         class ExternalActor;
-        typedef ExternalActor* ExternalActor_ptr;
+        using ExternalActor_ptr = boost::intrusive_ptr<ExternalActor>;
 
 // DataManager
         class DataManager;
-        typedef DataManager* DataManager_ptr;
+        using DataManager_ptr = boost::intrusive_ptr<DataManager>;
 
 // BindsTo
         class BindsTo;
-        typedef BindsTo* BindsTo_ptr;
+        using BindsTo_ptr = boost::intrusive_ptr<BindsTo>;
 
 // PlatformElement
         class PlatformElement;
-        typedef PlatformElement* PlatformElement_ptr;
+        using PlatformElement_ptr = boost::intrusive_ptr<PlatformElement>;
 
 // PlatformRelationship
         class PlatformRelationship;
-        typedef PlatformRelationship* PlatformRelationship_ptr;
+        using PlatformRelationship_ptr = boost::intrusive_ptr<PlatformRelationship>;
 
 // PlatformEvent
         class PlatformEvent;
-        typedef PlatformEvent* PlatformEvent_ptr;
+        using PlatformEvent_ptr = boost::intrusive_ptr<PlatformEvent>;
 
 // LockResource
         class LockResource;
-        typedef LockResource* LockResource_ptr;
+        using LockResource_ptr = boost::intrusive_ptr<LockResource>;
 
 // DeployedSoftwareSystem
         class DeployedSoftwareSystem;
-        typedef DeployedSoftwareSystem* DeployedSoftwareSystem_ptr;
+        using DeployedSoftwareSystem_ptr = boost::intrusive_ptr<DeployedSoftwareSystem>;
 
 // Machine
         class Machine;
-        typedef Machine* Machine_ptr;
+        using Machine_ptr = boost::intrusive_ptr<Machine>;
 
 // DeployedComponent
         class DeployedComponent;
-        typedef DeployedComponent* DeployedComponent_ptr;
+        using DeployedComponent_ptr = boost::intrusive_ptr<DeployedComponent>;
 
 // DeployedResource
         class DeployedResource;
-        typedef DeployedResource* DeployedResource_ptr;
+        using DeployedResource_ptr = boost::intrusive_ptr<DeployedResource>;
 
 // Loads
         class Loads;
-        typedef Loads* Loads_ptr;
+        using Loads_ptr = boost::intrusive_ptr<Loads>;
 
 // Spawns
         class Spawns;
-        typedef Spawns* Spawns_ptr;
+        using Spawns_ptr = boost::intrusive_ptr<Spawns>;
 
 // RuntimeResource
         class RuntimeResource;
-        typedef RuntimeResource* RuntimeResource_ptr;
+        using RuntimeResource_ptr = boost::intrusive_ptr<RuntimeResource>;
 
 // Thread
         class Thread;
-        typedef Thread* Thread_ptr;
+        using Thread_ptr = boost::intrusive_ptr<Thread>;
 
 // Process
         class Process;
-        typedef Process* Process_ptr;
+        using Process_ptr = boost::intrusive_ptr<Process>;
 
 // ReadsResource
         class ReadsResource;
-        typedef ReadsResource* ReadsResource_ptr;
+        using ReadsResource_ptr = boost::intrusive_ptr<ReadsResource>;
 
 // WritesResource
         class WritesResource;
-        typedef WritesResource* WritesResource_ptr;
+        using WritesResource_ptr = boost::intrusive_ptr<WritesResource>;
 
 // ManagesResource
         class ManagesResource;
-        typedef ManagesResource* ManagesResource_ptr;
+        using ManagesResource_ptr = boost::intrusive_ptr<ManagesResource>;
 
 // DefinedBy
         class DefinedBy;
-        typedef DefinedBy* DefinedBy_ptr;
+        using DefinedBy_ptr = boost::intrusive_ptr<DefinedBy>;
 
 // StreamResource
         class StreamResource;
-        typedef StreamResource* StreamResource_ptr;
+        using StreamResource_ptr = boost::intrusive_ptr<StreamResource>;
 
 // EEnum
 
 // Package & Factory
         class PlatformFactory;
-        typedef PlatformFactory * PlatformFactory_ptr;
+        using PlatformFactory_ptr = boost::intrusive_ptr<PlatformFactory>;
         class PlatformPackage;
-        typedef PlatformPackage * PlatformPackage_ptr;
+        using PlatformPackage_ptr = boost::intrusive_ptr<PlatformPackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // platform

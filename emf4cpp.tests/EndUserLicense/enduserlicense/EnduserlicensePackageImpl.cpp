@@ -38,14 +38,14 @@ using namespace ::enduserlicense;
 EnduserlicensePackage::EnduserlicensePackage()
 {
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void EnduserlicensePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = EnduserlicenseFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 

@@ -81,6 +81,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        NullLiteral_ptr _this()
+        {   return NullLiteral_ptr(this);}
+
         // Attributes
 
         // References

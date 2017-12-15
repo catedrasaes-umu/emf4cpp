@@ -22,8 +22,7 @@
 
 using namespace ::company;
 
-std::unique_ptr< ::company::CompanyPackage,
-        ::ecorecpp::PackageDeleter< ::company::CompanyPackage > > CompanyPackage::s_instance;
+boost::intrusive_ptr< ::company::CompanyPackage > CompanyPackage::s_instance;
 
 ::company::CompanyPackage_ptr CompanyPackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::company::CompanyPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< CompanyPackage >();
         duringConstruction = true;
-        new CompanyPackage();
+        s_instance = boost::intrusive_ptr < CompanyPackage
+                > (new CompanyPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::company::CompanyPackage_ptr CompanyPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

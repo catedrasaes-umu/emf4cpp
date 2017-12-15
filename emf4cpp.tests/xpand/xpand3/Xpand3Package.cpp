@@ -22,8 +22,7 @@
 
 using namespace ::xpand3;
 
-std::unique_ptr< ::xpand3::Xpand3Package,
-        ::ecorecpp::PackageDeleter< ::xpand3::Xpand3Package > > Xpand3Package::s_instance;
+boost::intrusive_ptr< ::xpand3::Xpand3Package > Xpand3Package::s_instance;
 
 ::xpand3::Xpand3Package_ptr Xpand3Package::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::xpand3::Xpand3Package,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< Xpand3Package >();
         duringConstruction = true;
-        new Xpand3Package();
+        s_instance = boost::intrusive_ptr < Xpand3Package
+                > (new Xpand3Package());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::xpand3::Xpand3Package_ptr Xpand3Package::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

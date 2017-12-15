@@ -54,8 +54,8 @@ ColumnSet::ColumnSet()
 {
 
     m_itemUnit.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::ItemUnit,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::ItemUnit_ptr, -1, true, false >(this,
                     ::kdm::data::DataPackage::_instance()->getColumnSet__itemUnit()));
 
     /*PROTECTED REGION ID(ColumnSetImpl__ColumnSetImpl) START*/
@@ -76,12 +76,12 @@ ColumnSet::~ColumnSet()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& ColumnSet::getItemUnit() const
+const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& ColumnSet::getItemUnit() const
 {
     return *m_itemUnit;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& ColumnSet::getItemUnit()
+::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& ColumnSet::getItemUnit()
 {
     return *m_itemUnit;
 }

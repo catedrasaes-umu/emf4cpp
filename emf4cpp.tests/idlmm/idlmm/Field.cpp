@@ -74,8 +74,8 @@ void Field::setIdentifier(::ecore::EString const& _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getField__identifier(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getField__identifier(),
                 _old_identifier,
                 m_identifier
         );

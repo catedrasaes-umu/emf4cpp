@@ -84,6 +84,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        ExtensionAspect_ptr _this()
+        {   return ExtensionAspect_ptr(this);}
+
         // Attributes
 
         // References

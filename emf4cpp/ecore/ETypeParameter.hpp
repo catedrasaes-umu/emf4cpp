@@ -50,8 +50,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEBounds () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEBounds ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEBounds () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEBounds ();
 
     /*PROTECTED REGION ID(ETypeParameter) START*/
     // Please, enable the protected region if you add manually written code.
@@ -73,11 +73,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ETypeParameter_ptr _this()
+    {   return ETypeParameter_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eBounds;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >> m_eBounds;
 
 };
 

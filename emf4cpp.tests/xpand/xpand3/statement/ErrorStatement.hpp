@@ -83,6 +83,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        ErrorStatement_ptr _this()
+        {   return ErrorStatement_ptr(this);}
+
         // Attributes
 
         // References

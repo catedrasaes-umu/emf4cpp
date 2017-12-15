@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UIField_ptr _this()
+        {   return UIField_ptr(this);}
+
         // Attributes
 
         // References

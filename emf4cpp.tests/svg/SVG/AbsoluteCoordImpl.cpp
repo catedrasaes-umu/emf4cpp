@@ -123,7 +123,7 @@ void AbsoluteCoord::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr AbsoluteCoord::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getAbsoluteCoord();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getAbsoluteCoord();
     return _eclass;
 }
 

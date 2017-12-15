@@ -58,14 +58,14 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& getDataRelation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& getDataRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship_ptr >& getDataRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship_ptr >& getDataRelation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -91,15 +91,18 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractDataElement_ptr _this()
+        {   return AbstractDataElement_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef >> m_source;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >> m_source;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >> m_dataRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship_ptr >> m_dataRelation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement >> m_abstraction;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >> m_abstraction;
 
     };
 

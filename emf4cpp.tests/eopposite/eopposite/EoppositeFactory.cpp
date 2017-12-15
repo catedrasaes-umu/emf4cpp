@@ -22,12 +22,14 @@
 
 using namespace ::eopposite;
 
-std::unique_ptr< ::eopposite::EoppositeFactory > EoppositeFactory::s_instance;
+boost::intrusive_ptr< ::eopposite::EoppositeFactory > EoppositeFactory::s_holder;
 
 ::eopposite::EoppositeFactory_ptr EoppositeFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new EoppositeFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < EoppositeFactory
+                > (new EoppositeFactory());
+
+    return s_holder;
 }
 

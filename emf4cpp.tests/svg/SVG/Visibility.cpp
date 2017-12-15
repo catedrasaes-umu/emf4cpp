@@ -73,8 +73,8 @@ void Visibility::setVisible(::PrimitiveTypes::Boolean _visible)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getVisibility__visible(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getVisibility__visible(),
                 _old_visible,
                 m_visible
         );

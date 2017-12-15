@@ -53,7 +53,7 @@ BuildDescription::BuildDescription()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
                     ::kdm::build::BuildPackage::_instance()->getBuildDescription__source()));
 
     /*PROTECTED REGION ID(BuildDescriptionImpl__BuildDescriptionImpl) START*/
@@ -88,8 +88,8 @@ void BuildDescription::setText(::kdm::core::String _text)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getBuildDescription__text(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getBuildDescription__text(),
                 _old_text,
                 m_text
         );
@@ -100,12 +100,12 @@ void BuildDescription::setText(::kdm::core::String _text)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& BuildDescription::getSource() const
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& BuildDescription::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& BuildDescription::getSource()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& BuildDescription::getSource()
 {
     return *m_source;
 }

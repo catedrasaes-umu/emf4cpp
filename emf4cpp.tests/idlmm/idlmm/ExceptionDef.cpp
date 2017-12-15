@@ -43,7 +43,7 @@ ExceptionDef::ExceptionDef()
 {
 
     m_members.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field_ptr, -1,
                     true, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getExceptionDef__members()));
 
@@ -79,8 +79,8 @@ void ExceptionDef::setTypeCode(::idlmm::ETypeCode _typeCode)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getExceptionDef__typeCode(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getExceptionDef__typeCode(),
                 _old_typeCode,
                 m_typeCode
         );
@@ -91,12 +91,12 @@ void ExceptionDef::setTypeCode(::idlmm::ETypeCode _typeCode)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::idlmm::Field >& ExceptionDef::getMembers() const
+const ::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& ExceptionDef::getMembers() const
 {
     return *m_members;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::Field >& ExceptionDef::getMembers()
+::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& ExceptionDef::getMembers()
 {
     return *m_members;
 }

@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UIElement_ptr _this()
+        {   return UIElement_ptr(this);}
+
         // Attributes
 
         // References

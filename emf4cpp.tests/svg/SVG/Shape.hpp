@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Shape_ptr _this()
+    {   return Shape_ptr(this);}
+
     // Attributes
 
     // References

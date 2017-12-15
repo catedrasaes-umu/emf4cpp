@@ -60,7 +60,7 @@ void ENamedElement::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
@@ -81,9 +81,9 @@ void ENamedElement::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
@@ -125,7 +125,7 @@ void ENamedElement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ENamedElement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getENamedElement();
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getENamedElement();
     return _eclass;
 }
 
@@ -141,12 +141,12 @@ void ENamedElement::_inverseAdd(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicAdd(_t1);
     }
         return;
@@ -167,12 +167,12 @@ void ENamedElement::_inverseRemove(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicRemove(_t1);
     }
         return;

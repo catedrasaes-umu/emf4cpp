@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees () const;
-    virtual ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& getLeftees ();
+    virtual const ::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& getLeftees () const;
+    virtual ::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& getLeftees ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -80,11 +80,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    RightMultiple_ptr _this()
+    {   return RightMultiple_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::LeftHand >> m_leftees;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >> m_leftees;
 
 };
 

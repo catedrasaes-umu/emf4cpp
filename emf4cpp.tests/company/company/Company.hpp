@@ -40,7 +40,6 @@ namespace company
 {
 
 class EXPORT_COMPANY_DLL Company : public virtual ::ecore::EObject
-
 {
 public:
     Company();
@@ -56,8 +55,8 @@ public:
     virtual void setName (::ecore::EString const& _name);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::company::Department >& getDepartments () const;
-    virtual ::ecorecpp::mapping::EList< ::company::Department >& getDepartments ();
+    virtual const ::ecorecpp::mapping::EList< ::company::Department_ptr >& getDepartments () const;
+    virtual ::ecorecpp::mapping::EList< ::company::Department_ptr >& getDepartments ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -83,13 +82,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Company_ptr _this()
+    {   return Company_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_name;
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::company::Department >> m_departments;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::company::Department_ptr >> m_departments;
 
 };
 

@@ -81,8 +81,8 @@ void PlatformRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getPlatformRelationship__to(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getPlatformRelationship__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void PlatformRelationship::setFrom(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getPlatformRelationship__from(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getPlatformRelationship__from(),
                 _old_from,
                 m_from
         );

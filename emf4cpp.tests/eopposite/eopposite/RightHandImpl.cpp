@@ -66,7 +66,8 @@ void RightHand::_initialize()
         return _any;
     case ::eopposite::EoppositePackage::RIGHTHAND__LEFTEE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_leftee);
+        if (m_leftee)
+            _any = m_leftee->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -90,7 +91,7 @@ void RightHand::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::eopposite::LeftHand_ptr _t1 =
-                dynamic_cast< ::eopposite::LeftHand_ptr >(_t0);
+                dynamic_cast< ::eopposite::LeftHand* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::eopposite::LeftHand >(_t0);*/
         ::eopposite::RightHand::setLeftee(_t1);
     }
         return;
@@ -107,7 +108,7 @@ void RightHand::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
     case ::eopposite::EoppositePackage::RIGHTHAND__LEFTEE:
-        return m_leftee;
+        return (bool) m_leftee;
 
     }
     throw "Error";
@@ -125,7 +126,7 @@ void RightHand::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr RightHand::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::eopposite::EoppositePackage_ptr >(::eopposite::EoppositePackage::_instance())->getRightHand();
+            dynamic_cast< ::eopposite::EoppositePackage* >(::eopposite::EoppositePackage::_instance().get())->getRightHand();
     return _eclass;
 }
 
@@ -141,7 +142,7 @@ void RightHand::_inverseAdd(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::eopposite::LeftHand_ptr _t1 =
-                dynamic_cast< ::eopposite::LeftHand_ptr >(_t0);
+                dynamic_cast< ::eopposite::LeftHand* >(_t0.get());
 
         // set reference
         basicsetLeftee(_t1);
@@ -164,7 +165,7 @@ void RightHand::_inverseRemove(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
         ::eopposite::LeftHand_ptr _t1 =
-                dynamic_cast< ::eopposite::LeftHand_ptr >(_t0);
+                dynamic_cast< ::eopposite::LeftHand* >(_t0.get());
 
         // set reference
         if (basicgetLeftee() == _t1)

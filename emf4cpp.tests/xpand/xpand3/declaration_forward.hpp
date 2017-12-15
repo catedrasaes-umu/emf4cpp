@@ -44,56 +44,56 @@ namespace xpand3
 
 // AbstractDeclaration
         class AbstractDeclaration;
-        typedef AbstractDeclaration* AbstractDeclaration_ptr;
+        using AbstractDeclaration_ptr = boost::intrusive_ptr<AbstractDeclaration>;
 
 // AbstractNamedDeclaration
         class AbstractNamedDeclaration;
-        typedef AbstractNamedDeclaration* AbstractNamedDeclaration_ptr;
+        using AbstractNamedDeclaration_ptr = boost::intrusive_ptr<AbstractNamedDeclaration>;
 
 // Definition
         class Definition;
-        typedef Definition* Definition_ptr;
+        using Definition_ptr = boost::intrusive_ptr<Definition>;
 
 // Extension
         class Extension;
-        typedef Extension* Extension_ptr;
+        using Extension_ptr = boost::intrusive_ptr<Extension>;
 
 // AbstractAspect
         class AbstractAspect;
-        typedef AbstractAspect* AbstractAspect_ptr;
+        using AbstractAspect_ptr = boost::intrusive_ptr<AbstractAspect>;
 
 // ExtensionAspect
         class ExtensionAspect;
-        typedef ExtensionAspect* ExtensionAspect_ptr;
+        using ExtensionAspect_ptr = boost::intrusive_ptr<ExtensionAspect>;
 
 // DefinitionAspect
         class DefinitionAspect;
-        typedef DefinitionAspect* DefinitionAspect_ptr;
+        using DefinitionAspect_ptr = boost::intrusive_ptr<DefinitionAspect>;
 
 // Check
         class Check;
-        typedef Check* Check_ptr;
+        using Check_ptr = boost::intrusive_ptr<Check>;
 
 // CreateExtension
         class CreateExtension;
-        typedef CreateExtension* CreateExtension_ptr;
+        using CreateExtension_ptr = boost::intrusive_ptr<CreateExtension>;
 
 // JavaExtension
         class JavaExtension;
-        typedef JavaExtension* JavaExtension_ptr;
+        using JavaExtension_ptr = boost::intrusive_ptr<JavaExtension>;
 
 // EEnum
 
 // Package & Factory
         class DeclarationFactory;
-        typedef DeclarationFactory * DeclarationFactory_ptr;
+        using DeclarationFactory_ptr = boost::intrusive_ptr<DeclarationFactory>;
         class DeclarationPackage;
-        typedef DeclarationPackage * DeclarationPackage_ptr;
+        using DeclarationPackage_ptr = boost::intrusive_ptr<DeclarationPackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // declaration

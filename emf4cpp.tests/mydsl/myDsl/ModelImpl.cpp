@@ -67,12 +67,12 @@ void Model::_initialize()
     {
     case ::myDsl::MyDslPackage::MODEL__IMPORTS:
     {
-        _any = m_imports->asEListOf< ::ecore::EObject >();
+        _any = m_imports->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::myDsl::MyDslPackage::MODEL__ELEMENTS:
     {
-        _any = m_elements->asEListOf< ::ecore::EObject >();
+        _any = m_elements->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -87,18 +87,18 @@ void Model::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::MODEL__IMPORTS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::myDsl::Model::getImports().clear();
         ::myDsl::Model::getImports().insert_all(*_t0);
     }
         return;
     case ::myDsl::MyDslPackage::MODEL__ELEMENTS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::myDsl::Model::getElements().clear();
         ::myDsl::Model::getElements().insert_all(*_t0);
     }
@@ -133,7 +133,7 @@ void Model::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Model::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getModel();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getModel();
     return _eclass;
 }
 

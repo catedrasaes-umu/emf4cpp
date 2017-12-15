@@ -110,7 +110,7 @@ String getPackageAttribute(EPackage this, EClassifier class):
 	else
 		let pkg = class.EPackage :
 		let prefix = "::" + pkg.getFQN()+ "::" + pkg.name.toFirstUpper() + "Package":
-		"dynamic_cast< " + prefix + "* >(" + prefix + "::_instance())->" + getPackageGetAttribute(class) +"()"
+		"dynamic_cast< " + prefix + "* >(" + prefix + "::_instance().get())->" + getPackageGetAttribute(class) +"()"
 ;
 
 cached String getPackageName(EPackage this) :

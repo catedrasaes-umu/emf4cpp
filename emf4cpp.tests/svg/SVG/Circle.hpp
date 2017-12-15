@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Circle_ptr _this()
+    {   return Circle_ptr(this);}
+
     // Attributes
 
     // References

@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        LanguageUnit_ptr _this()
+        {   return LanguageUnit_ptr(this);}
+
         // Attributes
 
         // References

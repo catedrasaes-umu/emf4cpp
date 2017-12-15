@@ -34,6 +34,8 @@
 
 /*PROTECTED REGION ID(EObjectImpl.cpp) ENABLED START*/
 
+using namespace ::ecore;
+
 void EObject::_setEContainer(::ecore::EObject_ptr _eContainer,
         ::ecore::EStructuralFeature_ptr _eContainingFeature)
 {
@@ -52,12 +54,12 @@ void EObject::_setEResource(::ecorecpp::resource::Resource* res)
         {
             // Gets the collection and remove the element
             ::ecore::EJavaObject any = m_eContainer->eGet(m_eContainingFeature);
-            ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type list =
+            ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type list =
                     ::ecorecpp::mapping::any::any_cast
-                            < ::ecorecpp::mapping::EList < ::ecore::EObject
+                            < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
                             > ::ptr_type > (any);
 
-            list->remove(this);
+            list->remove(_this());
         }
         else
         {
@@ -185,13 +187,14 @@ void EObject::_initialize()
     /*PROTECTED REGION END*/
 }
 
-std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > EObject::eContents()
+std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject_ptr > > EObject::eContents()
 {
     /*PROTECTED REGION ID(EObjectImpl_eContents) ENABLED START*/
     // Please, enable the protected region if you add manually written code.
     // To do this, add the keyword ENABLED before START.
-    ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type retList =
-            std::make_shared< ::ecorecpp::mapping::EListImpl< ::ecore::EObject > >();
+    ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type retList =
+            std::make_shared<
+                    ::ecorecpp::mapping::EListImpl< ::ecore::EObject_ptr > >();
 
     ::ecore::EClass_ptr eclass = eClass();
     for (const auto& ref : eclass->getEAllReferences())
@@ -203,7 +206,7 @@ std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > EObject::eCont
             if (ref->getUpperBound() != 1)
             {
                 auto children = ecorecpp::mapping::any::any_cast
-                        < ::ecorecpp::mapping::EList < ::ecore::EObject
+                        < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
                         > ::ptr_type > (any);
 
                 retList->insert_all(*children);
@@ -221,17 +224,17 @@ std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > EObject::eCont
     /*PROTECTED REGION END*/
 }
 
-::ecorecpp::util::TreeIterator< ::ecore::EObject > EObject::eAllContents()
+::ecorecpp::util::TreeIterator< ::ecore::EObject_ptr > EObject::eAllContents()
 {
     /*PROTECTED REGION ID(EObjectImpl_eAllContents) ENABLED START*/
     // Please, enable the protected region if you add manually written code.
     // To do this, add the keyword ENABLED before START.
-    return ::ecorecpp::util::TreeIterator < ::ecore::EObject > (this);
+    return ::ecorecpp::util::TreeIterator < ::ecore::EObject_ptr > (_this());
 
     /*PROTECTED REGION END*/
 }
 
-std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject > > EObject::eCrossReferences()
+std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject_ptr > > EObject::eCrossReferences()
 {
     /*PROTECTED REGION ID(EObjectImpl_eCrossReferences) START*/
     // Please, enable the protected region if you add manually written code.
@@ -334,7 +337,7 @@ void EObject::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr EObject::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEObject();
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEObject();
     return _eclass;
 }
 

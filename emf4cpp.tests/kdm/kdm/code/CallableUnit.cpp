@@ -86,8 +86,8 @@ void CallableUnit::setKind(::kdm::code::CallableKind _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getCallableUnit__kind(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getCallableUnit__kind(),
                 _old_kind,
                 m_kind
         );

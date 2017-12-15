@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SetType_ptr _this()
+        {   return SetType_ptr(this);}
+
         // Attributes
 
         ::kdm::core::Integer m_size;

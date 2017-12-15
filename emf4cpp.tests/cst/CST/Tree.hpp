@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Tree_ptr _this()
+    {   return Tree_ptr(this);}
+
     // Attributes
 
     // References

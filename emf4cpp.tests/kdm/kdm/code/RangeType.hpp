@@ -87,6 +87,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RangeType_ptr _this()
+        {   return RangeType_ptr(this);}
+
         // Attributes
 
         ::kdm::core::Integer m_lower;

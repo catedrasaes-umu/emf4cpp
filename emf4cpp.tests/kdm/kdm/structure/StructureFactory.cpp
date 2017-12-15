@@ -22,12 +22,14 @@
 
 using namespace ::kdm::structure;
 
-std::unique_ptr< ::kdm::structure::StructureFactory > StructureFactory::s_instance;
+boost::intrusive_ptr< ::kdm::structure::StructureFactory > StructureFactory::s_holder;
 
 ::kdm::structure::StructureFactory_ptr StructureFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new StructureFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < StructureFactory
+                > (new StructureFactory());
+
+    return s_holder;
 }
 

@@ -42,8 +42,8 @@ RightMultiple::RightMultiple()
 {
 
     m_leftees.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::eopposite::LeftHand,
-                    -1, false, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::eopposite::LeftHand_ptr, -1, false, true >(this,
                     ::eopposite::EoppositePackage::_instance()->getRightMultiple__leftees(),
                     ::eopposite::EoppositePackage::LEFTHAND__RIGHTMULTIPLE));
 
@@ -65,12 +65,12 @@ RightMultiple::~RightMultiple()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::eopposite::LeftHand >& RightMultiple::getLeftees() const
+const ::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& RightMultiple::getLeftees() const
 {
     return *m_leftees;
 }
 
-::ecorecpp::mapping::EList< ::eopposite::LeftHand >& RightMultiple::getLeftees()
+::ecorecpp::mapping::EList< ::eopposite::LeftHand_ptr >& RightMultiple::getLeftees()
 {
     return *m_leftees;
 }

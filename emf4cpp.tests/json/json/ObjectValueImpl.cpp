@@ -64,7 +64,7 @@ void ObjectValue::_initialize()
     {
     case ::json::JsonPackage::OBJECTVALUE__MEMBERS:
     {
-        _any = m_members->asEListOf< ::ecore::EObject >();
+        _any = m_members->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -79,9 +79,9 @@ void ObjectValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::OBJECTVALUE__MEMBERS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::json::ObjectValue::getMembers().clear();
         ::json::ObjectValue::getMembers().insert_all(*_t0);
     }
@@ -114,7 +114,7 @@ void ObjectValue::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ObjectValue::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getObjectValue();
+            dynamic_cast< ::json::JsonPackage* >(::json::JsonPackage::_instance().get())->getObjectValue();
     return _eclass;
 }
 

@@ -53,8 +53,8 @@ EnumeratedType::EnumeratedType()
 {
 
     m_value.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Value, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Value_ptr,
+                    -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getEnumeratedType__value()));
 
     /*PROTECTED REGION ID(EnumeratedTypeImpl__EnumeratedTypeImpl) START*/
@@ -75,12 +75,12 @@ EnumeratedType::~EnumeratedType()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::Value >& EnumeratedType::getValue() const
+const ::ecorecpp::mapping::EList< ::kdm::code::Value_ptr >& EnumeratedType::getValue() const
 {
     return *m_value;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::Value >& EnumeratedType::getValue()
+::ecorecpp::mapping::EList< ::kdm::code::Value_ptr >& EnumeratedType::getValue()
 {
     return *m_value;
 }

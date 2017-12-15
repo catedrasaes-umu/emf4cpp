@@ -22,12 +22,13 @@
 
 using namespace ::kdm::core;
 
-std::unique_ptr< ::kdm::core::CoreFactory > CoreFactory::s_instance;
+boost::intrusive_ptr< ::kdm::core::CoreFactory > CoreFactory::s_holder;
 
 ::kdm::core::CoreFactory_ptr CoreFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new CoreFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < CoreFactory > (new CoreFactory());
+
+    return s_holder;
 }
 

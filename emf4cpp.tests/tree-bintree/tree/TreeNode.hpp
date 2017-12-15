@@ -40,7 +40,6 @@ namespace tree
 {
 
 class EXPORT_TREE_DLL TreeNode : public virtual ::ecore::EObject
-
 {
 public:
     TreeNode();
@@ -83,6 +82,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    TreeNode_ptr _this()
+    {   return TreeNode_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_data;

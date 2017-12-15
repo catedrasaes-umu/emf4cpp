@@ -72,8 +72,8 @@ void StringValue::setValue(::ecore::EString const& _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::json::JsonPackage::_instance()->getStringValue__value(),
+                _this(),
+                ::json::JsonPackage::_instance()->getStringValue__value(),
                 _old_value,
                 m_value
         );

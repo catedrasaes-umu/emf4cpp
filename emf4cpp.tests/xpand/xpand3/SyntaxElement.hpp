@@ -40,7 +40,6 @@ namespace xpand3
 {
 
 class EXPORT_XPAND3_DLL SyntaxElement : public virtual ::ecore::EObject
-
 {
 public:
     SyntaxElement();
@@ -90,6 +89,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    SyntaxElement_ptr _this()
+    {   return SyntaxElement_ptr(this);}
+
     // Attributes
 
     ::ecore::EInt m_line;

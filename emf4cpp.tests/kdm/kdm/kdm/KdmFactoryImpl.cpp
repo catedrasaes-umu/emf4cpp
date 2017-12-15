@@ -98,50 +98,50 @@ KdmFactory::KdmFactory()
 
 KDMFramework_ptr KdmFactory::createKDMFramework()
 {
-    return new KDMFramework();
+    return boost::intrusive_ptr < KDMFramework > (new KDMFramework);
 }
 KDMModel_ptr KdmFactory::createKDMModel()
 {
-    return new KDMModel();
+    return boost::intrusive_ptr < KDMModel > (new KDMModel);
 }
 Audit_ptr KdmFactory::createAudit()
 {
-    return new Audit();
+    return boost::intrusive_ptr < Audit > (new Audit);
 }
 Segment_ptr KdmFactory::createSegment()
 {
-    return new Segment();
+    return boost::intrusive_ptr < Segment > (new Segment);
 }
 Attribute_ptr KdmFactory::createAttribute()
 {
-    return new Attribute();
+    return boost::intrusive_ptr < Attribute > (new Attribute);
 }
 Annotation_ptr KdmFactory::createAnnotation()
 {
-    return new Annotation();
+    return boost::intrusive_ptr < Annotation > (new Annotation);
 }
 TagDefinition_ptr KdmFactory::createTagDefinition()
 {
-    return new TagDefinition();
+    return boost::intrusive_ptr < TagDefinition > (new TagDefinition);
 }
 ExtendedValue_ptr KdmFactory::createExtendedValue()
 {
-    return new ExtendedValue();
+    return boost::intrusive_ptr < ExtendedValue > (new ExtendedValue);
 }
 Stereotype_ptr KdmFactory::createStereotype()
 {
-    return new Stereotype();
+    return boost::intrusive_ptr < Stereotype > (new Stereotype);
 }
 ExtensionFamily_ptr KdmFactory::createExtensionFamily()
 {
-    return new ExtensionFamily();
+    return boost::intrusive_ptr < ExtensionFamily > (new ExtensionFamily);
 }
 TaggedRef_ptr KdmFactory::createTaggedRef()
 {
-    return new TaggedRef();
+    return boost::intrusive_ptr < TaggedRef > (new TaggedRef);
 }
 TaggedValue_ptr KdmFactory::createTaggedValue()
 {
-    return new TaggedValue();
+    return boost::intrusive_ptr < TaggedValue > (new TaggedValue);
 }
 

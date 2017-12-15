@@ -80,6 +80,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractDataRelationship_ptr _this()
+        {   return AbstractDataRelationship_ptr(this);}
+
         // Attributes
 
         // References

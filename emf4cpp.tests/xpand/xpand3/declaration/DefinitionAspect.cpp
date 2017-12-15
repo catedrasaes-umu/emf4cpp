@@ -47,7 +47,7 @@ DefinitionAspect::DefinitionAspect()
 
     m_body.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::statement::AbstractStatement, -1, true, false >(
+                    ::xpand3::statement::AbstractStatement_ptr, -1, true, false >(
                     this,
                     ::xpand3::declaration::DeclarationPackage::_instance()->getDefinitionAspect__body()));
 
@@ -69,12 +69,12 @@ DefinitionAspect::~DefinitionAspect()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& DefinitionAspect::getBody() const
+const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& DefinitionAspect::getBody() const
 {
     return *m_body;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& DefinitionAspect::getBody()
+::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& DefinitionAspect::getBody()
 {
     return *m_body;
 }

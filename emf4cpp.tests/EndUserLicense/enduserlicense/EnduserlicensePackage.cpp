@@ -22,8 +22,7 @@
 
 using namespace ::enduserlicense;
 
-std::unique_ptr< ::enduserlicense::EnduserlicensePackage,
-        ::ecorecpp::PackageDeleter< ::enduserlicense::EnduserlicensePackage > > EnduserlicensePackage::s_instance;
+boost::intrusive_ptr< ::enduserlicense::EnduserlicensePackage > EnduserlicensePackage::s_instance;
 
 ::enduserlicense::EnduserlicensePackage_ptr EnduserlicensePackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::enduserlicense::EnduserlicensePackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< EnduserlicensePackage >();
         duringConstruction = true;
-        new EnduserlicensePackage();
+        s_instance = boost::intrusive_ptr < EnduserlicensePackage
+                > (new EnduserlicensePackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::enduserlicense::EnduserlicensePackage_ptr EnduserlicensePackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

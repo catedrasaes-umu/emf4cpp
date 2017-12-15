@@ -52,7 +52,7 @@ EnumerationFactory::EnumerationFactory()
     {
         ::ecore::EJavaObject _any;
         EnumerationPackage_ptr _epkg =
-                dynamic_cast< ::enumeration::EnumerationPackage_ptr >(getEPackage());
+                dynamic_cast< ::enumeration::EnumerationPackage* >(getEPackage().get());
         return _epkg->getBirdType()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     default:
@@ -81,6 +81,6 @@ EnumerationFactory::EnumerationFactory()
 
 Bird_ptr EnumerationFactory::createBird()
 {
-    return new Bird();
+    return boost::intrusive_ptr < Bird > (new Bird);
 }
 

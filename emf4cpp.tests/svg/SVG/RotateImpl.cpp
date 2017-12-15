@@ -60,7 +60,7 @@ void Rotate::_initialize()
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        _any = m_attOwner->asEListOf< ::ecore::EObject >();
+        _any = m_attOwner->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::SVG::SVGPackage::ROTATE__ANGLE:
@@ -93,9 +93,9 @@ void Rotate::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::SVG::Attribute::getAttOwner().clear();
         ::SVG::Attribute::getAttOwner().insert_all(*_t0);
     }
@@ -155,7 +155,7 @@ void Rotate::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Rotate::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getRotate();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getRotate();
     return _eclass;
 }
 
@@ -170,12 +170,12 @@ void Rotate::_inverseAdd(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element_ptr >(_t0);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                        false, true >&) ::SVG::Attribute::getAttOwner();
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr,
+                        -1, false, true >&) ::SVG::Attribute::getAttOwner();
         container.basicAdd(_t1);
     }
         return;
@@ -195,12 +195,12 @@ void Rotate::_inverseRemove(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
-        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element_ptr >(_t0);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                        false, true >&) ::SVG::Attribute::getAttOwner();
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr,
+                        -1, false, true >&) ::SVG::Attribute::getAttOwner();
         container.basicRemove(_t1);
     }
         return;

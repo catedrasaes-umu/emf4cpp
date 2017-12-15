@@ -86,6 +86,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        CollectionExpression_ptr _this()
+        {   return CollectionExpression_ptr(this);}
+
         // Attributes
 
         // References

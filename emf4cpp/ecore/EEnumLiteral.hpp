@@ -83,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EEnumLiteral_ptr _this()
+    {   return EEnumLiteral_ptr(this);}
+
     // Attributes
 
     ::ecore::EInt m_value;

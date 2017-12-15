@@ -49,7 +49,8 @@ CodeModel::CodeModel()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, true, false >(this,
+                    ::kdm::code::AbstractCodeElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::code::CodePackage::_instance()->getCodeModel__codeElement()));
 
     /*PROTECTED REGION ID(CodeModelImpl__CodeModelImpl) START*/
@@ -70,12 +71,12 @@ CodeModel::~CodeModel()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& CodeModel::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& CodeModel::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& CodeModel::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& CodeModel::getCodeElement()
 {
     return *m_codeElement;
 }

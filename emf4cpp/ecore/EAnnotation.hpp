@@ -52,19 +52,19 @@ public:
     virtual void setSource (::ecore::EString const& _source);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry_ptr >& getDetails () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry_ptr >& getDetails ();
 
     virtual ::ecore::EModelElement_ptr getEModelElement () const;
     virtual void setEModelElement (::ecore::EModelElement_ptr _eModelElement);
     virtual ::ecore::EModelElement_ptr basicgetEModelElement ();
     virtual void basicsetEModelElement (::ecore::EModelElement_ptr _eModelElement);
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EObject >& getContents ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& getContents () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& getContents ();
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EObject >& getReferences ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& getReferences () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >& getReferences ();
 
     /*PROTECTED REGION ID(EAnnotation) START*/
     // Please, enable the protected region if you add manually written code.
@@ -86,19 +86,22 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EAnnotation_ptr _this()
+    {   return EAnnotation_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_source;
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >> m_details;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry_ptr >> m_details;
 
     ::ecore::EModelElement_ptr m_eModelElement;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject >> m_contents;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject_ptr >> m_contents;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject >> m_references;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EObject_ptr >> m_references;
 
 };
 

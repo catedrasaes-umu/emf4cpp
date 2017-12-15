@@ -54,8 +54,8 @@ DataElement::DataElement() :
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Datatype,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::Datatype_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getDataElement__codeElement()));
 
     /*PROTECTED REGION ID(DataElementImpl__DataElementImpl) START*/
@@ -90,8 +90,8 @@ void DataElement::setExt(::kdm::core::String _ext)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDataElement__ext(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDataElement__ext(),
                 _old_ext,
                 m_ext
         );
@@ -116,8 +116,8 @@ void DataElement::setSize(::kdm::core::Integer _size)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDataElement__size(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDataElement__size(),
                 _old_size,
                 m_size
         );
@@ -144,8 +144,8 @@ void DataElement::setType(::kdm::code::Datatype_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDataElement__type(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDataElement__type(),
                 _old_type,
                 m_type
         );
@@ -155,12 +155,12 @@ void DataElement::setType(::kdm::code::Datatype_ptr _type)
 
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::code::Datatype >& DataElement::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >& DataElement::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::Datatype >& DataElement::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >& DataElement::getCodeElement()
 {
     return *m_codeElement;
 }

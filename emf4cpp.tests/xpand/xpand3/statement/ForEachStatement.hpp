@@ -93,6 +93,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        ForEachStatement_ptr _this()
+        {   return ForEachStatement_ptr(this);}
+
         // Attributes
 
         // References

@@ -81,8 +81,8 @@ void BuildRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getBuildRelationship__to(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getBuildRelationship__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void BuildRelationship::setFrom(::kdm::build::AbstractBuildElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getBuildRelationship__from(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getBuildRelationship__from(),
                 _old_from,
                 m_from
         );

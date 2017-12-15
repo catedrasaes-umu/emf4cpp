@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Configuration_ptr _this()
+        {   return Configuration_ptr(this);}
+
         // Attributes
 
         // References

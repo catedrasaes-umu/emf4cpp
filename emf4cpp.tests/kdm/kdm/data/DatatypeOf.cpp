@@ -82,8 +82,8 @@ void DatatypeOf::setTo(::kdm::code::Datatype_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getDatatypeOf__to(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getDatatypeOf__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void DatatypeOf::setFrom(::kdm::data::ComplexContentType_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getDatatypeOf__from(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getDatatypeOf__from(),
                 _old_from,
                 m_from
         );

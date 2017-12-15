@@ -84,6 +84,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EnumDef_ptr _this()
+    {   return EnumDef_ptr(this);}
+
     // Attributes
 
     std::vector< ::ecore::EString > m_members;

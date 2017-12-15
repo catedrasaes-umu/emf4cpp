@@ -81,8 +81,8 @@ void DataRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getDataRelationship__to(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getDataRelationship__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void DataRelationship::setFrom(::kdm::data::AbstractDataElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getDataRelationship__from(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getDataRelationship__from(),
                 _old_from,
                 m_from
         );

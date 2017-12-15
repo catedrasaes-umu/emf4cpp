@@ -71,8 +71,8 @@ void Type::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getType__name(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getType__name(),
                 _old_name,
                 m_name
         );

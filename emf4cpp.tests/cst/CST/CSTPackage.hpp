@@ -97,9 +97,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< CSTPackage, ::ecorecpp::PackageDeleter<CSTPackage> > s_instance;
+    static boost::intrusive_ptr< CSTPackage > s_instance;
 
     CSTPackage();
+    void _initPackage();
 
     // EClass instances 
 

@@ -81,8 +81,8 @@ void BindsTo::setTo(::kdm::platform::ResourceType_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getBindsTo__to(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getBindsTo__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void BindsTo::setFrom(::kdm::platform::ResourceType_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getBindsTo__from(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getBindsTo__from(),
                 _old_from,
                 m_from
         );

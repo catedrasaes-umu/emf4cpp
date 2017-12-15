@@ -33,6 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define «getHeaderDef()»_HPP
 
 #include "«name»_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage
@@ -102,7 +103,7 @@ typedef «getEDataTypeMap(type)» «type.name»;
 «FOREACH EClassifiers.typeSelect(EClass) AS class»
 // «class.name»
 class «class.name»;
-typedef «class.name»* «class.name»_ptr;
+using «class.name»_ptr = boost::intrusive_ptr<«class.name»>;
 «ENDFOREACH»
 
 // EEnum
@@ -113,14 +114,14 @@ enum class «enum.name»;
 
 // Package & Factory
 class «getFactoryName()»;
-typedef «getFactoryName()» * «getFactoryName()»_ptr;
+using «getFactoryName()»_ptr = boost::intrusive_ptr<«getFactoryName()»>;
 class «getPackageName()»;
-typedef «getPackageName()» * «getPackageName()»_ptr;
+using «getPackageName()»_ptr = boost::intrusive_ptr<«getPackageName()»>;
 
 template<typename T, typename S>
-inline T* instanceOf(S* _s)
+inline boost::intrusive_ptr<T> instanceOf(const S& _s)
 {
-    return dynamic_cast<T*>(_s);
+    return boost::intrusive_ptr<T>(dynamic_cast<T*>(_s.get()));
 }
 
 «EXPAND template::EClassHPP::namespaces_end FOR this»

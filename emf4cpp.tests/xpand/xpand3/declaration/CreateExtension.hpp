@@ -84,6 +84,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        CreateExtension_ptr _this()
+        {   return CreateExtension_ptr(this);}
+
         // Attributes
 
         // References

@@ -57,14 +57,14 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& getComment () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& getComment ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit_ptr >& getComment () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit_ptr >& getComment ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& getCodeRelation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& getCodeRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship_ptr >& getCodeRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship_ptr >& getCodeRelation ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -90,15 +90,18 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractCodeElement_ptr _this()
+        {   return AbstractCodeElement_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef >> m_source;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >> m_source;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >> m_comment;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::CommentUnit_ptr >> m_comment;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >> m_codeRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship_ptr >> m_codeRelation;
 
     };
 

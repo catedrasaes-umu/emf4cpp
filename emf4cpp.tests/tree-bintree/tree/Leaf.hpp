@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Leaf_ptr _this()
+    {   return Leaf_ptr(this);}
+
     // Attributes
 
     // References

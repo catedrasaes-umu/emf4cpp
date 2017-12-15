@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RelationalView_ptr _this()
+        {   return RelationalView_ptr(this);}
+
         // Attributes
 
         // References

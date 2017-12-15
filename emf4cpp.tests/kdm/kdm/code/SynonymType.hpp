@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SynonymType_ptr _this()
+        {   return SynonymType_ptr(this);}
+
         // Attributes
 
         // References

@@ -92,6 +92,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        Check_ptr _this()
+        {   return Check_ptr(this);}
+
         // Attributes
 
         ::ecore::EBoolean m_errorSeverity;

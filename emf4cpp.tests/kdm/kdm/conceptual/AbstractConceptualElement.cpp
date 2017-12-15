@@ -52,20 +52,20 @@ AbstractConceptualElement::AbstractConceptualElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this,
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
                     ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__source()));
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::core::KDMEntity_ptr, -1, false, false >(this,
                     ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__implementation()));
     m_conceptualRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::conceptual::AbstractConceptualRelationship, -1, true,
-                    false >(this,
+                    ::kdm::conceptual::AbstractConceptualRelationship_ptr, -1,
+                    true, false >(this,
                     ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__conceptualRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
                     ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractConceptualElementImpl__AbstractConceptualElementImpl) START*/
@@ -86,43 +86,44 @@ AbstractConceptualElement::~AbstractConceptualElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractConceptualElement::getSource() const
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractConceptualElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractConceptualElement::getSource()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractConceptualElement::getSource()
 {
     return *m_source;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractConceptualElement::getImplementation() const
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractConceptualElement::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractConceptualElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractConceptualElement::getImplementation()
 {
     return *m_implementation;
 }
 
 const ::ecorecpp::mapping::EList<
-        ::kdm::conceptual::AbstractConceptualRelationship >& AbstractConceptualElement::getConceptualRelation() const
+        ::kdm::conceptual::AbstractConceptualRelationship_ptr >& AbstractConceptualElement::getConceptualRelation() const
 {
     return *m_conceptualRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >& AbstractConceptualElement::getConceptualRelation()
+::ecorecpp::mapping::EList<
+        ::kdm::conceptual::AbstractConceptualRelationship_ptr >& AbstractConceptualElement::getConceptualRelation()
 {
     return *m_conceptualRelation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractConceptualElement::getAbstraction() const
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractConceptualElement::getAbstraction() const
 {
     return *m_abstraction;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractConceptualElement::getAbstraction()
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractConceptualElement::getAbstraction()
 {
     return *m_abstraction;
 }

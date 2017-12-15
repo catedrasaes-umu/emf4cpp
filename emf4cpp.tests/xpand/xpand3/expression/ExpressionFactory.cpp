@@ -22,12 +22,14 @@
 
 using namespace ::xpand3::expression;
 
-std::unique_ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_instance;
+boost::intrusive_ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_holder;
 
 ::xpand3::expression::ExpressionFactory_ptr ExpressionFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new ExpressionFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < ExpressionFactory
+                > (new ExpressionFactory());
+
+    return s_holder;
 }
 

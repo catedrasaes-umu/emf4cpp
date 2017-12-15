@@ -76,11 +76,11 @@ public:
     virtual ::ecore::EFactory_ptr basicgetEFactoryInstance ();
     virtual void basicsetEFactoryInstance (::ecore::EFactory_ptr _eFactoryInstance);
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEClassifiers ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& getEClassifiers () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& getEClassifiers ();
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EPackage >& getESubpackages ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EPackage_ptr >& getESubpackages () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EPackage_ptr >& getESubpackages ();
 
     virtual ::ecore::EPackage_ptr getESuperPackage () const;
     virtual void setESuperPackage (::ecore::EPackage_ptr _eSuperPackage);
@@ -126,6 +126,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EPackage_ptr _this()
+    {   return EPackage_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_nsURI;
@@ -136,9 +139,9 @@ protected:
 
     ::ecore::EFactory_ptr m_eFactoryInstance;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClassifier >> m_eClassifiers;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >> m_eClassifiers;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EPackage >> m_eSubpackages;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EPackage_ptr >> m_eSubpackages;
 
     ::ecore::EPackage_ptr m_eSuperPackage;
 

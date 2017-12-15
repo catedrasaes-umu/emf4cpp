@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Process_ptr _this()
+        {   return Process_ptr(this);}
+
         // Attributes
 
         // References

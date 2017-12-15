@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Tool_ptr _this()
+        {   return Tool_ptr(this);}
+
         // Attributes
 
         // References

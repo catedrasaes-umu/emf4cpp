@@ -49,12 +49,12 @@ Segment::Segment()
 {
 
     m_segment.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Segment,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Segment_ptr, -1, true, false >(this,
                     ::kdm::kdm::KdmPackage::_instance()->getSegment__segment()));
     m_model.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::KDMModel,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::KDMModel_ptr, -1, true, false >(this,
                     ::kdm::kdm::KdmPackage::_instance()->getSegment__model()));
 
     /*PROTECTED REGION ID(SegmentImpl__SegmentImpl) START*/
@@ -75,22 +75,22 @@ Segment::~Segment()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& Segment::getSegment() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment_ptr >& Segment::getSegment() const
 {
     return *m_segment;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& Segment::getSegment()
+::ecorecpp::mapping::EList< ::kdm::kdm::Segment_ptr >& Segment::getSegment()
 {
     return *m_segment;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& Segment::getModel() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel_ptr >& Segment::getModel() const
 {
     return *m_model;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& Segment::getModel()
+::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel_ptr >& Segment::getModel()
 {
     return *m_model;
 }

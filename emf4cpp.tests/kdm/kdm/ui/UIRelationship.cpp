@@ -81,8 +81,8 @@ void UIRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::ui::UiPackage::_instance()->getUIRelationship__to(),
+                _this(),
+                ::kdm::ui::UiPackage::_instance()->getUIRelationship__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void UIRelationship::setFrom(::kdm::ui::AbstractUIElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::ui::UiPackage::_instance()->getUIRelationship__from(),
+                _this(),
+                ::kdm::ui::UiPackage::_instance()->getUIRelationship__from(),
                 _old_from,
                 m_from
         );

@@ -53,8 +53,8 @@ CompositeType::CompositeType()
 {
 
     m_itemUnit.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::ItemUnit,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::ItemUnit_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getCompositeType__itemUnit()));
 
     /*PROTECTED REGION ID(CompositeTypeImpl__CompositeTypeImpl) START*/
@@ -75,12 +75,12 @@ CompositeType::~CompositeType()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& CompositeType::getItemUnit() const
+const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& CompositeType::getItemUnit() const
 {
     return *m_itemUnit;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& CompositeType::getItemUnit()
+::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& CompositeType::getItemUnit()
 {
     return *m_itemUnit;
 }

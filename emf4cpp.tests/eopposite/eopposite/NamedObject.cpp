@@ -71,8 +71,8 @@ void NamedObject::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::eopposite::EoppositePackage::_instance()->getNamedObject__name(),
+                _this(),
+                ::eopposite::EoppositePackage::_instance()->getNamedObject__name(),
                 _old_name,
                 m_name
         );

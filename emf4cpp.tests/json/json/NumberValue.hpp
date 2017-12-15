@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    NumberValue_ptr _this()
+    {   return NumberValue_ptr(this);}
+
     // Attributes
 
     ::ecore::EDouble m_value;

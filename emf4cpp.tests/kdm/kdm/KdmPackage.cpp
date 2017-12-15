@@ -22,8 +22,7 @@
 
 using namespace ::kdm;
 
-std::unique_ptr< ::kdm::KdmPackage,
-        ::ecorecpp::PackageDeleter< ::kdm::KdmPackage > > KdmPackage::s_instance;
+boost::intrusive_ptr< ::kdm::KdmPackage > KdmPackage::s_instance;
 
 ::kdm::KdmPackage_ptr KdmPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::kdm::KdmPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< KdmPackage >();
         duringConstruction = true;
-        new KdmPackage();
+        s_instance = boost::intrusive_ptr < KdmPackage > (new KdmPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::kdm::KdmPackage_ptr KdmPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

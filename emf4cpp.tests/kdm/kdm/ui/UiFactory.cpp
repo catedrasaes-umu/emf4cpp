@@ -22,12 +22,13 @@
 
 using namespace ::kdm::ui;
 
-std::unique_ptr< ::kdm::ui::UiFactory > UiFactory::s_instance;
+boost::intrusive_ptr< ::kdm::ui::UiFactory > UiFactory::s_holder;
 
 ::kdm::ui::UiFactory_ptr UiFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new UiFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < UiFactory > (new UiFactory());
+
+    return s_holder;
 }
 

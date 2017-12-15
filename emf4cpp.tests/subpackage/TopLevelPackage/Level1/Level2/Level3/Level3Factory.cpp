@@ -22,12 +22,13 @@
 
 using namespace ::TopLevelPackage::Level1::Level2::Level3;
 
-std::unique_ptr< ::TopLevelPackage::Level1::Level2::Level3::Level3Factory > Level3Factory::s_instance;
+boost::intrusive_ptr< ::TopLevelPackage::Level1::Level2::Level3::Level3Factory > Level3Factory::s_holder;
 
 ::TopLevelPackage::Level1::Level2::Level3::Level3Factory_ptr Level3Factory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new Level3Factory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < Level3Factory > (new Level3Factory());
+
+    return s_holder;
 }
 

@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        InventoryItem_ptr _this()
+        {   return InventoryItem_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_version;

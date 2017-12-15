@@ -1,11 +1,21 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
  * treeiterator/TreeiteratorPackageImpl.cpp
- * This file was created by EMF4CPP 2.0.5 and is copyrighted by the
- * respective user and/or provider of the processed ECORE model.
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
- * EMF4CPP is free software. You can obtain it from
- * https://github.com/catedrasaes-umu/emf4cpp
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include <treeiterator/TreeiteratorPackage.hpp>
@@ -30,28 +40,33 @@ TreeiteratorPackage::TreeiteratorPackage()
 {
 
     // Feature definitions of TreeNode
-    m_TreeNode__name = new ::ecore::EAttribute();
-    m_TreeNode__children = new ::ecore::EReference();
-    m_TreeNode__leaf = new ::ecore::EReference();
+    m_TreeNode__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_TreeNode__children = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_TreeNode__leaf = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Leaf
-    m_Leaf__name = new ::ecore::EAttribute();
+    m_Leaf__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void TreeiteratorPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = TreeiteratorFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // TreeNode
-    m_TreeNodeEClass = new ::ecore::EClass();
+    m_TreeNodeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TreeNodeEClass->setClassifierID(TREENODE);
-    m_TreeNodeEClass->setEPackage(this);
+    m_TreeNodeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TreeNodeEClass);
     // m_TreeNode__name has already been allocated above
     m_TreeNode__name->setFeatureID(
@@ -67,9 +82,10 @@ TreeiteratorPackage::TreeiteratorPackage()
     m_TreeNodeEClass->getEStructuralFeatures().push_back(m_TreeNode__leaf);
 
     // Leaf
-    m_LeafEClass = new ::ecore::EClass();
+    m_LeafEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LeafEClass->setClassifierID(LEAF);
-    m_LeafEClass->setEPackage(this);
+    m_LeafEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeafEClass);
     // m_Leaf__name has already been allocated above
     m_Leaf__name->setFeatureID(::treeiterator::TreeiteratorPackage::LEAF__NAME);
@@ -95,7 +111,7 @@ TreeiteratorPackage::TreeiteratorPackage()
     m_TreeNodeEClass->setAbstract(false);
     m_TreeNodeEClass->setInterface(false);
     m_TreeNode__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_TreeNode__name->setName("name");
     m_TreeNode__name->setDefaultValueLiteral("");
     m_TreeNode__name->setLowerBound(0);
@@ -139,7 +155,7 @@ TreeiteratorPackage::TreeiteratorPackage()
     m_LeafEClass->setAbstract(false);
     m_LeafEClass->setInterface(false);
     m_Leaf__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Leaf__name->setName("name");
     m_Leaf__name->setDefaultValueLiteral("");
     m_Leaf__name->setLowerBound(0);

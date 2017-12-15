@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        TagDefinition_ptr _this()
+        {   return TagDefinition_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_tag;

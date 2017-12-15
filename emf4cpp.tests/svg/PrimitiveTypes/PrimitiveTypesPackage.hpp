@@ -61,9 +61,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< PrimitiveTypesPackage, ::ecorecpp::PackageDeleter<PrimitiveTypesPackage> > s_instance;
+    static boost::intrusive_ptr< PrimitiveTypesPackage > s_instance;
 
     PrimitiveTypesPackage();
+    void _initPackage();
 
     // EClass instances 
 

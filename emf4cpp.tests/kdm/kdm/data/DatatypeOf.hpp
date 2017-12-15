@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DatatypeOf_ptr _this()
+        {   return DatatypeOf_ptr(this);}
+
         // Attributes
 
         // References

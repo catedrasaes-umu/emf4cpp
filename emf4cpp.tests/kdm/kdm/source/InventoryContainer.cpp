@@ -51,7 +51,7 @@ InventoryContainer::InventoryContainer()
 
     m_inventoryElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::AbstractInventoryElement, -1, true, false >(
+                    ::kdm::source::AbstractInventoryElement_ptr, -1, true, false >(
                     this,
                     ::kdm::source::SourcePackage::_instance()->getInventoryContainer__inventoryElement()));
 
@@ -73,12 +73,12 @@ InventoryContainer::~InventoryContainer()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >& InventoryContainer::getInventoryElement() const
+const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement_ptr >& InventoryContainer::getInventoryElement() const
 {
     return *m_inventoryElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >& InventoryContainer::getInventoryElement()
+::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement_ptr >& InventoryContainer::getInventoryElement()
 {
     return *m_inventoryElement;
 }

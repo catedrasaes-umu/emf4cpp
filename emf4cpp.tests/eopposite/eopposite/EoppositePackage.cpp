@@ -22,8 +22,7 @@
 
 using namespace ::eopposite;
 
-std::unique_ptr< ::eopposite::EoppositePackage,
-        ::ecorecpp::PackageDeleter< ::eopposite::EoppositePackage > > EoppositePackage::s_instance;
+boost::intrusive_ptr< ::eopposite::EoppositePackage > EoppositePackage::s_instance;
 
 ::eopposite::EoppositePackage_ptr EoppositePackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::eopposite::EoppositePackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< EoppositePackage >();
         duringConstruction = true;
-        new EoppositePackage();
+        s_instance = boost::intrusive_ptr < EoppositePackage
+                > (new EoppositePackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::eopposite::EoppositePackage_ptr EoppositePackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

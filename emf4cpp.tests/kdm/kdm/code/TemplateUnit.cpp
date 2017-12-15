@@ -53,8 +53,8 @@ TemplateUnit::TemplateUnit()
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::CodeItem_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getTemplateUnit__codeElement()));
 
     /*PROTECTED REGION ID(TemplateUnitImpl__TemplateUnitImpl) START*/
@@ -75,12 +75,12 @@ TemplateUnit::~TemplateUnit()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& TemplateUnit::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& TemplateUnit::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& TemplateUnit::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& TemplateUnit::getCodeElement()
 {
     return *m_codeElement;
 }

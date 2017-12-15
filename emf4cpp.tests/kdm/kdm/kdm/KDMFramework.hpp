@@ -57,11 +57,11 @@ namespace kdm
         virtual void setName (::kdm::core::String _name);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& getAudit ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit_ptr >& getAudit () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Audit_ptr >& getAudit ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& getExtensionFamily ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily_ptr >& getExtensionFamily () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily_ptr >& getExtensionFamily ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -87,15 +87,18 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        KDMFramework_ptr _this()
+        {   return KDMFramework_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_name;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Audit >> m_audit;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Audit_ptr >> m_audit;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >> m_extensionFamily;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily_ptr >> m_extensionFamily;
 
     };
 

@@ -88,6 +88,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Audit_ptr _this()
+        {   return Audit_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_description;

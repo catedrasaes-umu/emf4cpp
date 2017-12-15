@@ -71,14 +71,14 @@ TreeFactory::TreeFactory()
 
 TreeNode_ptr TreeFactory::createTreeNode()
 {
-    return new TreeNode();
+    return boost::intrusive_ptr < TreeNode > (new TreeNode);
 }
 Leaf_ptr TreeFactory::createLeaf()
 {
-    return new Leaf();
+    return boost::intrusive_ptr < Leaf > (new Leaf);
 }
 NonTerminal_ptr TreeFactory::createNonTerminal()
 {
-    return new NonTerminal();
+    return boost::intrusive_ptr < NonTerminal > (new NonTerminal);
 }
 

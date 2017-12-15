@@ -50,16 +50,18 @@ BuildResource::BuildResource()
 {
 
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::core::KDMEntity_ptr, -1, false, false >(this,
                     ::kdm::build::BuildPackage::_instance()->getBuildResource__implementation()));
     m_groupedBuild.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildElement, -1, false, false >(this,
+                    ::kdm::build::AbstractBuildElement_ptr, -1, false, false >(
+                    this,
                     ::kdm::build::BuildPackage::_instance()->getBuildResource__groupedBuild()));
     m_buildElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildElement, -1, true, false >(this,
+                    ::kdm::build::AbstractBuildElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::build::BuildPackage::_instance()->getBuildResource__buildElement()));
 
     /*PROTECTED REGION ID(BuildResourceImpl__BuildResourceImpl) START*/
@@ -80,32 +82,32 @@ BuildResource::~BuildResource()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& BuildResource::getImplementation() const
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& BuildResource::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& BuildResource::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& BuildResource::getImplementation()
 {
     return *m_implementation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getGroupedBuild() const
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getGroupedBuild() const
 {
     return *m_groupedBuild;
 }
 
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getGroupedBuild()
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getGroupedBuild()
 {
     return *m_groupedBuild;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getBuildElement() const
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getBuildElement() const
 {
     return *m_buildElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getBuildElement()
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getBuildElement()
 {
     return *m_buildElement;
 }

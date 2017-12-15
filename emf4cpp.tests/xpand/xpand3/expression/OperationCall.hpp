@@ -56,8 +56,8 @@ namespace xpand3
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParams () const;
-        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& getParams ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& getParams () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& getParams ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -83,11 +83,14 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        OperationCall_ptr _this()
+        {   return OperationCall_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >> m_params;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >> m_params;
 
     };
 

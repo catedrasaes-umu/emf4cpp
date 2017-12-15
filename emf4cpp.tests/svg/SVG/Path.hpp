@@ -89,6 +89,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Path_ptr _this()
+    {   return Path_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_pathLength;

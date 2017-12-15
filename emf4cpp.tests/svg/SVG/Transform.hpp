@@ -77,6 +77,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Transform_ptr _this()
+    {   return Transform_ptr(this);}
+
     // Attributes
 
     // References

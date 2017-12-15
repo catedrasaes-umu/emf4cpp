@@ -81,8 +81,8 @@ void VariantTo::setTo(::kdm::code::PreprocessorDirective_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getVariantTo__to(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getVariantTo__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void VariantTo::setFrom(::kdm::code::PreprocessorDirective_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getVariantTo__from(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getVariantTo__from(),
                 _old_from,
                 m_from
         );

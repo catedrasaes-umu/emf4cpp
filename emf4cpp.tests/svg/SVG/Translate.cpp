@@ -73,8 +73,8 @@ void Translate::setTx(::PrimitiveTypes::Double _tx)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTranslate__tx(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTranslate__tx(),
                 _old_tx,
                 m_tx
         );
@@ -99,8 +99,8 @@ void Translate::setTy(::PrimitiveTypes::Double _ty)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTranslate__ty(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTranslate__ty(),
                 _old_ty,
                 m_ty
         );

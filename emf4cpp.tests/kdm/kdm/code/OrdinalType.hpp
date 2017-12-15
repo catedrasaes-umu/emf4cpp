@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        OrdinalType_ptr _this()
+        {   return OrdinalType_ptr(this);}
+
         // Attributes
 
         // References

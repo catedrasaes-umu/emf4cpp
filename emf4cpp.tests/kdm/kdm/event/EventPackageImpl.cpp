@@ -54,25 +54,34 @@ EventPackage::EventPackage()
 {
 
     // Feature definitions of EventModel
-    m_EventModel__eventElement = new ::ecore::EReference();
+    m_EventModel__eventElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of AbstractEventElement
-    m_AbstractEventElement__source = new ::ecore::EReference();
-    m_AbstractEventElement__eventRelation = new ::ecore::EReference();
-    m_AbstractEventElement__abstraction = new ::ecore::EReference();
-    m_AbstractEventElement__implementation = new ::ecore::EReference();
+    m_AbstractEventElement__source = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractEventElement__eventRelation = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractEventElement__abstraction = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractEventElement__implementation = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of Event
-    m_Event__kind = new ::ecore::EAttribute();
+    m_Event__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of AbstractEventRelationship
 
     // Feature definitions of EventRelationship
-    m_EventRelationship__to = new ::ecore::EReference();
-    m_EventRelationship__from = new ::ecore::EReference();
+    m_EventRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EventRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EventResource
-    m_EventResource__eventElement = new ::ecore::EReference();
+    m_EventResource__eventElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of State
 
@@ -83,48 +92,61 @@ EventPackage::EventPackage()
     // Feature definitions of OnExit
 
     // Feature definitions of EventAction
-    m_EventAction__kind = new ::ecore::EAttribute();
-    m_EventAction__eventElement = new ::ecore::EReference();
+    m_EventAction__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EventAction__eventElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ReadsState
-    m_ReadsState__to = new ::ecore::EReference();
-    m_ReadsState__from = new ::ecore::EReference();
+    m_ReadsState__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ReadsState__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ProducesEvent
-    m_ProducesEvent__to = new ::ecore::EReference();
-    m_ProducesEvent__from = new ::ecore::EReference();
+    m_ProducesEvent__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ProducesEvent__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ConsumesEvent
-    m_ConsumesEvent__to = new ::ecore::EReference();
-    m_ConsumesEvent__from = new ::ecore::EReference();
+    m_ConsumesEvent__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ConsumesEvent__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of NextState
-    m_NextState__to = new ::ecore::EReference();
-    m_NextState__from = new ::ecore::EReference();
+    m_NextState__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_NextState__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of InitialState
 
     // Feature definitions of EventElement
 
     // Feature definitions of HasState
-    m_HasState__to = new ::ecore::EReference();
-    m_HasState__from = new ::ecore::EReference();
+    m_HasState__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_HasState__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void EventPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = EventFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // EventModel
-    m_EventModelEClass = new ::ecore::EClass();
+    m_EventModelEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EventModelEClass->setClassifierID(EVENTMODEL);
-    m_EventModelEClass->setEPackage(this);
+    m_EventModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventModelEClass);
     // m_EventModel__eventElement has already been allocated above
     m_EventModel__eventElement->setFeatureID(
@@ -133,9 +155,10 @@ EventPackage::EventPackage()
             m_EventModel__eventElement);
 
     // AbstractEventElement
-    m_AbstractEventElementEClass = new ::ecore::EClass();
+    m_AbstractEventElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractEventElementEClass->setClassifierID(ABSTRACTEVENTELEMENT);
-    m_AbstractEventElementEClass->setEPackage(this);
+    m_AbstractEventElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractEventElementEClass);
     // m_AbstractEventElement__source has already been allocated above
     m_AbstractEventElement__source->setFeatureID(
@@ -159,25 +182,28 @@ EventPackage::EventPackage()
             m_AbstractEventElement__implementation);
 
     // Event
-    m_EventEClass = new ::ecore::EClass();
+    m_EventEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EventEClass->setClassifierID(EVENT);
-    m_EventEClass->setEPackage(this);
+    m_EventEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventEClass);
     // m_Event__kind has already been allocated above
     m_Event__kind->setFeatureID(::kdm::event::EventPackage::EVENT__KIND);
     m_EventEClass->getEStructuralFeatures().push_back(m_Event__kind);
 
     // AbstractEventRelationship
-    m_AbstractEventRelationshipEClass = new ::ecore::EClass();
+    m_AbstractEventRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractEventRelationshipEClass->setClassifierID(
             ABSTRACTEVENTRELATIONSHIP);
-    m_AbstractEventRelationshipEClass->setEPackage(this);
+    m_AbstractEventRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractEventRelationshipEClass);
 
     // EventRelationship
-    m_EventRelationshipEClass = new ::ecore::EClass();
+    m_EventRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EventRelationshipEClass->setClassifierID(EVENTRELATIONSHIP);
-    m_EventRelationshipEClass->setEPackage(this);
+    m_EventRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventRelationshipEClass);
     // m_EventRelationship__to has already been allocated above
     m_EventRelationship__to->setFeatureID(
@@ -191,9 +217,10 @@ EventPackage::EventPackage()
             m_EventRelationship__from);
 
     // EventResource
-    m_EventResourceEClass = new ::ecore::EClass();
+    m_EventResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EventResourceEClass->setClassifierID(EVENTRESOURCE);
-    m_EventResourceEClass->setEPackage(this);
+    m_EventResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventResourceEClass);
     // m_EventResource__eventElement has already been allocated above
     m_EventResource__eventElement->setFeatureID(
@@ -202,33 +229,38 @@ EventPackage::EventPackage()
             m_EventResource__eventElement);
 
     // State
-    m_StateEClass = new ::ecore::EClass();
+    m_StateEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StateEClass->setClassifierID(STATE);
-    m_StateEClass->setEPackage(this);
+    m_StateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StateEClass);
 
     // Transition
-    m_TransitionEClass = new ::ecore::EClass();
+    m_TransitionEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TransitionEClass->setClassifierID(TRANSITION);
-    m_TransitionEClass->setEPackage(this);
+    m_TransitionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TransitionEClass);
 
     // OnEntry
-    m_OnEntryEClass = new ::ecore::EClass();
+    m_OnEntryEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_OnEntryEClass->setClassifierID(ONENTRY);
-    m_OnEntryEClass->setEPackage(this);
+    m_OnEntryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OnEntryEClass);
 
     // OnExit
-    m_OnExitEClass = new ::ecore::EClass();
+    m_OnExitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_OnExitEClass->setClassifierID(ONEXIT);
-    m_OnExitEClass->setEPackage(this);
+    m_OnExitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OnExitEClass);
 
     // EventAction
-    m_EventActionEClass = new ::ecore::EClass();
+    m_EventActionEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EventActionEClass->setClassifierID(EVENTACTION);
-    m_EventActionEClass->setEPackage(this);
+    m_EventActionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventActionEClass);
     // m_EventAction__kind has already been allocated above
     m_EventAction__kind->setFeatureID(
@@ -242,9 +274,10 @@ EventPackage::EventPackage()
             m_EventAction__eventElement);
 
     // ReadsState
-    m_ReadsStateEClass = new ::ecore::EClass();
+    m_ReadsStateEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ReadsStateEClass->setClassifierID(READSSTATE);
-    m_ReadsStateEClass->setEPackage(this);
+    m_ReadsStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReadsStateEClass);
     // m_ReadsState__to has already been allocated above
     m_ReadsState__to->setFeatureID(::kdm::event::EventPackage::READSSTATE__TO);
@@ -255,9 +288,10 @@ EventPackage::EventPackage()
     m_ReadsStateEClass->getEStructuralFeatures().push_back(m_ReadsState__from);
 
     // ProducesEvent
-    m_ProducesEventEClass = new ::ecore::EClass();
+    m_ProducesEventEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ProducesEventEClass->setClassifierID(PRODUCESEVENT);
-    m_ProducesEventEClass->setEPackage(this);
+    m_ProducesEventEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ProducesEventEClass);
     // m_ProducesEvent__to has already been allocated above
     m_ProducesEvent__to->setFeatureID(
@@ -271,9 +305,10 @@ EventPackage::EventPackage()
             m_ProducesEvent__from);
 
     // ConsumesEvent
-    m_ConsumesEventEClass = new ::ecore::EClass();
+    m_ConsumesEventEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ConsumesEventEClass->setClassifierID(CONSUMESEVENT);
-    m_ConsumesEventEClass->setEPackage(this);
+    m_ConsumesEventEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConsumesEventEClass);
     // m_ConsumesEvent__to has already been allocated above
     m_ConsumesEvent__to->setFeatureID(
@@ -287,9 +322,10 @@ EventPackage::EventPackage()
             m_ConsumesEvent__from);
 
     // NextState
-    m_NextStateEClass = new ::ecore::EClass();
+    m_NextStateEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NextStateEClass->setClassifierID(NEXTSTATE);
-    m_NextStateEClass->setEPackage(this);
+    m_NextStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NextStateEClass);
     // m_NextState__to has already been allocated above
     m_NextState__to->setFeatureID(::kdm::event::EventPackage::NEXTSTATE__TO);
@@ -300,21 +336,24 @@ EventPackage::EventPackage()
     m_NextStateEClass->getEStructuralFeatures().push_back(m_NextState__from);
 
     // InitialState
-    m_InitialStateEClass = new ::ecore::EClass();
+    m_InitialStateEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InitialStateEClass->setClassifierID(INITIALSTATE);
-    m_InitialStateEClass->setEPackage(this);
+    m_InitialStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InitialStateEClass);
 
     // EventElement
-    m_EventElementEClass = new ::ecore::EClass();
+    m_EventElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EventElementEClass->setClassifierID(EVENTELEMENT);
-    m_EventElementEClass->setEPackage(this);
+    m_EventElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventElementEClass);
 
     // HasState
-    m_HasStateEClass = new ::ecore::EClass();
+    m_HasStateEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_HasStateEClass->setClassifierID(HASSTATE);
-    m_HasStateEClass->setEPackage(this);
+    m_HasStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_HasStateEClass);
     // m_HasState__to has already been allocated above
     m_HasState__to->setFeatureID(::kdm::event::EventPackage::HASSTATE__TO);
@@ -336,12 +375,12 @@ EventPackage::EventPackage()
 
     // Add supertypes to classes
     m_EventModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getKDMModel());
     m_AbstractEventElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_EventEClass->getESuperTypes().push_back(m_AbstractEventElementEClass);
     m_AbstractEventRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMRelationship());
     m_EventRelationshipEClass->getESuperTypes().push_back(
             m_AbstractEventRelationshipEClass);
     m_EventResourceEClass->getESuperTypes().push_back(
@@ -353,9 +392,9 @@ EventPackage::EventPackage()
     m_EventActionEClass->getESuperTypes().push_back(
             m_AbstractEventElementEClass);
     m_ReadsStateEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getAbstractActionRelationship());
     m_ProducesEventEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getAbstractActionRelationship());
     m_ConsumesEventEClass->getESuperTypes().push_back(
             m_AbstractEventRelationshipEClass);
     m_NextStateEClass->getESuperTypes().push_back(
@@ -364,7 +403,7 @@ EventPackage::EventPackage()
     m_EventElementEClass->getESuperTypes().push_back(
             m_AbstractEventElementEClass);
     m_HasStateEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getAbstractActionRelationship());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getAbstractActionRelationship());
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
@@ -390,7 +429,7 @@ EventPackage::EventPackage()
     m_AbstractEventElementEClass->setAbstract(true);
     m_AbstractEventElementEClass->setInterface(false);
     m_AbstractEventElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance().get())->getSourceRef());
     m_AbstractEventElement__source->setName("source");
     m_AbstractEventElement__source->setDefaultValueLiteral("");
     m_AbstractEventElement__source->setLowerBound(0);
@@ -418,7 +457,7 @@ EventPackage::EventPackage()
     m_AbstractEventElement__eventRelation->setDerived(false);
     m_AbstractEventElement__eventRelation->setOrdered(false);
     m_AbstractEventElement__abstraction->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getActionElement());
     m_AbstractEventElement__abstraction->setName("abstraction");
     m_AbstractEventElement__abstraction->setDefaultValueLiteral("");
     m_AbstractEventElement__abstraction->setLowerBound(0);
@@ -432,7 +471,7 @@ EventPackage::EventPackage()
     m_AbstractEventElement__abstraction->setDerived(false);
     m_AbstractEventElement__abstraction->setOrdered(true);
     m_AbstractEventElement__implementation->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getAbstractCodeElement());
     m_AbstractEventElement__implementation->setName("implementation");
     m_AbstractEventElement__implementation->setDefaultValueLiteral("");
     m_AbstractEventElement__implementation->setLowerBound(0);
@@ -450,7 +489,7 @@ EventPackage::EventPackage()
     m_EventEClass->setAbstract(false);
     m_EventEClass->setInterface(false);
     m_Event__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_Event__kind->setName("kind");
     m_Event__kind->setDefaultValueLiteral("");
     m_Event__kind->setLowerBound(0);
@@ -472,7 +511,7 @@ EventPackage::EventPackage()
     m_EventRelationshipEClass->setAbstract(false);
     m_EventRelationshipEClass->setInterface(false);
     m_EventRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_EventRelationship__to->setName("to");
     m_EventRelationship__to->setDefaultValueLiteral("");
     m_EventRelationship__to->setLowerBound(1);
@@ -536,7 +575,7 @@ EventPackage::EventPackage()
     m_EventActionEClass->setAbstract(false);
     m_EventActionEClass->setInterface(false);
     m_EventAction__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_EventAction__kind->setName("kind");
     m_EventAction__kind->setDefaultValueLiteral("");
     m_EventAction__kind->setLowerBound(0);
@@ -580,7 +619,7 @@ EventPackage::EventPackage()
     m_ReadsState__to->setDerived(false);
     m_ReadsState__to->setOrdered(false);
     m_ReadsState__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getActionElement());
     m_ReadsState__from->setName("from");
     m_ReadsState__from->setDefaultValueLiteral("");
     m_ReadsState__from->setLowerBound(1);
@@ -611,7 +650,7 @@ EventPackage::EventPackage()
     m_ProducesEvent__to->setDerived(false);
     m_ProducesEvent__to->setOrdered(false);
     m_ProducesEvent__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getActionElement());
     m_ProducesEvent__from->setName("from");
     m_ProducesEvent__from->setDefaultValueLiteral("");
     m_ProducesEvent__from->setLowerBound(1);
@@ -710,7 +749,7 @@ EventPackage::EventPackage()
     m_HasState__to->setDerived(false);
     m_HasState__to->setOrdered(false);
     m_HasState__from->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getActionElement());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getActionElement());
     m_HasState__from->setName("from");
     m_HasState__from->setDefaultValueLiteral("");
     m_HasState__from->setLowerBound(1);

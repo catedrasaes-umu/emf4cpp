@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getGroupContent ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getGroupContent () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getGroupContent ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -80,11 +80,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    GroupingElement_ptr _this()
+    {   return GroupingElement_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_groupContent;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element_ptr >> m_groupContent;
 
 };
 

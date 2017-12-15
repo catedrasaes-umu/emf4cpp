@@ -42,7 +42,7 @@ namespace enumeration
 
 // Bird
     class Bird;
-    typedef Bird* Bird_ptr;
+    using Bird_ptr = boost::intrusive_ptr<Bird>;
 
 // EEnum
 
@@ -52,14 +52,14 @@ namespace enumeration
 
 // Package & Factory
     class EnumerationFactory;
-    typedef EnumerationFactory * EnumerationFactory_ptr;
+    using EnumerationFactory_ptr = boost::intrusive_ptr<EnumerationFactory>;
     class EnumerationPackage;
-    typedef EnumerationPackage * EnumerationPackage_ptr;
+    using EnumerationPackage_ptr = boost::intrusive_ptr<EnumerationPackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // enumeration

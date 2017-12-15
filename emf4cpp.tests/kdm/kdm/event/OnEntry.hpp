@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        OnEntry_ptr _this()
+        {   return OnEntry_ptr(this);}
+
         // Attributes
 
         // References

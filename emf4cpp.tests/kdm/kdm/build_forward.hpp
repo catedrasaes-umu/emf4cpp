@@ -44,96 +44,96 @@ namespace kdm
 
 // AbstractBuildElement
         class AbstractBuildElement;
-        typedef AbstractBuildElement* AbstractBuildElement_ptr;
+        using AbstractBuildElement_ptr = boost::intrusive_ptr<AbstractBuildElement>;
 
 // BuildResource
         class BuildResource;
-        typedef BuildResource* BuildResource_ptr;
+        using BuildResource_ptr = boost::intrusive_ptr<BuildResource>;
 
 // BuildDescription
         class BuildDescription;
-        typedef BuildDescription* BuildDescription_ptr;
+        using BuildDescription_ptr = boost::intrusive_ptr<BuildDescription>;
 
 // SymbolicLink
         class SymbolicLink;
-        typedef SymbolicLink* SymbolicLink_ptr;
+        using SymbolicLink_ptr = boost::intrusive_ptr<SymbolicLink>;
 
 // AbstractBuildRelationship
         class AbstractBuildRelationship;
-        typedef AbstractBuildRelationship* AbstractBuildRelationship_ptr;
+        using AbstractBuildRelationship_ptr = boost::intrusive_ptr<AbstractBuildRelationship>;
 
 // LinksTo
         class LinksTo;
-        typedef LinksTo* LinksTo_ptr;
+        using LinksTo_ptr = boost::intrusive_ptr<LinksTo>;
 
 // Consumes
         class Consumes;
-        typedef Consumes* Consumes_ptr;
+        using Consumes_ptr = boost::intrusive_ptr<Consumes>;
 
 // BuildModel
         class BuildModel;
-        typedef BuildModel* BuildModel_ptr;
+        using BuildModel_ptr = boost::intrusive_ptr<BuildModel>;
 
 // BuildComponent
         class BuildComponent;
-        typedef BuildComponent* BuildComponent_ptr;
+        using BuildComponent_ptr = boost::intrusive_ptr<BuildComponent>;
 
 // Supplier
         class Supplier;
-        typedef Supplier* Supplier_ptr;
+        using Supplier_ptr = boost::intrusive_ptr<Supplier>;
 
 // Tool
         class Tool;
-        typedef Tool* Tool_ptr;
+        using Tool_ptr = boost::intrusive_ptr<Tool>;
 
 // BuildElement
         class BuildElement;
-        typedef BuildElement* BuildElement_ptr;
+        using BuildElement_ptr = boost::intrusive_ptr<BuildElement>;
 
 // BuildRelationship
         class BuildRelationship;
-        typedef BuildRelationship* BuildRelationship_ptr;
+        using BuildRelationship_ptr = boost::intrusive_ptr<BuildRelationship>;
 
 // SuppliedBy
         class SuppliedBy;
-        typedef SuppliedBy* SuppliedBy_ptr;
+        using SuppliedBy_ptr = boost::intrusive_ptr<SuppliedBy>;
 
 // Library
         class Library;
-        typedef Library* Library_ptr;
+        using Library_ptr = boost::intrusive_ptr<Library>;
 
 // BuildStep
         class BuildStep;
-        typedef BuildStep* BuildStep_ptr;
+        using BuildStep_ptr = boost::intrusive_ptr<BuildStep>;
 
 // Produces
         class Produces;
-        typedef Produces* Produces_ptr;
+        using Produces_ptr = boost::intrusive_ptr<Produces>;
 
 // SupportedBy
         class SupportedBy;
-        typedef SupportedBy* SupportedBy_ptr;
+        using SupportedBy_ptr = boost::intrusive_ptr<SupportedBy>;
 
 // BuildProduct
         class BuildProduct;
-        typedef BuildProduct* BuildProduct_ptr;
+        using BuildProduct_ptr = boost::intrusive_ptr<BuildProduct>;
 
 // DescribedBy
         class DescribedBy;
-        typedef DescribedBy* DescribedBy_ptr;
+        using DescribedBy_ptr = boost::intrusive_ptr<DescribedBy>;
 
 // EEnum
 
 // Package & Factory
         class BuildFactory;
-        typedef BuildFactory * BuildFactory_ptr;
+        using BuildFactory_ptr = boost::intrusive_ptr<BuildFactory>;
         class BuildPackage;
-        typedef BuildPackage * BuildPackage_ptr;
+        using BuildPackage_ptr = boost::intrusive_ptr<BuildPackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // build

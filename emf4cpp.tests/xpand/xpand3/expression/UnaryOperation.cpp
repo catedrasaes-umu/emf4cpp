@@ -56,7 +56,7 @@ UnaryOperation::~UnaryOperation()
 {
     if (m_operator)
     {
-        delete m_operator;
+        m_operator.reset();
     }
 }
 
@@ -80,8 +80,8 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator(),
                 _old_operator,
                 m_operator
         );
@@ -89,8 +89,10 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
     }
 #endif
 
-    delete _old_operator;
-    m_operator->_setEContainer(this,
+    if (_old_operator)
+        _old_operator->_setEContainer(UnaryOperation_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
+    m_operator->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
 }
 
@@ -111,8 +113,8 @@ void UnaryOperation::setOperand(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operand(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operand(),
                 _old_operand,
                 m_operand
         );

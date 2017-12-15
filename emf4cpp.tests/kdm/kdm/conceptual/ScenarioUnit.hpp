@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ScenarioUnit_ptr _this()
+        {   return ScenarioUnit_ptr(this);}
+
         // Attributes
 
         // References

@@ -62,8 +62,8 @@ public:
     virtual void setIsTruncatable (::ecore::EBoolean _isTruncatable);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& getDerivesFrom ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef_ptr >& getDerivesFrom () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef_ptr >& getDerivesFrom ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -89,6 +89,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    InterfaceDef_ptr _this()
+    {   return InterfaceDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_isAbstract;
@@ -99,7 +102,7 @@ protected:
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >> m_derivesFrom;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::InterfaceDef_ptr >> m_derivesFrom;
 
 };
 

@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        BehaviorUnit_ptr _this()
+        {   return BehaviorUnit_ptr(this);}
+
         // Attributes
 
         // References

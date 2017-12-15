@@ -42,48 +42,48 @@ namespace json
 
 // ObjectValue
     class ObjectValue;
-    typedef ObjectValue* ObjectValue_ptr;
+    using ObjectValue_ptr = boost::intrusive_ptr<ObjectValue>;
 
 // NVPair
     class NVPair;
-    typedef NVPair* NVPair_ptr;
+    using NVPair_ptr = boost::intrusive_ptr<NVPair>;
 
 // Value
     class Value;
-    typedef Value* Value_ptr;
+    using Value_ptr = boost::intrusive_ptr<Value>;
 
 // StringValue
     class StringValue;
-    typedef StringValue* StringValue_ptr;
+    using StringValue_ptr = boost::intrusive_ptr<StringValue>;
 
 // NumberValue
     class NumberValue;
-    typedef NumberValue* NumberValue_ptr;
+    using NumberValue_ptr = boost::intrusive_ptr<NumberValue>;
 
 // BooleanValue
     class BooleanValue;
-    typedef BooleanValue* BooleanValue_ptr;
+    using BooleanValue_ptr = boost::intrusive_ptr<BooleanValue>;
 
 // ArrayValue
     class ArrayValue;
-    typedef ArrayValue* ArrayValue_ptr;
+    using ArrayValue_ptr = boost::intrusive_ptr<ArrayValue>;
 
 // NullValue
     class NullValue;
-    typedef NullValue* NullValue_ptr;
+    using NullValue_ptr = boost::intrusive_ptr<NullValue>;
 
 // EEnum
 
 // Package & Factory
     class JsonFactory;
-    typedef JsonFactory * JsonFactory_ptr;
+    using JsonFactory_ptr = boost::intrusive_ptr<JsonFactory>;
     class JsonPackage;
-    typedef JsonPackage * JsonPackage_ptr;
+    using JsonPackage_ptr = boost::intrusive_ptr<JsonPackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // json

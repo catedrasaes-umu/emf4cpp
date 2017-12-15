@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        InventoryElement_ptr _this()
+        {   return InventoryElement_ptr(this);}
+
         // Attributes
 
         // References

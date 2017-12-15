@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ScaledType_ptr _this()
+        {   return ScaledType_ptr(this);}
+
         // Attributes
 
         // References

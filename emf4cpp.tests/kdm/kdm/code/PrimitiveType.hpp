@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        PrimitiveType_ptr _this()
+        {   return PrimitiveType_ptr(this);}
+
         // Attributes
 
         // References

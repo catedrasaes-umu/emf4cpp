@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        MacroDirective_ptr _this()
+        {   return MacroDirective_ptr(this);}
+
         // Attributes
 
         // References

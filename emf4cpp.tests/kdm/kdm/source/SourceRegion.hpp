@@ -100,6 +100,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SourceRegion_ptr _this()
+        {   return SourceRegion_ptr(this);}
+
         // Attributes
 
         ::kdm::core::Integer m_startLine;

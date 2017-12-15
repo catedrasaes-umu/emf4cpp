@@ -90,12 +90,13 @@ void Definition::_initialize()
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
-        _any = static_cast< ::ecore::EObject* >(m_owner);
+        if (m_owner)
+            _any = m_owner->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        _any = m_params->asEListOf< ::ecore::EObject >();
+        _any = m_params->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
@@ -106,17 +107,19 @@ void Definition::_initialize()
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
-        _any = static_cast< ::ecore::EObject* >(m_guard);
+        if (m_guard)
+            _any = m_guard->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_name);
+        if (m_name)
+            _any = m_name->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::DEFINITION__BODY:
     {
-        _any = m_body->asEListOf< ::ecore::EObject >();
+        _any = m_body->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -157,15 +160,15 @@ void Definition::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File_ptr >(_t0);
+        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::File >(_t0);*/
         ::xpand3::declaration::AbstractDeclaration::setOwner(_t1);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::declaration::AbstractDeclaration::getParams().clear();
         ::xpand3::declaration::AbstractDeclaration::getParams().insert_all(
                 *_t0);
@@ -182,7 +185,7 @@ void Definition::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::declaration::AbstractDeclaration::setGuard(_t1);
     }
         return;
@@ -191,15 +194,15 @@ void Definition::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::declaration::AbstractNamedDeclaration::setName(_t1);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::DEFINITION__BODY:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::declaration::Definition::getBody().clear();
         ::xpand3::declaration::Definition::getBody().insert_all(*_t0);
     }
@@ -225,16 +228,16 @@ void Definition::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
-        return m_owner;
+        return (bool) m_owner;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
         return m_params && m_params->size();
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_isPrivate);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
-        return m_guard;
+        return (bool) m_guard;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
-        return m_name;
+        return (bool) m_name;
     case ::xpand3::declaration::DeclarationPackage::DEFINITION__BODY:
         return m_body && m_body->size();
 
@@ -254,7 +257,7 @@ void Definition::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Definition::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::declaration::DeclarationPackage_ptr >(::xpand3::declaration::DeclarationPackage::_instance())->getDefinition();
+            dynamic_cast< ::xpand3::declaration::DeclarationPackage* >(::xpand3::declaration::DeclarationPackage::_instance().get())->getDefinition();
     return _eclass;
 }
 

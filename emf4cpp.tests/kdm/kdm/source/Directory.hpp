@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Directory_ptr _this()
+        {   return Directory_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_path;

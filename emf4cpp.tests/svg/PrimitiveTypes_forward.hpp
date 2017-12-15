@@ -64,14 +64,14 @@ namespace PrimitiveTypes
 
 // Package & Factory
     class PrimitiveTypesFactory;
-    typedef PrimitiveTypesFactory * PrimitiveTypesFactory_ptr;
+    using PrimitiveTypesFactory_ptr = boost::intrusive_ptr<PrimitiveTypesFactory>;
     class PrimitiveTypesPackage;
-    typedef PrimitiveTypesPackage * PrimitiveTypesPackage_ptr;
+    using PrimitiveTypesPackage_ptr = boost::intrusive_ptr<PrimitiveTypesPackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // PrimitiveTypes

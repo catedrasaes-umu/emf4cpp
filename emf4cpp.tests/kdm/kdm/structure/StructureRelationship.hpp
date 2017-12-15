@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        StructureRelationship_ptr _this()
+        {   return StructureRelationship_ptr(this);}
+
         // Attributes
 
         // References

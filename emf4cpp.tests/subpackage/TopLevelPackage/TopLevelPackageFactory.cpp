@@ -22,12 +22,14 @@
 
 using namespace ::TopLevelPackage;
 
-std::unique_ptr< ::TopLevelPackage::TopLevelPackageFactory > TopLevelPackageFactory::s_instance;
+boost::intrusive_ptr< ::TopLevelPackage::TopLevelPackageFactory > TopLevelPackageFactory::s_holder;
 
 ::TopLevelPackage::TopLevelPackageFactory_ptr TopLevelPackageFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new TopLevelPackageFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < TopLevelPackageFactory
+                > (new TopLevelPackageFactory());
+
+    return s_holder;
 }
 

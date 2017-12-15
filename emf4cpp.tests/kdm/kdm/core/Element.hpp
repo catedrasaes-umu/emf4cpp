@@ -42,7 +42,6 @@ namespace kdm
     {
 
     class EXPORT_KDM_DLL Element : public virtual ::ecore::EObject
-
     {
     public:
         Element();
@@ -56,11 +55,11 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& getAttribute () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& getAttribute ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute_ptr >& getAttribute () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute_ptr >& getAttribute ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& getAnnotation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& getAnnotation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation_ptr >& getAnnotation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation_ptr >& getAnnotation ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -86,13 +85,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Element_ptr _this()
+        {   return Element_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >> m_attribute;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Attribute_ptr >> m_attribute;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >> m_annotation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Annotation_ptr >> m_annotation;
 
     };
 

@@ -73,8 +73,8 @@ void FontWeight::setBold(::PrimitiveTypes::Boolean _bold)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getFontWeight__bold(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getFontWeight__bold(),
                 _old_bold,
                 m_bold
         );

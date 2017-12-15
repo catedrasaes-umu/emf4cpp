@@ -88,6 +88,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        IfExpression_ptr _this()
+        {   return IfExpression_ptr(this);}
+
         // Attributes
 
         // References

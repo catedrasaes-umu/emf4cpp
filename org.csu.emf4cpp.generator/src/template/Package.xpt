@@ -52,7 +52,7 @@ class EXPORT_«getTopLevelPackage().name.toUpperCase()»_DLL «name.toFirstUpper
 public:
 
     static «name.toFirstUpper()»Package_ptr _instance();
-	static «name.toFirstUpper()»Package_ptr _getInstanceAndRemoveOwnership();
+    static «name.toFirstUpper()»Package_ptr _getInstanceAndRemoveOwnership();
 
     // IDs for classifiers
 «FOREACH EClassifiers.sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS class ITERATOR it»
@@ -77,14 +77,15 @@ public:
 
     // EStructuralFeatures methods
 «FOREACH this.getStructuralFeatures() AS ef»
-    virtual «ef.eClass().getCPP()» «getFeatureGetMember(ef)»();
+    virtual ::ecore::«ef.eClass().name»_ptr «getFeatureGetMember(ef)»();
 «ENDFOREACH»
 
 protected:
 
-    static std::unique_ptr< «name.toFirstUpper()»Package, ::ecorecpp::PackageDeleter<«name.toFirstUpper()»Package> > s_instance;
+    static boost::intrusive_ptr< «name.toFirstUpper()»Package > s_instance;
 
     «name.toFirstUpper()»Package();
+    void _initPackage();
     
     // EClass instances 
 «FOREACH EClassifiers.typeSelect(EClass) AS class»
@@ -103,7 +104,7 @@ protected:
 
     // EStructuralFeatures instances
 «FOREACH this.getStructuralFeatures() AS ef»
-    «ef.eClass().getCPP()» «getFeatureMember(ef)»;
+    «ef.eClass().getCPPOwnership()» «getFeatureMember(ef)»;
 «ENDFOREACH»
 };
 
@@ -123,25 +124,26 @@ protected:
 
 using namespace ::«getFQN()»;
 
-std::unique_ptr< ::«getPackagePrefix("::")», ::ecorecpp::PackageDeleter<::«getPackagePrefix("::")»> > «name.toFirstUpper()»Package::s_instance;
+boost::intrusive_ptr< ::«getPackagePrefix("::")» > «name.toFirstUpper()»Package::s_instance;
 
 ::«getPackagePrefix("::")»_ptr «name.toFirstUpper()»Package::_instance()
 {
-	static bool duringConstruction = false;
+    static bool duringConstruction = false;
     if (!s_instance.get()) {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< «name.toFirstUpper()»Package >();
         duringConstruction = true;
-        new «name.toFirstUpper()»Package();
+        s_instance = boost::intrusive_ptr< «name.toFirstUpper()»Package >( new «name.toFirstUpper()»Package() );
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::«getPackagePrefix("::")»_ptr «name.toFirstUpper()»Package::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;   	
-   	return _instance();
+    return _instance();
 }
 
 «ENDFILE»

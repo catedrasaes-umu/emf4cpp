@@ -81,8 +81,8 @@ void RightHand::basicsetLeftee(::eopposite::LeftHand_ptr _leftee)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::eopposite::EoppositePackage::_instance()->getRightHand__leftee(),
+                _this(),
+                ::eopposite::EoppositePackage::_instance()->getRightHand__leftee(),
                 _old_leftee,
                 m_leftee
         );
@@ -96,7 +96,7 @@ void RightHand::setLeftee(::eopposite::LeftHand_ptr _leftee)
 {
     if (_leftee != m_leftee)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_leftee != nullptr)
         {
             m_leftee->_inverseRemove(

@@ -56,8 +56,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& getPlatformElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement_ptr >& getPlatformElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement_ptr >& getPlatformElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -83,11 +83,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        PlatformModel_ptr _this()
+        {   return PlatformModel_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >> m_platformElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement_ptr >> m_platformElement;
 
     };
 

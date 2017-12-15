@@ -47,7 +47,7 @@ namespace TopLevelPackage
 
             protected:
 
-                static std::unique_ptr< Level2Factory > s_instance;
+                static boost::intrusive_ptr< Level2Factory > s_holder;
 
                 Level2Factory();
 
@@ -59,16 +59,17 @@ namespace TopLevelPackage
              *   auto p = create<MyClass>();
              *
              */
-            template< class T > inline T* create()
+            template< class T > inline boost::intrusive_ptr< T > create()
             {
-                return (T*) nullptr;
+                return boost::intrusive_ptr< T >();
             }
 
             template< > inline Level2Class_ptr create< Level2Class >()
             {
                 auto eFactory =
                         Level2Package::_instance()->getEFactoryInstance();
-                auto packageFactory = dynamic_cast< Level2Factory* >(eFactory);
+                auto packageFactory =
+                        dynamic_cast< Level2Factory* >(eFactory.get());
                 return packageFactory->createLevel2Class();
             }
 

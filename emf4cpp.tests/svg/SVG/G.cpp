@@ -80,8 +80,8 @@ void G::setName(::PrimitiveTypes::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getG__name(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getG__name(),
                 _old_name,
                 m_name
         );

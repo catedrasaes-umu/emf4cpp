@@ -40,35 +40,43 @@ CompanyPackage::CompanyPackage()
 {
 
     // Feature definitions of Employee
-    m_Employee__name = new ::ecore::EAttribute();
-    m_Employee__phonebookEntry = new ::ecore::EReference();
+    m_Employee__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Employee__phonebookEntry = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Department
-    m_Department__number = new ::ecore::EAttribute();
-    m_Department__employees = new ::ecore::EReference();
-    m_Department__manager = new ::ecore::EReference();
+    m_Department__number = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Department__employees = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Department__manager = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Company
-    m_Company__name = new ::ecore::EAttribute();
-    m_Company__departments = new ::ecore::EReference();
+    m_Company__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Company__departments = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of PhonebookEntry
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void CompanyPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = CompanyFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Employee
-    m_EmployeeEClass = new ::ecore::EClass();
+    m_EmployeeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EmployeeEClass->setClassifierID(EMPLOYEE);
-    m_EmployeeEClass->setEPackage(this);
+    m_EmployeeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EmployeeEClass);
     // m_Employee__name has already been allocated above
     m_Employee__name->setFeatureID(::company::CompanyPackage::EMPLOYEE__NAME);
@@ -80,9 +88,10 @@ CompanyPackage::CompanyPackage()
             m_Employee__phonebookEntry);
 
     // Department
-    m_DepartmentEClass = new ::ecore::EClass();
+    m_DepartmentEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DepartmentEClass->setClassifierID(DEPARTMENT);
-    m_DepartmentEClass->setEPackage(this);
+    m_DepartmentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DepartmentEClass);
     // m_Department__number has already been allocated above
     m_Department__number->setFeatureID(
@@ -101,9 +110,10 @@ CompanyPackage::CompanyPackage()
             m_Department__manager);
 
     // Company
-    m_CompanyEClass = new ::ecore::EClass();
+    m_CompanyEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CompanyEClass->setClassifierID(COMPANY);
-    m_CompanyEClass->setEPackage(this);
+    m_CompanyEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CompanyEClass);
     // m_Company__name has already been allocated above
     m_Company__name->setFeatureID(::company::CompanyPackage::COMPANY__NAME);
@@ -114,9 +124,10 @@ CompanyPackage::CompanyPackage()
     m_CompanyEClass->getEStructuralFeatures().push_back(m_Company__departments);
 
     // PhonebookEntry
-    m_PhonebookEntryEClass = new ::ecore::EClass();
+    m_PhonebookEntryEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_PhonebookEntryEClass->setClassifierID(PHONEBOOKENTRY);
-    m_PhonebookEntryEClass->setEPackage(this);
+    m_PhonebookEntryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PhonebookEntryEClass);
 
     // Create enums
@@ -139,7 +150,7 @@ CompanyPackage::CompanyPackage()
     m_EmployeeEClass->setAbstract(false);
     m_EmployeeEClass->setInterface(false);
     m_Employee__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Employee__name->setName("name");
     m_Employee__name->setDefaultValueLiteral("");
     m_Employee__name->setLowerBound(0);
@@ -170,7 +181,7 @@ CompanyPackage::CompanyPackage()
     m_DepartmentEClass->setAbstract(false);
     m_DepartmentEClass->setInterface(false);
     m_Department__number->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEInt());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEInt());
     m_Department__number->setName("number");
     m_Department__number->setDefaultValueLiteral("");
     m_Department__number->setLowerBound(0);
@@ -214,7 +225,7 @@ CompanyPackage::CompanyPackage()
     m_CompanyEClass->setAbstract(false);
     m_CompanyEClass->setInterface(false);
     m_Company__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Company__name->setName("name");
     m_Company__name->setDefaultValueLiteral("");
     m_Company__name->setLowerBound(0);

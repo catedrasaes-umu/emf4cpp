@@ -48,32 +48,48 @@ SourcePackage::SourcePackage()
 {
 
     // Feature definitions of SourceRef
-    m_SourceRef__language = new ::ecore::EAttribute();
-    m_SourceRef__snippet = new ::ecore::EAttribute();
-    m_SourceRef__region = new ::ecore::EReference();
+    m_SourceRef__language = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRef__snippet = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRef__region = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of SourceRegion
-    m_SourceRegion__startLine = new ::ecore::EAttribute();
-    m_SourceRegion__startPosition = new ::ecore::EAttribute();
-    m_SourceRegion__endLine = new ::ecore::EAttribute();
-    m_SourceRegion__endPosition = new ::ecore::EAttribute();
-    m_SourceRegion__language = new ::ecore::EAttribute();
-    m_SourceRegion__path = new ::ecore::EAttribute();
-    m_SourceRegion__file = new ::ecore::EReference();
+    m_SourceRegion__startLine = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRegion__startPosition = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRegion__endLine = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRegion__endPosition = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRegion__language = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRegion__path = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceRegion__file = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of InventoryModel
-    m_InventoryModel__inventoryElement = new ::ecore::EReference();
+    m_InventoryModel__inventoryElement = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of AbstractInventoryElement
-    m_AbstractInventoryElement__inventoryRelation = new ::ecore::EReference();
+    m_AbstractInventoryElement__inventoryRelation = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of InventoryItem
-    m_InventoryItem__version = new ::ecore::EAttribute();
-    m_InventoryItem__path = new ::ecore::EAttribute();
+    m_InventoryItem__version = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_InventoryItem__path = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of SourceFile
-    m_SourceFile__language = new ::ecore::EAttribute();
-    m_SourceFile__encoding = new ::ecore::EAttribute();
+    m_SourceFile__language = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_SourceFile__encoding = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of Image
 
@@ -82,10 +98,12 @@ SourcePackage::SourcePackage()
     // Feature definitions of Configuration
 
     // Feature definitions of InventoryContainer
-    m_InventoryContainer__inventoryElement = new ::ecore::EReference();
+    m_InventoryContainer__inventoryElement = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of Directory
-    m_Directory__path = new ::ecore::EAttribute();
+    m_Directory__path = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of Project
 
@@ -96,30 +114,35 @@ SourcePackage::SourcePackage()
     // Feature definitions of ExecutableFile
 
     // Feature definitions of DependsOn
-    m_DependsOn__to = new ::ecore::EReference();
-    m_DependsOn__from = new ::ecore::EReference();
+    m_DependsOn__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_DependsOn__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of InventoryElement
 
     // Feature definitions of InventoryRelationship
-    m_InventoryRelationship__to = new ::ecore::EReference();
-    m_InventoryRelationship__from = new ::ecore::EReference();
+    m_InventoryRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_InventoryRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void SourcePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = SourceFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // SourceRef
-    m_SourceRefEClass = new ::ecore::EClass();
+    m_SourceRefEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SourceRefEClass->setClassifierID(SOURCEREF);
-    m_SourceRefEClass->setEPackage(this);
+    m_SourceRefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SourceRefEClass);
     // m_SourceRef__language has already been allocated above
     m_SourceRef__language->setFeatureID(
@@ -136,9 +159,10 @@ SourcePackage::SourcePackage()
     m_SourceRefEClass->getEStructuralFeatures().push_back(m_SourceRef__region);
 
     // SourceRegion
-    m_SourceRegionEClass = new ::ecore::EClass();
+    m_SourceRegionEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SourceRegionEClass->setClassifierID(SOURCEREGION);
-    m_SourceRegionEClass->setEPackage(this);
+    m_SourceRegionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SourceRegionEClass);
     // m_SourceRegion__startLine has already been allocated above
     m_SourceRegion__startLine->setFeatureID(
@@ -177,9 +201,10 @@ SourcePackage::SourcePackage()
             m_SourceRegion__file);
 
     // InventoryModel
-    m_InventoryModelEClass = new ::ecore::EClass();
+    m_InventoryModelEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InventoryModelEClass->setClassifierID(INVENTORYMODEL);
-    m_InventoryModelEClass->setEPackage(this);
+    m_InventoryModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InventoryModelEClass);
     // m_InventoryModel__inventoryElement has already been allocated above
     m_InventoryModel__inventoryElement->setFeatureID(
@@ -188,9 +213,10 @@ SourcePackage::SourcePackage()
             m_InventoryModel__inventoryElement);
 
     // AbstractInventoryElement
-    m_AbstractInventoryElementEClass = new ::ecore::EClass();
+    m_AbstractInventoryElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractInventoryElementEClass->setClassifierID(ABSTRACTINVENTORYELEMENT);
-    m_AbstractInventoryElementEClass->setEPackage(this);
+    m_AbstractInventoryElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractInventoryElementEClass);
     // m_AbstractInventoryElement__inventoryRelation has already been allocated above
     m_AbstractInventoryElement__inventoryRelation->setFeatureID(
@@ -199,9 +225,10 @@ SourcePackage::SourcePackage()
             m_AbstractInventoryElement__inventoryRelation);
 
     // InventoryItem
-    m_InventoryItemEClass = new ::ecore::EClass();
+    m_InventoryItemEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InventoryItemEClass->setClassifierID(INVENTORYITEM);
-    m_InventoryItemEClass->setEPackage(this);
+    m_InventoryItemEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InventoryItemEClass);
     // m_InventoryItem__version has already been allocated above
     m_InventoryItem__version->setFeatureID(
@@ -215,9 +242,10 @@ SourcePackage::SourcePackage()
             m_InventoryItem__path);
 
     // SourceFile
-    m_SourceFileEClass = new ::ecore::EClass();
+    m_SourceFileEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SourceFileEClass->setClassifierID(SOURCEFILE);
-    m_SourceFileEClass->setEPackage(this);
+    m_SourceFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SourceFileEClass);
     // m_SourceFile__language has already been allocated above
     m_SourceFile__language->setFeatureID(
@@ -231,27 +259,31 @@ SourcePackage::SourcePackage()
             m_SourceFile__encoding);
 
     // Image
-    m_ImageEClass = new ::ecore::EClass();
+    m_ImageEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ImageEClass->setClassifierID(IMAGE);
-    m_ImageEClass->setEPackage(this);
+    m_ImageEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImageEClass);
 
     // ResourceDescription
-    m_ResourceDescriptionEClass = new ::ecore::EClass();
+    m_ResourceDescriptionEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ResourceDescriptionEClass->setClassifierID(RESOURCEDESCRIPTION);
-    m_ResourceDescriptionEClass->setEPackage(this);
+    m_ResourceDescriptionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ResourceDescriptionEClass);
 
     // Configuration
-    m_ConfigurationEClass = new ::ecore::EClass();
+    m_ConfigurationEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ConfigurationEClass->setClassifierID(CONFIGURATION);
-    m_ConfigurationEClass->setEPackage(this);
+    m_ConfigurationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConfigurationEClass);
 
     // InventoryContainer
-    m_InventoryContainerEClass = new ::ecore::EClass();
+    m_InventoryContainerEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InventoryContainerEClass->setClassifierID(INVENTORYCONTAINER);
-    m_InventoryContainerEClass->setEPackage(this);
+    m_InventoryContainerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InventoryContainerEClass);
     // m_InventoryContainer__inventoryElement has already been allocated above
     m_InventoryContainer__inventoryElement->setFeatureID(
@@ -260,9 +292,10 @@ SourcePackage::SourcePackage()
             m_InventoryContainer__inventoryElement);
 
     // Directory
-    m_DirectoryEClass = new ::ecore::EClass();
+    m_DirectoryEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DirectoryEClass->setClassifierID(DIRECTORY);
-    m_DirectoryEClass->setEPackage(this);
+    m_DirectoryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DirectoryEClass);
     // m_Directory__path has already been allocated above
     m_Directory__path->setFeatureID(
@@ -270,34 +303,39 @@ SourcePackage::SourcePackage()
     m_DirectoryEClass->getEStructuralFeatures().push_back(m_Directory__path);
 
     // Project
-    m_ProjectEClass = new ::ecore::EClass();
+    m_ProjectEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ProjectEClass->setClassifierID(PROJECT);
-    m_ProjectEClass->setEPackage(this);
+    m_ProjectEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ProjectEClass);
 
     // AbstractInventoryRelationship
-    m_AbstractInventoryRelationshipEClass = new ::ecore::EClass();
+    m_AbstractInventoryRelationshipEClass = boost::intrusive_ptr
+            < ::ecore::EClass > (new ::ecore::EClass);
     m_AbstractInventoryRelationshipEClass->setClassifierID(
             ABSTRACTINVENTORYRELATIONSHIP);
-    m_AbstractInventoryRelationshipEClass->setEPackage(this);
+    m_AbstractInventoryRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractInventoryRelationshipEClass);
 
     // BinaryFile
-    m_BinaryFileEClass = new ::ecore::EClass();
+    m_BinaryFileEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BinaryFileEClass->setClassifierID(BINARYFILE);
-    m_BinaryFileEClass->setEPackage(this);
+    m_BinaryFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BinaryFileEClass);
 
     // ExecutableFile
-    m_ExecutableFileEClass = new ::ecore::EClass();
+    m_ExecutableFileEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ExecutableFileEClass->setClassifierID(EXECUTABLEFILE);
-    m_ExecutableFileEClass->setEPackage(this);
+    m_ExecutableFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExecutableFileEClass);
 
     // DependsOn
-    m_DependsOnEClass = new ::ecore::EClass();
+    m_DependsOnEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DependsOnEClass->setClassifierID(DEPENDSON);
-    m_DependsOnEClass->setEPackage(this);
+    m_DependsOnEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DependsOnEClass);
     // m_DependsOn__to has already been allocated above
     m_DependsOn__to->setFeatureID(::kdm::source::SourcePackage::DEPENDSON__TO);
@@ -308,15 +346,17 @@ SourcePackage::SourcePackage()
     m_DependsOnEClass->getEStructuralFeatures().push_back(m_DependsOn__from);
 
     // InventoryElement
-    m_InventoryElementEClass = new ::ecore::EClass();
+    m_InventoryElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InventoryElementEClass->setClassifierID(INVENTORYELEMENT);
-    m_InventoryElementEClass->setEPackage(this);
+    m_InventoryElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InventoryElementEClass);
 
     // InventoryRelationship
-    m_InventoryRelationshipEClass = new ::ecore::EClass();
+    m_InventoryRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InventoryRelationshipEClass->setClassifierID(INVENTORYRELATIONSHIP);
-    m_InventoryRelationshipEClass->setEPackage(this);
+    m_InventoryRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InventoryRelationshipEClass);
     // m_InventoryRelationship__to has already been allocated above
     m_InventoryRelationship__to->setFeatureID(
@@ -342,13 +382,13 @@ SourcePackage::SourcePackage()
 
     // Add supertypes to classes
     m_SourceRefEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getElement());
     m_SourceRegionEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getElement());
     m_InventoryModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getKDMModel());
     m_AbstractInventoryElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_InventoryItemEClass->getESuperTypes().push_back(
             m_AbstractInventoryElementEClass);
     m_SourceFileEClass->getESuperTypes().push_back(m_InventoryItemEClass);
@@ -361,7 +401,7 @@ SourcePackage::SourcePackage()
     m_DirectoryEClass->getESuperTypes().push_back(m_InventoryContainerEClass);
     m_ProjectEClass->getESuperTypes().push_back(m_InventoryContainerEClass);
     m_AbstractInventoryRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMRelationship());
     m_BinaryFileEClass->getESuperTypes().push_back(m_InventoryItemEClass);
     m_ExecutableFileEClass->getESuperTypes().push_back(m_InventoryItemEClass);
     m_DependsOnEClass->getESuperTypes().push_back(
@@ -378,7 +418,7 @@ SourcePackage::SourcePackage()
     m_SourceRefEClass->setAbstract(false);
     m_SourceRefEClass->setInterface(false);
     m_SourceRef__language->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_SourceRef__language->setName("language");
     m_SourceRef__language->setDefaultValueLiteral("");
     m_SourceRef__language->setLowerBound(0);
@@ -392,7 +432,7 @@ SourcePackage::SourcePackage()
     m_SourceRef__language->setDerived(false);
     m_SourceRef__language->setOrdered(false);
     m_SourceRef__snippet->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_SourceRef__snippet->setName("snippet");
     m_SourceRef__snippet->setDefaultValueLiteral("");
     m_SourceRef__snippet->setLowerBound(0);
@@ -423,7 +463,7 @@ SourcePackage::SourcePackage()
     m_SourceRegionEClass->setAbstract(false);
     m_SourceRegionEClass->setInterface(false);
     m_SourceRegion__startLine->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_SourceRegion__startLine->setName("startLine");
     m_SourceRegion__startLine->setDefaultValueLiteral("");
     m_SourceRegion__startLine->setLowerBound(0);
@@ -437,7 +477,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__startLine->setDerived(false);
     m_SourceRegion__startLine->setOrdered(false);
     m_SourceRegion__startPosition->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_SourceRegion__startPosition->setName("startPosition");
     m_SourceRegion__startPosition->setDefaultValueLiteral("");
     m_SourceRegion__startPosition->setLowerBound(0);
@@ -451,7 +491,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__startPosition->setDerived(false);
     m_SourceRegion__startPosition->setOrdered(false);
     m_SourceRegion__endLine->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_SourceRegion__endLine->setName("endLine");
     m_SourceRegion__endLine->setDefaultValueLiteral("");
     m_SourceRegion__endLine->setLowerBound(0);
@@ -465,7 +505,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__endLine->setDerived(false);
     m_SourceRegion__endLine->setOrdered(false);
     m_SourceRegion__endPosition->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_SourceRegion__endPosition->setName("endPosition");
     m_SourceRegion__endPosition->setDefaultValueLiteral("");
     m_SourceRegion__endPosition->setLowerBound(0);
@@ -479,7 +519,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__endPosition->setDerived(false);
     m_SourceRegion__endPosition->setOrdered(false);
     m_SourceRegion__language->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_SourceRegion__language->setName("language");
     m_SourceRegion__language->setDefaultValueLiteral("");
     m_SourceRegion__language->setLowerBound(0);
@@ -493,7 +533,7 @@ SourcePackage::SourcePackage()
     m_SourceRegion__language->setDerived(false);
     m_SourceRegion__language->setOrdered(false);
     m_SourceRegion__path->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_SourceRegion__path->setName("path");
     m_SourceRegion__path->setDefaultValueLiteral("");
     m_SourceRegion__path->setLowerBound(0);
@@ -560,7 +600,7 @@ SourcePackage::SourcePackage()
     m_InventoryItemEClass->setAbstract(false);
     m_InventoryItemEClass->setInterface(false);
     m_InventoryItem__version->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_InventoryItem__version->setName("version");
     m_InventoryItem__version->setDefaultValueLiteral("");
     m_InventoryItem__version->setLowerBound(0);
@@ -574,7 +614,7 @@ SourcePackage::SourcePackage()
     m_InventoryItem__version->setDerived(false);
     m_InventoryItem__version->setOrdered(false);
     m_InventoryItem__path->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_InventoryItem__path->setName("path");
     m_InventoryItem__path->setDefaultValueLiteral("");
     m_InventoryItem__path->setLowerBound(0);
@@ -592,7 +632,7 @@ SourcePackage::SourcePackage()
     m_SourceFileEClass->setAbstract(false);
     m_SourceFileEClass->setInterface(false);
     m_SourceFile__language->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_SourceFile__language->setName("language");
     m_SourceFile__language->setDefaultValueLiteral("");
     m_SourceFile__language->setLowerBound(0);
@@ -606,7 +646,7 @@ SourcePackage::SourcePackage()
     m_SourceFile__language->setDerived(false);
     m_SourceFile__language->setOrdered(false);
     m_SourceFile__encoding->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_SourceFile__encoding->setName("encoding");
     m_SourceFile__encoding->setDefaultValueLiteral("");
     m_SourceFile__encoding->setLowerBound(0);
@@ -654,7 +694,7 @@ SourcePackage::SourcePackage()
     m_DirectoryEClass->setAbstract(false);
     m_DirectoryEClass->setInterface(false);
     m_Directory__path->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_Directory__path->setName("path");
     m_Directory__path->setDefaultValueLiteral("");
     m_Directory__path->setLowerBound(0);
@@ -723,7 +763,7 @@ SourcePackage::SourcePackage()
     m_InventoryRelationshipEClass->setAbstract(false);
     m_InventoryRelationshipEClass->setInterface(false);
     m_InventoryRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_InventoryRelationship__to->setName("to");
     m_InventoryRelationship__to->setDefaultValueLiteral("");
     m_InventoryRelationship__to->setLowerBound(1);

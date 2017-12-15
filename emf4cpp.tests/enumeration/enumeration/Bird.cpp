@@ -72,8 +72,8 @@ void Bird::setType(::enumeration::BirdType _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::enumeration::EnumerationPackage::_instance()->getBird__type(),
+                _this(),
+                ::enumeration::EnumerationPackage::_instance()->getBird__type(),
                 _old_type,
                 m_type
         );
@@ -98,8 +98,8 @@ void Bird::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::enumeration::EnumerationPackage::_instance()->getBird__name(),
+                _this(),
+                ::enumeration::EnumerationPackage::_instance()->getBird__name(),
                 _old_name,
                 m_name
         );

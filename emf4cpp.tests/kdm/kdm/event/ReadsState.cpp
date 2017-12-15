@@ -82,8 +82,8 @@ void ReadsState::setTo(::kdm::event::State_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::event::EventPackage::_instance()->getReadsState__to(),
+                _this(),
+                ::kdm::event::EventPackage::_instance()->getReadsState__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void ReadsState::setFrom(::kdm::action::ActionElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::event::EventPackage::_instance()->getReadsState__from(),
+                _this(),
+                ::kdm::event::EventPackage::_instance()->getReadsState__from(),
                 _old_from,
                 m_from
         );

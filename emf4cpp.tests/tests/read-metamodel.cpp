@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
             assert(_epkg);
 
-            std::cout << _eobj;
+            std::cout << _eobj.get();
 
             mmr->load(_epkg);
         } catch (const char* e)

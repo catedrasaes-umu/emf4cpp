@@ -876,9 +876,10 @@ namespace kdm
 
     protected:
 
-        static std::unique_ptr< PlatformPackage, ::ecorecpp::PackageDeleter<PlatformPackage> > s_instance;
+        static boost::intrusive_ptr< PlatformPackage > s_instance;
 
         PlatformPackage();
+        void _initPackage();
 
         // EClass instances 
 

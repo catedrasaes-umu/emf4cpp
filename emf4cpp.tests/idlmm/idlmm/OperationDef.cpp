@@ -47,12 +47,12 @@ OperationDef::OperationDef()
 {
 
     m_parameters.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ParameterDef,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::ParameterDef_ptr, -1, true, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getOperationDef__parameters()));
     m_canRaise.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::ExceptionDef_ptr, -1, false, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getOperationDef__canRaise()));
 
     /*PROTECTED REGION ID(OperationDefImpl__OperationDefImpl) START*/
@@ -87,8 +87,8 @@ void OperationDef::setIsOneway(::ecore::EBoolean _isOneway)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getOperationDef__isOneway(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getOperationDef__isOneway(),
                 _old_isOneway,
                 m_isOneway
         );
@@ -113,8 +113,8 @@ void OperationDef::setContexts(std::vector< ::ecore::EString > const& _contexts)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getOperationDef__contexts(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getOperationDef__contexts(),
                 _old_contexts,
                 m_contexts
         );
@@ -149,22 +149,22 @@ void OperationDef::deleteContextsAt(size_t _position)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& OperationDef::getParameters() const
+const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >& OperationDef::getParameters() const
 {
     return *m_parameters;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& OperationDef::getParameters()
+::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >& OperationDef::getParameters()
 {
     return *m_parameters;
 }
 
-const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& OperationDef::getCanRaise() const
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& OperationDef::getCanRaise() const
 {
     return *m_canRaise;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& OperationDef::getCanRaise()
+::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& OperationDef::getCanRaise()
 {
     return *m_canRaise;
 }

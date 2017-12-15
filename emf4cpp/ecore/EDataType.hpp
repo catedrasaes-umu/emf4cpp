@@ -73,6 +73,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EDataType_ptr _this()
+    {   return EDataType_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_serializable;

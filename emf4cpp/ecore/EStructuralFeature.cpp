@@ -77,8 +77,8 @@ void EStructuralFeature::setChangeable(::ecore::EBoolean _changeable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__changeable(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__changeable(),
                 _old_changeable,
                 m_changeable
         );
@@ -103,8 +103,8 @@ void EStructuralFeature::setVolatile(::ecore::EBoolean _volatile)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__volatile(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__volatile(),
                 _old_volatile,
                 m_volatile
         );
@@ -129,8 +129,8 @@ void EStructuralFeature::setTransient(::ecore::EBoolean _transient)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__transient(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__transient(),
                 _old_transient,
                 m_transient
         );
@@ -156,8 +156,8 @@ void EStructuralFeature::setDefaultValueLiteral(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValueLiteral(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValueLiteral(),
                 _old_defaultValueLiteral,
                 m_defaultValueLiteral
         );
@@ -183,8 +183,8 @@ void EStructuralFeature::setDefaultValue(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValue(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValue(),
                 _old_defaultValue,
                 m_defaultValue
         );
@@ -209,8 +209,8 @@ void EStructuralFeature::setUnsettable(::ecore::EBoolean _unsettable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__unsettable(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__unsettable(),
                 _old_unsettable,
                 m_unsettable
         );
@@ -235,8 +235,8 @@ void EStructuralFeature::setDerived(::ecore::EBoolean _derived)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__derived(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__derived(),
                 _old_derived,
                 m_derived
         );
@@ -269,8 +269,8 @@ void EStructuralFeature::basicsetEContainingClass(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__eContainingClass(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__eContainingClass(),
                 _old_eContainingClass,
                 m_eContainingClass
         );
@@ -285,7 +285,7 @@ void EStructuralFeature::setEContainingClass(
 {
     if (_eContainingClass != m_eContainingClass)
     {
-        ::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
         if (m_eContainingClass != nullptr)
         {
             m_eContainingClass->_inverseRemove(

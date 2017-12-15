@@ -61,7 +61,7 @@ void EEnumLiteral::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
@@ -90,7 +90,8 @@ void EEnumLiteral::_initialize()
         return _any;
     case ::ecore::EcorePackage::EENUMLITERAL__EENUM:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eEnum);
+        if (m_eEnum)
+            _any = m_eEnum->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -105,9 +106,9 @@ void EEnumLiteral::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
@@ -140,7 +141,7 @@ void EEnumLiteral::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum_ptr >(_t0);
+        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EEnum >(_t0);*/
         ::ecore::EEnumLiteral::setEEnum(_t1);
     }
         return;
@@ -168,7 +169,7 @@ void EEnumLiteral::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_literal);
     case ::ecore::EcorePackage::EENUMLITERAL__EENUM:
-        return m_eEnum;
+        return (bool) m_eEnum;
 
     }
     throw "Error";
@@ -186,7 +187,7 @@ void EEnumLiteral::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr EEnumLiteral::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEEnumLiteral();
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEEnumLiteral();
     return _eclass;
 }
 
@@ -202,12 +203,12 @@ void EEnumLiteral::_inverseAdd(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicAdd(_t1);
     }
         return;
@@ -215,7 +216,7 @@ void EEnumLiteral::_inverseAdd(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum_ptr >(_t0);
+        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum* >(_t0.get());
 
         // set reference
         basicsetEEnum(_t1);
@@ -238,12 +239,12 @@ void EEnumLiteral::_inverseRemove(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
         ::ecore::EAnnotation_ptr _t1 =
-                dynamic_cast< ::ecore::EAnnotation_ptr >(_t0);
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
 
         // add to a list
         auto& container =
-                (::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                        -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
         container.basicRemove(_t1);
     }
         return;
@@ -251,7 +252,7 @@ void EEnumLiteral::_inverseRemove(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
-        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum_ptr >(_t0);
+        ::ecore::EEnum_ptr _t1 = dynamic_cast< ::ecore::EEnum* >(_t0.get());
 
         // set reference
         if (basicgetEEnum() == _t1)

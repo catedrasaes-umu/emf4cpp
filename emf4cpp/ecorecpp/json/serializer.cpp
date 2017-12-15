@@ -64,7 +64,7 @@ serializer::serialize_node(EObject_ptr obj)
 
     EClass_ptr cl = obj->eClass();
 
-    ::ecorecpp::mapping::EList< EAttribute > const& attributes =
+    ::ecorecpp::mapping::EList< EAttribute_ptr > const& attributes =
           cl->getEAllAttributes();
 
     for (size_t i = 0; i < attributes.size(); i++)
@@ -135,7 +135,7 @@ serializer::serialize_node(EObject_ptr obj)
         }
     }
 
-    ::ecorecpp::mapping::EList< EReference > const& references =
+    ::ecorecpp::mapping::EList< EReference_ptr > const& references =
           cl->getEAllReferences();
 
     for (size_t i = 0; i < references.size(); i++)
@@ -158,8 +158,8 @@ serializer::serialize_node(EObject_ptr obj)
 
                     if (current_ref->getUpperBound() != 1)
                     {
-                        mapping::EList<::ecore::EObject>::ptr_type children = ecorecpp::mapping::any::any_cast<
-                                mapping::EList<::ecore::EObject>::ptr_type >(any);
+                        mapping::EList<::ecore::EObject_ptr>::ptr_type children = ecorecpp::mapping::any::any_cast<
+                                mapping::EList<::ecore::EObject_ptr>::ptr_type >(any);
 
                         m_ser.open_array();
 
@@ -183,8 +183,8 @@ serializer::serialize_node(EObject_ptr obj)
 
                     if (current_ref->getUpperBound() != 1)
                     {
-                        mapping::EList<::ecore::EObject>::ptr_type children = ecorecpp::mapping::any::any_cast<
-                                mapping::EList<::ecore::EObject>::ptr_type >(any);
+                        mapping::EList<::ecore::EObject_ptr>::ptr_type children = ecorecpp::mapping::any::any_cast<
+                                mapping::EList<::ecore::EObject_ptr>::ptr_type >(any);
                         for (size_t j = 0; j < children->size(); j++)
                         {
                             value << get_reference(obj, (*children)[j]);

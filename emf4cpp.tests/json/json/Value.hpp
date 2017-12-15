@@ -38,7 +38,6 @@ namespace json
 {
 
 class EXPORT_JSON_DLL Value : public virtual ::ecore::EObject
-
 {
 public:
     Value();
@@ -77,6 +76,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Value_ptr _this()
+    {   return Value_ptr(this);}
+
     // Attributes
 
     // References

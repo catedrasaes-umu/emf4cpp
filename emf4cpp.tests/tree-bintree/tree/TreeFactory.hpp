@@ -45,7 +45,7 @@ namespace tree
 
     protected:
 
-        static std::unique_ptr< TreeFactory > s_instance;
+        static boost::intrusive_ptr< TreeFactory > s_holder;
 
         TreeFactory();
 
@@ -57,27 +57,29 @@ namespace tree
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline TreeNode_ptr create< TreeNode >()
     {
         auto eFactory = TreePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory.get());
         return packageFactory->createTreeNode();
     }
+
     template< > inline Leaf_ptr create< Leaf >()
     {
         auto eFactory = TreePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory.get());
         return packageFactory->createLeaf();
     }
+
     template< > inline NonTerminal_ptr create< NonTerminal >()
     {
         auto eFactory = TreePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< TreeFactory* >(eFactory.get());
         return packageFactory->createNonTerminal();
     }
 

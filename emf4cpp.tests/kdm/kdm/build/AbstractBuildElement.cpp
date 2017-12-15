@@ -50,7 +50,7 @@ AbstractBuildElement::AbstractBuildElement()
 
     m_buildRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildRelationship, -1, true, false >(
+                    ::kdm::build::AbstractBuildRelationship_ptr, -1, true, false >(
                     this,
                     ::kdm::build::BuildPackage::_instance()->getAbstractBuildElement__buildRelation()));
 
@@ -72,12 +72,12 @@ AbstractBuildElement::~AbstractBuildElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& AbstractBuildElement::getBuildRelation() const
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship_ptr >& AbstractBuildElement::getBuildRelation() const
 {
     return *m_buildRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& AbstractBuildElement::getBuildRelation()
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship_ptr >& AbstractBuildElement::getBuildRelation()
 {
     return *m_buildRelation;
 }

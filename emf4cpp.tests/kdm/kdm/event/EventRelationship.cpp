@@ -81,8 +81,8 @@ void EventRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::event::EventPackage::_instance()->getEventRelationship__to(),
+                _this(),
+                ::kdm::event::EventPackage::_instance()->getEventRelationship__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void EventRelationship::setFrom(::kdm::event::AbstractEventElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::event::EventPackage::_instance()->getEventRelationship__from(),
+                _this(),
+                ::kdm::event::EventPackage::_instance()->getEventRelationship__from(),
                 _old_from,
                 m_from
         );

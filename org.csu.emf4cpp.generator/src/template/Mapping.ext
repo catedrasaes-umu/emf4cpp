@@ -34,7 +34,7 @@ String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 	case "EDiagnosticChain": "int" // ?? Need class
 	case "EDouble": "double"
 	case "EDoubleObject": "double" // Object/value?
-	case "EEList": "std::shared_ptr<::ecorecpp::mapping::EList<" + type_parameters.replaceAll("_ptr","") +">>"
+	case "EEList": "std::shared_ptr<::ecorecpp::mapping::EList<" + type_parameters +">>"
 	case "EEnumerator": "int" // ?? Need class
 	case "EFeatureMap": "int" // ?? Need class
 	case "EFeatureMapEntry": "int" // ?? Need class
@@ -53,7 +53,7 @@ String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 	case "EShort": "short"
 	case "EShortObject": "short" // Object/value?
 	case "EString": "::ecorecpp::mapping::type_definitions::string_t"
-	case "ETreeIterator": "::ecorecpp::util::TreeIterator<" + type_parameters.replaceAll("_ptr","") +">"
+	case "ETreeIterator": "::ecorecpp::util::TreeIterator<" + type_parameters +">"
 	case "EInvocationTargetException": "int" // ?? Need class
 	default: // fallback
 		"int"

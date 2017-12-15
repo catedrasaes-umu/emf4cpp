@@ -59,11 +59,11 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& getDeployedComponent () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& getDeployedComponent ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& getDeployedComponent () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& getDeployedComponent ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource >& getDeployedResource () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource >& getDeployedResource ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource_ptr >& getDeployedResource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource_ptr >& getDeployedResource ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -89,13 +89,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Machine_ptr _this()
+        {   return Machine_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >> m_deployedComponent;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >> m_deployedComponent;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource >> m_deployedResource;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource_ptr >> m_deployedResource;
 
     };
 

@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& getReferee () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& getReferee ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::ReferencedFile_ptr >& getReferee () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::ReferencedFile_ptr >& getReferee ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -80,11 +80,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Image_ptr _this()
+    {   return Image_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::ReferencedFile >> m_referee;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::ReferencedFile_ptr >> m_referee;
 
 };
 

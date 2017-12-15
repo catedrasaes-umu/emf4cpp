@@ -106,6 +106,9 @@ protected:
     /*PROTECTED REGION END*/
 
 protected:
+    EStructuralFeature_ptr _this()
+    {   return EStructuralFeature_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_changeable;

@@ -56,7 +56,7 @@ ErrorStatement::~ErrorStatement()
 {
     if (m_message)
     {
-        delete m_message;
+        m_message.reset();
     }
 }
 
@@ -81,8 +81,8 @@ void ErrorStatement::setMessage(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message(),
                 _old_message,
                 m_message
         );
@@ -90,8 +90,10 @@ void ErrorStatement::setMessage(
     }
 #endif
 
-    delete _old_message;
-    m_message->_setEContainer(this,
+    if (_old_message)
+        _old_message->_setEContainer(ErrorStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
+    m_message->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
 }
 

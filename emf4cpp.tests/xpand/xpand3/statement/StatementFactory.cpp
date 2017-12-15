@@ -22,12 +22,14 @@
 
 using namespace ::xpand3::statement;
 
-std::unique_ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_instance;
+boost::intrusive_ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_holder;
 
 ::xpand3::statement::StatementFactory_ptr StatementFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new StatementFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < StatementFactory
+                > (new StatementFactory());
+
+    return s_holder;
 }
 

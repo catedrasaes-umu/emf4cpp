@@ -84,6 +84,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractNamedDeclaration_ptr _this()
+        {   return AbstractNamedDeclaration_ptr(this);}
+
         // Attributes
 
         // References

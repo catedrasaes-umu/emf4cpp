@@ -82,7 +82,8 @@ void NullLiteral::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_literalValue);
+        if (m_literalValue)
+            _any = m_literalValue->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -124,7 +125,7 @@ void NullLiteral::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::Literal::setLiteralValue(_t1);
     }
         return;
@@ -149,7 +150,7 @@ void NullLiteral::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
-        return m_literalValue;
+        return (bool) m_literalValue;
 
     }
     throw "Error";
@@ -167,7 +168,7 @@ void NullLiteral::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr NullLiteral::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getNullLiteral();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getNullLiteral();
     return _eclass;
 }
 

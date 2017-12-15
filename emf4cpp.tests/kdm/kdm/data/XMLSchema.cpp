@@ -54,7 +54,8 @@ XMLSchema::XMLSchema()
 
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractContentElement, -1, true, false >(this,
+                    ::kdm::data::AbstractContentElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::data::DataPackage::_instance()->getXMLSchema__contentElement()));
 
     /*PROTECTED REGION ID(XMLSchemaImpl__XMLSchemaImpl) START*/
@@ -75,12 +76,12 @@ XMLSchema::~XMLSchema()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& XMLSchema::getContentElement() const
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& XMLSchema::getContentElement() const
 {
     return *m_contentElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& XMLSchema::getContentElement()
+::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& XMLSchema::getContentElement()
 {
     return *m_contentElement;
 }

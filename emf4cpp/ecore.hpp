@@ -22,6 +22,7 @@
 #define ECORE_HPP
 
 #include "ecore_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

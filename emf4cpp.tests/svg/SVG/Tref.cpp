@@ -83,8 +83,8 @@ void Tref::setXlinkHref(::SVG::TextElement_ptr _xlinkHref)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTref__xlinkHref(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTref__xlinkHref(),
                 _old_xlinkHref,
                 m_xlinkHref
         );

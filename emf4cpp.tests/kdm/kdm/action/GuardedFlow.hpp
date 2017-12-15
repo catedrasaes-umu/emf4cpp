@@ -80,6 +80,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        GuardedFlow_ptr _this()
+        {   return GuardedFlow_ptr(this);}
+
         // Attributes
 
         // References

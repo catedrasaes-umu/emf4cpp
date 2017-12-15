@@ -84,8 +84,8 @@ void PlatformEvent::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getPlatformEvent__kind(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getPlatformEvent__kind(),
                 _old_kind,
                 m_kind
         );

@@ -49,8 +49,8 @@ PlatformModel::PlatformModel()
 
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::AbstractPlatformElement, -1, true, false >(
-                    this,
+                    ::kdm::platform::AbstractPlatformElement_ptr, -1, true,
+                    false >(this,
                     ::kdm::platform::PlatformPackage::_instance()->getPlatformModel__platformElement()));
 
     /*PROTECTED REGION ID(PlatformModelImpl__PlatformModelImpl) START*/
@@ -71,12 +71,12 @@ PlatformModel::~PlatformModel()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& PlatformModel::getPlatformElement() const
+const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement_ptr >& PlatformModel::getPlatformElement() const
 {
     return *m_platformElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& PlatformModel::getPlatformElement()
+::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement_ptr >& PlatformModel::getPlatformElement()
 {
     return *m_platformElement;
 }

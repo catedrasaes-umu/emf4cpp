@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DecimalType_ptr _this()
+        {   return DecimalType_ptr(this);}
+
         // Attributes
 
         // References

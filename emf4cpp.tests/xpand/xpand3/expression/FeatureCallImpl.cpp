@@ -90,12 +90,14 @@ void FeatureCall::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
     {
-        _any = static_cast< ::ecore::EObject* >(m_target);
+        if (m_target)
+            _any = m_target->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_name);
+        if (m_name)
+            _any = m_name->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -137,7 +139,7 @@ void FeatureCall::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::FeatureCall::setTarget(_t1);
     }
         return;
@@ -146,7 +148,7 @@ void FeatureCall::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::FeatureCall::setName(_t1);
     }
         return;
@@ -171,9 +173,9 @@ void FeatureCall::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
-        return m_target;
+        return (bool) m_target;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
-        return m_name;
+        return (bool) m_name;
 
     }
     throw "Error";
@@ -191,7 +193,7 @@ void FeatureCall::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr FeatureCall::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getFeatureCall();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getFeatureCall();
     return _eclass;
 }
 

@@ -106,7 +106,7 @@ void Import::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Import::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getImport();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getImport();
     return _eclass;
 }
 

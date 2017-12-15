@@ -63,11 +63,11 @@ public:
     virtual void deleteContextsAt ( size_t _position );
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >& getParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >& getParameters ();
 
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getCanRaise () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getCanRaise ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -93,6 +93,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    OperationDef_ptr _this()
+    {   return OperationDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_isOneway;
@@ -101,9 +104,9 @@ protected:
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ParameterDef >> m_parameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >> m_parameters;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >> m_canRaise;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >> m_canRaise;
 
 };
 

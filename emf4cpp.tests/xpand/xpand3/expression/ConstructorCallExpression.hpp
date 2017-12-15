@@ -83,6 +83,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        ConstructorCallExpression_ptr _this()
+        {   return ConstructorCallExpression_ptr(this);}
+
         // Attributes
 
         // References

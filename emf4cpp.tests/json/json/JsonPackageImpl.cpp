@@ -40,43 +40,51 @@ JsonPackage::JsonPackage()
 {
 
     // Feature definitions of ObjectValue
-    m_ObjectValue__members = new ::ecore::EReference();
+    m_ObjectValue__members = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of NVPair
-    m_NVPair__name = new ::ecore::EAttribute();
-    m_NVPair__value = new ::ecore::EReference();
+    m_NVPair__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_NVPair__value = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Value
 
     // Feature definitions of StringValue
-    m_StringValue__value = new ::ecore::EAttribute();
+    m_StringValue__value = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of NumberValue
-    m_NumberValue__value = new ::ecore::EAttribute();
+    m_NumberValue__value = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of BooleanValue
-    m_BooleanValue__value = new ::ecore::EAttribute();
+    m_BooleanValue__value = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of ArrayValue
-    m_ArrayValue__values = new ::ecore::EReference();
+    m_ArrayValue__values = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of NullValue
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void JsonPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = JsonFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // ObjectValue
-    m_ObjectValueEClass = new ::ecore::EClass();
+    m_ObjectValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ObjectValueEClass->setClassifierID(OBJECTVALUE);
-    m_ObjectValueEClass->setEPackage(this);
+    m_ObjectValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ObjectValueEClass);
     // m_ObjectValue__members has already been allocated above
     m_ObjectValue__members->setFeatureID(
@@ -85,9 +93,10 @@ JsonPackage::JsonPackage()
             m_ObjectValue__members);
 
     // NVPair
-    m_NVPairEClass = new ::ecore::EClass();
+    m_NVPairEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NVPairEClass->setClassifierID(NVPAIR);
-    m_NVPairEClass->setEPackage(this);
+    m_NVPairEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NVPairEClass);
     // m_NVPair__name has already been allocated above
     m_NVPair__name->setFeatureID(::json::JsonPackage::NVPAIR__NAME);
@@ -97,15 +106,17 @@ JsonPackage::JsonPackage()
     m_NVPairEClass->getEStructuralFeatures().push_back(m_NVPair__value);
 
     // Value
-    m_ValueEClass = new ::ecore::EClass();
+    m_ValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ValueEClass->setClassifierID(VALUE);
-    m_ValueEClass->setEPackage(this);
+    m_ValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ValueEClass);
 
     // StringValue
-    m_StringValueEClass = new ::ecore::EClass();
+    m_StringValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StringValueEClass->setClassifierID(STRINGVALUE);
-    m_StringValueEClass->setEPackage(this);
+    m_StringValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StringValueEClass);
     // m_StringValue__value has already been allocated above
     m_StringValue__value->setFeatureID(::json::JsonPackage::STRINGVALUE__VALUE);
@@ -113,9 +124,10 @@ JsonPackage::JsonPackage()
             m_StringValue__value);
 
     // NumberValue
-    m_NumberValueEClass = new ::ecore::EClass();
+    m_NumberValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NumberValueEClass->setClassifierID(NUMBERVALUE);
-    m_NumberValueEClass->setEPackage(this);
+    m_NumberValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NumberValueEClass);
     // m_NumberValue__value has already been allocated above
     m_NumberValue__value->setFeatureID(::json::JsonPackage::NUMBERVALUE__VALUE);
@@ -123,9 +135,10 @@ JsonPackage::JsonPackage()
             m_NumberValue__value);
 
     // BooleanValue
-    m_BooleanValueEClass = new ::ecore::EClass();
+    m_BooleanValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BooleanValueEClass->setClassifierID(BOOLEANVALUE);
-    m_BooleanValueEClass->setEPackage(this);
+    m_BooleanValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanValueEClass);
     // m_BooleanValue__value has already been allocated above
     m_BooleanValue__value->setFeatureID(
@@ -134,9 +147,10 @@ JsonPackage::JsonPackage()
             m_BooleanValue__value);
 
     // ArrayValue
-    m_ArrayValueEClass = new ::ecore::EClass();
+    m_ArrayValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ArrayValueEClass->setClassifierID(ARRAYVALUE);
-    m_ArrayValueEClass->setEPackage(this);
+    m_ArrayValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ArrayValueEClass);
     // m_ArrayValue__values has already been allocated above
     m_ArrayValue__values->setFeatureID(::json::JsonPackage::ARRAYVALUE__VALUES);
@@ -144,9 +158,10 @@ JsonPackage::JsonPackage()
             m_ArrayValue__values);
 
     // NullValue
-    m_NullValueEClass = new ::ecore::EClass();
+    m_NullValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NullValueEClass->setClassifierID(NULLVALUE);
-    m_NullValueEClass->setEPackage(this);
+    m_NullValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NullValueEClass);
 
     // Create enums
@@ -192,7 +207,7 @@ JsonPackage::JsonPackage()
     m_NVPairEClass->setAbstract(false);
     m_NVPairEClass->setInterface(false);
     m_NVPair__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_NVPair__name->setName("name");
     m_NVPair__name->setDefaultValueLiteral("");
     m_NVPair__name->setLowerBound(0);
@@ -227,7 +242,7 @@ JsonPackage::JsonPackage()
     m_StringValueEClass->setAbstract(false);
     m_StringValueEClass->setInterface(false);
     m_StringValue__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_StringValue__value->setName("value");
     m_StringValue__value->setDefaultValueLiteral("");
     m_StringValue__value->setLowerBound(0);
@@ -245,7 +260,7 @@ JsonPackage::JsonPackage()
     m_NumberValueEClass->setAbstract(false);
     m_NumberValueEClass->setInterface(false);
     m_NumberValue__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEDouble());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEDouble());
     m_NumberValue__value->setName("value");
     m_NumberValue__value->setDefaultValueLiteral("");
     m_NumberValue__value->setLowerBound(0);
@@ -263,7 +278,7 @@ JsonPackage::JsonPackage()
     m_BooleanValueEClass->setAbstract(false);
     m_BooleanValueEClass->setInterface(false);
     m_BooleanValue__value->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
     m_BooleanValue__value->setName("value");
     m_BooleanValue__value->setDefaultValueLiteral("");
     m_BooleanValue__value->setLowerBound(0);

@@ -92,17 +92,19 @@ void IfStatement::_initialize()
         return _any;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        _any = m_body->asEListOf< ::ecore::EObject >();
+        _any = m_body->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__CONDITION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_condition);
+        if (m_condition)
+            _any = m_condition->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__ELSEIF:
     {
-        _any = static_cast< ::ecore::EObject* >(m_elseIf);
+        if (m_elseIf)
+            _any = m_elseIf->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -141,9 +143,9 @@ void IfStatement::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::statement::AbstractStatementWithBody::getBody().clear();
         ::xpand3::statement::AbstractStatementWithBody::getBody().insert_all(
                 *_t0);
@@ -154,7 +156,7 @@ void IfStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::IfStatement::setCondition(_t1);
     }
         return;
@@ -163,7 +165,7 @@ void IfStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::statement::IfStatement_ptr _t1 =
-                dynamic_cast< ::xpand3::statement::IfStatement_ptr >(_t0);
+                dynamic_cast< ::xpand3::statement::IfStatement* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::statement::IfStatement >(_t0);*/
         ::xpand3::statement::IfStatement::setElseIf(_t1);
     }
         return;
@@ -190,9 +192,9 @@ void IfStatement::eSet(::ecore::EInt _featureID,
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
         return m_body && m_body->size();
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__CONDITION:
-        return m_condition;
+        return (bool) m_condition;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__ELSEIF:
-        return m_elseIf;
+        return (bool) m_elseIf;
 
     }
     throw "Error";
@@ -210,7 +212,7 @@ void IfStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr IfStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getIfStatement();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getIfStatement();
     return _eclass;
 }
 

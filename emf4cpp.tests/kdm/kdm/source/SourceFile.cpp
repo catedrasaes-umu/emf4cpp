@@ -81,8 +81,8 @@ void SourceFile::setLanguage(::kdm::core::String _language)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceFile__language(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceFile__language(),
                 _old_language,
                 m_language
         );
@@ -107,8 +107,8 @@ void SourceFile::setEncoding(::kdm::core::String _encoding)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceFile__encoding(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceFile__encoding(),
                 _old_encoding,
                 m_encoding
         );

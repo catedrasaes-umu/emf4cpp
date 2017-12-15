@@ -123,7 +123,7 @@ void RelativeCoord::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr RelativeCoord::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getRelativeCoord();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getRelativeCoord();
     return _eclass;
 }
 

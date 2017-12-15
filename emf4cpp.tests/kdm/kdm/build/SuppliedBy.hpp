@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SuppliedBy_ptr _this()
+        {   return SuppliedBy_ptr(this);}
+
         // Attributes
 
         // References

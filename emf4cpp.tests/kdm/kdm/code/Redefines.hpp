@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Redefines_ptr _this()
+        {   return Redefines_ptr(this);}
+
         // Attributes
 
         // References

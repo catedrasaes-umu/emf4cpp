@@ -44,60 +44,60 @@ namespace xpand3
 
 // AbstractStatement
         class AbstractStatement;
-        typedef AbstractStatement* AbstractStatement_ptr;
+        using AbstractStatement_ptr = boost::intrusive_ptr<AbstractStatement>;
 
 // ExpandStatement
         class ExpandStatement;
-        typedef ExpandStatement* ExpandStatement_ptr;
+        using ExpandStatement_ptr = boost::intrusive_ptr<ExpandStatement>;
 
 // ExpressionStatement
         class ExpressionStatement;
-        typedef ExpressionStatement* ExpressionStatement_ptr;
+        using ExpressionStatement_ptr = boost::intrusive_ptr<ExpressionStatement>;
 
 // ErrorStatement
         class ErrorStatement;
-        typedef ErrorStatement* ErrorStatement_ptr;
+        using ErrorStatement_ptr = boost::intrusive_ptr<ErrorStatement>;
 
 // AbstractStatementWithBody
         class AbstractStatementWithBody;
-        typedef AbstractStatementWithBody* AbstractStatementWithBody_ptr;
+        using AbstractStatementWithBody_ptr = boost::intrusive_ptr<AbstractStatementWithBody>;
 
 // FileStatement
         class FileStatement;
-        typedef FileStatement* FileStatement_ptr;
+        using FileStatement_ptr = boost::intrusive_ptr<FileStatement>;
 
 // ForEachStatement
         class ForEachStatement;
-        typedef ForEachStatement* ForEachStatement_ptr;
+        using ForEachStatement_ptr = boost::intrusive_ptr<ForEachStatement>;
 
 // IfStatement
         class IfStatement;
-        typedef IfStatement* IfStatement_ptr;
+        using IfStatement_ptr = boost::intrusive_ptr<IfStatement>;
 
 // LetStatement
         class LetStatement;
-        typedef LetStatement* LetStatement_ptr;
+        using LetStatement_ptr = boost::intrusive_ptr<LetStatement>;
 
 // ProtectStatement
         class ProtectStatement;
-        typedef ProtectStatement* ProtectStatement_ptr;
+        using ProtectStatement_ptr = boost::intrusive_ptr<ProtectStatement>;
 
 // TextStatement
         class TextStatement;
-        typedef TextStatement* TextStatement_ptr;
+        using TextStatement_ptr = boost::intrusive_ptr<TextStatement>;
 
 // EEnum
 
 // Package & Factory
         class StatementFactory;
-        typedef StatementFactory * StatementFactory_ptr;
+        using StatementFactory_ptr = boost::intrusive_ptr<StatementFactory>;
         class StatementPackage;
-        typedef StatementPackage * StatementPackage_ptr;
+        using StatementPackage_ptr = boost::intrusive_ptr<StatementPackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // statement

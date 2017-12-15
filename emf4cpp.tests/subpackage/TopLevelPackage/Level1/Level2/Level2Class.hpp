@@ -42,7 +42,6 @@ namespace TopLevelPackage
         {
 
         class EXPORT_TOPLEVELPACKAGE_DLL Level2Class : public virtual ::ecore::EObject
-
         {
         public:
             Level2Class();
@@ -81,6 +80,9 @@ namespace TopLevelPackage
             /*PROTECTED REGION END*/
 
         protected:
+            Level2Class_ptr _this()
+            {   return Level2Class_ptr(this);}
+
             // Attributes
 
             // References

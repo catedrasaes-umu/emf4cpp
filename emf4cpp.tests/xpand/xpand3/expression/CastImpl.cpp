@@ -90,12 +90,14 @@ void Cast::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::CAST__TYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_type);
+        if (m_type)
+            _any = m_type->as< ::ecore::EObject >();
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::CAST__TARGET:
     {
-        _any = static_cast< ::ecore::EObject* >(m_target);
+        if (m_target)
+            _any = m_target->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -136,7 +138,7 @@ void Cast::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::Cast::setType(_t1);
     }
         return;
@@ -145,7 +147,7 @@ void Cast::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::Cast::setTarget(_t1);
     }
         return;
@@ -170,9 +172,9 @@ void Cast::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::CAST__TYPE:
-        return m_type;
+        return (bool) m_type;
     case ::xpand3::expression::ExpressionPackage::CAST__TARGET:
-        return m_target;
+        return (bool) m_target;
 
     }
     throw "Error";
@@ -190,7 +192,7 @@ void Cast::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Cast::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getCast();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getCast();
     return _eclass;
 }
 

@@ -57,11 +57,12 @@ ControlElement::ControlElement() :
 
     m_entryFlow.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::EntryFlow, -1, true, false >(this,
+                    ::kdm::action::EntryFlow_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getControlElement__entryFlow()));
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, true, false >(this,
+                    ::kdm::code::AbstractCodeElement_ptr, -1, true, false >(
+                    this,
                     ::kdm::code::CodePackage::_instance()->getControlElement__codeElement()));
 
     /*PROTECTED REGION ID(ControlElementImpl__ControlElementImpl) START*/
@@ -98,8 +99,8 @@ void ControlElement::setType(::kdm::code::Datatype_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getControlElement__type(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getControlElement__type(),
                 _old_type,
                 m_type
         );
@@ -109,22 +110,22 @@ void ControlElement::setType(::kdm::code::Datatype_ptr _type)
 
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& ControlElement::getEntryFlow() const
+const ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow_ptr >& ControlElement::getEntryFlow() const
 {
     return *m_entryFlow;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& ControlElement::getEntryFlow()
+::ecorecpp::mapping::EList< ::kdm::action::EntryFlow_ptr >& ControlElement::getEntryFlow()
 {
     return *m_entryFlow;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ControlElement::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ControlElement::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ControlElement::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ControlElement::getCodeElement()
 {
     return *m_codeElement;
 }

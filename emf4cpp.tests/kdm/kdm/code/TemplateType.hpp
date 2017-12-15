@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        TemplateType_ptr _this()
+        {   return TemplateType_ptr(this);}
+
         // Attributes
 
         // References

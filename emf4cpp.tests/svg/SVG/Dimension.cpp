@@ -71,8 +71,8 @@ void Dimension::setWidth(::PrimitiveTypes::Double _width)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getDimension__width(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getDimension__width(),
                 _old_width,
                 m_width
         );
@@ -97,8 +97,8 @@ void Dimension::setHeight(::PrimitiveTypes::Double _height)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getDimension__height(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getDimension__height(),
                 _old_height,
                 m_height
         );

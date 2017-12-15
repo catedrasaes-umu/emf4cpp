@@ -40,7 +40,6 @@ namespace eopposite
 {
 
 class EXPORT_EOPPOSITE_DLL NamedObject : public virtual ::ecore::EObject
-
 {
 public:
     NamedObject();
@@ -81,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    NamedObject_ptr _this()
+    {   return NamedObject_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_name;

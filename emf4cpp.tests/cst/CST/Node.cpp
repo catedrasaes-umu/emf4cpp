@@ -41,7 +41,7 @@ Node::Node()
 {
 
     m_children.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::CST::Element, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::CST::Element_ptr, -1,
                     true, false >(this,
                     ::CST::CSTPackage::_instance()->getNode__children()));
 
@@ -63,12 +63,12 @@ Node::~Node()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::CST::Element >& Node::getChildren() const
+const ::ecorecpp::mapping::EList< ::CST::Element_ptr >& Node::getChildren() const
 {
     return *m_children;
 }
 
-::ecorecpp::mapping::EList< ::CST::Element >& Node::getChildren()
+::ecorecpp::mapping::EList< ::CST::Element_ptr >& Node::getChildren()
 {
     return *m_children;
 }

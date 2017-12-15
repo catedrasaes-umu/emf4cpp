@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    GraphicalElement_ptr _this()
+    {   return GraphicalElement_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_stroke;

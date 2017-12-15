@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Visibility_ptr _this()
+    {   return Visibility_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Boolean m_visible;

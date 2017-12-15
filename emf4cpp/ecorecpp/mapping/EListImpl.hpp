@@ -24,6 +24,7 @@
 #include <iostream>
 #include "EList.hpp"
 #include "any.hpp"
+#include <ecore/EObject.hpp>
 #include <ecore/EReference.hpp>
 #include <ecorecpp/notify.hpp>
 
@@ -37,13 +38,13 @@ class EListImpl: public EList< T >
 {
 public:
 
-    virtual T* get(size_t _index) const
+    virtual T get(size_t _index) const
     {
         return m_content[_index];
     }
 
 	/* The container grows as std::vector<>::insert() does. */
-    virtual void insert_at(size_t _pos, T* _obj)
+    virtual void insert_at(size_t _pos, T _obj)
     {
 		/* Out-of-range positions are appended. */
 		if (_pos >= m_content.size())
@@ -53,7 +54,7 @@ public:
 		m_content.insert(it, _obj);
     }
 
-    virtual void push_back(T* _obj)
+    virtual void push_back(T _obj)
     {
         m_content.push_back(_obj);
     }
@@ -68,7 +69,7 @@ public:
         m_content.clear();
     }
 
-	void remove(T* _obj) override {
+	void remove(T _obj) override {
 		auto it = std::find( m_content.begin(), m_content.end(), _obj );
 		if ( it != m_content.end() )
 			m_content.erase(it);
@@ -107,8 +108,15 @@ public:
     {
     }
 
+    ReferenceEListImpl(::ecore::EObject* _this,
+					   ::ecore::EReference_ptr _ref, int _opp = -1) :
+		m_this(::ecore::EObject_ptr(_this)), m_ref(_ref), m_opp(_opp),
+		m_containment(*this), m_opposite(*this)
+    {
+    }
+
 	/* The container grows as std::vector<>::insert() does. */
-	virtual void insert_at(size_t _pos, T* _obj)
+	virtual void insert_at(size_t _pos, T _obj)
     {
 		/* Out-of-range positions are appended. */
 		if (_pos >= base_t::m_content.size())
@@ -127,7 +135,7 @@ public:
 		}
     }
 
-    virtual void push_back(T* _obj)
+    virtual void push_back(T _obj)
     {
 		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
 		if (it == base_t::m_content.end()) {
@@ -148,7 +156,7 @@ public:
 	/* Better check before trusting the caller. */
 	void remove(typename EList<T>::iterator it) override {
 		if (it != EList<T>::end()) {
-			T* _obj = *it;
+			T _obj = *it;
 			basicRemove(_obj);
 
 			m_containment.unset(_obj);
@@ -158,7 +166,7 @@ public:
 
 	/* Called from the opposite end of a relation: Just remove the object, do
 	 * nothing else. */
-	void basicRemove(T* _obj) {
+	void basicRemove(T _obj) {
 		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
 		if (it != base_t::m_content.end()) {
 			base_t::m_content.erase(it);
@@ -167,7 +175,7 @@ public:
 
 	/* Called from the opposite end of a relation: Just add the object, do
 	 * nothing else. */
-	void basicAdd(T* _obj) {
+	void basicAdd(T _obj) {
 		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
 		if (it == base_t::m_content.end()) {
 			base_t::m_content.push_back(_obj);
@@ -180,8 +188,7 @@ public:
     }
 
 protected:
-
-    ::ecore::EObject_ptr m_this; // owner object
+   ::ecore::EObject_ptr m_this; // owner object
     ::ecore::EReference_ptr m_ref;
     const int m_opp;
 
@@ -192,19 +199,19 @@ protected:
         {
         }
 
-        static inline void free_all(std::vector< Q* >& _v)
+        static inline void free_all(std::vector< Q >& _v)
         {
         }
 
-        static inline void free(Q* _p)
+        static inline void free(Q _p)
         {
         }
 
-		inline void set(Q* _p)
+		inline void set(Q _p)
         {
         }
 
-		inline void unset(Q* _p)
+		inline void unset(Q _p)
         {
         }
 	};
@@ -217,23 +224,23 @@ protected:
         {
         }
 
-        static inline void free_all(std::vector< Q* >& _v)
+        static inline void free_all(std::vector< Q >& _v)
         {
             for (size_t i = 0; i < _v.size(); i++)
-                delete _v[i];
+                _v[i].reset();
         }
 
-        static inline void free(Q* _p)
+        static inline void free(Q _p)
         {
-            delete _p;
+            _p.reset();
         }
 
-		inline void set(Q* _p)
+		inline void set(Q _p)
         {
 			_p->_setEContainer(m_parent.m_this, m_parent.m_ref);
         }
 
-		inline void unset(Q* _p)
+		inline void unset(Q _p)
         {
 			if (_p)
 				_p->_setEContainer(nullptr, m_parent.m_ref);
@@ -301,14 +308,14 @@ public:
 	}
 
 	virtual ~ContainingEList() {
-		for ( auto const& obj : base_t::m_content )
-			delete obj;
+		for ( auto& obj : base_t::m_content )
+			obj.reset();
 	}
 
 	void clear() override
     {
-		for ( auto const& obj : base_t::m_content )
-			delete obj;
+		for ( auto& obj : base_t::m_content )
+			obj.reset();
 
         base_t::m_content.clear();
     }

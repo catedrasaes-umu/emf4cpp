@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ExtendedDataElement_ptr _this()
+        {   return ExtendedDataElement_ptr(this);}
+
         // Attributes
 
         // References

@@ -80,7 +80,7 @@ namespace SVG
 
     protected:
 
-        static std::unique_ptr< SVGFactory > s_instance;
+        static boost::intrusive_ptr< SVGFactory > s_holder;
 
         SVGFactory();
 
@@ -92,237 +92,274 @@ namespace SVG
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline Element_ptr create< Element >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createElement();
     }
+
     template< > inline StructuralElement_ptr create< StructuralElement >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createStructuralElement();
     }
+
     template< > inline Image_ptr create< Image >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createImage();
     }
+
     template< > inline Svg_ptr create< Svg >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createSvg();
     }
+
     template< > inline GroupingElement_ptr create< GroupingElement >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createGroupingElement();
     }
+
     template< > inline G_ptr create< G >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createG();
     }
+
     template< > inline Defs_ptr create< Defs >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createDefs();
     }
+
     template< > inline Symbol_ptr create< Symbol >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createSymbol();
     }
+
     template< > inline Use_ptr create< Use >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createUse();
     }
+
     template< > inline GraphicalElement_ptr create< GraphicalElement >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createGraphicalElement();
     }
+
     template< > inline Shape_ptr create< Shape >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createShape();
     }
+
     template< > inline TextElement_ptr create< TextElement >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createTextElement();
     }
+
     template< > inline Rect_ptr create< Rect >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createRect();
     }
+
     template< > inline Circle_ptr create< Circle >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createCircle();
     }
+
     template< > inline Ellipse_ptr create< Ellipse >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createEllipse();
     }
+
     template< > inline Line_ptr create< Line >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createLine();
     }
+
     template< > inline Polyline_ptr create< Polyline >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createPolyline();
     }
+
     template< > inline Polygon_ptr create< Polygon >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createPolygon();
     }
+
     template< > inline Path_ptr create< Path >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createPath();
     }
+
     template< > inline Point_ptr create< Point >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createPoint();
     }
+
     template< > inline Marker_ptr create< Marker >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createMarker();
     }
+
     template< > inline Text_ptr create< Text >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createText();
     }
+
     template< > inline Tspan_ptr create< Tspan >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createTspan();
     }
+
     template< > inline Tref_ptr create< Tref >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createTref();
     }
+
     template< > inline Attribute_ptr create< Attribute >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createAttribute();
     }
+
     template< > inline Transform_ptr create< Transform >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createTransform();
     }
+
     template< > inline Scale_ptr create< Scale >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createScale();
     }
+
     template< > inline Translate_ptr create< Translate >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createTranslate();
     }
+
     template< > inline Rotate_ptr create< Rotate >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createRotate();
     }
+
     template< > inline Visibility_ptr create< Visibility >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createVisibility();
     }
+
     template< > inline FontWeight_ptr create< FontWeight >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createFontWeight();
     }
+
     template< > inline FontStyle_ptr create< FontStyle >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createFontStyle();
     }
+
     template< > inline Dimension_ptr create< Dimension >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createDimension();
     }
+
     template< > inline Coordinates_ptr create< Coordinates >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createCoordinates();
     }
+
     template< > inline RelativeCoord_ptr create< RelativeCoord >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createRelativeCoord();
     }
+
     template< > inline AbsoluteCoord_ptr create< AbsoluteCoord >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createAbsoluteCoord();
     }
+
     template< > inline ReferencedFile_ptr create< ReferencedFile >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createReferencedFile();
     }
+
     template< > inline SvgFile_ptr create< SvgFile >()
     {
         auto eFactory = SVGPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< SVGFactory* >(eFactory.get());
         return packageFactory->createSvgFile();
     }
 

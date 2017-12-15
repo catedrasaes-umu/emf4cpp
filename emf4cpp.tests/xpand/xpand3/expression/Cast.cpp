@@ -56,11 +56,11 @@ Cast::~Cast()
 {
     if (m_type)
     {
-        delete m_type;
+        m_type.reset();
     }
     if (m_target)
     {
-        delete m_target;
+        m_target.reset();
     }
 }
 
@@ -84,8 +84,8 @@ void Cast::setType(::xpand3::Identifier_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCast__type(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCast__type(),
                 _old_type,
                 m_type
         );
@@ -93,8 +93,10 @@ void Cast::setType(::xpand3::Identifier_ptr _type)
     }
 #endif
 
-    delete _old_type;
-    m_type->_setEContainer(this,
+    if (_old_type)
+        _old_type->_setEContainer(Cast_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCast__type());
+    m_type->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getCast__type());
 }
 
@@ -114,8 +116,8 @@ void Cast::setTarget(::xpand3::expression::AbstractExpression_ptr _target)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCast__target(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCast__target(),
                 _old_target,
                 m_target
         );
@@ -123,8 +125,10 @@ void Cast::setTarget(::xpand3::expression::AbstractExpression_ptr _target)
     }
 #endif
 
-    delete _old_target;
-    m_target->_setEContainer(this,
+    if (_old_target)
+        _old_target->_setEContainer(Cast_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCast__target());
+    m_target->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getCast__target());
 }
 

@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::idlmm::UnionField >& getUnionMembers () const;
-    virtual ::ecorecpp::mapping::EList< ::idlmm::UnionField >& getUnionMembers ();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::UnionField_ptr >& getUnionMembers () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::UnionField_ptr >& getUnionMembers ();
 
     virtual ::idlmm::IDLType_ptr getContainedDiscrim () const;
     virtual void setContainedDiscrim (::idlmm::IDLType_ptr _containedDiscrim);
@@ -86,11 +86,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    UnionDef_ptr _this()
+    {   return UnionDef_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::UnionField >> m_unionMembers;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::UnionField_ptr >> m_unionMembers;
 
     ::idlmm::IDLType_ptr m_containedDiscrim;
 

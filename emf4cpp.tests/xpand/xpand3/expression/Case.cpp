@@ -56,11 +56,11 @@ Case::~Case()
 {
     if (m_condition)
     {
-        delete m_condition;
+        m_condition.reset();
     }
     if (m_thenPart)
     {
-        delete m_thenPart;
+        m_thenPart.reset();
     }
 }
 
@@ -84,8 +84,8 @@ void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition(),
                 _old_condition,
                 m_condition
         );
@@ -93,8 +93,10 @@ void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
     }
 #endif
 
-    delete _old_condition;
-    m_condition->_setEContainer(this,
+    if (_old_condition)
+        _old_condition->_setEContainer(Case_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
+    m_condition->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
 }
 
@@ -114,8 +116,8 @@ void Case::setThenPart(::xpand3::expression::AbstractExpression_ptr _thenPart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart(),
                 _old_thenPart,
                 m_thenPart
         );
@@ -123,8 +125,10 @@ void Case::setThenPart(::xpand3::expression::AbstractExpression_ptr _thenPart)
     }
 #endif
 
-    delete _old_thenPart;
-    m_thenPart->_setEContainer(this,
+    if (_old_thenPart)
+        _old_thenPart->_setEContainer(Case_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
+    m_thenPart->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
 }
 

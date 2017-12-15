@@ -55,11 +55,11 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& getSegment ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment_ptr >& getSegment () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Segment_ptr >& getSegment ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& getModel ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel_ptr >& getModel () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel_ptr >& getModel ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -85,13 +85,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Segment_ptr _this()
+        {   return Segment_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Segment >> m_segment;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Segment_ptr >> m_segment;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >> m_model;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel_ptr >> m_model;
 
     };
 

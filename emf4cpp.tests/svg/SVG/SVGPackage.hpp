@@ -1137,9 +1137,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< SVGPackage, ::ecorecpp::PackageDeleter<SVGPackage> > s_instance;
+    static boost::intrusive_ptr< SVGPackage > s_instance;
 
     SVGPackage();
+    void _initPackage();
 
     // EClass instances 
 

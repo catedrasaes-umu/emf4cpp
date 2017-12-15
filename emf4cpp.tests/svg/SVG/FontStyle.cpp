@@ -73,8 +73,8 @@ void FontStyle::setItalic(::PrimitiveTypes::Boolean _italic)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getFontStyle__italic(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getFontStyle__italic(),
                 _old_italic,
                 m_italic
         );

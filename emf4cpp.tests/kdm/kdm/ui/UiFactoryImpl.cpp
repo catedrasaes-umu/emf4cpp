@@ -119,78 +119,79 @@ UiFactory::UiFactory()
 
 AbstractUIElement_ptr UiFactory::createAbstractUIElement()
 {
-    return new AbstractUIElement();
+    return boost::intrusive_ptr < AbstractUIElement > (new AbstractUIElement);
 }
 UIResource_ptr UiFactory::createUIResource()
 {
-    return new UIResource();
+    return boost::intrusive_ptr < UIResource > (new UIResource);
 }
 UIDisplay_ptr UiFactory::createUIDisplay()
 {
-    return new UIDisplay();
+    return boost::intrusive_ptr < UIDisplay > (new UIDisplay);
 }
 Screen_ptr UiFactory::createScreen()
 {
-    return new Screen();
+    return boost::intrusive_ptr < Screen > (new Screen);
 }
 Report_ptr UiFactory::createReport()
 {
-    return new Report();
+    return boost::intrusive_ptr < Report > (new Report);
 }
 UIModel_ptr UiFactory::createUIModel()
 {
-    return new UIModel();
+    return boost::intrusive_ptr < UIModel > (new UIModel);
 }
 AbstractUIRelationship_ptr UiFactory::createAbstractUIRelationship()
 {
-    return new AbstractUIRelationship();
+    return boost::intrusive_ptr < AbstractUIRelationship
+            > (new AbstractUIRelationship);
 }
 UILayout_ptr UiFactory::createUILayout()
 {
-    return new UILayout();
+    return boost::intrusive_ptr < UILayout > (new UILayout);
 }
 UIField_ptr UiFactory::createUIField()
 {
-    return new UIField();
+    return boost::intrusive_ptr < UIField > (new UIField);
 }
 DisplaysImage_ptr UiFactory::createDisplaysImage()
 {
-    return new DisplaysImage();
+    return boost::intrusive_ptr < DisplaysImage > (new DisplaysImage);
 }
 Displays_ptr UiFactory::createDisplays()
 {
-    return new Displays();
+    return boost::intrusive_ptr < Displays > (new Displays);
 }
 UIFlow_ptr UiFactory::createUIFlow()
 {
-    return new UIFlow();
+    return boost::intrusive_ptr < UIFlow > (new UIFlow);
 }
 UIElement_ptr UiFactory::createUIElement()
 {
-    return new UIElement();
+    return boost::intrusive_ptr < UIElement > (new UIElement);
 }
 UIRelationship_ptr UiFactory::createUIRelationship()
 {
-    return new UIRelationship();
+    return boost::intrusive_ptr < UIRelationship > (new UIRelationship);
 }
 UIAction_ptr UiFactory::createUIAction()
 {
-    return new UIAction();
+    return boost::intrusive_ptr < UIAction > (new UIAction);
 }
 UIEvent_ptr UiFactory::createUIEvent()
 {
-    return new UIEvent();
+    return boost::intrusive_ptr < UIEvent > (new UIEvent);
 }
 ReadsUI_ptr UiFactory::createReadsUI()
 {
-    return new ReadsUI();
+    return boost::intrusive_ptr < ReadsUI > (new ReadsUI);
 }
 WritesUI_ptr UiFactory::createWritesUI()
 {
-    return new WritesUI();
+    return boost::intrusive_ptr < WritesUI > (new WritesUI);
 }
 ManagesUI_ptr UiFactory::createManagesUI()
 {
-    return new ManagesUI();
+    return boost::intrusive_ptr < ManagesUI > (new ManagesUI);
 }
 

@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        MarshalledResource_ptr _this()
+        {   return MarshalledResource_ptr(this);}
+
         // Attributes
 
         // References

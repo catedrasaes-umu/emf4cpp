@@ -1,11 +1,21 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
  * treeiterator/TreeNodeImpl.cpp
- * This file was created by EMF4CPP 2.0.5 and is copyrighted by the
- * respective user and/or provider of the processed ECORE model.
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
- * EMF4CPP is free software. You can obtain it from
- * https://github.com/catedrasaes-umu/emf4cpp
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "TreeNode.hpp"
@@ -19,12 +29,12 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::treeiterator;
-
 /*PROTECTED REGION ID(TreeNodeImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::treeiterator;
 
 void TreeNode::_initialize()
 {
@@ -63,12 +73,13 @@ void TreeNode::_initialize()
         return _any;
     case ::treeiterator::TreeiteratorPackage::TREENODE__CHILDREN:
     {
-        _any = m_children->asEListOf< ::ecore::EObject >();
+        _any = m_children->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::treeiterator::TreeiteratorPackage::TREENODE__LEAF:
     {
-        _any = static_cast< ::ecore::EObject* >(m_leaf);
+        if (m_leaf)
+            _any = m_leaf->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -89,9 +100,9 @@ void TreeNode::eSet(::ecore::EInt _featureID,
         return;
     case ::treeiterator::TreeiteratorPackage::TREENODE__CHILDREN:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::treeiterator::TreeNode::getChildren().clear();
         ::treeiterator::TreeNode::getChildren().insert_all(*_t0);
     }
@@ -101,7 +112,7 @@ void TreeNode::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::treeiterator::Leaf_ptr _t1 =
-                dynamic_cast< ::treeiterator::Leaf_ptr >(_t0);
+                dynamic_cast< ::treeiterator::Leaf* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::treeiterator::Leaf >(_t0);*/
         ::treeiterator::TreeNode::setLeaf(_t1);
     }
         return;
@@ -120,7 +131,7 @@ void TreeNode::eSet(::ecore::EInt _featureID,
     case ::treeiterator::TreeiteratorPackage::TREENODE__CHILDREN:
         return m_children && m_children->size();
     case ::treeiterator::TreeiteratorPackage::TREENODE__LEAF:
-        return m_leaf;
+        return (bool) m_leaf;
 
     }
     throw "Error";
@@ -138,7 +149,7 @@ void TreeNode::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr TreeNode::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::treeiterator::TreeiteratorPackage_ptr >(::treeiterator::TreeiteratorPackage::_instance())->getTreeNode();
+            dynamic_cast< ::treeiterator::TreeiteratorPackage* >(::treeiterator::TreeiteratorPackage::_instance().get())->getTreeNode();
     return _eclass;
 }
 

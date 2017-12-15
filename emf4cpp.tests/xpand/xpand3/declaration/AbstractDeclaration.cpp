@@ -46,7 +46,7 @@ AbstractDeclaration::AbstractDeclaration() :
 
     m_params.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::DeclaredParameter, -1, true, false >(this,
+                    ::xpand3::DeclaredParameter_ptr, -1, true, false >(this,
                     ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__params()));
 
     /*PROTECTED REGION ID(AbstractDeclarationImpl__AbstractDeclarationImpl) START*/
@@ -63,11 +63,11 @@ AbstractDeclaration::~AbstractDeclaration()
 {
     if (m_owner)
     {
-        delete m_owner;
+        m_owner.reset();
     }
     if (m_guard)
     {
-        delete m_guard;
+        m_guard.reset();
     }
 }
 
@@ -89,8 +89,8 @@ void AbstractDeclaration::setIsPrivate(::ecore::EBoolean _isPrivate)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__isPrivate(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__isPrivate(),
                 _old_isPrivate,
                 m_isPrivate
         );
@@ -117,8 +117,8 @@ void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner(),
                 _old_owner,
                 m_owner
         );
@@ -126,17 +126,19 @@ void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
     }
 #endif
 
-    delete _old_owner;
-    m_owner->_setEContainer(this,
+    if (_old_owner)
+        _old_owner->_setEContainer(AbstractDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
+    m_owner->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
 }
 
-const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& AbstractDeclaration::getParams() const
+const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& AbstractDeclaration::getParams() const
 {
     return *m_params;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& AbstractDeclaration::getParams()
+::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& AbstractDeclaration::getParams()
 {
     return *m_params;
 }
@@ -158,8 +160,8 @@ void AbstractDeclaration::setGuard(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard(),
                 _old_guard,
                 m_guard
         );
@@ -167,8 +169,10 @@ void AbstractDeclaration::setGuard(
     }
 #endif
 
-    delete _old_guard;
-    m_guard->_setEContainer(this,
+    if (_old_guard)
+        _old_guard->_setEContainer(AbstractDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
+    m_guard->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
 }
 

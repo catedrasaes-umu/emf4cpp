@@ -22,8 +22,7 @@
 
 using namespace ::PrimitiveTypes;
 
-std::unique_ptr< ::PrimitiveTypes::PrimitiveTypesPackage,
-        ::ecorecpp::PackageDeleter< ::PrimitiveTypes::PrimitiveTypesPackage > > PrimitiveTypesPackage::s_instance;
+boost::intrusive_ptr< ::PrimitiveTypes::PrimitiveTypesPackage > PrimitiveTypesPackage::s_instance;
 
 ::PrimitiveTypes::PrimitiveTypesPackage_ptr PrimitiveTypesPackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::PrimitiveTypes::PrimitiveTypesPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< PrimitiveTypesPackage >();
         duringConstruction = true;
-        new PrimitiveTypesPackage();
+        s_instance = boost::intrusive_ptr < PrimitiveTypesPackage
+                > (new PrimitiveTypesPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::PrimitiveTypes::PrimitiveTypesPackage_ptr PrimitiveTypesPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

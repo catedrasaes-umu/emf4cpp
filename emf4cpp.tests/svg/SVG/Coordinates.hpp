@@ -40,7 +40,6 @@ namespace SVG
 {
 
 class EXPORT_SVG_DLL Coordinates : public virtual ::ecore::EObject
-
 {
 public:
     Coordinates();
@@ -84,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Coordinates_ptr _this()
+    {   return Coordinates_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_x;

@@ -66,17 +66,20 @@ void BinTreeNode::_initialize()
     {
     case ::bintree::BintreePackage::BINTREENODE__PARENT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_parent);
+        if (m_parent)
+            _any = m_parent->as< ::ecore::EObject >();
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__LEFT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_left);
+        if (m_left)
+            _any = m_left->as< ::ecore::EObject >();
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__RIGHT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_right);
+        if (m_right)
+            _any = m_right->as< ::ecore::EObject >();
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__DATA:
@@ -100,7 +103,7 @@ void BinTreeNode::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::bintree::BinTreeNode_ptr _t1 =
-                dynamic_cast< ::bintree::BinTreeNode_ptr >(_t0);
+                dynamic_cast< ::bintree::BinTreeNode* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::bintree::BinTreeNode >(_t0);*/
         ::bintree::BinTreeNode::setParent(_t1);
     }
         return;
@@ -109,7 +112,7 @@ void BinTreeNode::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::bintree::BinTreeNode_ptr _t1 =
-                dynamic_cast< ::bintree::BinTreeNode_ptr >(_t0);
+                dynamic_cast< ::bintree::BinTreeNode* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::bintree::BinTreeNode >(_t0);*/
         ::bintree::BinTreeNode::setLeft(_t1);
     }
         return;
@@ -118,7 +121,7 @@ void BinTreeNode::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::bintree::BinTreeNode_ptr _t1 =
-                dynamic_cast< ::bintree::BinTreeNode_ptr >(_t0);
+                dynamic_cast< ::bintree::BinTreeNode* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::bintree::BinTreeNode >(_t0);*/
         ::bintree::BinTreeNode::setRight(_t1);
     }
         return;
@@ -138,11 +141,11 @@ void BinTreeNode::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::bintree::BintreePackage::BINTREENODE__PARENT:
-        return m_parent;
+        return (bool) m_parent;
     case ::bintree::BintreePackage::BINTREENODE__LEFT:
-        return m_left;
+        return (bool) m_left;
     case ::bintree::BintreePackage::BINTREENODE__RIGHT:
-        return m_right;
+        return (bool) m_right;
     case ::bintree::BintreePackage::BINTREENODE__DATA:
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_data);
@@ -163,7 +166,7 @@ void BinTreeNode::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr BinTreeNode::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::bintree::BintreePackage_ptr >(::bintree::BintreePackage::_instance())->getBinTreeNode();
+            dynamic_cast< ::bintree::BintreePackage* >(::bintree::BintreePackage::_instance().get())->getBinTreeNode();
     return _eclass;
 }
 

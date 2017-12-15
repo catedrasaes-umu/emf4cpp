@@ -108,7 +108,7 @@ void StringValue::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr StringValue::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getStringValue();
+            dynamic_cast< ::json::JsonPackage* >(::json::JsonPackage::_instance().get())->getStringValue();
     return _eclass;
 }
 

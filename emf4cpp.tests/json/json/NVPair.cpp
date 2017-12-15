@@ -55,7 +55,7 @@ NVPair::~NVPair()
 {
     if (m_value)
     {
-        delete m_value;
+        m_value.reset();
     }
 }
 
@@ -77,8 +77,8 @@ void NVPair::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::json::JsonPackage::_instance()->getNVPair__name(),
+                _this(),
+                ::json::JsonPackage::_instance()->getNVPair__name(),
                 _old_name,
                 m_name
         );
@@ -105,8 +105,8 @@ void NVPair::setValue(::json::Value_ptr _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::json::JsonPackage::_instance()->getNVPair__value(),
+                _this(),
+                ::json::JsonPackage::_instance()->getNVPair__value(),
                 _old_value,
                 m_value
         );
@@ -114,8 +114,10 @@ void NVPair::setValue(::json::Value_ptr _value)
     }
 #endif
 
-    delete _old_value;
-    m_value->_setEContainer(this,
+    if (_old_value)
+        _old_value->_setEContainer(NVPair_ptr(),
+                ::json::JsonPackage::_instance()->getNVPair__value());
+    m_value->_setEContainer(_this(),
             ::json::JsonPackage::_instance()->getNVPair__value());
 }
 

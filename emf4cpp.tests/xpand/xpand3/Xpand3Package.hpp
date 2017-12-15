@@ -151,9 +151,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< Xpand3Package, ::ecorecpp::PackageDeleter<Xpand3Package> > s_instance;
+    static boost::intrusive_ptr< Xpand3Package > s_instance;
 
     Xpand3Package();
+    void _initPackage();
 
     // EClass instances 
 

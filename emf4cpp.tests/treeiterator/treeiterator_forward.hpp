@@ -1,11 +1,21 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
  * treeiterator_forward.hpp
- * This file was created by EMF4CPP 2.0.5 and is copyrighted by the
- * respective user and/or provider of the processed ECORE model.
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
- * EMF4CPP is free software. You can obtain it from
- * https://github.com/catedrasaes-umu/emf4cpp
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef _TREEITERATOR_FORWARD_HPP
@@ -32,24 +42,24 @@ namespace treeiterator
 
 // TreeNode
     class TreeNode;
-    typedef TreeNode* TreeNode_ptr;
+    using TreeNode_ptr = boost::intrusive_ptr<TreeNode>;
 
 // Leaf
     class Leaf;
-    typedef Leaf* Leaf_ptr;
+    using Leaf_ptr = boost::intrusive_ptr<Leaf>;
 
 // EEnum
 
 // Package & Factory
     class TreeiteratorFactory;
-    typedef TreeiteratorFactory * TreeiteratorFactory_ptr;
+    using TreeiteratorFactory_ptr = boost::intrusive_ptr<TreeiteratorFactory>;
     class TreeiteratorPackage;
-    typedef TreeiteratorPackage * TreeiteratorPackage_ptr;
+    using TreeiteratorPackage_ptr = boost::intrusive_ptr<TreeiteratorPackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // treeiterator

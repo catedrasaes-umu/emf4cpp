@@ -56,15 +56,15 @@ BinaryOperation::~BinaryOperation()
 {
     if (m_left)
     {
-        delete m_left;
+        m_left.reset();
     }
     if (m_right)
     {
-        delete m_right;
+        m_right.reset();
     }
     if (m_operator)
     {
-        delete m_operator;
+        m_operator.reset();
     }
 }
 
@@ -89,8 +89,8 @@ void BinaryOperation::setLeft(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__left(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__left(),
                 _old_left,
                 m_left
         );
@@ -98,8 +98,10 @@ void BinaryOperation::setLeft(
     }
 #endif
 
-    delete _old_left;
-    m_left->_setEContainer(this,
+    if (_old_left)
+        _old_left->_setEContainer(BinaryOperation_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__left());
+    m_left->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__left());
 }
 
@@ -120,8 +122,8 @@ void BinaryOperation::setRight(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__right(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__right(),
                 _old_right,
                 m_right
         );
@@ -129,8 +131,10 @@ void BinaryOperation::setRight(
     }
 #endif
 
-    delete _old_right;
-    m_right->_setEContainer(this,
+    if (_old_right)
+        _old_right->_setEContainer(BinaryOperation_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__right());
+    m_right->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__right());
 }
 
@@ -150,8 +154,8 @@ void BinaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__operator(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__operator(),
                 _old_operator,
                 m_operator
         );
@@ -159,8 +163,10 @@ void BinaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
     }
 #endif
 
-    delete _old_operator;
-    m_operator->_setEContainer(this,
+    if (_old_operator)
+        _old_operator->_setEContainer(BinaryOperation_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__operator());
+    m_operator->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getBinaryOperation__operator());
 }
 

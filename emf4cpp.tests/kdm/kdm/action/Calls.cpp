@@ -82,8 +82,8 @@ void Calls::setTo(::kdm::code::ControlElement_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getCalls__to(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getCalls__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void Calls::setFrom(::kdm::action::ActionElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getCalls__from(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getCalls__from(),
                 _old_from,
                 m_from
         );

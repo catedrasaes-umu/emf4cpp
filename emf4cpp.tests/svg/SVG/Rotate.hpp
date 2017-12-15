@@ -86,6 +86,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Rotate_ptr _this()
+    {   return Rotate_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_angle;

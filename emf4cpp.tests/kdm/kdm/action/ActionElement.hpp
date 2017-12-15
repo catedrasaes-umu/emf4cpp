@@ -60,11 +60,11 @@ namespace kdm
         virtual void setKind (::kdm::core::String _kind);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getCodeElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getCodeElement ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& getActionRelation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship_ptr >& getActionRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship_ptr >& getActionRelation ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -90,15 +90,18 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ActionElement_ptr _this()
+        {   return ActionElement_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_kind;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >> m_codeElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >> m_codeElement;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >> m_actionRelation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship_ptr >> m_actionRelation;
 
     };
 

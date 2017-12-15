@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Thread_ptr _this()
+        {   return Thread_ptr(this);}
+
         // Attributes
 
         // References

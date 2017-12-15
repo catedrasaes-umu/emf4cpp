@@ -81,6 +81,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        BooleanOperation_ptr _this()
+        {   return BooleanOperation_ptr(this);}
+
         // Attributes
 
         // References

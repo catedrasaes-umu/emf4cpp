@@ -22,8 +22,7 @@
 
 using namespace ::xpand3::expression;
 
-std::unique_ptr< ::xpand3::expression::ExpressionPackage,
-        ::ecorecpp::PackageDeleter< ::xpand3::expression::ExpressionPackage > > ExpressionPackage::s_instance;
+boost::intrusive_ptr< ::xpand3::expression::ExpressionPackage > ExpressionPackage::s_instance;
 
 ::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::xpand3::expression::ExpressionPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< ExpressionPackage >();
         duringConstruction = true;
-        new ExpressionPackage();
+        s_instance = boost::intrusive_ptr < ExpressionPackage
+                > (new ExpressionPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

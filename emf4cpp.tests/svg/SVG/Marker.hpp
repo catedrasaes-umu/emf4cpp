@@ -70,8 +70,8 @@ public:
     virtual void setOrient (::PrimitiveTypes::String _orient);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getDrawing ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getDrawing () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getDrawing ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -97,6 +97,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Marker_ptr _this()
+    {   return Marker_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_markerUnits;
@@ -113,7 +116,7 @@ protected:
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_drawing;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element_ptr >> m_drawing;
 
 };
 

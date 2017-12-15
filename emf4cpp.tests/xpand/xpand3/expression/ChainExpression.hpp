@@ -85,6 +85,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        ChainExpression_ptr _this()
+        {   return ChainExpression_ptr(this);}
+
         // Attributes
 
         // References

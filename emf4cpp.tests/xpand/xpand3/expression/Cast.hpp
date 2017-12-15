@@ -86,6 +86,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        Cast_ptr _this()
+        {   return Cast_ptr(this);}
+
         // Attributes
 
         // References

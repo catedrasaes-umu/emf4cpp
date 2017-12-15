@@ -56,17 +56,17 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& getAggregated ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship_ptr >& getAggregated () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship_ptr >& getAggregated ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& getStructureElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& getStructureElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& getStructureElement ();
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& getStructureRelationship ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship_ptr >& getStructureRelationship () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship_ptr >& getStructureRelationship ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -92,17 +92,20 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractStructureElement_ptr _this()
+        {   return AbstractStructureElement_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >> m_aggregated;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship_ptr >> m_aggregated;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >> m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >> m_implementation;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >> m_structureElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >> m_structureElement;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >> m_structureRelationship;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship_ptr >> m_structureRelationship;
 
     };
 

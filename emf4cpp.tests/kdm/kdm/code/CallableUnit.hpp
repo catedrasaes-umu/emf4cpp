@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        CallableUnit_ptr _this()
+        {   return CallableUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::code::CallableKind m_kind;

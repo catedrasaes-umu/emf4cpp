@@ -41,8 +41,8 @@ NonTerminal::NonTerminal()
 {
 
     m_children.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::tree::TreeNode, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::tree::TreeNode_ptr,
+                    -1, true, false >(this,
                     ::tree::TreePackage::_instance()->getNonTerminal__children()));
 
     /*PROTECTED REGION ID(NonTerminalImpl__NonTerminalImpl) START*/
@@ -63,12 +63,12 @@ NonTerminal::~NonTerminal()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::tree::TreeNode >& NonTerminal::getChildren() const
+const ::ecorecpp::mapping::EList< ::tree::TreeNode_ptr >& NonTerminal::getChildren() const
 {
     return *m_children;
 }
 
-::ecorecpp::mapping::EList< ::tree::TreeNode >& NonTerminal::getChildren()
+::ecorecpp::mapping::EList< ::tree::TreeNode_ptr >& NonTerminal::getChildren()
 {
     return *m_children;
 }

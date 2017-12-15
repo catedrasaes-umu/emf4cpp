@@ -37,20 +37,20 @@ public:
 
     typedef std::shared_ptr<EList<T>> ptr_type;
     typedef std::shared_ptr<const EList<T>> ptr_const_type;
-	typedef std::vector<T*> UnderlyingContainer_type;
+	typedef std::vector<T> UnderlyingContainer_type;
 
 	/** Iterator interfaces for an EList<T>.
 	 */
 
 	template <typename EListPtrType>
-	class EListIterator : public std::iterator<std::bidirectional_iterator_tag, T*> {
+	class EListIterator : public std::iterator<std::bidirectional_iterator_tag, T> {
 	public:
 		EListIterator(EListPtrType el, size_t ind)
 			: _elist(el),
 			  _ind(ind) {
 		}
 
-		T* operator*() const {
+		T operator*() const {
 			return _elist->get(_ind);
 		}
 
@@ -107,7 +107,7 @@ public:
 	// End of iterator interface
 
 
-    inline T* operator[](size_t _index) const
+    inline T operator[](size_t _index) const
     {
         return get(_index);
     }
@@ -127,11 +127,11 @@ public:
             push_back(_q.get(i));
     }
 
-    virtual void insert_at(size_t _pos, T* _obj) = 0;
+    virtual void insert_at(size_t _pos, T _obj) = 0;
 
-    virtual T * get(size_t _index) const = 0;
+    virtual T get(size_t _index) const = 0;
 
-    virtual void push_back(T* _obj) = 0;
+    virtual void push_back(T _obj) = 0;
 
     virtual size_t size() const = 0;
 
@@ -165,7 +165,7 @@ public:
 		return end();
 	}
 
-	virtual void remove(T*) = 0;
+	virtual void remove(T) = 0;
 	virtual void remove(iterator) = 0;
 
     /**
@@ -203,17 +203,17 @@ public:
     {
     }
 
-    virtual T* get(size_t _index) const
+    virtual T get(size_t _index) const
     {
         return _cast< Q, T >::do_cast(m_delegate[_index]);
     }
 
-	virtual void insert_at(size_t _pos, T* _obj)
+	virtual void insert_at(size_t _pos, T _obj)
     {
         m_delegate.insert_at(_pos, _cast< T, Q >::do_cast(_obj));
     }
 
-    virtual void push_back(T* _obj)
+    virtual void push_back(T _obj)
     {
         m_delegate.push_back(_cast< T, Q >::do_cast(_obj));
     }
@@ -228,7 +228,7 @@ public:
         m_delegate.clear();
     }
 
-	void remove(T* obj) override {
+	void remove(T obj) override {
 		m_delegate.remove(_cast< T, Q >::do_cast(obj));
 	}
 
@@ -248,16 +248,16 @@ protected:
     template< typename A, typename B >
     struct _cast
     {
-        static inline B* do_cast(A* a)
+		static inline B do_cast(A a)
         {
-            return dynamic_cast< B* > (a);
+            return dynamic_cast< typename B::element_type* > (a.get());
         }
-    };
+	};
 
     template< typename A >
     struct _cast< A, A >
     {
-        static inline A* do_cast(A* a)
+        static inline A do_cast(A a)
         {
             return a;
         }

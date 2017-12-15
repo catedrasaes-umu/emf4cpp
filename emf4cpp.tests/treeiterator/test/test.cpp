@@ -5,10 +5,10 @@
 #include "../treeiterator.hpp"
 #include "../treeiterator/TreeiteratorPackage.hpp"
 
-void printTreeObject(::ecore::EObject* obj) {
-	if ( ::treeiterator::TreeNode* node = dynamic_cast<::treeiterator::TreeNode*>(obj)) {
+void printTreeObject(::ecore::EObject_ptr obj) {
+	if ( ::treeiterator::TreeNode_ptr node = obj->as<::treeiterator::TreeNode>()) {
 		std::cerr << node->getName() << '\n';
-	} else if (::treeiterator::Leaf* leaf = dynamic_cast<::treeiterator::Leaf*>(obj)) {
+	} else if (::treeiterator::Leaf_ptr leaf = obj->as<::treeiterator::Leaf>()) {
 		std::cerr << leaf->getName() << '\n';
 	} else {
 		throw "Unknown type detected!";

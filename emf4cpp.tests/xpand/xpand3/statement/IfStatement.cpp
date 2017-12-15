@@ -58,11 +58,11 @@ IfStatement::~IfStatement()
 {
     if (m_condition)
     {
-        delete m_condition;
+        m_condition.reset();
     }
     if (m_elseIf)
     {
-        delete m_elseIf;
+        m_elseIf.reset();
     }
 }
 
@@ -87,8 +87,8 @@ void IfStatement::setCondition(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition(),
                 _old_condition,
                 m_condition
         );
@@ -96,8 +96,10 @@ void IfStatement::setCondition(
     }
 #endif
 
-    delete _old_condition;
-    m_condition->_setEContainer(this,
+    if (_old_condition)
+        _old_condition->_setEContainer(IfStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
+    m_condition->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
 }
 
@@ -117,8 +119,8 @@ void IfStatement::setElseIf(::xpand3::statement::IfStatement_ptr _elseIf)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf(),
                 _old_elseIf,
                 m_elseIf
         );
@@ -126,8 +128,10 @@ void IfStatement::setElseIf(::xpand3::statement::IfStatement_ptr _elseIf)
     }
 #endif
 
-    delete _old_elseIf;
-    m_elseIf->_setEContainer(this,
+    if (_old_elseIf)
+        _old_elseIf->_setEContainer(IfStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
+    m_elseIf->_setEContainer(_this(),
             ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
 }
 

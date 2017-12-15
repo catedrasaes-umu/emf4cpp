@@ -22,12 +22,13 @@
 
 using namespace ::kdm::build;
 
-std::unique_ptr< ::kdm::build::BuildFactory > BuildFactory::s_instance;
+boost::intrusive_ptr< ::kdm::build::BuildFactory > BuildFactory::s_holder;
 
 ::kdm::build::BuildFactory_ptr BuildFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new BuildFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < BuildFactory > (new BuildFactory());
+
+    return s_holder;
 }
 

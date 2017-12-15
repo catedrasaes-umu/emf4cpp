@@ -72,8 +72,8 @@ void PrimitiveDef::setKind(::idlmm::PrimitiveKind _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getPrimitiveDef__kind(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getPrimitiveDef__kind(),
                 _old_kind,
                 m_kind
         );

@@ -49,7 +49,7 @@ UIModel::UIModel()
 
     m_UIElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::ui::AbstractUIElement, -1, true, false >(this,
+                    ::kdm::ui::AbstractUIElement_ptr, -1, true, false >(this,
                     ::kdm::ui::UiPackage::_instance()->getUIModel__UIElement()));
 
     /*PROTECTED REGION ID(UIModelImpl__UIModelImpl) START*/
@@ -70,12 +70,12 @@ UIModel::~UIModel()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIModel::getUIElement() const
+const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement_ptr >& UIModel::getUIElement() const
 {
     return *m_UIElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIModel::getUIElement()
+::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement_ptr >& UIModel::getUIElement()
 {
     return *m_UIElement;
 }

@@ -43,7 +43,7 @@ namespace enumeration
 
     protected:
 
-        static std::unique_ptr< EnumerationFactory > s_instance;
+        static boost::intrusive_ptr< EnumerationFactory > s_holder;
 
         EnumerationFactory();
 
@@ -55,15 +55,16 @@ namespace enumeration
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline Bird_ptr create< Bird >()
     {
         auto eFactory = EnumerationPackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< EnumerationFactory* >(eFactory);
+        auto packageFactory =
+                dynamic_cast< EnumerationFactory* >(eFactory.get());
         return packageFactory->createBird();
     }
 

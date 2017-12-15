@@ -41,7 +41,7 @@ namespace kdm
 
     protected:
 
-        static std::unique_ptr< KdmFactory > s_instance;
+        static boost::intrusive_ptr< KdmFactory > s_holder;
 
         KdmFactory();
 
@@ -53,9 +53,9 @@ namespace kdm
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
 } // kdm

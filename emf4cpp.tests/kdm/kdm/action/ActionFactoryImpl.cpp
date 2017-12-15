@@ -138,102 +138,103 @@ ActionFactory::ActionFactory()
 
 ActionElement_ptr ActionFactory::createActionElement()
 {
-    return new ActionElement();
+    return boost::intrusive_ptr < ActionElement > (new ActionElement);
 }
 AbstractActionRelationship_ptr ActionFactory::createAbstractActionRelationship()
 {
-    return new AbstractActionRelationship();
+    return boost::intrusive_ptr < AbstractActionRelationship
+            > (new AbstractActionRelationship);
 }
 ControlFlow_ptr ActionFactory::createControlFlow()
 {
-    return new ControlFlow();
+    return boost::intrusive_ptr < ControlFlow > (new ControlFlow);
 }
 Calls_ptr ActionFactory::createCalls()
 {
-    return new Calls();
+    return boost::intrusive_ptr < Calls > (new Calls);
 }
 Creates_ptr ActionFactory::createCreates()
 {
-    return new Creates();
+    return boost::intrusive_ptr < Creates > (new Creates);
 }
 Reads_ptr ActionFactory::createReads()
 {
-    return new Reads();
+    return boost::intrusive_ptr < Reads > (new Reads);
 }
 Writes_ptr ActionFactory::createWrites()
 {
-    return new Writes();
+    return boost::intrusive_ptr < Writes > (new Writes);
 }
 CompliesTo_ptr ActionFactory::createCompliesTo()
 {
-    return new CompliesTo();
+    return boost::intrusive_ptr < CompliesTo > (new CompliesTo);
 }
 Flow_ptr ActionFactory::createFlow()
 {
-    return new Flow();
+    return boost::intrusive_ptr < Flow > (new Flow);
 }
 TrueFlow_ptr ActionFactory::createTrueFlow()
 {
-    return new TrueFlow();
+    return boost::intrusive_ptr < TrueFlow > (new TrueFlow);
 }
 FalseFlow_ptr ActionFactory::createFalseFlow()
 {
-    return new FalseFlow();
+    return boost::intrusive_ptr < FalseFlow > (new FalseFlow);
 }
 GuardedFlow_ptr ActionFactory::createGuardedFlow()
 {
-    return new GuardedFlow();
+    return boost::intrusive_ptr < GuardedFlow > (new GuardedFlow);
 }
 UsesType_ptr ActionFactory::createUsesType()
 {
-    return new UsesType();
+    return boost::intrusive_ptr < UsesType > (new UsesType);
 }
 Addresses_ptr ActionFactory::createAddresses()
 {
-    return new Addresses();
+    return boost::intrusive_ptr < Addresses > (new Addresses);
 }
 ActionRelationship_ptr ActionFactory::createActionRelationship()
 {
-    return new ActionRelationship();
+    return boost::intrusive_ptr < ActionRelationship > (new ActionRelationship);
 }
 Throws_ptr ActionFactory::createThrows()
 {
-    return new Throws();
+    return boost::intrusive_ptr < Throws > (new Throws);
 }
 Dispatches_ptr ActionFactory::createDispatches()
 {
-    return new Dispatches();
+    return boost::intrusive_ptr < Dispatches > (new Dispatches);
 }
 EntryFlow_ptr ActionFactory::createEntryFlow()
 {
-    return new EntryFlow();
+    return boost::intrusive_ptr < EntryFlow > (new EntryFlow);
 }
 BlockUnit_ptr ActionFactory::createBlockUnit()
 {
-    return new BlockUnit();
+    return boost::intrusive_ptr < BlockUnit > (new BlockUnit);
 }
 ExceptionUnit_ptr ActionFactory::createExceptionUnit()
 {
-    return new ExceptionUnit();
+    return boost::intrusive_ptr < ExceptionUnit > (new ExceptionUnit);
 }
 TryUnit_ptr ActionFactory::createTryUnit()
 {
-    return new TryUnit();
+    return boost::intrusive_ptr < TryUnit > (new TryUnit);
 }
 FinallyUnit_ptr ActionFactory::createFinallyUnit()
 {
-    return new FinallyUnit();
+    return boost::intrusive_ptr < FinallyUnit > (new FinallyUnit);
 }
 CatchUnit_ptr ActionFactory::createCatchUnit()
 {
-    return new CatchUnit();
+    return boost::intrusive_ptr < CatchUnit > (new CatchUnit);
 }
 ExitFlow_ptr ActionFactory::createExitFlow()
 {
-    return new ExitFlow();
+    return boost::intrusive_ptr < ExitFlow > (new ExitFlow);
 }
 ExceptionFlow_ptr ActionFactory::createExceptionFlow()
 {
-    return new ExceptionFlow();
+    return boost::intrusive_ptr < ExceptionFlow > (new ExceptionFlow);
 }
 

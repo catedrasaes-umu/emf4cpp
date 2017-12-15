@@ -180,7 +180,7 @@ void TextStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr TextStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getTextStatement();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getTextStatement();
     return _eclass;
 }
 

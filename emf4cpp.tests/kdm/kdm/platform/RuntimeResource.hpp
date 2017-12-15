@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RuntimeResource_ptr _this()
+        {   return RuntimeResource_ptr(this);}
+
         // Attributes
 
         // References

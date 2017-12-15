@@ -22,12 +22,13 @@
 
 using namespace ::SVG;
 
-std::unique_ptr< ::SVG::SVGFactory > SVGFactory::s_instance;
+boost::intrusive_ptr< ::SVG::SVGFactory > SVGFactory::s_holder;
 
 ::SVG::SVGFactory_ptr SVGFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new SVGFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < SVGFactory > (new SVGFactory());
+
+    return s_holder;
 }
 

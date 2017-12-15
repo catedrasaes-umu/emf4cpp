@@ -73,6 +73,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ENamedElement_ptr _this()
+    {   return ENamedElement_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_name;

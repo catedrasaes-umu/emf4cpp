@@ -59,8 +59,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& getGroupedComponent () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& getGroupedComponent ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& getGroupedComponent () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& getGroupedComponent ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -86,11 +86,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        DeployedSoftwareSystem_ptr _this()
+        {   return DeployedSoftwareSystem_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >> m_groupedComponent;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >> m_groupedComponent;
 
     };
 

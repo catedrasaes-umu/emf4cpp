@@ -61,8 +61,8 @@ namespace kdm
         virtual ::kdm::data::ComplexContentType_ptr getType () const;
         virtual void setType (::kdm::data::ComplexContentType_ptr _type);
 
-        virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& getContentElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& getContentElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& getContentElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -88,13 +88,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ContentItem_ptr _this()
+        {   return ContentItem_ptr(this);}
+
         // Attributes
 
         // References
 
         ::kdm::data::ComplexContentType_ptr m_type;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >> m_contentElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >> m_contentElement;
 
     };
 

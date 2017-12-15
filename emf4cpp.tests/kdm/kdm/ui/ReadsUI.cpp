@@ -82,8 +82,8 @@ void ReadsUI::setTo(::kdm::ui::UIResource_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::ui::UiPackage::_instance()->getReadsUI__to(),
+                _this(),
+                ::kdm::ui::UiPackage::_instance()->getReadsUI__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void ReadsUI::setFrom(::kdm::action::ActionElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::ui::UiPackage::_instance()->getReadsUI__from(),
+                _this(),
+                ::kdm::ui::UiPackage::_instance()->getReadsUI__from(),
                 _old_from,
                 m_from
         );

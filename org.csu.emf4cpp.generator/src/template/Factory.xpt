@@ -49,13 +49,13 @@ public:
     virtual «class.name»_ptr create«class.name»();
 «ENDFOREACH-»
 
-    virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);    
-    virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);    
+    virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+    virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
     virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
 protected:
 
-    static std::unique_ptr< «name.toFirstUpper()»Factory > s_instance;
+    static boost::intrusive_ptr< «name.toFirstUpper()»Factory > s_holder;
 
     «name.toFirstUpper()»Factory();
     
@@ -68,15 +68,16 @@ protected:
  *
  */
 template<class T> inline
-T* create() { return (T*)nullptr; }
+boost::intrusive_ptr<T> create() { return boost::intrusive_ptr<T>(); }
 
 «FOREACH this.EClassifiers.typeSelect(EClass) AS class-»
 template<> inline
 «class.name»_ptr create<«class.name»>() {
-	auto eFactory = «name.toFirstUpper()»Package::_instance()->getEFactoryInstance();
-	auto packageFactory = dynamic_cast<«name.toFirstUpper()»Factory*>(eFactory);
+    auto eFactory = «name.toFirstUpper()»Package::_instance()->getEFactoryInstance();
+    auto packageFactory = dynamic_cast<«name.toFirstUpper()»Factory*>(eFactory.get());
     return packageFactory->create«class.name»();
 }
+
 «ENDFOREACH-»
 
 «EXPAND template::EClassHPP::namespaces_end FOR this»
@@ -95,13 +96,14 @@ template<> inline
 
 using namespace ::«getFQN()»;
 
-std::unique_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_instance;
+boost::intrusive_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_holder;
 
 ::«getFactoryPrefix("::")»_ptr «name.toFirstUpper()»Factory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new «name.toFirstUpper()»Factory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr< «name.toFirstUpper()»Factory >( new «name.toFirstUpper()»Factory() );
+
+    return s_holder;
 }
 
 «ENDFILE»

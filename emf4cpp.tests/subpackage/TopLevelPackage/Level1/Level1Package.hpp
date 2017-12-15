@@ -53,9 +53,10 @@ namespace TopLevelPackage
 
     protected:
 
-        static std::unique_ptr< Level1Package, ::ecorecpp::PackageDeleter<Level1Package> > s_instance;
+        static boost::intrusive_ptr< Level1Package > s_instance;
 
         Level1Package();
+        void _initPackage();
 
         // EClass instances 
 

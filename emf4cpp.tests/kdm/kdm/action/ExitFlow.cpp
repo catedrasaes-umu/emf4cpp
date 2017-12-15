@@ -81,8 +81,8 @@ void ExitFlow::setTo(::kdm::action::ActionElement_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getExitFlow__to(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getExitFlow__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void ExitFlow::setFrom(::kdm::action::ActionElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getExitFlow__from(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getExitFlow__from(),
                 _old_from,
                 m_from
         );

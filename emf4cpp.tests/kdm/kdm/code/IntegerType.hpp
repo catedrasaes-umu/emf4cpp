@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        IntegerType_ptr _this()
+        {   return IntegerType_ptr(this);}
+
         // Attributes
 
         // References

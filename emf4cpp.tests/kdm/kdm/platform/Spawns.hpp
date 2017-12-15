@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Spawns_ptr _this()
+        {   return Spawns_ptr(this);}
+
         // Attributes
 
         // References

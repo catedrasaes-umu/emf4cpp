@@ -54,7 +54,7 @@ ValueList::ValueList()
 
     m_valueElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::ValueElement, -1, true, false >(this,
+                    ::kdm::code::ValueElement_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getValueList__valueElement()));
 
     /*PROTECTED REGION ID(ValueListImpl__ValueListImpl) START*/
@@ -75,12 +75,12 @@ ValueList::~ValueList()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& ValueList::getValueElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::ValueElement_ptr >& ValueList::getValueElement() const
 {
     return *m_valueElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::ValueElement >& ValueList::getValueElement()
+::ecorecpp::mapping::EList< ::kdm::code::ValueElement_ptr >& ValueList::getValueElement()
 {
     return *m_valueElement;
 }

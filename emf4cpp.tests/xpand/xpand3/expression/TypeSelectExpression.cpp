@@ -57,7 +57,7 @@ TypeSelectExpression::~TypeSelectExpression()
 {
     if (m_typeLiteral)
     {
-        delete m_typeLiteral;
+        m_typeLiteral.reset();
     }
 }
 
@@ -81,8 +81,8 @@ void TypeSelectExpression::setTypeLiteral(::xpand3::Identifier_ptr _typeLiteral)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral(),
                 _old_typeLiteral,
                 m_typeLiteral
         );
@@ -90,8 +90,10 @@ void TypeSelectExpression::setTypeLiteral(::xpand3::Identifier_ptr _typeLiteral)
     }
 #endif
 
-    delete _old_typeLiteral;
-    m_typeLiteral->_setEContainer(this,
+    if (_old_typeLiteral)
+        _old_typeLiteral->_setEContainer(TypeSelectExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
+    m_typeLiteral->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
 }
 

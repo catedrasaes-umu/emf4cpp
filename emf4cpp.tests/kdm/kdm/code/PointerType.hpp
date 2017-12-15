@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        PointerType_ptr _this()
+        {   return PointerType_ptr(this);}
+
         // Attributes
 
         // References

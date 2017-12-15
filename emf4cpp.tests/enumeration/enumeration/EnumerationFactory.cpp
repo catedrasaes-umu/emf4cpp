@@ -22,12 +22,14 @@
 
 using namespace ::enumeration;
 
-std::unique_ptr< ::enumeration::EnumerationFactory > EnumerationFactory::s_instance;
+boost::intrusive_ptr< ::enumeration::EnumerationFactory > EnumerationFactory::s_holder;
 
 ::enumeration::EnumerationFactory_ptr EnumerationFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new EnumerationFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < EnumerationFactory
+                > (new EnumerationFactory());
+
+    return s_holder;
 }
 

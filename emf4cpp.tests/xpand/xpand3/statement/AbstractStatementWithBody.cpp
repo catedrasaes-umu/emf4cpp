@@ -42,7 +42,7 @@ AbstractStatementWithBody::AbstractStatementWithBody()
 
     m_body.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::statement::AbstractStatement, -1, true, false >(
+                    ::xpand3::statement::AbstractStatement_ptr, -1, true, false >(
                     this,
                     ::xpand3::statement::StatementPackage::_instance()->getAbstractStatementWithBody__body()));
 
@@ -64,12 +64,12 @@ AbstractStatementWithBody::~AbstractStatementWithBody()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& AbstractStatementWithBody::getBody() const
+const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& AbstractStatementWithBody::getBody() const
 {
     return *m_body;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& AbstractStatementWithBody::getBody()
+::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& AbstractStatementWithBody::getBody()
 {
     return *m_body;
 }

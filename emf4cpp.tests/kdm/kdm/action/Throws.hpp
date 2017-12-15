@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Throws_ptr _this()
+        {   return Throws_ptr(this);}
+
         // Attributes
 
         // References

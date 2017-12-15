@@ -42,11 +42,11 @@ Model::Model()
 {
 
     m_imports.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Import, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Import_ptr,
+                    -1, true, false >(this,
                     ::myDsl::MyDslPackage::_instance()->getModel__imports()));
     m_elements.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Type, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Type_ptr, -1,
                     true, false >(this,
                     ::myDsl::MyDslPackage::_instance()->getModel__elements()));
 
@@ -68,22 +68,22 @@ Model::~Model()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::myDsl::Import >& Model::getImports() const
+const ::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& Model::getImports() const
 {
     return *m_imports;
 }
 
-::ecorecpp::mapping::EList< ::myDsl::Import >& Model::getImports()
+::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& Model::getImports()
 {
     return *m_imports;
 }
 
-const ::ecorecpp::mapping::EList< ::myDsl::Type >& Model::getElements() const
+const ::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& Model::getElements() const
 {
     return *m_elements;
 }
 
-::ecorecpp::mapping::EList< ::myDsl::Type >& Model::getElements()
+::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& Model::getElements()
 {
     return *m_elements;
 }

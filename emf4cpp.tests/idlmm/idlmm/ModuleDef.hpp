@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ModuleDef_ptr _this()
+    {   return ModuleDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_prefix;

@@ -56,11 +56,11 @@ FeatureCall::~FeatureCall()
 {
     if (m_target)
     {
-        delete m_target;
+        m_target.reset();
     }
     if (m_name)
     {
-        delete m_name;
+        m_name.reset();
     }
 }
 
@@ -85,8 +85,8 @@ void FeatureCall::setTarget(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target(),
                 _old_target,
                 m_target
         );
@@ -94,8 +94,10 @@ void FeatureCall::setTarget(
     }
 #endif
 
-    delete _old_target;
-    m_target->_setEContainer(this,
+    if (_old_target)
+        _old_target->_setEContainer(FeatureCall_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
+    m_target->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
 }
 
@@ -115,8 +117,8 @@ void FeatureCall::setName(::xpand3::Identifier_ptr _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name(),
                 _old_name,
                 m_name
         );
@@ -124,8 +126,10 @@ void FeatureCall::setName(::xpand3::Identifier_ptr _name)
     }
 #endif
 
-    delete _old_name;
-    m_name->_setEContainer(this,
+    if (_old_name)
+        _old_name->_setEContainer(FeatureCall_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
+    m_name->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
 }
 

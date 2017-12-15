@@ -22,6 +22,7 @@
 #define ENDUSERLICENSE_HPP
 
 #include "enduserlicense_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

@@ -40,7 +40,6 @@ namespace myDsl
 {
 
 class EXPORT_MYDSL_DLL Type : public virtual ::ecore::EObject
-
 {
 public:
     Type();
@@ -81,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Type_ptr _this()
+    {   return Type_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_name;

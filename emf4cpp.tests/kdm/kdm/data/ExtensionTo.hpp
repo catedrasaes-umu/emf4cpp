@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ExtensionTo_ptr _this()
+        {   return ExtensionTo_ptr(this);}
+
         // Attributes
 
         // References

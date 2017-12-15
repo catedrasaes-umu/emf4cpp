@@ -73,8 +73,8 @@ void Scale::setSx(::PrimitiveTypes::Double _sx)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getScale__sx(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getScale__sx(),
                 _old_sx,
                 m_sx
         );
@@ -99,8 +99,8 @@ void Scale::setSy(::PrimitiveTypes::Double _sy)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getScale__sy(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getScale__sy(),
                 _old_sy,
                 m_sy
         );

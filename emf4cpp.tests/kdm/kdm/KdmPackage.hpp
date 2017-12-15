@@ -45,9 +45,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< KdmPackage, ::ecorecpp::PackageDeleter<KdmPackage> > s_instance;
+    static boost::intrusive_ptr< KdmPackage > s_instance;
 
     KdmPackage();
+    void _initPackage();
 
     // EClass instances 
 

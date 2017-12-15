@@ -85,7 +85,7 @@ void ListLiteral::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::LISTLITERAL__ELEMENTS:
     {
-        _any = m_elements->asEListOf< ::ecore::EObject >();
+        _any = m_elements->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -124,9 +124,9 @@ void ListLiteral::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::expression::ExpressionPackage::LISTLITERAL__ELEMENTS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::expression::ListLiteral::getElements().clear();
         ::xpand3::expression::ListLiteral::getElements().insert_all(*_t0);
     }
@@ -170,7 +170,7 @@ void ListLiteral::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ListLiteral::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getListLiteral();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getListLiteral();
     return _eclass;
 }
 

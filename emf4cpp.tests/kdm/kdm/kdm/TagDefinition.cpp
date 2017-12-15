@@ -74,8 +74,8 @@ void TagDefinition::setTag(::kdm::core::String _tag)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getTagDefinition__tag(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getTagDefinition__tag(),
                 _old_tag,
                 m_tag
         );
@@ -100,8 +100,8 @@ void TagDefinition::setType(::kdm::core::String _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getTagDefinition__type(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getTagDefinition__type(),
                 _old_type,
                 m_type
         );

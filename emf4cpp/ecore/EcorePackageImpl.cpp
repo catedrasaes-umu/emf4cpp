@@ -39,134 +39,215 @@ EcorePackage::EcorePackage()
 {
 
     // Feature definitions of EAttribute
-    m_EAttribute__iD = new ::ecore::EAttribute();
-    m_EAttribute__eAttributeType = new ::ecore::EReference();
+    m_EAttribute__iD = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EAttribute__eAttributeType = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EAnnotation
-    m_EAnnotation__source = new ::ecore::EAttribute();
-    m_EAnnotation__details = new ::ecore::EReference();
-    m_EAnnotation__eModelElement = new ::ecore::EReference();
-    m_EAnnotation__contents = new ::ecore::EReference();
-    m_EAnnotation__references = new ::ecore::EReference();
+    m_EAnnotation__source = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EAnnotation__details = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EAnnotation__eModelElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EAnnotation__contents = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EAnnotation__references = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EClass
-    m_EClass__abstract = new ::ecore::EAttribute();
-    m_EClass__interface = new ::ecore::EAttribute();
-    m_EClass__eSuperTypes = new ::ecore::EReference();
-    m_EClass__eOperations = new ::ecore::EReference();
-    m_EClass__eAllAttributes = new ::ecore::EReference();
-    m_EClass__eAllReferences = new ::ecore::EReference();
-    m_EClass__eReferences = new ::ecore::EReference();
-    m_EClass__eAttributes = new ::ecore::EReference();
-    m_EClass__eAllContainments = new ::ecore::EReference();
-    m_EClass__eAllOperations = new ::ecore::EReference();
-    m_EClass__eAllStructuralFeatures = new ::ecore::EReference();
-    m_EClass__eAllSuperTypes = new ::ecore::EReference();
-    m_EClass__eIDAttribute = new ::ecore::EReference();
-    m_EClass__eStructuralFeatures = new ::ecore::EReference();
-    m_EClass__eGenericSuperTypes = new ::ecore::EReference();
-    m_EClass__eAllGenericSuperTypes = new ::ecore::EReference();
+    m_EClass__abstract = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EClass__interface = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EClass__eSuperTypes = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eOperations = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eAllAttributes = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eAllReferences = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eReferences = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eAttributes = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eAllContainments = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eAllOperations = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eAllStructuralFeatures = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
+    m_EClass__eAllSuperTypes = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eIDAttribute = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eStructuralFeatures = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eGenericSuperTypes = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClass__eAllGenericSuperTypes = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EClassifier
-    m_EClassifier__instanceClassName = new ::ecore::EAttribute();
-    m_EClassifier__instanceClass = new ::ecore::EAttribute();
-    m_EClassifier__defaultValue = new ::ecore::EAttribute();
-    m_EClassifier__instanceTypeName = new ::ecore::EAttribute();
-    m_EClassifier__ePackage = new ::ecore::EReference();
-    m_EClassifier__eTypeParameters = new ::ecore::EReference();
+    m_EClassifier__instanceClassName = boost::intrusive_ptr
+            < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_EClassifier__instanceClass = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EClassifier__defaultValue = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EClassifier__instanceTypeName = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EClassifier__ePackage = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EClassifier__eTypeParameters = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EDataType
-    m_EDataType__serializable = new ::ecore::EAttribute();
+    m_EDataType__serializable = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of EEnum
-    m_EEnum__eLiterals = new ::ecore::EReference();
+    m_EEnum__eLiterals = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EEnumLiteral
-    m_EEnumLiteral__value = new ::ecore::EAttribute();
-    m_EEnumLiteral__instance = new ::ecore::EAttribute();
-    m_EEnumLiteral__literal = new ::ecore::EAttribute();
-    m_EEnumLiteral__eEnum = new ::ecore::EReference();
+    m_EEnumLiteral__value = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EEnumLiteral__instance = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EEnumLiteral__literal = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EEnumLiteral__eEnum = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EFactory
-    m_EFactory__ePackage = new ::ecore::EReference();
+    m_EFactory__ePackage = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EModelElement
-    m_EModelElement__eAnnotations = new ::ecore::EReference();
+    m_EModelElement__eAnnotations = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ENamedElement
-    m_ENamedElement__name = new ::ecore::EAttribute();
+    m_ENamedElement__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of EObject
 
     // Feature definitions of EOperation
-    m_EOperation__eContainingClass = new ::ecore::EReference();
-    m_EOperation__eTypeParameters = new ::ecore::EReference();
-    m_EOperation__eParameters = new ::ecore::EReference();
-    m_EOperation__eExceptions = new ::ecore::EReference();
-    m_EOperation__eGenericExceptions = new ::ecore::EReference();
+    m_EOperation__eContainingClass = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EOperation__eTypeParameters = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EOperation__eParameters = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EOperation__eExceptions = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EOperation__eGenericExceptions = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of EPackage
-    m_EPackage__nsURI = new ::ecore::EAttribute();
-    m_EPackage__nsPrefix = new ::ecore::EAttribute();
-    m_EPackage__eFactoryInstance = new ::ecore::EReference();
-    m_EPackage__eClassifiers = new ::ecore::EReference();
-    m_EPackage__eSubpackages = new ::ecore::EReference();
-    m_EPackage__eSuperPackage = new ::ecore::EReference();
+    m_EPackage__nsURI = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EPackage__nsPrefix = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EPackage__eFactoryInstance = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EPackage__eClassifiers = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EPackage__eSubpackages = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EPackage__eSuperPackage = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EParameter
-    m_EParameter__eOperation = new ::ecore::EReference();
+    m_EParameter__eOperation = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EReference
-    m_EReference__containment = new ::ecore::EAttribute();
-    m_EReference__container = new ::ecore::EAttribute();
-    m_EReference__resolveProxies = new ::ecore::EAttribute();
-    m_EReference__eOpposite = new ::ecore::EReference();
-    m_EReference__eReferenceType = new ::ecore::EReference();
-    m_EReference__eKeys = new ::ecore::EReference();
+    m_EReference__containment = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EReference__container = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EReference__resolveProxies = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EReference__eOpposite = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EReference__eReferenceType = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EReference__eKeys = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EStructuralFeature
-    m_EStructuralFeature__changeable = new ::ecore::EAttribute();
-    m_EStructuralFeature__volatile = new ::ecore::EAttribute();
-    m_EStructuralFeature__transient = new ::ecore::EAttribute();
-    m_EStructuralFeature__defaultValueLiteral = new ::ecore::EAttribute();
-    m_EStructuralFeature__defaultValue = new ::ecore::EAttribute();
-    m_EStructuralFeature__unsettable = new ::ecore::EAttribute();
-    m_EStructuralFeature__derived = new ::ecore::EAttribute();
-    m_EStructuralFeature__eContainingClass = new ::ecore::EReference();
+    m_EStructuralFeature__changeable = boost::intrusive_ptr
+            < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_EStructuralFeature__volatile = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EStructuralFeature__transient = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EStructuralFeature__defaultValueLiteral = boost::intrusive_ptr
+            < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_EStructuralFeature__defaultValue = boost::intrusive_ptr
+            < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_EStructuralFeature__unsettable = boost::intrusive_ptr
+            < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_EStructuralFeature__derived = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EStructuralFeature__eContainingClass = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of ETypedElement
-    m_ETypedElement__ordered = new ::ecore::EAttribute();
-    m_ETypedElement__unique = new ::ecore::EAttribute();
-    m_ETypedElement__lowerBound = new ::ecore::EAttribute();
-    m_ETypedElement__upperBound = new ::ecore::EAttribute();
-    m_ETypedElement__many = new ::ecore::EAttribute();
-    m_ETypedElement__required = new ::ecore::EAttribute();
-    m_ETypedElement__eType = new ::ecore::EReference();
-    m_ETypedElement__eGenericType = new ::ecore::EReference();
+    m_ETypedElement__ordered = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypedElement__unique = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypedElement__lowerBound = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypedElement__upperBound = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypedElement__many = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypedElement__required = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypedElement__eType = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ETypedElement__eGenericType = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of EStringToStringMapEntry
-    m_EStringToStringMapEntry__key = new ::ecore::EAttribute();
-    m_EStringToStringMapEntry__value = new ::ecore::EAttribute();
+    m_EStringToStringMapEntry__key = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_EStringToStringMapEntry__value = boost::intrusive_ptr
+            < ::ecore::EAttribute > (new ::ecore::EAttribute);
 
     // Feature definitions of EGenericType
-    m_EGenericType__eUpperBound = new ::ecore::EReference();
-    m_EGenericType__eTypeArguments = new ::ecore::EReference();
-    m_EGenericType__eRawType = new ::ecore::EReference();
-    m_EGenericType__eLowerBound = new ::ecore::EReference();
-    m_EGenericType__eTypeParameter = new ::ecore::EReference();
-    m_EGenericType__eClassifier = new ::ecore::EReference();
+    m_EGenericType__eUpperBound = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EGenericType__eTypeArguments = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EGenericType__eRawType = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EGenericType__eLowerBound = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EGenericType__eTypeParameter = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EGenericType__eClassifier = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ETypeParameter
-    m_ETypeParameter__eBounds = new ::ecore::EReference();
+    m_ETypeParameter__eBounds = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void EcorePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = EcoreFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     ::ecore::EOperation_ptr _op;
     ::ecore::EParameter_ptr _pa;
@@ -174,9 +255,10 @@ EcorePackage::EcorePackage()
     // Create classes and their features
 
     // EAttribute
-    m_EAttributeEClass = new ::ecore::EClass();
+    m_EAttributeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EAttributeEClass->setClassifierID(EATTRIBUTE);
-    m_EAttributeEClass->setEPackage(this);
+    m_EAttributeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EAttributeEClass);
     // m_EAttribute__iD has already been allocated above
     m_EAttribute__iD->setFeatureID(::ecore::EcorePackage::EATTRIBUTE__ID);
@@ -188,9 +270,10 @@ EcorePackage::EcorePackage()
             m_EAttribute__eAttributeType);
 
     // EAnnotation
-    m_EAnnotationEClass = new ::ecore::EClass();
+    m_EAnnotationEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EAnnotationEClass->setClassifierID(EANNOTATION);
-    m_EAnnotationEClass->setEPackage(this);
+    m_EAnnotationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EAnnotationEClass);
     // m_EAnnotation__source has already been allocated above
     m_EAnnotation__source->setFeatureID(
@@ -219,9 +302,10 @@ EcorePackage::EcorePackage()
             m_EAnnotation__references);
 
     // EClass
-    m_EClassEClass = new ::ecore::EClass();
+    m_EClassEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EClassEClass->setClassifierID(ECLASS);
-    m_EClassEClass->setEPackage(this);
+    m_EClassEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EClassEClass);
     // m_EClass__abstract has already been allocated above
     m_EClass__abstract->setFeatureID(::ecore::EcorePackage::ECLASS__ABSTRACT);
@@ -296,9 +380,10 @@ EcorePackage::EcorePackage()
             m_EClass__eAllGenericSuperTypes);
 
     // EClassifier
-    m_EClassifierEClass = new ::ecore::EClass();
+    m_EClassifierEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EClassifierEClass->setClassifierID(ECLASSIFIER);
-    m_EClassifierEClass->setEPackage(this);
+    m_EClassifierEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EClassifierEClass);
     // m_EClassifier__instanceClassName has already been allocated above
     m_EClassifier__instanceClassName->setFeatureID(
@@ -332,9 +417,10 @@ EcorePackage::EcorePackage()
             m_EClassifier__eTypeParameters);
 
     // EDataType
-    m_EDataTypeEClass = new ::ecore::EClass();
+    m_EDataTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EDataTypeEClass->setClassifierID(EDATATYPE);
-    m_EDataTypeEClass->setEPackage(this);
+    m_EDataTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EDataTypeEClass);
     // m_EDataType__serializable has already been allocated above
     m_EDataType__serializable->setFeatureID(
@@ -343,18 +429,20 @@ EcorePackage::EcorePackage()
             m_EDataType__serializable);
 
     // EEnum
-    m_EEnumEClass = new ::ecore::EClass();
+    m_EEnumEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EEnumEClass->setClassifierID(EENUM);
-    m_EEnumEClass->setEPackage(this);
+    m_EEnumEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EEnumEClass);
     // m_EEnum__eLiterals has already been allocated above
     m_EEnum__eLiterals->setFeatureID(::ecore::EcorePackage::EENUM__ELITERALS);
     m_EEnumEClass->getEStructuralFeatures().push_back(m_EEnum__eLiterals);
 
     // EEnumLiteral
-    m_EEnumLiteralEClass = new ::ecore::EClass();
+    m_EEnumLiteralEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EEnumLiteralEClass->setClassifierID(EENUMLITERAL);
-    m_EEnumLiteralEClass->setEPackage(this);
+    m_EEnumLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EEnumLiteralEClass);
     // m_EEnumLiteral__value has already been allocated above
     m_EEnumLiteral__value->setFeatureID(
@@ -378,9 +466,10 @@ EcorePackage::EcorePackage()
             m_EEnumLiteral__eEnum);
 
     // EFactory
-    m_EFactoryEClass = new ::ecore::EClass();
+    m_EFactoryEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EFactoryEClass->setClassifierID(EFACTORY);
-    m_EFactoryEClass->setEPackage(this);
+    m_EFactoryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EFactoryEClass);
     // m_EFactory__ePackage has already been allocated above
     m_EFactory__ePackage->setFeatureID(
@@ -388,9 +477,10 @@ EcorePackage::EcorePackage()
     m_EFactoryEClass->getEStructuralFeatures().push_back(m_EFactory__ePackage);
 
     // EModelElement
-    m_EModelElementEClass = new ::ecore::EClass();
+    m_EModelElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EModelElementEClass->setClassifierID(EMODELELEMENT);
-    m_EModelElementEClass->setEPackage(this);
+    m_EModelElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EModelElementEClass);
     // m_EModelElement__eAnnotations has already been allocated above
     m_EModelElement__eAnnotations->setFeatureID(
@@ -399,9 +489,10 @@ EcorePackage::EcorePackage()
             m_EModelElement__eAnnotations);
 
     // ENamedElement
-    m_ENamedElementEClass = new ::ecore::EClass();
+    m_ENamedElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ENamedElementEClass->setClassifierID(ENAMEDELEMENT);
-    m_ENamedElementEClass->setEPackage(this);
+    m_ENamedElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ENamedElementEClass);
     // m_ENamedElement__name has already been allocated above
     m_ENamedElement__name->setFeatureID(
@@ -410,15 +501,17 @@ EcorePackage::EcorePackage()
             m_ENamedElement__name);
 
     // EObject
-    m_EObjectEClass = new ::ecore::EClass();
+    m_EObjectEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EObjectEClass->setClassifierID(EOBJECT);
-    m_EObjectEClass->setEPackage(this);
+    m_EObjectEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EObjectEClass);
 
     // EOperation
-    m_EOperationEClass = new ::ecore::EClass();
+    m_EOperationEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EOperationEClass->setClassifierID(EOPERATION);
-    m_EOperationEClass->setEPackage(this);
+    m_EOperationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EOperationEClass);
     // m_EOperation__eContainingClass has already been allocated above
     m_EOperation__eContainingClass->setFeatureID(
@@ -447,9 +540,10 @@ EcorePackage::EcorePackage()
             m_EOperation__eGenericExceptions);
 
     // EPackage
-    m_EPackageEClass = new ::ecore::EClass();
+    m_EPackageEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EPackageEClass->setClassifierID(EPACKAGE);
-    m_EPackageEClass->setEPackage(this);
+    m_EPackageEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EPackageEClass);
     // m_EPackage__nsURI has already been allocated above
     m_EPackage__nsURI->setFeatureID(::ecore::EcorePackage::EPACKAGE__NSURI);
@@ -480,9 +574,10 @@ EcorePackage::EcorePackage()
             m_EPackage__eSuperPackage);
 
     // EParameter
-    m_EParameterEClass = new ::ecore::EClass();
+    m_EParameterEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EParameterEClass->setClassifierID(EPARAMETER);
-    m_EParameterEClass->setEPackage(this);
+    m_EParameterEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EParameterEClass);
     // m_EParameter__eOperation has already been allocated above
     m_EParameter__eOperation->setFeatureID(
@@ -491,9 +586,10 @@ EcorePackage::EcorePackage()
             m_EParameter__eOperation);
 
     // EReference
-    m_EReferenceEClass = new ::ecore::EClass();
+    m_EReferenceEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EReferenceEClass->setClassifierID(EREFERENCE);
-    m_EReferenceEClass->setEPackage(this);
+    m_EReferenceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EReferenceEClass);
     // m_EReference__containment has already been allocated above
     m_EReference__containment->setFeatureID(
@@ -525,9 +621,10 @@ EcorePackage::EcorePackage()
     m_EReferenceEClass->getEStructuralFeatures().push_back(m_EReference__eKeys);
 
     // EStructuralFeature
-    m_EStructuralFeatureEClass = new ::ecore::EClass();
+    m_EStructuralFeatureEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EStructuralFeatureEClass->setClassifierID(ESTRUCTURALFEATURE);
-    m_EStructuralFeatureEClass->setEPackage(this);
+    m_EStructuralFeatureEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EStructuralFeatureEClass);
     // m_EStructuralFeature__changeable has already been allocated above
     m_EStructuralFeature__changeable->setFeatureID(
@@ -571,9 +668,10 @@ EcorePackage::EcorePackage()
             m_EStructuralFeature__eContainingClass);
 
     // ETypedElement
-    m_ETypedElementEClass = new ::ecore::EClass();
+    m_ETypedElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ETypedElementEClass->setClassifierID(ETYPEDELEMENT);
-    m_ETypedElementEClass->setEPackage(this);
+    m_ETypedElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ETypedElementEClass);
     // m_ETypedElement__ordered has already been allocated above
     m_ETypedElement__ordered->setFeatureID(
@@ -617,9 +715,10 @@ EcorePackage::EcorePackage()
             m_ETypedElement__eGenericType);
 
     // EStringToStringMapEntry
-    m_EStringToStringMapEntryEClass = new ::ecore::EClass();
+    m_EStringToStringMapEntryEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EStringToStringMapEntryEClass->setClassifierID(ESTRINGTOSTRINGMAPENTRY);
-    m_EStringToStringMapEntryEClass->setEPackage(this);
+    m_EStringToStringMapEntryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EStringToStringMapEntryEClass);
     // m_EStringToStringMapEntry__key has already been allocated above
     m_EStringToStringMapEntry__key->setFeatureID(
@@ -633,9 +732,10 @@ EcorePackage::EcorePackage()
             m_EStringToStringMapEntry__value);
 
     // EGenericType
-    m_EGenericTypeEClass = new ::ecore::EClass();
+    m_EGenericTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EGenericTypeEClass->setClassifierID(EGENERICTYPE);
-    m_EGenericTypeEClass->setEPackage(this);
+    m_EGenericTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EGenericTypeEClass);
     // m_EGenericType__eUpperBound has already been allocated above
     m_EGenericType__eUpperBound->setFeatureID(
@@ -669,9 +769,10 @@ EcorePackage::EcorePackage()
             m_EGenericType__eClassifier);
 
     // ETypeParameter
-    m_ETypeParameterEClass = new ::ecore::EClass();
+    m_ETypeParameterEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ETypeParameterEClass->setClassifierID(ETYPEPARAMETER);
-    m_ETypeParameterEClass->setEPackage(this);
+    m_ETypeParameterEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ETypeParameterEClass);
     // m_ETypeParameter__eBounds has already been allocated above
     m_ETypeParameter__eBounds->setFeatureID(
@@ -683,170 +784,203 @@ EcorePackage::EcorePackage()
 
     // Create data types
 
-    m_EBigDecimalEDataType = new ::ecore::EDataType();
+    m_EBigDecimalEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EBigDecimalEDataType->setClassifierID(EBIGDECIMAL);
-    m_EBigDecimalEDataType->setEPackage(this);
+    m_EBigDecimalEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EBigDecimalEDataType);
 
-    m_EBigIntegerEDataType = new ::ecore::EDataType();
+    m_EBigIntegerEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EBigIntegerEDataType->setClassifierID(EBIGINTEGER);
-    m_EBigIntegerEDataType->setEPackage(this);
+    m_EBigIntegerEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EBigIntegerEDataType);
 
-    m_EBooleanEDataType = new ::ecore::EDataType();
+    m_EBooleanEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EBooleanEDataType->setClassifierID(EBOOLEAN);
-    m_EBooleanEDataType->setEPackage(this);
+    m_EBooleanEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EBooleanEDataType);
 
-    m_EBooleanObjectEDataType = new ::ecore::EDataType();
+    m_EBooleanObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EBooleanObjectEDataType->setClassifierID(EBOOLEANOBJECT);
-    m_EBooleanObjectEDataType->setEPackage(this);
+    m_EBooleanObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EBooleanObjectEDataType);
 
-    m_EByteEDataType = new ::ecore::EDataType();
+    m_EByteEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EByteEDataType->setClassifierID(EBYTE);
-    m_EByteEDataType->setEPackage(this);
+    m_EByteEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EByteEDataType);
 
-    m_EByteArrayEDataType = new ::ecore::EDataType();
+    m_EByteArrayEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EByteArrayEDataType->setClassifierID(EBYTEARRAY);
-    m_EByteArrayEDataType->setEPackage(this);
+    m_EByteArrayEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EByteArrayEDataType);
 
-    m_EByteObjectEDataType = new ::ecore::EDataType();
+    m_EByteObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EByteObjectEDataType->setClassifierID(EBYTEOBJECT);
-    m_EByteObjectEDataType->setEPackage(this);
+    m_EByteObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EByteObjectEDataType);
 
-    m_ECharEDataType = new ::ecore::EDataType();
+    m_ECharEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_ECharEDataType->setClassifierID(ECHAR);
-    m_ECharEDataType->setEPackage(this);
+    m_ECharEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_ECharEDataType);
 
-    m_ECharacterObjectEDataType = new ::ecore::EDataType();
+    m_ECharacterObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_ECharacterObjectEDataType->setClassifierID(ECHARACTEROBJECT);
-    m_ECharacterObjectEDataType->setEPackage(this);
+    m_ECharacterObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_ECharacterObjectEDataType);
 
-    m_EDateEDataType = new ::ecore::EDataType();
+    m_EDateEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EDateEDataType->setClassifierID(EDATE);
-    m_EDateEDataType->setEPackage(this);
+    m_EDateEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EDateEDataType);
 
-    m_EDiagnosticChainEDataType = new ::ecore::EDataType();
+    m_EDiagnosticChainEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EDiagnosticChainEDataType->setClassifierID(EDIAGNOSTICCHAIN);
-    m_EDiagnosticChainEDataType->setEPackage(this);
+    m_EDiagnosticChainEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EDiagnosticChainEDataType);
 
-    m_EDoubleEDataType = new ::ecore::EDataType();
+    m_EDoubleEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EDoubleEDataType->setClassifierID(EDOUBLE);
-    m_EDoubleEDataType->setEPackage(this);
+    m_EDoubleEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EDoubleEDataType);
 
-    m_EDoubleObjectEDataType = new ::ecore::EDataType();
+    m_EDoubleObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EDoubleObjectEDataType->setClassifierID(EDOUBLEOBJECT);
-    m_EDoubleObjectEDataType->setEPackage(this);
+    m_EDoubleObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EDoubleObjectEDataType);
 
-    m_EEListEDataType = new ::ecore::EDataType();
+    m_EEListEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EEListEDataType->setClassifierID(EELIST);
-    m_EEListEDataType->setEPackage(this);
+    m_EEListEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EEListEDataType);
 
-    m_EEnumeratorEDataType = new ::ecore::EDataType();
+    m_EEnumeratorEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EEnumeratorEDataType->setClassifierID(EENUMERATOR);
-    m_EEnumeratorEDataType->setEPackage(this);
+    m_EEnumeratorEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EEnumeratorEDataType);
 
-    m_EFeatureMapEDataType = new ::ecore::EDataType();
+    m_EFeatureMapEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EFeatureMapEDataType->setClassifierID(EFEATUREMAP);
-    m_EFeatureMapEDataType->setEPackage(this);
+    m_EFeatureMapEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EFeatureMapEDataType);
 
-    m_EFeatureMapEntryEDataType = new ::ecore::EDataType();
+    m_EFeatureMapEntryEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EFeatureMapEntryEDataType->setClassifierID(EFEATUREMAPENTRY);
-    m_EFeatureMapEntryEDataType->setEPackage(this);
+    m_EFeatureMapEntryEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EFeatureMapEntryEDataType);
 
-    m_EFloatEDataType = new ::ecore::EDataType();
+    m_EFloatEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EFloatEDataType->setClassifierID(EFLOAT);
-    m_EFloatEDataType->setEPackage(this);
+    m_EFloatEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EFloatEDataType);
 
-    m_EFloatObjectEDataType = new ::ecore::EDataType();
+    m_EFloatObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EFloatObjectEDataType->setClassifierID(EFLOATOBJECT);
-    m_EFloatObjectEDataType->setEPackage(this);
+    m_EFloatObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EFloatObjectEDataType);
 
-    m_EIntEDataType = new ::ecore::EDataType();
+    m_EIntEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EIntEDataType->setClassifierID(EINT);
-    m_EIntEDataType->setEPackage(this);
+    m_EIntEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EIntEDataType);
 
-    m_EIntegerObjectEDataType = new ::ecore::EDataType();
+    m_EIntegerObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EIntegerObjectEDataType->setClassifierID(EINTEGEROBJECT);
-    m_EIntegerObjectEDataType->setEPackage(this);
+    m_EIntegerObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EIntegerObjectEDataType);
 
-    m_EJavaClassEDataType = new ::ecore::EDataType();
+    m_EJavaClassEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EJavaClassEDataType->setClassifierID(EJAVACLASS);
-    m_EJavaClassEDataType->setEPackage(this);
+    m_EJavaClassEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EJavaClassEDataType);
 
-    m_EJavaObjectEDataType = new ::ecore::EDataType();
+    m_EJavaObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EJavaObjectEDataType->setClassifierID(EJAVAOBJECT);
-    m_EJavaObjectEDataType->setEPackage(this);
+    m_EJavaObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EJavaObjectEDataType);
 
-    m_ELongEDataType = new ::ecore::EDataType();
+    m_ELongEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_ELongEDataType->setClassifierID(ELONG);
-    m_ELongEDataType->setEPackage(this);
+    m_ELongEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_ELongEDataType);
 
-    m_ELongObjectEDataType = new ::ecore::EDataType();
+    m_ELongObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_ELongObjectEDataType->setClassifierID(ELONGOBJECT);
-    m_ELongObjectEDataType->setEPackage(this);
+    m_ELongObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_ELongObjectEDataType);
 
-    m_EMapEDataType = new ::ecore::EDataType();
+    m_EMapEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EMapEDataType->setClassifierID(EMAP);
-    m_EMapEDataType->setEPackage(this);
+    m_EMapEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EMapEDataType);
 
-    m_EResourceEDataType = new ::ecore::EDataType();
+    m_EResourceEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EResourceEDataType->setClassifierID(ERESOURCE);
-    m_EResourceEDataType->setEPackage(this);
+    m_EResourceEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EResourceEDataType);
 
-    m_EResourceSetEDataType = new ::ecore::EDataType();
+    m_EResourceSetEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EResourceSetEDataType->setClassifierID(ERESOURCESET);
-    m_EResourceSetEDataType->setEPackage(this);
+    m_EResourceSetEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EResourceSetEDataType);
 
-    m_EShortEDataType = new ::ecore::EDataType();
+    m_EShortEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EShortEDataType->setClassifierID(ESHORT);
-    m_EShortEDataType->setEPackage(this);
+    m_EShortEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EShortEDataType);
 
-    m_EShortObjectEDataType = new ::ecore::EDataType();
+    m_EShortObjectEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EShortObjectEDataType->setClassifierID(ESHORTOBJECT);
-    m_EShortObjectEDataType->setEPackage(this);
+    m_EShortObjectEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EShortObjectEDataType);
 
-    m_EStringEDataType = new ::ecore::EDataType();
+    m_EStringEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_EStringEDataType->setClassifierID(ESTRING);
-    m_EStringEDataType->setEPackage(this);
+    m_EStringEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EStringEDataType);
 
-    m_ETreeIteratorEDataType = new ::ecore::EDataType();
+    m_ETreeIteratorEDataType = boost::intrusive_ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_ETreeIteratorEDataType->setClassifierID(ETREEITERATOR);
-    m_ETreeIteratorEDataType->setEPackage(this);
+    m_ETreeIteratorEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_ETreeIteratorEDataType);
 
-    m_EInvocationTargetExceptionEDataType = new ::ecore::EDataType();
+    m_EInvocationTargetExceptionEDataType = boost::intrusive_ptr
+            < ::ecore::EDataType > (new ::ecore::EDataType);
     m_EInvocationTargetExceptionEDataType->setClassifierID(
             EINVOCATIONTARGETEXCEPTION);
-    m_EInvocationTargetExceptionEDataType->setEPackage(this);
+    m_EInvocationTargetExceptionEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_EInvocationTargetExceptionEDataType);
 
     // Initialize package
@@ -858,22 +992,27 @@ EcorePackage::EcorePackage()
     {
         ::ecore::ETypeParameter_ptr _tp;
 
-        _tp = new ::ecore::ETypeParameter();
+        _tp = boost::intrusive_ptr < ::ecore::ETypeParameter
+                > (new ::ecore::ETypeParameter);
         _tp->setName("E");
         m_EEListEDataType->getETypeParameters().push_back(_tp);
 
-        _tp = new ::ecore::ETypeParameter();
+        _tp = boost::intrusive_ptr < ::ecore::ETypeParameter
+                > (new ::ecore::ETypeParameter);
         _tp->setName("T");
         m_EJavaClassEDataType->getETypeParameters().push_back(_tp);
 
-        _tp = new ::ecore::ETypeParameter();
+        _tp = boost::intrusive_ptr < ::ecore::ETypeParameter
+                > (new ::ecore::ETypeParameter);
         _tp->setName("K");
         m_EMapEDataType->getETypeParameters().push_back(_tp);
-        _tp = new ::ecore::ETypeParameter();
+        _tp = boost::intrusive_ptr < ::ecore::ETypeParameter
+                > (new ::ecore::ETypeParameter);
         _tp->setName("V");
         m_EMapEDataType->getETypeParameters().push_back(_tp);
 
-        _tp = new ::ecore::ETypeParameter();
+        _tp = boost::intrusive_ptr < ::ecore::ETypeParameter
+                > (new ::ecore::ETypeParameter);
         _tp->setName("E");
         m_ETreeIteratorEDataType->getETypeParameters().push_back(_tp);
     }
@@ -1221,14 +1360,16 @@ EcorePackage::EcorePackage()
     m_EClass__eAllGenericSuperTypes->setUnique(true);
     m_EClass__eAllGenericSuperTypes->setDerived(true);
     m_EClass__eAllGenericSuperTypes->setOrdered(true);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EBooleanEDataType);
     _op->setName("isSuperTypeOf");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EClassEClass);
     _pa->setName("someClass");
     _pa->setLowerBound(0);
@@ -1237,7 +1378,8 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EIntEDataType);
     _op->setName("getFeatureCount");
     _op->setLowerBound(0);
@@ -1245,14 +1387,16 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EStructuralFeatureEClass);
     _op->setName("getEStructuralFeature");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EIntEDataType);
     _pa->setName("featureID");
     _pa->setLowerBound(0);
@@ -1261,14 +1405,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EIntEDataType);
     _op->setName("getFeatureID");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStructuralFeatureEClass);
     _pa->setName("feature");
     _pa->setLowerBound(0);
@@ -1277,14 +1423,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EStructuralFeatureEClass);
     _op->setName("getEStructuralFeature");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStringEDataType);
     _pa->setName("featureName");
     _pa->setLowerBound(0);
@@ -1293,7 +1441,8 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EIntEDataType);
     _op->setName("getOperationCount");
     _op->setLowerBound(0);
@@ -1301,14 +1450,16 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EOperationEClass);
     _op->setName("getEOperation");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EIntEDataType);
     _pa->setName("operationID");
     _pa->setLowerBound(0);
@@ -1317,14 +1468,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EIntEDataType);
     _op->setName("getOperationID");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EOperationEClass);
     _pa->setName("operation");
     _pa->setLowerBound(0);
@@ -1333,14 +1486,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EClassEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EOperationEClass);
     _op->setName("getOverride");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EOperationEClass);
     _pa->setName("operation");
     _pa->setLowerBound(0);
@@ -1368,9 +1523,11 @@ EcorePackage::EcorePackage()
     m_EClassifier__instanceClassName->setOrdered(true);
     m_EClassifier__instanceClass->setEType(m_EJavaClassEDataType);
     {
-        ::ecore::EGenericType_ptr _g0 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->setEClassifier(m_EJavaClassEDataType);
-        ::ecore::EGenericType_ptr _g1 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g1 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->getETypeArguments().push_back(_g1);
         m_EClassifier__instanceClass->setEGenericType(_g0);
     }
@@ -1441,14 +1598,16 @@ EcorePackage::EcorePackage()
     m_EClassifier__eTypeParameters->setUnique(true);
     m_EClassifier__eTypeParameters->setDerived(false);
     m_EClassifier__eTypeParameters->setOrdered(true);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EBooleanEDataType);
     _op->setName("isInstance");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EJavaObjectEDataType);
     _pa->setName("object");
     _pa->setLowerBound(0);
@@ -1457,7 +1616,8 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EClassifierEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EIntEDataType);
     _op->setName("getClassifierID");
     _op->setLowerBound(0);
@@ -1502,14 +1662,16 @@ EcorePackage::EcorePackage()
     m_EEnum__eLiterals->setEOpposite(
             ::ecore::instanceOf < ::ecore::EReference
                     > (m_EEnumLiteralEClass->getEStructuralFeatures()[3]));
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EEnumLiteralEClass);
     _op->setName("getEEnumLiteral");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStringEDataType);
     _pa->setName("name");
     _pa->setLowerBound(0);
@@ -1518,14 +1680,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EEnumEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EEnumLiteralEClass);
     _op->setName("getEEnumLiteral");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EIntEDataType);
     _pa->setName("value");
     _pa->setLowerBound(0);
@@ -1534,14 +1698,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EEnumEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EEnumLiteralEClass);
     _op->setName("getEEnumLiteralByLiteral");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStringEDataType);
     _pa->setName("literal");
     _pa->setLowerBound(0);
@@ -1629,14 +1795,16 @@ EcorePackage::EcorePackage()
     m_EFactory__ePackage->setEOpposite(
             ::ecore::instanceOf < ::ecore::EReference
                     > (m_EPackageEClass->getEStructuralFeatures()[2]));
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EObjectEClass);
     _op->setName("create");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EClassEClass);
     _pa->setName("eClass");
     _pa->setLowerBound(0);
@@ -1645,14 +1813,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EFactoryEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EJavaObjectEDataType);
     _op->setName("createFromString");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EDataTypeEClass);
     _pa->setName("eDataType");
     _pa->setLowerBound(0);
@@ -1660,7 +1830,8 @@ EcorePackage::EcorePackage()
     _pa->setUnique(true);
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStringEDataType);
     _pa->setName("literalValue");
     _pa->setLowerBound(0);
@@ -1669,14 +1840,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EFactoryEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EStringEDataType);
     _op->setName("convertToString");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EDataTypeEClass);
     _pa->setName("eDataType");
     _pa->setLowerBound(0);
@@ -1684,7 +1857,8 @@ EcorePackage::EcorePackage()
     _pa->setUnique(true);
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EJavaObjectEDataType);
     _pa->setName("instanceValue");
     _pa->setLowerBound(0);
@@ -1713,14 +1887,16 @@ EcorePackage::EcorePackage()
     m_EModelElement__eAnnotations->setEOpposite(
             ::ecore::instanceOf < ::ecore::EReference
                     > (m_EAnnotationEClass->getEStructuralFeatures()[2]));
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EAnnotationEClass);
     _op->setName("getEAnnotation");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStringEDataType);
     _pa->setName("source");
     _pa->setLowerBound(0);
@@ -1750,7 +1926,8 @@ EcorePackage::EcorePackage()
     m_EObjectEClass->setName("EObject");
     m_EObjectEClass->setAbstract(false);
     m_EObjectEClass->setInterface(false);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EClassEClass);
     _op->setName("eClass");
     _op->setLowerBound(0);
@@ -1758,7 +1935,8 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EBooleanEDataType);
     _op->setName("eIsProxy");
     _op->setLowerBound(0);
@@ -1766,7 +1944,8 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EResourceEDataType);
     _op->setName("eResource");
     _op->setLowerBound(0);
@@ -1774,7 +1953,8 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EObjectEClass);
     _op->setName("eContainer");
     _op->setLowerBound(0);
@@ -1782,7 +1962,8 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EStructuralFeatureEClass);
     _op->setName("eContainingFeature");
     _op->setLowerBound(0);
@@ -1790,7 +1971,8 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EReferenceEClass);
     _op->setName("eContainmentFeature");
     _op->setLowerBound(0);
@@ -1798,12 +1980,15 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EEListEDataType);
     {
-        ::ecore::EGenericType_ptr _g0 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->setEClassifier(m_EEListEDataType);
-        ::ecore::EGenericType_ptr _g1 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g1 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g1->setEClassifier(m_EObjectEClass);
         _g0->getETypeArguments().push_back(_g1);
         _op->setEGenericType(_g0);
@@ -1814,12 +1999,15 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_ETreeIteratorEDataType);
     {
-        ::ecore::EGenericType_ptr _g0 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->setEClassifier(m_ETreeIteratorEDataType);
-        ::ecore::EGenericType_ptr _g1 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g1 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g1->setEClassifier(m_EObjectEClass);
         _g0->getETypeArguments().push_back(_g1);
         _op->setEGenericType(_g0);
@@ -1830,12 +2018,15 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EEListEDataType);
     {
-        ::ecore::EGenericType_ptr _g0 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->setEClassifier(m_EEListEDataType);
-        ::ecore::EGenericType_ptr _g1 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g1 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g1->setEClassifier(m_EObjectEClass);
         _g0->getETypeArguments().push_back(_g1);
         _op->setEGenericType(_g0);
@@ -1846,14 +2037,16 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EJavaObjectEDataType);
     _op->setName("eGet");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStructuralFeatureEClass);
     _pa->setName("feature");
     _pa->setLowerBound(0);
@@ -1862,14 +2055,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EJavaObjectEDataType);
     _op->setName("eGet");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStructuralFeatureEClass);
     _pa->setName("feature");
     _pa->setLowerBound(0);
@@ -1877,7 +2072,8 @@ EcorePackage::EcorePackage()
     _pa->setUnique(true);
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EBooleanEDataType);
     _pa->setName("resolve");
     _pa->setLowerBound(0);
@@ -1886,13 +2082,15 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setName("eSet");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStructuralFeatureEClass);
     _pa->setName("feature");
     _pa->setLowerBound(0);
@@ -1900,7 +2098,8 @@ EcorePackage::EcorePackage()
     _pa->setUnique(true);
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EJavaObjectEDataType);
     _pa->setName("newValue");
     _pa->setLowerBound(0);
@@ -1909,14 +2108,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EBooleanEDataType);
     _op->setName("eIsSet");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStructuralFeatureEClass);
     _pa->setName("feature");
     _pa->setLowerBound(0);
@@ -1925,13 +2126,15 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setName("eUnset");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStructuralFeatureEClass);
     _pa->setName("feature");
     _pa->setLowerBound(0);
@@ -1940,14 +2143,16 @@ EcorePackage::EcorePackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_EObjectEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EJavaObjectEDataType);
     _op->setName("eInvoke");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EOperationEClass);
     _pa->setName("operation");
     _pa->setLowerBound(0);
@@ -1955,12 +2160,15 @@ EcorePackage::EcorePackage()
     _pa->setUnique(true);
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EEListEDataType);
     {
-        ::ecore::EGenericType_ptr _g0 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->setEClassifier(m_EEListEDataType);
-        ::ecore::EGenericType_ptr _g1 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g1 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->getETypeArguments().push_back(_g1);
         _pa->setEGenericType(_g0);
     }
@@ -2046,7 +2254,8 @@ EcorePackage::EcorePackage()
     m_EOperation__eGenericExceptions->setUnique(true);
     m_EOperation__eGenericExceptions->setDerived(false);
     m_EOperation__eGenericExceptions->setOrdered(true);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EIntEDataType);
     _op->setName("getOperationID");
     _op->setLowerBound(0);
@@ -2054,14 +2263,16 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EOperationEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EBooleanEDataType);
     _op->setName("isOverrideOf");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EOperationEClass);
     _pa->setName("someOperation");
     _pa->setLowerBound(0);
@@ -2164,14 +2375,16 @@ EcorePackage::EcorePackage()
     m_EPackage__eSuperPackage->setEOpposite(
             ::ecore::instanceOf < ::ecore::EReference
                     > (m_EPackageEClass->getEStructuralFeatures()[4]));
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EClassifierEClass);
     _op->setName("getEClassifier");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = new ::ecore::EParameter();
+    _pa = boost::intrusive_ptr < ::ecore::EParameter
+            > (new ::ecore::EParameter);
     _pa->setEType(m_EStringEDataType);
     _pa->setName("name");
     _pa->setLowerBound(0);
@@ -2393,7 +2606,8 @@ EcorePackage::EcorePackage()
     m_EStructuralFeature__eContainingClass->setEOpposite(
             ::ecore::instanceOf < ::ecore::EReference
                     > (m_EClassEClass->getEStructuralFeatures()[13]));
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EIntEDataType);
     _op->setName("getFeatureID");
     _op->setLowerBound(0);
@@ -2401,12 +2615,15 @@ EcorePackage::EcorePackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_EStructuralFeatureEClass->getEOperations().push_back(_op);
-    _op = new ::ecore::EOperation();
+    _op = boost::intrusive_ptr < ::ecore::EOperation
+            > (new ::ecore::EOperation);
     _op->setEType(m_EJavaClassEDataType);
     {
-        ::ecore::EGenericType_ptr _g0 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->setEClassifier(m_EJavaClassEDataType);
-        ::ecore::EGenericType_ptr _g1 = new ::ecore::EGenericType();
+        ::ecore::EGenericType_ptr _g1 = boost::intrusive_ptr
+                < ::ecore::EGenericType > (new ::ecore::EGenericType);
         _g0->getETypeArguments().push_back(_g1);
         _op->setEGenericType(_g0);
     }

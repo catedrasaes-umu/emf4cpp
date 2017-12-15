@@ -71,8 +71,8 @@ void EStringToStringMapEntry::setKey(::ecore::EString const& _key)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStringToStringMapEntry__key(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStringToStringMapEntry__key(),
                 _old_key,
                 m_key
         );
@@ -97,8 +97,8 @@ void EStringToStringMapEntry::setValue(::ecore::EString const& _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStringToStringMapEntry__value(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStringToStringMapEntry__value(),
                 _old_value,
                 m_value
         );

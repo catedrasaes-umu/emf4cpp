@@ -22,12 +22,14 @@
 
 using namespace ::kdm::conceptual;
 
-std::unique_ptr< ::kdm::conceptual::ConceptualFactory > ConceptualFactory::s_instance;
+boost::intrusive_ptr< ::kdm::conceptual::ConceptualFactory > ConceptualFactory::s_holder;
 
 ::kdm::conceptual::ConceptualFactory_ptr ConceptualFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new ConceptualFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < ConceptualFactory
+                > (new ConceptualFactory());
+
+    return s_holder;
 }
 

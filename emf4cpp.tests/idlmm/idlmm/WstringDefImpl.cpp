@@ -123,7 +123,7 @@ void WstringDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr WstringDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getWstringDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getWstringDef();
     return _eclass;
 }
 

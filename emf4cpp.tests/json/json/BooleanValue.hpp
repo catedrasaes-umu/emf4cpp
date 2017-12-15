@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    BooleanValue_ptr _this()
+    {   return BooleanValue_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_value;

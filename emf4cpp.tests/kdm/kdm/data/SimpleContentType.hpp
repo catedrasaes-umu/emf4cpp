@@ -60,8 +60,8 @@ namespace kdm
         virtual void setKind (::kdm::core::String _kind);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& getType ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType_ptr >& getType () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType_ptr >& getType ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -87,13 +87,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SimpleContentType_ptr _this()
+        {   return SimpleContentType_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_kind;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >> m_type;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType_ptr >> m_type;
 
     };
 

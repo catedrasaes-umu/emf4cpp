@@ -86,6 +86,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    TextElement_ptr _this()
+    {   return TextElement_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::Double m_rotate;

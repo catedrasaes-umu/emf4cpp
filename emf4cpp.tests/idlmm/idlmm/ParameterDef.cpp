@@ -74,8 +74,8 @@ void ParameterDef::setIdentifier(::ecore::EString const& _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getParameterDef__identifier(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getParameterDef__identifier(),
                 _old_identifier,
                 m_identifier
         );
@@ -100,8 +100,8 @@ void ParameterDef::setDirection(::idlmm::ParameterMode _direction)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getParameterDef__direction(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getParameterDef__direction(),
                 _old_direction,
                 m_direction
         );

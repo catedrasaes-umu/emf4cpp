@@ -115,9 +115,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< EoppositePackage, ::ecorecpp::PackageDeleter<EoppositePackage> > s_instance;
+    static boost::intrusive_ptr< EoppositePackage > s_instance;
 
     EoppositePackage();
+    void _initPackage();
 
     // EClass instances 
 

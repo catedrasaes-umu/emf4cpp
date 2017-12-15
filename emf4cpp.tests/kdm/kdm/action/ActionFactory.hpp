@@ -69,7 +69,7 @@ namespace kdm
 
         protected:
 
-            static std::unique_ptr< ActionFactory > s_instance;
+            static boost::intrusive_ptr< ActionFactory > s_holder;
 
             ActionFactory();
 
@@ -81,160 +81,184 @@ namespace kdm
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline T* create()
+        template< class T > inline boost::intrusive_ptr< T > create()
         {
-            return (T*) nullptr;
+            return boost::intrusive_ptr< T >();
         }
 
         template< > inline ActionElement_ptr create< ActionElement >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createActionElement();
         }
+
         template< > inline AbstractActionRelationship_ptr create<
                 AbstractActionRelationship >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createAbstractActionRelationship();
         }
+
         template< > inline ControlFlow_ptr create< ControlFlow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createControlFlow();
         }
+
         template< > inline Calls_ptr create< Calls >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createCalls();
         }
+
         template< > inline Creates_ptr create< Creates >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createCreates();
         }
+
         template< > inline Reads_ptr create< Reads >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createReads();
         }
+
         template< > inline Writes_ptr create< Writes >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createWrites();
         }
+
         template< > inline CompliesTo_ptr create< CompliesTo >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createCompliesTo();
         }
+
         template< > inline Flow_ptr create< Flow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createFlow();
         }
+
         template< > inline TrueFlow_ptr create< TrueFlow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createTrueFlow();
         }
+
         template< > inline FalseFlow_ptr create< FalseFlow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createFalseFlow();
         }
+
         template< > inline GuardedFlow_ptr create< GuardedFlow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createGuardedFlow();
         }
+
         template< > inline UsesType_ptr create< UsesType >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createUsesType();
         }
+
         template< > inline Addresses_ptr create< Addresses >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createAddresses();
         }
+
         template< > inline ActionRelationship_ptr create< ActionRelationship >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createActionRelationship();
         }
+
         template< > inline Throws_ptr create< Throws >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createThrows();
         }
+
         template< > inline Dispatches_ptr create< Dispatches >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createDispatches();
         }
+
         template< > inline EntryFlow_ptr create< EntryFlow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createEntryFlow();
         }
+
         template< > inline BlockUnit_ptr create< BlockUnit >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createBlockUnit();
         }
+
         template< > inline ExceptionUnit_ptr create< ExceptionUnit >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createExceptionUnit();
         }
+
         template< > inline TryUnit_ptr create< TryUnit >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createTryUnit();
         }
+
         template< > inline FinallyUnit_ptr create< FinallyUnit >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createFinallyUnit();
         }
+
         template< > inline CatchUnit_ptr create< CatchUnit >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createCatchUnit();
         }
+
         template< > inline ExitFlow_ptr create< ExitFlow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createExitFlow();
         }
+
         template< > inline ExceptionFlow_ptr create< ExceptionFlow >()
         {
             auto eFactory = ActionPackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< ActionFactory* >(eFactory.get());
             return packageFactory->createExceptionFlow();
         }
 

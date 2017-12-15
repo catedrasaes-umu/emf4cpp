@@ -44,335 +44,335 @@ namespace kdm
 
 // AbstractCodeElement
         class AbstractCodeElement;
-        typedef AbstractCodeElement* AbstractCodeElement_ptr;
+        using AbstractCodeElement_ptr = boost::intrusive_ptr<AbstractCodeElement>;
 
 // CodeItem
         class CodeItem;
-        typedef CodeItem* CodeItem_ptr;
+        using CodeItem_ptr = boost::intrusive_ptr<CodeItem>;
 
 // ComputationalObject
         class ComputationalObject;
-        typedef ComputationalObject* ComputationalObject_ptr;
+        using ComputationalObject_ptr = boost::intrusive_ptr<ComputationalObject>;
 
 // ControlElement
         class ControlElement;
-        typedef ControlElement* ControlElement_ptr;
+        using ControlElement_ptr = boost::intrusive_ptr<ControlElement>;
 
 // MethodUnit
         class MethodUnit;
-        typedef MethodUnit* MethodUnit_ptr;
+        using MethodUnit_ptr = boost::intrusive_ptr<MethodUnit>;
 
 // Module
         class Module;
-        typedef Module* Module_ptr;
+        using Module_ptr = boost::intrusive_ptr<Module>;
 
 // CodeAssembly
         class CodeAssembly;
-        typedef CodeAssembly* CodeAssembly_ptr;
+        using CodeAssembly_ptr = boost::intrusive_ptr<CodeAssembly>;
 
 // CallableUnit
         class CallableUnit;
-        typedef CallableUnit* CallableUnit_ptr;
+        using CallableUnit_ptr = boost::intrusive_ptr<CallableUnit>;
 
 // Datatype
         class Datatype;
-        typedef Datatype* Datatype_ptr;
+        using Datatype_ptr = boost::intrusive_ptr<Datatype>;
 
 // TemplateUnit
         class TemplateUnit;
-        typedef TemplateUnit* TemplateUnit_ptr;
+        using TemplateUnit_ptr = boost::intrusive_ptr<TemplateUnit>;
 
 // TemplateParameter
         class TemplateParameter;
-        typedef TemplateParameter* TemplateParameter_ptr;
+        using TemplateParameter_ptr = boost::intrusive_ptr<TemplateParameter>;
 
 // AbstractCodeRelationship
         class AbstractCodeRelationship;
-        typedef AbstractCodeRelationship* AbstractCodeRelationship_ptr;
+        using AbstractCodeRelationship_ptr = boost::intrusive_ptr<AbstractCodeRelationship>;
 
 // InstanceOf
         class InstanceOf;
-        typedef InstanceOf* InstanceOf_ptr;
+        using InstanceOf_ptr = boost::intrusive_ptr<InstanceOf>;
 
 // CompilationUnit
         class CompilationUnit;
-        typedef CompilationUnit* CompilationUnit_ptr;
+        using CompilationUnit_ptr = boost::intrusive_ptr<CompilationUnit>;
 
 // CodeModel
         class CodeModel;
-        typedef CodeModel* CodeModel_ptr;
+        using CodeModel_ptr = boost::intrusive_ptr<CodeModel>;
 
 // DerivedType
         class DerivedType;
-        typedef DerivedType* DerivedType_ptr;
+        using DerivedType_ptr = boost::intrusive_ptr<DerivedType>;
 
 // ArrayType
         class ArrayType;
-        typedef ArrayType* ArrayType_ptr;
+        using ArrayType_ptr = boost::intrusive_ptr<ArrayType>;
 
 // PrimitiveType
         class PrimitiveType;
-        typedef PrimitiveType* PrimitiveType_ptr;
+        using PrimitiveType_ptr = boost::intrusive_ptr<PrimitiveType>;
 
 // BooleanType
         class BooleanType;
-        typedef BooleanType* BooleanType_ptr;
+        using BooleanType_ptr = boost::intrusive_ptr<BooleanType>;
 
 // CharType
         class CharType;
-        typedef CharType* CharType_ptr;
+        using CharType_ptr = boost::intrusive_ptr<CharType>;
 
 // ClassUnit
         class ClassUnit;
-        typedef ClassUnit* ClassUnit_ptr;
+        using ClassUnit_ptr = boost::intrusive_ptr<ClassUnit>;
 
 // CompositeType
         class CompositeType;
-        typedef CompositeType* CompositeType_ptr;
+        using CompositeType_ptr = boost::intrusive_ptr<CompositeType>;
 
 // RecordType
         class RecordType;
-        typedef RecordType* RecordType_ptr;
+        using RecordType_ptr = boost::intrusive_ptr<RecordType>;
 
 // EnumeratedType
         class EnumeratedType;
-        typedef EnumeratedType* EnumeratedType_ptr;
+        using EnumeratedType_ptr = boost::intrusive_ptr<EnumeratedType>;
 
 // Extends
         class Extends;
-        typedef Extends* Extends_ptr;
+        using Extends_ptr = boost::intrusive_ptr<Extends>;
 
 // ScaledType
         class ScaledType;
-        typedef ScaledType* ScaledType_ptr;
+        using ScaledType_ptr = boost::intrusive_ptr<ScaledType>;
 
 // FloatType
         class FloatType;
-        typedef FloatType* FloatType_ptr;
+        using FloatType_ptr = boost::intrusive_ptr<FloatType>;
 
 // HasType
         class HasType;
-        typedef HasType* HasType_ptr;
+        using HasType_ptr = boost::intrusive_ptr<HasType>;
 
 // ImplementationOf
         class ImplementationOf;
-        typedef ImplementationOf* ImplementationOf_ptr;
+        using ImplementationOf_ptr = boost::intrusive_ptr<ImplementationOf>;
 
 // Implements
         class Implements;
-        typedef Implements* Implements_ptr;
+        using Implements_ptr = boost::intrusive_ptr<Implements>;
 
 // IntegerType
         class IntegerType;
-        typedef IntegerType* IntegerType_ptr;
+        using IntegerType_ptr = boost::intrusive_ptr<IntegerType>;
 
 // InterfaceUnit
         class InterfaceUnit;
-        typedef InterfaceUnit* InterfaceUnit_ptr;
+        using InterfaceUnit_ptr = boost::intrusive_ptr<InterfaceUnit>;
 
 // PointerType
         class PointerType;
-        typedef PointerType* PointerType_ptr;
+        using PointerType_ptr = boost::intrusive_ptr<PointerType>;
 
 // DefinedType
         class DefinedType;
-        typedef DefinedType* DefinedType_ptr;
+        using DefinedType_ptr = boost::intrusive_ptr<DefinedType>;
 
 // TypeUnit
         class TypeUnit;
-        typedef TypeUnit* TypeUnit_ptr;
+        using TypeUnit_ptr = boost::intrusive_ptr<TypeUnit>;
 
 // RangeType
         class RangeType;
-        typedef RangeType* RangeType_ptr;
+        using RangeType_ptr = boost::intrusive_ptr<RangeType>;
 
 // Signature
         class Signature;
-        typedef Signature* Signature_ptr;
+        using Signature_ptr = boost::intrusive_ptr<Signature>;
 
 // DataElement
         class DataElement;
-        typedef DataElement* DataElement_ptr;
+        using DataElement_ptr = boost::intrusive_ptr<DataElement>;
 
 // StringType
         class StringType;
-        typedef StringType* StringType_ptr;
+        using StringType_ptr = boost::intrusive_ptr<StringType>;
 
 // ChoiceType
         class ChoiceType;
-        typedef ChoiceType* ChoiceType_ptr;
+        using ChoiceType_ptr = boost::intrusive_ptr<ChoiceType>;
 
 // NamespaceUnit
         class NamespaceUnit;
-        typedef NamespaceUnit* NamespaceUnit_ptr;
+        using NamespaceUnit_ptr = boost::intrusive_ptr<NamespaceUnit>;
 
 // VisibleIn
         class VisibleIn;
-        typedef VisibleIn* VisibleIn_ptr;
+        using VisibleIn_ptr = boost::intrusive_ptr<VisibleIn>;
 
 // CommentUnit
         class CommentUnit;
-        typedef CommentUnit* CommentUnit_ptr;
+        using CommentUnit_ptr = boost::intrusive_ptr<CommentUnit>;
 
 // SharedUnit
         class SharedUnit;
-        typedef SharedUnit* SharedUnit_ptr;
+        using SharedUnit_ptr = boost::intrusive_ptr<SharedUnit>;
 
 // DecimalType
         class DecimalType;
-        typedef DecimalType* DecimalType_ptr;
+        using DecimalType_ptr = boost::intrusive_ptr<DecimalType>;
 
 // DateType
         class DateType;
-        typedef DateType* DateType_ptr;
+        using DateType_ptr = boost::intrusive_ptr<DateType>;
 
 // TimeType
         class TimeType;
-        typedef TimeType* TimeType_ptr;
+        using TimeType_ptr = boost::intrusive_ptr<TimeType>;
 
 // VoidType
         class VoidType;
-        typedef VoidType* VoidType_ptr;
+        using VoidType_ptr = boost::intrusive_ptr<VoidType>;
 
 // ValueElement
         class ValueElement;
-        typedef ValueElement* ValueElement_ptr;
+        using ValueElement_ptr = boost::intrusive_ptr<ValueElement>;
 
 // Value
         class Value;
-        typedef Value* Value_ptr;
+        using Value_ptr = boost::intrusive_ptr<Value>;
 
 // ValueList
         class ValueList;
-        typedef ValueList* ValueList_ptr;
+        using ValueList_ptr = boost::intrusive_ptr<ValueList>;
 
 // StorableUnit
         class StorableUnit;
-        typedef StorableUnit* StorableUnit_ptr;
+        using StorableUnit_ptr = boost::intrusive_ptr<StorableUnit>;
 
 // MemberUnit
         class MemberUnit;
-        typedef MemberUnit* MemberUnit_ptr;
+        using MemberUnit_ptr = boost::intrusive_ptr<MemberUnit>;
 
 // ParameterUnit
         class ParameterUnit;
-        typedef ParameterUnit* ParameterUnit_ptr;
+        using ParameterUnit_ptr = boost::intrusive_ptr<ParameterUnit>;
 
 // ItemUnit
         class ItemUnit;
-        typedef ItemUnit* ItemUnit_ptr;
+        using ItemUnit_ptr = boost::intrusive_ptr<ItemUnit>;
 
 // IndexUnit
         class IndexUnit;
-        typedef IndexUnit* IndexUnit_ptr;
+        using IndexUnit_ptr = boost::intrusive_ptr<IndexUnit>;
 
 // SynonymType
         class SynonymType;
-        typedef SynonymType* SynonymType_ptr;
+        using SynonymType_ptr = boost::intrusive_ptr<SynonymType>;
 
 // SequenceType
         class SequenceType;
-        typedef SequenceType* SequenceType_ptr;
+        using SequenceType_ptr = boost::intrusive_ptr<SequenceType>;
 
 // BagType
         class BagType;
-        typedef BagType* BagType_ptr;
+        using BagType_ptr = boost::intrusive_ptr<BagType>;
 
 // SetType
         class SetType;
-        typedef SetType* SetType_ptr;
+        using SetType_ptr = boost::intrusive_ptr<SetType>;
 
 // CodeElement
         class CodeElement;
-        typedef CodeElement* CodeElement_ptr;
+        using CodeElement_ptr = boost::intrusive_ptr<CodeElement>;
 
 // CodeRelationship
         class CodeRelationship;
-        typedef CodeRelationship* CodeRelationship_ptr;
+        using CodeRelationship_ptr = boost::intrusive_ptr<CodeRelationship>;
 
 // LanguageUnit
         class LanguageUnit;
-        typedef LanguageUnit* LanguageUnit_ptr;
+        using LanguageUnit_ptr = boost::intrusive_ptr<LanguageUnit>;
 
 // OrdinalType
         class OrdinalType;
-        typedef OrdinalType* OrdinalType_ptr;
+        using OrdinalType_ptr = boost::intrusive_ptr<OrdinalType>;
 
 // BitstringType
         class BitstringType;
-        typedef BitstringType* BitstringType_ptr;
+        using BitstringType_ptr = boost::intrusive_ptr<BitstringType>;
 
 // OctetType
         class OctetType;
-        typedef OctetType* OctetType_ptr;
+        using OctetType_ptr = boost::intrusive_ptr<OctetType>;
 
 // OctetstringType
         class OctetstringType;
-        typedef OctetstringType* OctetstringType_ptr;
+        using OctetstringType_ptr = boost::intrusive_ptr<OctetstringType>;
 
 // BitType
         class BitType;
-        typedef BitType* BitType_ptr;
+        using BitType_ptr = boost::intrusive_ptr<BitType>;
 
 // Imports
         class Imports;
-        typedef Imports* Imports_ptr;
+        using Imports_ptr = boost::intrusive_ptr<Imports>;
 
 // Package
         class Package;
-        typedef Package* Package_ptr;
+        using Package_ptr = boost::intrusive_ptr<Package>;
 
 // ParameterTo
         class ParameterTo;
-        typedef ParameterTo* ParameterTo_ptr;
+        using ParameterTo_ptr = boost::intrusive_ptr<ParameterTo>;
 
 // TemplateType
         class TemplateType;
-        typedef TemplateType* TemplateType_ptr;
+        using TemplateType_ptr = boost::intrusive_ptr<TemplateType>;
 
 // PreprocessorDirective
         class PreprocessorDirective;
-        typedef PreprocessorDirective* PreprocessorDirective_ptr;
+        using PreprocessorDirective_ptr = boost::intrusive_ptr<PreprocessorDirective>;
 
 // MacroDirective
         class MacroDirective;
-        typedef MacroDirective* MacroDirective_ptr;
+        using MacroDirective_ptr = boost::intrusive_ptr<MacroDirective>;
 
 // MacroUnit
         class MacroUnit;
-        typedef MacroUnit* MacroUnit_ptr;
+        using MacroUnit_ptr = boost::intrusive_ptr<MacroUnit>;
 
 // ConditionalDirective
         class ConditionalDirective;
-        typedef ConditionalDirective* ConditionalDirective_ptr;
+        using ConditionalDirective_ptr = boost::intrusive_ptr<ConditionalDirective>;
 
 // IncludeDirective
         class IncludeDirective;
-        typedef IncludeDirective* IncludeDirective_ptr;
+        using IncludeDirective_ptr = boost::intrusive_ptr<IncludeDirective>;
 
 // VariantTo
         class VariantTo;
-        typedef VariantTo* VariantTo_ptr;
+        using VariantTo_ptr = boost::intrusive_ptr<VariantTo>;
 
 // Expands
         class Expands;
-        typedef Expands* Expands_ptr;
+        using Expands_ptr = boost::intrusive_ptr<Expands>;
 
 // Redefines
         class Redefines;
-        typedef Redefines* Redefines_ptr;
+        using Redefines_ptr = boost::intrusive_ptr<Redefines>;
 
 // GeneratedFrom
         class GeneratedFrom;
-        typedef GeneratedFrom* GeneratedFrom_ptr;
+        using GeneratedFrom_ptr = boost::intrusive_ptr<GeneratedFrom>;
 
 // Includes
         class Includes;
-        typedef Includes* Includes_ptr;
+        using Includes_ptr = boost::intrusive_ptr<Includes>;
 
 // HasValue
         class HasValue;
-        typedef HasValue* HasValue_ptr;
+        using HasValue_ptr = boost::intrusive_ptr<HasValue>;
 
 // EEnum
 
@@ -402,14 +402,14 @@ namespace kdm
 
 // Package & Factory
         class CodeFactory;
-        typedef CodeFactory * CodeFactory_ptr;
+        using CodeFactory_ptr = boost::intrusive_ptr<CodeFactory>;
         class CodePackage;
-        typedef CodePackage * CodePackage_ptr;
+        using CodePackage_ptr = boost::intrusive_ptr<CodePackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // code

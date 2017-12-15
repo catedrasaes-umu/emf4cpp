@@ -138,7 +138,7 @@ void FixedDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr FixedDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getFixedDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getFixedDef();
     return _eclass;
 }
 

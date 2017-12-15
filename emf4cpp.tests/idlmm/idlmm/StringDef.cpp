@@ -72,8 +72,8 @@ void StringDef::setBound(::ecore::EString const& _bound)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getStringDef__bound(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getStringDef__bound(),
                 _old_bound,
                 m_bound
         );

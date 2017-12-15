@@ -32,8 +32,8 @@
 namespace ecorecpp {
 namespace resource {
 
-class ResourceContentEList : public ::ecorecpp::mapping::ContainingEList<::ecore::EObject> {
-	using base_t = ::ecorecpp::mapping::EListImpl<::ecore::EObject>;
+class ResourceContentEList : public ::ecorecpp::mapping::ContainingEList<::ecore::EObject_ptr> {
+	using base_t = ::ecorecpp::mapping::EListImpl<::ecore::EObject_ptr>;
 
 public:
     ResourceContentEList(Resource* rs)
@@ -101,13 +101,14 @@ Resource::Factory::Registry::FactoryMap&
 
 
 //Resource::Factory
-Resource* Resource::Factory::createResource(const QUrl& uri) {
+Resource_ptr Resource::Factory::createResource(const QUrl& uri) {
 	throw "Not implemented!";
 }
 
 //Resource
 Resource::Resource(const QUrl& uri)
-	: _qurl(uri),
+	: _refCount(0u),
+	  _qurl(uri),
 	  _contents(new ResourceContentEList(this)),
 	  _resourceSet(nullptr),
 	  _loaded(false) {
@@ -130,7 +131,7 @@ void Resource::setResourceSet(ResourceSet* rs) {
 		return;
 
 	if (_resourceSet)
-		_resourceSet->getResources().remove(this);
+		_resourceSet->getResources().remove( Resource_ptr(this) );
 
 	_resourceSet = rs;
 }
@@ -179,7 +180,7 @@ bool Resource::isLoaded() const {
 	return _loaded;
 }
 
-::ecore::EObject* Resource::getEObject(const std::string& uriFragment) {
+::ecore::EObject_ptr Resource::getEObject(const std::string& uriFragment) {
 	if (uriFragment.empty() || !_contents->size()) {
 		return nullptr;
 	}
@@ -196,7 +197,7 @@ bool Resource::isLoaded() const {
 	std::istringstream input(uriFragment.substr(1));
 	std::string segment;
 
-	::ecore::EObject* current = nullptr;
+	::ecore::EObject_ptr current = nullptr;
 	if ( _contents->size() > 1 ) {
 		std::getline(input, segment, '/');
 		current = getEObjectForURIFragmentRootSegment(segment);
@@ -235,7 +236,7 @@ bool Resource::isLoaded() const {
 		::ecorecpp::mapping::any any = current->eGet(sf);
 		if (isCollection) {
 			auto collection = ecorecpp::mapping::any::any_cast<
-					::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type>(any);
+					::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type>(any);
 
 			assert(collection->size() >= index);
 			current = collection->get(index);
@@ -257,7 +258,7 @@ std::string Resource::getURIFragmentRootSegment( ::ecore::EObject_ptr obj ) {
 	return "";
 }
 
-::ecore::EObject* Resource::getEObjectForURIFragmentRootSegment( const std::string& root ) {
+::ecore::EObject_ptr Resource::getEObjectForURIFragmentRootSegment( const std::string& root ) {
 	unsigned long long index = 0;
 	if ( root.empty() || !_contents->size() )
 		return _contents->size() ? _contents->get(index) : nullptr;
@@ -275,7 +276,7 @@ std::string Resource::getURIFragmentRootSegment( ::ecore::EObject_ptr obj ) {
 	return _contents->get(index);
 }
 
-std::string Resource::getURIFragment( ::ecore::EObject* obj ) {
+std::string Resource::getURIFragment( ::ecore::EObject_ptr obj ) {
 	if (!obj)
 		return "";
 
@@ -294,7 +295,7 @@ std::string Resource::getURIFragment( ::ecore::EObject* obj ) {
 			ecorecpp::mapping::any _any = container->eGet(esf);
 
 			auto ef = ecorecpp::mapping::any::any_cast<
-					mapping::EList<::ecore::EObject>::ptr_type >(_any);
+					mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
 			for (size_t index = 0; index < ef->size(); ++index) {
 				if ( ef->get(index) == current ) {
@@ -315,10 +316,10 @@ std::string Resource::getURIFragment( ::ecore::EObject* obj ) {
 	return id;
 }
 
-::ecorecpp::util::TreeIterator<::ecore::EObject> Resource::getAllContents() {
-	return ::ecorecpp::util::TreeIterator<::ecore::EObject>(_contents);
+::ecorecpp::util::TreeIterator<::ecore::EObject_ptr> Resource::getAllContents() {
+	return ::ecorecpp::util::TreeIterator<::ecore::EObject_ptr>(_contents);
 }
 
-const ::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type& Resource::getContents() {
+const ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type& Resource::getContents() {
 	return _contents;
 }

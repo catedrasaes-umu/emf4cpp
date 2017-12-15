@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RecordFile_ptr _this()
+        {   return RecordFile_ptr(this);}
+
         // Attributes
 
         // References

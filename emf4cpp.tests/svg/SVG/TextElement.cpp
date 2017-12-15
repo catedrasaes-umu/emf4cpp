@@ -80,8 +80,8 @@ void TextElement::setRotate(::PrimitiveTypes::Double _rotate)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTextElement__rotate(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTextElement__rotate(),
                 _old_rotate,
                 m_rotate
         );
@@ -106,8 +106,8 @@ void TextElement::setTextLength(::PrimitiveTypes::String _textLength)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTextElement__textLength(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTextElement__textLength(),
                 _old_textLength,
                 m_textLength
         );
@@ -132,8 +132,8 @@ void TextElement::setFontSize(::PrimitiveTypes::String _fontSize)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTextElement__fontSize(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTextElement__fontSize(),
                 _old_fontSize,
                 m_fontSize
         );

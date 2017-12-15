@@ -38,14 +38,14 @@ using namespace ::kdm;
 KdmPackage::KdmPackage()
 {
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void KdmPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = KdmFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 

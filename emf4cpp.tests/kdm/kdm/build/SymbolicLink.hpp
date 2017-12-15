@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SymbolicLink_ptr _this()
+        {   return SymbolicLink_ptr(this);}
+
         // Attributes
 
         // References

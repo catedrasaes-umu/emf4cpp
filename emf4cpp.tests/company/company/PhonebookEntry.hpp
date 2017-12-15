@@ -38,7 +38,6 @@ namespace company
 {
 
 class EXPORT_COMPANY_DLL PhonebookEntry : public virtual ::ecore::EObject
-
 {
 public:
     PhonebookEntry();
@@ -77,6 +76,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    PhonebookEntry_ptr _this()
+    {   return PhonebookEntry_ptr(this);}
+
     // Attributes
 
     // References

@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ConceptualFlow_ptr _this()
+        {   return ConceptualFlow_ptr(this);}
+
         // Attributes
 
         // References

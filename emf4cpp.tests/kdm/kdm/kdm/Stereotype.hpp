@@ -60,8 +60,8 @@ namespace kdm
         virtual void setType (::kdm::core::String _type);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& getTag ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition_ptr >& getTag () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition_ptr >& getTag ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -87,6 +87,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Stereotype_ptr _this()
+        {   return Stereotype_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_name;
@@ -95,7 +98,7 @@ namespace kdm
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >> m_tag;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition_ptr >> m_tag;
 
     };
 

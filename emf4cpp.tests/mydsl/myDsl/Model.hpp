@@ -38,7 +38,6 @@ namespace myDsl
 {
 
 class EXPORT_MYDSL_DLL Model : public virtual ::ecore::EObject
-
 {
 public:
     Model();
@@ -52,11 +51,11 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports () const;
-    virtual ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports ();
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& getImports () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& getImports ();
 
-    virtual const ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements () const;
-    virtual ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements ();
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& getElements () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& getElements ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -82,13 +81,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Model_ptr _this()
+    {   return Model_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Import >> m_imports;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Import_ptr >> m_imports;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Type >> m_elements;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Type_ptr >> m_elements;
 
 };
 

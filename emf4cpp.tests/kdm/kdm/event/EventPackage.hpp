@@ -510,9 +510,10 @@ namespace kdm
 
     protected:
 
-        static std::unique_ptr< EventPackage, ::ecorecpp::PackageDeleter<EventPackage> > s_instance;
+        static boost::intrusive_ptr< EventPackage > s_instance;
 
         EventPackage();
+        void _initPackage();
 
         // EClass instances 
 

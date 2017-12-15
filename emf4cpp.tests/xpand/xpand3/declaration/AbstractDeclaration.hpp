@@ -62,8 +62,8 @@ namespace xpand3
         virtual ::xpand3::File_ptr getOwner () const;
         virtual void setOwner (::xpand3::File_ptr _owner);
 
-        virtual const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams () const;
-        virtual ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& getParams () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& getParams ();
 
         virtual ::xpand3::expression::AbstractExpression_ptr getGuard () const;
         virtual void setGuard (::xpand3::expression::AbstractExpression_ptr _guard);
@@ -92,6 +92,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractDeclaration_ptr _this()
+        {   return AbstractDeclaration_ptr(this);}
+
         // Attributes
 
         ::ecore::EBoolean m_isPrivate;
@@ -100,7 +103,7 @@ namespace xpand3
 
         ::xpand3::File_ptr m_owner;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >> m_params;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >> m_params;
 
         ::xpand3::expression::AbstractExpression_ptr m_guard;
 

@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        InitialState_ptr _this()
+        {   return InitialState_ptr(this);}
+
         // Attributes
 
         // References

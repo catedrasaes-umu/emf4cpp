@@ -22,8 +22,7 @@
 
 using namespace ::CST;
 
-std::unique_ptr< ::CST::CSTPackage,
-        ::ecorecpp::PackageDeleter< ::CST::CSTPackage > > CSTPackage::s_instance;
+boost::intrusive_ptr< ::CST::CSTPackage > CSTPackage::s_instance;
 
 ::CST::CSTPackage_ptr CSTPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::CST::CSTPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< CSTPackage >();
         duringConstruction = true;
-        new CSTPackage();
+        s_instance = boost::intrusive_ptr < CSTPackage > (new CSTPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::CST::CSTPackage_ptr CSTPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

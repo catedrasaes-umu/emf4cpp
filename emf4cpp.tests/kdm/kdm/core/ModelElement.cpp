@@ -45,12 +45,12 @@ ModelElement::ModelElement()
 {
 
     m_stereotype.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Stereotype_ptr, -1, false, false >(this,
                     ::kdm::core::CorePackage::_instance()->getModelElement__stereotype()));
     m_taggedValue.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::ExtendedValue, -1, true, false >(this,
+                    ::kdm::kdm::ExtendedValue_ptr, -1, true, false >(this,
                     ::kdm::core::CorePackage::_instance()->getModelElement__taggedValue()));
 
     /*PROTECTED REGION ID(ModelElementImpl__ModelElementImpl) START*/
@@ -71,22 +71,22 @@ ModelElement::~ModelElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ModelElement::getStereotype() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ModelElement::getStereotype() const
 {
     return *m_stereotype;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ModelElement::getStereotype()
+::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ModelElement::getStereotype()
 {
     return *m_stereotype;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& ModelElement::getTaggedValue() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& ModelElement::getTaggedValue() const
 {
     return *m_taggedValue;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& ModelElement::getTaggedValue()
+::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& ModelElement::getTaggedValue()
 {
     return *m_taggedValue;
 }

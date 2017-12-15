@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ReferenceKey_ptr _this()
+        {   return ReferenceKey_ptr(this);}
+
         // Attributes
 
         // References

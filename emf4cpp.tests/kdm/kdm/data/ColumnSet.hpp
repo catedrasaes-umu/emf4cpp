@@ -59,8 +59,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& getItemUnit ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& getItemUnit () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& getItemUnit ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -86,11 +86,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ColumnSet_ptr _this()
+        {   return ColumnSet_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >> m_itemUnit;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >> m_itemUnit;
 
     };
 

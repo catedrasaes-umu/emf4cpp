@@ -52,55 +52,72 @@ CodePackage::CodePackage()
 {
 
     // Feature definitions of AbstractCodeElement
-    m_AbstractCodeElement__source = new ::ecore::EReference();
-    m_AbstractCodeElement__comment = new ::ecore::EReference();
-    m_AbstractCodeElement__codeRelation = new ::ecore::EReference();
+    m_AbstractCodeElement__source = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractCodeElement__comment = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractCodeElement__codeRelation = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of CodeItem
 
     // Feature definitions of ComputationalObject
 
     // Feature definitions of ControlElement
-    m_ControlElement__type = new ::ecore::EReference();
-    m_ControlElement__entryFlow = new ::ecore::EReference();
-    m_ControlElement__codeElement = new ::ecore::EReference();
+    m_ControlElement__type = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ControlElement__entryFlow = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ControlElement__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of MethodUnit
-    m_MethodUnit__kind = new ::ecore::EAttribute();
-    m_MethodUnit__export = new ::ecore::EAttribute();
+    m_MethodUnit__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_MethodUnit__export = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of Module
-    m_Module__codeElement = new ::ecore::EReference();
+    m_Module__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of CodeAssembly
 
     // Feature definitions of CallableUnit
-    m_CallableUnit__kind = new ::ecore::EAttribute();
+    m_CallableUnit__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of Datatype
 
     // Feature definitions of TemplateUnit
-    m_TemplateUnit__codeElement = new ::ecore::EReference();
+    m_TemplateUnit__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of TemplateParameter
 
     // Feature definitions of AbstractCodeRelationship
 
     // Feature definitions of InstanceOf
-    m_InstanceOf__to = new ::ecore::EReference();
-    m_InstanceOf__from = new ::ecore::EReference();
+    m_InstanceOf__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_InstanceOf__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of CompilationUnit
 
     // Feature definitions of CodeModel
-    m_CodeModel__codeElement = new ::ecore::EReference();
+    m_CodeModel__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of DerivedType
-    m_DerivedType__itemUnit = new ::ecore::EReference();
+    m_DerivedType__itemUnit = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ArrayType
-    m_ArrayType__size = new ::ecore::EAttribute();
-    m_ArrayType__indexUnit = new ::ecore::EReference();
+    m_ArrayType__size = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ArrayType__indexUnit = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of PrimitiveType
 
@@ -109,76 +126,102 @@ CodePackage::CodePackage()
     // Feature definitions of CharType
 
     // Feature definitions of ClassUnit
-    m_ClassUnit__isAbstract = new ::ecore::EAttribute();
-    m_ClassUnit__codeElement = new ::ecore::EReference();
+    m_ClassUnit__isAbstract = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ClassUnit__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of CompositeType
-    m_CompositeType__itemUnit = new ::ecore::EReference();
+    m_CompositeType__itemUnit = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of RecordType
 
     // Feature definitions of EnumeratedType
-    m_EnumeratedType__value = new ::ecore::EReference();
+    m_EnumeratedType__value = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Extends
-    m_Extends__to = new ::ecore::EReference();
-    m_Extends__from = new ::ecore::EReference();
+    m_Extends__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Extends__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ScaledType
 
     // Feature definitions of FloatType
 
     // Feature definitions of HasType
-    m_HasType__to = new ::ecore::EReference();
-    m_HasType__from = new ::ecore::EReference();
+    m_HasType__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_HasType__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ImplementationOf
-    m_ImplementationOf__to = new ::ecore::EReference();
-    m_ImplementationOf__from = new ::ecore::EReference();
+    m_ImplementationOf__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ImplementationOf__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Implements
-    m_Implements__to = new ::ecore::EReference();
-    m_Implements__from = new ::ecore::EReference();
+    m_Implements__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Implements__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of IntegerType
 
     // Feature definitions of InterfaceUnit
-    m_InterfaceUnit__codeElement = new ::ecore::EReference();
+    m_InterfaceUnit__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of PointerType
 
     // Feature definitions of DefinedType
-    m_DefinedType__type = new ::ecore::EReference();
-    m_DefinedType__codeElement = new ::ecore::EReference();
+    m_DefinedType__type = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_DefinedType__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of TypeUnit
 
     // Feature definitions of RangeType
-    m_RangeType__lower = new ::ecore::EAttribute();
-    m_RangeType__upper = new ::ecore::EAttribute();
+    m_RangeType__lower = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_RangeType__upper = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of Signature
-    m_Signature__parameterUnit = new ::ecore::EReference();
+    m_Signature__parameterUnit = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of DataElement
-    m_DataElement__ext = new ::ecore::EAttribute();
-    m_DataElement__size = new ::ecore::EAttribute();
-    m_DataElement__type = new ::ecore::EReference();
-    m_DataElement__codeElement = new ::ecore::EReference();
+    m_DataElement__ext = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_DataElement__size = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_DataElement__type = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_DataElement__codeElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of StringType
 
     // Feature definitions of ChoiceType
 
     // Feature definitions of NamespaceUnit
-    m_NamespaceUnit__groupedCode = new ::ecore::EReference();
+    m_NamespaceUnit__groupedCode = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of VisibleIn
-    m_VisibleIn__to = new ::ecore::EReference();
-    m_VisibleIn__from = new ::ecore::EReference();
+    m_VisibleIn__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_VisibleIn__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of CommentUnit
-    m_CommentUnit__text = new ::ecore::EAttribute();
+    m_CommentUnit__text = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of SharedUnit
 
@@ -195,17 +238,22 @@ CodePackage::CodePackage()
     // Feature definitions of Value
 
     // Feature definitions of ValueList
-    m_ValueList__valueElement = new ::ecore::EReference();
+    m_ValueList__valueElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of StorableUnit
-    m_StorableUnit__kind = new ::ecore::EAttribute();
+    m_StorableUnit__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of MemberUnit
-    m_MemberUnit__export = new ::ecore::EAttribute();
+    m_MemberUnit__export = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of ParameterUnit
-    m_ParameterUnit__kind = new ::ecore::EAttribute();
-    m_ParameterUnit__pos = new ::ecore::EAttribute();
+    m_ParameterUnit__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ParameterUnit__pos = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of ItemUnit
 
@@ -214,19 +262,24 @@ CodePackage::CodePackage()
     // Feature definitions of SynonymType
 
     // Feature definitions of SequenceType
-    m_SequenceType__size = new ::ecore::EAttribute();
+    m_SequenceType__size = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of BagType
-    m_BagType__size = new ::ecore::EAttribute();
+    m_BagType__size = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of SetType
-    m_SetType__size = new ::ecore::EAttribute();
+    m_SetType__size = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of CodeElement
 
     // Feature definitions of CodeRelationship
-    m_CodeRelationship__to = new ::ecore::EReference();
-    m_CodeRelationship__from = new ::ecore::EReference();
+    m_CodeRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_CodeRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of LanguageUnit
 
@@ -241,68 +294,87 @@ CodePackage::CodePackage()
     // Feature definitions of BitType
 
     // Feature definitions of Imports
-    m_Imports__to = new ::ecore::EReference();
-    m_Imports__from = new ::ecore::EReference();
+    m_Imports__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Imports__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Package
 
     // Feature definitions of ParameterTo
-    m_ParameterTo__to = new ::ecore::EReference();
-    m_ParameterTo__from = new ::ecore::EReference();
+    m_ParameterTo__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ParameterTo__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of TemplateType
 
     // Feature definitions of PreprocessorDirective
-    m_PreprocessorDirective__codeElement = new ::ecore::EReference();
+    m_PreprocessorDirective__codeElement = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of MacroDirective
 
     // Feature definitions of MacroUnit
-    m_MacroUnit__kind = new ::ecore::EAttribute();
+    m_MacroUnit__kind = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
     // Feature definitions of ConditionalDirective
 
     // Feature definitions of IncludeDirective
 
     // Feature definitions of VariantTo
-    m_VariantTo__to = new ::ecore::EReference();
-    m_VariantTo__from = new ::ecore::EReference();
+    m_VariantTo__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_VariantTo__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Expands
-    m_Expands__to = new ::ecore::EReference();
-    m_Expands__from = new ::ecore::EReference();
+    m_Expands__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Expands__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Redefines
-    m_Redefines__to = new ::ecore::EReference();
-    m_Redefines__from = new ::ecore::EReference();
+    m_Redefines__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Redefines__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of GeneratedFrom
-    m_GeneratedFrom__to = new ::ecore::EReference();
-    m_GeneratedFrom__from = new ::ecore::EReference();
+    m_GeneratedFrom__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_GeneratedFrom__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Includes
-    m_Includes__to = new ::ecore::EReference();
-    m_Includes__from = new ::ecore::EReference();
+    m_Includes__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Includes__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of HasValue
-    m_HasValue__to = new ::ecore::EReference();
-    m_HasValue__from = new ::ecore::EReference();
+    m_HasValue__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_HasValue__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void CodePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = CodeFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // AbstractCodeElement
-    m_AbstractCodeElementEClass = new ::ecore::EClass();
+    m_AbstractCodeElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractCodeElementEClass->setClassifierID(ABSTRACTCODEELEMENT);
-    m_AbstractCodeElementEClass->setEPackage(this);
+    m_AbstractCodeElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractCodeElementEClass);
     // m_AbstractCodeElement__source has already been allocated above
     m_AbstractCodeElement__source->setFeatureID(
@@ -321,21 +393,24 @@ CodePackage::CodePackage()
             m_AbstractCodeElement__codeRelation);
 
     // CodeItem
-    m_CodeItemEClass = new ::ecore::EClass();
+    m_CodeItemEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CodeItemEClass->setClassifierID(CODEITEM);
-    m_CodeItemEClass->setEPackage(this);
+    m_CodeItemEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CodeItemEClass);
 
     // ComputationalObject
-    m_ComputationalObjectEClass = new ::ecore::EClass();
+    m_ComputationalObjectEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ComputationalObjectEClass->setClassifierID(COMPUTATIONALOBJECT);
-    m_ComputationalObjectEClass->setEPackage(this);
+    m_ComputationalObjectEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ComputationalObjectEClass);
 
     // ControlElement
-    m_ControlElementEClass = new ::ecore::EClass();
+    m_ControlElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ControlElementEClass->setClassifierID(CONTROLELEMENT);
-    m_ControlElementEClass->setEPackage(this);
+    m_ControlElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ControlElementEClass);
     // m_ControlElement__type has already been allocated above
     m_ControlElement__type->setFeatureID(
@@ -354,9 +429,10 @@ CodePackage::CodePackage()
             m_ControlElement__codeElement);
 
     // MethodUnit
-    m_MethodUnitEClass = new ::ecore::EClass();
+    m_MethodUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_MethodUnitEClass->setClassifierID(METHODUNIT);
-    m_MethodUnitEClass->setEPackage(this);
+    m_MethodUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MethodUnitEClass);
     // m_MethodUnit__kind has already been allocated above
     m_MethodUnit__kind->setFeatureID(
@@ -369,9 +445,10 @@ CodePackage::CodePackage()
             m_MethodUnit__export);
 
     // Module
-    m_ModuleEClass = new ::ecore::EClass();
+    m_ModuleEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ModuleEClass->setClassifierID(MODULE);
-    m_ModuleEClass->setEPackage(this);
+    m_ModuleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ModuleEClass);
     // m_Module__codeElement has already been allocated above
     m_Module__codeElement->setFeatureID(
@@ -379,15 +456,17 @@ CodePackage::CodePackage()
     m_ModuleEClass->getEStructuralFeatures().push_back(m_Module__codeElement);
 
     // CodeAssembly
-    m_CodeAssemblyEClass = new ::ecore::EClass();
+    m_CodeAssemblyEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CodeAssemblyEClass->setClassifierID(CODEASSEMBLY);
-    m_CodeAssemblyEClass->setEPackage(this);
+    m_CodeAssemblyEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CodeAssemblyEClass);
 
     // CallableUnit
-    m_CallableUnitEClass = new ::ecore::EClass();
+    m_CallableUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CallableUnitEClass->setClassifierID(CALLABLEUNIT);
-    m_CallableUnitEClass->setEPackage(this);
+    m_CallableUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CallableUnitEClass);
     // m_CallableUnit__kind has already been allocated above
     m_CallableUnit__kind->setFeatureID(
@@ -396,15 +475,17 @@ CodePackage::CodePackage()
             m_CallableUnit__kind);
 
     // Datatype
-    m_DatatypeEClass = new ::ecore::EClass();
+    m_DatatypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DatatypeEClass->setClassifierID(DATATYPE);
-    m_DatatypeEClass->setEPackage(this);
+    m_DatatypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DatatypeEClass);
 
     // TemplateUnit
-    m_TemplateUnitEClass = new ::ecore::EClass();
+    m_TemplateUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TemplateUnitEClass->setClassifierID(TEMPLATEUNIT);
-    m_TemplateUnitEClass->setEPackage(this);
+    m_TemplateUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TemplateUnitEClass);
     // m_TemplateUnit__codeElement has already been allocated above
     m_TemplateUnit__codeElement->setFeatureID(
@@ -413,21 +494,24 @@ CodePackage::CodePackage()
             m_TemplateUnit__codeElement);
 
     // TemplateParameter
-    m_TemplateParameterEClass = new ::ecore::EClass();
+    m_TemplateParameterEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TemplateParameterEClass->setClassifierID(TEMPLATEPARAMETER);
-    m_TemplateParameterEClass->setEPackage(this);
+    m_TemplateParameterEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TemplateParameterEClass);
 
     // AbstractCodeRelationship
-    m_AbstractCodeRelationshipEClass = new ::ecore::EClass();
+    m_AbstractCodeRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractCodeRelationshipEClass->setClassifierID(ABSTRACTCODERELATIONSHIP);
-    m_AbstractCodeRelationshipEClass->setEPackage(this);
+    m_AbstractCodeRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractCodeRelationshipEClass);
 
     // InstanceOf
-    m_InstanceOfEClass = new ::ecore::EClass();
+    m_InstanceOfEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InstanceOfEClass->setClassifierID(INSTANCEOF);
-    m_InstanceOfEClass->setEPackage(this);
+    m_InstanceOfEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InstanceOfEClass);
     // m_InstanceOf__to has already been allocated above
     m_InstanceOf__to->setFeatureID(::kdm::code::CodePackage::INSTANCEOF__TO);
@@ -438,15 +522,17 @@ CodePackage::CodePackage()
     m_InstanceOfEClass->getEStructuralFeatures().push_back(m_InstanceOf__from);
 
     // CompilationUnit
-    m_CompilationUnitEClass = new ::ecore::EClass();
+    m_CompilationUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CompilationUnitEClass->setClassifierID(COMPILATIONUNIT);
-    m_CompilationUnitEClass->setEPackage(this);
+    m_CompilationUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CompilationUnitEClass);
 
     // CodeModel
-    m_CodeModelEClass = new ::ecore::EClass();
+    m_CodeModelEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CodeModelEClass->setClassifierID(CODEMODEL);
-    m_CodeModelEClass->setEPackage(this);
+    m_CodeModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CodeModelEClass);
     // m_CodeModel__codeElement has already been allocated above
     m_CodeModel__codeElement->setFeatureID(
@@ -455,9 +541,10 @@ CodePackage::CodePackage()
             m_CodeModel__codeElement);
 
     // DerivedType
-    m_DerivedTypeEClass = new ::ecore::EClass();
+    m_DerivedTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DerivedTypeEClass->setClassifierID(DERIVEDTYPE);
-    m_DerivedTypeEClass->setEPackage(this);
+    m_DerivedTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DerivedTypeEClass);
     // m_DerivedType__itemUnit has already been allocated above
     m_DerivedType__itemUnit->setFeatureID(
@@ -466,9 +553,10 @@ CodePackage::CodePackage()
             m_DerivedType__itemUnit);
 
     // ArrayType
-    m_ArrayTypeEClass = new ::ecore::EClass();
+    m_ArrayTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ArrayTypeEClass->setClassifierID(ARRAYTYPE);
-    m_ArrayTypeEClass->setEPackage(this);
+    m_ArrayTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ArrayTypeEClass);
     // m_ArrayType__size has already been allocated above
     m_ArrayType__size->setFeatureID(::kdm::code::CodePackage::ARRAYTYPE__SIZE);
@@ -480,27 +568,31 @@ CodePackage::CodePackage()
             m_ArrayType__indexUnit);
 
     // PrimitiveType
-    m_PrimitiveTypeEClass = new ::ecore::EClass();
+    m_PrimitiveTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_PrimitiveTypeEClass->setClassifierID(PRIMITIVETYPE);
-    m_PrimitiveTypeEClass->setEPackage(this);
+    m_PrimitiveTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PrimitiveTypeEClass);
 
     // BooleanType
-    m_BooleanTypeEClass = new ::ecore::EClass();
+    m_BooleanTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BooleanTypeEClass->setClassifierID(BOOLEANTYPE);
-    m_BooleanTypeEClass->setEPackage(this);
+    m_BooleanTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanTypeEClass);
 
     // CharType
-    m_CharTypeEClass = new ::ecore::EClass();
+    m_CharTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CharTypeEClass->setClassifierID(CHARTYPE);
-    m_CharTypeEClass->setEPackage(this);
+    m_CharTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CharTypeEClass);
 
     // ClassUnit
-    m_ClassUnitEClass = new ::ecore::EClass();
+    m_ClassUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ClassUnitEClass->setClassifierID(CLASSUNIT);
-    m_ClassUnitEClass->setEPackage(this);
+    m_ClassUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ClassUnitEClass);
     // m_ClassUnit__isAbstract has already been allocated above
     m_ClassUnit__isAbstract->setFeatureID(
@@ -514,9 +606,10 @@ CodePackage::CodePackage()
             m_ClassUnit__codeElement);
 
     // CompositeType
-    m_CompositeTypeEClass = new ::ecore::EClass();
+    m_CompositeTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CompositeTypeEClass->setClassifierID(COMPOSITETYPE);
-    m_CompositeTypeEClass->setEPackage(this);
+    m_CompositeTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CompositeTypeEClass);
     // m_CompositeType__itemUnit has already been allocated above
     m_CompositeType__itemUnit->setFeatureID(
@@ -525,15 +618,17 @@ CodePackage::CodePackage()
             m_CompositeType__itemUnit);
 
     // RecordType
-    m_RecordTypeEClass = new ::ecore::EClass();
+    m_RecordTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_RecordTypeEClass->setClassifierID(RECORDTYPE);
-    m_RecordTypeEClass->setEPackage(this);
+    m_RecordTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RecordTypeEClass);
 
     // EnumeratedType
-    m_EnumeratedTypeEClass = new ::ecore::EClass();
+    m_EnumeratedTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_EnumeratedTypeEClass->setClassifierID(ENUMERATEDTYPE);
-    m_EnumeratedTypeEClass->setEPackage(this);
+    m_EnumeratedTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EnumeratedTypeEClass);
     // m_EnumeratedType__value has already been allocated above
     m_EnumeratedType__value->setFeatureID(
@@ -542,9 +637,10 @@ CodePackage::CodePackage()
             m_EnumeratedType__value);
 
     // Extends
-    m_ExtendsEClass = new ::ecore::EClass();
+    m_ExtendsEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ExtendsEClass->setClassifierID(EXTENDS);
-    m_ExtendsEClass->setEPackage(this);
+    m_ExtendsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExtendsEClass);
     // m_Extends__to has already been allocated above
     m_Extends__to->setFeatureID(::kdm::code::CodePackage::EXTENDS__TO);
@@ -554,21 +650,24 @@ CodePackage::CodePackage()
     m_ExtendsEClass->getEStructuralFeatures().push_back(m_Extends__from);
 
     // ScaledType
-    m_ScaledTypeEClass = new ::ecore::EClass();
+    m_ScaledTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ScaledTypeEClass->setClassifierID(SCALEDTYPE);
-    m_ScaledTypeEClass->setEPackage(this);
+    m_ScaledTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ScaledTypeEClass);
 
     // FloatType
-    m_FloatTypeEClass = new ::ecore::EClass();
+    m_FloatTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_FloatTypeEClass->setClassifierID(FLOATTYPE);
-    m_FloatTypeEClass->setEPackage(this);
+    m_FloatTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FloatTypeEClass);
 
     // HasType
-    m_HasTypeEClass = new ::ecore::EClass();
+    m_HasTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_HasTypeEClass->setClassifierID(HASTYPE);
-    m_HasTypeEClass->setEPackage(this);
+    m_HasTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_HasTypeEClass);
     // m_HasType__to has already been allocated above
     m_HasType__to->setFeatureID(::kdm::code::CodePackage::HASTYPE__TO);
@@ -578,9 +677,10 @@ CodePackage::CodePackage()
     m_HasTypeEClass->getEStructuralFeatures().push_back(m_HasType__from);
 
     // ImplementationOf
-    m_ImplementationOfEClass = new ::ecore::EClass();
+    m_ImplementationOfEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ImplementationOfEClass->setClassifierID(IMPLEMENTATIONOF);
-    m_ImplementationOfEClass->setEPackage(this);
+    m_ImplementationOfEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImplementationOfEClass);
     // m_ImplementationOf__to has already been allocated above
     m_ImplementationOf__to->setFeatureID(
@@ -594,9 +694,10 @@ CodePackage::CodePackage()
             m_ImplementationOf__from);
 
     // Implements
-    m_ImplementsEClass = new ::ecore::EClass();
+    m_ImplementsEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ImplementsEClass->setClassifierID(IMPLEMENTS);
-    m_ImplementsEClass->setEPackage(this);
+    m_ImplementsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImplementsEClass);
     // m_Implements__to has already been allocated above
     m_Implements__to->setFeatureID(::kdm::code::CodePackage::IMPLEMENTS__TO);
@@ -607,15 +708,17 @@ CodePackage::CodePackage()
     m_ImplementsEClass->getEStructuralFeatures().push_back(m_Implements__from);
 
     // IntegerType
-    m_IntegerTypeEClass = new ::ecore::EClass();
+    m_IntegerTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IntegerTypeEClass->setClassifierID(INTEGERTYPE);
-    m_IntegerTypeEClass->setEPackage(this);
+    m_IntegerTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IntegerTypeEClass);
 
     // InterfaceUnit
-    m_InterfaceUnitEClass = new ::ecore::EClass();
+    m_InterfaceUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_InterfaceUnitEClass->setClassifierID(INTERFACEUNIT);
-    m_InterfaceUnitEClass->setEPackage(this);
+    m_InterfaceUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InterfaceUnitEClass);
     // m_InterfaceUnit__codeElement has already been allocated above
     m_InterfaceUnit__codeElement->setFeatureID(
@@ -624,15 +727,17 @@ CodePackage::CodePackage()
             m_InterfaceUnit__codeElement);
 
     // PointerType
-    m_PointerTypeEClass = new ::ecore::EClass();
+    m_PointerTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_PointerTypeEClass->setClassifierID(POINTERTYPE);
-    m_PointerTypeEClass->setEPackage(this);
+    m_PointerTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PointerTypeEClass);
 
     // DefinedType
-    m_DefinedTypeEClass = new ::ecore::EClass();
+    m_DefinedTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DefinedTypeEClass->setClassifierID(DEFINEDTYPE);
-    m_DefinedTypeEClass->setEPackage(this);
+    m_DefinedTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DefinedTypeEClass);
     // m_DefinedType__type has already been allocated above
     m_DefinedType__type->setFeatureID(
@@ -646,15 +751,17 @@ CodePackage::CodePackage()
             m_DefinedType__codeElement);
 
     // TypeUnit
-    m_TypeUnitEClass = new ::ecore::EClass();
+    m_TypeUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TypeUnitEClass->setClassifierID(TYPEUNIT);
-    m_TypeUnitEClass->setEPackage(this);
+    m_TypeUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TypeUnitEClass);
 
     // RangeType
-    m_RangeTypeEClass = new ::ecore::EClass();
+    m_RangeTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_RangeTypeEClass->setClassifierID(RANGETYPE);
-    m_RangeTypeEClass->setEPackage(this);
+    m_RangeTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RangeTypeEClass);
     // m_RangeType__lower has already been allocated above
     m_RangeType__lower->setFeatureID(
@@ -666,9 +773,10 @@ CodePackage::CodePackage()
     m_RangeTypeEClass->getEStructuralFeatures().push_back(m_RangeType__upper);
 
     // Signature
-    m_SignatureEClass = new ::ecore::EClass();
+    m_SignatureEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SignatureEClass->setClassifierID(SIGNATURE);
-    m_SignatureEClass->setEPackage(this);
+    m_SignatureEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SignatureEClass);
     // m_Signature__parameterUnit has already been allocated above
     m_Signature__parameterUnit->setFeatureID(
@@ -677,9 +785,10 @@ CodePackage::CodePackage()
             m_Signature__parameterUnit);
 
     // DataElement
-    m_DataElementEClass = new ::ecore::EClass();
+    m_DataElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DataElementEClass->setClassifierID(DATAELEMENT);
-    m_DataElementEClass->setEPackage(this);
+    m_DataElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DataElementEClass);
     // m_DataElement__ext has already been allocated above
     m_DataElement__ext->setFeatureID(
@@ -702,21 +811,24 @@ CodePackage::CodePackage()
             m_DataElement__codeElement);
 
     // StringType
-    m_StringTypeEClass = new ::ecore::EClass();
+    m_StringTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StringTypeEClass->setClassifierID(STRINGTYPE);
-    m_StringTypeEClass->setEPackage(this);
+    m_StringTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StringTypeEClass);
 
     // ChoiceType
-    m_ChoiceTypeEClass = new ::ecore::EClass();
+    m_ChoiceTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ChoiceTypeEClass->setClassifierID(CHOICETYPE);
-    m_ChoiceTypeEClass->setEPackage(this);
+    m_ChoiceTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ChoiceTypeEClass);
 
     // NamespaceUnit
-    m_NamespaceUnitEClass = new ::ecore::EClass();
+    m_NamespaceUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NamespaceUnitEClass->setClassifierID(NAMESPACEUNIT);
-    m_NamespaceUnitEClass->setEPackage(this);
+    m_NamespaceUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NamespaceUnitEClass);
     // m_NamespaceUnit__groupedCode has already been allocated above
     m_NamespaceUnit__groupedCode->setFeatureID(
@@ -725,9 +837,10 @@ CodePackage::CodePackage()
             m_NamespaceUnit__groupedCode);
 
     // VisibleIn
-    m_VisibleInEClass = new ::ecore::EClass();
+    m_VisibleInEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_VisibleInEClass->setClassifierID(VISIBLEIN);
-    m_VisibleInEClass->setEPackage(this);
+    m_VisibleInEClass->setEPackage(_this());
     getEClassifiers().push_back(m_VisibleInEClass);
     // m_VisibleIn__to has already been allocated above
     m_VisibleIn__to->setFeatureID(::kdm::code::CodePackage::VISIBLEIN__TO);
@@ -737,9 +850,10 @@ CodePackage::CodePackage()
     m_VisibleInEClass->getEStructuralFeatures().push_back(m_VisibleIn__from);
 
     // CommentUnit
-    m_CommentUnitEClass = new ::ecore::EClass();
+    m_CommentUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CommentUnitEClass->setClassifierID(COMMENTUNIT);
-    m_CommentUnitEClass->setEPackage(this);
+    m_CommentUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CommentUnitEClass);
     // m_CommentUnit__text has already been allocated above
     m_CommentUnit__text->setFeatureID(
@@ -748,51 +862,59 @@ CodePackage::CodePackage()
             m_CommentUnit__text);
 
     // SharedUnit
-    m_SharedUnitEClass = new ::ecore::EClass();
+    m_SharedUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SharedUnitEClass->setClassifierID(SHAREDUNIT);
-    m_SharedUnitEClass->setEPackage(this);
+    m_SharedUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SharedUnitEClass);
 
     // DecimalType
-    m_DecimalTypeEClass = new ::ecore::EClass();
+    m_DecimalTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DecimalTypeEClass->setClassifierID(DECIMALTYPE);
-    m_DecimalTypeEClass->setEPackage(this);
+    m_DecimalTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DecimalTypeEClass);
 
     // DateType
-    m_DateTypeEClass = new ::ecore::EClass();
+    m_DateTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DateTypeEClass->setClassifierID(DATETYPE);
-    m_DateTypeEClass->setEPackage(this);
+    m_DateTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DateTypeEClass);
 
     // TimeType
-    m_TimeTypeEClass = new ::ecore::EClass();
+    m_TimeTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TimeTypeEClass->setClassifierID(TIMETYPE);
-    m_TimeTypeEClass->setEPackage(this);
+    m_TimeTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TimeTypeEClass);
 
     // VoidType
-    m_VoidTypeEClass = new ::ecore::EClass();
+    m_VoidTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_VoidTypeEClass->setClassifierID(VOIDTYPE);
-    m_VoidTypeEClass->setEPackage(this);
+    m_VoidTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_VoidTypeEClass);
 
     // ValueElement
-    m_ValueElementEClass = new ::ecore::EClass();
+    m_ValueElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ValueElementEClass->setClassifierID(VALUEELEMENT);
-    m_ValueElementEClass->setEPackage(this);
+    m_ValueElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ValueElementEClass);
 
     // Value
-    m_ValueEClass = new ::ecore::EClass();
+    m_ValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ValueEClass->setClassifierID(VALUE);
-    m_ValueEClass->setEPackage(this);
+    m_ValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ValueEClass);
 
     // ValueList
-    m_ValueListEClass = new ::ecore::EClass();
+    m_ValueListEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ValueListEClass->setClassifierID(VALUELIST);
-    m_ValueListEClass->setEPackage(this);
+    m_ValueListEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ValueListEClass);
     // m_ValueList__valueElement has already been allocated above
     m_ValueList__valueElement->setFeatureID(
@@ -801,9 +923,10 @@ CodePackage::CodePackage()
             m_ValueList__valueElement);
 
     // StorableUnit
-    m_StorableUnitEClass = new ::ecore::EClass();
+    m_StorableUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StorableUnitEClass->setClassifierID(STORABLEUNIT);
-    m_StorableUnitEClass->setEPackage(this);
+    m_StorableUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StorableUnitEClass);
     // m_StorableUnit__kind has already been allocated above
     m_StorableUnit__kind->setFeatureID(
@@ -812,9 +935,10 @@ CodePackage::CodePackage()
             m_StorableUnit__kind);
 
     // MemberUnit
-    m_MemberUnitEClass = new ::ecore::EClass();
+    m_MemberUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_MemberUnitEClass->setClassifierID(MEMBERUNIT);
-    m_MemberUnitEClass->setEPackage(this);
+    m_MemberUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MemberUnitEClass);
     // m_MemberUnit__export has already been allocated above
     m_MemberUnit__export->setFeatureID(
@@ -823,9 +947,10 @@ CodePackage::CodePackage()
             m_MemberUnit__export);
 
     // ParameterUnit
-    m_ParameterUnitEClass = new ::ecore::EClass();
+    m_ParameterUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ParameterUnitEClass->setClassifierID(PARAMETERUNIT);
-    m_ParameterUnitEClass->setEPackage(this);
+    m_ParameterUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ParameterUnitEClass);
     // m_ParameterUnit__kind has already been allocated above
     m_ParameterUnit__kind->setFeatureID(
@@ -839,27 +964,31 @@ CodePackage::CodePackage()
             m_ParameterUnit__pos);
 
     // ItemUnit
-    m_ItemUnitEClass = new ::ecore::EClass();
+    m_ItemUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ItemUnitEClass->setClassifierID(ITEMUNIT);
-    m_ItemUnitEClass->setEPackage(this);
+    m_ItemUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ItemUnitEClass);
 
     // IndexUnit
-    m_IndexUnitEClass = new ::ecore::EClass();
+    m_IndexUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IndexUnitEClass->setClassifierID(INDEXUNIT);
-    m_IndexUnitEClass->setEPackage(this);
+    m_IndexUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IndexUnitEClass);
 
     // SynonymType
-    m_SynonymTypeEClass = new ::ecore::EClass();
+    m_SynonymTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SynonymTypeEClass->setClassifierID(SYNONYMTYPE);
-    m_SynonymTypeEClass->setEPackage(this);
+    m_SynonymTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SynonymTypeEClass);
 
     // SequenceType
-    m_SequenceTypeEClass = new ::ecore::EClass();
+    m_SequenceTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SequenceTypeEClass->setClassifierID(SEQUENCETYPE);
-    m_SequenceTypeEClass->setEPackage(this);
+    m_SequenceTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SequenceTypeEClass);
     // m_SequenceType__size has already been allocated above
     m_SequenceType__size->setFeatureID(
@@ -868,33 +997,37 @@ CodePackage::CodePackage()
             m_SequenceType__size);
 
     // BagType
-    m_BagTypeEClass = new ::ecore::EClass();
+    m_BagTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BagTypeEClass->setClassifierID(BAGTYPE);
-    m_BagTypeEClass->setEPackage(this);
+    m_BagTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BagTypeEClass);
     // m_BagType__size has already been allocated above
     m_BagType__size->setFeatureID(::kdm::code::CodePackage::BAGTYPE__SIZE);
     m_BagTypeEClass->getEStructuralFeatures().push_back(m_BagType__size);
 
     // SetType
-    m_SetTypeEClass = new ::ecore::EClass();
+    m_SetTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SetTypeEClass->setClassifierID(SETTYPE);
-    m_SetTypeEClass->setEPackage(this);
+    m_SetTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SetTypeEClass);
     // m_SetType__size has already been allocated above
     m_SetType__size->setFeatureID(::kdm::code::CodePackage::SETTYPE__SIZE);
     m_SetTypeEClass->getEStructuralFeatures().push_back(m_SetType__size);
 
     // CodeElement
-    m_CodeElementEClass = new ::ecore::EClass();
+    m_CodeElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CodeElementEClass->setClassifierID(CODEELEMENT);
-    m_CodeElementEClass->setEPackage(this);
+    m_CodeElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CodeElementEClass);
 
     // CodeRelationship
-    m_CodeRelationshipEClass = new ::ecore::EClass();
+    m_CodeRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CodeRelationshipEClass->setClassifierID(CODERELATIONSHIP);
-    m_CodeRelationshipEClass->setEPackage(this);
+    m_CodeRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CodeRelationshipEClass);
     // m_CodeRelationship__to has already been allocated above
     m_CodeRelationship__to->setFeatureID(
@@ -908,45 +1041,52 @@ CodePackage::CodePackage()
             m_CodeRelationship__from);
 
     // LanguageUnit
-    m_LanguageUnitEClass = new ::ecore::EClass();
+    m_LanguageUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LanguageUnitEClass->setClassifierID(LANGUAGEUNIT);
-    m_LanguageUnitEClass->setEPackage(this);
+    m_LanguageUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LanguageUnitEClass);
 
     // OrdinalType
-    m_OrdinalTypeEClass = new ::ecore::EClass();
+    m_OrdinalTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_OrdinalTypeEClass->setClassifierID(ORDINALTYPE);
-    m_OrdinalTypeEClass->setEPackage(this);
+    m_OrdinalTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OrdinalTypeEClass);
 
     // BitstringType
-    m_BitstringTypeEClass = new ::ecore::EClass();
+    m_BitstringTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BitstringTypeEClass->setClassifierID(BITSTRINGTYPE);
-    m_BitstringTypeEClass->setEPackage(this);
+    m_BitstringTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BitstringTypeEClass);
 
     // OctetType
-    m_OctetTypeEClass = new ::ecore::EClass();
+    m_OctetTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_OctetTypeEClass->setClassifierID(OCTETTYPE);
-    m_OctetTypeEClass->setEPackage(this);
+    m_OctetTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OctetTypeEClass);
 
     // OctetstringType
-    m_OctetstringTypeEClass = new ::ecore::EClass();
+    m_OctetstringTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_OctetstringTypeEClass->setClassifierID(OCTETSTRINGTYPE);
-    m_OctetstringTypeEClass->setEPackage(this);
+    m_OctetstringTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OctetstringTypeEClass);
 
     // BitType
-    m_BitTypeEClass = new ::ecore::EClass();
+    m_BitTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BitTypeEClass->setClassifierID(BITTYPE);
-    m_BitTypeEClass->setEPackage(this);
+    m_BitTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BitTypeEClass);
 
     // Imports
-    m_ImportsEClass = new ::ecore::EClass();
+    m_ImportsEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ImportsEClass->setClassifierID(IMPORTS);
-    m_ImportsEClass->setEPackage(this);
+    m_ImportsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImportsEClass);
     // m_Imports__to has already been allocated above
     m_Imports__to->setFeatureID(::kdm::code::CodePackage::IMPORTS__TO);
@@ -956,15 +1096,17 @@ CodePackage::CodePackage()
     m_ImportsEClass->getEStructuralFeatures().push_back(m_Imports__from);
 
     // Package
-    m_PackageEClass = new ::ecore::EClass();
+    m_PackageEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_PackageEClass->setClassifierID(PACKAGE);
-    m_PackageEClass->setEPackage(this);
+    m_PackageEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PackageEClass);
 
     // ParameterTo
-    m_ParameterToEClass = new ::ecore::EClass();
+    m_ParameterToEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ParameterToEClass->setClassifierID(PARAMETERTO);
-    m_ParameterToEClass->setEPackage(this);
+    m_ParameterToEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ParameterToEClass);
     // m_ParameterTo__to has already been allocated above
     m_ParameterTo__to->setFeatureID(::kdm::code::CodePackage::PARAMETERTO__TO);
@@ -976,15 +1118,17 @@ CodePackage::CodePackage()
             m_ParameterTo__from);
 
     // TemplateType
-    m_TemplateTypeEClass = new ::ecore::EClass();
+    m_TemplateTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TemplateTypeEClass->setClassifierID(TEMPLATETYPE);
-    m_TemplateTypeEClass->setEPackage(this);
+    m_TemplateTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TemplateTypeEClass);
 
     // PreprocessorDirective
-    m_PreprocessorDirectiveEClass = new ::ecore::EClass();
+    m_PreprocessorDirectiveEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_PreprocessorDirectiveEClass->setClassifierID(PREPROCESSORDIRECTIVE);
-    m_PreprocessorDirectiveEClass->setEPackage(this);
+    m_PreprocessorDirectiveEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PreprocessorDirectiveEClass);
     // m_PreprocessorDirective__codeElement has already been allocated above
     m_PreprocessorDirective__codeElement->setFeatureID(
@@ -993,36 +1137,41 @@ CodePackage::CodePackage()
             m_PreprocessorDirective__codeElement);
 
     // MacroDirective
-    m_MacroDirectiveEClass = new ::ecore::EClass();
+    m_MacroDirectiveEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_MacroDirectiveEClass->setClassifierID(MACRODIRECTIVE);
-    m_MacroDirectiveEClass->setEPackage(this);
+    m_MacroDirectiveEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MacroDirectiveEClass);
 
     // MacroUnit
-    m_MacroUnitEClass = new ::ecore::EClass();
+    m_MacroUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_MacroUnitEClass->setClassifierID(MACROUNIT);
-    m_MacroUnitEClass->setEPackage(this);
+    m_MacroUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MacroUnitEClass);
     // m_MacroUnit__kind has already been allocated above
     m_MacroUnit__kind->setFeatureID(::kdm::code::CodePackage::MACROUNIT__KIND);
     m_MacroUnitEClass->getEStructuralFeatures().push_back(m_MacroUnit__kind);
 
     // ConditionalDirective
-    m_ConditionalDirectiveEClass = new ::ecore::EClass();
+    m_ConditionalDirectiveEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ConditionalDirectiveEClass->setClassifierID(CONDITIONALDIRECTIVE);
-    m_ConditionalDirectiveEClass->setEPackage(this);
+    m_ConditionalDirectiveEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConditionalDirectiveEClass);
 
     // IncludeDirective
-    m_IncludeDirectiveEClass = new ::ecore::EClass();
+    m_IncludeDirectiveEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IncludeDirectiveEClass->setClassifierID(INCLUDEDIRECTIVE);
-    m_IncludeDirectiveEClass->setEPackage(this);
+    m_IncludeDirectiveEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IncludeDirectiveEClass);
 
     // VariantTo
-    m_VariantToEClass = new ::ecore::EClass();
+    m_VariantToEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_VariantToEClass->setClassifierID(VARIANTTO);
-    m_VariantToEClass->setEPackage(this);
+    m_VariantToEClass->setEPackage(_this());
     getEClassifiers().push_back(m_VariantToEClass);
     // m_VariantTo__to has already been allocated above
     m_VariantTo__to->setFeatureID(::kdm::code::CodePackage::VARIANTTO__TO);
@@ -1032,9 +1181,10 @@ CodePackage::CodePackage()
     m_VariantToEClass->getEStructuralFeatures().push_back(m_VariantTo__from);
 
     // Expands
-    m_ExpandsEClass = new ::ecore::EClass();
+    m_ExpandsEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ExpandsEClass->setClassifierID(EXPANDS);
-    m_ExpandsEClass->setEPackage(this);
+    m_ExpandsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExpandsEClass);
     // m_Expands__to has already been allocated above
     m_Expands__to->setFeatureID(::kdm::code::CodePackage::EXPANDS__TO);
@@ -1044,9 +1194,10 @@ CodePackage::CodePackage()
     m_ExpandsEClass->getEStructuralFeatures().push_back(m_Expands__from);
 
     // Redefines
-    m_RedefinesEClass = new ::ecore::EClass();
+    m_RedefinesEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_RedefinesEClass->setClassifierID(REDEFINES);
-    m_RedefinesEClass->setEPackage(this);
+    m_RedefinesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RedefinesEClass);
     // m_Redefines__to has already been allocated above
     m_Redefines__to->setFeatureID(::kdm::code::CodePackage::REDEFINES__TO);
@@ -1056,9 +1207,10 @@ CodePackage::CodePackage()
     m_RedefinesEClass->getEStructuralFeatures().push_back(m_Redefines__from);
 
     // GeneratedFrom
-    m_GeneratedFromEClass = new ::ecore::EClass();
+    m_GeneratedFromEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_GeneratedFromEClass->setClassifierID(GENERATEDFROM);
-    m_GeneratedFromEClass->setEPackage(this);
+    m_GeneratedFromEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GeneratedFromEClass);
     // m_GeneratedFrom__to has already been allocated above
     m_GeneratedFrom__to->setFeatureID(
@@ -1072,9 +1224,10 @@ CodePackage::CodePackage()
             m_GeneratedFrom__from);
 
     // Includes
-    m_IncludesEClass = new ::ecore::EClass();
+    m_IncludesEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IncludesEClass->setClassifierID(INCLUDES);
-    m_IncludesEClass->setEPackage(this);
+    m_IncludesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IncludesEClass);
     // m_Includes__to has already been allocated above
     m_Includes__to->setFeatureID(::kdm::code::CodePackage::INCLUDES__TO);
@@ -1084,9 +1237,10 @@ CodePackage::CodePackage()
     m_IncludesEClass->getEStructuralFeatures().push_back(m_Includes__from);
 
     // HasValue
-    m_HasValueEClass = new ::ecore::EClass();
+    m_HasValueEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_HasValueEClass->setClassifierID(HASVALUE);
-    m_HasValueEClass->setEPackage(this);
+    m_HasValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_HasValueEClass);
     // m_HasValue__to has already been allocated above
     m_HasValue__to->setFeatureID(::kdm::code::CodePackage::HASVALUE__TO);
@@ -1097,34 +1251,40 @@ CodePackage::CodePackage()
 
     // Create enums
 
-    m_MethodKindEEnum = new ::ecore::EEnum();
+    m_MethodKindEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_MethodKindEEnum->setClassifierID(METHODKIND);
-    m_MethodKindEEnum->setEPackage(this);
+    m_MethodKindEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_MethodKindEEnum);
 
-    m_ParameterKindEEnum = new ::ecore::EEnum();
+    m_ParameterKindEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_ParameterKindEEnum->setClassifierID(PARAMETERKIND);
-    m_ParameterKindEEnum->setEPackage(this);
+    m_ParameterKindEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_ParameterKindEEnum);
 
-    m_ExportKindEEnum = new ::ecore::EEnum();
+    m_ExportKindEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_ExportKindEEnum->setClassifierID(EXPORTKIND);
-    m_ExportKindEEnum->setEPackage(this);
+    m_ExportKindEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_ExportKindEEnum);
 
-    m_StorableKindEEnum = new ::ecore::EEnum();
+    m_StorableKindEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_StorableKindEEnum->setClassifierID(STORABLEKIND);
-    m_StorableKindEEnum->setEPackage(this);
+    m_StorableKindEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_StorableKindEEnum);
 
-    m_CallableKindEEnum = new ::ecore::EEnum();
+    m_CallableKindEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_CallableKindEEnum->setClassifierID(CALLABLEKIND);
-    m_CallableKindEEnum->setEPackage(this);
+    m_CallableKindEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_CallableKindEEnum);
 
-    m_MacroKindEEnum = new ::ecore::EEnum();
+    m_MacroKindEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_MacroKindEEnum->setClassifierID(MACROKIND);
-    m_MacroKindEEnum->setEPackage(this);
+    m_MacroKindEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_MacroKindEEnum);
 
     // Create data types
@@ -1138,7 +1298,7 @@ CodePackage::CodePackage()
 
     // Add supertypes to classes
     m_AbstractCodeElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_CodeItemEClass->getESuperTypes().push_back(m_AbstractCodeElementEClass);
     m_ComputationalObjectEClass->getESuperTypes().push_back(m_CodeItemEClass);
     m_ControlElementEClass->getESuperTypes().push_back(
@@ -1151,12 +1311,12 @@ CodePackage::CodePackage()
     m_TemplateUnitEClass->getESuperTypes().push_back(m_DatatypeEClass);
     m_TemplateParameterEClass->getESuperTypes().push_back(m_DatatypeEClass);
     m_AbstractCodeRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMRelationship());
     m_InstanceOfEClass->getESuperTypes().push_back(
             m_AbstractCodeRelationshipEClass);
     m_CompilationUnitEClass->getESuperTypes().push_back(m_ModuleEClass);
     m_CodeModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getKDMModel());
     m_DerivedTypeEClass->getESuperTypes().push_back(m_DatatypeEClass);
     m_ArrayTypeEClass->getESuperTypes().push_back(m_DerivedTypeEClass);
     m_PrimitiveTypeEClass->getESuperTypes().push_back(m_DatatypeEClass);
@@ -1191,7 +1351,7 @@ CodePackage::CodePackage()
     m_VisibleInEClass->getESuperTypes().push_back(
             m_AbstractCodeRelationshipEClass);
     m_CommentUnitEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getModelElement());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getModelElement());
     m_SharedUnitEClass->getESuperTypes().push_back(m_CompilationUnitEClass);
     m_DecimalTypeEClass->getESuperTypes().push_back(m_PrimitiveTypeEClass);
     m_DateTypeEClass->getESuperTypes().push_back(m_PrimitiveTypeEClass);
@@ -1254,7 +1414,7 @@ CodePackage::CodePackage()
     m_AbstractCodeElementEClass->setAbstract(true);
     m_AbstractCodeElementEClass->setInterface(false);
     m_AbstractCodeElement__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance().get())->getSourceRef());
     m_AbstractCodeElement__source->setName("source");
     m_AbstractCodeElement__source->setDefaultValueLiteral("");
     m_AbstractCodeElement__source->setLowerBound(0);
@@ -1320,7 +1480,7 @@ CodePackage::CodePackage()
     m_ControlElement__type->setDerived(false);
     m_ControlElement__type->setOrdered(false);
     m_ControlElement__entryFlow->setEType(
-            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance())->getEntryFlow());
+            dynamic_cast< ::kdm::action::ActionPackage* >(::kdm::action::ActionPackage::_instance().get())->getEntryFlow());
     m_ControlElement__entryFlow->setName("entryFlow");
     m_ControlElement__entryFlow->setDefaultValueLiteral("");
     m_ControlElement__entryFlow->setLowerBound(0);
@@ -1516,7 +1676,7 @@ CodePackage::CodePackage()
     m_ArrayTypeEClass->setAbstract(false);
     m_ArrayTypeEClass->setInterface(false);
     m_ArrayType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_ArrayType__size->setName("size");
     m_ArrayType__size->setDefaultValueLiteral("");
     m_ArrayType__size->setLowerBound(0);
@@ -1559,7 +1719,7 @@ CodePackage::CodePackage()
     m_ClassUnitEClass->setAbstract(false);
     m_ClassUnitEClass->setInterface(false);
     m_ClassUnit__isAbstract->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getBoolean());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getBoolean());
     m_ClassUnit__isAbstract->setName("isAbstract");
     m_ClassUnit__isAbstract->setDefaultValueLiteral("");
     m_ClassUnit__isAbstract->setLowerBound(0);
@@ -1815,7 +1975,7 @@ CodePackage::CodePackage()
     m_RangeTypeEClass->setAbstract(false);
     m_RangeTypeEClass->setInterface(false);
     m_RangeType__lower->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_RangeType__lower->setName("lower");
     m_RangeType__lower->setDefaultValueLiteral("");
     m_RangeType__lower->setLowerBound(0);
@@ -1829,7 +1989,7 @@ CodePackage::CodePackage()
     m_RangeType__lower->setDerived(false);
     m_RangeType__lower->setOrdered(false);
     m_RangeType__upper->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_RangeType__upper->setName("upper");
     m_RangeType__upper->setDefaultValueLiteral("");
     m_RangeType__upper->setLowerBound(0);
@@ -1864,7 +2024,7 @@ CodePackage::CodePackage()
     m_DataElementEClass->setAbstract(false);
     m_DataElementEClass->setInterface(false);
     m_DataElement__ext->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_DataElement__ext->setName("ext");
     m_DataElement__ext->setDefaultValueLiteral("");
     m_DataElement__ext->setLowerBound(0);
@@ -1878,7 +2038,7 @@ CodePackage::CodePackage()
     m_DataElement__ext->setDerived(false);
     m_DataElement__ext->setOrdered(false);
     m_DataElement__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_DataElement__size->setName("size");
     m_DataElement__size->setDefaultValueLiteral("");
     m_DataElement__size->setLowerBound(0);
@@ -1977,7 +2137,7 @@ CodePackage::CodePackage()
     m_CommentUnitEClass->setAbstract(false);
     m_CommentUnitEClass->setInterface(false);
     m_CommentUnit__text->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_CommentUnit__text->setName("text");
     m_CommentUnit__text->setDefaultValueLiteral("");
     m_CommentUnit__text->setLowerBound(0);
@@ -2087,7 +2247,7 @@ CodePackage::CodePackage()
     m_ParameterUnit__kind->setDerived(false);
     m_ParameterUnit__kind->setOrdered(false);
     m_ParameterUnit__pos->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_ParameterUnit__pos->setName("pos");
     m_ParameterUnit__pos->setDefaultValueLiteral("");
     m_ParameterUnit__pos->setLowerBound(0);
@@ -2117,7 +2277,7 @@ CodePackage::CodePackage()
     m_SequenceTypeEClass->setAbstract(false);
     m_SequenceTypeEClass->setInterface(false);
     m_SequenceType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_SequenceType__size->setName("size");
     m_SequenceType__size->setDefaultValueLiteral("");
     m_SequenceType__size->setLowerBound(0);
@@ -2135,7 +2295,7 @@ CodePackage::CodePackage()
     m_BagTypeEClass->setAbstract(false);
     m_BagTypeEClass->setInterface(false);
     m_BagType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_BagType__size->setName("size");
     m_BagType__size->setDefaultValueLiteral("");
     m_BagType__size->setLowerBound(0);
@@ -2153,7 +2313,7 @@ CodePackage::CodePackage()
     m_SetTypeEClass->setAbstract(false);
     m_SetTypeEClass->setInterface(false);
     m_SetType__size->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getInteger());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getInteger());
     m_SetType__size->setName("size");
     m_SetType__size->setDefaultValueLiteral("");
     m_SetType__size->setLowerBound(0);
@@ -2175,7 +2335,7 @@ CodePackage::CodePackage()
     m_CodeRelationshipEClass->setAbstract(false);
     m_CodeRelationshipEClass->setInterface(false);
     m_CodeRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_CodeRelationship__to->setName("to");
     m_CodeRelationship__to->setDefaultValueLiteral("");
     m_CodeRelationship__to->setLowerBound(1);
@@ -2527,7 +2687,8 @@ CodePackage::CodePackage()
     m_MethodKindEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // operator
         _el->setName("operator");
         _el->setValue(1);
@@ -2537,7 +2698,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // destructor
         _el->setName("destructor");
         _el->setValue(2);
@@ -2547,7 +2709,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // method
         _el->setName("method");
         _el->setValue(3);
@@ -2557,7 +2720,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // abstract
         _el->setName("abstract");
         _el->setValue(4);
@@ -2567,7 +2731,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // virtual
         _el->setName("virtual");
         _el->setValue(5);
@@ -2577,7 +2742,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // unknown
         _el->setName("unknown");
         _el->setValue(6);
@@ -2587,7 +2753,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // constructor
         _el->setName("constructor");
         _el->setValue(7);
@@ -2601,7 +2768,8 @@ CodePackage::CodePackage()
     m_ParameterKindEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // byReference
         _el->setName("byReference");
         _el->setValue(1);
@@ -2611,7 +2779,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // unknown
         _el->setName("unknown");
         _el->setValue(2);
@@ -2621,7 +2790,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // exception
         _el->setName("exception");
         _el->setValue(3);
@@ -2631,7 +2801,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // return
         _el->setName("return");
         _el->setValue(4);
@@ -2641,7 +2812,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // byValue
         _el->setName("byValue");
         _el->setValue(5);
@@ -2651,7 +2823,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // catchall
         _el->setName("catchall");
         _el->setValue(6);
@@ -2661,7 +2834,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // byName
         _el->setName("byName");
         _el->setValue(7);
@@ -2671,7 +2845,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // throws
         _el->setName("throws");
         _el->setValue(8);
@@ -2681,7 +2856,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // variadic
         _el->setName("variadic");
         _el->setValue(9);
@@ -2695,7 +2871,8 @@ CodePackage::CodePackage()
     m_ExportKindEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // private
         _el->setName("private");
         _el->setValue(1);
@@ -2705,7 +2882,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // unknown
         _el->setName("unknown");
         _el->setValue(2);
@@ -2715,7 +2893,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // public
         _el->setName("public");
         _el->setValue(3);
@@ -2725,7 +2904,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // protected
         _el->setName("protected");
         _el->setValue(4);
@@ -2735,7 +2915,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // final
         _el->setName("final");
         _el->setValue(5);
@@ -2749,7 +2930,8 @@ CodePackage::CodePackage()
     m_StorableKindEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // global
         _el->setName("global");
         _el->setValue(1);
@@ -2759,7 +2941,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // external
         _el->setName("external");
         _el->setValue(2);
@@ -2769,7 +2952,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // static
         _el->setName("static");
         _el->setValue(3);
@@ -2779,7 +2963,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // unknown
         _el->setName("unknown");
         _el->setValue(4);
@@ -2789,7 +2974,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // register
         _el->setName("register");
         _el->setValue(5);
@@ -2799,7 +2985,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // local
         _el->setName("local");
         _el->setValue(6);
@@ -2813,7 +3000,8 @@ CodePackage::CodePackage()
     m_CallableKindEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // external
         _el->setName("external");
         _el->setValue(1);
@@ -2823,7 +3011,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // regular
         _el->setName("regular");
         _el->setValue(2);
@@ -2833,7 +3022,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // stored
         _el->setName("stored");
         _el->setValue(3);
@@ -2843,7 +3033,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // operator
         _el->setName("operator");
         _el->setValue(4);
@@ -2853,7 +3044,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // unknown
         _el->setName("unknown");
         _el->setValue(5);
@@ -2867,7 +3059,8 @@ CodePackage::CodePackage()
     m_MacroKindEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // external
         _el->setName("external");
         _el->setValue(1);
@@ -2877,7 +3070,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // unknown
         _el->setName("unknown");
         _el->setValue(2);
@@ -2887,7 +3081,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // option
         _el->setName("option");
         _el->setValue(3);
@@ -2897,7 +3092,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // undefined
         _el->setName("undefined");
         _el->setValue(4);
@@ -2907,7 +3103,8 @@ CodePackage::CodePackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // regular
         _el->setName("regular");
         _el->setValue(5);

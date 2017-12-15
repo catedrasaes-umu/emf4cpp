@@ -55,7 +55,7 @@ Employee::~Employee()
 {
     if (m_phonebookEntry)
     {
-        delete m_phonebookEntry;
+        m_phonebookEntry.reset();
     }
 }
 
@@ -77,8 +77,8 @@ void Employee::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getEmployee__name(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getEmployee__name(),
                 _old_name,
                 m_name
         );
@@ -105,8 +105,8 @@ void Employee::setPhonebookEntry(::company::PhonebookEntry_ptr _phonebookEntry)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry(),
                 _old_phonebookEntry,
                 m_phonebookEntry
         );
@@ -114,8 +114,10 @@ void Employee::setPhonebookEntry(::company::PhonebookEntry_ptr _phonebookEntry)
     }
 #endif
 
-    delete _old_phonebookEntry;
-    m_phonebookEntry->_setEContainer(this,
+    if (_old_phonebookEntry)
+        _old_phonebookEntry->_setEContainer(Employee_ptr(),
+                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
+    m_phonebookEntry->_setEContainer(_this(),
             ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
 }
 

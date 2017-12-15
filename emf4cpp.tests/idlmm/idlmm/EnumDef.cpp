@@ -73,8 +73,8 @@ void EnumDef::setMembers(std::vector< ::ecore::EString > const& _members)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getEnumDef__members(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getEnumDef__members(),
                 _old_members,
                 m_members
         );

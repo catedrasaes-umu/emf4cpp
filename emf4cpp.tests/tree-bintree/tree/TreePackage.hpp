@@ -83,9 +83,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< TreePackage, ::ecorecpp::PackageDeleter<TreePackage> > s_instance;
+    static boost::intrusive_ptr< TreePackage > s_instance;
 
     TreePackage();
+    void _initPackage();
 
     // EClass instances 
 

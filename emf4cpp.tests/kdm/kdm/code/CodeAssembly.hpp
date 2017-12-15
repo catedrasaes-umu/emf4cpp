@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        CodeAssembly_ptr _this()
+        {   return CodeAssembly_ptr(this);}
+
         // Attributes
 
         // References

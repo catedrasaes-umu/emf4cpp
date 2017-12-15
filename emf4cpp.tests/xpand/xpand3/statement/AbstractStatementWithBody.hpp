@@ -55,8 +55,8 @@ namespace xpand3
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody () const;
-        virtual ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& getBody ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& getBody () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& getBody ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -82,11 +82,14 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractStatementWithBody_ptr _this()
+        {   return AbstractStatementWithBody_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >> m_body;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >> m_body;
 
     };
 

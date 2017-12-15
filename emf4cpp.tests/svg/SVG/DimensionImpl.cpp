@@ -121,7 +121,7 @@ void Dimension::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Dimension::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getDimension();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getDimension();
     return _eclass;
 }
 

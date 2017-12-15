@@ -76,8 +76,8 @@ void EDataType::setSerializable(::ecore::EBoolean _serializable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEDataType__serializable(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEDataType__serializable(),
                 _old_serializable,
                 m_serializable
         );

@@ -59,7 +59,7 @@ ETypedElement::~ETypedElement()
 {
     if (m_eGenericType)
     {
-        delete m_eGenericType;
+        m_eGenericType.reset();
     }
 }
 
@@ -81,8 +81,8 @@ void ETypedElement::setOrdered(::ecore::EBoolean _ordered)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__ordered(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__ordered(),
                 _old_ordered,
                 m_ordered
         );
@@ -107,8 +107,8 @@ void ETypedElement::setUnique(::ecore::EBoolean _unique)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__unique(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__unique(),
                 _old_unique,
                 m_unique
         );
@@ -133,8 +133,8 @@ void ETypedElement::setLowerBound(::ecore::EInt _lowerBound)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__lowerBound(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__lowerBound(),
                 _old_lowerBound,
                 m_lowerBound
         );
@@ -159,8 +159,8 @@ void ETypedElement::setUpperBound(::ecore::EInt _upperBound)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__upperBound(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__upperBound(),
                 _old_upperBound,
                 m_upperBound
         );
@@ -185,8 +185,8 @@ void ETypedElement::setMany(::ecore::EBoolean _many)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__many(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__many(),
                 _old_many,
                 m_many
         );
@@ -211,8 +211,8 @@ void ETypedElement::setRequired(::ecore::EBoolean _required)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__required(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__required(),
                 _old_required,
                 m_required
         );
@@ -239,8 +239,8 @@ void ETypedElement::setEType(::ecore::EClassifier_ptr _eType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__eType(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__eType(),
                 _old_eType,
                 m_eType
         );
@@ -266,8 +266,8 @@ void ETypedElement::setEGenericType(::ecore::EGenericType_ptr _eGenericType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType(),
                 _old_eGenericType,
                 m_eGenericType
         );
@@ -275,8 +275,10 @@ void ETypedElement::setEGenericType(::ecore::EGenericType_ptr _eGenericType)
     }
 #endif
 
-    delete _old_eGenericType;
-    m_eGenericType->_setEContainer(this,
+    if (_old_eGenericType)
+        _old_eGenericType->_setEContainer(ETypedElement_ptr(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
+    m_eGenericType->_setEContainer(_this(),
             ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
 }
 

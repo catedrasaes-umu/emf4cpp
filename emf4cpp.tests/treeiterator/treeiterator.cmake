@@ -1,11 +1,21 @@
 
 #
 # treeiterator.cmake
-# This file was created by EMF4CPP 2.0.5 and is copyrighted by the
-# respective user and/or provider of the processed ECORE model.
+# Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 #
-# EMF4CPP is free software. You can obtain it from
-# https://github.com/catedrasaes-umu/emf4cpp
+# EMF4CPP is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as published
+# by the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# EMF4CPP is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
 
@@ -43,13 +53,12 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/treeiterator/TreeNode.hpp DESTINATION 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/treeiterator/Leaf.hpp DESTINATION include/emf4cpp/treeiterator)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/treeiterator/dllTreeiterator.hpp DESTINATION include/emf4cpp/treeiterator)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} /opt/emf4cpp/bin/../include/emf4cpp /opt/emf4cpp/bin/../include/emf4cpp)
-link_directories(/opt/emf4cpp/bin/../lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
 
 add_library(emf4cpp-treeiterator SHARED ${treeiterator_HEADERS} ${treeiterator_SOURCES})
 set_target_properties(emf4cpp-treeiterator PROPERTIES COMPILE_FLAGS "-DMAKE_TREEITERATOR_DLL" VERSION 0.0.1 SOVERSION 1)
 target_link_libraries(emf4cpp-treeiterator emf4cpp-ecore)
-
 
 install(TARGETS emf4cpp-treeiterator DESTINATION lib)
 

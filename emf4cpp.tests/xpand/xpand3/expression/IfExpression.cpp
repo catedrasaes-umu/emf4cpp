@@ -55,15 +55,15 @@ IfExpression::~IfExpression()
 {
     if (m_condition)
     {
-        delete m_condition;
+        m_condition.reset();
     }
     if (m_thenPart)
     {
-        delete m_thenPart;
+        m_thenPart.reset();
     }
     if (m_elsePart)
     {
-        delete m_elsePart;
+        m_elsePart.reset();
     }
 }
 
@@ -88,8 +88,8 @@ void IfExpression::setCondition(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition(),
                 _old_condition,
                 m_condition
         );
@@ -97,8 +97,10 @@ void IfExpression::setCondition(
     }
 #endif
 
-    delete _old_condition;
-    m_condition->_setEContainer(this,
+    if (_old_condition)
+        _old_condition->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
+    m_condition->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
 }
 
@@ -119,8 +121,8 @@ void IfExpression::setThenPart(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart(),
                 _old_thenPart,
                 m_thenPart
         );
@@ -128,8 +130,10 @@ void IfExpression::setThenPart(
     }
 #endif
 
-    delete _old_thenPart;
-    m_thenPart->_setEContainer(this,
+    if (_old_thenPart)
+        _old_thenPart->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
+    m_thenPart->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
 }
 
@@ -150,8 +154,8 @@ void IfExpression::setElsePart(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart(),
                 _old_elsePart,
                 m_elsePart
         );
@@ -159,8 +163,10 @@ void IfExpression::setElsePart(
     }
 #endif
 
-    delete _old_elsePart;
-    m_elsePart->_setEContainer(this,
+    if (_old_elsePart)
+        _old_elsePart->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
+    m_elsePart->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
 }
 

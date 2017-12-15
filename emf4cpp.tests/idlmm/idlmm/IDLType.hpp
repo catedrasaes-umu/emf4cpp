@@ -38,7 +38,6 @@ namespace idlmm
 {
 
 class EXPORT_IDLMM_DLL IDLType : public virtual ::ecore::EObject
-
 {
 public:
     IDLType();
@@ -79,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    IDLType_ptr _this()
+    {   return IDLType_ptr(this);}
+
     // Attributes
 
     ::idlmm::ETypeCode m_typeCode;

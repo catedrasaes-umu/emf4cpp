@@ -22,12 +22,14 @@
 
 using namespace ::bintree;
 
-std::unique_ptr< ::bintree::BintreeFactory > BintreeFactory::s_instance;
+boost::intrusive_ptr< ::bintree::BintreeFactory > BintreeFactory::s_holder;
 
 ::bintree::BintreeFactory_ptr BintreeFactory::_instance()
 {
-    if (!s_instance.get())
-        s_instance.reset(new BintreeFactory());
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = boost::intrusive_ptr < BintreeFactory
+                > (new BintreeFactory());
+
+    return s_holder;
 }
 

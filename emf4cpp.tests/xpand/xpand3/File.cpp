@@ -44,12 +44,12 @@ File::File()
 
     m_imports.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::ImportStatement, -1, true, false >(this,
+                    ::xpand3::ImportStatement_ptr, -1, true, false >(this,
                     ::xpand3::Xpand3Package::_instance()->getFile__imports()));
     m_declarations.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::declaration::AbstractDeclaration, -1, true, false >(
-                    this,
+                    ::xpand3::declaration::AbstractDeclaration_ptr, -1, true,
+                    false >(this,
                     ::xpand3::Xpand3Package::_instance()->getFile__declarations()));
 
     /*PROTECTED REGION ID(FileImpl__FileImpl) START*/
@@ -70,22 +70,22 @@ File::~File()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& File::getImports() const
+const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& File::getImports() const
 {
     return *m_imports;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& File::getImports()
+::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& File::getImports()
 {
     return *m_imports;
 }
 
-const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& File::getDeclarations() const
+const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& File::getDeclarations() const
 {
     return *m_declarations;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& File::getDeclarations()
+::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& File::getDeclarations()
 {
     return *m_declarations;
 }

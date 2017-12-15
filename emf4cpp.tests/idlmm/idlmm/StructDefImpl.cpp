@@ -95,12 +95,13 @@ void StructDef::_initialize()
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
-        _any = static_cast< ::ecore::EObject* >(m_definedIn);
+        if (m_definedIn)
+            _any = m_definedIn->as< ::ecore::EObject >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::STRUCTDEF__MEMBERS:
     {
-        _any = m_members->asEListOf< ::ecore::EObject >();
+        _any = m_members->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -147,15 +148,16 @@ void StructDef::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::Container >(_t0);*/
         ::idlmm::Contained::setDefinedIn(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::STRUCTDEF__MEMBERS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::idlmm::StructDef::getMembers().clear();
         ::idlmm::StructDef::getMembers().insert_all(*_t0);
     }
@@ -185,7 +187,7 @@ void StructDef::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_absoluteName);
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
-        return m_definedIn;
+        return (bool) m_definedIn;
     case ::idlmm::IdlmmPackage::STRUCTDEF__MEMBERS:
         return m_members && m_members->size();
 
@@ -205,7 +207,7 @@ void StructDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr StructDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getStructDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getStructDef();
     return _eclass;
 }
 
@@ -220,7 +222,8 @@ void StructDef::_inverseAdd(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get());
 
         // set reference
         basicsetDefinedIn(_t1);
@@ -246,7 +249,8 @@ void StructDef::_inverseRemove(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_oldValue);
-        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get());
 
         // set reference
         if (basicgetDefinedIn() == _t1)

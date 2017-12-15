@@ -22,8 +22,7 @@
 
 using namespace ::kdm::event;
 
-std::unique_ptr< ::kdm::event::EventPackage,
-        ::ecorecpp::PackageDeleter< ::kdm::event::EventPackage > > EventPackage::s_instance;
+boost::intrusive_ptr< ::kdm::event::EventPackage > EventPackage::s_instance;
 
 ::kdm::event::EventPackage_ptr EventPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::kdm::event::EventPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< EventPackage >();
         duringConstruction = true;
-        new EventPackage();
+        s_instance = boost::intrusive_ptr < EventPackage > (new EventPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::kdm::event::EventPackage_ptr EventPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

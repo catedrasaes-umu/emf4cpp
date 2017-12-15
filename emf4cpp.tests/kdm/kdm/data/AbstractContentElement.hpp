@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractContentElement_ptr _this()
+        {   return AbstractContentElement_ptr(this);}
+
         // Attributes
 
         // References

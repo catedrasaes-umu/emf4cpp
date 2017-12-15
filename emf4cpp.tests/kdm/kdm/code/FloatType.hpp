@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        FloatType_ptr _this()
+        {   return FloatType_ptr(this);}
+
         // Attributes
 
         // References

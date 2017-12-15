@@ -83,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    DeclaredParameter_ptr _this()
+    {   return DeclaredParameter_ptr(this);}
+
     // Attributes
 
     // References

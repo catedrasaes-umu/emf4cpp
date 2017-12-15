@@ -54,8 +54,8 @@ EventAction::EventAction()
 {
 
     m_eventElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::event::Event,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::event::Event_ptr, -1, true, false >(this,
                     ::kdm::event::EventPackage::_instance()->getEventAction__eventElement()));
 
     /*PROTECTED REGION ID(EventActionImpl__EventActionImpl) START*/
@@ -90,8 +90,8 @@ void EventAction::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::event::EventPackage::_instance()->getEventAction__kind(),
+                _this(),
+                ::kdm::event::EventPackage::_instance()->getEventAction__kind(),
                 _old_kind,
                 m_kind
         );
@@ -102,12 +102,12 @@ void EventAction::setKind(::kdm::core::String _kind)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::event::Event >& EventAction::getEventElement() const
+const ::ecorecpp::mapping::EList< ::kdm::event::Event_ptr >& EventAction::getEventElement() const
 {
     return *m_eventElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::event::Event >& EventAction::getEventElement()
+::ecorecpp::mapping::EList< ::kdm::event::Event_ptr >& EventAction::getEventElement()
 {
     return *m_eventElement;
 }

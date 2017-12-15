@@ -40,7 +40,6 @@ namespace company
 {
 
 class EXPORT_COMPANY_DLL Employee : public virtual ::ecore::EObject
-
 {
 public:
     Employee();
@@ -83,6 +82,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Employee_ptr _this()
+    {   return Employee_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_name;

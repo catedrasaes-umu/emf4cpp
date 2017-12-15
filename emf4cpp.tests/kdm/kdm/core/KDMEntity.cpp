@@ -80,8 +80,8 @@ void KDMEntity::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getKDMEntity__name(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getKDMEntity__name(),
                 _old_name,
                 m_name
         );

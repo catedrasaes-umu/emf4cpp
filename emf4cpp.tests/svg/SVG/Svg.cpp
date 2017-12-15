@@ -50,12 +50,12 @@ Svg::Svg()
 {
 
     m_owner_SVG.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile_ptr, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getSvg__owner_SVG(),
                     ::SVG::SVGPackage::SVGFILE__TAG));
     m_children.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
                     true, true >(this,
                     ::SVG::SVGPackage::_instance()->getSvg__children(),
                     ::SVG::SVGPackage::ELEMENT__ROOT));
@@ -92,8 +92,8 @@ void Svg::setNamespace(::PrimitiveTypes::String _namespace)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvg__namespace(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvg__namespace(),
                 _old_namespace,
                 m_namespace
         );
@@ -118,8 +118,8 @@ void Svg::setVersion(::PrimitiveTypes::String _version)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvg__version(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvg__version(),
                 _old_version,
                 m_version
         );
@@ -144,8 +144,8 @@ void Svg::setBaseProfile(::PrimitiveTypes::String _baseProfile)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvg__baseProfile(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvg__baseProfile(),
                 _old_baseProfile,
                 m_baseProfile
         );
@@ -156,22 +156,22 @@ void Svg::setBaseProfile(::PrimitiveTypes::String _baseProfile)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& Svg::getOwner_SVG() const
+const ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& Svg::getOwner_SVG() const
 {
     return *m_owner_SVG;
 }
 
-::ecorecpp::mapping::EList< ::SVG::SvgFile >& Svg::getOwner_SVG()
+::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& Svg::getOwner_SVG()
 {
     return *m_owner_SVG;
 }
 
-const ::ecorecpp::mapping::EList< ::SVG::Element >& Svg::getChildren() const
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Svg::getChildren() const
 {
     return *m_children;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Element >& Svg::getChildren()
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Svg::getChildren()
 {
     return *m_children;
 }

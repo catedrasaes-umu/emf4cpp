@@ -121,9 +121,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< JsonPackage, ::ecorecpp::PackageDeleter<JsonPackage> > s_instance;
+    static boost::intrusive_ptr< JsonPackage > s_instance;
 
     JsonPackage();
+    void _initPackage();
 
     // EClass instances 
 

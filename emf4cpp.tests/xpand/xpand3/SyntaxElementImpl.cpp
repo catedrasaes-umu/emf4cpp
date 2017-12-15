@@ -148,7 +148,7 @@ void SyntaxElement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr SyntaxElement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::Xpand3Package_ptr >(::xpand3::Xpand3Package::_instance())->getSyntaxElement();
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getSyntaxElement();
     return _eclass;
 }
 

@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        NextState_ptr _this()
+        {   return NextState_ptr(this);}
+
         // Attributes
 
         // References

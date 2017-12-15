@@ -50,7 +50,7 @@ Polygon::Polygon()
 {
 
     m_waypoints.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point_ptr, -1,
                     false, false >(this,
                     ::SVG::SVGPackage::_instance()->getPolygon__waypoints()));
 
@@ -86,8 +86,8 @@ void Polygon::setMarkerEnd(::PrimitiveTypes::String _markerEnd)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolygon__markerEnd(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolygon__markerEnd(),
                 _old_markerEnd,
                 m_markerEnd
         );
@@ -112,8 +112,8 @@ void Polygon::setMarkerStart(::PrimitiveTypes::String _markerStart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolygon__markerStart(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolygon__markerStart(),
                 _old_markerStart,
                 m_markerStart
         );
@@ -124,12 +124,12 @@ void Polygon::setMarkerStart(::PrimitiveTypes::String _markerStart)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::Point >& Polygon::getWaypoints() const
+const ::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polygon::getWaypoints() const
 {
     return *m_waypoints;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Point >& Polygon::getWaypoints()
+::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polygon::getWaypoints()
 {
     return *m_waypoints;
 }

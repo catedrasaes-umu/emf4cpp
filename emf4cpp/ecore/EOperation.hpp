@@ -59,17 +59,17 @@ public:
     virtual ::ecore::EClass_ptr basicgetEContainingClass ();
     virtual void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& getETypeParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& getETypeParameters ();
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >& getEParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >& getEParameters ();
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& getEExceptions () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& getEExceptions ();
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEGenericExceptions () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEGenericExceptions ();
 
     /*PROTECTED REGION ID(EOperation) START*/
     // Please, enable the protected region if you add manually written code.
@@ -91,19 +91,22 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EOperation_ptr _this()
+    {   return EOperation_ptr(this);}
+
     // Attributes
 
     // References
 
     ::ecore::EClass_ptr m_eContainingClass;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::ETypeParameter >> m_eTypeParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >> m_eTypeParameters;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EParameter >> m_eParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >> m_eParameters;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClassifier >> m_eExceptions;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >> m_eExceptions;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType >> m_eGenericExceptions;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >> m_eGenericExceptions;
 
 };
 

@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    StructuralElement_ptr _this()
+    {   return StructuralElement_ptr(this);}
+
     // Attributes
 
     // References

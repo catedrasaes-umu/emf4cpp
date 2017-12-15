@@ -81,8 +81,8 @@ void InventoryRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getInventoryRelationship__to(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getInventoryRelationship__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void InventoryRelationship::setFrom(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getInventoryRelationship__from(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getInventoryRelationship__from(),
                 _old_from,
                 m_from
         );

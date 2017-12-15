@@ -82,8 +82,8 @@ void LinksTo::setTo(::kdm::build::AbstractBuildElement_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getLinksTo__to(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getLinksTo__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void LinksTo::setFrom(::kdm::build::SymbolicLink_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getLinksTo__from(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getLinksTo__from(),
                 _old_from,
                 m_from
         );

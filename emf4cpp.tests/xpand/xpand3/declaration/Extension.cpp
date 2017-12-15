@@ -59,11 +59,11 @@ Extension::~Extension()
 {
     if (m_body)
     {
-        delete m_body;
+        m_body.reset();
     }
     if (m_returnType)
     {
-        delete m_returnType;
+        m_returnType.reset();
     }
 }
 
@@ -85,8 +85,8 @@ void Extension::setCached(::ecore::EBoolean _cached)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__cached(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__cached(),
                 _old_cached,
                 m_cached
         );
@@ -113,8 +113,8 @@ void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body(),
                 _old_body,
                 m_body
         );
@@ -122,8 +122,10 @@ void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
     }
 #endif
 
-    delete _old_body;
-    m_body->_setEContainer(this,
+    if (_old_body)
+        _old_body->_setEContainer(Extension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
+    m_body->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
 }
 
@@ -143,8 +145,8 @@ void Extension::setReturnType(::xpand3::Identifier_ptr _returnType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType(),
                 _old_returnType,
                 m_returnType
         );
@@ -152,8 +154,10 @@ void Extension::setReturnType(::xpand3::Identifier_ptr _returnType)
     }
 #endif
 
-    delete _old_returnType;
-    m_returnType->_setEContainer(this,
+    if (_old_returnType)
+        _old_returnType->_setEContainer(Extension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
+    m_returnType->_setEContainer(_this(),
             ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
 }
 

@@ -22,8 +22,7 @@
 
 using namespace ::kdm::conceptual;
 
-std::unique_ptr< ::kdm::conceptual::ConceptualPackage,
-        ::ecorecpp::PackageDeleter< ::kdm::conceptual::ConceptualPackage > > ConceptualPackage::s_instance;
+boost::intrusive_ptr< ::kdm::conceptual::ConceptualPackage > ConceptualPackage::s_instance;
 
 ::kdm::conceptual::ConceptualPackage_ptr ConceptualPackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::kdm::conceptual::ConceptualPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< ConceptualPackage >();
         duringConstruction = true;
-        new ConceptualPackage();
+        s_instance = boost::intrusive_ptr < ConceptualPackage
+                > (new ConceptualPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::kdm::conceptual::ConceptualPackage_ptr ConceptualPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

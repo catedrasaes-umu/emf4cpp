@@ -44,7 +44,7 @@ SwitchExpression::SwitchExpression() :
 
     m_cases.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::expression::Case, -1, true, false >(this,
+                    ::xpand3::expression::Case_ptr, -1, true, false >(this,
                     ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__cases()));
 
     /*PROTECTED REGION ID(SwitchExpressionImpl__SwitchExpressionImpl) START*/
@@ -61,11 +61,11 @@ SwitchExpression::~SwitchExpression()
 {
     if (m_switchExpr)
     {
-        delete m_switchExpr;
+        m_switchExpr.reset();
     }
     if (m_defaultExpr)
     {
-        delete m_defaultExpr;
+        m_defaultExpr.reset();
     }
 }
 
@@ -90,8 +90,8 @@ void SwitchExpression::setSwitchExpr(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr(),
                 _old_switchExpr,
                 m_switchExpr
         );
@@ -99,8 +99,10 @@ void SwitchExpression::setSwitchExpr(
     }
 #endif
 
-    delete _old_switchExpr;
-    m_switchExpr->_setEContainer(this,
+    if (_old_switchExpr)
+        _old_switchExpr->_setEContainer(SwitchExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
+    m_switchExpr->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
 }
 
@@ -122,8 +124,8 @@ void SwitchExpression::setDefaultExpr(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr(),
                 _old_defaultExpr,
                 m_defaultExpr
         );
@@ -131,17 +133,19 @@ void SwitchExpression::setDefaultExpr(
     }
 #endif
 
-    delete _old_defaultExpr;
-    m_defaultExpr->_setEContainer(this,
+    if (_old_defaultExpr)
+        _old_defaultExpr->_setEContainer(SwitchExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
+    m_defaultExpr->_setEContainer(_this(),
             ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
 }
 
-const ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& SwitchExpression::getCases() const
+const ::ecorecpp::mapping::EList< ::xpand3::expression::Case_ptr >& SwitchExpression::getCases() const
 {
     return *m_cases;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::expression::Case >& SwitchExpression::getCases()
+::ecorecpp::mapping::EList< ::xpand3::expression::Case_ptr >& SwitchExpression::getCases()
 {
     return *m_cases;
 }

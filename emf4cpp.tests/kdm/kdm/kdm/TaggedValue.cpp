@@ -75,8 +75,8 @@ void TaggedValue::setValue(::kdm::core::String _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getTaggedValue__value(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getTaggedValue__value(),
                 _old_value,
                 m_value
         );

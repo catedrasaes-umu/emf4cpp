@@ -75,6 +75,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EAttribute_ptr _this()
+    {   return EAttribute_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_iD;

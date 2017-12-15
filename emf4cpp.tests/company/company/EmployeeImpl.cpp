@@ -68,7 +68,8 @@ void Employee::_initialize()
         return _any;
     case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
     {
-        _any = static_cast< ::ecore::EObject* >(m_phonebookEntry);
+        if (m_phonebookEntry)
+            _any = m_phonebookEntry->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -92,7 +93,7 @@ void Employee::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::company::PhonebookEntry_ptr _t1 =
-                dynamic_cast< ::company::PhonebookEntry_ptr >(_t0);
+                dynamic_cast< ::company::PhonebookEntry* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::company::PhonebookEntry >(_t0);*/
         ::company::Employee::setPhonebookEntry(_t1);
     }
         return;
@@ -109,7 +110,7 @@ void Employee::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
     case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
-        return m_phonebookEntry;
+        return (bool) m_phonebookEntry;
 
     }
     throw "Error";
@@ -127,7 +128,7 @@ void Employee::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Employee::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::company::CompanyPackage_ptr >(::company::CompanyPackage::_instance())->getEmployee();
+            dynamic_cast< ::company::CompanyPackage* >(::company::CompanyPackage::_instance().get())->getEmployee();
     return _eclass;
 }
 

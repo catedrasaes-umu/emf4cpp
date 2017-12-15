@@ -91,12 +91,12 @@ void File::_initialize()
         return _any;
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
     {
-        _any = m_imports->asEListOf< ::ecore::EObject >();
+        _any = m_imports->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
     {
-        _any = m_declarations->asEListOf< ::ecore::EObject >();
+        _any = m_declarations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -134,18 +134,18 @@ void File::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::File::getImports().clear();
         ::xpand3::File::getImports().insert_all(*_t0);
     }
         return;
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
     {
-        ::ecorecpp::mapping::EList< ::ecore::EObject >::ptr_type _t0 =
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
                 ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
-                        < ::ecore::EObject > ::ptr_type > (_newValue);
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::File::getDeclarations().clear();
         ::xpand3::File::getDeclarations().insert_all(*_t0);
     }
@@ -191,7 +191,7 @@ void File::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr File::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::Xpand3Package_ptr >(::xpand3::Xpand3Package::_instance())->getFile();
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getFile();
     return _eclass;
 }
 

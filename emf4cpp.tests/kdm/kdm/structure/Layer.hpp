@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Layer_ptr _this()
+        {   return Layer_ptr(this);}
+
         // Attributes
 
         // References

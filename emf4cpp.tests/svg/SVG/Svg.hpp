@@ -61,11 +61,11 @@ public:
     virtual void setBaseProfile (::PrimitiveTypes::String _baseProfile);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& getOwner_SVG () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& getOwner_SVG ();
 
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getChildren () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getChildren ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -91,6 +91,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Svg_ptr _this()
+    {   return Svg_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_namespace;
@@ -101,9 +104,9 @@ protected:
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::SvgFile >> m_owner_SVG;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >> m_owner_SVG;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element >> m_children;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element_ptr >> m_children;
 
 };
 

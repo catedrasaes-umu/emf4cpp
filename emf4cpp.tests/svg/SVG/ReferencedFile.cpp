@@ -41,7 +41,7 @@ ReferencedFile::ReferencedFile()
 {
 
     m_referer.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image_ptr, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getReferencedFile__referer(),
                     ::SVG::SVGPackage::IMAGE__REFEREE));
@@ -78,8 +78,8 @@ void ReferencedFile::setName(::PrimitiveTypes::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getReferencedFile__name(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getReferencedFile__name(),
                 _old_name,
                 m_name
         );
@@ -90,12 +90,12 @@ void ReferencedFile::setName(::PrimitiveTypes::String _name)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::Image >& ReferencedFile::getReferer() const
+const ::ecorecpp::mapping::EList< ::SVG::Image_ptr >& ReferencedFile::getReferer() const
 {
     return *m_referer;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Image >& ReferencedFile::getReferer()
+::ecorecpp::mapping::EList< ::SVG::Image_ptr >& ReferencedFile::getReferer()
 {
     return *m_referer;
 }

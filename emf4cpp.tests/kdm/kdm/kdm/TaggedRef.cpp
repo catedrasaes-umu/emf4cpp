@@ -79,8 +79,8 @@ void TaggedRef::setReference(::kdm::core::ModelElement_ptr _reference)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getTaggedRef__reference(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getTaggedRef__reference(),
                 _old_reference,
                 m_reference
         );

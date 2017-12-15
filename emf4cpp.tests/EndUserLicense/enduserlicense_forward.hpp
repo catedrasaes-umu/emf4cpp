@@ -44,14 +44,14 @@ namespace enduserlicense
 
 // Package & Factory
     class EnduserlicenseFactory;
-    typedef EnduserlicenseFactory * EnduserlicenseFactory_ptr;
+    using EnduserlicenseFactory_ptr = boost::intrusive_ptr<EnduserlicenseFactory>;
     class EnduserlicensePackage;
-    typedef EnduserlicensePackage * EnduserlicensePackage_ptr;
+    using EnduserlicensePackage_ptr = boost::intrusive_ptr<EnduserlicensePackage>;
 
     template< typename T, typename S >
-    inline T* instanceOf(S* _s)
+    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
     {
-        return dynamic_cast< T* >(_s);
+        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
 } // enduserlicense

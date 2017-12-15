@@ -82,8 +82,8 @@ void Requires::setTo(::kdm::platform::AbstractPlatformElement_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getRequires__to(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getRequires__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void Requires::setFrom(::kdm::platform::DeployedComponent_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getRequires__from(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getRequires__from(),
                 _old_from,
                 m_from
         );

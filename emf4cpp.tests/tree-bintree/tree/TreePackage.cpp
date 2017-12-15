@@ -22,8 +22,7 @@
 
 using namespace ::tree;
 
-std::unique_ptr< ::tree::TreePackage,
-        ::ecorecpp::PackageDeleter< ::tree::TreePackage > > TreePackage::s_instance;
+boost::intrusive_ptr< ::tree::TreePackage > TreePackage::s_instance;
 
 ::tree::TreePackage_ptr TreePackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::tree::TreePackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< TreePackage >();
         duringConstruction = true;
-        new TreePackage();
+        s_instance = boost::intrusive_ptr < TreePackage > (new TreePackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::tree::TreePackage_ptr TreePackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        PlatformRelationship_ptr _this()
+        {   return PlatformRelationship_ptr(this);}
+
         // Attributes
 
         // References

@@ -80,8 +80,8 @@ void Rect::setRx(::PrimitiveTypes::Double _rx)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRect__rx(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRect__rx(),
                 _old_rx,
                 m_rx
         );
@@ -106,8 +106,8 @@ void Rect::setRy(::PrimitiveTypes::Double _ry)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRect__ry(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRect__ry(),
                 _old_ry,
                 m_ry
         );

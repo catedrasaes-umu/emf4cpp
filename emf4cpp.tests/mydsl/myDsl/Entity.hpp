@@ -56,8 +56,8 @@ public:
     virtual ::myDsl::Entity_ptr getExtends () const;
     virtual void setExtends (::myDsl::Entity_ptr _extends);
 
-    virtual const ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties () const;
-    virtual ::ecorecpp::mapping::EList< ::myDsl::Property >& getProperties ();
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Property_ptr >& getProperties () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Property_ptr >& getProperties ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -83,13 +83,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Entity_ptr _this()
+    {   return Entity_ptr(this);}
+
     // Attributes
 
     // References
 
     ::myDsl::Entity_ptr m_extends;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Property >> m_properties;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Property_ptr >> m_properties;
 
 };
 

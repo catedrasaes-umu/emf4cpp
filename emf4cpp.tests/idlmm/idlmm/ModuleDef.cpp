@@ -73,8 +73,8 @@ void ModuleDef::setPrefix(::ecore::EString const& _prefix)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getModuleDef__prefix(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getModuleDef__prefix(),
                 _old_prefix,
                 m_prefix
         );

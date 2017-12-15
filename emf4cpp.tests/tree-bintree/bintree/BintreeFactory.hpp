@@ -43,7 +43,7 @@ namespace bintree
 
     protected:
 
-        static std::unique_ptr< BintreeFactory > s_instance;
+        static boost::intrusive_ptr< BintreeFactory > s_holder;
 
         BintreeFactory();
 
@@ -55,15 +55,15 @@ namespace bintree
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline BinTreeNode_ptr create< BinTreeNode >()
     {
         auto eFactory = BintreePackage::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< BintreeFactory* >(eFactory);
+        auto packageFactory = dynamic_cast< BintreeFactory* >(eFactory.get());
         return packageFactory->createBinTreeNode();
     }
 

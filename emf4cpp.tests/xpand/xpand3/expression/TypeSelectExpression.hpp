@@ -83,6 +83,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        TypeSelectExpression_ptr _this()
+        {   return TypeSelectExpression_ptr(this);}
+
         // Attributes
 
         // References

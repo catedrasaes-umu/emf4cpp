@@ -77,6 +77,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    NullValue_ptr _this()
+    {   return NullValue_ptr(this);}
+
     // Attributes
 
     // References

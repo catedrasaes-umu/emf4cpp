@@ -80,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    StringValue_ptr _this()
+    {   return StringValue_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_value;

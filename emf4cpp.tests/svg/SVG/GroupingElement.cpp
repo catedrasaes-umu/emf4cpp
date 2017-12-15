@@ -50,7 +50,7 @@ GroupingElement::GroupingElement()
 {
 
     m_groupContent.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
                     true, true >(this,
                     ::SVG::SVGPackage::_instance()->getGroupingElement__groupContent(),
                     ::SVG::SVGPackage::ELEMENT__GROUP));
@@ -73,12 +73,12 @@ GroupingElement::~GroupingElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::Element >& GroupingElement::getGroupContent() const
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& GroupingElement::getGroupContent() const
 {
     return *m_groupContent;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Element >& GroupingElement::getGroupContent()
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& GroupingElement::getGroupContent()
 {
     return *m_groupContent;
 }

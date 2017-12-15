@@ -84,8 +84,8 @@ void ParameterUnit::setKind(::kdm::code::ParameterKind _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getParameterUnit__kind(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getParameterUnit__kind(),
                 _old_kind,
                 m_kind
         );
@@ -110,8 +110,8 @@ void ParameterUnit::setPos(::kdm::core::Integer _pos)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getParameterUnit__pos(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getParameterUnit__pos(),
                 _old_pos,
                 m_pos
         );

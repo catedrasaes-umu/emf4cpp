@@ -47,7 +47,7 @@ namespace xpand3
 
     protected:
 
-        static std::unique_ptr< Xpand3Factory > s_instance;
+        static boost::intrusive_ptr< Xpand3Factory > s_holder;
 
         Xpand3Factory();
 
@@ -59,39 +59,43 @@ namespace xpand3
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline T* create()
+    template< class T > inline boost::intrusive_ptr< T > create()
     {
-        return (T*) nullptr;
+        return boost::intrusive_ptr< T >();
     }
 
     template< > inline SyntaxElement_ptr create< SyntaxElement >()
     {
         auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory.get());
         return packageFactory->createSyntaxElement();
     }
+
     template< > inline File_ptr create< File >()
     {
         auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory.get());
         return packageFactory->createFile();
     }
+
     template< > inline ImportStatement_ptr create< ImportStatement >()
     {
         auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory.get());
         return packageFactory->createImportStatement();
     }
+
     template< > inline Identifier_ptr create< Identifier >()
     {
         auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory.get());
         return packageFactory->createIdentifier();
     }
+
     template< > inline DeclaredParameter_ptr create< DeclaredParameter >()
     {
         auto eFactory = Xpand3Package::_instance()->getEFactoryInstance();
-        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory);
+        auto packageFactory = dynamic_cast< Xpand3Factory* >(eFactory.get());
         return packageFactory->createDeclaredParameter();
     }
 

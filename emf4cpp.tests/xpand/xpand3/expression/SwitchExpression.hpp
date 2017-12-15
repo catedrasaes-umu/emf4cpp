@@ -61,8 +61,8 @@ namespace xpand3
         virtual ::xpand3::expression::AbstractExpression_ptr getDefaultExpr () const;
         virtual void setDefaultExpr (::xpand3::expression::AbstractExpression_ptr _defaultExpr);
 
-        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& getCases () const;
-        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::Case >& getCases ();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::expression::Case_ptr >& getCases () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::expression::Case_ptr >& getCases ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -88,6 +88,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        SwitchExpression_ptr _this()
+        {   return SwitchExpression_ptr(this);}
+
         // Attributes
 
         // References
@@ -96,7 +99,7 @@ namespace xpand3
 
         ::xpand3::expression::AbstractExpression_ptr m_defaultExpr;
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::Case >> m_cases;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::expression::Case_ptr >> m_cases;
 
     };
 

@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Loads_ptr _this()
+        {   return Loads_ptr(this);}
+
         // Attributes
 
         // References

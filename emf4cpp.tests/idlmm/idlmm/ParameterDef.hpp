@@ -84,6 +84,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ParameterDef_ptr _this()
+    {   return ParameterDef_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_identifier;

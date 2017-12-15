@@ -226,7 +226,7 @@ void print(std::ostream& out, const EObject_ptr obj, int level)
     PRINT("Type: " << cl->getName());
 
     // Attributes
-    ::ecorecpp::mapping::EList< EAttribute > const& attributes = cl->getEAllAttributes();
+    ::ecorecpp::mapping::EList< EAttribute_ptr > const& attributes = cl->getEAllAttributes();
     for (size_t j = 0; j < attributes.size(); j++)
     {
         EAttribute_ptr at = attributes[j];
@@ -248,7 +248,7 @@ void print(std::ostream& out, const EObject_ptr obj, int level)
     }
 
     // References
-    ::ecorecpp::mapping::EList< EReference > const& references = cl->getEAllReferences();
+    ::ecorecpp::mapping::EList< EReference_ptr > const& references = cl->getEAllReferences();
     for (size_t j = 0; j < references.size(); j++)
     {
         EReference_ptr ref = references[j];

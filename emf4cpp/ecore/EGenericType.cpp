@@ -45,10 +45,10 @@ EGenericType::EGenericType() :
 {
 
     m_eTypeArguments.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EGenericType_ptr, -1, true, false >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEGenericType__eTypeArguments() :
-                            nullptr));
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(EGenericTypeImpl__EGenericTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,11 +64,11 @@ EGenericType::~EGenericType()
 {
     if (m_eUpperBound)
     {
-        delete m_eUpperBound;
+        m_eUpperBound.reset();
     }
     if (m_eLowerBound)
     {
-        delete m_eLowerBound;
+        m_eLowerBound.reset();
     }
 }
 
@@ -92,8 +92,8 @@ void EGenericType::setEUpperBound(::ecore::EGenericType_ptr _eUpperBound)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound(),
                 _old_eUpperBound,
                 m_eUpperBound
         );
@@ -101,17 +101,19 @@ void EGenericType::setEUpperBound(::ecore::EGenericType_ptr _eUpperBound)
     }
 #endif
 
-    delete _old_eUpperBound;
-    m_eUpperBound->_setEContainer(this,
+    if (_old_eUpperBound)
+        _old_eUpperBound->_setEContainer(EGenericType_ptr(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
+    m_eUpperBound->_setEContainer(_this(),
             ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
 }
 
-const ::ecorecpp::mapping::EList< ::ecore::EGenericType >& EGenericType::getETypeArguments() const
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EGenericType::getETypeArguments() const
 {
     return *m_eTypeArguments;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EGenericType >& EGenericType::getETypeArguments()
+::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EGenericType::getETypeArguments()
 {
     return *m_eTypeArguments;
 }
@@ -132,8 +134,8 @@ void EGenericType::setERawType(::ecore::EClassifier_ptr _eRawType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eRawType(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eRawType(),
                 _old_eRawType,
                 m_eRawType
         );
@@ -159,8 +161,8 @@ void EGenericType::setELowerBound(::ecore::EGenericType_ptr _eLowerBound)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound(),
                 _old_eLowerBound,
                 m_eLowerBound
         );
@@ -168,8 +170,10 @@ void EGenericType::setELowerBound(::ecore::EGenericType_ptr _eLowerBound)
     }
 #endif
 
-    delete _old_eLowerBound;
-    m_eLowerBound->_setEContainer(this,
+    if (_old_eLowerBound)
+        _old_eLowerBound->_setEContainer(EGenericType_ptr(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
+    m_eLowerBound->_setEContainer(_this(),
             ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
 }
 
@@ -190,8 +194,8 @@ void EGenericType::setETypeParameter(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eTypeParameter(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eTypeParameter(),
                 _old_eTypeParameter,
                 m_eTypeParameter
         );
@@ -217,8 +221,8 @@ void EGenericType::setEClassifier(::ecore::EClassifier_ptr _eClassifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eClassifier(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eClassifier(),
                 _old_eClassifier,
                 m_eClassifier
         );

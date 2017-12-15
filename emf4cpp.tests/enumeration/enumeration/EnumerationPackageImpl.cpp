@@ -40,24 +40,27 @@ EnumerationPackage::EnumerationPackage()
 {
 
     // Feature definitions of Bird
-    m_Bird__type = new ::ecore::EAttribute();
-    m_Bird__name = new ::ecore::EAttribute();
+    m_Bird__type = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Bird__name = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void EnumerationPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = EnumerationFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Bird
-    m_BirdEClass = new ::ecore::EClass();
+    m_BirdEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BirdEClass->setClassifierID(BIRD);
-    m_BirdEClass->setEPackage(this);
+    m_BirdEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BirdEClass);
     // m_Bird__type has already been allocated above
     m_Bird__type->setFeatureID(::enumeration::EnumerationPackage::BIRD__TYPE);
@@ -68,9 +71,10 @@ EnumerationPackage::EnumerationPackage()
 
     // Create enums
 
-    m_BirdTypeEEnum = new ::ecore::EEnum();
+    m_BirdTypeEEnum = boost::intrusive_ptr < ::ecore::EEnum
+            > (new ::ecore::EEnum);
     m_BirdTypeEEnum->setClassifierID(BIRDTYPE);
-    m_BirdTypeEEnum->setEPackage(this);
+    m_BirdTypeEEnum->setEPackage(_this());
     getEClassifiers().push_back(m_BirdTypeEEnum);
 
     // Create data types
@@ -104,7 +108,7 @@ EnumerationPackage::EnumerationPackage()
     m_Bird__type->setDerived(false);
     m_Bird__type->setOrdered(true);
     m_Bird__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Bird__name->setName("name");
     m_Bird__name->setDefaultValueLiteral("Birdy");
     m_Bird__name->setLowerBound(0);
@@ -125,7 +129,8 @@ EnumerationPackage::EnumerationPackage()
     m_BirdTypeEEnum->setSerializable(true);
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // unknown
         _el->setName("unknown");
         _el->setValue(-1);
@@ -135,7 +140,8 @@ EnumerationPackage::EnumerationPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // blackbird
         _el->setName("blackbird");
         _el->setValue(0);
@@ -145,7 +151,8 @@ EnumerationPackage::EnumerationPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // thrush
         _el->setName("thrush");
         _el->setValue(1);
@@ -155,7 +162,8 @@ EnumerationPackage::EnumerationPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // finch
         _el->setName("finch");
         _el->setValue(2);
@@ -165,7 +173,8 @@ EnumerationPackage::EnumerationPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // starling
         _el->setName("starling");
         _el->setValue(3);
@@ -175,7 +184,8 @@ EnumerationPackage::EnumerationPackage()
     }
 
     {
-        ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
+        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr
+                < ::ecore::EEnumLiteral > (new ::ecore::EEnumLiteral);
         // stork
         _el->setName("stork");
         _el->setValue(7);

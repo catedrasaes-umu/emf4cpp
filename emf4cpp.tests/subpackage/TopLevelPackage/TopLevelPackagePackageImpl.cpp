@@ -40,21 +40,22 @@ TopLevelPackagePackage::TopLevelPackagePackage()
 
     // Feature definitions of TopLevelClass
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void TopLevelPackagePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = TopLevelPackageFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // TopLevelClass
-    m_TopLevelClassEClass = new ::ecore::EClass();
+    m_TopLevelClassEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TopLevelClassEClass->setClassifierID(TOPLEVELCLASS);
-    m_TopLevelClassEClass->setEPackage(this);
+    m_TopLevelClassEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TopLevelClassEClass);
 
     // Create enums

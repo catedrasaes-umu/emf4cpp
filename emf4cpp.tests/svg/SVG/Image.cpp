@@ -50,8 +50,8 @@ Image::Image()
 {
 
     m_referee.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::ReferencedFile,
-                    -1, false, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::SVG::ReferencedFile_ptr, -1, false, true >(this,
                     ::SVG::SVGPackage::_instance()->getImage__referee(),
                     ::SVG::SVGPackage::REFERENCEDFILE__REFERER));
 
@@ -73,12 +73,12 @@ Image::~Image()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& Image::getReferee() const
+const ::ecorecpp::mapping::EList< ::SVG::ReferencedFile_ptr >& Image::getReferee() const
 {
     return *m_referee;
 }
 
-::ecorecpp::mapping::EList< ::SVG::ReferencedFile >& Image::getReferee()
+::ecorecpp::mapping::EList< ::SVG::ReferencedFile_ptr >& Image::getReferee()
 {
     return *m_referee;
 }

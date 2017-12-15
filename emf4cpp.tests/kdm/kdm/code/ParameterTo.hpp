@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ParameterTo_ptr _this()
+        {   return ParameterTo_ptr(this);}
+
         // Attributes
 
         // References

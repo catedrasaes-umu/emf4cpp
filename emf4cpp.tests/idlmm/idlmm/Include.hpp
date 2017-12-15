@@ -40,7 +40,6 @@ namespace idlmm
 {
 
 class EXPORT_IDLMM_DLL Include : public virtual ::ecore::EObject
-
 {
 public:
     Include();
@@ -81,6 +80,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Include_ptr _this()
+    {   return Include_ptr(this);}
+
     // Attributes
 
     ::ecore::EString m_importURI;

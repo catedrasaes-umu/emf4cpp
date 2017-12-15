@@ -49,7 +49,7 @@ namespace kdm
 
         protected:
 
-            static std::unique_ptr< CoreFactory > s_instance;
+            static boost::intrusive_ptr< CoreFactory > s_holder;
 
             CoreFactory();
 
@@ -61,40 +61,44 @@ namespace kdm
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline T* create()
+        template< class T > inline boost::intrusive_ptr< T > create()
         {
-            return (T*) nullptr;
+            return boost::intrusive_ptr< T >();
         }
 
         template< > inline Element_ptr create< Element >()
         {
             auto eFactory = CorePackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory.get());
             return packageFactory->createElement();
         }
+
         template< > inline ModelElement_ptr create< ModelElement >()
         {
             auto eFactory = CorePackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory.get());
             return packageFactory->createModelElement();
         }
+
         template< > inline KDMEntity_ptr create< KDMEntity >()
         {
             auto eFactory = CorePackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory.get());
             return packageFactory->createKDMEntity();
         }
+
         template< > inline KDMRelationship_ptr create< KDMRelationship >()
         {
             auto eFactory = CorePackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory.get());
             return packageFactory->createKDMRelationship();
         }
+
         template< > inline AggregatedRelationship_ptr create<
                 AggregatedRelationship >()
         {
             auto eFactory = CorePackage::_instance()->getEFactoryInstance();
-            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory);
+            auto packageFactory = dynamic_cast< CoreFactory* >(eFactory.get());
             return packageFactory->createAggregatedRelationship();
         }
 

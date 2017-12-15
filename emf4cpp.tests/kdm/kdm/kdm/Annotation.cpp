@@ -74,8 +74,8 @@ void Annotation::setText(::kdm::core::String _text)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAnnotation__text(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAnnotation__text(),
                 _old_text,
                 m_text
         );

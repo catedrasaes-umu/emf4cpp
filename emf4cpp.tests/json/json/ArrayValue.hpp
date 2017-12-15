@@ -52,8 +52,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::json::Value >& getValues () const;
-    virtual ::ecorecpp::mapping::EList< ::json::Value >& getValues ();
+    virtual const ::ecorecpp::mapping::EList< ::json::Value_ptr >& getValues () const;
+    virtual ::ecorecpp::mapping::EList< ::json::Value_ptr >& getValues ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -79,11 +79,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ArrayValue_ptr _this()
+    {   return ArrayValue_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::json::Value >> m_values;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::json::Value_ptr >> m_values;
 
 };
 

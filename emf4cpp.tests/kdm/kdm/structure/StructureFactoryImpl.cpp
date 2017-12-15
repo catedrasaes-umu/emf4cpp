@@ -93,42 +93,45 @@ StructureFactory::StructureFactory()
 
 AbstractStructureElement_ptr StructureFactory::createAbstractStructureElement()
 {
-    return new AbstractStructureElement();
+    return boost::intrusive_ptr < AbstractStructureElement
+            > (new AbstractStructureElement);
 }
 Subsystem_ptr StructureFactory::createSubsystem()
 {
-    return new Subsystem();
+    return boost::intrusive_ptr < Subsystem > (new Subsystem);
 }
 Layer_ptr StructureFactory::createLayer()
 {
-    return new Layer();
+    return boost::intrusive_ptr < Layer > (new Layer);
 }
 StructureModel_ptr StructureFactory::createStructureModel()
 {
-    return new StructureModel();
+    return boost::intrusive_ptr < StructureModel > (new StructureModel);
 }
 Component_ptr StructureFactory::createComponent()
 {
-    return new Component();
+    return boost::intrusive_ptr < Component > (new Component);
 }
 SoftwareSystem_ptr StructureFactory::createSoftwareSystem()
 {
-    return new SoftwareSystem();
+    return boost::intrusive_ptr < SoftwareSystem > (new SoftwareSystem);
 }
 AbstractStructureRelationship_ptr StructureFactory::createAbstractStructureRelationship()
 {
-    return new AbstractStructureRelationship();
+    return boost::intrusive_ptr < AbstractStructureRelationship
+            > (new AbstractStructureRelationship);
 }
 StructureRelationship_ptr StructureFactory::createStructureRelationship()
 {
-    return new StructureRelationship();
+    return boost::intrusive_ptr < StructureRelationship
+            > (new StructureRelationship);
 }
 ArchitectureView_ptr StructureFactory::createArchitectureView()
 {
-    return new ArchitectureView();
+    return boost::intrusive_ptr < ArchitectureView > (new ArchitectureView);
 }
 StructureElement_ptr StructureFactory::createStructureElement()
 {
-    return new StructureElement();
+    return boost::intrusive_ptr < StructureElement > (new StructureElement);
 }
 

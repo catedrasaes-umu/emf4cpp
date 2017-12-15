@@ -22,8 +22,7 @@
 
 using namespace ::enumeration;
 
-std::unique_ptr< ::enumeration::EnumerationPackage,
-        ::ecorecpp::PackageDeleter< ::enumeration::EnumerationPackage > > EnumerationPackage::s_instance;
+boost::intrusive_ptr< ::enumeration::EnumerationPackage > EnumerationPackage::s_instance;
 
 ::enumeration::EnumerationPackage_ptr EnumerationPackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::enumeration::EnumerationPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< EnumerationPackage >();
         duringConstruction = true;
-        new EnumerationPackage();
+        s_instance = boost::intrusive_ptr < EnumerationPackage
+                > (new EnumerationPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::enumeration::EnumerationPackage_ptr EnumerationPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

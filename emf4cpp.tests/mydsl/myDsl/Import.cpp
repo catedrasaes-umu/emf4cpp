@@ -71,8 +71,8 @@ void Import::setImportURI(::ecore::EString const& _importURI)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getImport__importURI(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getImport__importURI(),
                 _old_importURI,
                 m_importURI
         );

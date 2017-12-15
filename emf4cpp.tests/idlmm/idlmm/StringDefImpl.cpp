@@ -123,7 +123,7 @@ void StringDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr StringDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getStringDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getStringDef();
     return _eclass;
 }
 

@@ -22,6 +22,7 @@
 #define CST_HPP
 
 #include "CST_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

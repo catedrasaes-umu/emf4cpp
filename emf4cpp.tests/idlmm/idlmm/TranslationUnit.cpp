@@ -42,12 +42,12 @@ TranslationUnit::TranslationUnit()
 {
 
     m_contains.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained_ptr,
+                    -1, true, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__contains()));
     m_includes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Include, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Include_ptr,
+                    -1, true, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__includes()));
 
     /*PROTECTED REGION ID(TranslationUnitImpl__TranslationUnitImpl) START*/
@@ -82,8 +82,8 @@ void TranslationUnit::setIdentifier(::ecore::EString const& _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__identifier(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__identifier(),
                 _old_identifier,
                 m_identifier
         );
@@ -94,22 +94,22 @@ void TranslationUnit::setIdentifier(::ecore::EString const& _identifier)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::idlmm::Contained >& TranslationUnit::getContains() const
+const ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& TranslationUnit::getContains() const
 {
     return *m_contains;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::Contained >& TranslationUnit::getContains()
+::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& TranslationUnit::getContains()
 {
     return *m_contains;
 }
 
-const ::ecorecpp::mapping::EList< ::idlmm::Include >& TranslationUnit::getIncludes() const
+const ::ecorecpp::mapping::EList< ::idlmm::Include_ptr >& TranslationUnit::getIncludes() const
 {
     return *m_includes;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::Include >& TranslationUnit::getIncludes()
+::ecorecpp::mapping::EList< ::idlmm::Include_ptr >& TranslationUnit::getIncludes()
 {
     return *m_includes;
 }

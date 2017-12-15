@@ -85,6 +85,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        Case_ptr _this()
+        {   return Case_ptr(this);}
+
         // Attributes
 
         // References

@@ -56,11 +56,13 @@ Machine::Machine()
 
     m_deployedComponent.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::DeployedComponent, -1, true, false >(this,
+                    ::kdm::platform::DeployedComponent_ptr, -1, true, false >(
+                    this,
                     ::kdm::platform::PlatformPackage::_instance()->getMachine__deployedComponent()));
     m_deployedResource.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::DeployedResource, -1, true, false >(this,
+                    ::kdm::platform::DeployedResource_ptr, -1, true, false >(
+                    this,
                     ::kdm::platform::PlatformPackage::_instance()->getMachine__deployedResource()));
 
     /*PROTECTED REGION ID(MachineImpl__MachineImpl) START*/
@@ -81,22 +83,22 @@ Machine::~Machine()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& Machine::getDeployedComponent() const
+const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& Machine::getDeployedComponent() const
 {
     return *m_deployedComponent;
 }
 
-::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent >& Machine::getDeployedComponent()
+::ecorecpp::mapping::EList< ::kdm::platform::DeployedComponent_ptr >& Machine::getDeployedComponent()
 {
     return *m_deployedComponent;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource >& Machine::getDeployedResource() const
+const ::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource_ptr >& Machine::getDeployedResource() const
 {
     return *m_deployedResource;
 }
 
-::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource >& Machine::getDeployedResource()
+::ecorecpp::mapping::EList< ::kdm::platform::DeployedResource_ptr >& Machine::getDeployedResource()
 {
     return *m_deployedResource;
 }

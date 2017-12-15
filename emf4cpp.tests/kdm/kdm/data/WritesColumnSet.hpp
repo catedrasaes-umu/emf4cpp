@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        WritesColumnSet_ptr _this()
+        {   return WritesColumnSet_ptr(this);}
+
         // Attributes
 
         // References

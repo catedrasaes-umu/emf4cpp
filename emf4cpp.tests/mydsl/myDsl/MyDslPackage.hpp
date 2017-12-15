@@ -121,9 +121,10 @@ public:
 
 protected:
 
-    static std::unique_ptr< MyDslPackage, ::ecorecpp::PackageDeleter<MyDslPackage> > s_instance;
+    static boost::intrusive_ptr< MyDslPackage > s_instance;
 
     MyDslPackage();
+    void _initPackage();
 
     // EClass instances 
 

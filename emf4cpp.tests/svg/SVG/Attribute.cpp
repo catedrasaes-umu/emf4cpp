@@ -41,7 +41,7 @@ Attribute::Attribute()
 {
 
     m_attOwner.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
                     false, true >(this,
                     ::SVG::SVGPackage::_instance()->getAttribute__attOwner(),
                     ::SVG::SVGPackage::ELEMENT__ATTRIBUTE));
@@ -64,12 +64,12 @@ Attribute::~Attribute()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::SVG::Element >& Attribute::getAttOwner() const
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Attribute::getAttOwner() const
 {
     return *m_attOwner;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Element >& Attribute::getAttOwner()
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Attribute::getAttOwner()
 {
     return *m_attOwner;
 }

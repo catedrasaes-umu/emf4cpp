@@ -64,7 +64,8 @@ void Property::_initialize()
         return _any;
     case ::myDsl::MyDslPackage::PROPERTY__TYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_type);
+        if (m_type)
+            _any = m_type->as< ::ecore::EObject >();
     }
         return _any;
     case ::myDsl::MyDslPackage::PROPERTY__MANY:
@@ -93,7 +94,7 @@ void Property::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::myDsl::Type_ptr _t1 = dynamic_cast< ::myDsl::Type_ptr >(_t0);
+        ::myDsl::Type_ptr _t1 = dynamic_cast< ::myDsl::Type* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::myDsl::Type >(_t0);*/
         ::myDsl::Property::setType(_t1);
     }
         return;
@@ -116,7 +117,7 @@ void Property::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
     case ::myDsl::MyDslPackage::PROPERTY__TYPE:
-        return m_type;
+        return (bool) m_type;
     case ::myDsl::MyDslPackage::PROPERTY__MANY:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_many);
@@ -137,7 +138,7 @@ void Property::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Property::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getProperty();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getProperty();
     return _eclass;
 }
 

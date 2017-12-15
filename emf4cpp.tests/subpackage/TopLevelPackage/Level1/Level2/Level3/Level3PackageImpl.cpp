@@ -40,21 +40,22 @@ Level3Package::Level3Package()
 
     // Feature definitions of Level3Class
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void Level3Package::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = Level3Factory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Level3Class
-    m_Level3ClassEClass = new ::ecore::EClass();
+    m_Level3ClassEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_Level3ClassEClass->setClassifierID(LEVEL3CLASS);
-    m_Level3ClassEClass->setEPackage(this);
+    m_Level3ClassEClass->setEPackage(_this());
     getEClassifiers().push_back(m_Level3ClassEClass);
 
     // Create enums

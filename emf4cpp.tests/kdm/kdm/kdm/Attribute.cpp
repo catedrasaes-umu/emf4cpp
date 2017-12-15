@@ -74,8 +74,8 @@ void Attribute::setTag(::kdm::core::String _tag)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAttribute__tag(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAttribute__tag(),
                 _old_tag,
                 m_tag
         );
@@ -100,8 +100,8 @@ void Attribute::setValue(::kdm::core::String _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAttribute__value(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAttribute__value(),
                 _old_value,
                 m_value
         );

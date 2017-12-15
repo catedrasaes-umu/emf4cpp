@@ -47,20 +47,20 @@ namespace TopLevelPackage
 
 // Level2Class
             class Level2Class;
-            typedef Level2Class* Level2Class_ptr;
+            using Level2Class_ptr = boost::intrusive_ptr<Level2Class>;
 
 // EEnum
 
 // Package & Factory
             class Level2Factory;
-            typedef Level2Factory * Level2Factory_ptr;
+            using Level2Factory_ptr = boost::intrusive_ptr<Level2Factory>;
             class Level2Package;
-            typedef Level2Package * Level2Package_ptr;
+            using Level2Package_ptr = boost::intrusive_ptr<Level2Package>;
 
             template< typename T, typename S >
-            inline T* instanceOf(S* _s)
+            inline boost::intrusive_ptr< T > instanceOf(const S& _s)
             {
-                return dynamic_cast< T* >(_s);
+                return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
             }
 
         } // Level2

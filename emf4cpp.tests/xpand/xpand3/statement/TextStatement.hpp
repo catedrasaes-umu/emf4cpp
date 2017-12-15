@@ -85,6 +85,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        TextStatement_ptr _this()
+        {   return TextStatement_ptr(this);}
+
         // Attributes
 
         ::ecore::EString m_value;

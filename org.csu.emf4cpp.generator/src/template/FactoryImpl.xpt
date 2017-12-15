@@ -66,7 +66,7 @@ using namespace ::«getFQN()»;
         {
           ::ecore::EJavaObject _any;
              «name.toFirstUpper()»Package_ptr _epkg =
-                 dynamic_cast< ::«getFQN()»::«name.toFirstUpper()»Package_ptr >(getEPackage());
+                 dynamic_cast< ::«getFQN()»::«name.toFirstUpper()»Package* >(getEPackage().get());
             return _epkg->get«edt.name.toFirstUpper()»()->getEEnumLiteralByLiteral(_literalValue)->getValue();
         }
         «ELSE-»
@@ -105,7 +105,7 @@ using namespace ::«getFQN()»;
 «FOREACH EClassifiers.typeSelect(EClass) AS class-»
 «class.name»_ptr «name.toFirstUpper()»Factory::create«class.name»()
 {
-    return new «class.name»();
+    return boost::intrusive_ptr<«class.name»>(new «class.name»);
 }
 «ENDFOREACH-»
 

@@ -45,10 +45,10 @@ EEnum::EEnum()
 {
 
     m_eLiterals.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EEnumLiteral,
-                    -1, true, true >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EEnumLiteral_ptr, -1, true, true >(this,
                     ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEEnum__eLiterals() :
-                            nullptr,
+                            ::ecore::EReference_ptr(),
                     ::ecore::EcorePackage::EENUMLITERAL__EENUM));
 
     /*PROTECTED REGION ID(EEnumImpl__EEnumImpl) START*/
@@ -69,12 +69,12 @@ EEnum::~EEnum()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& EEnum::getELiterals() const
+const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral_ptr >& EEnum::getELiterals() const
 {
     return *m_eLiterals;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& EEnum::getELiterals()
+::ecorecpp::mapping::EList< ::ecore::EEnumLiteral_ptr >& EEnum::getELiterals()
 {
     return *m_eLiterals;
 }

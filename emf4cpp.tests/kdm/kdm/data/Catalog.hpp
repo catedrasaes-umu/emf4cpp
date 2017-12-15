@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Catalog_ptr _this()
+        {   return Catalog_ptr(this);}
+
         // Attributes
 
         // References

@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Ellipse_ptr _this()
+    {   return Ellipse_ptr(this);}
+
     // Attributes
 
     // References

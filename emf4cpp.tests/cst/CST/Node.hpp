@@ -53,8 +53,8 @@ public:
     // Attributes
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::CST::Element >& getChildren () const;
-    virtual ::ecorecpp::mapping::EList< ::CST::Element >& getChildren ();
+    virtual const ::ecorecpp::mapping::EList< ::CST::Element_ptr >& getChildren () const;
+    virtual ::ecorecpp::mapping::EList< ::CST::Element_ptr >& getChildren ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -80,11 +80,14 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Node_ptr _this()
+    {   return Node_ptr(this);}
+
     // Attributes
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::CST::Element >> m_children;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::CST::Element_ptr >> m_children;
 
 };
 

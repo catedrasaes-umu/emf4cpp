@@ -49,8 +49,8 @@ StructureModel::StructureModel()
 
     m_structureElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::structure::AbstractStructureElement, -1, true, false >(
-                    this,
+                    ::kdm::structure::AbstractStructureElement_ptr, -1, true,
+                    false >(this,
                     ::kdm::structure::StructurePackage::_instance()->getStructureModel__structureElement()));
 
     /*PROTECTED REGION ID(StructureModelImpl__StructureModelImpl) START*/
@@ -71,12 +71,12 @@ StructureModel::~StructureModel()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& StructureModel::getStructureElement() const
+const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& StructureModel::getStructureElement() const
 {
     return *m_structureElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& StructureModel::getStructureElement()
+::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& StructureModel::getStructureElement()
 {
     return *m_structureElement;
 }

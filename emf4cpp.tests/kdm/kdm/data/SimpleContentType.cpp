@@ -54,7 +54,8 @@ SimpleContentType::SimpleContentType()
 
     m_type.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::ComplexContentType, -1, false, false >(this,
+                    ::kdm::data::ComplexContentType_ptr, -1, false, false >(
+                    this,
                     ::kdm::data::DataPackage::_instance()->getSimpleContentType__type()));
 
     /*PROTECTED REGION ID(SimpleContentTypeImpl__SimpleContentTypeImpl) START*/
@@ -89,8 +90,8 @@ void SimpleContentType::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getSimpleContentType__kind(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getSimpleContentType__kind(),
                 _old_kind,
                 m_kind
         );
@@ -101,12 +102,12 @@ void SimpleContentType::setKind(::kdm::core::String _kind)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& SimpleContentType::getType() const
+const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType_ptr >& SimpleContentType::getType() const
 {
     return *m_type;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& SimpleContentType::getType()
+::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType_ptr >& SimpleContentType::getType()
 {
     return *m_type;
 }

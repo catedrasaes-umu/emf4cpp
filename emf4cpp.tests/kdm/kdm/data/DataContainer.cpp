@@ -53,7 +53,7 @@ DataContainer::DataContainer()
 
     m_dataElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::DataResource, -1, true, false >(this,
+                    ::kdm::data::DataResource_ptr, -1, true, false >(this,
                     ::kdm::data::DataPackage::_instance()->getDataContainer__dataElement()));
 
     /*PROTECTED REGION ID(DataContainerImpl__DataContainerImpl) START*/
@@ -74,12 +74,12 @@ DataContainer::~DataContainer()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::data::DataResource >& DataContainer::getDataElement() const
+const ::ecorecpp::mapping::EList< ::kdm::data::DataResource_ptr >& DataContainer::getDataElement() const
 {
     return *m_dataElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::DataResource >& DataContainer::getDataElement()
+::ecorecpp::mapping::EList< ::kdm::data::DataResource_ptr >& DataContainer::getDataElement()
 {
     return *m_dataElement;
 }

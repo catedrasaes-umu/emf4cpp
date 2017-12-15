@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ExternalActor_ptr _this()
+        {   return ExternalActor_ptr(this);}
+
         // Attributes
 
         // References

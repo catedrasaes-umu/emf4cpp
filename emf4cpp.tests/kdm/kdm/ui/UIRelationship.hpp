@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        UIRelationship_ptr _this()
+        {   return UIRelationship_ptr(this);}
+
         // Attributes
 
         // References

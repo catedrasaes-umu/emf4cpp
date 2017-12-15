@@ -47,12 +47,12 @@ KDMFramework::KDMFramework()
 {
 
     m_audit.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Audit, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Audit_ptr,
+                    -1, true, false >(this,
                     ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__audit()));
     m_extensionFamily.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::ExtensionFamily, -1, true, false >(this,
+                    ::kdm::kdm::ExtensionFamily_ptr, -1, true, false >(this,
                     ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__extensionFamily()));
 
     /*PROTECTED REGION ID(KDMFrameworkImpl__KDMFrameworkImpl) START*/
@@ -87,8 +87,8 @@ void KDMFramework::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__name(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__name(),
                 _old_name,
                 m_name
         );
@@ -99,22 +99,22 @@ void KDMFramework::setName(::kdm::core::String _name)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& KDMFramework::getAudit() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit_ptr >& KDMFramework::getAudit() const
 {
     return *m_audit;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& KDMFramework::getAudit()
+::ecorecpp::mapping::EList< ::kdm::kdm::Audit_ptr >& KDMFramework::getAudit()
 {
     return *m_audit;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& KDMFramework::getExtensionFamily() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily_ptr >& KDMFramework::getExtensionFamily() const
 {
     return *m_extensionFamily;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& KDMFramework::getExtensionFamily()
+::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily_ptr >& KDMFramework::getExtensionFamily()
 {
     return *m_extensionFamily;
 }

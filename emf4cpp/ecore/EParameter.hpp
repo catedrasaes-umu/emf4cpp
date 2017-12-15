@@ -75,6 +75,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EParameter_ptr _this()
+    {   return EParameter_ptr(this);}
+
     // Attributes
 
     // References

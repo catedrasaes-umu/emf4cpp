@@ -106,7 +106,7 @@ void IDLType::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr IDLType::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getIDLType();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getIDLType();
     return _eclass;
 }
 

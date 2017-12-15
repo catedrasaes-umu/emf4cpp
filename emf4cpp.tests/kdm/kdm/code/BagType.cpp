@@ -84,8 +84,8 @@ void BagType::setSize(::kdm::core::Integer _size)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getBagType__size(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getBagType__size(),
                 _old_size,
                 m_size
         );

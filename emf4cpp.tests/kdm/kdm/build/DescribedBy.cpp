@@ -82,8 +82,8 @@ void DescribedBy::setTo(::kdm::build::BuildDescription_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getDescribedBy__to(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getDescribedBy__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void DescribedBy::setFrom(::kdm::build::BuildStep_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getDescribedBy__from(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getDescribedBy__from(),
                 _old_from,
                 m_from
         );

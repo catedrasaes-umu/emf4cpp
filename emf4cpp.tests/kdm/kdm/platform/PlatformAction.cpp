@@ -55,7 +55,7 @@ PlatformAction::PlatformAction()
 
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::PlatformEvent, -1, true, false >(this,
+                    ::kdm::platform::PlatformEvent_ptr, -1, true, false >(this,
                     ::kdm::platform::PlatformPackage::_instance()->getPlatformAction__platformElement()));
 
     /*PROTECTED REGION ID(PlatformActionImpl__PlatformActionImpl) START*/
@@ -90,8 +90,8 @@ void PlatformAction::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::platform::PlatformPackage::_instance()->getPlatformAction__kind(),
+                _this(),
+                ::kdm::platform::PlatformPackage::_instance()->getPlatformAction__kind(),
                 _old_kind,
                 m_kind
         );
@@ -102,12 +102,12 @@ void PlatformAction::setKind(::kdm::core::String _kind)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& PlatformAction::getPlatformElement() const
+const ::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent_ptr >& PlatformAction::getPlatformElement() const
 {
     return *m_platformElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent >& PlatformAction::getPlatformElement()
+::ecorecpp::mapping::EList< ::kdm::platform::PlatformEvent_ptr >& PlatformAction::getPlatformElement()
 {
     return *m_platformElement;
 }

@@ -59,8 +59,8 @@ namespace kdm
         virtual void setIsAbstract (::kdm::core::Boolean _isAbstract);
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& getCodeElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -86,13 +86,16 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ClassUnit_ptr _this()
+        {   return ClassUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::core::Boolean m_isAbstract;
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::CodeItem >> m_codeElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >> m_codeElement;
 
     };
 

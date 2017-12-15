@@ -50,31 +50,42 @@ BuildPackage::BuildPackage()
 {
 
     // Feature definitions of AbstractBuildElement
-    m_AbstractBuildElement__buildRelation = new ::ecore::EReference();
+    m_AbstractBuildElement__buildRelation = boost::intrusive_ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of BuildResource
-    m_BuildResource__implementation = new ::ecore::EReference();
-    m_BuildResource__groupedBuild = new ::ecore::EReference();
-    m_BuildResource__buildElement = new ::ecore::EReference();
+    m_BuildResource__implementation = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_BuildResource__groupedBuild = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_BuildResource__buildElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of BuildDescription
-    m_BuildDescription__text = new ::ecore::EAttribute();
-    m_BuildDescription__source = new ::ecore::EReference();
+    m_BuildDescription__text = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_BuildDescription__source = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of SymbolicLink
 
     // Feature definitions of AbstractBuildRelationship
 
     // Feature definitions of LinksTo
-    m_LinksTo__to = new ::ecore::EReference();
-    m_LinksTo__from = new ::ecore::EReference();
+    m_LinksTo__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_LinksTo__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Consumes
-    m_Consumes__to = new ::ecore::EReference();
-    m_Consumes__from = new ::ecore::EReference();
+    m_Consumes__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Consumes__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of BuildModel
-    m_BuildModel__buildElement = new ::ecore::EReference();
+    m_BuildModel__buildElement = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of BuildComponent
 
@@ -85,46 +96,57 @@ BuildPackage::BuildPackage()
     // Feature definitions of BuildElement
 
     // Feature definitions of BuildRelationship
-    m_BuildRelationship__to = new ::ecore::EReference();
-    m_BuildRelationship__from = new ::ecore::EReference();
+    m_BuildRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_BuildRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of SuppliedBy
-    m_SuppliedBy__to = new ::ecore::EReference();
-    m_SuppliedBy__from = new ::ecore::EReference();
+    m_SuppliedBy__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_SuppliedBy__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Library
 
     // Feature definitions of BuildStep
 
     // Feature definitions of Produces
-    m_Produces__to = new ::ecore::EReference();
-    m_Produces__from = new ::ecore::EReference();
+    m_Produces__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Produces__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of SupportedBy
-    m_SupportedBy__to = new ::ecore::EReference();
-    m_SupportedBy__from = new ::ecore::EReference();
+    m_SupportedBy__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_SupportedBy__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of BuildProduct
 
     // Feature definitions of DescribedBy
-    m_DescribedBy__to = new ::ecore::EReference();
-    m_DescribedBy__from = new ::ecore::EReference();
+    m_DescribedBy__to = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_DescribedBy__from = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
-    /* Now one can safely ask for a feature definition of
-     * a class, though it is not yet usable. */
-    s_instance.reset(this);
+}
 
+void BuildPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = BuildFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // AbstractBuildElement
-    m_AbstractBuildElementEClass = new ::ecore::EClass();
+    m_AbstractBuildElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractBuildElementEClass->setClassifierID(ABSTRACTBUILDELEMENT);
-    m_AbstractBuildElementEClass->setEPackage(this);
+    m_AbstractBuildElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractBuildElementEClass);
     // m_AbstractBuildElement__buildRelation has already been allocated above
     m_AbstractBuildElement__buildRelation->setFeatureID(
@@ -133,9 +155,10 @@ BuildPackage::BuildPackage()
             m_AbstractBuildElement__buildRelation);
 
     // BuildResource
-    m_BuildResourceEClass = new ::ecore::EClass();
+    m_BuildResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildResourceEClass->setClassifierID(BUILDRESOURCE);
-    m_BuildResourceEClass->setEPackage(this);
+    m_BuildResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildResourceEClass);
     // m_BuildResource__implementation has already been allocated above
     m_BuildResource__implementation->setFeatureID(
@@ -154,9 +177,10 @@ BuildPackage::BuildPackage()
             m_BuildResource__buildElement);
 
     // BuildDescription
-    m_BuildDescriptionEClass = new ::ecore::EClass();
+    m_BuildDescriptionEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildDescriptionEClass->setClassifierID(BUILDDESCRIPTION);
-    m_BuildDescriptionEClass->setEPackage(this);
+    m_BuildDescriptionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildDescriptionEClass);
     // m_BuildDescription__text has already been allocated above
     m_BuildDescription__text->setFeatureID(
@@ -170,22 +194,25 @@ BuildPackage::BuildPackage()
             m_BuildDescription__source);
 
     // SymbolicLink
-    m_SymbolicLinkEClass = new ::ecore::EClass();
+    m_SymbolicLinkEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SymbolicLinkEClass->setClassifierID(SYMBOLICLINK);
-    m_SymbolicLinkEClass->setEPackage(this);
+    m_SymbolicLinkEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SymbolicLinkEClass);
 
     // AbstractBuildRelationship
-    m_AbstractBuildRelationshipEClass = new ::ecore::EClass();
+    m_AbstractBuildRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractBuildRelationshipEClass->setClassifierID(
             ABSTRACTBUILDRELATIONSHIP);
-    m_AbstractBuildRelationshipEClass->setEPackage(this);
+    m_AbstractBuildRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractBuildRelationshipEClass);
 
     // LinksTo
-    m_LinksToEClass = new ::ecore::EClass();
+    m_LinksToEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LinksToEClass->setClassifierID(LINKSTO);
-    m_LinksToEClass->setEPackage(this);
+    m_LinksToEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LinksToEClass);
     // m_LinksTo__to has already been allocated above
     m_LinksTo__to->setFeatureID(::kdm::build::BuildPackage::LINKSTO__TO);
@@ -195,9 +222,10 @@ BuildPackage::BuildPackage()
     m_LinksToEClass->getEStructuralFeatures().push_back(m_LinksTo__from);
 
     // Consumes
-    m_ConsumesEClass = new ::ecore::EClass();
+    m_ConsumesEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ConsumesEClass->setClassifierID(CONSUMES);
-    m_ConsumesEClass->setEPackage(this);
+    m_ConsumesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConsumesEClass);
     // m_Consumes__to has already been allocated above
     m_Consumes__to->setFeatureID(::kdm::build::BuildPackage::CONSUMES__TO);
@@ -207,9 +235,10 @@ BuildPackage::BuildPackage()
     m_ConsumesEClass->getEStructuralFeatures().push_back(m_Consumes__from);
 
     // BuildModel
-    m_BuildModelEClass = new ::ecore::EClass();
+    m_BuildModelEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildModelEClass->setClassifierID(BUILDMODEL);
-    m_BuildModelEClass->setEPackage(this);
+    m_BuildModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildModelEClass);
     // m_BuildModel__buildElement has already been allocated above
     m_BuildModel__buildElement->setFeatureID(
@@ -218,33 +247,38 @@ BuildPackage::BuildPackage()
             m_BuildModel__buildElement);
 
     // BuildComponent
-    m_BuildComponentEClass = new ::ecore::EClass();
+    m_BuildComponentEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildComponentEClass->setClassifierID(BUILDCOMPONENT);
-    m_BuildComponentEClass->setEPackage(this);
+    m_BuildComponentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildComponentEClass);
 
     // Supplier
-    m_SupplierEClass = new ::ecore::EClass();
+    m_SupplierEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SupplierEClass->setClassifierID(SUPPLIER);
-    m_SupplierEClass->setEPackage(this);
+    m_SupplierEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SupplierEClass);
 
     // Tool
-    m_ToolEClass = new ::ecore::EClass();
+    m_ToolEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ToolEClass->setClassifierID(TOOL);
-    m_ToolEClass->setEPackage(this);
+    m_ToolEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ToolEClass);
 
     // BuildElement
-    m_BuildElementEClass = new ::ecore::EClass();
+    m_BuildElementEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildElementEClass->setClassifierID(BUILDELEMENT);
-    m_BuildElementEClass->setEPackage(this);
+    m_BuildElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildElementEClass);
 
     // BuildRelationship
-    m_BuildRelationshipEClass = new ::ecore::EClass();
+    m_BuildRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildRelationshipEClass->setClassifierID(BUILDRELATIONSHIP);
-    m_BuildRelationshipEClass->setEPackage(this);
+    m_BuildRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildRelationshipEClass);
     // m_BuildRelationship__to has already been allocated above
     m_BuildRelationship__to->setFeatureID(
@@ -258,9 +292,10 @@ BuildPackage::BuildPackage()
             m_BuildRelationship__from);
 
     // SuppliedBy
-    m_SuppliedByEClass = new ::ecore::EClass();
+    m_SuppliedByEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SuppliedByEClass->setClassifierID(SUPPLIEDBY);
-    m_SuppliedByEClass->setEPackage(this);
+    m_SuppliedByEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SuppliedByEClass);
     // m_SuppliedBy__to has already been allocated above
     m_SuppliedBy__to->setFeatureID(::kdm::build::BuildPackage::SUPPLIEDBY__TO);
@@ -271,21 +306,24 @@ BuildPackage::BuildPackage()
     m_SuppliedByEClass->getEStructuralFeatures().push_back(m_SuppliedBy__from);
 
     // Library
-    m_LibraryEClass = new ::ecore::EClass();
+    m_LibraryEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LibraryEClass->setClassifierID(LIBRARY);
-    m_LibraryEClass->setEPackage(this);
+    m_LibraryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LibraryEClass);
 
     // BuildStep
-    m_BuildStepEClass = new ::ecore::EClass();
+    m_BuildStepEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildStepEClass->setClassifierID(BUILDSTEP);
-    m_BuildStepEClass->setEPackage(this);
+    m_BuildStepEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildStepEClass);
 
     // Produces
-    m_ProducesEClass = new ::ecore::EClass();
+    m_ProducesEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ProducesEClass->setClassifierID(PRODUCES);
-    m_ProducesEClass->setEPackage(this);
+    m_ProducesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ProducesEClass);
     // m_Produces__to has already been allocated above
     m_Produces__to->setFeatureID(::kdm::build::BuildPackage::PRODUCES__TO);
@@ -295,9 +333,10 @@ BuildPackage::BuildPackage()
     m_ProducesEClass->getEStructuralFeatures().push_back(m_Produces__from);
 
     // SupportedBy
-    m_SupportedByEClass = new ::ecore::EClass();
+    m_SupportedByEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SupportedByEClass->setClassifierID(SUPPORTEDBY);
-    m_SupportedByEClass->setEPackage(this);
+    m_SupportedByEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SupportedByEClass);
     // m_SupportedBy__to has already been allocated above
     m_SupportedBy__to->setFeatureID(
@@ -310,15 +349,17 @@ BuildPackage::BuildPackage()
             m_SupportedBy__from);
 
     // BuildProduct
-    m_BuildProductEClass = new ::ecore::EClass();
+    m_BuildProductEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BuildProductEClass->setClassifierID(BUILDPRODUCT);
-    m_BuildProductEClass->setEPackage(this);
+    m_BuildProductEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BuildProductEClass);
 
     // DescribedBy
-    m_DescribedByEClass = new ::ecore::EClass();
+    m_DescribedByEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_DescribedByEClass->setClassifierID(DESCRIBEDBY);
-    m_DescribedByEClass->setEPackage(this);
+    m_DescribedByEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DescribedByEClass);
     // m_DescribedBy__to has already been allocated above
     m_DescribedBy__to->setFeatureID(
@@ -343,20 +384,20 @@ BuildPackage::BuildPackage()
 
     // Add supertypes to classes
     m_AbstractBuildElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_BuildResourceEClass->getESuperTypes().push_back(
             m_AbstractBuildElementEClass);
     m_BuildDescriptionEClass->getESuperTypes().push_back(m_BuildResourceEClass);
     m_SymbolicLinkEClass->getESuperTypes().push_back(
             m_AbstractBuildElementEClass);
     m_AbstractBuildRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMRelationship());
     m_LinksToEClass->getESuperTypes().push_back(
             m_AbstractBuildRelationshipEClass);
     m_ConsumesEClass->getESuperTypes().push_back(
             m_AbstractBuildRelationshipEClass);
     m_BuildModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getKDMModel());
     m_BuildComponentEClass->getESuperTypes().push_back(m_BuildResourceEClass);
     m_SupplierEClass->getESuperTypes().push_back(m_AbstractBuildElementEClass);
     m_ToolEClass->getESuperTypes().push_back(m_AbstractBuildElementEClass);
@@ -401,7 +442,7 @@ BuildPackage::BuildPackage()
     m_BuildResourceEClass->setAbstract(false);
     m_BuildResourceEClass->setInterface(false);
     m_BuildResource__implementation->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_BuildResource__implementation->setName("implementation");
     m_BuildResource__implementation->setDefaultValueLiteral("");
     m_BuildResource__implementation->setLowerBound(0);
@@ -445,7 +486,7 @@ BuildPackage::BuildPackage()
     m_BuildDescriptionEClass->setAbstract(false);
     m_BuildDescriptionEClass->setInterface(false);
     m_BuildDescription__text->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_BuildDescription__text->setName("text");
     m_BuildDescription__text->setDefaultValueLiteral("");
     m_BuildDescription__text->setLowerBound(0);
@@ -459,7 +500,7 @@ BuildPackage::BuildPackage()
     m_BuildDescription__text->setDerived(false);
     m_BuildDescription__text->setOrdered(false);
     m_BuildDescription__source->setEType(
-            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance())->getSourceRef());
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance().get())->getSourceRef());
     m_BuildDescription__source->setName("source");
     m_BuildDescription__source->setDefaultValueLiteral("");
     m_BuildDescription__source->setLowerBound(0);
@@ -578,7 +619,7 @@ BuildPackage::BuildPackage()
     m_BuildRelationshipEClass->setAbstract(false);
     m_BuildRelationshipEClass->setInterface(false);
     m_BuildRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_BuildRelationship__to->setName("to");
     m_BuildRelationship__to->setDefaultValueLiteral("");
     m_BuildRelationship__to->setLowerBound(1);

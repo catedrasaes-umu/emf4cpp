@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        RelationalTable_ptr _this()
+        {   return RelationalTable_ptr(this);}
+
         // Attributes
 
         // References

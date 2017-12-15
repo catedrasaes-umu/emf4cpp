@@ -84,6 +84,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        EventElement_ptr _this()
+        {   return EventElement_ptr(this);}
+
         // Attributes
 
         // References

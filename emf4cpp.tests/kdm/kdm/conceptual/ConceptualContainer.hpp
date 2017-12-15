@@ -58,8 +58,8 @@ namespace kdm
         // Attributes
 
         // References
-        virtual const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement () const;
-        virtual ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& getConceptualElement ();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement_ptr >& getConceptualElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement_ptr >& getConceptualElement ();
 
         /* This is the same value as getClassifierId() returns, but as a static
          * value it can be used in template expansions. */
@@ -85,11 +85,14 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ConceptualContainer_ptr _this()
+        {   return ConceptualContainer_ptr(this);}
+
         // Attributes
 
         // References
 
-        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >> m_conceptualElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement_ptr >> m_conceptualElement;
 
     };
 

@@ -22,8 +22,7 @@
 
 using namespace ::SVG;
 
-std::unique_ptr< ::SVG::SVGPackage,
-        ::ecorecpp::PackageDeleter< ::SVG::SVGPackage > > SVGPackage::s_instance;
+boost::intrusive_ptr< ::SVG::SVGPackage > SVGPackage::s_instance;
 
 ::SVG::SVGPackage_ptr SVGPackage::_instance()
 {
@@ -31,17 +30,18 @@ std::unique_ptr< ::SVG::SVGPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< SVGPackage >();
         duringConstruction = true;
-        new SVGPackage();
+        s_instance = boost::intrusive_ptr < SVGPackage > (new SVGPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::SVG::SVGPackage_ptr SVGPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

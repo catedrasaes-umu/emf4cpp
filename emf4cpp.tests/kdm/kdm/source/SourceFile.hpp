@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        SourceFile_ptr _this()
+        {   return SourceFile_ptr(this);}
+
         // Attributes
 
         ::kdm::core::String m_language;

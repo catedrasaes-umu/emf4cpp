@@ -80,6 +80,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        AbstractStatement_ptr _this()
+        {   return AbstractStatement_ptr(this);}
+
         // Attributes
 
         // References

@@ -14,6 +14,7 @@ FILES="./tree-bintree/Tree.ecore
 ./enumeration/enumeration.ecore
 ./eopposite/eopposite.ecore
 ./subpackage/subpackage.ecore
+./treeiterator/treeiterator.ecore
 "
 
 EMF4CPP=../../builds/emf4cpp-generator-1.1.0-Linux-x86

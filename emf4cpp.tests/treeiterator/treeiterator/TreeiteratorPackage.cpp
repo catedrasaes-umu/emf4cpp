@@ -1,19 +1,28 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
  * treeiterator/TreeiteratorPackage.cpp
- * This file was created by EMF4CPP 2.0.5 and is copyrighted by the
- * respective user and/or provider of the processed ECORE model.
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
- * EMF4CPP is free software. You can obtain it from
- * https://github.com/catedrasaes-umu/emf4cpp
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include <treeiterator/TreeiteratorPackage.hpp>
 
 using namespace ::treeiterator;
 
-std::unique_ptr< ::treeiterator::TreeiteratorPackage,
-        ::ecorecpp::PackageDeleter< ::treeiterator::TreeiteratorPackage > > TreeiteratorPackage::s_instance;
+boost::intrusive_ptr< ::treeiterator::TreeiteratorPackage > TreeiteratorPackage::s_instance;
 
 ::treeiterator::TreeiteratorPackage_ptr TreeiteratorPackage::_instance()
 {
@@ -21,17 +30,19 @@ std::unique_ptr< ::treeiterator::TreeiteratorPackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< TreeiteratorPackage >();
         duringConstruction = true;
-        new TreeiteratorPackage();
+        s_instance = boost::intrusive_ptr < TreeiteratorPackage
+                > (new TreeiteratorPackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::treeiterator::TreeiteratorPackage_ptr TreeiteratorPackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

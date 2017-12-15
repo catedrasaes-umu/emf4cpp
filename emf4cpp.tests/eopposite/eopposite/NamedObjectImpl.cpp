@@ -106,7 +106,7 @@ void NamedObject::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr NamedObject::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::eopposite::EoppositePackage_ptr >(::eopposite::EoppositePackage::_instance())->getNamedObject();
+            dynamic_cast< ::eopposite::EoppositePackage* >(::eopposite::EoppositePackage::_instance().get())->getNamedObject();
     return _eclass;
 }
 

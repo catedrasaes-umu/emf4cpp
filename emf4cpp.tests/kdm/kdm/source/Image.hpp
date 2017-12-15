@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Image_ptr _this()
+        {   return Image_ptr(this);}
+
         // Attributes
 
         // References

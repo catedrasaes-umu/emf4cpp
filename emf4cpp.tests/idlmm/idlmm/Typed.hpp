@@ -38,7 +38,6 @@ namespace idlmm
 {
 
 class EXPORT_IDLMM_DLL Typed : public virtual ::ecore::EObject
-
 {
 public:
     Typed();
@@ -82,6 +81,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Typed_ptr _this()
+    {   return Typed_ptr(this);}
+
     // Attributes
 
     // References

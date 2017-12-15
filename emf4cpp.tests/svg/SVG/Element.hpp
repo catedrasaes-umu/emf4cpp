@@ -40,7 +40,6 @@ namespace SVG
 {
 
 class EXPORT_SVG_DLL Element : public virtual ::ecore::EObject
-
 {
 public:
     Element();
@@ -62,14 +61,14 @@ public:
     virtual void setIdentifier (::PrimitiveTypes::String _identifier);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& getOwner () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& getOwner ();
 
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Use >& getTarget () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Use >& getTarget ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Use_ptr >& getTarget () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Use_ptr >& getTarget ();
 
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Attribute >& getAttribute () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Attribute >& getAttribute ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Attribute_ptr >& getAttribute () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Attribute_ptr >& getAttribute ();
 
     virtual ::SVG::Coordinates_ptr getPosition () const;
     virtual void setPosition (::SVG::Coordinates_ptr _position);
@@ -116,6 +115,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Element_ptr _this()
+    {   return Element_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_fill;
@@ -126,11 +128,11 @@ protected:
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::SvgFile >> m_owner;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >> m_owner;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Use >> m_target;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Use_ptr >> m_target;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Attribute >> m_attribute;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Attribute_ptr >> m_attribute;
 
     ::SVG::Coordinates_ptr m_position;
 

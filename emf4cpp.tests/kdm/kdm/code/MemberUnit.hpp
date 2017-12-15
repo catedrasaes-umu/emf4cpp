@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        MemberUnit_ptr _this()
+        {   return MemberUnit_ptr(this);}
+
         // Attributes
 
         ::kdm::code::ExportKind m_export;

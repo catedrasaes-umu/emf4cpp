@@ -83,6 +83,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        GlobalVarExpression_ptr _this()
+        {   return GlobalVarExpression_ptr(this);}
+
         // Attributes
 
         // References

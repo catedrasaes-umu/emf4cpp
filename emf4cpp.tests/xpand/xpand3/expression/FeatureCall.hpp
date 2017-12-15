@@ -86,6 +86,9 @@ namespace xpand3
         /*PROTECTED REGION END*/
 
     protected:
+        FeatureCall_ptr _this()
+        {   return FeatureCall_ptr(this);}
+
         // Attributes
 
         // References

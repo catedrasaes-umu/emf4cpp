@@ -56,7 +56,7 @@ Typed::~Typed()
 {
     if (m_containedType)
     {
-        delete m_containedType;
+        m_containedType.reset();
     }
 }
 
@@ -80,8 +80,8 @@ void Typed::setContainedType(::idlmm::IDLType_ptr _containedType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getTyped__containedType(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getTyped__containedType(),
                 _old_containedType,
                 m_containedType
         );
@@ -89,8 +89,10 @@ void Typed::setContainedType(::idlmm::IDLType_ptr _containedType)
     }
 #endif
 
-    delete _old_containedType;
-    m_containedType->_setEContainer(this,
+    if (_old_containedType)
+        _old_containedType->_setEContainer(Typed_ptr(),
+                ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
+    m_containedType->_setEContainer(_this(),
             ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
 }
 
@@ -110,8 +112,8 @@ void Typed::setSharedType(::idlmm::TypedefDef_ptr _sharedType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getTyped__sharedType(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getTyped__sharedType(),
                 _old_sharedType,
                 m_sharedType
         );

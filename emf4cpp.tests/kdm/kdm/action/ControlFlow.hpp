@@ -85,6 +85,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ControlFlow_ptr _this()
+        {   return ControlFlow_ptr(this);}
+
         // Attributes
 
         // References

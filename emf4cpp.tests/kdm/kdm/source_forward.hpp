@@ -44,88 +44,88 @@ namespace kdm
 
 // SourceRef
         class SourceRef;
-        typedef SourceRef* SourceRef_ptr;
+        using SourceRef_ptr = boost::intrusive_ptr<SourceRef>;
 
 // SourceRegion
         class SourceRegion;
-        typedef SourceRegion* SourceRegion_ptr;
+        using SourceRegion_ptr = boost::intrusive_ptr<SourceRegion>;
 
 // InventoryModel
         class InventoryModel;
-        typedef InventoryModel* InventoryModel_ptr;
+        using InventoryModel_ptr = boost::intrusive_ptr<InventoryModel>;
 
 // AbstractInventoryElement
         class AbstractInventoryElement;
-        typedef AbstractInventoryElement* AbstractInventoryElement_ptr;
+        using AbstractInventoryElement_ptr = boost::intrusive_ptr<AbstractInventoryElement>;
 
 // InventoryItem
         class InventoryItem;
-        typedef InventoryItem* InventoryItem_ptr;
+        using InventoryItem_ptr = boost::intrusive_ptr<InventoryItem>;
 
 // SourceFile
         class SourceFile;
-        typedef SourceFile* SourceFile_ptr;
+        using SourceFile_ptr = boost::intrusive_ptr<SourceFile>;
 
 // Image
         class Image;
-        typedef Image* Image_ptr;
+        using Image_ptr = boost::intrusive_ptr<Image>;
 
 // ResourceDescription
         class ResourceDescription;
-        typedef ResourceDescription* ResourceDescription_ptr;
+        using ResourceDescription_ptr = boost::intrusive_ptr<ResourceDescription>;
 
 // Configuration
         class Configuration;
-        typedef Configuration* Configuration_ptr;
+        using Configuration_ptr = boost::intrusive_ptr<Configuration>;
 
 // InventoryContainer
         class InventoryContainer;
-        typedef InventoryContainer* InventoryContainer_ptr;
+        using InventoryContainer_ptr = boost::intrusive_ptr<InventoryContainer>;
 
 // Directory
         class Directory;
-        typedef Directory* Directory_ptr;
+        using Directory_ptr = boost::intrusive_ptr<Directory>;
 
 // Project
         class Project;
-        typedef Project* Project_ptr;
+        using Project_ptr = boost::intrusive_ptr<Project>;
 
 // AbstractInventoryRelationship
         class AbstractInventoryRelationship;
-        typedef AbstractInventoryRelationship* AbstractInventoryRelationship_ptr;
+        using AbstractInventoryRelationship_ptr = boost::intrusive_ptr<AbstractInventoryRelationship>;
 
 // BinaryFile
         class BinaryFile;
-        typedef BinaryFile* BinaryFile_ptr;
+        using BinaryFile_ptr = boost::intrusive_ptr<BinaryFile>;
 
 // ExecutableFile
         class ExecutableFile;
-        typedef ExecutableFile* ExecutableFile_ptr;
+        using ExecutableFile_ptr = boost::intrusive_ptr<ExecutableFile>;
 
 // DependsOn
         class DependsOn;
-        typedef DependsOn* DependsOn_ptr;
+        using DependsOn_ptr = boost::intrusive_ptr<DependsOn>;
 
 // InventoryElement
         class InventoryElement;
-        typedef InventoryElement* InventoryElement_ptr;
+        using InventoryElement_ptr = boost::intrusive_ptr<InventoryElement>;
 
 // InventoryRelationship
         class InventoryRelationship;
-        typedef InventoryRelationship* InventoryRelationship_ptr;
+        using InventoryRelationship_ptr = boost::intrusive_ptr<InventoryRelationship>;
 
 // EEnum
 
 // Package & Factory
         class SourceFactory;
-        typedef SourceFactory * SourceFactory_ptr;
+        using SourceFactory_ptr = boost::intrusive_ptr<SourceFactory>;
         class SourcePackage;
-        typedef SourcePackage * SourcePackage_ptr;
+        using SourcePackage_ptr = boost::intrusive_ptr<SourcePackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // source

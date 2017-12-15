@@ -54,8 +54,8 @@ RelationalSchema::RelationalSchema()
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::CodeItem_ptr, -1, true, false >(this,
                     ::kdm::data::DataPackage::_instance()->getRelationalSchema__codeElement()));
 
     /*PROTECTED REGION ID(RelationalSchemaImpl__RelationalSchemaImpl) START*/
@@ -76,12 +76,12 @@ RelationalSchema::~RelationalSchema()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& RelationalSchema::getCodeElement() const
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& RelationalSchema::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& RelationalSchema::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& RelationalSchema::getCodeElement()
 {
     return *m_codeElement;
 }

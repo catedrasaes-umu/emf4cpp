@@ -24,15 +24,15 @@
 using namespace ::ecorecpp::resource;
 
 ResourceSet::ResourceSet()
-	: _resources(std::make_shared<::ecorecpp::mapping::ContainingEList<Resource>>()),
+	: _resources(std::make_shared<::ecorecpp::mapping::EListImpl<Resource_ptr>>()),
 	  _resourceRegistry(nullptr) {
 }
 
-::ecorecpp::mapping::EList<Resource>& ResourceSet::getResources() {
+::ecorecpp::mapping::EList<Resource_ptr>& ResourceSet::getResources() {
 	return *_resources;
 }
 
-Resource* ResourceSet::createResource(const QUrl& uri) {
+Resource_ptr ResourceSet::createResource(const QUrl& uri) {
 	Resource::Factory::Registry* registry = getResourceFactoryRegistry();
 	if (!registry)
 		throw std::logic_error("No factory registry found!");
@@ -41,29 +41,29 @@ Resource* ResourceSet::createResource(const QUrl& uri) {
 	if (!factory)
 		throw std::logic_error("No resource factory found!");
 
-	Resource* resource = factory->createResource(uri);
+	Resource_ptr resource = factory->createResource(uri);
 	resource->setResourceSet(this);
 	getResources().push_back(resource);
 	return resource;
 }
 
-Resource* ResourceSet::createResource(const QUrl& uri,
+Resource_ptr ResourceSet::createResource(const QUrl& uri,
 		const std::string& contentType) {
 	throw std::logic_error("Not yet implemented!");
-	return nullptr;
+	return Resource_ptr();
 }
 
 	//TreeIterator<Notifier*> getAllContents();
 
-::ecore::EObject* ResourceSet::getEObject(const QUrl& uri, bool loadOnDemand) {
-	Resource* resource = getResource(uri, loadOnDemand);
+::ecore::EObject_ptr ResourceSet::getEObject(const QUrl& uri, bool loadOnDemand) {
+	Resource_ptr resource = getResource(uri, loadOnDemand);
 	if (resource)
 		return resource->getEObject(uri.fragment().toStdString());
 
-	return nullptr;
+	return ::ecore::EObject_ptr();
 }
 
-Resource* ResourceSet::getResource(const QUrl& uri, bool loadOnDemand) {
+Resource_ptr ResourceSet::getResource(const QUrl& uri, bool loadOnDemand) {
 //1. Normalize uri (not implemented)
 
 //2. Try to find resource in existing resources:
@@ -80,22 +80,22 @@ Resource* ResourceSet::getResource(const QUrl& uri, bool loadOnDemand) {
 	if (!loadOnDemand)
 		return nullptr;
 
-	Resource* res = createResource(uri);
+	Resource_ptr res = createResource(uri);
 	if (res)
 		res->load();
 
 	return res;
 }
 
-::ecorecpp::util::TreeIterator<::ecore::EObject> ResourceSet::getAllContents() {
-	::ecorecpp::mapping::EList<::ecore::EObject>::ptr_type retList =
-			std::make_shared<::ecorecpp::mapping::EListImpl<::ecore::EObject>>();
+::ecorecpp::util::TreeIterator<::ecore::EObject_ptr> ResourceSet::getAllContents() {
+	::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type retList =
+			std::make_shared<::ecorecpp::mapping::EListImpl<::ecore::EObject_ptr>>();
 
 	for ( auto res : getResources() ) {
 		retList->insert_all(*res->getContents());
 	}
 
-	return ::ecorecpp::util::TreeIterator<::ecore::EObject>(retList);
+	return ::ecorecpp::util::TreeIterator<::ecore::EObject_ptr>(retList);
 };
 
 Resource::Factory::Registry* ResourceSet::getResourceFactoryRegistry() const {

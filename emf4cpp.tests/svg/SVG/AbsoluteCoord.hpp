@@ -78,6 +78,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    AbsoluteCoord_ptr _this()
+    {   return AbsoluteCoord_ptr(this);}
+
     // Attributes
 
     // References

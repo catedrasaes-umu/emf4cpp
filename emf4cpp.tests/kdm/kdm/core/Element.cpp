@@ -42,12 +42,12 @@ Element::Element()
 {
 
     m_attribute.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Attribute,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Attribute_ptr, -1, true, false >(this,
                     ::kdm::core::CorePackage::_instance()->getElement__attribute()));
     m_annotation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Annotation,
-                    -1, true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Annotation_ptr, -1, true, false >(this,
                     ::kdm::core::CorePackage::_instance()->getElement__annotation()));
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
@@ -68,22 +68,22 @@ Element::~Element()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& Element::getAttribute() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute_ptr >& Element::getAttribute() const
 {
     return *m_attribute;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& Element::getAttribute()
+::ecorecpp::mapping::EList< ::kdm::kdm::Attribute_ptr >& Element::getAttribute()
 {
     return *m_attribute;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& Element::getAnnotation() const
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation_ptr >& Element::getAnnotation() const
 {
     return *m_annotation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& Element::getAnnotation()
+::ecorecpp::mapping::EList< ::kdm::kdm::Annotation_ptr >& Element::getAnnotation()
 {
     return *m_annotation;
 }

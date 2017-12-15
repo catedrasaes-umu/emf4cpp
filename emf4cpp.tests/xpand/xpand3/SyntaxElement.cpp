@@ -71,8 +71,8 @@ void SyntaxElement::setLine(::ecore::EInt _line)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__line(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__line(),
                 _old_line,
                 m_line
         );
@@ -97,8 +97,8 @@ void SyntaxElement::setStart(::ecore::EInt _start)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__start(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__start(),
                 _old_start,
                 m_start
         );
@@ -123,8 +123,8 @@ void SyntaxElement::setEnd(::ecore::EInt _end)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__end(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__end(),
                 _old_end,
                 m_end
         );
@@ -149,8 +149,8 @@ void SyntaxElement::setFileName(::ecore::EString const& _fileName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__fileName(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__fileName(),
                 _old_fileName,
                 m_fileName
         );

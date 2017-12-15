@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        InventoryRelationship_ptr _this()
+        {   return InventoryRelationship_ptr(this);}
+
         // Attributes
 
         // References

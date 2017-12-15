@@ -54,8 +54,8 @@ UIAction::UIAction()
 {
 
     m_UIElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::ui::UIEvent, -1,
-                    true, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::ui::UIEvent_ptr,
+                    -1, true, false >(this,
                     ::kdm::ui::UiPackage::_instance()->getUIAction__UIElement()));
 
     /*PROTECTED REGION ID(UIActionImpl__UIActionImpl) START*/
@@ -90,8 +90,8 @@ void UIAction::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::ui::UiPackage::_instance()->getUIAction__kind(),
+                _this(),
+                ::kdm::ui::UiPackage::_instance()->getUIAction__kind(),
                 _old_kind,
                 m_kind
         );
@@ -102,12 +102,12 @@ void UIAction::setKind(::kdm::core::String _kind)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent >& UIAction::getUIElement() const
+const ::ecorecpp::mapping::EList< ::kdm::ui::UIEvent_ptr >& UIAction::getUIElement() const
 {
     return *m_UIElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::ui::UIEvent >& UIAction::getUIElement()
+::ecorecpp::mapping::EList< ::kdm::ui::UIEvent_ptr >& UIAction::getUIElement()
 {
     return *m_UIElement;
 }

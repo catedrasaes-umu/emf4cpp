@@ -83,6 +83,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        TermUnit_ptr _this()
+        {   return TermUnit_ptr(this);}
+
         // Attributes
 
         // References

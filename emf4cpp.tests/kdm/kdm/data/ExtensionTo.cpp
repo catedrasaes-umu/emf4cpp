@@ -81,8 +81,8 @@ void ExtensionTo::setTo(::kdm::data::ComplexContentType_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getExtensionTo__to(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getExtensionTo__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void ExtensionTo::setFrom(::kdm::data::ComplexContentType_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getExtensionTo__from(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getExtensionTo__from(),
                 _old_from,
                 m_from
         );

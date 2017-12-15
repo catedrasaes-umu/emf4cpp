@@ -44,8 +44,8 @@ InterfaceDef::InterfaceDef()
 {
 
     m_derivesFrom.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::InterfaceDef,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::InterfaceDef_ptr, -1, false, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__derivesFrom()));
 
     /*PROTECTED REGION ID(InterfaceDefImpl__InterfaceDefImpl) START*/
@@ -80,8 +80,8 @@ void InterfaceDef::setIsAbstract(::ecore::EBoolean _isAbstract)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isAbstract(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isAbstract(),
                 _old_isAbstract,
                 m_isAbstract
         );
@@ -106,8 +106,8 @@ void InterfaceDef::setIsCustom(::ecore::EBoolean _isCustom)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isCustom(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isCustom(),
                 _old_isCustom,
                 m_isCustom
         );
@@ -132,8 +132,8 @@ void InterfaceDef::setIsTruncatable(::ecore::EBoolean _isTruncatable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isTruncatable(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isTruncatable(),
                 _old_isTruncatable,
                 m_isTruncatable
         );
@@ -144,12 +144,12 @@ void InterfaceDef::setIsTruncatable(::ecore::EBoolean _isTruncatable)
 
 // References
 
-const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& InterfaceDef::getDerivesFrom() const
+const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef_ptr >& InterfaceDef::getDerivesFrom() const
 {
     return *m_derivesFrom;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& InterfaceDef::getDerivesFrom()
+::ecorecpp::mapping::EList< ::idlmm::InterfaceDef_ptr >& InterfaceDef::getDerivesFrom()
 {
     return *m_derivesFrom;
 }

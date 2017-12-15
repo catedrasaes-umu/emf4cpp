@@ -80,6 +80,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        FalseFlow_ptr _this()
+        {   return FalseFlow_ptr(this);}
+
         // Attributes
 
         // References

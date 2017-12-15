@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        Project_ptr _this()
+        {   return Project_ptr(this);}
+
         // Attributes
 
         // References

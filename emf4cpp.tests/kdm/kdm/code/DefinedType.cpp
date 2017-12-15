@@ -66,7 +66,7 @@ DefinedType::~DefinedType()
 {
     if (m_codeElement)
     {
-        delete m_codeElement;
+        m_codeElement.reset();
     }
 }
 
@@ -90,8 +90,8 @@ void DefinedType::setType(::kdm::code::Datatype_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDefinedType__type(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDefinedType__type(),
                 _old_type,
                 m_type
         );
@@ -117,8 +117,8 @@ void DefinedType::setCodeElement(::kdm::code::Datatype_ptr _codeElement)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement(),
                 _old_codeElement,
                 m_codeElement
         );
@@ -126,8 +126,10 @@ void DefinedType::setCodeElement(::kdm::code::Datatype_ptr _codeElement)
     }
 #endif
 
-    delete _old_codeElement;
-    m_codeElement->_setEContainer(this,
+    if (_old_codeElement)
+        _old_codeElement->_setEContainer(DefinedType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
+    m_codeElement->_setEContainer(_this(),
             ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
 }
 

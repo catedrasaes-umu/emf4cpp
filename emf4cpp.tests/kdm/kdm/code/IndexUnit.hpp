@@ -82,6 +82,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        IndexUnit_ptr _this()
+        {   return IndexUnit_ptr(this);}
+
         // Attributes
 
         // References

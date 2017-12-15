@@ -22,8 +22,7 @@
 
 using namespace ::bintree;
 
-std::unique_ptr< ::bintree::BintreePackage,
-        ::ecorecpp::PackageDeleter< ::bintree::BintreePackage > > BintreePackage::s_instance;
+boost::intrusive_ptr< ::bintree::BintreePackage > BintreePackage::s_instance;
 
 ::bintree::BintreePackage_ptr BintreePackage::_instance()
 {
@@ -31,17 +30,19 @@ std::unique_ptr< ::bintree::BintreePackage,
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return nullptr;
+            return boost::intrusive_ptr< BintreePackage >();
         duringConstruction = true;
-        new BintreePackage();
+        s_instance = boost::intrusive_ptr < BintreePackage
+                > (new BintreePackage());
+        s_instance->_initPackage();
         duringConstruction = false;
     }
-    return s_instance.get();
+
+    return s_instance;
 }
 
 ::bintree::BintreePackage_ptr BintreePackage::_getInstanceAndRemoveOwnership()
 {
-    s_instance.get_deleter()._owner = false;
     return _instance();
 }
 

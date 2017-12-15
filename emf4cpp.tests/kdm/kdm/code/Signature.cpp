@@ -54,7 +54,7 @@ Signature::Signature()
 
     m_parameterUnit.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::ParameterUnit, -1, true, false >(this,
+                    ::kdm::code::ParameterUnit_ptr, -1, true, false >(this,
                     ::kdm::code::CodePackage::_instance()->getSignature__parameterUnit()));
 
     /*PROTECTED REGION ID(SignatureImpl__SignatureImpl) START*/
@@ -75,12 +75,12 @@ Signature::~Signature()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >& Signature::getParameterUnit() const
+const ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit_ptr >& Signature::getParameterUnit() const
 {
     return *m_parameterUnit;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >& Signature::getParameterUnit()
+::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit_ptr >& Signature::getParameterUnit()
 {
     return *m_parameterUnit;
 }

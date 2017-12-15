@@ -56,11 +56,11 @@ DeclaredParameter::~DeclaredParameter()
 {
     if (m_name)
     {
-        delete m_name;
+        m_name.reset();
     }
     if (m_type)
     {
-        delete m_type;
+        m_type.reset();
     }
 }
 
@@ -84,8 +84,8 @@ void DeclaredParameter::setName(::xpand3::Identifier_ptr _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name(),
                 _old_name,
                 m_name
         );
@@ -93,8 +93,10 @@ void DeclaredParameter::setName(::xpand3::Identifier_ptr _name)
     }
 #endif
 
-    delete _old_name;
-    m_name->_setEContainer(this,
+    if (_old_name)
+        _old_name->_setEContainer(DeclaredParameter_ptr(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
+    m_name->_setEContainer(_this(),
             ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
 }
 
@@ -114,8 +116,8 @@ void DeclaredParameter::setType(::xpand3::Identifier_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type(),
                 _old_type,
                 m_type
         );
@@ -123,8 +125,10 @@ void DeclaredParameter::setType(::xpand3::Identifier_ptr _type)
     }
 #endif
 
-    delete _old_type;
-    m_type->_setEContainer(this,
+    if (_old_type)
+        _old_type->_setEContainer(DeclaredParameter_ptr(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type());
+    m_type->_setEContainer(_this(),
             ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type());
 }
 

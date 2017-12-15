@@ -74,8 +74,8 @@ void UnionField::setIdentifier(::ecore::EString const& _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getUnionField__identifier(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getUnionField__identifier(),
                 _old_identifier,
                 m_identifier
         );
@@ -100,8 +100,8 @@ void UnionField::setLabel(std::vector< ::idlmm::EAny > _label)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getUnionField__label(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getUnionField__label(),
                 _old_label,
                 m_label
         );

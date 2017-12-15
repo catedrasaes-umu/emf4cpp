@@ -81,8 +81,8 @@ void ConceptualFlow::setTo(::kdm::conceptual::ConceptualContainer_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualFlow__to(),
+                _this(),
+                ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualFlow__to(),
                 _old_to,
                 m_to
         );
@@ -108,8 +108,8 @@ void ConceptualFlow::setFrom(::kdm::conceptual::ConceptualContainer_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualFlow__from(),
+                _this(),
+                ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualFlow__from(),
                 _old_from,
                 m_from
         );

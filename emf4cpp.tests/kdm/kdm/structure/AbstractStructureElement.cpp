@@ -51,21 +51,22 @@ AbstractStructureElement::AbstractStructureElement()
 
     m_aggregated.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::AggregatedRelationship, -1, true, false >(this,
+                    ::kdm::core::AggregatedRelationship_ptr, -1, true, false >(
+                    this,
                     ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__aggregated()));
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this,
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::core::KDMEntity_ptr, -1, false, false >(this,
                     ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__implementation()));
     m_structureElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::structure::AbstractStructureElement, -1, true, false >(
-                    this,
+                    ::kdm::structure::AbstractStructureElement_ptr, -1, true,
+                    false >(this,
                     ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureElement()));
     m_structureRelationship.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::structure::AbstractStructureRelationship, -1, true,
-                    false >(this,
+                    ::kdm::structure::AbstractStructureRelationship_ptr, -1,
+                    true, false >(this,
                     ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureRelationship()));
 
     /*PROTECTED REGION ID(AbstractStructureElementImpl__AbstractStructureElementImpl) START*/
@@ -86,43 +87,43 @@ AbstractStructureElement::~AbstractStructureElement()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& AbstractStructureElement::getAggregated() const
+const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship_ptr >& AbstractStructureElement::getAggregated() const
 {
     return *m_aggregated;
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& AbstractStructureElement::getAggregated()
+::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship_ptr >& AbstractStructureElement::getAggregated()
 {
     return *m_aggregated;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractStructureElement::getImplementation() const
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractStructureElement::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractStructureElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractStructureElement::getImplementation()
 {
     return *m_implementation;
 }
 
-const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& AbstractStructureElement::getStructureElement() const
+const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& AbstractStructureElement::getStructureElement() const
 {
     return *m_structureElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& AbstractStructureElement::getStructureElement()
+::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& AbstractStructureElement::getStructureElement()
 {
     return *m_structureElement;
 }
 
 const ::ecorecpp::mapping::EList<
-        ::kdm::structure::AbstractStructureRelationship >& AbstractStructureElement::getStructureRelationship() const
+        ::kdm::structure::AbstractStructureRelationship_ptr >& AbstractStructureElement::getStructureRelationship() const
 {
     return *m_structureRelationship;
 }
 
-::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& AbstractStructureElement::getStructureRelationship()
+::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship_ptr >& AbstractStructureElement::getStructureRelationship()
 {
     return *m_structureRelationship;
 }

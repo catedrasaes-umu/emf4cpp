@@ -81,6 +81,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ResourceDescription_ptr _this()
+        {   return ResourceDescription_ptr(this);}
+
         // Attributes
 
         // References

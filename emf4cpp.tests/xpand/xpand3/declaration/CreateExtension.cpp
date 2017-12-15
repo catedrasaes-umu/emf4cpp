@@ -80,8 +80,8 @@ void CreateExtension::setToBeCreated(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getCreateExtension__toBeCreated(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCreateExtension__toBeCreated(),
                 _old_toBeCreated,
                 m_toBeCreated
         );

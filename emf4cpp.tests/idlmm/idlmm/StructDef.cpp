@@ -43,7 +43,7 @@ StructDef::StructDef()
 {
 
     m_members.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field, -1,
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field_ptr, -1,
                     true, false >(this,
                     ::idlmm::IdlmmPackage::_instance()->getStructDef__members()));
 
@@ -65,12 +65,12 @@ StructDef::~StructDef()
 
 // References
 
-const ::ecorecpp::mapping::EList< ::idlmm::Field >& StructDef::getMembers() const
+const ::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& StructDef::getMembers() const
 {
     return *m_members;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::Field >& StructDef::getMembers()
+::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& StructDef::getMembers()
 {
     return *m_members;
 }

@@ -66,6 +66,9 @@ using namespace ::«EPackage.getFQN()»;
 «ENDLET-»
 «ENDLET-»
 {
+«IF "::"+this.getFQN() == "::ecore::EObject"-»
+    m_refCount = 0u;
+«ENDIF-»
 
 «IF (boolean) GLOBALVAR bootstrap»
     «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
@@ -87,13 +90,40 @@ using namespace ::«EPackage.getFQN()»;
 #endif
 }
 
+«IF "::"+this.getFQN() == "::ecore::EObject"-»
+// Copy constructor only for EObject, needed to properly initialize reference counting
+«name»::«name»(const «name»&)
+{
+    m_refCount = 0u;
+
+«IF (boolean) GLOBALVAR bootstrap»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+    «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParametersOptional()»));
+    «ENDFOREACH-»
+«ELSE»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+    «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParameters()»));
+    «ENDFOREACH-»
+«ENDIF»
+
+«PROTECT CSTART '/*' CEND '*/' ID name+"Impl__"+name+"ImplConst" DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+«ENDPROTECT»
+
+#ifdef ECORECPP_NOTIFICATION_API
+    m_eDeliver = false;
+#endif
+}
+«ENDIF»
+
 «name»::~«name»()
 {
     «FOREACH this.EReferences.select(e|e.containment) AS ref-»
         «IF ref.upperBound == 1-»
     if («ref.getMemberName()»)
     {
-        delete «ref.getMemberName()»;
+        «ref.getMemberName()».reset();
     }
         «ENDIF-»
     «ENDFOREACH-»
@@ -117,8 +147,8 @@ using namespace ::«EPackage.getFQN()»;
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) «EPackage.getFeatureGetMemberCall(at)»,
+                _this(),
+                «EPackage.getFeatureGetMemberCall(at)»,
                 _old_«at.name»,
                 «at.getAttrMemberName()»
             );
@@ -192,13 +222,13 @@ using namespace ::«EPackage.getFQN()»;
 }
        «ENDIF-»
 
-	   «IF ref.EOpposite != null-»
+       «IF ref.EOpposite != null-»
 «ref.getSetCPPSignature(name+"::basic")»
        «ELSE-»
 «ref.getSetCPPSignature(name+"::")» 
        «ENDIF-»
 {
-    «ref.getCPPTypeSignature()» _old_«ref.name» = «ref.getRefMemberName()»;
+    «ref.getPtr()» _old_«ref.name» = «ref.getRefMemberName()»;
 
     «ref.getRefMemberName()» = _«ref.name»;
 
@@ -207,8 +237,8 @@ using namespace ::«EPackage.getFQN()»;
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) «EPackage.getFeatureGetMemberCall(ref)»,
+                _this(),
+                «EPackage.getFeatureGetMemberCall(ref)»,
                 _old_«ref.name»,
                 «ref.getRefMemberName()»
             );
@@ -217,17 +247,18 @@ using namespace ::«EPackage.getFQN()»;
 #endif
 
     «IF ref.containment-»
-    delete _old_«ref.name»;
-    «ref.getRefMemberName()»->_setEContainer(this, «EPackage.getFeatureGetMemberCall(ref)»);
+        if (_old_«ref.name»)
+            _old_«ref.name»->_setEContainer(«name»_ptr(), «EPackage.getFeatureGetMemberCall(ref)»);
+        «ref.getRefMemberName()»->_setEContainer(_this(), «EPackage.getFeatureGetMemberCall(ref)»);
     «ENDIF-»
 }
 
-	   «IF ref.EOpposite != null-»
+    «IF ref.EOpposite != null-»
 «ref.getSetCPPSignature(name+"::")»
 {
 	if (_«ref.name» != «ref.getRefMemberName()»)
 	{
-		::ecore::EJavaObject _this = static_cast< ::ecore::EObject_ptr >(this);
+		::ecore::EJavaObject _this = ::ecore::EObject::_this();
                 if («ref.getRefMemberName()» != nullptr)
 		{
 		        «ref.getRefMemberName()»->_inverseRemove(

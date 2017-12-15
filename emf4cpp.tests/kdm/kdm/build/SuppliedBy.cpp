@@ -82,8 +82,8 @@ void SuppliedBy::setTo(::kdm::build::Supplier_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getSuppliedBy__to(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getSuppliedBy__to(),
                 _old_to,
                 m_to
         );
@@ -109,8 +109,8 @@ void SuppliedBy::setFrom(::kdm::build::AbstractBuildElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getSuppliedBy__from(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getSuppliedBy__from(),
                 _old_from,
                 m_from
         );

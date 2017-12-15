@@ -22,6 +22,7 @@
 #define KDM_SOURCE_HPP
 
 #include "source_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

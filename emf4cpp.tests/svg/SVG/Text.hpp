@@ -83,6 +83,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    Text_ptr _this()
+    {   return Text_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_lengthAdjust;

@@ -64,8 +64,8 @@ public:
     virtual ::ecore::EClass_ptr getEReferenceType () const;
     virtual void setEReferenceType (::ecore::EClass_ptr _eReferenceType);
 
-    virtual const ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys () const;
-    virtual ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys ();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEKeys () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEKeys ();
 
     /*PROTECTED REGION ID(EReference) START*/
     // Please, enable the protected region if you add manually written code.
@@ -87,6 +87,9 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    EReference_ptr _this()
+    {   return EReference_ptr(this);}
+
     // Attributes
 
     ::ecore::EBoolean m_containment;
@@ -101,7 +104,7 @@ protected:
 
     ::ecore::EClass_ptr m_eReferenceType;
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute >> m_eKeys;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >> m_eKeys;
 
 };
 

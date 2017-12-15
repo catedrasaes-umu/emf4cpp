@@ -86,7 +86,8 @@ void ErrorStatement::_initialize()
         return _any;
     case ::xpand3::statement::StatementPackage::ERRORSTATEMENT__MESSAGE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_message);
+        if (m_message)
+            _any = m_message->as< ::ecore::EObject >();
     }
         return _any;
 
@@ -128,7 +129,7 @@ void ErrorStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::ErrorStatement::setMessage(_t1);
     }
         return;
@@ -153,7 +154,7 @@ void ErrorStatement::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::statement::StatementPackage::ERRORSTATEMENT__MESSAGE:
-        return m_message;
+        return (bool) m_message;
 
     }
     throw "Error";
@@ -171,7 +172,7 @@ void ErrorStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ErrorStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getErrorStatement();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getErrorStatement();
     return _eclass;
 }
 

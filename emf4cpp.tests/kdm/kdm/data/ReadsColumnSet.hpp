@@ -86,6 +86,9 @@ namespace kdm
         /*PROTECTED REGION END*/
 
     protected:
+        ReadsColumnSet_ptr _this()
+        {   return ReadsColumnSet_ptr(this);}
+
         // Attributes
 
         // References

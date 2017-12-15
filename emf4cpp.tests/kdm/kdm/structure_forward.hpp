@@ -44,56 +44,56 @@ namespace kdm
 
 // AbstractStructureElement
         class AbstractStructureElement;
-        typedef AbstractStructureElement* AbstractStructureElement_ptr;
+        using AbstractStructureElement_ptr = boost::intrusive_ptr<AbstractStructureElement>;
 
 // Subsystem
         class Subsystem;
-        typedef Subsystem* Subsystem_ptr;
+        using Subsystem_ptr = boost::intrusive_ptr<Subsystem>;
 
 // Layer
         class Layer;
-        typedef Layer* Layer_ptr;
+        using Layer_ptr = boost::intrusive_ptr<Layer>;
 
 // StructureModel
         class StructureModel;
-        typedef StructureModel* StructureModel_ptr;
+        using StructureModel_ptr = boost::intrusive_ptr<StructureModel>;
 
 // Component
         class Component;
-        typedef Component* Component_ptr;
+        using Component_ptr = boost::intrusive_ptr<Component>;
 
 // SoftwareSystem
         class SoftwareSystem;
-        typedef SoftwareSystem* SoftwareSystem_ptr;
+        using SoftwareSystem_ptr = boost::intrusive_ptr<SoftwareSystem>;
 
 // AbstractStructureRelationship
         class AbstractStructureRelationship;
-        typedef AbstractStructureRelationship* AbstractStructureRelationship_ptr;
+        using AbstractStructureRelationship_ptr = boost::intrusive_ptr<AbstractStructureRelationship>;
 
 // StructureRelationship
         class StructureRelationship;
-        typedef StructureRelationship* StructureRelationship_ptr;
+        using StructureRelationship_ptr = boost::intrusive_ptr<StructureRelationship>;
 
 // ArchitectureView
         class ArchitectureView;
-        typedef ArchitectureView* ArchitectureView_ptr;
+        using ArchitectureView_ptr = boost::intrusive_ptr<ArchitectureView>;
 
 // StructureElement
         class StructureElement;
-        typedef StructureElement* StructureElement_ptr;
+        using StructureElement_ptr = boost::intrusive_ptr<StructureElement>;
 
 // EEnum
 
 // Package & Factory
         class StructureFactory;
-        typedef StructureFactory * StructureFactory_ptr;
+        using StructureFactory_ptr = boost::intrusive_ptr<StructureFactory>;
         class StructurePackage;
-        typedef StructurePackage * StructurePackage_ptr;
+        using StructurePackage_ptr = boost::intrusive_ptr<StructurePackage>;
 
         template< typename T, typename S >
-        inline T* instanceOf(S* _s)
+        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
         {
-            return dynamic_cast< T* >(_s);
+            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
         }
 
     } // structure

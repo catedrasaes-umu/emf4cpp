@@ -40,7 +40,6 @@ namespace SVG
 {
 
 class EXPORT_SVG_DLL ReferencedFile : public virtual ::ecore::EObject
-
 {
 public:
     ReferencedFile();
@@ -56,8 +55,8 @@ public:
     virtual void setName (::PrimitiveTypes::String _name);
 
     // References
-    virtual const ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer () const;
-    virtual ::ecorecpp::mapping::EList< ::SVG::Image >& getReferer ();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Image_ptr >& getReferer () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Image_ptr >& getReferer ();
 
     /* This is the same value as getClassifierId() returns, but as a static
      * value it can be used in template expansions. */
@@ -83,13 +82,16 @@ public:
     /*PROTECTED REGION END*/
 
 protected:
+    ReferencedFile_ptr _this()
+    {   return ReferencedFile_ptr(this);}
+
     // Attributes
 
     ::PrimitiveTypes::String m_name;
 
     // References
 
-    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Image >> m_referer;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Image_ptr >> m_referer;
 
 };
 
