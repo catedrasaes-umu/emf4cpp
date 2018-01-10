@@ -34,6 +34,25 @@ ResourceSet::ResourceSet()
 	  _resourceRegistry(nullptr) {
 }
 
+/** Cleanup a ResourceSet.
+ *
+ * A Resource de-registers itself from the ResourceSet. To avoid invalid
+ * iterators when deleting the _resource container, we first iterate over a
+ * copy of the container and de-register the ResourceSet from the Resources.
+ *
+ * Afterwards the _resource container is empty. If tmpCopy now holds the only
+ * smart-pointer instance for a Resource, the Resource will be deleted, to.
+ */
+ResourceSet::~ResourceSet() {
+	std::vector<Resource_ptr> tmpCopy;
+	tmpCopy.reserve(_resources->size());
+	for (auto r : *_resources)
+		tmpCopy.push_back(r);
+
+	for (auto r : tmpCopy)
+		r->setResourceSet(nullptr);
+}
+
 ::ecorecpp::mapping::EList<Resource_ptr>& ResourceSet::getResources() {
 	return *_resources;
 }
@@ -59,8 +78,6 @@ Resource_ptr ResourceSet::createResource(const QUrl& uri,
 	return Resource_ptr();
 }
 
-	//TreeIterator<Notifier*> getAllContents();
-
 ::ecore::EObject_ptr ResourceSet::getEObject(const QUrl& uri, bool loadOnDemand) {
 	Resource_ptr resource = getResource(uri, loadOnDemand);
 	if (resource)
@@ -73,7 +90,6 @@ Resource_ptr ResourceSet::getResource(const QUrl& uri, bool loadOnDemand) {
 //1. Normalize uri (not implemented)
 
 //2. Try to find resource in existing resources:
-
 	for (const auto& res : *_resources) {
 		if ( res->getURI().matches(uri, QUrl::RemoveFragment | QUrl::RemoveQuery) ) {
 			if (loadOnDemand && !res->isLoaded())

@@ -36,17 +36,29 @@ namespace ecore {
 namespace ecorecpp {
 namespace resource {
 
+class ResourceSet;
+using ResourceSet_ptr = boost::intrusive_ptr<ResourceSet>;
+
+
 class EXPORT_ECORECPP_DLL ResourceSet {
 public:
+	/** There is a global instance for general use. */
 	static ResourceSet& getInstance();
+
+	/** You can also use individual instances. In case of an auto-load, a new
+	 * Resource will always be created in the ResourceSet of the existing
+	 * Resource. */
+	ResourceSet();
+	/** You can specialize the ResourceSet, if needed. */
+	virtual ~ResourceSet();
 
 	ResourceSet(const ResourceSet&)    = delete;
 	void operator=(const ResourceSet&) = delete;
 
 	::ecorecpp::mapping::EList<Resource_ptr>& getResources();
 
-	Resource_ptr createResource(const QUrl& uri);
-	Resource_ptr createResource(const QUrl& uri, const std::string& contentType);
+	virtual Resource_ptr createResource(const QUrl& uri);
+	virtual Resource_ptr createResource(const QUrl& uri, const std::string& contentType);
 
 	Resource_ptr getResource(const QUrl& uri, bool loadOnDemand);
 
@@ -57,9 +69,14 @@ public:
 	Resource::Factory::Registry* getResourceFactoryRegistry() const;
 	void setResourceFactoryRegistry(Resource::Factory::Registry*);
 
-private:
-	ResourceSet();
+protected:
+    friend void intrusive_ptr_add_ref(ResourceSet* p) { ++p->_refCount; }
+    friend void intrusive_ptr_release(ResourceSet* p) {
+		if (--p->_refCount == 0u)
+			delete p; }
+    mutable std::atomic_size_t _refCount;
 
+private:
 	::ecorecpp::mapping::EList<Resource_ptr>::ptr_type _resources;
 	std::unique_ptr<Resource::Factory::Registry> _resourceRegistry;
 };

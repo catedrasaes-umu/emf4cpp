@@ -20,11 +20,16 @@
 #ifndef ECORECPP_RESOURCE_FORWARD_HPP
 #define ECORECPP_RESOURCEMAPPING_FORWARD_HPP
 
+#include <boost/intrusive_ptr.hpp>
+
 namespace ecorecpp {
 namespace resource {
 
 class Resource;
 class ResourceSet;
+
+using Resource_ptr = boost::intrusive_ptr<Resource>;
+using ResourceSet_ptr = boost::intrusive_ptr<ResourceSet>;
 
 } // resource
 } // ecorecpp
