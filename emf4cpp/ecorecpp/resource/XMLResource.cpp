@@ -110,7 +110,7 @@ void XMLResource::doLoad(
 	getContents()->push_back(root);
 
 	/* Now the model knows it's resource and we can try to resolve
-	 * The (cross-document) references, too.
+	 * the (cross-document) references, too.
 	 */
 	handler.resolveReferences();
 	handler.resolveCrossDocumentReferences();

@@ -150,6 +150,23 @@ void XMLSerializer::create_node(::ecore::EObject_ptr parent_obj,
     m_ser.close_object(ef->getName());
 }
 
+void XMLSerializer::create_crossref_node(::ecore::EObject_ptr parent_obj,
+                        EObject_ptr child_obj, EStructuralFeature_ptr ef) {
+
+	m_ser.open_object(ef->getName());
+
+    EClass_ptr child_cl = child_obj->eClass();
+
+    // May be a subtype
+    if (child_cl != ef->getEType()) {
+        m_ser.add_attribute("xsi:type", get_type(child_obj));
+		m_usedPackages.push_back(child_cl->getEPackage());
+	}
+	m_ser.add_attribute("href", get_reference(parent_obj, child_obj, true));
+
+    m_ser.close_object(ef->getName());
+}
+
 void XMLSerializer::serialize_node(EObject_ptr obj) {
 	++m_level;
 
@@ -350,6 +367,8 @@ void XMLSerializer::serialize_node_children(EObject_ptr obj) {
 	::ecorecpp::mapping::type_definitions::string_t indent(m_level, '\t');
 #endif
 
+	auto objResource = obj->eResource();
+
 	// Containment references
 	for ( auto const& current_ref : references ) {
 		try {
@@ -368,13 +387,21 @@ void XMLSerializer::serialize_node_children(EObject_ptr obj) {
 							mapping::EList<::ecore::EObject_ptr>::ptr_type >(any);
 
 				for ( auto const& child : *children ) {
-					create_node(obj, child, current_ref);
+					if (objResource != child->eResource())
+						create_crossref_node(obj, child, current_ref);
+					else
+						create_node(obj, child, current_ref);
 				}
+
 			} else {
 				EObject_ptr child =
 						ecorecpp::mapping::any::any_cast<EObject_ptr>(any);
-				if (child)
-					create_node(obj, child, current_ref);
+				if (child) {
+					if (objResource != child->eResource())
+						create_crossref_node(obj, child, current_ref);
+					else
+						create_node(obj, child, current_ref);
+				}
 			}
 		} catch (...) {
 			DEBUG_MSG(cerr, "exception catched! ");

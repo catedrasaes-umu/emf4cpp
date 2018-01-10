@@ -53,6 +53,9 @@ protected:
 	void create_node(::ecore::EObject_ptr parent_obj,
 			::ecore::EObject_ptr child_obj,
 			::ecore::EStructuralFeature_ptr ef);
+	void create_crossref_node(::ecore::EObject_ptr parent_obj,
+			::ecore::EObject_ptr child_obj,
+			::ecore::EStructuralFeature_ptr ef);
 
 	void serialize_node(::ecore::EObject_ptr);
 	void serialize_node_attributes(::ecore::EObject_ptr);

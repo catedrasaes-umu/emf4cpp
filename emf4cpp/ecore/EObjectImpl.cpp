@@ -44,12 +44,8 @@ void EObject::_setEContainer(::ecore::EObject_ptr _eContainer,
 		&& m_eContainingFeature == _eContainingFeature)
 		return;
 
-	if (m_eResource) {
-		auto list = m_eResource->getContents();
-		list->remove(_this());
-
-		m_eResource = nullptr;
-	}
+	/* [SUITE3-208] m_eResource is not touched to allow cross resource
+	 * containment. */
 
     m_eContainer = _eContainer;
     m_eContainingFeature = _eContainingFeature;
@@ -60,27 +56,13 @@ void EObject::_setEResource(::ecorecpp::resource::Resource* res)
     if (m_eResource == res)
         return;
 
-    if (m_eContainer)
-    {
-        if (m_eContainingFeature && m_eContainingFeature->getUpperBound() != 1)
-        {
-            // Gets the collection and remove the element
-            ::ecore::EJavaObject any = m_eContainer->eGet(m_eContainingFeature);
-            ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type list =
-                    ::ecorecpp::mapping::any::any_cast
-                            < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
-                            > ::ptr_type > (any);
+	/* [SUITE3-208] m_eContainer is not touched to allow cross resource
+	 * containment. */
 
-            list->remove(_this());
-        }
-        else
-        {
-            m_eContainer->eUnset(m_eContainingFeature);
-        }
-
-        m_eContainer = nullptr;
-        m_eContainingFeature = nullptr;
-    }
+	if (m_eResource) {
+		auto list = m_eResource->getContents();
+		list->remove(_this());
+	}
 
     m_eResource = res;
 }
@@ -163,7 +145,9 @@ void EObject::_initialize()
 
     EObject_ptr current = eContainer();
     size_t count = 0;
-    while ( current && current->eContainer()
+    while ( current
+			&& !current->_getDirectResource()
+			&& current->eContainer()
 			&& current.get() != this // prevent cyclic containments
 			&& count < 10000000) // last resort
     {
