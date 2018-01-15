@@ -72,8 +72,9 @@ PlatformRelationship::~PlatformRelationship()
 
 void PlatformRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::KDMEntity_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void PlatformRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::platform::AbstractPlatformElement_ptr PlatformRelationship::getFrom() const
@@ -100,8 +100,9 @@ void PlatformRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 void PlatformRelationship::setFrom(
         ::kdm::platform::AbstractPlatformElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::platform::AbstractPlatformElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void PlatformRelationship::setFrom(
         eNotify(&notification);
     }
 #endif
-
 }
 

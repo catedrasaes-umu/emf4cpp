@@ -79,14 +79,18 @@ void Dimension::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::DIMENSION__WIDTH:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_width);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Dimension::setWidth(_t0);
     }
         return;
     case ::SVG::SVGPackage::DIMENSION__HEIGHT:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_height);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Dimension::setHeight(_t0);
     }
         return;
 

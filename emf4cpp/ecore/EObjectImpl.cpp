@@ -31,21 +31,21 @@
 #include <ecore/EReference.hpp>
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
-#include <ecorecpp/resource/Resource.hpp>
 
 /*PROTECTED REGION ID(EObjectImpl.cpp) ENABLED START*/
+#include <ecorecpp/resource/Resource.hpp>
 
 using namespace ::ecore;
 
 void EObject::_setEContainer(::ecore::EObject_ptr _eContainer,
         ::ecore::EStructuralFeature_ptr _eContainingFeature)
 {
-	if (m_eContainer == _eContainer
-		&& m_eContainingFeature == _eContainingFeature)
-		return;
+    if (m_eContainer == _eContainer
+            && m_eContainingFeature == _eContainingFeature)
+        return;
 
-	/* [SUITE3-208] m_eResource is not touched to allow cross resource
-	 * containment. */
+    /* [SUITE3-208] m_eResource is not touched to allow cross resource
+     * containment. */
 
     m_eContainer = _eContainer;
     m_eContainingFeature = _eContainingFeature;
@@ -56,13 +56,14 @@ void EObject::_setEResource(::ecorecpp::resource::Resource* res)
     if (m_eResource == res)
         return;
 
-	/* [SUITE3-208] m_eContainer is not touched to allow cross resource
-	 * containment. */
+    /* [SUITE3-208] m_eContainer is not touched to allow cross resource
+     * containment. */
 
-	if (m_eResource) {
-		auto list = m_eResource->getContents();
-		list->remove(_this());
-	}
+    if (m_eResource)
+    {
+        auto list = m_eResource->getContents();
+        list->remove(_this());
+    }
 
     m_eResource = res;
 }
@@ -77,25 +78,20 @@ void EObject::_setEResource(::ecorecpp::resource::Resource* res)
 #include <ecorecpp/notify.hpp>
 
 // Notification API
-std::vector< ::ecorecpp::notify::Adapter_ptr >& EObject::eAdapters()
+::ecorecpp::mapping::EList< ::ecorecpp::notify::Adapter_ptr >& EObject::eAdapters()
 {
-    return m_eAdapters;
+    return *m_eAdapters;
 }
 
 void EObject::eNotify( ::ecorecpp::notify::Notification_ptr _notification)
 {
-    for(size_t i = 0; i < m_eAdapters.size(); i++)
-    m_eAdapters[i]->notifyChanged(_notification);
+    for (auto adapter : *m_eAdapters)
+    adapter->notifyChanged(_notification);
 }
 
 bool EObject::eNotificationRequired()
 {
-    return m_eDeliver && !m_eAdapters.empty();
-}
-
-void EObject::notifyChanged( ::ecorecpp::notify::Notification_ptr _notification)
-{
-    // TODO: _notifyChanged
+    return m_eDeliver && m_eAdapters->size() > 0;
 }
 
 #endif
@@ -145,11 +141,9 @@ void EObject::_initialize()
 
     EObject_ptr current = eContainer();
     size_t count = 0;
-    while ( current
-			&& !current->_getDirectResource()
-			&& current->eContainer()
-			&& current.get() != this // prevent cyclic containments
-			&& count < 10000000) // last resort
+    while (current && !current->_getDirectResource() && current->eContainer()
+            && current.get() != this // prevent cyclic containments
+            && count < 10000000) // last resort
     {
         count++;
         current = current->eContainer();

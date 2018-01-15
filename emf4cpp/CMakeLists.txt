@@ -18,7 +18,7 @@
 #
 cmake_minimum_required(VERSION 2.8.11)
 
-FILE(GLOB CMAKES "${CMAKE_CURRENT_SOURCE_DIR}/*.cmake")
+FILE(GLOB CMAKES ecore.cmake ecorecpp.cmake)
 
 foreach(cmake ${CMAKES})
   include(${cmake})

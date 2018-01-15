@@ -72,8 +72,16 @@ ErrorStatement::~ErrorStatement()
 void ErrorStatement::setMessage(
         ::xpand3::expression::AbstractExpression_ptr _message)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_message = m_message;
+    if (m_message)
+        m_message->_setEContainer(ErrorStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
+    if (_message)
+        _message->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_message = m_message;
+#endif
     m_message = _message;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,11 +97,5 @@ void ErrorStatement::setMessage(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_message)
-        _old_message->_setEContainer(ErrorStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
-    m_message->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
 }
 

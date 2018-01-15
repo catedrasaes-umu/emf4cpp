@@ -80,9 +80,16 @@ LetExpression::~LetExpression()
 void LetExpression::setVarExpression(
         ::xpand3::expression::AbstractExpression_ptr _varExpression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_varExpression =
-            m_varExpression;
+    if (m_varExpression)
+        m_varExpression->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
+    if (_varExpression)
+        _varExpression->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_varExpression = m_varExpression;
+#endif
     m_varExpression = _varExpression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -98,12 +105,6 @@ void LetExpression::setVarExpression(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_varExpression)
-        _old_varExpression->_setEContainer(LetExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
-    m_varExpression->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
 }
 
 ::xpand3::expression::AbstractExpression_ptr LetExpression::getTargetExpression() const
@@ -114,9 +115,16 @@ void LetExpression::setVarExpression(
 void LetExpression::setTargetExpression(
         ::xpand3::expression::AbstractExpression_ptr _targetExpression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_targetExpression =
-            m_targetExpression;
+    if (m_targetExpression)
+        m_targetExpression->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
+    if (_targetExpression)
+        _targetExpression->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_targetExpression = m_targetExpression;
+#endif
     m_targetExpression = _targetExpression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -132,12 +140,6 @@ void LetExpression::setTargetExpression(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_targetExpression)
-        _old_targetExpression->_setEContainer(LetExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
-    m_targetExpression->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
 }
 
 ::xpand3::Identifier_ptr LetExpression::getVarName() const
@@ -147,8 +149,16 @@ void LetExpression::setTargetExpression(
 
 void LetExpression::setVarName(::xpand3::Identifier_ptr _varName)
 {
-    ::xpand3::Identifier_ptr _old_varName = m_varName;
+    if (m_varName)
+        m_varName->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
+    if (_varName)
+        _varName->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_varName = m_varName;
+#endif
     m_varName = _varName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -164,11 +174,5 @@ void LetExpression::setVarName(::xpand3::Identifier_ptr _varName)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_varName)
-        _old_varName->_setEContainer(LetExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
-    m_varName->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
 }
 

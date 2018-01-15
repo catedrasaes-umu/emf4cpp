@@ -107,9 +107,16 @@ void ProtectStatement::setDisable(::ecore::EBoolean _disable)
 void ProtectStatement::setCommentStart(
         ::xpand3::expression::AbstractExpression_ptr _commentStart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_commentStart =
-            m_commentStart;
+    if (m_commentStart)
+        m_commentStart->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
+    if (_commentStart)
+        _commentStart->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_commentStart = m_commentStart;
+#endif
     m_commentStart = _commentStart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -125,12 +132,6 @@ void ProtectStatement::setCommentStart(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_commentStart)
-        _old_commentStart->_setEContainer(ProtectStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
-    m_commentStart->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
 }
 
 ::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentEnd() const
@@ -141,8 +142,16 @@ void ProtectStatement::setCommentStart(
 void ProtectStatement::setCommentEnd(
         ::xpand3::expression::AbstractExpression_ptr _commentEnd)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_commentEnd = m_commentEnd;
+    if (m_commentEnd)
+        m_commentEnd->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
+    if (_commentEnd)
+        _commentEnd->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_commentEnd = m_commentEnd;
+#endif
     m_commentEnd = _commentEnd;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -158,12 +167,6 @@ void ProtectStatement::setCommentEnd(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_commentEnd)
-        _old_commentEnd->_setEContainer(ProtectStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
-    m_commentEnd->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
 }
 
 ::xpand3::expression::AbstractExpression_ptr ProtectStatement::getId() const
@@ -173,8 +176,16 @@ void ProtectStatement::setCommentEnd(
 
 void ProtectStatement::setId(::xpand3::expression::AbstractExpression_ptr _id)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_id = m_id;
+    if (m_id)
+        m_id->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
+    if (_id)
+        _id->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_id = m_id;
+#endif
     m_id = _id;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -190,11 +201,5 @@ void ProtectStatement::setId(::xpand3::expression::AbstractExpression_ptr _id)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_id)
-        _old_id->_setEContainer(ProtectStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
-    m_id->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
 }
 

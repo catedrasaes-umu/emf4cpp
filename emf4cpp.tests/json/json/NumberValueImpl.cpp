@@ -75,8 +75,10 @@ void NumberValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::NUMBERVALUE__VALUE:
     {
+        ::ecore::EDouble _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EDouble
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::json::NumberValue::setValue(_t0);
     }
         return;
 

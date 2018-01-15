@@ -90,8 +90,10 @@ void FontStyle::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::FONTSTYLE__ITALIC:
     {
+        ::PrimitiveTypes::Boolean _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Boolean
-                > ::fromAny(_newValue, m_italic);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::FontStyle::setItalic(_t0);
     }
         return;
 

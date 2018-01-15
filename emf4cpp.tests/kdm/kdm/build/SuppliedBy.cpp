@@ -73,8 +73,9 @@ SuppliedBy::~SuppliedBy()
 
 void SuppliedBy::setTo(::kdm::build::Supplier_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::build::Supplier_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void SuppliedBy::setTo(::kdm::build::Supplier_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::build::AbstractBuildElement_ptr SuppliedBy::getFrom() const
@@ -100,8 +100,9 @@ void SuppliedBy::setTo(::kdm::build::Supplier_ptr _to)
 
 void SuppliedBy::setFrom(::kdm::build::AbstractBuildElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::build::AbstractBuildElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void SuppliedBy::setFrom(::kdm::build::AbstractBuildElement_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

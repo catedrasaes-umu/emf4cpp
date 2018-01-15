@@ -135,8 +135,10 @@ void CommentUnit::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::code::CodePackage::COMMENTUNIT__TEXT:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_text);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::code::CommentUnit::setText(_t0);
     }
         return;
 

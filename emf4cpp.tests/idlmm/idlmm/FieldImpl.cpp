@@ -106,8 +106,10 @@ void Field::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::FIELD__IDENTIFIER:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Field::setIdentifier(_t0);
     }
         return;
 

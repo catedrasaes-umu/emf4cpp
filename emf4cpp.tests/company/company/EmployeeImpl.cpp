@@ -84,8 +84,10 @@ void Employee::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::EMPLOYEE__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::company::Employee::setName(_t0);
     }
         return;
     case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:

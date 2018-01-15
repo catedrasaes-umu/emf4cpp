@@ -72,8 +72,16 @@ ExpressionStatement::~ExpressionStatement()
 void ExpressionStatement::setExpression(
         ::xpand3::expression::AbstractExpression_ptr _expression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_expression = m_expression;
+    if (m_expression)
+        m_expression->_setEContainer(ExpressionStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
+    if (_expression)
+        _expression->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_expression = m_expression;
+#endif
     m_expression = _expression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,11 +97,5 @@ void ExpressionStatement::setExpression(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_expression)
-        _old_expression->_setEContainer(ExpressionStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
-    m_expression->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
 }
 

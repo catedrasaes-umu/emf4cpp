@@ -153,7 +153,9 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
  			::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, _t0);
  			::«ef.EContainingClass.getFQN()»::add«ef.name.toFirstUpper()»(_t0);
                     «ELSE-»
- 		        ::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, «ef.getMemberName()»);
+                    	«ef.getCPPTypeSignatureImpl()» _t0;
+ 		        		::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, _t0);
+ 		        		::«ef.EContainingClass.getFQN()»::set«ef.name.toFirstUpper()»(_t0);
                     «ENDIF-»
                 «ENDIF-»
             }

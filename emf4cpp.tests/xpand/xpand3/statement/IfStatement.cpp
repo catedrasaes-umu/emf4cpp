@@ -78,8 +78,16 @@ IfStatement::~IfStatement()
 void IfStatement::setCondition(
         ::xpand3::expression::AbstractExpression_ptr _condition)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+    if (m_condition)
+        m_condition->_setEContainer(IfStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
+    if (_condition)
+        _condition->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+#endif
     m_condition = _condition;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -95,12 +103,6 @@ void IfStatement::setCondition(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_condition)
-        _old_condition->_setEContainer(IfStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
-    m_condition->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
 }
 
 ::xpand3::statement::IfStatement_ptr IfStatement::getElseIf() const
@@ -110,8 +112,16 @@ void IfStatement::setCondition(
 
 void IfStatement::setElseIf(::xpand3::statement::IfStatement_ptr _elseIf)
 {
-    ::xpand3::statement::IfStatement_ptr _old_elseIf = m_elseIf;
+    if (m_elseIf)
+        m_elseIf->_setEContainer(IfStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
+    if (_elseIf)
+        _elseIf->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::statement::IfStatement_ptr _old_elseIf = m_elseIf;
+#endif
     m_elseIf = _elseIf;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -127,11 +137,5 @@ void IfStatement::setElseIf(::xpand3::statement::IfStatement_ptr _elseIf)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_elseIf)
-        _old_elseIf->_setEContainer(IfStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
-    m_elseIf->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
 }
 

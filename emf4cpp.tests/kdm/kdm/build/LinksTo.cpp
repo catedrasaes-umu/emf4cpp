@@ -73,8 +73,9 @@ LinksTo::~LinksTo()
 
 void LinksTo::setTo(::kdm::build::AbstractBuildElement_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::build::AbstractBuildElement_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void LinksTo::setTo(::kdm::build::AbstractBuildElement_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::build::SymbolicLink_ptr LinksTo::getFrom() const
@@ -100,8 +100,9 @@ void LinksTo::setTo(::kdm::build::AbstractBuildElement_ptr _to)
 
 void LinksTo::setFrom(::kdm::build::SymbolicLink_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::build::SymbolicLink_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void LinksTo::setFrom(::kdm::build::SymbolicLink_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

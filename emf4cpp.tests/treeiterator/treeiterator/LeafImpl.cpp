@@ -72,8 +72,10 @@ void Leaf::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::treeiterator::TreeiteratorPackage::LEAF__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::treeiterator::Leaf::setName(_t0);
     }
         return;
 

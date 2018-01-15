@@ -72,8 +72,16 @@ TypeSelectExpression::~TypeSelectExpression()
 
 void TypeSelectExpression::setTypeLiteral(::xpand3::Identifier_ptr _typeLiteral)
 {
-    ::xpand3::Identifier_ptr _old_typeLiteral = m_typeLiteral;
+    if (m_typeLiteral)
+        m_typeLiteral->_setEContainer(TypeSelectExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
+    if (_typeLiteral)
+        _typeLiteral->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_typeLiteral = m_typeLiteral;
+#endif
     m_typeLiteral = _typeLiteral;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,11 +97,5 @@ void TypeSelectExpression::setTypeLiteral(::xpand3::Identifier_ptr _typeLiteral)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_typeLiteral)
-        _old_typeLiteral->_setEContainer(TypeSelectExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
-    m_typeLiteral->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
 }
 

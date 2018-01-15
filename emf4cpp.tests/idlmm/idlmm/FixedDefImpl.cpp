@@ -87,20 +87,26 @@ void FixedDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
+        ::idlmm::ETypeCode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
-                > ::fromAny(_newValue, m_typeCode);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::IDLType::setTypeCode(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::FIXEDDEF__DIGITS:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_digits);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::FixedDef::setDigits(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::FIXEDDEF__SCALE:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_scale);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::FixedDef::setScale(_t0);
     }
         return;
 

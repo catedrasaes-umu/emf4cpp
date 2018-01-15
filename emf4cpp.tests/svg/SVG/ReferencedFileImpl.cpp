@@ -88,8 +88,10 @@ void ReferencedFile::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::ReferencedFile::setName(_t0);
     }
         return;
 

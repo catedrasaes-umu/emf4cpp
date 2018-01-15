@@ -90,8 +90,10 @@ void FontWeight::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::FONTWEIGHT__BOLD:
     {
+        ::PrimitiveTypes::Boolean _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Boolean
-                > ::fromAny(_newValue, m_bold);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::FontWeight::setBold(_t0);
     }
         return;
 

@@ -79,14 +79,18 @@ void EStringToStringMapEntry::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__KEY:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_key);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EStringToStringMapEntry::setKey(_t0);
     }
         return;
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__VALUE:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EStringToStringMapEntry::setValue(_t0);
     }
         return;
 

@@ -81,14 +81,18 @@ void PrimitiveDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
+        ::idlmm::ETypeCode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
-                > ::fromAny(_newValue, m_typeCode);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::IDLType::setTypeCode(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::PRIMITIVEDEF__KIND:
     {
+        ::idlmm::PrimitiveKind _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::PrimitiveKind
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::PrimitiveDef::setKind(_t0);
     }
         return;
 

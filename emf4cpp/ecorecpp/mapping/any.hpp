@@ -20,17 +20,31 @@
 #ifndef ECORECPP_MAPPING_ANY_HPP
 #define ECORECPP_MAPPING_ANY_HPP
 
+#include <cstddef>
 #include <stdexcept>
 #include <string>
-#include <cstddef>
+#include <type_traits>
 #include <typeinfo>
+#include <boost/intrusive_ptr.hpp>
+
+namespace ecore {
+class EObject;
+using EObject_ptr = boost::intrusive_ptr<EObject>;
+void intrusive_ptr_release(EObject*);
+} // namespace ecore
 
 namespace ecorecpp
 {
 namespace mapping
 {
 
-// Poor man's any class
+/** Poor man's any class.
+ *
+ * Special support is implemented to wrap pointers to ecore classes: While
+ * anything is stored as value and can only be returned in its original type,
+ * ecore instances are usually wrapped a smart pointers. They can be returned
+ * in both the original pointer type and as an ::ecore::EObject_ptr.
+ */
 struct any
 {
     struct bad_any_cast: std::runtime_error
@@ -96,9 +110,13 @@ struct any
         return store_->type__id();
     }
 
+	/** Default behavior if T is not ::ecore::EObject_ptr: Return the wrapped object. */
     template< typename T >
-    static T&
-    any_cast(any const& a)
+    static
+	typename std::enable_if<
+        ! std::is_same< T, ::ecore::EObject_ptr >::value,
+        T >::type&
+	any_cast(any const& a)
     {
         if (typeid(T) != a.type())
             throw bad_any_cast();
@@ -106,44 +124,78 @@ struct any
         return dynamic_cast< holder< T >* > (a.store_)->v_;
     }
 
+	/** Specialization if T is ::ecore::EObject_ptr. In that case and if the
+	 * wrapped object is a (smart) pointer to a class U, which is derived from
+	 * EObject, a (smart) pointer to EObject is returned. */
+	template< typename T >
+	static
+	typename std::enable_if<
+        std::is_same< T, ::ecore::EObject_ptr >::value,
+        ::ecore::EObject_ptr >::type
+	any_cast(any const& a)
+	{
+		return a.store_->eObject();
+	}
+
+	/** Default behavior if T is not ::ecore::EObject_ptr: Compare the types. */
     template< typename T >
-    static bool
+    static
+	typename std::enable_if<
+        ! std::is_same< T, ::ecore::EObject_ptr >::value,
+        bool >::type
     is_a(any const& a)
     {
         return typeid(T) == a.type();
     }
 
+	/** Specialization if T is ::ecore::EObject_ptr.
+	 * \sa any_cast<::ecore::EObject_ptr>(). */
+    template< typename T >
+    static
+	typename std::enable_if<
+        std::is_same< T, ::ecore::EObject_ptr >::value,
+        bool >::type
+    is_a(any const& a)
+    {
+        return (bool)a.store_->eObject();
+    }
+
     // Inner classes
     struct holder_base
     {
-        virtual ~holder_base()
-        {
-        }
-
+        virtual ~holder_base() = default;
         virtual const std::type_info& type__id() const = 0;
         virtual holder_base* copy() const = 0;
+		virtual ::ecore::EObject_ptr eObject() const = 0;
     };
 
-    template< typename T >
+	/** The default case. Used for any wrapped typed, execpt if T can be
+	 * converted into a (smart) pointers to ::ecore::EObject. */
+    template< typename T, class Enable = void >
     struct holder: holder_base
     {
-        holder(T const& v) :
-            v_(v)
-        {
-        }
+        holder(T const& v) : v_(v) { }
+		const std::type_info& type__id() const override { return typeid(T); }
+        holder_base* copy() const override { return new holder< T > (v_); }
+		::ecore::EObject_ptr eObject() const override { return ::ecore::EObject_ptr(); }
 
-        const std::type_info& type__id() const
-        {
-            return typeid(T);
-        }
+        T v_; // Value
+    };
 
-        holder_base* copy() const
-        {
-            return new holder< T > (v_);
-        }
+	/** Specialization if T is a (smart) pointer to U and U is derived
+	 * ::ecore::EObject. In that case T is convertible into
+	 * ::ecore::EObject_ptr. */
+    template< typename T >
+    struct holder< T, typename std::enable_if<
+						  std::is_convertible< T, ::ecore::EObject_ptr >::value >::type
+				   > : holder_base
+    {
+        holder(T const& v) : v_(v) { }
+		const std::type_info& type__id() const { return typeid(T); }
+        holder_base* copy() const { return new holder< T > (v_); }
+		::ecore::EObject_ptr eObject() const override { return ::ecore::EObject_ptr(v_); }
 
-        // Value
-        T v_;
+        T v_; // Value
     };
 
     // storage

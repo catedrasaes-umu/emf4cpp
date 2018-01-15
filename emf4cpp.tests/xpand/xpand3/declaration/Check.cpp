@@ -129,8 +129,16 @@ void Check::setFeature(::ecore::EString const& _feature)
 
 void Check::setMsg(::xpand3::expression::AbstractExpression_ptr _msg)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_msg = m_msg;
+    if (m_msg)
+        m_msg->_setEContainer(Check_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
+    if (_msg)
+        _msg->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_msg = m_msg;
+#endif
     m_msg = _msg;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -146,12 +154,6 @@ void Check::setMsg(::xpand3::expression::AbstractExpression_ptr _msg)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_msg)
-        _old_msg->_setEContainer(Check_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
-    m_msg->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__msg());
 }
 
 ::xpand3::expression::AbstractExpression_ptr Check::getConstraint() const
@@ -162,8 +164,16 @@ void Check::setMsg(::xpand3::expression::AbstractExpression_ptr _msg)
 void Check::setConstraint(
         ::xpand3::expression::AbstractExpression_ptr _constraint)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_constraint = m_constraint;
+    if (m_constraint)
+        m_constraint->_setEContainer(Check_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
+    if (_constraint)
+        _constraint->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_constraint = m_constraint;
+#endif
     m_constraint = _constraint;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -179,11 +189,5 @@ void Check::setConstraint(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_constraint)
-        _old_constraint->_setEContainer(Check_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
-    m_constraint->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getCheck__constraint());
 }
 

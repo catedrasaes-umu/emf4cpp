@@ -75,8 +75,10 @@ void BooleanValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::BOOLEANVALUE__VALUE:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::json::BooleanValue::setValue(_t0);
     }
         return;
 

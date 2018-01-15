@@ -185,8 +185,9 @@ void EClassifier::setInstanceTypeName(::ecore::EString const& _instanceTypeName)
 
 void EClassifier::basicsetEPackage(::ecore::EPackage_ptr _ePackage)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EPackage_ptr _old_ePackage = m_ePackage;
-
+#endif
     m_ePackage = _ePackage;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -202,7 +203,6 @@ void EClassifier::basicsetEPackage(::ecore::EPackage_ptr _ePackage)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)

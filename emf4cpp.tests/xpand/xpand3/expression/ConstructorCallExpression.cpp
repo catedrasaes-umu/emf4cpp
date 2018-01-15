@@ -71,8 +71,16 @@ ConstructorCallExpression::~ConstructorCallExpression()
 
 void ConstructorCallExpression::setType(::xpand3::Identifier_ptr _type)
 {
-    ::xpand3::Identifier_ptr _old_type = m_type;
+    if (m_type)
+        m_type->_setEContainer(ConstructorCallExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
+    if (_type)
+        _type->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_type = m_type;
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -88,11 +96,5 @@ void ConstructorCallExpression::setType(::xpand3::Identifier_ptr _type)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_type)
-        _old_type->_setEContainer(ConstructorCallExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
-    m_type->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
 }
 

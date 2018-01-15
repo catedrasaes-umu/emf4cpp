@@ -167,7 +167,7 @@ public:
      * TODO: Returns non-const reference temporarily.
      * It will return a EList<Adapter> type non-const reference when implemented.
      */
-    std::vector< ::ecorecpp::notify::Adapter_ptr >& eAdapters();
+    ::ecorecpp::mapping::EList< ::ecorecpp::notify::Adapter_ptr >& eAdapters();
 
     void eNotify( ::ecorecpp::notify::Notification_ptr _notification);
 
@@ -183,8 +183,6 @@ public:
         m_eDeliver = deliver;
     }
 
-    // Adapter
-    virtual void notifyChanged( ::ecorecpp::notify::Notification_ptr _notification);
 #endif
 
 protected:
@@ -194,7 +192,7 @@ protected:
 
 #ifdef ECORECPP_NOTIFICATION_API
     // Notification API
-    std::vector< ::ecorecpp::notify::Adapter_ptr > m_eAdapters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecorecpp::notify::Adapter_ptr >> m_eAdapters;
     bool m_eDeliver;
 #endif
 

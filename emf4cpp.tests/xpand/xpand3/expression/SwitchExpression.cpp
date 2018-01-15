@@ -81,8 +81,16 @@ SwitchExpression::~SwitchExpression()
 void SwitchExpression::setSwitchExpr(
         ::xpand3::expression::AbstractExpression_ptr _switchExpr)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_switchExpr = m_switchExpr;
+    if (m_switchExpr)
+        m_switchExpr->_setEContainer(SwitchExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
+    if (_switchExpr)
+        _switchExpr->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_switchExpr = m_switchExpr;
+#endif
     m_switchExpr = _switchExpr;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -98,12 +106,6 @@ void SwitchExpression::setSwitchExpr(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_switchExpr)
-        _old_switchExpr->_setEContainer(SwitchExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
-    m_switchExpr->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__switchExpr());
 }
 
 ::xpand3::expression::AbstractExpression_ptr SwitchExpression::getDefaultExpr() const
@@ -114,9 +116,16 @@ void SwitchExpression::setSwitchExpr(
 void SwitchExpression::setDefaultExpr(
         ::xpand3::expression::AbstractExpression_ptr _defaultExpr)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_defaultExpr =
-            m_defaultExpr;
+    if (m_defaultExpr)
+        m_defaultExpr->_setEContainer(SwitchExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
+    if (_defaultExpr)
+        _defaultExpr->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_defaultExpr = m_defaultExpr;
+#endif
     m_defaultExpr = _defaultExpr;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -132,12 +141,6 @@ void SwitchExpression::setDefaultExpr(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_defaultExpr)
-        _old_defaultExpr->_setEContainer(SwitchExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
-    m_defaultExpr->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getSwitchExpression__defaultExpr());
 }
 
 const ::ecorecpp::mapping::EList< ::xpand3::expression::Case_ptr >& SwitchExpression::getCases() const

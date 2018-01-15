@@ -97,8 +97,16 @@ void ImportStatement::setExported(::ecore::EBoolean _exported)
 
 void ImportStatement::setImportedId(::xpand3::Identifier_ptr _importedId)
 {
-    ::xpand3::Identifier_ptr _old_importedId = m_importedId;
+    if (m_importedId)
+        m_importedId->_setEContainer(ImportStatement_ptr(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
+    if (_importedId)
+        _importedId->_setEContainer(_this(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_importedId = m_importedId;
+#endif
     m_importedId = _importedId;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -114,11 +122,5 @@ void ImportStatement::setImportedId(::xpand3::Identifier_ptr _importedId)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_importedId)
-        _old_importedId->_setEContainer(ImportStatement_ptr(),
-                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
-    m_importedId->_setEContainer(_this(),
-            ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
 }
 

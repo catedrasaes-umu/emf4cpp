@@ -79,14 +79,18 @@ void Coordinates::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::COORDINATES__X:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_x);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Coordinates::setX(_t0);
     }
         return;
     case ::SVG::SVGPackage::COORDINATES__Y:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_y);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Coordinates::setY(_t0);
     }
         return;
 

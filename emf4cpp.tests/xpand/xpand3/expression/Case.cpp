@@ -75,8 +75,16 @@ Case::~Case()
 
 void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+    if (m_condition)
+        m_condition->_setEContainer(Case_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
+    if (_condition)
+        _condition->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+#endif
     m_condition = _condition;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -92,12 +100,6 @@ void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_condition)
-        _old_condition->_setEContainer(Case_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
-    m_condition->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
 }
 
 ::xpand3::expression::AbstractExpression_ptr Case::getThenPart() const
@@ -107,8 +109,16 @@ void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
 
 void Case::setThenPart(::xpand3::expression::AbstractExpression_ptr _thenPart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+    if (m_thenPart)
+        m_thenPart->_setEContainer(Case_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
+    if (_thenPart)
+        _thenPart->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+#endif
     m_thenPart = _thenPart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -124,11 +134,5 @@ void Case::setThenPart(::xpand3::expression::AbstractExpression_ptr _thenPart)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_thenPart)
-        _old_thenPart->_setEContainer(Case_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
-    m_thenPart->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
 }
 

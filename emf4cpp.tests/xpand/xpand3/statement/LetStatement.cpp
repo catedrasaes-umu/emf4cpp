@@ -77,8 +77,16 @@ LetStatement::~LetStatement()
 
 void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
 {
-    ::xpand3::Identifier_ptr _old_varName = m_varName;
+    if (m_varName)
+        m_varName->_setEContainer(LetStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
+    if (_varName)
+        _varName->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_varName = m_varName;
+#endif
     m_varName = _varName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -94,12 +102,6 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_varName)
-        _old_varName->_setEContainer(LetStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
-    m_varName->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
 }
 
 ::xpand3::expression::AbstractExpression_ptr LetStatement::getVarValue() const
@@ -110,8 +112,16 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
 void LetStatement::setVarValue(
         ::xpand3::expression::AbstractExpression_ptr _varValue)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_varValue = m_varValue;
+    if (m_varValue)
+        m_varValue->_setEContainer(LetStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
+    if (_varValue)
+        _varValue->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_varValue = m_varValue;
+#endif
     m_varValue = _varValue;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -127,11 +137,5 @@ void LetStatement::setVarValue(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_varValue)
-        _old_varValue->_setEContainer(LetStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
-    m_varValue->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
 }
 

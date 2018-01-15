@@ -78,14 +78,18 @@ void Bird::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::enumeration::EnumerationPackage::BIRD__TYPE:
     {
+        ::enumeration::BirdType _t0;
         ::ecorecpp::mapping::any_traits < ::enumeration::BirdType
-                > ::fromAny(_newValue, m_type);
+                > ::fromAny(_newValue, _t0);
+        ::enumeration::Bird::setType(_t0);
     }
         return;
     case ::enumeration::EnumerationPackage::BIRD__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::enumeration::Bird::setName(_t0);
     }
         return;
 

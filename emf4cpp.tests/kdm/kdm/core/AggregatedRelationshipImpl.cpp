@@ -181,8 +181,10 @@ void AggregatedRelationship::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::core::CorePackage::AGGREGATEDRELATIONSHIP__DENSITY:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_density);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::core::AggregatedRelationship::setDensity(_t0);
     }
         return;
 

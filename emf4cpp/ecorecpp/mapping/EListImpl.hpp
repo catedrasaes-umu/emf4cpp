@@ -26,7 +26,11 @@
 #include "any.hpp"
 #include <ecore/EObject.hpp>
 #include <ecore/EReference.hpp>
+
+#ifdef ECORECPP_NOTIFICATION_API
 #include <ecorecpp/notify.hpp>
+#endif
+
 
 namespace ecorecpp
 {
@@ -132,6 +136,20 @@ public:
 
 			m_containment.set(_obj);
 			m_opposite.set(_obj);
+
+#ifdef ECORECPP_NOTIFICATION_API
+			if (m_this->eNotificationRequired())
+			{
+				::ecorecpp::notify::Notification notification(
+					::ecorecpp::notify::Notification::ADD,
+					m_this,
+					m_ref,
+					T(),
+					_obj
+					);
+				m_this->eNotify(&notification);
+			}
+#endif
 		}
     }
 
@@ -143,6 +161,20 @@ public:
 
 			m_containment.set(_obj);
 			m_opposite.set(_obj);
+
+#ifdef ECORECPP_NOTIFICATION_API
+			if (m_this->eNotificationRequired())
+			{
+				::ecorecpp::notify::Notification notification(
+					::ecorecpp::notify::Notification::ADD,
+					m_this,
+					m_ref,
+					T(),
+					_obj
+					);
+				m_this->eNotify(&notification);
+			}
+#endif
 		}
     }
 
@@ -151,16 +183,33 @@ public:
         containment_t< T, containment >::free_all(base_t::m_content);
 
         base_t::m_content.clear();
+
+#ifdef ECORECPP_NOTIFICATION_API
+			if (m_this->eNotificationRequired())
+			{
+				::ecorecpp::notify::Notification notification(
+					::ecorecpp::notify::Notification::REMOVE_MANY,
+					m_this,
+					m_ref,
+					T(),
+					T()
+					);
+				m_this->eNotify(&notification);
+			}
+#endif
     }
 
-	/* Better check before trusting the caller. */
-	void remove(typename EList<T>::iterator it) override {
-		if (it != EList<T>::end()) {
-			T _obj = *it;
+	void remove(T _obj) override {
 			basicRemove(_obj);
 
 			m_containment.unset(_obj);
 			m_opposite.unset(_obj);
+	}
+
+	/* Better check before trusting the caller. */
+	void remove(typename EList<T>::iterator it) override {
+		if (it != EList<T>::end()) {
+			remove(*it);
 		}
 	}
 
@@ -170,6 +219,20 @@ public:
 		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
 		if (it != base_t::m_content.end()) {
 			base_t::m_content.erase(it);
+
+#ifdef ECORECPP_NOTIFICATION_API
+			if (m_this->eNotificationRequired())
+			{
+				::ecorecpp::notify::Notification notification(
+					::ecorecpp::notify::Notification::REMOVE,
+					m_this,
+					m_ref,
+					_obj,
+					T()
+					);
+				m_this->eNotify(&notification);
+			}
+#endif
 		}
 	}
 
@@ -179,6 +242,20 @@ public:
 		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
 		if (it == base_t::m_content.end()) {
 			base_t::m_content.push_back(_obj);
+
+#ifdef ECORECPP_NOTIFICATION_API
+			if (m_this->eNotificationRequired())
+			{
+				::ecorecpp::notify::Notification notification(
+					::ecorecpp::notify::Notification::ADD,
+					m_this,
+					m_ref,
+					T(),
+					_obj
+					);
+				m_this->eNotify(&notification);
+			}
+#endif
 		}
 	}
 
@@ -256,11 +333,11 @@ protected:
         {
         }
 
-        inline void set(::ecore::EObject_ptr _obj)
+        inline void set(Q _obj)
         {
         }
 
-        inline void unset(::ecore::EObject_ptr _obj)
+        inline void unset(Q _obj)
         {
         }
     };

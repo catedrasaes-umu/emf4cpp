@@ -230,8 +230,9 @@ void ETypedElement::setRequired(::ecore::EBoolean _required)
 
 void ETypedElement::setEType(::ecore::EClassifier_ptr _eType)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EClassifier_ptr _old_eType = m_eType;
-
+#endif
     m_eType = _eType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -247,7 +248,6 @@ void ETypedElement::setEType(::ecore::EClassifier_ptr _eType)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::ecore::EGenericType_ptr ETypedElement::getEGenericType() const
@@ -257,8 +257,16 @@ void ETypedElement::setEType(::ecore::EClassifier_ptr _eType)
 
 void ETypedElement::setEGenericType(::ecore::EGenericType_ptr _eGenericType)
 {
-    ::ecore::EGenericType_ptr _old_eGenericType = m_eGenericType;
+    if (m_eGenericType)
+        m_eGenericType->_setEContainer(ETypedElement_ptr(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
+    if (_eGenericType)
+        _eGenericType->_setEContainer(_this(),
+                ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::ecore::EGenericType_ptr _old_eGenericType = m_eGenericType;
+#endif
     m_eGenericType = _eGenericType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -274,11 +282,5 @@ void ETypedElement::setEGenericType(::ecore::EGenericType_ptr _eGenericType)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_eGenericType)
-        _old_eGenericType->_setEContainer(ETypedElement_ptr(),
-                ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
-    m_eGenericType->_setEContainer(_this(),
-            ::ecore::EcorePackage::_instance()->getETypedElement__eGenericType());
 }
 

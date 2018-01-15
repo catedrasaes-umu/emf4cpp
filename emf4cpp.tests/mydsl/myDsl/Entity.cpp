@@ -73,8 +73,9 @@ Entity::~Entity()
 
 void Entity::setExtends(::myDsl::Entity_ptr _extends)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::myDsl::Entity_ptr _old_extends = m_extends;
-
+#endif
     m_extends = _extends;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void Entity::setExtends(::myDsl::Entity_ptr _extends)
         eNotify(&notification);
     }
 #endif
-
 }
 
 const ::ecorecpp::mapping::EList< ::myDsl::Property_ptr >& Entity::getProperties() const

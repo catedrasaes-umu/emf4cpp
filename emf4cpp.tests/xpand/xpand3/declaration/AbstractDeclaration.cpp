@@ -108,8 +108,16 @@ void AbstractDeclaration::setIsPrivate(::ecore::EBoolean _isPrivate)
 
 void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
 {
-    ::xpand3::File_ptr _old_owner = m_owner;
+    if (m_owner)
+        m_owner->_setEContainer(AbstractDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
+    if (_owner)
+        _owner->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::File_ptr _old_owner = m_owner;
+#endif
     m_owner = _owner;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -125,12 +133,6 @@ void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_owner)
-        _old_owner->_setEContainer(AbstractDeclaration_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
-    m_owner->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
 }
 
 const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& AbstractDeclaration::getParams() const
@@ -151,8 +153,16 @@ const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& AbstractDec
 void AbstractDeclaration::setGuard(
         ::xpand3::expression::AbstractExpression_ptr _guard)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_guard = m_guard;
+    if (m_guard)
+        m_guard->_setEContainer(AbstractDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
+    if (_guard)
+        _guard->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_guard = m_guard;
+#endif
     m_guard = _guard;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -168,11 +178,5 @@ void AbstractDeclaration::setGuard(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_guard)
-        _old_guard->_setEContainer(AbstractDeclaration_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
-    m_guard->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
 }
 

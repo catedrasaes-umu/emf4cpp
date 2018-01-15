@@ -169,8 +169,10 @@ void PlatformEvent::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::core::KDMEntity::setName(_t0);
     }
         return;
     case ::kdm::platform::PlatformPackage::ABSTRACTPLATFORMELEMENT__SOURCE:
@@ -214,8 +216,10 @@ void PlatformEvent::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::platform::PlatformPackage::PLATFORMEVENT__KIND:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::platform::PlatformEvent::setKind(_t0);
     }
         return;
 

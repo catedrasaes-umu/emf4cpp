@@ -107,8 +107,9 @@ const ::ecorecpp::mapping::EList< ::company::Employee_ptr >& Department::getEmpl
 
 void Department::setManager(::company::Employee_ptr _manager)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::company::Employee_ptr _old_manager = m_manager;
-
+#endif
     m_manager = _manager;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -124,6 +125,5 @@ void Department::setManager(::company::Employee_ptr _manager)
         eNotify(&notification);
     }
 #endif
-
 }
 

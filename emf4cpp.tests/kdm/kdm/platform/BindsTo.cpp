@@ -72,8 +72,9 @@ BindsTo::~BindsTo()
 
 void BindsTo::setTo(::kdm::platform::ResourceType_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::platform::ResourceType_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void BindsTo::setTo(::kdm::platform::ResourceType_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::platform::ResourceType_ptr BindsTo::getFrom() const
@@ -99,8 +99,9 @@ void BindsTo::setTo(::kdm::platform::ResourceType_ptr _to)
 
 void BindsTo::setFrom(::kdm::platform::ResourceType_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::platform::ResourceType_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -116,6 +117,5 @@ void BindsTo::setFrom(::kdm::platform::ResourceType_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

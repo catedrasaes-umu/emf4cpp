@@ -175,8 +175,10 @@ void CatchUnit::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::core::KDMEntity::setName(_t0);
     }
         return;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__SOURCE:
@@ -208,8 +210,10 @@ void CatchUnit::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::action::ActionPackage::ACTIONELEMENT__KIND:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::action::ActionElement::setKind(_t0);
     }
         return;
     case ::kdm::action::ActionPackage::ACTIONELEMENT__CODEELEMENT:

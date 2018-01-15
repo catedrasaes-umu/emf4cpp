@@ -72,8 +72,9 @@ RestrictionOf::~RestrictionOf()
 
 void RestrictionOf::setTo(::kdm::data::ComplexContentType_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::ComplexContentType_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void RestrictionOf::setTo(::kdm::data::ComplexContentType_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::data::ComplexContentType_ptr RestrictionOf::getFrom() const
@@ -99,8 +99,9 @@ void RestrictionOf::setTo(::kdm::data::ComplexContentType_ptr _to)
 
 void RestrictionOf::setFrom(::kdm::data::ComplexContentType_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::ComplexContentType_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -116,6 +117,5 @@ void RestrictionOf::setFrom(::kdm::data::ComplexContentType_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

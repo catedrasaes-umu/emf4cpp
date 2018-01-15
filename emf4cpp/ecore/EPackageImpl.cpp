@@ -79,7 +79,8 @@ void EPackage::_initialize()
     if ((it = m_eClassifiersMap.find(_name)) != m_eClassifiersMap.end())
         return it->second;
 
-    throw std::logic_error(std::string("EPackage: EClassifier not found: ") + _name);
+    throw std::logic_error(
+            std::string("EPackage: EClassifier not found: ") + _name);
     /*PROTECTED REGION END*/
 }
 
@@ -156,20 +157,26 @@ void EPackage::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ENamedElement::setName(_t0);
     }
         return;
     case ::ecore::EcorePackage::EPACKAGE__NSURI:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_nsURI);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EPackage::setNsURI(_t0);
     }
         return;
     case ::ecore::EcorePackage::EPACKAGE__NSPREFIX:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_nsPrefix);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EPackage::setNsPrefix(_t0);
     }
         return;
     case ::ecore::EcorePackage::EPACKAGE__EFACTORYINSTANCE:

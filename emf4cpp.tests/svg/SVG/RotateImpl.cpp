@@ -102,20 +102,26 @@ void Rotate::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::ROTATE__ANGLE:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_angle);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Rotate::setAngle(_t0);
     }
         return;
     case ::SVG::SVGPackage::ROTATE__CX:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_cx);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Rotate::setCx(_t0);
     }
         return;
     case ::SVG::SVGPackage::ROTATE__CY:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_cy);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Rotate::setCy(_t0);
     }
         return;
 

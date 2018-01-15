@@ -104,9 +104,16 @@ void FileStatement::setOnce(::ecore::EBoolean _once)
 void FileStatement::setFileNameExpression(
         ::xpand3::expression::AbstractExpression_ptr _fileNameExpression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_fileNameExpression =
-            m_fileNameExpression;
+    if (m_fileNameExpression)
+        m_fileNameExpression->_setEContainer(FileStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
+    if (_fileNameExpression)
+        _fileNameExpression->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_fileNameExpression = m_fileNameExpression;
+#endif
     m_fileNameExpression = _fileNameExpression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -122,12 +129,6 @@ void FileStatement::setFileNameExpression(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_fileNameExpression)
-        _old_fileNameExpression->_setEContainer(FileStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
-    m_fileNameExpression->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
 }
 
 ::xpand3::Identifier_ptr FileStatement::getOutletNameIdentifier() const
@@ -138,8 +139,16 @@ void FileStatement::setFileNameExpression(
 void FileStatement::setOutletNameIdentifier(
         ::xpand3::Identifier_ptr _outletNameIdentifier)
 {
-    ::xpand3::Identifier_ptr _old_outletNameIdentifier = m_outletNameIdentifier;
+    if (m_outletNameIdentifier)
+        m_outletNameIdentifier->_setEContainer(FileStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
+    if (_outletNameIdentifier)
+        _outletNameIdentifier->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_outletNameIdentifier = m_outletNameIdentifier;
+#endif
     m_outletNameIdentifier = _outletNameIdentifier;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -155,11 +164,5 @@ void FileStatement::setOutletNameIdentifier(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_outletNameIdentifier)
-        _old_outletNameIdentifier->_setEContainer(FileStatement_ptr(),
-                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
-    m_outletNameIdentifier->_setEContainer(_this(),
-            ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
 }
 

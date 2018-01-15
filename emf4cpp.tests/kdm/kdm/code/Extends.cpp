@@ -72,8 +72,9 @@ Extends::~Extends()
 
 void Extends::setTo(::kdm::code::Datatype_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::Datatype_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void Extends::setTo(::kdm::code::Datatype_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::code::Datatype_ptr Extends::getFrom() const
@@ -99,8 +99,9 @@ void Extends::setTo(::kdm::code::Datatype_ptr _to)
 
 void Extends::setFrom(::kdm::code::Datatype_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::Datatype_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -116,6 +117,5 @@ void Extends::setFrom(::kdm::code::Datatype_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

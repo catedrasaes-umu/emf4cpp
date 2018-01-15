@@ -107,8 +107,10 @@ void Department::eSet(::ecore::EInt _featureID,
         return;
     case ::company::CompanyPackage::DEPARTMENT__NUMBER:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_number);
+                > ::fromAny(_newValue, _t0);
+        ::company::Department::setNumber(_t0);
     }
         return;
 

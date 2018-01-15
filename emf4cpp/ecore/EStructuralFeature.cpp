@@ -260,8 +260,9 @@ void EStructuralFeature::setDerived(::ecore::EBoolean _derived)
 void EStructuralFeature::basicsetEContainingClass(
         ::ecore::EClass_ptr _eContainingClass)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EClass_ptr _old_eContainingClass = m_eContainingClass;
-
+#endif
     m_eContainingClass = _eContainingClass;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -277,7 +278,6 @@ void EStructuralFeature::basicsetEContainingClass(
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EStructuralFeature::setEContainingClass(

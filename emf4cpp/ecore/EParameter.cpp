@@ -75,8 +75,9 @@ EParameter::~EParameter()
 
 void EParameter::basicsetEOperation(::ecore::EOperation_ptr _eOperation)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EOperation_ptr _old_eOperation = m_eOperation;
-
+#endif
     m_eOperation = _eOperation;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -92,7 +93,6 @@ void EParameter::basicsetEOperation(::ecore::EOperation_ptr _eOperation)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EParameter::setEOperation(::ecore::EOperation_ptr _eOperation)

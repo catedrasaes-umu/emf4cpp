@@ -83,8 +83,10 @@ void Node::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::CST::Element::setKind(_t0);
     }
         return;
     case ::CST::CSTPackage::NODE__CHILDREN:

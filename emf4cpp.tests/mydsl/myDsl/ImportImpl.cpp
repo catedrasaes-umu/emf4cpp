@@ -73,8 +73,10 @@ void Import::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::IMPORT__IMPORTURI:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_importURI);
+                > ::fromAny(_newValue, _t0);
+        ::myDsl::Import::setImportURI(_t0);
     }
         return;
 

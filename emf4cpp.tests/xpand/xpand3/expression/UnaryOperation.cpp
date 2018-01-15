@@ -71,8 +71,16 @@ UnaryOperation::~UnaryOperation()
 
 void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
 {
-    ::xpand3::Identifier_ptr _old_operator = m_operator;
+    if (m_operator)
+        m_operator->_setEContainer(UnaryOperation_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
+    if (_operator)
+        _operator->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_operator = m_operator;
+#endif
     m_operator = _operator;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -88,12 +96,6 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_operator)
-        _old_operator->_setEContainer(UnaryOperation_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
-    m_operator->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
 }
 
 ::xpand3::expression::AbstractExpression_ptr UnaryOperation::getOperand() const
@@ -104,8 +106,9 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
 void UnaryOperation::setOperand(
         ::xpand3::expression::AbstractExpression_ptr _operand)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::xpand3::expression::AbstractExpression_ptr _old_operand = m_operand;
-
+#endif
     m_operand = _operand;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -121,6 +124,5 @@ void UnaryOperation::setOperand(
         eNotify(&notification);
     }
 #endif
-
 }
 

@@ -128,8 +128,9 @@ const ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry_ptr >& EAnnot
 void EAnnotation::basicsetEModelElement(
         ::ecore::EModelElement_ptr _eModelElement)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EModelElement_ptr _old_eModelElement = m_eModelElement;
-
+#endif
     m_eModelElement = _eModelElement;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -145,7 +146,6 @@ void EAnnotation::basicsetEModelElement(
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EAnnotation::setEModelElement(::ecore::EModelElement_ptr _eModelElement)

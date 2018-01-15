@@ -72,8 +72,9 @@ ExitFlow::~ExitFlow()
 
 void ExitFlow::setTo(::kdm::action::ActionElement_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::action::ActionElement_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void ExitFlow::setTo(::kdm::action::ActionElement_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::action::ActionElement_ptr ExitFlow::getFrom() const
@@ -99,8 +99,9 @@ void ExitFlow::setTo(::kdm::action::ActionElement_ptr _to)
 
 void ExitFlow::setFrom(::kdm::action::ActionElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::action::ActionElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -116,6 +117,5 @@ void ExitFlow::setFrom(::kdm::action::ActionElement_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

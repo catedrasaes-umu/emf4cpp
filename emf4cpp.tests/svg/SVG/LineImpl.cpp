@@ -215,14 +215,18 @@ void Line::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::ELEMENT__FILL:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_fill);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setFill(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_viewBox);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setViewBox(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
@@ -236,8 +240,10 @@ void Line::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setIdentifier(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
@@ -250,8 +256,10 @@ void Line::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_stroke);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::GraphicalElement::setStroke(_t0);
     }
         return;
     case ::SVG::SVGPackage::LINE__BETWEEN:
@@ -265,14 +273,18 @@ void Line::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::LINE__MARKEREND:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_markerEnd);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Line::setMarkerEnd(_t0);
     }
         return;
     case ::SVG::SVGPackage::LINE__MARKERSTART:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_markerStart);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Line::setMarkerStart(_t0);
     }
         return;
 

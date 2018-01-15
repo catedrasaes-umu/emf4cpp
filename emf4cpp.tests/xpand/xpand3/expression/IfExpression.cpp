@@ -79,8 +79,16 @@ IfExpression::~IfExpression()
 void IfExpression::setCondition(
         ::xpand3::expression::AbstractExpression_ptr _condition)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+    if (m_condition)
+        m_condition->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
+    if (_condition)
+        _condition->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+#endif
     m_condition = _condition;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -96,12 +104,6 @@ void IfExpression::setCondition(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_condition)
-        _old_condition->_setEContainer(IfExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
-    m_condition->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
 }
 
 ::xpand3::expression::AbstractExpression_ptr IfExpression::getThenPart() const
@@ -112,8 +114,16 @@ void IfExpression::setCondition(
 void IfExpression::setThenPart(
         ::xpand3::expression::AbstractExpression_ptr _thenPart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+    if (m_thenPart)
+        m_thenPart->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
+    if (_thenPart)
+        _thenPart->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+#endif
     m_thenPart = _thenPart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -129,12 +139,6 @@ void IfExpression::setThenPart(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_thenPart)
-        _old_thenPart->_setEContainer(IfExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
-    m_thenPart->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
 }
 
 ::xpand3::expression::AbstractExpression_ptr IfExpression::getElsePart() const
@@ -145,8 +149,16 @@ void IfExpression::setThenPart(
 void IfExpression::setElsePart(
         ::xpand3::expression::AbstractExpression_ptr _elsePart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_elsePart = m_elsePart;
+    if (m_elsePart)
+        m_elsePart->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
+    if (_elsePart)
+        _elsePart->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_elsePart = m_elsePart;
+#endif
     m_elsePart = _elsePart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -162,11 +174,5 @@ void IfExpression::setElsePart(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_elsePart)
-        _old_elsePart->_setEContainer(IfExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
-    m_elsePart->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
 }
 

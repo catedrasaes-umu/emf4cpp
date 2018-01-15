@@ -190,8 +190,10 @@ void ValueList::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::core::KDMEntity::setName(_t0);
     }
         return;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__SOURCE:
@@ -232,14 +234,18 @@ void ValueList::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::code::CodePackage::DATAELEMENT__EXT:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_ext);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::code::DataElement::setExt(_t0);
     }
         return;
     case ::kdm::code::CodePackage::DATAELEMENT__SIZE:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_size);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::code::DataElement::setSize(_t0);
     }
         return;
     case ::kdm::code::CodePackage::DATAELEMENT__CODEELEMENT:

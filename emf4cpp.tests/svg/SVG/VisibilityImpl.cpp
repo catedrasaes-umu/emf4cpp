@@ -90,8 +90,10 @@ void Visibility::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::VISIBILITY__VISIBLE:
     {
+        ::PrimitiveTypes::Boolean _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Boolean
-                > ::fromAny(_newValue, m_visible);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Visibility::setVisible(_t0);
     }
         return;
 

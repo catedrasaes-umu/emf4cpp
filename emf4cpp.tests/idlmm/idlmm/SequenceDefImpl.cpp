@@ -113,14 +113,18 @@ void SequenceDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
+        ::idlmm::ETypeCode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
-                > ::fromAny(_newValue, m_typeCode);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::IDLType::setTypeCode(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::SEQUENCEDEF__BOUND:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_bound);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::SequenceDef::setBound(_t0);
     }
         return;
 

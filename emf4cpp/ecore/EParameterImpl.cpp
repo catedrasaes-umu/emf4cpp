@@ -135,32 +135,42 @@ void EParameter::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ENamedElement::setName(_t0);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ORDERED:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_ordered);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ETypedElement::setOrdered(_t0);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__UNIQUE:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_unique);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ETypedElement::setUnique(_t0);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__LOWERBOUND:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_lowerBound);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ETypedElement::setLowerBound(_t0);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__UPPERBOUND:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_upperBound);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ETypedElement::setUpperBound(_t0);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:

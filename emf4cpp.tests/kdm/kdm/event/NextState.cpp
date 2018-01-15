@@ -73,8 +73,9 @@ NextState::~NextState()
 
 void NextState::setTo(::kdm::event::State_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::event::State_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void NextState::setTo(::kdm::event::State_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::event::Transition_ptr NextState::getFrom() const
@@ -100,8 +100,9 @@ void NextState::setTo(::kdm::event::State_ptr _to)
 
 void NextState::setFrom(::kdm::event::Transition_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::event::Transition_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void NextState::setFrom(::kdm::event::Transition_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

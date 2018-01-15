@@ -73,8 +73,9 @@ LeftHand::~LeftHand()
 
 void LeftHand::basicsetRightee(::eopposite::RightHand_ptr _rightee)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::eopposite::RightHand_ptr _old_rightee = m_rightee;
-
+#endif
     m_rightee = _rightee;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void LeftHand::basicsetRightee(::eopposite::RightHand_ptr _rightee)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void LeftHand::setRightee(::eopposite::RightHand_ptr _rightee)
@@ -125,8 +125,9 @@ void LeftHand::setRightee(::eopposite::RightHand_ptr _rightee)
 void LeftHand::basicsetRightMultiple(
         ::eopposite::RightMultiple_ptr _rightMultiple)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::eopposite::RightMultiple_ptr _old_rightMultiple = m_rightMultiple;
-
+#endif
     m_rightMultiple = _rightMultiple;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -142,7 +143,6 @@ void LeftHand::basicsetRightMultiple(
         eNotify(&notification);
     }
 #endif
-
 }
 
 void LeftHand::setRightMultiple(::eopposite::RightMultiple_ptr _rightMultiple)

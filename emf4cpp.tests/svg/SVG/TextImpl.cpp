@@ -227,14 +227,18 @@ void Text::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::ELEMENT__FILL:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_fill);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setFill(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_viewBox);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setViewBox(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
@@ -248,8 +252,10 @@ void Text::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setIdentifier(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
@@ -262,38 +268,50 @@ void Text::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_stroke);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::GraphicalElement::setStroke(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXTELEMENT__ROTATE:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_rotate);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::TextElement::setRotate(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXTELEMENT__TEXTLENGTH:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_textLength);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::TextElement::setTextLength(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXTELEMENT__FONTSIZE:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_fontSize);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::TextElement::setFontSize(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXT__LENGTHADJUST:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_lengthAdjust);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Text::setLengthAdjust(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXT__CONTENT:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_content);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Text::setContent(_t0);
     }
         return;
 

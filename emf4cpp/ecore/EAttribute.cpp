@@ -97,8 +97,9 @@ void EAttribute::setID(::ecore::EBoolean _iD)
 
 void EAttribute::setEAttributeType(::ecore::EDataType_ptr _eAttributeType)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EDataType_ptr _old_eAttributeType = m_eAttributeType;
-
+#endif
     m_eAttributeType = _eAttributeType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -114,6 +115,5 @@ void EAttribute::setEAttributeType(::ecore::EDataType_ptr _eAttributeType)
         eNotify(&notification);
     }
 #endif
-
 }
 

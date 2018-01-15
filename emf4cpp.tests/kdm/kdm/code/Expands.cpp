@@ -72,8 +72,9 @@ Expands::~Expands()
 
 void Expands::setTo(::kdm::code::PreprocessorDirective_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::PreprocessorDirective_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void Expands::setTo(::kdm::code::PreprocessorDirective_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::code::PreprocessorDirective_ptr Expands::getFrom() const
@@ -99,8 +99,9 @@ void Expands::setTo(::kdm::code::PreprocessorDirective_ptr _to)
 
 void Expands::setFrom(::kdm::code::PreprocessorDirective_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::PreprocessorDirective_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -116,6 +117,5 @@ void Expands::setFrom(::kdm::code::PreprocessorDirective_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

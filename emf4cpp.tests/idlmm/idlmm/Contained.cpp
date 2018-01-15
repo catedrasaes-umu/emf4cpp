@@ -175,8 +175,9 @@ void Contained::setAbsoluteName(::ecore::EString const& _absoluteName)
 
 void Contained::basicsetDefinedIn(::idlmm::Container_ptr _definedIn)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::idlmm::Container_ptr _old_definedIn = m_definedIn;
-
+#endif
     m_definedIn = _definedIn;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -192,7 +193,6 @@ void Contained::basicsetDefinedIn(::idlmm::Container_ptr _definedIn)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void Contained::setDefinedIn(::idlmm::Container_ptr _definedIn)

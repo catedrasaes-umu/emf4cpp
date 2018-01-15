@@ -49,6 +49,9 @@ EObject::EObject()
     m_eContainer = nullptr;
     m_eContainingFeature = nullptr;
     m_eResource = nullptr;
+
+    m_eAdapters.reset(
+            new ::ecorecpp::mapping::EListImpl< ::ecorecpp::notify::Adapter_ptr >());
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API

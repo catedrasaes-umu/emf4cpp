@@ -81,8 +81,9 @@ DefinedType::~DefinedType()
 
 void DefinedType::setType(::kdm::code::Datatype_ptr _type)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::Datatype_ptr _old_type = m_type;
-
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -98,7 +99,6 @@ void DefinedType::setType(::kdm::code::Datatype_ptr _type)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::code::Datatype_ptr DefinedType::getCodeElement() const
@@ -108,8 +108,16 @@ void DefinedType::setType(::kdm::code::Datatype_ptr _type)
 
 void DefinedType::setCodeElement(::kdm::code::Datatype_ptr _codeElement)
 {
-    ::kdm::code::Datatype_ptr _old_codeElement = m_codeElement;
+    if (m_codeElement)
+        m_codeElement->_setEContainer(DefinedType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
+    if (_codeElement)
+        _codeElement->_setEContainer(_this(),
+                ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::kdm::code::Datatype_ptr _old_codeElement = m_codeElement;
+#endif
     m_codeElement = _codeElement;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -125,11 +133,5 @@ void DefinedType::setCodeElement(::kdm::code::Datatype_ptr _codeElement)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_codeElement)
-        _old_codeElement->_setEContainer(DefinedType_ptr(),
-                ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
-    m_codeElement->_setEContainer(_this(),
-            ::kdm::code::CodePackage::_instance()->getDefinedType__codeElement());
 }
 

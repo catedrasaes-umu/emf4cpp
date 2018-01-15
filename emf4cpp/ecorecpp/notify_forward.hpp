@@ -29,8 +29,8 @@ namespace notify
 typedef ::ecore::EObject Notifier;
 using Notifier_ptr = ::ecore::EObject_ptr;
 
-typedef ::ecore::EObject Adapter;
-using Adapter_ptr = ::ecore::EObject_ptr;
+class Adapter;
+using Adapter_ptr = Adapter*;
 
 class Notification;
 typedef Notification * Notification_ptr;

@@ -109,8 +109,16 @@ void ArrayType::setSize(::kdm::core::Integer _size)
 
 void ArrayType::setIndexUnit(::kdm::code::IndexUnit_ptr _indexUnit)
 {
-    ::kdm::code::IndexUnit_ptr _old_indexUnit = m_indexUnit;
+    if (m_indexUnit)
+        m_indexUnit->_setEContainer(ArrayType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
+    if (_indexUnit)
+        _indexUnit->_setEContainer(_this(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::kdm::code::IndexUnit_ptr _old_indexUnit = m_indexUnit;
+#endif
     m_indexUnit = _indexUnit;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -126,11 +134,5 @@ void ArrayType::setIndexUnit(::kdm::code::IndexUnit_ptr _indexUnit)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_indexUnit)
-        _old_indexUnit->_setEContainer(ArrayType_ptr(),
-                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
-    m_indexUnit->_setEContainer(_this(),
-            ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
 }
 

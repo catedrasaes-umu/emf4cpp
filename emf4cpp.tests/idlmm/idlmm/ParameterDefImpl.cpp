@@ -112,14 +112,18 @@ void ParameterDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::PARAMETERDEF__IDENTIFIER:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::ParameterDef::setIdentifier(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::PARAMETERDEF__DIRECTION:
     {
+        ::idlmm::ParameterMode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ParameterMode
-                > ::fromAny(_newValue, m_direction);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::ParameterDef::setDirection(_t0);
     }
         return;
 

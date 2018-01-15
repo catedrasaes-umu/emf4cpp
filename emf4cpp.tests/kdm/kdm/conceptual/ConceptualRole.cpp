@@ -78,9 +78,9 @@ ConceptualRole::~ConceptualRole()
 void ConceptualRole::setConceptualElement(
         ::kdm::conceptual::AbstractConceptualElement_ptr _conceptualElement)
 {
-    ::kdm::conceptual::AbstractConceptualElement_ptr _old_conceptualElement =
-            m_conceptualElement;
-
+#ifdef ECORECPP_NOTIFICATION_API
+    ::kdm::conceptual::AbstractConceptualElement_ptr _old_conceptualElement = m_conceptualElement;
+#endif
     m_conceptualElement = _conceptualElement;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -96,6 +96,5 @@ void ConceptualRole::setConceptualElement(
         eNotify(&notification);
     }
 #endif
-
 }
 

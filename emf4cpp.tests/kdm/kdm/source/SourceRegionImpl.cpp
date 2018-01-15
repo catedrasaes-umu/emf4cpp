@@ -151,38 +151,50 @@ void SourceRegion::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_startLine);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setStartLine(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTPOSITION:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_startPosition);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setStartPosition(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDLINE:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_endLine);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setEndLine(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDPOSITION:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_endPosition);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setEndPosition(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__LANGUAGE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_language);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setLanguage(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__PATH:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_path);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setPath(_t0);
     }
         return;
 

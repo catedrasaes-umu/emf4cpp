@@ -96,14 +96,18 @@ void Translate::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::TRANSLATE__TX:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_tx);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Translate::setTx(_t0);
     }
         return;
     case ::SVG::SVGPackage::TRANSLATE__TY:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_ty);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Translate::setTy(_t0);
     }
         return;
 

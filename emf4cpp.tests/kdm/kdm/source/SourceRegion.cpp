@@ -225,8 +225,9 @@ void SourceRegion::setPath(::kdm::core::String _path)
 
 void SourceRegion::setFile(::kdm::source::SourceFile_ptr _file)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::source::SourceFile_ptr _old_file = m_file;
-
+#endif
     m_file = _file;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -242,6 +243,5 @@ void SourceRegion::setFile(::kdm::source::SourceFile_ptr _file)
         eNotify(&notification);
     }
 #endif
-
 }
 

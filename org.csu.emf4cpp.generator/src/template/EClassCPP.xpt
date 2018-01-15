@@ -228,8 +228,16 @@ using namespace ::«EPackage.getFQN()»;
 «ref.getSetCPPSignature(name+"::")» 
        «ENDIF-»
 {
+    «IF ref.containment-»
+        if («ref.getMemberName()»)
+            «ref.getMemberName()»->_setEContainer(«name»_ptr(), «EPackage.getFeatureGetMemberCall(ref)»);
+        if (_«ref.name»)
+            _«ref.name»->_setEContainer(_this(), «EPackage.getFeatureGetMemberCall(ref)»);
+    
+    «ENDIF-»
+#ifdef ECORECPP_NOTIFICATION_API
     «ref.getPtr()» _old_«ref.name» = «ref.getRefMemberName()»;
-
+#endif
     «ref.getRefMemberName()» = _«ref.name»;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -245,12 +253,6 @@ using namespace ::«EPackage.getFQN()»;
         eNotify(&notification);
     }
 #endif
-
-    «IF ref.containment-»
-        if (_old_«ref.name»)
-            _old_«ref.name»->_setEContainer(«name»_ptr(), «EPackage.getFeatureGetMemberCall(ref)»);
-        «ref.getRefMemberName()»->_setEContainer(_this(), «EPackage.getFeatureGetMemberCall(ref)»);
-    «ENDIF-»
 }
 
     «IF ref.EOpposite != null-»

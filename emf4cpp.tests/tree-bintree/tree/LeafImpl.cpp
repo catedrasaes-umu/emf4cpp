@@ -80,8 +80,10 @@ void Leaf::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::tree::TreePackage::TREENODE__DATA:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_data);
+                > ::fromAny(_newValue, _t0);
+        ::tree::TreeNode::setData(_t0);
     }
         return;
     case ::tree::TreePackage::TREENODE__PARENT:

@@ -69,8 +69,9 @@ ExtendedValue::~ExtendedValue()
 
 void ExtendedValue::setTag(::kdm::kdm::TagDefinition_ptr _tag)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::kdm::TagDefinition_ptr _old_tag = m_tag;
-
+#endif
     m_tag = _tag;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -86,6 +87,5 @@ void ExtendedValue::setTag(::kdm::kdm::TagDefinition_ptr _tag)
         eNotify(&notification);
     }
 #endif
-
 }
 

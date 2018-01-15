@@ -90,8 +90,10 @@ void ENamedElement::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ENamedElement::setName(_t0);
     }
         return;
 

@@ -151,8 +151,9 @@ void EEnumLiteral::setLiteral(::ecore::EString const& _literal)
 
 void EEnumLiteral::basicsetEEnum(::ecore::EEnum_ptr _eEnum)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EEnum_ptr _old_eEnum = m_eEnum;
-
+#endif
     m_eEnum = _eEnum;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -168,7 +169,6 @@ void EEnumLiteral::basicsetEEnum(::ecore::EEnum_ptr _eEnum)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)

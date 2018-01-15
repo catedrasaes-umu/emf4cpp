@@ -111,26 +111,34 @@ void ModuleDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setIdentifier(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_repositoryId);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setRepositoryId(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_version);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setVersion(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_absoluteName);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setAbsoluteName(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
@@ -153,8 +161,10 @@ void ModuleDef::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::MODULEDEF__PREFIX:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_prefix);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::ModuleDef::setPrefix(_t0);
     }
         return;
 

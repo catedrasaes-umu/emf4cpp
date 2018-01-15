@@ -80,8 +80,9 @@ SvgFile::~SvgFile()
 
 void SvgFile::basicsetTag(::SVG::Svg_ptr _tag)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::SVG::Svg_ptr _old_tag = m_tag;
-
+#endif
     m_tag = _tag;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -97,7 +98,6 @@ void SvgFile::basicsetTag(::SVG::Svg_ptr _tag)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void SvgFile::setTag(::SVG::Svg_ptr _tag)

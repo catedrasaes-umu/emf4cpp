@@ -176,8 +176,10 @@ void RangeType::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::core::KDMEntity::setName(_t0);
     }
         return;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__SOURCE:
@@ -218,14 +220,18 @@ void RangeType::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::code::CodePackage::RANGETYPE__LOWER:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_lower);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::code::RangeType::setLower(_t0);
     }
         return;
     case ::kdm::code::CodePackage::RANGETYPE__UPPER:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_upper);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::code::RangeType::setUpper(_t0);
     }
         return;
 

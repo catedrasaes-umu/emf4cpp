@@ -209,14 +209,18 @@ void Rect::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::ELEMENT__FILL:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_fill);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setFill(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_viewBox);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setViewBox(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
@@ -230,8 +234,10 @@ void Rect::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setIdentifier(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
@@ -244,20 +250,26 @@ void Rect::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_stroke);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::GraphicalElement::setStroke(_t0);
     }
         return;
     case ::SVG::SVGPackage::RECT__RX:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_rx);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Rect::setRx(_t0);
     }
         return;
     case ::SVG::SVGPackage::RECT__RY:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_ry);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Rect::setRy(_t0);
     }
         return;
 

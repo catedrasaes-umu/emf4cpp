@@ -83,8 +83,16 @@ JavaExtension::~JavaExtension()
 
 void JavaExtension::setJavaType(::xpand3::Identifier_ptr _javaType)
 {
-    ::xpand3::Identifier_ptr _old_javaType = m_javaType;
+    if (m_javaType)
+        m_javaType->_setEContainer(JavaExtension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaType());
+    if (_javaType)
+        _javaType->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaType());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_javaType = m_javaType;
+#endif
     m_javaType = _javaType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -100,12 +108,6 @@ void JavaExtension::setJavaType(::xpand3::Identifier_ptr _javaType)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_javaType)
-        _old_javaType->_setEContainer(JavaExtension_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaType());
-    m_javaType->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaType());
 }
 
 ::xpand3::Identifier_ptr JavaExtension::getJavaMethod() const
@@ -115,8 +117,16 @@ void JavaExtension::setJavaType(::xpand3::Identifier_ptr _javaType)
 
 void JavaExtension::setJavaMethod(::xpand3::Identifier_ptr _javaMethod)
 {
-    ::xpand3::Identifier_ptr _old_javaMethod = m_javaMethod;
+    if (m_javaMethod)
+        m_javaMethod->_setEContainer(JavaExtension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaMethod());
+    if (_javaMethod)
+        _javaMethod->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaMethod());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_javaMethod = m_javaMethod;
+#endif
     m_javaMethod = _javaMethod;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -132,12 +142,6 @@ void JavaExtension::setJavaMethod(::xpand3::Identifier_ptr _javaMethod)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_javaMethod)
-        _old_javaMethod->_setEContainer(JavaExtension_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaMethod());
-    m_javaMethod->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getJavaExtension__javaMethod());
 }
 
 const ::ecorecpp::mapping::EList< ::xpand3::Identifier_ptr >& JavaExtension::getJavaParamTypes() const

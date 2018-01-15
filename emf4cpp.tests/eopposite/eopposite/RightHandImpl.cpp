@@ -82,8 +82,10 @@ void RightHand::eSet(::ecore::EInt _featureID,
     {
     case ::eopposite::EoppositePackage::NAMEDOBJECT__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::eopposite::NamedObject::setName(_t0);
     }
         return;
     case ::eopposite::EoppositePackage::RIGHTHAND__LEFTEE:

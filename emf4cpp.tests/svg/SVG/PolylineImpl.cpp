@@ -226,14 +226,18 @@ void Polyline::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::ELEMENT__FILL:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_fill);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setFill(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_viewBox);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setViewBox(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
@@ -247,8 +251,10 @@ void Polyline::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setIdentifier(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
@@ -261,8 +267,10 @@ void Polyline::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_stroke);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::GraphicalElement::setStroke(_t0);
     }
         return;
     case ::SVG::SVGPackage::POLYLINE__WAYPOINTS:
@@ -276,20 +284,26 @@ void Polyline::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::POLYLINE__STROKEDASHARRAY:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_strokeDashArray);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Polyline::setStrokeDashArray(_t0);
     }
         return;
     case ::SVG::SVGPackage::POLYLINE__MARKEREND:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_markerEnd);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Polyline::setMarkerEnd(_t0);
     }
         return;
     case ::SVG::SVGPackage::POLYLINE__MARKERSTART:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_markerStart);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Polyline::setMarkerStart(_t0);
     }
         return;
 

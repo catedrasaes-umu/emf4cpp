@@ -130,14 +130,18 @@ void Stereotype::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::kdm::KdmPackage::STEREOTYPE__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Stereotype::setName(_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::STEREOTYPE__TYPE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_type);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Stereotype::setType(_t0);
     }
         return;
 

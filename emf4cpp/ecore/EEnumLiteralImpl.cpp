@@ -115,26 +115,34 @@ void EEnumLiteral::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ENamedElement::setName(_t0);
     }
         return;
     case ::ecore::EcorePackage::EENUMLITERAL__VALUE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EEnumLiteral::setValue(_t0);
     }
         return;
     case ::ecore::EcorePackage::EENUMLITERAL__INSTANCE:
     {
+        ::ecore::EEnumerator _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EEnumerator
-                > ::fromAny(_newValue, m_instance);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EEnumLiteral::setInstance(_t0);
     }
         return;
     case ::ecore::EcorePackage::EENUMLITERAL__LITERAL:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_literal);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EEnumLiteral::setLiteral(_t0);
     }
         return;
     case ::ecore::EcorePackage::EENUMLITERAL__EENUM:

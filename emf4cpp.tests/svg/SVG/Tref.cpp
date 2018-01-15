@@ -74,8 +74,9 @@ Tref::~Tref()
 
 void Tref::setXlinkHref(::SVG::TextElement_ptr _xlinkHref)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::SVG::TextElement_ptr _old_xlinkHref = m_xlinkHref;
-
+#endif
     m_xlinkHref = _xlinkHref;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -91,6 +92,5 @@ void Tref::setXlinkHref(::SVG::TextElement_ptr _xlinkHref)
         eNotify(&notification);
     }
 #endif
-
 }
 

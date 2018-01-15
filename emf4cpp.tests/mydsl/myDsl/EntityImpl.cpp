@@ -92,8 +92,10 @@ void Entity::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::TYPE__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::myDsl::Type::setName(_t0);
     }
         return;
     case ::myDsl::MyDslPackage::ENTITY__EXTENDS:

@@ -117,20 +117,26 @@ void Audit::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::kdm::KdmPackage::AUDIT__DESCRIPTION:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_description);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Audit::setDescription(_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::AUDIT__AUTHOR:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_author);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Audit::setAuthor(_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::AUDIT__DATE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_date);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Audit::setDate(_t0);
     }
         return;
 

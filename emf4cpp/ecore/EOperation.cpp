@@ -100,8 +100,9 @@ EOperation::~EOperation()
 
 void EOperation::basicsetEContainingClass(::ecore::EClass_ptr _eContainingClass)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EClass_ptr _old_eContainingClass = m_eContainingClass;
-
+#endif
     m_eContainingClass = _eContainingClass;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,7 +118,6 @@ void EOperation::basicsetEContainingClass(::ecore::EClass_ptr _eContainingClass)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EOperation::setEContainingClass(::ecore::EClass_ptr _eContainingClass)

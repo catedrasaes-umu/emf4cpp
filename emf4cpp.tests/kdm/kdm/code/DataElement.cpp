@@ -135,8 +135,9 @@ void DataElement::setSize(::kdm::core::Integer _size)
 
 void DataElement::setType(::kdm::code::Datatype_ptr _type)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::Datatype_ptr _old_type = m_type;
-
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -152,7 +153,6 @@ void DataElement::setType(::kdm::code::Datatype_ptr _type)
         eNotify(&notification);
     }
 #endif
-
 }
 
 const ::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >& DataElement::getCodeElement() const

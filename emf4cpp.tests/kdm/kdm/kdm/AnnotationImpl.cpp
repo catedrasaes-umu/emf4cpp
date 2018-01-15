@@ -105,8 +105,10 @@ void Annotation::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::kdm::KdmPackage::ANNOTATION__TEXT:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_text);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Annotation::setText(_t0);
     }
         return;
 

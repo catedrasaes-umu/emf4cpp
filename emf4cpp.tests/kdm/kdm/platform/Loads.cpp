@@ -73,8 +73,9 @@ Loads::~Loads()
 
 void Loads::setTo(::kdm::platform::DeployedComponent_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::platform::DeployedComponent_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void Loads::setTo(::kdm::platform::DeployedComponent_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::action::ActionElement_ptr Loads::getFrom() const
@@ -100,8 +100,9 @@ void Loads::setTo(::kdm::platform::DeployedComponent_ptr _to)
 
 void Loads::setFrom(::kdm::action::ActionElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::action::ActionElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void Loads::setFrom(::kdm::action::ActionElement_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

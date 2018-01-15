@@ -76,8 +76,16 @@ FeatureCall::~FeatureCall()
 void FeatureCall::setTarget(
         ::xpand3::expression::AbstractExpression_ptr _target)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+    if (m_target)
+        m_target->_setEContainer(FeatureCall_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
+    if (_target)
+        _target->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+#endif
     m_target = _target;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -93,12 +101,6 @@ void FeatureCall::setTarget(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_target)
-        _old_target->_setEContainer(FeatureCall_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
-    m_target->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
 }
 
 ::xpand3::Identifier_ptr FeatureCall::getName() const
@@ -108,8 +110,16 @@ void FeatureCall::setTarget(
 
 void FeatureCall::setName(::xpand3::Identifier_ptr _name)
 {
-    ::xpand3::Identifier_ptr _old_name = m_name;
+    if (m_name)
+        m_name->_setEContainer(FeatureCall_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
+    if (_name)
+        _name->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_name = m_name;
+#endif
     m_name = _name;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -125,11 +135,5 @@ void FeatureCall::setName(::xpand3::Identifier_ptr _name)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_name)
-        _old_name->_setEContainer(FeatureCall_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
-    m_name->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
 }
 

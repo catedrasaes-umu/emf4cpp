@@ -104,8 +104,16 @@ void Extension::setCached(::ecore::EBoolean _cached)
 
 void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_body = m_body;
+    if (m_body)
+        m_body->_setEContainer(Extension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
+    if (_body)
+        _body->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_body = m_body;
+#endif
     m_body = _body;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -121,12 +129,6 @@ void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_body)
-        _old_body->_setEContainer(Extension_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
-    m_body->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
 }
 
 ::xpand3::Identifier_ptr Extension::getReturnType() const
@@ -136,8 +138,16 @@ void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
 
 void Extension::setReturnType(::xpand3::Identifier_ptr _returnType)
 {
-    ::xpand3::Identifier_ptr _old_returnType = m_returnType;
+    if (m_returnType)
+        m_returnType->_setEContainer(Extension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
+    if (_returnType)
+        _returnType->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_returnType = m_returnType;
+#endif
     m_returnType = _returnType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -153,11 +163,5 @@ void Extension::setReturnType(::xpand3::Identifier_ptr _returnType)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_returnType)
-        _old_returnType->_setEContainer(Extension_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
-    m_returnType->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
 }
 

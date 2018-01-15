@@ -157,8 +157,10 @@ void InventoryItem::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::core::KDMEntity::setName(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::ABSTRACTINVENTORYELEMENT__INVENTORYRELATION:
@@ -173,14 +175,18 @@ void InventoryItem::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::source::SourcePackage::INVENTORYITEM__VERSION:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_version);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::InventoryItem::setVersion(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::INVENTORYITEM__PATH:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_path);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::InventoryItem::setPath(_t0);
     }
         return;
 

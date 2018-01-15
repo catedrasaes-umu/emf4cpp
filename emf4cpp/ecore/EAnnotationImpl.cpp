@@ -121,8 +121,10 @@ void EAnnotation::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::EANNOTATION__SOURCE:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_source);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EAnnotation::setSource(_t0);
     }
         return;
     case ::ecore::EcorePackage::EANNOTATION__DETAILS:

@@ -71,8 +71,16 @@ Typed::~Typed()
 
 void Typed::setContainedType(::idlmm::IDLType_ptr _containedType)
 {
-    ::idlmm::IDLType_ptr _old_containedType = m_containedType;
+    if (m_containedType)
+        m_containedType->_setEContainer(Typed_ptr(),
+                ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
+    if (_containedType)
+        _containedType->_setEContainer(_this(),
+                ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::idlmm::IDLType_ptr _old_containedType = m_containedType;
+#endif
     m_containedType = _containedType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -88,12 +96,6 @@ void Typed::setContainedType(::idlmm::IDLType_ptr _containedType)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_containedType)
-        _old_containedType->_setEContainer(Typed_ptr(),
-                ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
-    m_containedType->_setEContainer(_this(),
-            ::idlmm::IdlmmPackage::_instance()->getTyped__containedType());
 }
 
 ::idlmm::TypedefDef_ptr Typed::getSharedType() const
@@ -103,8 +105,9 @@ void Typed::setContainedType(::idlmm::IDLType_ptr _containedType)
 
 void Typed::setSharedType(::idlmm::TypedefDef_ptr _sharedType)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::idlmm::TypedefDef_ptr _old_sharedType = m_sharedType;
-
+#endif
     m_sharedType = _sharedType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -120,6 +123,5 @@ void Typed::setSharedType(::idlmm::TypedefDef_ptr _sharedType)
         eNotify(&notification);
     }
 #endif
-
 }
 

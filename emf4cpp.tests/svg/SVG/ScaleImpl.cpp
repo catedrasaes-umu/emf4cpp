@@ -96,14 +96,18 @@ void Scale::eSet(::ecore::EInt _featureID,
         return;
     case ::SVG::SVGPackage::SCALE__SX:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_sx);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Scale::setSx(_t0);
     }
         return;
     case ::SVG::SVGPackage::SCALE__SY:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_sy);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Scale::setSy(_t0);
     }
         return;
 

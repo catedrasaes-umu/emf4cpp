@@ -73,8 +73,9 @@ InstanceOf::~InstanceOf()
 
 void InstanceOf::setTo(::kdm::code::TemplateUnit_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::TemplateUnit_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void InstanceOf::setTo(::kdm::code::TemplateUnit_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::code::AbstractCodeElement_ptr InstanceOf::getFrom() const
@@ -100,8 +100,9 @@ void InstanceOf::setTo(::kdm::code::TemplateUnit_ptr _to)
 
 void InstanceOf::setFrom(::kdm::code::AbstractCodeElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::AbstractCodeElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void InstanceOf::setFrom(::kdm::code::AbstractCodeElement_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

@@ -83,8 +83,10 @@ void Company::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::COMPANY__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::company::Company::setName(_t0);
     }
         return;
     case ::company::CompanyPackage::COMPANY__DEPARTMENTS:

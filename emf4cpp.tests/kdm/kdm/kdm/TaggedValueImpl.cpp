@@ -121,8 +121,10 @@ void TaggedValue::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::TaggedValue::setValue(_t0);
     }
         return;
 

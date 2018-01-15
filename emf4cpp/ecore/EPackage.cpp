@@ -153,8 +153,9 @@ void EPackage::setNsPrefix(::ecore::EString const& _nsPrefix)
 
 void EPackage::basicsetEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EFactory_ptr _old_eFactoryInstance = m_eFactoryInstance;
-
+#endif
     m_eFactoryInstance = _eFactoryInstance;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -170,7 +171,6 @@ void EPackage::basicsetEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EPackage::setEFactoryInstance(::ecore::EFactory_ptr _eFactoryInstance)
@@ -224,8 +224,9 @@ const ::ecorecpp::mapping::EList< ::ecore::EPackage_ptr >& EPackage::getESubpack
 
 void EPackage::basicsetESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EPackage_ptr _old_eSuperPackage = m_eSuperPackage;
-
+#endif
     m_eSuperPackage = _eSuperPackage;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -241,7 +242,6 @@ void EPackage::basicsetESuperPackage(::ecore::EPackage_ptr _eSuperPackage)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void EPackage::setESuperPackage(::ecore::EPackage_ptr _eSuperPackage)

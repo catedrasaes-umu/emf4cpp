@@ -295,8 +295,9 @@ const ::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& EClass::getEAllSuperTyp
 
 void EClass::setEIDAttribute(::ecore::EAttribute_ptr _eIDAttribute)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EAttribute_ptr _old_eIDAttribute = m_eIDAttribute;
-
+#endif
     m_eIDAttribute = _eIDAttribute;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -312,7 +313,6 @@ void EClass::setEIDAttribute(::ecore::EAttribute_ptr _eIDAttribute)
         eNotify(&notification);
     }
 #endif
-
 }
 
 const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& EClass::getEStructuralFeatures() const

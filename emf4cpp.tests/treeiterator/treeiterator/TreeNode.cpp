@@ -112,8 +112,16 @@ const ::ecorecpp::mapping::EList< ::treeiterator::TreeNode_ptr >& TreeNode::getC
 
 void TreeNode::setLeaf(::treeiterator::Leaf_ptr _leaf)
 {
-    ::treeiterator::Leaf_ptr _old_leaf = m_leaf;
+    if (m_leaf)
+        m_leaf->_setEContainer(TreeNode_ptr(),
+                ::treeiterator::TreeiteratorPackage::_instance()->getTreeNode__leaf());
+    if (_leaf)
+        _leaf->_setEContainer(_this(),
+                ::treeiterator::TreeiteratorPackage::_instance()->getTreeNode__leaf());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::treeiterator::Leaf_ptr _old_leaf = m_leaf;
+#endif
     m_leaf = _leaf;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -129,11 +137,5 @@ void TreeNode::setLeaf(::treeiterator::Leaf_ptr _leaf)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_leaf)
-        _old_leaf->_setEContainer(TreeNode_ptr(),
-                ::treeiterator::TreeiteratorPackage::_instance()->getTreeNode__leaf());
-    m_leaf->_setEContainer(_this(),
-            ::treeiterator::TreeiteratorPackage::_instance()->getTreeNode__leaf());
 }
 

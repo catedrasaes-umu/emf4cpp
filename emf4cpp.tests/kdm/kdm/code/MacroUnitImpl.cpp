@@ -169,8 +169,10 @@ void MacroUnit::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::core::CorePackage::KDMENTITY__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::core::KDMEntity::setName(_t0);
     }
         return;
     case ::kdm::code::CodePackage::ABSTRACTCODEELEMENT__SOURCE:
@@ -211,8 +213,10 @@ void MacroUnit::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::code::CodePackage::MACROUNIT__KIND:
     {
+        ::kdm::code::MacroKind _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::code::MacroKind
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::code::MacroUnit::setKind(_t0);
     }
         return;
 

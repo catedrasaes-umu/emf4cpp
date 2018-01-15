@@ -173,8 +173,10 @@ void KDMFramework::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::KDMFramework::setName(_t0);
     }
         return;
 

@@ -127,8 +127,10 @@ void BinTreeNode::eSet(::ecore::EInt _featureID,
         return;
     case ::bintree::BintreePackage::BINTREENODE__DATA:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_data);
+                > ::fromAny(_newValue, _t0);
+        ::bintree::BinTreeNode::setData(_t0);
     }
         return;
 

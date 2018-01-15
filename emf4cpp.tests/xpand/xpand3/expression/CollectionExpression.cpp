@@ -77,8 +77,16 @@ CollectionExpression::~CollectionExpression()
 void CollectionExpression::setClosure(
         ::xpand3::expression::AbstractExpression_ptr _closure)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_closure = m_closure;
+    if (m_closure)
+        m_closure->_setEContainer(CollectionExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
+    if (_closure)
+        _closure->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_closure = m_closure;
+#endif
     m_closure = _closure;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -94,12 +102,6 @@ void CollectionExpression::setClosure(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_closure)
-        _old_closure->_setEContainer(CollectionExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
-    m_closure->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
 }
 
 ::xpand3::Identifier_ptr CollectionExpression::getEleName() const
@@ -109,8 +111,16 @@ void CollectionExpression::setClosure(
 
 void CollectionExpression::setEleName(::xpand3::Identifier_ptr _eleName)
 {
-    ::xpand3::Identifier_ptr _old_eleName = m_eleName;
+    if (m_eleName)
+        m_eleName->_setEContainer(CollectionExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
+    if (_eleName)
+        _eleName->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_eleName = m_eleName;
+#endif
     m_eleName = _eleName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -126,11 +136,5 @@ void CollectionExpression::setEleName(::xpand3::Identifier_ptr _eleName)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_eleName)
-        _old_eleName->_setEContainer(CollectionExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
-    m_eleName->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
 }
 

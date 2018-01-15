@@ -72,8 +72,9 @@ UIFlow::~UIFlow()
 
 void UIFlow::setTo(::kdm::ui::AbstractUIElement_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::ui::AbstractUIElement_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void UIFlow::setTo(::kdm::ui::AbstractUIElement_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::ui::AbstractUIElement_ptr UIFlow::getFrom() const
@@ -99,8 +99,9 @@ void UIFlow::setTo(::kdm::ui::AbstractUIElement_ptr _to)
 
 void UIFlow::setFrom(::kdm::ui::AbstractUIElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::ui::AbstractUIElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -116,6 +117,5 @@ void UIFlow::setFrom(::kdm::ui::AbstractUIElement_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

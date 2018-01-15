@@ -70,8 +70,9 @@ TaggedRef::~TaggedRef()
 
 void TaggedRef::setReference(::kdm::core::ModelElement_ptr _reference)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::ModelElement_ptr _old_reference = m_reference;
-
+#endif
     m_reference = _reference;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -87,6 +88,5 @@ void TaggedRef::setReference(::kdm::core::ModelElement_ptr _reference)
         eNotify(&notification);
     }
 #endif
-
 }
 

@@ -130,14 +130,18 @@ void SourceRef::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::source::SourcePackage::SOURCEREF__LANGUAGE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_language);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRef::setLanguage(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREF__SNIPPET:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_snippet);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRef::setSnippet(_t0);
     }
         return;
 

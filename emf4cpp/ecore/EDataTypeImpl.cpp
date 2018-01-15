@@ -121,20 +121,26 @@ void EDataType::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ENamedElement::setName(_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCECLASSNAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_instanceClassName);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EClassifier::setInstanceClassName(_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCETYPENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_instanceTypeName);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EClassifier::setInstanceTypeName(_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
@@ -157,8 +163,10 @@ void EDataType::eSet(::ecore::EInt _featureID,
         return;
     case ::ecore::EcorePackage::EDATATYPE__SERIALIZABLE:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_serializable);
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EDataType::setSerializable(_t0);
     }
         return;
 

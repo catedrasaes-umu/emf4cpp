@@ -72,8 +72,9 @@ RightHand::~RightHand()
 
 void RightHand::basicsetLeftee(::eopposite::LeftHand_ptr _leftee)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::eopposite::LeftHand_ptr _old_leftee = m_leftee;
-
+#endif
     m_leftee = _leftee;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,7 +90,6 @@ void RightHand::basicsetLeftee(::eopposite::LeftHand_ptr _leftee)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void RightHand::setLeftee(::eopposite::LeftHand_ptr _leftee)

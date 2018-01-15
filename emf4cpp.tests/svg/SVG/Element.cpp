@@ -205,8 +205,16 @@ const ::ecorecpp::mapping::EList< ::SVG::Attribute_ptr >& Element::getAttribute(
 
 void Element::setPosition(::SVG::Coordinates_ptr _position)
 {
-    ::SVG::Coordinates_ptr _old_position = m_position;
+    if (m_position)
+        m_position->_setEContainer(Element_ptr(),
+                ::SVG::SVGPackage::_instance()->getElement__position());
+    if (_position)
+        _position->_setEContainer(_this(),
+                ::SVG::SVGPackage::_instance()->getElement__position());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::SVG::Coordinates_ptr _old_position = m_position;
+#endif
     m_position = _position;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -222,12 +230,6 @@ void Element::setPosition(::SVG::Coordinates_ptr _position)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_position)
-        _old_position->_setEContainer(Element_ptr(),
-                ::SVG::SVGPackage::_instance()->getElement__position());
-    m_position->_setEContainer(_this(),
-            ::SVG::SVGPackage::_instance()->getElement__position());
 }
 
 ::SVG::Dimension_ptr Element::getSize() const
@@ -237,8 +239,16 @@ void Element::setPosition(::SVG::Coordinates_ptr _position)
 
 void Element::setSize(::SVG::Dimension_ptr _size)
 {
-    ::SVG::Dimension_ptr _old_size = m_size;
+    if (m_size)
+        m_size->_setEContainer(Element_ptr(),
+                ::SVG::SVGPackage::_instance()->getElement__size());
+    if (_size)
+        _size->_setEContainer(_this(),
+                ::SVG::SVGPackage::_instance()->getElement__size());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::SVG::Dimension_ptr _old_size = m_size;
+#endif
     m_size = _size;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -254,12 +264,6 @@ void Element::setSize(::SVG::Dimension_ptr _size)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_size)
-        _old_size->_setEContainer(Element_ptr(),
-                ::SVG::SVGPackage::_instance()->getElement__size());
-    m_size->_setEContainer(_this(),
-            ::SVG::SVGPackage::_instance()->getElement__size());
 }
 
 ::SVG::Svg_ptr Element::getRoot() const
@@ -274,8 +278,9 @@ void Element::setSize(::SVG::Dimension_ptr _size)
 
 void Element::basicsetRoot(::SVG::Svg_ptr _root)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::SVG::Svg_ptr _old_root = m_root;
-
+#endif
     m_root = _root;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -291,7 +296,6 @@ void Element::basicsetRoot(::SVG::Svg_ptr _root)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void Element::setRoot(::SVG::Svg_ptr _root)
@@ -323,8 +327,9 @@ void Element::setRoot(::SVG::Svg_ptr _root)
 
 void Element::basicsetGroup(::SVG::GroupingElement_ptr _group)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::SVG::GroupingElement_ptr _old_group = m_group;
-
+#endif
     m_group = _group;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -340,7 +345,6 @@ void Element::basicsetGroup(::SVG::GroupingElement_ptr _group)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void Element::setGroup(::SVG::GroupingElement_ptr _group)
@@ -374,8 +378,9 @@ void Element::setGroup(::SVG::GroupingElement_ptr _group)
 
 void Element::basicsetDrawsMarker(::SVG::Marker_ptr _drawsMarker)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::SVG::Marker_ptr _old_drawsMarker = m_drawsMarker;
-
+#endif
     m_drawsMarker = _drawsMarker;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -391,7 +396,6 @@ void Element::basicsetDrawsMarker(::SVG::Marker_ptr _drawsMarker)
         eNotify(&notification);
     }
 #endif
-
 }
 
 void Element::setDrawsMarker(::SVG::Marker_ptr _drawsMarker)

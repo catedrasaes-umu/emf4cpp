@@ -75,8 +75,16 @@ ChainExpression::~ChainExpression()
 void ChainExpression::setFirst(
         ::xpand3::expression::AbstractExpression_ptr _first)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_first = m_first;
+    if (m_first)
+        m_first->_setEContainer(ChainExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
+    if (_first)
+        _first->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_first = m_first;
+#endif
     m_first = _first;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -92,12 +100,6 @@ void ChainExpression::setFirst(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_first)
-        _old_first->_setEContainer(ChainExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
-    m_first->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
 }
 
 ::xpand3::expression::AbstractExpression_ptr ChainExpression::getNext() const
@@ -108,8 +110,16 @@ void ChainExpression::setFirst(
 void ChainExpression::setNext(
         ::xpand3::expression::AbstractExpression_ptr _next)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_next = m_next;
+    if (m_next)
+        m_next->_setEContainer(ChainExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
+    if (_next)
+        _next->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_next = m_next;
+#endif
     m_next = _next;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -125,11 +135,5 @@ void ChainExpression::setNext(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_next)
-        _old_next->_setEContainer(ChainExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
-    m_next->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
 }
 

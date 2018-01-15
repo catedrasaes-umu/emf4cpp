@@ -74,8 +74,16 @@ AbstractNamedDeclaration::~AbstractNamedDeclaration()
 
 void AbstractNamedDeclaration::setName(::xpand3::Identifier_ptr _name)
 {
-    ::xpand3::Identifier_ptr _old_name = m_name;
+    if (m_name)
+        m_name->_setEContainer(AbstractNamedDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
+    if (_name)
+        _name->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_name = m_name;
+#endif
     m_name = _name;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -91,11 +99,5 @@ void AbstractNamedDeclaration::setName(::xpand3::Identifier_ptr _name)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_name)
-        _old_name->_setEContainer(AbstractNamedDeclaration_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
-    m_name->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
 }
 

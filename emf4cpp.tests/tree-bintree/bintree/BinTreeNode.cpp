@@ -100,8 +100,9 @@ void BinTreeNode::setData(::ecore::EString const& _data)
 
 void BinTreeNode::setParent(::bintree::BinTreeNode_ptr _parent)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::bintree::BinTreeNode_ptr _old_parent = m_parent;
-
+#endif
     m_parent = _parent;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,7 +118,6 @@ void BinTreeNode::setParent(::bintree::BinTreeNode_ptr _parent)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::bintree::BinTreeNode_ptr BinTreeNode::getLeft() const
@@ -127,8 +127,16 @@ void BinTreeNode::setParent(::bintree::BinTreeNode_ptr _parent)
 
 void BinTreeNode::setLeft(::bintree::BinTreeNode_ptr _left)
 {
-    ::bintree::BinTreeNode_ptr _old_left = m_left;
+    if (m_left)
+        m_left->_setEContainer(BinTreeNode_ptr(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
+    if (_left)
+        _left->_setEContainer(_this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::bintree::BinTreeNode_ptr _old_left = m_left;
+#endif
     m_left = _left;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -144,12 +152,6 @@ void BinTreeNode::setLeft(::bintree::BinTreeNode_ptr _left)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_left)
-        _old_left->_setEContainer(BinTreeNode_ptr(),
-                ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
-    m_left->_setEContainer(_this(),
-            ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
 }
 
 ::bintree::BinTreeNode_ptr BinTreeNode::getRight() const
@@ -159,8 +161,16 @@ void BinTreeNode::setLeft(::bintree::BinTreeNode_ptr _left)
 
 void BinTreeNode::setRight(::bintree::BinTreeNode_ptr _right)
 {
-    ::bintree::BinTreeNode_ptr _old_right = m_right;
+    if (m_right)
+        m_right->_setEContainer(BinTreeNode_ptr(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
+    if (_right)
+        _right->_setEContainer(_this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::bintree::BinTreeNode_ptr _old_right = m_right;
+#endif
     m_right = _right;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -176,11 +186,5 @@ void BinTreeNode::setRight(::bintree::BinTreeNode_ptr _right)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_right)
-        _old_right->_setEContainer(BinTreeNode_ptr(),
-                ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
-    m_right->_setEContainer(_this(),
-            ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
 }
 

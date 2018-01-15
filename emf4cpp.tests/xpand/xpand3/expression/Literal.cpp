@@ -71,8 +71,16 @@ Literal::~Literal()
 
 void Literal::setLiteralValue(::xpand3::Identifier_ptr _literalValue)
 {
-    ::xpand3::Identifier_ptr _old_literalValue = m_literalValue;
+    if (m_literalValue)
+        m_literalValue->_setEContainer(Literal_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
+    if (_literalValue)
+        _literalValue->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_literalValue = m_literalValue;
+#endif
     m_literalValue = _literalValue;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -88,11 +96,5 @@ void Literal::setLiteralValue(::xpand3::Identifier_ptr _literalValue)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_literalValue)
-        _old_literalValue->_setEContainer(Literal_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
-    m_literalValue->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getLiteral__literalValue());
 }
 

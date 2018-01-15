@@ -73,8 +73,10 @@ void Include::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::INCLUDE__IMPORTURI:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_importURI);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Include::setImportURI(_t0);
     }
         return;
 

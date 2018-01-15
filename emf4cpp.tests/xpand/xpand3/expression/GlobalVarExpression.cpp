@@ -72,8 +72,16 @@ GlobalVarExpression::~GlobalVarExpression()
 void GlobalVarExpression::setGlobalVarName(
         ::xpand3::Identifier_ptr _globalVarName)
 {
-    ::xpand3::Identifier_ptr _old_globalVarName = m_globalVarName;
+    if (m_globalVarName)
+        m_globalVarName->_setEContainer(GlobalVarExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
+    if (_globalVarName)
+        _globalVarName->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_globalVarName = m_globalVarName;
+#endif
     m_globalVarName = _globalVarName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,11 +97,5 @@ void GlobalVarExpression::setGlobalVarName(
         eNotify(&notification);
     }
 #endif
-
-    if (_old_globalVarName)
-        _old_globalVarName->_setEContainer(GlobalVarExpression_ptr(),
-                ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
-    m_globalVarName->_setEContainer(_this(),
-            ::xpand3::expression::ExpressionPackage::_instance()->getGlobalVarExpression__globalVarName());
 }
 

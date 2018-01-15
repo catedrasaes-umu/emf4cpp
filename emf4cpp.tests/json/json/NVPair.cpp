@@ -96,8 +96,16 @@ void NVPair::setName(::ecore::EString const& _name)
 
 void NVPair::setValue(::json::Value_ptr _value)
 {
-    ::json::Value_ptr _old_value = m_value;
+    if (m_value)
+        m_value->_setEContainer(NVPair_ptr(),
+                ::json::JsonPackage::_instance()->getNVPair__value());
+    if (_value)
+        _value->_setEContainer(_this(),
+                ::json::JsonPackage::_instance()->getNVPair__value());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::json::Value_ptr _old_value = m_value;
+#endif
     m_value = _value;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -113,11 +121,5 @@ void NVPair::setValue(::json::Value_ptr _value)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_value)
-        _old_value->_setEContainer(NVPair_ptr(),
-                ::json::JsonPackage::_instance()->getNVPair__value());
-    m_value->_setEContainer(_this(),
-            ::json::JsonPackage::_instance()->getNVPair__value());
 }
 

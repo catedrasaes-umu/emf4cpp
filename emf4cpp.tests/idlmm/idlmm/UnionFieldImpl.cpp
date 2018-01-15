@@ -115,8 +115,10 @@ void UnionField::eSet(::ecore::EInt _featureID,
         return;
     case ::idlmm::IdlmmPackage::UNIONFIELD__IDENTIFIER:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::UnionField::setIdentifier(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::UNIONFIELD__LABEL:

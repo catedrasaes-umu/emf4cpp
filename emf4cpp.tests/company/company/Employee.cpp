@@ -96,8 +96,16 @@ void Employee::setName(::ecore::EString const& _name)
 
 void Employee::setPhonebookEntry(::company::PhonebookEntry_ptr _phonebookEntry)
 {
-    ::company::PhonebookEntry_ptr _old_phonebookEntry = m_phonebookEntry;
+    if (m_phonebookEntry)
+        m_phonebookEntry->_setEContainer(Employee_ptr(),
+                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
+    if (_phonebookEntry)
+        _phonebookEntry->_setEContainer(_this(),
+                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::company::PhonebookEntry_ptr _old_phonebookEntry = m_phonebookEntry;
+#endif
     m_phonebookEntry = _phonebookEntry;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -113,11 +121,5 @@ void Employee::setPhonebookEntry(::company::PhonebookEntry_ptr _phonebookEntry)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_phonebookEntry)
-        _old_phonebookEntry->_setEContainer(Employee_ptr(),
-                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
-    m_phonebookEntry->_setEContainer(_this(),
-            ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
 }
 

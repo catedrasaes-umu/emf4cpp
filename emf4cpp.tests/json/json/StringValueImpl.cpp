@@ -75,8 +75,10 @@ void StringValue::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::STRINGVALUE__VALUE:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::json::StringValue::setValue(_t0);
     }
         return;
 

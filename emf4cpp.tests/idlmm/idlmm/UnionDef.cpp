@@ -88,8 +88,16 @@ const ::ecorecpp::mapping::EList< ::idlmm::UnionField_ptr >& UnionDef::getUnionM
 
 void UnionDef::setContainedDiscrim(::idlmm::IDLType_ptr _containedDiscrim)
 {
-    ::idlmm::IDLType_ptr _old_containedDiscrim = m_containedDiscrim;
+    if (m_containedDiscrim)
+        m_containedDiscrim->_setEContainer(UnionDef_ptr(),
+                ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
+    if (_containedDiscrim)
+        _containedDiscrim->_setEContainer(_this(),
+                ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::idlmm::IDLType_ptr _old_containedDiscrim = m_containedDiscrim;
+#endif
     m_containedDiscrim = _containedDiscrim;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -105,12 +113,6 @@ void UnionDef::setContainedDiscrim(::idlmm::IDLType_ptr _containedDiscrim)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_containedDiscrim)
-        _old_containedDiscrim->_setEContainer(UnionDef_ptr(),
-                ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
-    m_containedDiscrim->_setEContainer(_this(),
-            ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
 }
 
 ::idlmm::TypedefDef_ptr UnionDef::getSharedDiscrim() const
@@ -120,8 +122,9 @@ void UnionDef::setContainedDiscrim(::idlmm::IDLType_ptr _containedDiscrim)
 
 void UnionDef::setSharedDiscrim(::idlmm::TypedefDef_ptr _sharedDiscrim)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::idlmm::TypedefDef_ptr _old_sharedDiscrim = m_sharedDiscrim;
-
+#endif
     m_sharedDiscrim = _sharedDiscrim;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -137,6 +140,5 @@ void UnionDef::setSharedDiscrim(::idlmm::TypedefDef_ptr _sharedDiscrim)
         eNotify(&notification);
     }
 #endif
-
 }
 

@@ -100,8 +100,16 @@ void AbstractAspect::setWildparams(::ecore::EBoolean _wildparams)
 
 void AbstractAspect::setPointcut(::xpand3::Identifier_ptr _pointcut)
 {
-    ::xpand3::Identifier_ptr _old_pointcut = m_pointcut;
+    if (m_pointcut)
+        m_pointcut->_setEContainer(AbstractAspect_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
+    if (_pointcut)
+        _pointcut->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_pointcut = m_pointcut;
+#endif
     m_pointcut = _pointcut;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,11 +125,5 @@ void AbstractAspect::setPointcut(::xpand3::Identifier_ptr _pointcut)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_pointcut)
-        _old_pointcut->_setEContainer(AbstractAspect_ptr(),
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
-    m_pointcut->_setEContainer(_this(),
-            ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
 }
 

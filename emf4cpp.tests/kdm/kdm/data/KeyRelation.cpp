@@ -73,8 +73,9 @@ KeyRelation::~KeyRelation()
 
 void KeyRelation::setTo(::kdm::data::UniqueKey_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::UniqueKey_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void KeyRelation::setTo(::kdm::data::UniqueKey_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::data::ReferenceKey_ptr KeyRelation::getFrom() const
@@ -100,8 +100,9 @@ void KeyRelation::setTo(::kdm::data::UniqueKey_ptr _to)
 
 void KeyRelation::setFrom(::kdm::data::ReferenceKey_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::ReferenceKey_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void KeyRelation::setFrom(::kdm::data::ReferenceKey_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 

@@ -111,14 +111,18 @@ void TagDefinition::eSet(::ecore::EInt _featureID,
         return;
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TAG:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_tag);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::TagDefinition::setTag(_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::TAGDEFINITION__TYPE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_type);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::TagDefinition::setType(_t0);
     }
         return;
 

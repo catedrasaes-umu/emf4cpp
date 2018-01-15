@@ -86,8 +86,10 @@ void Property::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::PROPERTY__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::myDsl::Property::setName(_t0);
     }
         return;
     case ::myDsl::MyDslPackage::PROPERTY__TYPE:
@@ -100,8 +102,10 @@ void Property::eSet(::ecore::EInt _featureID,
         return;
     case ::myDsl::MyDslPackage::PROPERTY__MANY:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_many);
+                > ::fromAny(_newValue, _t0);
+        ::myDsl::Property::setMany(_t0);
     }
         return;
 

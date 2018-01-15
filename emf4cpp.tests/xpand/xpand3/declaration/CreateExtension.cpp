@@ -71,8 +71,9 @@ CreateExtension::~CreateExtension()
 void CreateExtension::setToBeCreated(
         ::xpand3::DeclaredParameter_ptr _toBeCreated)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::xpand3::DeclaredParameter_ptr _old_toBeCreated = m_toBeCreated;
-
+#endif
     m_toBeCreated = _toBeCreated;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -88,6 +89,5 @@ void CreateExtension::setToBeCreated(
         eNotify(&notification);
     }
 #endif
-
 }
 

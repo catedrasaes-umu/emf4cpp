@@ -84,8 +84,9 @@ ContentItem::~ContentItem()
 
 void ContentItem::setType(::kdm::data::ComplexContentType_ptr _type)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::ComplexContentType_ptr _old_type = m_type;
-
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -101,7 +102,6 @@ void ContentItem::setType(::kdm::data::ComplexContentType_ptr _type)
         eNotify(&notification);
     }
 #endif
-
 }
 
 const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& ContentItem::getContentElement() const

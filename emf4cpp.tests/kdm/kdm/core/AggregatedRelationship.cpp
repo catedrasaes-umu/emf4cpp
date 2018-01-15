@@ -103,8 +103,9 @@ void AggregatedRelationship::setDensity(::kdm::core::Integer _density)
 
 void AggregatedRelationship::setFrom(::kdm::core::KDMEntity_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::KDMEntity_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -120,7 +121,6 @@ void AggregatedRelationship::setFrom(::kdm::core::KDMEntity_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::core::KDMEntity_ptr AggregatedRelationship::getTo() const
@@ -130,8 +130,9 @@ void AggregatedRelationship::setFrom(::kdm::core::KDMEntity_ptr _from)
 
 void AggregatedRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::KDMEntity_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -147,7 +148,6 @@ void AggregatedRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >& AggregatedRelationship::getRelation() const

@@ -82,8 +82,16 @@ DerivedType::~DerivedType()
 
 void DerivedType::setItemUnit(::kdm::code::ItemUnit_ptr _itemUnit)
 {
-    ::kdm::code::ItemUnit_ptr _old_itemUnit = m_itemUnit;
+    if (m_itemUnit)
+        m_itemUnit->_setEContainer(DerivedType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
+    if (_itemUnit)
+        _itemUnit->_setEContainer(_this(),
+                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::kdm::code::ItemUnit_ptr _old_itemUnit = m_itemUnit;
+#endif
     m_itemUnit = _itemUnit;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -99,11 +107,5 @@ void DerivedType::setItemUnit(::kdm::code::ItemUnit_ptr _itemUnit)
         eNotify(&notification);
     }
 #endif
-
-    if (_old_itemUnit)
-        _old_itemUnit->_setEContainer(DerivedType_ptr(),
-                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
-    m_itemUnit->_setEContainer(_this(),
-            ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
 }
 

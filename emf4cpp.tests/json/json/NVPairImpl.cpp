@@ -84,8 +84,10 @@ void NVPair::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::NVPAIR__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::json::NVPair::setName(_t0);
     }
         return;
     case ::json::JsonPackage::NVPAIR__VALUE:

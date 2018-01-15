@@ -73,8 +73,9 @@ HasState::~HasState()
 
 void HasState::setTo(::kdm::event::AbstractEventElement_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::event::AbstractEventElement_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -90,7 +91,6 @@ void HasState::setTo(::kdm::event::AbstractEventElement_ptr _to)
         eNotify(&notification);
     }
 #endif
-
 }
 
 ::kdm::action::ActionElement_ptr HasState::getFrom() const
@@ -100,8 +100,9 @@ void HasState::setTo(::kdm::event::AbstractEventElement_ptr _to)
 
 void HasState::setFrom(::kdm::action::ActionElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::action::ActionElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,6 +118,5 @@ void HasState::setFrom(::kdm::action::ActionElement_ptr _from)
         eNotify(&notification);
     }
 #endif
-
 }
 
