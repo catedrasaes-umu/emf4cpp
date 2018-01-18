@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * mapping_forward.hpp
+ * edate/EdatePackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,41 +18,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ECORECPP_MAPPING_FORWARD_HPP
-#define    ECORECPP_MAPPING_FORWARD_HPP
+#include <edate/EdatePackage.hpp>
 
-#include <atomic>
-#include <memory>
-#include <cstdint>
-#include <list>
-#include <vector>
-#include <boost/intrusive_ptr.hpp>
+using namespace ::edate;
 
-#include "mapping/EDate.hpp"
-#include "mapping/type_definitions.hpp"
-#include "mapping/any.hpp"
+boost::intrusive_ptr< ::edate::EdatePackage > EdatePackage::s_instance;
 
-namespace ecorecpp
+::edate::EdatePackage_ptr EdatePackage::_instance()
 {
-namespace mapping
+    static bool duringConstruction = false;
+    if (!s_instance.get())
+    {
+        if (duringConstruction)
+            return boost::intrusive_ptr< EdatePackage >();
+        duringConstruction = true;
+        s_instance = boost::intrusive_ptr < EdatePackage > (new EdatePackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::edate::EdatePackage_ptr EdatePackage::_getInstanceAndRemoveOwnership()
 {
+    return _instance();
+}
 
-template< typename T >
-struct any_traits;
-
-template< typename T >
-struct string_traits;
-
-template< typename T >
-struct set_traits;
-
-template< typename T >
-class EList;
-
-template< typename T, typename Q >
-class DelegateEList;
-
-} // mapping
-} // ecorecpp
-
-#endif // ECORECPP_MAPPING_FORWARD_HPP

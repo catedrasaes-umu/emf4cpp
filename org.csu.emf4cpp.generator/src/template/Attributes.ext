@@ -79,7 +79,9 @@ String getDefaultValue(EAttribute this) :
 	if defaultValueLiteral == null then
 		getAttrMemberName() + "()"
 	else if this.EType.name == "EString" then
-		getAttrMemberName() + "(\"" + defaultValueLiteral+ "\")"
+		getAttrMemberName() + "(\"" + defaultValueLiteral + "\")"
+	else if this.EType.name == "EDate" then
+		getAttrMemberName() + "(\"" + defaultValueLiteral + "\")"
 	else if EEnum.isInstance(this.EType) then
 		getAttrMemberName() + "(" + this.getCPPTypeSignature() + "::" + defaultValueLiteral+ ")"
 	else

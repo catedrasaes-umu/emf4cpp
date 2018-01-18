@@ -88,6 +88,25 @@ struct set_traits< type_definitions::string_t >
 };
 
 template< >
+struct set_traits< EDate >
+{
+	static inline const EDate default_value()
+    {
+        return EDate();
+    }
+
+    static inline bool is_set(const EDate& value)
+    {
+		return value != default_value();
+    }
+
+    static inline void unset(EDate& value)
+    {
+        value = default_value();
+    }
+};
+
+template< >
 struct set_traits< any >
 {
     static const any _default;

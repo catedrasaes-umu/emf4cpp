@@ -1,5 +1,6 @@
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../../emf4cpp)
+link_directories(/opt/emf4cpp/lib)
 
 set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")

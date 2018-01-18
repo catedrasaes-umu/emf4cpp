@@ -10,6 +10,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "")
 find_package(Qt5Core)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../../emf4cpp ${Qt5Core_INCLUDE_DIRS})
+link_directories(/opt/emf4cpp/lib)
 
 # read-metamodel
 add_executable(read-metamodel read-metamodel.cpp)

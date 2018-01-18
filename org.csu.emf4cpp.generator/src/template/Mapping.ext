@@ -30,8 +30,8 @@ String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 	case "EByteObject": "unsigned char"
 	case "EChar": "char" // Maybe int, as you should consider UTF-8
 	case "ECharacterObject": "char"
-	case "EDate": "time_t"
-	case "EDiagnosticChain": "int" // ?? Need class
+	case "EDate": "::ecorecpp::mapping::EDate" // Wrapper class of std::tm struct
+ 	case "EDiagnosticChain": "int" // ?? Need class
 	case "EDouble": "double"
 	case "EDoubleObject": "double" // Object/value?
 	case "EEList": "std::shared_ptr<::ecorecpp::mapping::EList<" + type_parameters +">>"

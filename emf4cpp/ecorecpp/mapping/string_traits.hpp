@@ -22,6 +22,7 @@
 #define    ECORECPP_MAPPING_STRINGTRAITS_HPP
 
 #include "type_definitions.hpp"
+#include "EDate.hpp"
 
 namespace ecorecpp
 {
@@ -136,6 +137,23 @@ struct string_traits< std::vector< unsigned char > >
         // TODO
         throw "Not implemented!";
     }
+};
+
+template< >
+struct string_traits<EDate>
+{
+	static inline any fromString(
+	const type_definitions::string_t & str)
+	{
+		EDate date = EDate::fromISOString(str);
+		return any::any_cast<EDate>(date);
+	}
+
+	static inline type_definitions::string_t toString(any const& _any)
+	{
+		EDate date = any::any_cast<EDate>(_any);
+		return EDate::toISOString(date);
+	}
 };
 
 template< >

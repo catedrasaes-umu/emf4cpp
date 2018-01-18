@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * mapping_forward.hpp
+ * edate.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,41 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ECORECPP_MAPPING_FORWARD_HPP
-#define    ECORECPP_MAPPING_FORWARD_HPP
+#ifndef EDATE_HPP
+#define EDATE_HPP
 
-#include <atomic>
-#include <memory>
-#include <cstdint>
-#include <list>
-#include <vector>
+#include "edate_forward.hpp"
 #include <boost/intrusive_ptr.hpp>
+#include <ecorecpp/mapping.hpp>
 
-#include "mapping/EDate.hpp"
-#include "mapping/type_definitions.hpp"
-#include "mapping/any.hpp"
+// EPackage
 
-namespace ecorecpp
-{
-namespace mapping
-{
+// EClass
+#include "edate/Person.hpp"
+#include "edate/Apollo11.hpp"
 
-template< typename T >
-struct any_traits;
+// Package & Factory
+#include "edate/EdatePackage.hpp"
+#include "edate/EdateFactory.hpp"
 
-template< typename T >
-struct string_traits;
-
-template< typename T >
-struct set_traits;
-
-template< typename T >
-class EList;
-
-template< typename T, typename Q >
-class DelegateEList;
-
-} // mapping
-} // ecorecpp
-
-#endif // ECORECPP_MAPPING_FORWARD_HPP
+#endif // EDATE_HPP

@@ -15,6 +15,7 @@ FILES="./tree-bintree/Tree.ecore
 ./eopposite/eopposite.ecore
 ./subpackage/subpackage.ecore
 ./treeiterator/treeiterator.ecore
+./edate/edate.ecore
 "
 
 EMF4CPP=../../builds/emf4cpp-generator-1.1.0-Linux-x86
@@ -22,7 +23,7 @@ EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_1.1.0.ja
 GENERATOR="java -jar $EMF4CPPJAR"
 
 
-function testLicenseText ()
+testLicenseText ()
 {
 	DIR=`dirname $1`
 	FILES="$DIR/CMakeLists.txt $DIR/*.hpp $DIR/*.cpp"

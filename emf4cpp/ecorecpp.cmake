@@ -18,7 +18,7 @@ set(ecorecpp_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/serializer/serializer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/serializer/XMLSerializer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/json/serializer.cpp
-    # notify
+	# notify
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify/Adapter.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify/Notification.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify/Notifier.cpp
@@ -83,6 +83,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/json/json_serializer.hpp DEST
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/json/serializer.hpp DESTINATION include/emf4cpp/ecorecpp/json)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/any.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/any_traits.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EDate.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EList.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EListImpl.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping_forward.hpp DESTINATION include/emf4cpp/ecorecpp)
@@ -128,6 +129,13 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/EcoreUtil.hpp DESTINATIO
 include_directories(../emf4cpp ./ecorecpp ${Qt5Core_INCLUDE_DIRS})
 
 add_library(emf4cpp-ecorecpp SHARED ${ecorecpp_HEADERS} ${ecorecpp_SOURCES})
+
+# Add EDate to emf4cpp-ecore library to not
+# have unresolved reference when building windows dlls.
+target_sources(emf4cpp-ecore PRIVATE
+		${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EDate.hpp
+		${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EDate.cpp)
+
 set_target_properties(emf4cpp-ecorecpp PROPERTIES COMPILE_FLAGS "-DMAKE_ECORECPP_DLL" VERSION 0.0.1 SOVERSION 1)
 target_link_libraries(emf4cpp-ecorecpp emf4cpp-ecore Qt5::Core)
 

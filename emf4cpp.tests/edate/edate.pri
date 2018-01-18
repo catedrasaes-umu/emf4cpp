@@ -1,6 +1,8 @@
+
 #
-# CMakeLists.txt
+# edate.pri
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -16,12 +18,25 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-cmake_minimum_required(VERSION 3.1)
 
-FILE(GLOB CMAKES ecore.cmake ecorecpp.cmake)
 
-foreach(cmake ${CMAKES})
-  include(${cmake})
-endforeach(cmake)
+SOURCES += \
+    edate.cpp \
+    edate/EdatePackage.cpp \
+    edate/EdateFactory.cpp \
+    edate/EdatePackageImpl.cpp \
+    edate/EdateFactoryImpl.cpp \
+    edate/Person.cpp \
+    edate/PersonImpl.cpp \
+    edate/Apollo11.cpp \
+    edate/Apollo11Impl.cpp \
 
+
+HEADERS += \
+    edate.hpp \
+    edate_forward.hpp \
+    edate/EdatePackage.hpp \
+    edate/EdateFactory.hpp \
+    edate/Person.hpp \
+    edate/Apollo11.hpp \
 

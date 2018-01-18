@@ -184,6 +184,8 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
                     «IF ef.defaultValueLiteral != null && ef.defaultValueLiteral != "" -»
             			«IF ef.EType.name == "EString"-»
             				return «ef.getMemberName()» != "«ef.defaultValueLiteral»";
+            			«ELSEIF ef.EType.name == "EDate"-»
+            				return «ef.getMemberName()» != ::ecorecpp::mapping::EDate("«ef.defaultValueLiteral»");
             			«ELSEIF EEnum.isInstance(ef.EType)-»
             				return «ef.getMemberName()» != «ef.getCPPTypeSignature()»::«ef.defaultValueLiteral»;
             			«ELSE-»

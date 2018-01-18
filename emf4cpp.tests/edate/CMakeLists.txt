@@ -1,6 +1,7 @@
 #
 # CMakeLists.txt
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -16,9 +17,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-cmake_minimum_required(VERSION 3.1)
 
-FILE(GLOB CMAKES ecore.cmake ecorecpp.cmake)
+cmake_minimum_required(VERSION 2.6)
+
+project(emf4cpp-edate CXX)
+
+FILE(GLOB CMAKES "${CMAKE_CURRENT_SOURCE_DIR}/*.cmake")
 
 foreach(cmake ${CMAKES})
   include(${cmake})

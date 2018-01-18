@@ -95,7 +95,7 @@ namespace ecore
     /*PROTECTED REGION ID(ecore_EDate) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-    typedef time_t EDate;
+    typedef ::ecorecpp::mapping::EDate EDate;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(ecore_EDiagnosticChain) START*/
 // Please, enable the protected region if you add manually written code.
