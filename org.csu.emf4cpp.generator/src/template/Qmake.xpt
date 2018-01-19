@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     «getPackagePrefix("/")».cpp \
     «getFactoryPrefix("/")».cpp \
     «getPackagePrefix("/")»Impl.cpp \
-    «getFactoryPrefix("/")»Impl.cpp\ 
+    «getFactoryPrefix("/")»Impl.cpp \
     «FOREACH EClassifiers.typeSelect(EClass) AS class-»
     «class.getFQN("/")».cpp \
     «class.getFQN("/")»Impl.cpp \

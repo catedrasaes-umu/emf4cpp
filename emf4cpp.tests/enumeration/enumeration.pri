@@ -25,7 +25,7 @@ SOURCES += \
     enumeration/EnumerationPackage.cpp \
     enumeration/EnumerationFactory.cpp \
     enumeration/EnumerationPackageImpl.cpp \
-    enumeration/EnumerationFactoryImpl.cpp\ 
+    enumeration/EnumerationFactoryImpl.cpp \
     enumeration/Bird.cpp \
     enumeration/BirdImpl.cpp \
 

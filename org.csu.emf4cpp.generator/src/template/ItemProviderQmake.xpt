@@ -33,6 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 «ENDDEFINE»
 
 «DEFINE headerspro FOR EPackage-»
+	«getItemDispatcherPrefix("/")».hpp \
 	«getItemProviderPrefix("/")».hpp \
 	«EXPAND headerspro FOREACH ESubpackages-»
 «ENDDEFINE»

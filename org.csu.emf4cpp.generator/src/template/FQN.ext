@@ -57,6 +57,14 @@ cached String getPackagePrefix(EPackage this) :
 	getPackagePrefix("/")
 ;
 
+cached String getItemDispatcherPrefix(EPackage this, String separator) :
+	getFQN(separator) + separator + name.toFirstUpper() + "ItemDispatcher"
+;
+
+cached String getItemDispatcherPrefix(EPackage this) :
+	getItemDispatcherPrefix("/")
+;
+
 cached String getItemProviderPrefix(EPackage this, String separator) :
 	getFQN(separator) + separator + name.toFirstUpper() + "ItemProvider"
 ;

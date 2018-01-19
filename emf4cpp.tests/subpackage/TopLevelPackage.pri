@@ -25,28 +25,28 @@ SOURCES += \
     TopLevelPackage/TopLevelPackagePackage.cpp \
     TopLevelPackage/TopLevelPackageFactory.cpp \
     TopLevelPackage/TopLevelPackagePackageImpl.cpp \
-    TopLevelPackage/TopLevelPackageFactoryImpl.cpp\ 
+    TopLevelPackage/TopLevelPackageFactoryImpl.cpp \
     TopLevelPackage/TopLevelClass.cpp \
     TopLevelPackage/TopLevelClassImpl.cpp \
     TopLevelPackage/Level1.cpp \
     TopLevelPackage/Level1/Level1Package.cpp \
     TopLevelPackage/Level1/Level1Factory.cpp \
     TopLevelPackage/Level1/Level1PackageImpl.cpp \
-    TopLevelPackage/Level1/Level1FactoryImpl.cpp\ 
+    TopLevelPackage/Level1/Level1FactoryImpl.cpp \
     TopLevelPackage/Level1/Level1Class.cpp \
     TopLevelPackage/Level1/Level1ClassImpl.cpp \
     TopLevelPackage/Level1/Level2.cpp \
     TopLevelPackage/Level1/Level2/Level2Package.cpp \
     TopLevelPackage/Level1/Level2/Level2Factory.cpp \
     TopLevelPackage/Level1/Level2/Level2PackageImpl.cpp \
-    TopLevelPackage/Level1/Level2/Level2FactoryImpl.cpp\ 
+    TopLevelPackage/Level1/Level2/Level2FactoryImpl.cpp \
     TopLevelPackage/Level1/Level2/Level2Class.cpp \
     TopLevelPackage/Level1/Level2/Level2ClassImpl.cpp \
     TopLevelPackage/Level1/Level2/Level3.cpp \
     TopLevelPackage/Level1/Level2/Level3/Level3Package.cpp \
     TopLevelPackage/Level1/Level2/Level3/Level3Factory.cpp \
     TopLevelPackage/Level1/Level2/Level3/Level3PackageImpl.cpp \
-    TopLevelPackage/Level1/Level2/Level3/Level3FactoryImpl.cpp\ 
+    TopLevelPackage/Level1/Level2/Level3/Level3FactoryImpl.cpp \
     TopLevelPackage/Level1/Level2/Level3/Level3Class.cpp \
     TopLevelPackage/Level1/Level2/Level3/Level3ClassImpl.cpp \
 

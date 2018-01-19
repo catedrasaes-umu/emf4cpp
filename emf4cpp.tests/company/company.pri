@@ -25,7 +25,7 @@ SOURCES += \
     company/CompanyPackage.cpp \
     company/CompanyFactory.cpp \
     company/CompanyPackageImpl.cpp \
-    company/CompanyFactoryImpl.cpp\ 
+    company/CompanyFactoryImpl.cpp \
     company/Employee.cpp \
     company/EmployeeImpl.cpp \
     company/Department.cpp \

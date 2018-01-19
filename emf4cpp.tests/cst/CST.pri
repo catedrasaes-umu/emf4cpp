@@ -25,7 +25,7 @@ SOURCES += \
     CST/CSTPackage.cpp \
     CST/CSTFactory.cpp \
     CST/CSTPackageImpl.cpp \
-    CST/CSTFactoryImpl.cpp\ 
+    CST/CSTFactoryImpl.cpp \
     CST/Tree.cpp \
     CST/TreeImpl.cpp \
     CST/Element.cpp \

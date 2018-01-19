@@ -25,7 +25,7 @@ SOURCES += \
     myDsl/MyDslPackage.cpp \
     myDsl/MyDslFactory.cpp \
     myDsl/MyDslPackageImpl.cpp \
-    myDsl/MyDslFactoryImpl.cpp\ 
+    myDsl/MyDslFactoryImpl.cpp \
     myDsl/Model.cpp \
     myDsl/ModelImpl.cpp \
     myDsl/Import.cpp \

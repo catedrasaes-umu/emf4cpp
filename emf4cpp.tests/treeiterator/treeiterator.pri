@@ -25,7 +25,7 @@ SOURCES += \
     treeiterator/TreeiteratorPackage.cpp \
     treeiterator/TreeiteratorFactory.cpp \
     treeiterator/TreeiteratorPackageImpl.cpp \
-    treeiterator/TreeiteratorFactoryImpl.cpp\ 
+    treeiterator/TreeiteratorFactoryImpl.cpp \
     treeiterator/TreeNode.cpp \
     treeiterator/TreeNodeImpl.cpp \
     treeiterator/Leaf.cpp \

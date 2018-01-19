@@ -25,7 +25,7 @@ SOURCES += \
     json/JsonPackage.cpp \
     json/JsonFactory.cpp \
     json/JsonPackageImpl.cpp \
-    json/JsonFactoryImpl.cpp\ 
+    json/JsonFactoryImpl.cpp \
     json/ObjectValue.cpp \
     json/ObjectValueImpl.cpp \
     json/NVPair.cpp \

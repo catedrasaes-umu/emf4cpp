@@ -25,7 +25,7 @@ SOURCES += \
     eopposite/EoppositePackage.cpp \
     eopposite/EoppositeFactory.cpp \
     eopposite/EoppositePackageImpl.cpp \
-    eopposite/EoppositeFactoryImpl.cpp\ 
+    eopposite/EoppositeFactoryImpl.cpp \
     eopposite/TopLevel.cpp \
     eopposite/TopLevelImpl.cpp \
     eopposite/NamedObject.cpp \

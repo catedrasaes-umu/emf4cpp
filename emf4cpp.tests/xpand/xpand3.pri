@@ -25,7 +25,7 @@ SOURCES += \
     xpand3/Xpand3Package.cpp \
     xpand3/Xpand3Factory.cpp \
     xpand3/Xpand3PackageImpl.cpp \
-    xpand3/Xpand3FactoryImpl.cpp\ 
+    xpand3/Xpand3FactoryImpl.cpp \
     xpand3/SyntaxElement.cpp \
     xpand3/SyntaxElementImpl.cpp \
     xpand3/File.cpp \
@@ -40,7 +40,7 @@ SOURCES += \
     xpand3/expression/ExpressionPackage.cpp \
     xpand3/expression/ExpressionFactory.cpp \
     xpand3/expression/ExpressionPackageImpl.cpp \
-    xpand3/expression/ExpressionFactoryImpl.cpp\ 
+    xpand3/expression/ExpressionFactoryImpl.cpp \
     xpand3/expression/AbstractExpression.cpp \
     xpand3/expression/AbstractExpressionImpl.cpp \
     xpand3/expression/BooleanOperation.cpp \
@@ -91,7 +91,7 @@ SOURCES += \
     xpand3/statement/StatementPackage.cpp \
     xpand3/statement/StatementFactory.cpp \
     xpand3/statement/StatementPackageImpl.cpp \
-    xpand3/statement/StatementFactoryImpl.cpp\ 
+    xpand3/statement/StatementFactoryImpl.cpp \
     xpand3/statement/AbstractStatement.cpp \
     xpand3/statement/AbstractStatementImpl.cpp \
     xpand3/statement/ExpandStatement.cpp \
@@ -118,7 +118,7 @@ SOURCES += \
     xpand3/declaration/DeclarationPackage.cpp \
     xpand3/declaration/DeclarationFactory.cpp \
     xpand3/declaration/DeclarationPackageImpl.cpp \
-    xpand3/declaration/DeclarationFactoryImpl.cpp\ 
+    xpand3/declaration/DeclarationFactoryImpl.cpp \
     xpand3/declaration/AbstractDeclaration.cpp \
     xpand3/declaration/AbstractDeclarationImpl.cpp \
     xpand3/declaration/AbstractNamedDeclaration.cpp \

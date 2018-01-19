@@ -25,7 +25,7 @@ SOURCES += \
     PrimitiveTypes/PrimitiveTypesPackage.cpp \
     PrimitiveTypes/PrimitiveTypesFactory.cpp \
     PrimitiveTypes/PrimitiveTypesPackageImpl.cpp \
-    PrimitiveTypes/PrimitiveTypesFactoryImpl.cpp\ 
+    PrimitiveTypes/PrimitiveTypesFactoryImpl.cpp \
 
 
 HEADERS += \

@@ -25,7 +25,7 @@ SOURCES += \
     SVG/SVGPackage.cpp \
     SVG/SVGFactory.cpp \
     SVG/SVGPackageImpl.cpp \
-    SVG/SVGFactoryImpl.cpp\ 
+    SVG/SVGFactoryImpl.cpp \
     SVG/Element.cpp \
     SVG/ElementImpl.cpp \
     SVG/StructuralElement.cpp \

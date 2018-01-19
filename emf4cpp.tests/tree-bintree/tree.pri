@@ -25,7 +25,7 @@ SOURCES += \
     tree/TreePackage.cpp \
     tree/TreeFactory.cpp \
     tree/TreePackageImpl.cpp \
-    tree/TreeFactoryImpl.cpp\ 
+    tree/TreeFactoryImpl.cpp \
     tree/TreeNode.cpp \
     tree/TreeNodeImpl.cpp \
     tree/Leaf.cpp \

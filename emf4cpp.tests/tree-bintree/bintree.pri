@@ -25,7 +25,7 @@ SOURCES += \
     bintree/BintreePackage.cpp \
     bintree/BintreeFactory.cpp \
     bintree/BintreePackageImpl.cpp \
-    bintree/BintreeFactoryImpl.cpp\ 
+    bintree/BintreeFactoryImpl.cpp \
     bintree/BinTreeNode.cpp \
     bintree/BinTreeNodeImpl.cpp \
 

@@ -25,7 +25,7 @@ SOURCES += \
     enduserlicense/EnduserlicensePackage.cpp \
     enduserlicense/EnduserlicenseFactory.cpp \
     enduserlicense/EnduserlicensePackageImpl.cpp \
-    enduserlicense/EnduserlicenseFactoryImpl.cpp\ 
+    enduserlicense/EnduserlicenseFactoryImpl.cpp \
 
 
 HEADERS += \

@@ -25,12 +25,12 @@ SOURCES += \
     kdm/KdmPackage.cpp \
     kdm/KdmFactory.cpp \
     kdm/KdmPackageImpl.cpp \
-    kdm/KdmFactoryImpl.cpp\ 
+    kdm/KdmFactoryImpl.cpp \
     kdm/action.cpp \
     kdm/action/ActionPackage.cpp \
     kdm/action/ActionFactory.cpp \
     kdm/action/ActionPackageImpl.cpp \
-    kdm/action/ActionFactoryImpl.cpp\ 
+    kdm/action/ActionFactoryImpl.cpp \
     kdm/action/ActionElement.cpp \
     kdm/action/ActionElementImpl.cpp \
     kdm/action/AbstractActionRelationship.cpp \
@@ -85,7 +85,7 @@ SOURCES += \
     kdm/build/BuildPackage.cpp \
     kdm/build/BuildFactory.cpp \
     kdm/build/BuildPackageImpl.cpp \
-    kdm/build/BuildFactoryImpl.cpp\ 
+    kdm/build/BuildFactoryImpl.cpp \
     kdm/build/AbstractBuildElement.cpp \
     kdm/build/AbstractBuildElementImpl.cpp \
     kdm/build/BuildResource.cpp \
@@ -130,7 +130,7 @@ SOURCES += \
     kdm/code/CodePackage.cpp \
     kdm/code/CodeFactory.cpp \
     kdm/code/CodePackageImpl.cpp \
-    kdm/code/CodeFactoryImpl.cpp\ 
+    kdm/code/CodeFactoryImpl.cpp \
     kdm/code/AbstractCodeElement.cpp \
     kdm/code/AbstractCodeElementImpl.cpp \
     kdm/code/CodeItem.cpp \
@@ -301,7 +301,7 @@ SOURCES += \
     kdm/conceptual/ConceptualPackage.cpp \
     kdm/conceptual/ConceptualFactory.cpp \
     kdm/conceptual/ConceptualPackageImpl.cpp \
-    kdm/conceptual/ConceptualFactoryImpl.cpp\ 
+    kdm/conceptual/ConceptualFactoryImpl.cpp \
     kdm/conceptual/ConceptualModel.cpp \
     kdm/conceptual/ConceptualModelImpl.cpp \
     kdm/conceptual/AbstractConceptualElement.cpp \
@@ -332,7 +332,7 @@ SOURCES += \
     kdm/core/CorePackage.cpp \
     kdm/core/CoreFactory.cpp \
     kdm/core/CorePackageImpl.cpp \
-    kdm/core/CoreFactoryImpl.cpp\ 
+    kdm/core/CoreFactoryImpl.cpp \
     kdm/core/Element.cpp \
     kdm/core/ElementImpl.cpp \
     kdm/core/ModelElement.cpp \
@@ -347,7 +347,7 @@ SOURCES += \
     kdm/data/DataPackage.cpp \
     kdm/data/DataFactory.cpp \
     kdm/data/DataPackageImpl.cpp \
-    kdm/data/DataFactoryImpl.cpp\ 
+    kdm/data/DataFactoryImpl.cpp \
     kdm/data/DataModel.cpp \
     kdm/data/DataModelImpl.cpp \
     kdm/data/AbstractDataElement.cpp \
@@ -442,7 +442,7 @@ SOURCES += \
     kdm/event/EventPackage.cpp \
     kdm/event/EventFactory.cpp \
     kdm/event/EventPackageImpl.cpp \
-    kdm/event/EventFactoryImpl.cpp\ 
+    kdm/event/EventFactoryImpl.cpp \
     kdm/event/EventModel.cpp \
     kdm/event/EventModelImpl.cpp \
     kdm/event/AbstractEventElement.cpp \
@@ -483,7 +483,7 @@ SOURCES += \
     kdm/source/SourcePackage.cpp \
     kdm/source/SourceFactory.cpp \
     kdm/source/SourcePackageImpl.cpp \
-    kdm/source/SourceFactoryImpl.cpp\ 
+    kdm/source/SourceFactoryImpl.cpp \
     kdm/source/SourceRef.cpp \
     kdm/source/SourceRefImpl.cpp \
     kdm/source/SourceRegion.cpp \
@@ -524,7 +524,7 @@ SOURCES += \
     kdm/platform/PlatformPackage.cpp \
     kdm/platform/PlatformFactory.cpp \
     kdm/platform/PlatformPackageImpl.cpp \
-    kdm/platform/PlatformFactoryImpl.cpp\ 
+    kdm/platform/PlatformFactoryImpl.cpp \
     kdm/platform/AbstractPlatformElement.cpp \
     kdm/platform/AbstractPlatformElementImpl.cpp \
     kdm/platform/PlatformModel.cpp \
@@ -593,7 +593,7 @@ SOURCES += \
     kdm/structure/StructurePackage.cpp \
     kdm/structure/StructureFactory.cpp \
     kdm/structure/StructurePackageImpl.cpp \
-    kdm/structure/StructureFactoryImpl.cpp\ 
+    kdm/structure/StructureFactoryImpl.cpp \
     kdm/structure/AbstractStructureElement.cpp \
     kdm/structure/AbstractStructureElementImpl.cpp \
     kdm/structure/Subsystem.cpp \
@@ -618,7 +618,7 @@ SOURCES += \
     kdm/kdm/KdmPackage.cpp \
     kdm/kdm/KdmFactory.cpp \
     kdm/kdm/KdmPackageImpl.cpp \
-    kdm/kdm/KdmFactoryImpl.cpp\ 
+    kdm/kdm/KdmFactoryImpl.cpp \
     kdm/kdm/KDMFramework.cpp \
     kdm/kdm/KDMFrameworkImpl.cpp \
     kdm/kdm/KDMModel.cpp \
@@ -647,7 +647,7 @@ SOURCES += \
     kdm/ui/UiPackage.cpp \
     kdm/ui/UiFactory.cpp \
     kdm/ui/UiPackageImpl.cpp \
-    kdm/ui/UiFactoryImpl.cpp\ 
+    kdm/ui/UiFactoryImpl.cpp \
     kdm/ui/AbstractUIElement.cpp \
     kdm/ui/AbstractUIElementImpl.cpp \
     kdm/ui/UIResource.cpp \

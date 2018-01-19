@@ -25,7 +25,7 @@ SOURCES += \
     idlmm/IdlmmPackage.cpp \
     idlmm/IdlmmFactory.cpp \
     idlmm/IdlmmPackageImpl.cpp \
-    idlmm/IdlmmFactoryImpl.cpp\ 
+    idlmm/IdlmmFactoryImpl.cpp \
     idlmm/Container.cpp \
     idlmm/ContainerImpl.cpp \
     idlmm/Contained.cpp \
