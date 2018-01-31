@@ -34,6 +34,23 @@ serializer::~serializer()
 {
 }
 
+bool isElementAnnotation(::ecorecpp::mapping::EList<::ecore::EAnnotation>& annotations) {
+	if (annotations.size()==0) return false;
+	for (int i = 0; annotations.size(); i++ ) {
+		EAnnotation* val =  annotations.get(i);
+		
+		if (val->getSource() != std::string("http:///org/eclipse/emf/ecore/util/ExtendedMetaData")) continue;
+		::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& details = val->getDetails();
+
+		for (int i = 0; details.size(); i++ ) {
+			::ecore::EStringToStringMapEntry* element = details.get(i);
+			if (element->getKey() == std::string("kind") &&
+			    element->getValue() == std::string("element")) return true;
+		}
+	}
+	
+	return false;
+}
 void
 serializer::create_node(::ecore::EObject_ptr parent_obj,
                         EObject_ptr child_obj, EStructuralFeature_ptr ef)
@@ -100,7 +117,9 @@ void serializer::serialize_node(EObject_ptr obj)
                         if (!value.empty() && value
                                 != current_at->getDefaultValueLiteral())
                         {
-                            m_ser.add_attribute(current_at->getName(), value);
+							if (!isElementAnnotation(current_at->getEAnnotations())) {
+								m_ser.add_attribute(current_at->getName(), value);
+							}															 
                         }
                     }
                 }
@@ -191,6 +210,16 @@ void serializer::serialize_node(EObject_ptr obj)
                         at_classifier->getEPackage()->getEFactoryInstance();
                     ecorecpp::mapping::any any = obj->eGet(current_at);
 
+					if (isElementAnnotation(current_at->getEAnnotations())) {
+						::ecorecpp::mapping::type_traits::string_t value = fac->convertToString(atc, any);
+
+							DEBUG_MSG(cout, indent << current_at->getName()
+                                    << " " << value);
+
+                            m_ser.open_object(current_at->getName());
+                            m_ser.add_value(value);
+                            m_ser.close_object(current_at->getName());
+					} else											   
                     if (current_at->getUpperBound() != 1)
                     {
                         // std::vector of what? solution: anys
