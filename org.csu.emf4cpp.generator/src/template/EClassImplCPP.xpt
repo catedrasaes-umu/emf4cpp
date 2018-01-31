@@ -107,7 +107,7 @@ void «name»::_initialize()
     ::ecore::EJavaObject _any;
     switch (_featureID)
     {
-    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
+    «FOREACH EStructuralFeatures.select(e|!e.derived) AS ef-»
         case «ef.getCPPFQN()»:
             {
                 «IF EReference.isInstance(ef)-»
@@ -137,7 +137,7 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
 {
     switch (_featureID)
     {
-    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
+    «FOREACH EStructuralFeatures.select(e|!e.derived) AS ef-»
         case «ef.getCPPFQN()» :
             {
                 «IF EReference.isInstance(ef)-»
@@ -170,7 +170,7 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
 {
     switch (_featureID)
     {
-    «FOREACH EAllStructuralFeatures.select(e|e.EType.ETypeParameters.isEmpty) AS ef-»
+    «FOREACH EStructuralFeatures.select(e|e.EType.ETypeParameters.isEmpty) AS ef-»
         case «ef.getCPPFQN()» :
             «IF EReference.isInstance(ef)-»
                 «IF ef.upperBound == 1-»
@@ -182,11 +182,15 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
                 «IF ef.isList() || ef.isMultiple()-»
             return «ef.getMemberName()».size();
                 «ELSE-»
-                    «IF ef.defaultValueLiteral != null -»
-            return «ef.getMemberName()» != «ef.defaultValueLiteral»;
-                    «ELSE-»
-            return ::ecorecpp::mapping::set_traits< ::«ef.EType.getFQN()» >::is_set(«ef.getMemberName()»);
-                    «ENDIF-»
+					«IF ef.EType.name.compareTo("EString")==0 -»
+                return std::string("«ef.defaultValueLiteral»").compare(«ef.getMemberName()»)!=0;	
+                	«ELSE-»
+	                    «IF ef.defaultValueLiteral != null && ef.defaultValueLiteral.length!=0 -»
+	            return «ef.getMemberName()» != «ef.defaultValueLiteral»;
+	                    «ELSE-»
+	            return ::ecorecpp::mapping::set_traits< ::«ef.EType.getFQN()» >::is_set(«ef.getMemberName()»);
+	                    «ENDIF-»
+	                «ENDIF-»
                 «ENDIF-»
             «ENDIF-»
     «ENDFOREACH»
@@ -198,7 +202,7 @@ void «name»::eUnset ( ::ecore::EInt _featureID)
 {
     switch (_featureID)
     {
-    «FOREACH EAllStructuralFeatures.select(e|e.unsettable) AS ef-»
+    «FOREACH EStructuralFeatures.select(e|e.unsettable) AS ef-»
        «REM»
         case «ef.getCPPFQN()» :
             «IF EClass.isInstance(ef.EType)-»
