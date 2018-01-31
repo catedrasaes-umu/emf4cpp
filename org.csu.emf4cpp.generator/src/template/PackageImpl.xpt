@@ -48,7 +48,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <ecore/ETypeParameter.hpp>
 «LET getExternalTypes() AS types-»
     «FOREACH types.EPackage.toSet() AS pkg-»
-#include <«pkg.getFQN("/")»/«pkg.getPackageName()».hpp>
+#include <«getFQN2(pkg,"/")»/«pkg.getPackageName()».hpp>
     «ENDFOREACH-»
     «FOREACH types.typeSelect(EClass) AS e-»
 #include <«e.getFQN("/")».hpp>
@@ -82,9 +82,15 @@ using namespace ::«getFQN()»;
     «getPackageAttribute(class)»->setEPackage(this);
     getEClassifiers().push_back(«getPackageAttribute(class)»);   
     «FOREACH class.EAttributes AS at-»
-    «getFeatureMember(at)» = new ::ecore::EAttribute();
-    «getFeatureMember(at)»->setFeatureID(«at.getCPPFQN()»);
-    «getPackageAttribute(class)»->getEStructuralFeatures().push_back(«getFeatureMember(at)»);
+    	«getFeatureMember(at)» = new ::ecore::EAttribute();
+	    «getFeatureMember(at)»->setFeatureID(«at.getCPPFQN()»);
+	    «getPackageAttribute(class)»->getEStructuralFeatures().push_back(«getFeatureMember(at)»);
+    
+    	«FOREACH at.EAnnotations AS an-»
+    		«FOREACH an.details AS detail-»
+   	 			::ecore::addAnnotation(«getFeatureMember(at)»,"«an.source»","«detail.key»","«detail.value»");
+    		«ENDFOREACH-»
+    	«ENDFOREACH-»
     «ENDFOREACH-»
     «FOREACH class.EReferences AS ref-»
     «getFeatureMember(ref)» = new ::ecore::EReference();
