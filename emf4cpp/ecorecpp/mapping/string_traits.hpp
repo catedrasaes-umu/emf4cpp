@@ -81,12 +81,12 @@ struct string_traits< type_definitions::string_t >
 {
     static inline any fromString(const type_definitions::string_t & _str)
     {
-        return &_str;
+        return any(_str);
     }
 
     static inline type_definitions::string_t toString(any const& _any)
     {
-        return *any::any_cast< const type_definitions::string_t* >(_any);
+        return any::any_cast<type_definitions::string_t>(_any);
     }
 };
 

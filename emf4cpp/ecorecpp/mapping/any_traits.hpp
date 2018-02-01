@@ -76,23 +76,6 @@ struct any_traits
 	}
 };
 
-template< >
-struct any_traits< type_definitions::string_t >
-{
-    static inline void fromAny(const any& _any, type_definitions::string_t& _t)
-    {
-        if (_any.type() == typeid(const type_definitions::string_t*))
-            _t = *any::any_cast< const type_definitions::string_t* >(_any);
-        else if (_any.type() == typeid(type_definitions::string_t*))
-            _t = *any::any_cast< type_definitions::string_t* >(_any);
-    }
-
-    static inline void toAny(any& _any, const type_definitions::string_t& _t)
-    {
-        _any = &_t;
-    }
-};
-
 } // mapping
 } // ecorecpp
 
