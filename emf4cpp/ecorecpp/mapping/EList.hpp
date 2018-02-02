@@ -38,10 +38,10 @@ public:
     typedef std::shared_ptr<EList<T>> ptr_type;
     typedef std::shared_ptr<const EList<T>> ptr_const_type;
 	typedef std::vector<T> UnderlyingContainer_type;
+	typedef ::ecore::EStructuralFeature ef;
 
 	/** Iterator interfaces for an EList<T>.
 	 */
-
 	template <typename EListPtrType>
 	class EListIterator : public std::iterator<std::bidirectional_iterator_tag, T> {
 	public:
@@ -52,6 +52,10 @@ public:
 
 		T operator*() const {
 			return _elist->get(_ind);
+		}
+
+		ef* eFeature() const {
+			return _elist->eFeature(_ind);
 		}
 
 		EListIterator& operator--() {
@@ -89,7 +93,7 @@ public:
 			return ((int64_t)_ind < (int64_t)_elist->size() - 1);
 		}
 
-		const EList<T>::ptr_type& getEList() const {
+		const typename EList<T>::ptr_type& getEList() const {
 			return _elist;
 		}
 
@@ -113,25 +117,27 @@ public:
     }
 
     template< typename Q >
-    inline void insert_all(EList< Q >& _q)
+    inline void insert_all(EList< Q >& _q, ef* ef = nullptr)
     {
         ptr_type _p(_q.template asEListOf< T >());
 
         for (size_t i = 0; i < _p->size(); i++)
-            push_back(_p->get(i));
+            push_back(_p->get(i), ef);
     }
 
-    inline void insert_all(EList& _q)
+    inline void insert_all(EList& _q, ef* ef = nullptr)
     {
         for (size_t i = 0; i < _q.size(); i++)
-            push_back(_q.get(i));
+            push_back(_q.get(i), ef);
     }
 
-    virtual void insert_at(size_t _pos, T _obj) = 0;
+    virtual void insert_at(size_t _pos, T _obj, ef* = nullptr) = 0;
 
     virtual T get(size_t _index) const = 0;
 
-    virtual void push_back(T _obj) = 0;
+    virtual ef* eFeature(size_t _index) const  = 0;
+
+    virtual void push_back(T _obj, ef* = nullptr) = 0;
 
     virtual size_t size() const = 0;
 
@@ -208,14 +214,21 @@ public:
         return _cast< Q, T >::do_cast(m_delegate[_index]);
     }
 
-	virtual void insert_at(size_t _pos, T _obj)
+    typename EList< T >::ef* eFeature(size_t) const override
+	{
+		return nullptr;
+	}
+	
+	void insert_at(size_t _pos, T _obj,
+			typename EList< T >::ef* ef = nullptr) override
     {
-        m_delegate.insert_at(_pos, _cast< T, Q >::do_cast(_obj));
+        m_delegate.insert_at(_pos, _cast< T, Q >::do_cast(_obj), ef);
     }
 
-    virtual void push_back(T _obj)
+    void push_back(T _obj,
+			typename EList< T >::ef* ef = nullptr) override
     {
-        m_delegate.push_back(_cast< T, Q >::do_cast(_obj));
+        m_delegate.push_back(_cast< T, Q >::do_cast(_obj), ef);
     }
 
     virtual size_t size() const

@@ -33,6 +33,7 @@
 #include <ecorecpp/mapping.hpp>
 
 /*PROTECTED REGION ID(EObjectImpl.cpp) ENABLED START*/
+#include <ecorecpp/mapping/FeatureEListImpl.hpp>
 #include <ecorecpp/resource/Resource.hpp>
 
 using namespace ::ecore;
@@ -181,33 +182,30 @@ void EObject::_initialize()
 std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject_ptr > > EObject::eContents()
 {
     /*PROTECTED REGION ID(EObjectImpl_eContents) ENABLED START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
-    ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type retList =
-            std::make_shared<
-                    ::ecorecpp::mapping::EListImpl< ::ecore::EObject_ptr > >();
+    auto retList = std::make_shared<
+            ::ecorecpp::mapping::FeatureEListImpl< ::ecore::EObject_ptr > >();
 
     ::ecore::EClass_ptr eclass = eClass();
     for (const auto& ref : eclass->getEAllReferences())
     {
-        ::ecorecpp::mapping::any any = eGet(ref);
-
-        if (!ref->isTransient() && ref->isContainment() && eIsSet(ref))
+        if (ref->isTransient() || !ref->isContainment() || !eIsSet(ref))
         {
-            if (ref->getUpperBound() != 1)
-            {
-                auto children = ecorecpp::mapping::any::any_cast
-                        < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
-                        > ::ptr_type > (any);
+            continue;
+        }
 
-                retList->insert_all(*children);
-            }
-            else
-            {
-                EObject_ptr child = ecorecpp::mapping::any::any_cast
-                        < EObject_ptr > (any);
-                retList->push_back(child);
-            }
+        ::ecorecpp::mapping::any any = eGet(ref);
+        if (ref->getUpperBound() != 1)
+        {
+            auto children = ecorecpp::mapping::any::any_cast
+                    < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
+                    > ::ptr_type > (any);
+            retList->insert_all(*children, ref);
+        }
+        else
+        {
+            EObject_ptr child = ecorecpp::mapping::any::any_cast < EObject_ptr
+                    > (any);
+            retList->push_back(child, ref);
         }
     }
 
@@ -227,10 +225,51 @@ std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject_ptr > > EObject::e
 
 std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject_ptr > > EObject::eCrossReferences()
 {
-    /*PROTECTED REGION ID(EObjectImpl_eCrossReferences) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
-    throw "UnsupportedOperationException: ecore::EObject::eCrossReferences";
+    /*PROTECTED REGION ID(EObjectImpl_eCrossReferences) ENABLED START*/
+    /*
+     * http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.2/org/eclipse/emf/ecore/EObject.html#eCrossReferences()
+     *
+     * This will be the list of EObjects determined by the contents of the
+     * reference features of this object's meta class, excluding containment
+     * features and their opposites.
+     *
+     * Note: The returned EList<> is actually an FeatureEListImpl<>, whose
+     * iterator allows access to the feature.
+     */
+    auto retList = std::make_shared<
+            ::ecorecpp::mapping::FeatureEListImpl< ::ecore::EObject_ptr > >();
+
+    ::ecore::EClass_ptr eclass = eClass();
+    for (const auto& ref : eclass->getEAllReferences())
+    {
+        if (ref->isTransient() || ref->isContainment() || !eIsSet(ref))
+        {
+            continue;
+        }
+
+        auto eOpposite = ref->getEOpposite();
+        if (eOpposite && eOpposite->isContainment())
+        {
+            continue;
+        }
+
+        ::ecorecpp::mapping::any any = eGet(ref);
+        if (ref->getUpperBound() != 1)
+        {
+            auto children = ecorecpp::mapping::any::any_cast
+                    < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
+                    > ::ptr_type > (any);
+            retList->insert_all(*children, ref);
+        }
+        else
+        {
+            EObject_ptr child = ecorecpp::mapping::any::any_cast < EObject_ptr
+                    > (any);
+            retList->push_back(child, ref);
+        }
+    }
+
+    return retList;
     /*PROTECTED REGION END*/
 }
 

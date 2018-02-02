@@ -47,8 +47,14 @@ public:
         return m_content[_index];
     }
 
+	typename EList< T >::ef* eFeature(size_t) const override
+	{
+		return nullptr;
+	}
+
 	/* The container grows as std::vector<>::insert() does. */
-    virtual void insert_at(size_t _pos, T _obj)
+    void insert_at(size_t _pos, T _obj,
+			typename EList< T >::ef* = nullptr) override
     {
 		/* Out-of-range positions are appended. */
 		if (_pos >= m_content.size())
@@ -58,7 +64,8 @@ public:
 		m_content.insert(it, _obj);
     }
 
-    virtual void push_back(T _obj)
+    void push_back(T _obj,
+			typename EList< T >::ef* = nullptr) override
     {
         m_content.push_back(_obj);
     }
@@ -89,7 +96,6 @@ public:
     {
     }
 
-    // TODO: temporal, protected
     EListImpl()
     {
     }
@@ -120,11 +126,12 @@ public:
     }
 
 	/* The container grows as std::vector<>::insert() does. */
-	virtual void insert_at(size_t _pos, T _obj)
+	void insert_at(size_t _pos, T _obj,
+			typename EList< T >::ef* ef = nullptr) override
     {
 		/* Out-of-range positions are appended. */
 		if (_pos >= base_t::m_content.size())
-			return push_back(_obj);
+			return push_back(_obj, ef);
 
 		/* Do not insert a second reference to the same object. */
 		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
@@ -153,7 +160,8 @@ public:
 		}
     }
 
-    virtual void push_back(T _obj)
+    void push_back(T _obj,
+			typename EList< T >::ef* = nullptr ) override
     {
 		auto it = std::find( base_t::m_content.begin(), base_t::m_content.end(), _obj );
 		if (it == base_t::m_content.end()) {

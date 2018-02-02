@@ -29,6 +29,7 @@ set(ecorecpp_SOURCES
 	#util
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/EcoreUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/Copier.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/CrossReferencer.cpp
    )
 
 set(ecorecpp_HEADERS
@@ -39,6 +40,7 @@ set(ecorecpp_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/any_traits.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EList.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EListImpl.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/FeatureEListImpl.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping_forward.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/list.hpp
@@ -78,6 +80,7 @@ set(ecorecpp_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/TreeIterator.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/EcoreUtil.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/Copier.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/CrossReferencer.hpp
    )
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp.hpp DESTINATION include/emf4cpp)
@@ -88,6 +91,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/any_traits.hpp DESTIN
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EDate.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EList.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/EListImpl.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/FeatureEListImpl.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping_forward.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/list.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
@@ -128,6 +132,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/ResourceSet.hpp DEST
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/TreeIterator.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/EcoreUtil.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/Copier.hpp DESTINATION include/emf4cpp/ecorecpp/util)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/CrossReferencer.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 
 include_directories(../emf4cpp ./ecorecpp ${Qt5Core_INCLUDE_DIRS})
 

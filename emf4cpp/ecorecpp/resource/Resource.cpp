@@ -42,7 +42,8 @@ public:
 
 	virtual ~ResourceContentEList() = default;
 
-	void push_back(::ecore::EObject_ptr _obj) override {
+	void push_back(::ecore::EObject_ptr _obj,
+				   typename EList::ef* = nullptr) override {
 		base_t::m_content.push_back(_obj);
 		if ( auto other = _obj->_getDirectResource() ) {
 			other->getContents()->remove(_obj);
