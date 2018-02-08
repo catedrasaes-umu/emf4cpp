@@ -21,6 +21,8 @@
 #ifndef ECORECPP_MAPPING_STRINGTRAITS_HPP
 #define    ECORECPP_MAPPING_STRINGTRAITS_HPP
 
+#include <cctype>
+
 #include "type_definitions.hpp"
 #include "EDate.hpp"
 
@@ -136,6 +138,35 @@ struct string_traits< std::vector< unsigned char > >
     {
         // TODO
         throw "Not implemented!";
+    }
+};
+
+template< >
+struct string_traits< char16_t >
+{
+    static inline any fromString(const type_definitions::string_t & str)
+    {
+		if (str.empty())
+			return any((char16_t)0);
+
+		if ( std::isdigit(str.front()) ) {
+			type_definitions::stringstream_t ss(str);
+			uint16_t t;
+			ss >> t;
+			return any((char16_t)t);
+		}
+
+		return any((char16_t)str.front());
+	}
+
+    static inline type_definitions::string_t toString(any const& any)
+    {
+        char16_t t = any::any_cast< char16_t >(any);
+        type_definitions::stringstream_t ss;
+
+        ss << (uint16_t)t;
+
+        return ss.str();
     }
 };
 

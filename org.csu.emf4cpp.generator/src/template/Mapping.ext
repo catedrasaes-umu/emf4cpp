@@ -28,8 +28,8 @@ String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 	case "EByte": "unsigned char"
 	case "EByteArray": "std::vector<unsigned char>"
 	case "EByteObject": "unsigned char"
-	case "EChar": "char" // Maybe int, as you should consider UTF-8
-	case "ECharacterObject": "char"
+	case "EChar": "char16_t" // The underlying Java 'char' type is an unsigned 16 bit integer type 
+	case "ECharacterObject": "char16_t"
 	case "EDate": "::ecorecpp::mapping::EDate" // Wrapper class of std::tm struct
  	case "EDiagnosticChain": "int" // ?? Need class
 	case "EDouble": "double"

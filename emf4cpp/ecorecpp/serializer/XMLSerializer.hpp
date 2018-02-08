@@ -35,12 +35,17 @@ class EXPORT_ECORECPP_DLL XMLSerializer {
 public:
 	enum class XmiIndentMode { NoIndentation, Indentation };
 
-	XMLSerializer( std::ostream&,
-			XmiIndentMode = XmiIndentMode::NoIndentation);
+	XMLSerializer( std::ostream& );
 
 	~XMLSerializer() = default;
 
 	void serialize(::ecore::EObject_ptr obj);
+
+	void setIndentMode(XmiIndentMode);
+	XmiIndentMode getIndentMode() const;
+
+	void setKeepDefault(bool);
+	bool getKeepDefault() const;
 
 protected:
 	::ecorecpp::mapping::type_definitions::string_t get_type(
@@ -62,7 +67,15 @@ protected:
 	void serialize_node_children(::ecore::EObject_ptr);
 
 	std::ostream& m_out;
-	XmiIndentMode m_mode;
+
+	/** Default values for output format
+	 *
+	 *  See Resource.hpp for options to influence the content/form of the
+	 *  serialized output.
+	 */
+	XmiIndentMode m_mode = XmiIndentMode::Indentation;
+	bool m_keepDefault = false;
+
 	std::ostringstream m_internalBuffer;
 
 	int m_level; // current_level

@@ -19,6 +19,8 @@
 
 #include "XMLResource.hpp"
 
+#include <algorithm>
+
 #include <QString>
 #include <QUuid>
 #include <ecorecpp/parser/XMLHandler.hpp>
@@ -27,11 +29,16 @@
 namespace ecorecpp {
 namespace resource {
 
+using ::ecorecpp::serializer::XMLSerializer;
+
 XMLResourceFactory::~XMLResourceFactory() = default;
 
 Resource_ptr XMLResourceFactory::createResource(const QUrl& uri) {
 	return Resource_ptr(new XMLResource(uri));
 }
+
+const std::string XMLResource::OPTION_KEEP_DEFAULT_CONTENT = "KEEP_DEFAULT_CONTENT";
+const std::string XMLResource::OPTION_FORMATTED = "FORMATTED";
 
 XMLResource::XMLResource(const QUrl& uri)
 	: Resource(uri) {
@@ -73,7 +80,7 @@ std::string XMLResource::getURIFragment(::ecore::EObject_ptr obj) {
 	return Resource::getURIFragment(obj);
 }
 
-void XMLResource::load(std::istream& is) {
+void XMLResource::load(std::istream& is, const Resource::OptionMap&) {
 	if (!is)
 		throw std::logic_error("Input stream not readable!");
 
@@ -97,12 +104,36 @@ void XMLResource::load(std::istream& is) {
 	doLoad(buffer);
 }
 
-void XMLResource::save(std::ostream& os) {
+void XMLResource::save(std::ostream& os, const Resource::OptionMap& options) {
 	if (!os)
 		throw std::logic_error("Output stream not writeable!");
 
-	::ecorecpp::serializer::XMLSerializer ser(os,
-			::ecorecpp::serializer::XMLSerializer::XmiIndentMode::Indentation);
+	XMLSerializer ser(os);
+
+	XMLSerializer::XmiIndentMode mode =
+		XMLSerializer::XmiIndentMode::Indentation;
+	if ( options.count(OPTION_FORMATTED) ) {
+		std::string modeStr = options.at(OPTION_FORMATTED);
+		std::transform(modeStr.begin(), modeStr.end(), modeStr.begin(),
+				[](unsigned char c){ return std::tolower(c); } );
+		mode = (modeStr == "true")
+			? XMLSerializer::XmiIndentMode::Indentation
+			: XMLSerializer::XmiIndentMode::NoIndentation;
+
+	}
+	ser.setIndentMode(mode);
+
+	bool keepDefault = false;
+	if ( options.count(OPTION_KEEP_DEFAULT_CONTENT) ) {
+		std::string keepStr = options.at(OPTION_KEEP_DEFAULT_CONTENT);
+		std::transform(keepStr.begin(), keepStr.end(), keepStr.begin(),
+				[](unsigned char c){ return std::tolower(c); } );
+		keepDefault = (keepStr == "true");
+
+	}
+	ser.setKeepDefault(keepDefault);
+
+
 	ser.serialize(getContents()->get(0));
 }
 

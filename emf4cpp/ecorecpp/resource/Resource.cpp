@@ -158,7 +158,7 @@ void Resource::setResourceSet(ResourceSet* rs) {
 	_resourceSet = rs;
 }
 
-void Resource::load() {
+void Resource::load(const Resource::OptionMap& options) {
 	if (_loaded)
 		return;
 
@@ -167,27 +167,27 @@ void Resource::load() {
 
 	const std::string filename(getURI().toLocalFile().toStdString());
 	std::ifstream ifs(filename.c_str());
-	load(ifs);
+	load(ifs, options);
 	ifs.close();
 
 	_loaded = true;
 }
 
-void Resource::load ( std::istream& ) {
+void Resource::load ( std::istream&, const Resource::OptionMap& ) {
 	throw std::logic_error("Resource::load() is not implemented.");
 }
 
-void Resource::save() {
+void Resource::save(const Resource::OptionMap& options) {
 	if (!getURI().isLocalFile())
 		throw std::logic_error("Resource::save() can only treat local file uris.");
 
 	const std::string filename(getURI().toLocalFile().toStdString());
 	std::ofstream ofs(filename.c_str(), std::ios_base::trunc);
-	save(ofs);
+	save(ofs, options);
 	ofs.close();
 }
 
-void Resource::save( std::ostream& ) {
+void Resource::save( std::ostream&,	const OptionMap& ) {
 	throw std::logic_error("Resource::save() is not implemented.");
 }
 

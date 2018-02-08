@@ -152,6 +152,9 @@ public:
         has_value.back().closing = ClosingState::Closed;
 		out << _value;
     }
+
+	inline void setIndent(bool ind) { indent = ind; }
+	inline bool getIndent() const { return indent; }
 };
 
 } // serializer

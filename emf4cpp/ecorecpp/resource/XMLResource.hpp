@@ -46,11 +46,27 @@ public:
 //Resource
 class EXPORT_ECORECPP_DLL XMLResource : public Resource {
 public:
+	/**
+	 * Keep default content ( e.g. default attributes). This applies to saving and
+	 * converting contents to DOM.
+	 * By default the default content is discarded.
+	 * To save the default content, set this option to 'true'.
+	 */
+	static const std::string OPTION_KEEP_DEFAULT_CONTENT /*="KEEP_DEFAULT_CONTENT"*/;
+
+	/**
+     * Add indentation to produce a readable document.
+	 * The default is 'true' unless set to 'false' explicitly.
+	 */
+	static const std::string OPTION_FORMATTED /*="FORMATTED"*/;
+
 	explicit XMLResource(const QUrl&);
 	~XMLResource() override;
 
-	void load(std::istream&) override;
-	void save(std::ostream&) override;
+	void load(std::istream&,
+			const Resource::OptionMap& = Resource::OptionMap()) override;
+	void save(std::ostream&,
+			const Resource::OptionMap& = Resource::OptionMap()) override;
 
 	void setID(::ecore::EObject_ptr, const std::string&);
 	std::string getID(::ecore::EObject_ptr);

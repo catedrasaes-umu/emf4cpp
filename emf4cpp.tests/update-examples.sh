@@ -13,6 +13,7 @@ FILES="./tree-bintree/Tree.ecore
 ./json/json.ecore
 ./enumeration/enumeration.ecore
 ./eopposite/eopposite.ecore
+./resource/ResourceOptions.ecore
 ./subpackage/subpackage.ecore
 ./treeiterator/treeiterator.ecore
 ./edate/edate.ecore

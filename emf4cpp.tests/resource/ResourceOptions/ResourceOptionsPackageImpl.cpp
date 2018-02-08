@@ -1,0 +1,260 @@
+// -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
+/*
+ * ResourceOptions/ResourceOptionsPackageImpl.cpp
+ * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
+ *
+ * EMF4CPP is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * EMF4CPP is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include <ResourceOptions/ResourceOptionsPackage.hpp>
+#include <ResourceOptions/ResourceOptionsFactory.hpp>
+#include <ecore.hpp>
+#include <ecore/EcorePackage.hpp>
+#include <ecore/EClass.hpp>
+#include <ecore/EAttribute.hpp>
+#include <ecore/EReference.hpp>
+#include <ecore/EOperation.hpp>
+#include <ecore/EParameter.hpp>
+#include <ecore/EEnum.hpp>
+#include <ecore/EEnumLiteral.hpp>
+#include <ecore/EDataType.hpp>
+#include <ecore/EGenericType.hpp>
+#include <ecore/ETypeParameter.hpp>
+#include <ecore/EcorePackage.hpp>
+
+using namespace ::ResourceOptions;
+
+ResourceOptionsPackage::ResourceOptionsPackage()
+{
+
+    // Feature definitions of ETypes
+    m_ETypes__string = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypes__emptyString = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypes__date = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypes__char = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypes__bool = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypes__double = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ETypes__int = boost::intrusive_ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+}
+
+void ResourceOptionsPackage::_initPackage()
+{
+    // Factory
+    ::ecore::EFactory_ptr _fa = ResourceOptionsFactory::_instance();
+    setEFactoryInstance(_fa);
+    _fa->setEPackage(_this());
+
+    // Create classes and their features
+
+    // ETypes
+    m_ETypesEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
+    m_ETypesEClass->setClassifierID(ETYPES);
+    m_ETypesEClass->setEPackage(_this());
+    getEClassifiers().push_back(m_ETypesEClass);
+    // m_ETypes__string has already been allocated above
+    m_ETypes__string->setFeatureID(
+            ::ResourceOptions::ResourceOptionsPackage::ETYPES__STRING);
+    m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__string);
+    // m_ETypes__emptyString has already been allocated above
+    m_ETypes__emptyString->setFeatureID(
+            ::ResourceOptions::ResourceOptionsPackage::ETYPES__EMPTYSTRING);
+    m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__emptyString);
+    // m_ETypes__date has already been allocated above
+    m_ETypes__date->setFeatureID(
+            ::ResourceOptions::ResourceOptionsPackage::ETYPES__DATE);
+    m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__date);
+    // m_ETypes__char has already been allocated above
+    m_ETypes__char->setFeatureID(
+            ::ResourceOptions::ResourceOptionsPackage::ETYPES__CHAR);
+    m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__char);
+    // m_ETypes__bool has already been allocated above
+    m_ETypes__bool->setFeatureID(
+            ::ResourceOptions::ResourceOptionsPackage::ETYPES__BOOL);
+    m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__bool);
+    // m_ETypes__double has already been allocated above
+    m_ETypes__double->setFeatureID(
+            ::ResourceOptions::ResourceOptionsPackage::ETYPES__DOUBLE);
+    m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__double);
+    // m_ETypes__int has already been allocated above
+    m_ETypes__int->setFeatureID(
+            ::ResourceOptions::ResourceOptionsPackage::ETYPES__INT);
+    m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__int);
+
+    // Create enums
+
+    // Create data types
+
+    // Initialize package
+    setName("ResourceOptions");
+    setNsPrefix("ResourceOptions");
+    setNsURI("http://www.example.org/ResourceOptions");
+
+    // TODO: bounds for type parameters
+
+    // Add supertypes to classes
+
+    // TODO: Initialize classes and features; add operations and parameters
+    // TODO: GenericTypes
+    // ETypes
+    m_ETypesEClass->setName("ETypes");
+    m_ETypesEClass->setAbstract(false);
+    m_ETypesEClass->setInterface(false);
+    m_ETypes__string->setEType(
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
+    m_ETypes__string->setName("string");
+    m_ETypes__string->setDefaultValueLiteral("Hallo Welt!");
+    m_ETypes__string->setLowerBound(0);
+    m_ETypes__string->setUpperBound(1);
+    m_ETypes__string->setTransient(false);
+    m_ETypes__string->setVolatile(false);
+    m_ETypes__string->setChangeable(true);
+    m_ETypes__string->setUnsettable(false);
+    m_ETypes__string->setID(false);
+    m_ETypes__string->setUnique(true);
+    m_ETypes__string->setDerived(false);
+    m_ETypes__string->setOrdered(true);
+    m_ETypes__emptyString->setEType(
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
+    m_ETypes__emptyString->setName("emptyString");
+    m_ETypes__emptyString->setDefaultValueLiteral("");
+    m_ETypes__emptyString->setLowerBound(0);
+    m_ETypes__emptyString->setUpperBound(1);
+    m_ETypes__emptyString->setTransient(false);
+    m_ETypes__emptyString->setVolatile(false);
+    m_ETypes__emptyString->setChangeable(true);
+    m_ETypes__emptyString->setUnsettable(false);
+    m_ETypes__emptyString->setID(false);
+    m_ETypes__emptyString->setUnique(true);
+    m_ETypes__emptyString->setDerived(false);
+    m_ETypes__emptyString->setOrdered(true);
+    m_ETypes__date->setEType(
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEDate());
+    m_ETypes__date->setName("date");
+    m_ETypes__date->setDefaultValueLiteral("1976-05-27T12:13:14.123-0300");
+    m_ETypes__date->setLowerBound(0);
+    m_ETypes__date->setUpperBound(1);
+    m_ETypes__date->setTransient(false);
+    m_ETypes__date->setVolatile(false);
+    m_ETypes__date->setChangeable(true);
+    m_ETypes__date->setUnsettable(false);
+    m_ETypes__date->setID(false);
+    m_ETypes__date->setUnique(true);
+    m_ETypes__date->setDerived(false);
+    m_ETypes__date->setOrdered(true);
+    m_ETypes__char->setEType(
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEChar());
+    m_ETypes__char->setName("char");
+    m_ETypes__char->setDefaultValueLiteral("98");
+    m_ETypes__char->setLowerBound(0);
+    m_ETypes__char->setUpperBound(1);
+    m_ETypes__char->setTransient(false);
+    m_ETypes__char->setVolatile(false);
+    m_ETypes__char->setChangeable(true);
+    m_ETypes__char->setUnsettable(false);
+    m_ETypes__char->setID(false);
+    m_ETypes__char->setUnique(true);
+    m_ETypes__char->setDerived(false);
+    m_ETypes__char->setOrdered(true);
+    m_ETypes__bool->setEType(
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
+    m_ETypes__bool->setName("bool");
+    m_ETypes__bool->setDefaultValueLiteral("true");
+    m_ETypes__bool->setLowerBound(0);
+    m_ETypes__bool->setUpperBound(1);
+    m_ETypes__bool->setTransient(false);
+    m_ETypes__bool->setVolatile(false);
+    m_ETypes__bool->setChangeable(true);
+    m_ETypes__bool->setUnsettable(false);
+    m_ETypes__bool->setID(false);
+    m_ETypes__bool->setUnique(true);
+    m_ETypes__bool->setDerived(false);
+    m_ETypes__bool->setOrdered(true);
+    m_ETypes__double->setEType(
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEDouble());
+    m_ETypes__double->setName("double");
+    m_ETypes__double->setDefaultValueLiteral("3.14");
+    m_ETypes__double->setLowerBound(0);
+    m_ETypes__double->setUpperBound(1);
+    m_ETypes__double->setTransient(false);
+    m_ETypes__double->setVolatile(false);
+    m_ETypes__double->setChangeable(true);
+    m_ETypes__double->setUnsettable(false);
+    m_ETypes__double->setID(false);
+    m_ETypes__double->setUnique(true);
+    m_ETypes__double->setDerived(false);
+    m_ETypes__double->setOrdered(true);
+    m_ETypes__int->setEType(
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEInt());
+    m_ETypes__int->setName("int");
+    m_ETypes__int->setDefaultValueLiteral("10");
+    m_ETypes__int->setLowerBound(0);
+    m_ETypes__int->setUpperBound(1);
+    m_ETypes__int->setTransient(false);
+    m_ETypes__int->setVolatile(false);
+    m_ETypes__int->setChangeable(true);
+    m_ETypes__int->setUnsettable(false);
+    m_ETypes__int->setID(false);
+    m_ETypes__int->setUnique(true);
+    m_ETypes__int->setDerived(false);
+    m_ETypes__int->setOrdered(true);
+
+    // TODO: Initialize data types
+
+    _initialize();
+}
+
+::ecore::EClass_ptr ResourceOptionsPackage::getETypes()
+{
+    return m_ETypesEClass;
+}
+
+::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__string()
+{
+    return m_ETypes__string;
+}
+::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__emptyString()
+{
+    return m_ETypes__emptyString;
+}
+::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__date()
+{
+    return m_ETypes__date;
+}
+::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__char()
+{
+    return m_ETypes__char;
+}
+::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__bool()
+{
+    return m_ETypes__bool;
+}
+::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__double()
+{
+    return m_ETypes__double;
+}
+::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__int()
+{
+    return m_ETypes__int;
+}
+

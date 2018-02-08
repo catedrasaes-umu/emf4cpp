@@ -49,10 +49,9 @@ struct any
 {
     struct bad_any_cast: std::runtime_error
     {
-        bad_any_cast() :
-            std::runtime_error("any::bad_any_cast: failed conversion.")
-        {
-        }
+        bad_any_cast(const std::string& of, const std::string& to) :
+            std::runtime_error("any::bad_any_cast of '" + of + "' to '" + to + "'.\n")
+        {}
     };
 
     any() :
@@ -119,7 +118,7 @@ struct any
 	any_cast(any const& a)
     {
         if (typeid(T) != a.type())
-            throw bad_any_cast();
+            throw bad_any_cast(std::string(a.type().name()), std::string(typeid(T).name()));
 
         return dynamic_cast< holder< T >* > (a.store_)->v_;
     }

@@ -32,13 +32,29 @@ using namespace ::ecore;
 
 using ::ecorecpp::mapping::type_definitions::string_t;
 
-XMLSerializer::XMLSerializer( std::ostream& os, XmiIndentMode mode)
+XMLSerializer::XMLSerializer( std::ostream& os )
 	: m_out(os),
-	  m_mode(mode),
 	  m_internalBuffer(),
 	  m_level(0),
 	  m_ser(m_internalBuffer, m_mode == XmiIndentMode::Indentation),
 	  m_usedPackages() {
+}
+
+void XMLSerializer::setIndentMode(XmiIndentMode mode) {
+	m_mode = mode;
+	m_ser.setIndent(m_mode == XmiIndentMode::Indentation);
+}
+
+XMLSerializer::XmiIndentMode XMLSerializer::getIndentMode() const {
+	return m_mode;
+}
+
+void XMLSerializer::setKeepDefault(bool kd) {
+	m_keepDefault = kd;
+}
+
+bool XMLSerializer::getKeepDefault() const {
+	return m_keepDefault;
 }
 
 void XMLSerializer::serialize(EObject_ptr obj) {
@@ -204,7 +220,7 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 	for (auto const& current_at : attributes) {
 		if ( current_at->isTransient()
 				|| current_at->getUpperBound() != 1
-				|| !obj->eIsSet(current_at) )
+				|| (!obj->eIsSet(current_at) && !m_keepDefault) )
 			continue;
 
 		try {
@@ -224,8 +240,10 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 				DEBUG_MSG(cout, indent << current_at->getName() << " "
 						<< value);
 
-				if (!value.empty() && value
-						!= current_at->getDefaultValueLiteral()) {
+				if ( (!value.empty() && value
+						!= current_at->getDefaultValueLiteral())
+					|| (m_keepDefault && value
+						== current_at->getDefaultValueLiteral())) {
 					m_ser.add_attribute(current_at->getName(), value);
 				}
 			} else {

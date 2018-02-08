@@ -22,6 +22,7 @@
 
 #include "../dllEcorecpp.hpp"
 
+#include <string>
 #include <unordered_map>
 #include <boost/intrusive_ptr.hpp>
 
@@ -43,6 +44,7 @@ using Resource_ptr = boost::intrusive_ptr<Resource>;
 
 class EXPORT_ECORECPP_DLL Resource {
 public:
+	using OptionMap = std::unordered_map<std::string, std::string>;
 
 	Resource(const Resource&)    = delete;
 	void operator=(const Resource&) = delete;
@@ -89,11 +91,11 @@ public:
 	ResourceSet* getResourceSet();
 	void setResourceSet(ResourceSet*);
 
-    virtual void load();
-	virtual void load(std::istream&);
+    virtual void load(const OptionMap& = OptionMap());
+	virtual void load(std::istream&, const OptionMap& = OptionMap());
 
-	virtual void save();
-	virtual void save(std::ostream&);
+	virtual void save(const OptionMap& = OptionMap());
+	virtual void save(std::ostream&, const OptionMap& = OptionMap());
 
 	virtual void unload();
 

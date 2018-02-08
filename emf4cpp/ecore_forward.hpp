@@ -85,12 +85,12 @@ namespace ecore
     /*PROTECTED REGION ID(ecore_EChar) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-    typedef char EChar;
+    typedef char16_t EChar;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(ecore_ECharacterObject) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-    typedef char ECharacterObject;
+    typedef char16_t ECharacterObject;
     /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(ecore_EDate) START*/
 // Please, enable the protected region if you add manually written code.
