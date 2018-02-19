@@ -87,6 +87,7 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 		xml_parser::attr_list_t const& attributes) {
 	::ecorecpp::mapping::type_definitions::string_t * type = nullptr;
 	::ecorecpp::mapping::type_definitions::string_t * href = nullptr;
+	::ecorecpp::mapping::type_definitions::string_t * xmiId = nullptr;
 	::ecorecpp::mapping::type_definitions::string_t name(nameP.first, nameP.second);
 	static MetaModelRepository_ptr _mmr = MetaModelRepository::_instance();
 
@@ -116,6 +117,10 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 
 		if (!type && (attr_list[i].first == "xsi:type"))
 			type = &attr_list[i].second;
+
+		if (attr_list[i].first == "xmi:id") {
+			xmiId = &attr_list[i].second;
+		}
 
 		if (attr_list[i].first == "href") {
 			href = &attr_list[i].second;
@@ -171,6 +176,9 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 		assert(efac);
 		eobj = efac->create(eclass);
 		assert(eobj);
+
+		if (xmiId && !xmiId->empty())
+			_xmiIds.insert( std::make_pair(*xmiId, eobj.get()) );
 
 		DEBUG_MSG(cout, "--- START: " << (m_level + 1));
 
@@ -288,6 +296,10 @@ EObject_ptr XMLHandler::getRootElement() {
 	if (!m_objects.empty())
 		return m_objects.front();
 	return EObject_ptr(); // TODO: throw exception?
+}
+
+XMLHandler::XmiIdMap& XMLHandler::getXmiIds() {
+	return _xmiIds;
 }
 
 void XMLHandler::resolveReferences() {

@@ -166,6 +166,13 @@ EObject_ptr Copier::copy( EObject_ptr src ) {
 		}
 	}
 }
-	
+
+::ecore::EObject_ptr Copier::get_clone( ::ecore::EObject_ptr original) {
+	auto it = m_objectsMap.find(original);
+	if (it != m_objectsMap.end())
+		return it->second;
+	return ::ecore::EObject_ptr();
+}
+
 } // util
 } // ecorecpp

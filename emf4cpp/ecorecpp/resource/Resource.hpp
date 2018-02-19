@@ -22,7 +22,6 @@
 
 #include "../dllEcorecpp.hpp"
 
-#include <iostream>
 #include <unordered_map>
 #include <boost/intrusive_ptr.hpp>
 
@@ -105,6 +104,9 @@ public:
 
 	virtual ::ecore::EObject_ptr getEObject(const std::string& uriFragment);
 	virtual std::string getURIFragment(::ecore::EObject_ptr);
+
+	/** Use intrinsic ids if available. Default: true */
+	virtual bool useIDAttributes() const;
 
 protected:
 	explicit Resource(const QUrl&);

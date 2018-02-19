@@ -21,8 +21,8 @@
 
 #include <cassert>
 #include <fstream>
+#include <iostream>
 #include <sstream>
-
 #include <ecore.hpp>
 #include <mapping/EListImpl.hpp>
 #include <util/EcoreUtil.hpp>
@@ -303,13 +303,18 @@ std::string Resource::getURIFragment( ::ecore::EObject_ptr obj ) {
 		return "";
 
 	//1. Look for id attribute and return its value, if existing.
-	std::string id = ::ecorecpp::util::EcoreUtil::getId(obj);
-	if (!id.empty())
-		return id;
+	if (useIDAttributes()) {
+		std::string id = ::ecorecpp::util::EcoreUtil::getId(obj);
+		if (!id.empty())
+			return id;
+	}
 
 	//2. Return xpath
 	auto current = obj;
+	std::string id;
 	while ( auto container = current->eContainer() ) {
+		if ( container->eResource() != this )
+			break;
 		auto esf = current->eContainingFeature();
 		if (esf->getUpperBound() == 1) {
 			id.insert(0, std::string("/@") + esf->getName() );
@@ -317,13 +322,13 @@ std::string Resource::getURIFragment( ::ecore::EObject_ptr obj ) {
 			ecorecpp::mapping::any _any = container->eGet(esf);
 
 			auto ef = ecorecpp::mapping::any::any_cast<
-					mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
+				mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
 			for (size_t index = 0; index < ef->size(); ++index) {
 				if ( ef->get(index) == current ) {
 					id.insert( 0, std::string("/@")
-							+ esf->getName()
-							+ "." + std::to_string(index) );
+							   + esf->getName()
+							   + "." + std::to_string(index) );
 					break;
 				}
 			}
@@ -344,6 +349,10 @@ std::string Resource::getURIFragment( ::ecore::EObject_ptr obj ) {
 
 const ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type& Resource::getContents() {
 	return _contents;
+}
+
+bool Resource::useIDAttributes() const {
+	return true;
 }
 
 } // resource

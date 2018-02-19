@@ -19,6 +19,8 @@
 
 #include "XMLResource.hpp"
 
+#include <QString>
+#include <QUuid>
 #include <ecorecpp/parser/XMLHandler.hpp>
 #include <ecorecpp/serializer/XMLSerializer.hpp>
 
@@ -37,16 +39,38 @@ XMLResource::XMLResource(const QUrl& uri)
 
 XMLResource::~XMLResource() = default;
 
-void XMLResource::setID(::ecore::EObject* eobj, const std::string& id) {
-	_eObjectToIDMap[eobj] = id;
-	_idToEObjectMap[id] = eobj;
+void XMLResource::setID(::ecore::EObject_ptr eobj, const std::string& id) {
+	_eObjectToIDMap[eobj.get()] = id;
+	_idToEObjectMap[id] = eobj.get();
 }
 
-std::string XMLResource::getID(::ecore::EObject* eobj) {
-	if ( _eObjectToIDMap.count(eobj) )
-		return _eObjectToIDMap[eobj];
+std::string XMLResource::getID(::ecore::EObject_ptr eobj) {
+	auto it = _eObjectToIDMap.find(eobj.get());
+	if (it != _eObjectToIDMap.end())
+		return it->second;
 
-	return "";
+	if (!useUUIDs())
+		return std::string();
+
+	return createID(eobj);
+}
+
+::ecore::EObject_ptr XMLResource::getEObject(const std::string& uriFragment) {
+	auto it = _idToEObjectMap.find(uriFragment);
+	if (it != _idToEObjectMap.end())
+		return it->second;
+
+	return Resource::getEObject(uriFragment);
+}
+
+std::string XMLResource::getURIFragment(::ecore::EObject_ptr obj) {
+	if (useIDs() || useUUIDs()) {
+		std::string id = getID(obj);
+		if (!id.empty())
+			return id;
+	}
+
+	return Resource::getURIFragment(obj);
 }
 
 void XMLResource::load(std::istream& is) {
@@ -109,15 +133,15 @@ void XMLResource::doLoad(
 
 	getContents()->push_back(root);
 
+	_idToEObjectMap = handler.getXmiIds();
+	for (auto& entry : _idToEObjectMap)
+		_eObjectToIDMap.insert(std::make_pair(entry.second, entry.first));
+
 	/* Now the model knows it's resource and we can try to resolve
 	 * the (cross-document) references, too.
 	 */
 	handler.resolveReferences();
 	handler.resolveCrossDocumentReferences();
-}
-
-bool XMLResource::useIDAttributes() const {
-	return true;
 }
 
 bool XMLResource::useIDs() const {
@@ -126,6 +150,25 @@ bool XMLResource::useIDs() const {
 
 bool XMLResource::useUUIDs() const {
 	return false;
+}
+
+/** By default, this implementation creates UUIDs.
+ *
+ * http://download.eclipse.org/modeling/emf/emf/javadoc/2.5.0/org/eclipse/emf/ecore/util/EcoreUtil.html#generateUUID()
+ * contradicts itself: On one side it references
+ * http://www.ietf.org/rfc/rfc2045.txt as "base 64", but on the other side the
+ * result must be a valid "NCName" according to
+ * http://www.w3.org/TR/1999/REC-xml-names-19990114/#NT-NCName - which it
+ * can't be as base 64 contains a '+' and a '/', which a NCName must not
+ * contain. */
+std::string XMLResource::createID(::ecore::EObject_ptr obj) {
+	QString uuid(
+		QUuid::createUuid().toRfc4122().toBase64(
+			QByteArray::Base64Encoding | QByteArray::OmitTrailingEquals));
+	uuid.prepend('_');
+
+	setID(obj, uuid.toStdString());
+	return uuid.toStdString();
 }
 
 } // resource

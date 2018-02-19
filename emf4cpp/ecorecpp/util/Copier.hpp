@@ -34,6 +34,12 @@ public:
 	::ecore::EObject_ptr clone( ::ecore::EObject_ptr );
 	::ecore::EObject_ptr copy( ::ecore::EObject_ptr );
 	void copy_references( ::ecore::EObject_ptr src, ::ecore::EObject_ptr dst );
+
+	/** Return a copied object for a source object. If the source object was
+	 * not copied, e.g. because it is not in a containment relation to the
+	 * copied tree's root, a nullptr is returned. */
+	::ecore::EObject_ptr get_clone( ::ecore::EObject_ptr );
+
 protected:
 	bool _keepExternalRefs;
 	std::map<::ecore::EObject_ptr, ::ecore::EObject_ptr> m_objectsMap;

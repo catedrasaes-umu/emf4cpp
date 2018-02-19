@@ -23,6 +23,7 @@
 
 #include <list>
 #include <string>
+#include <unordered_map>
 
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
@@ -52,6 +53,8 @@ public:
 
 	::ecore::EObject_ptr getRootElement();
 
+	using XmiIdMap = std::unordered_map<::ecorecpp::mapping::type_definitions::string_t, ::ecore::EObject*>;
+	XmiIdMap& getXmiIds();
 	void resolveReferences();
 	void resolveCrossDocumentReferences();
 
@@ -79,6 +82,8 @@ private:
 			const ::ecorecpp::mapping::type_definitions::string_t& _name) const {
 		return _name.find(':') == ::ecorecpp::mapping::type_definitions::string_t::npos;
 	}
+
+	XmiIdMap _xmiIds;
 };
 
 } // parser

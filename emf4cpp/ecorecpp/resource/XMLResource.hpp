@@ -52,13 +52,23 @@ public:
 	void load(std::istream&) override;
 	void save(std::ostream&) override;
 
-	void setID(::ecore::EObject*, const std::string&);
-	std::string getID(::ecore::EObject*);
+	void setID(::ecore::EObject_ptr, const std::string&);
+	std::string getID(::ecore::EObject_ptr);
+
+	::ecore::EObject_ptr getEObject(const std::string& uriFragment) override;
+	std::string getURIFragment(::ecore::EObject_ptr) override;
+
+	/** Use ids from the map, where the user has set them. They are stored in
+	 * the attribue xmi:id. */
+	virtual bool useIDs() const;
+	/** Generate unique ids automatically. They are stored in the attribue
+	 * xmi:id. */
+	virtual bool useUUIDs() const;
+	/* If all is disabled, xpath is used for references. */
 
 protected:
-	bool useIDAttributes() const;
-	bool useIDs() const;
-	bool useUUIDs() const;
+	/** Generates a new UUID and calls setId(). */
+	virtual std::string createID(::ecore::EObject_ptr);
 
 private:
 	void doLoad(const std::vector<::ecorecpp::mapping::type_definitions::char_t>&);
