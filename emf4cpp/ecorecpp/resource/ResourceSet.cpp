@@ -21,6 +21,8 @@
 
 #include <mapping/EListImpl.hpp>
 
+#include "URIConverter.hpp"
+
 namespace ecorecpp {
 namespace resource {
 
@@ -30,8 +32,9 @@ ResourceSet& ResourceSet::getInstance() {
 }
 
 ResourceSet::ResourceSet()
-	: _resources(std::make_shared<::ecorecpp::mapping::EListImpl<Resource_ptr>>()),
-	  _resourceRegistry(nullptr) {
+	: _uriConverter(nullptr),
+	  _resourceRegistry(nullptr),
+	  _resources(std::make_shared<::ecorecpp::mapping::EListImpl<Resource_ptr>>()) {
 }
 
 /** Cleanup a ResourceSet.
@@ -86,12 +89,26 @@ Resource_ptr ResourceSet::createResource(const QUrl& uri,
 	return ::ecore::EObject_ptr();
 }
 
+URIConverter* ResourceSet::getURIConverter() {
+	if (!_uriConverter)
+		_uriConverter.reset(new URIConverter());
+
+	return _uriConverter.get();
+}
+
+void ResourceSet::setURIConverter(const URIConverter& conv) {
+	_uriConverter.reset(new URIConverter(conv));
+}
+
 Resource_ptr ResourceSet::getResource(const QUrl& uri, bool loadOnDemand) {
-//1. Normalize uri (not implemented)
+//1. Normalize uri:
+	QUrl normalizedUri(uri);
+	normalizedUri = getURIConverter()->normalize(uri);
 
 //2. Try to find resource in existing resources:
 	for (const auto& res : *_resources) {
-		if ( res->getURI().matches(uri, QUrl::RemoveFragment | QUrl::RemoveQuery) ) {
+		if ( getURIConverter()->normalize(res->getURI()).matches(
+					normalizedUri, QUrl::RemoveFragment | QUrl::RemoveQuery) ) {
 			if (loadOnDemand && !res->isLoaded())
 				res->load();
 			return res;
@@ -104,7 +121,7 @@ Resource_ptr ResourceSet::getResource(const QUrl& uri, bool loadOnDemand) {
 	if (!loadOnDemand)
 		return nullptr;
 
-	Resource_ptr res = createResource(uri);
+	Resource_ptr res = createResource(normalizedUri);
 	if (res)
 		res->load();
 

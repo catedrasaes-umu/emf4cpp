@@ -20,7 +20,7 @@
 
 cmake_minimum_required(VERSION 2.6)
 
-project(emf4cpp-ResourceOptions CXX)
+project(emf4cpp-ResourceTests CXX)
 
 FILE(GLOB CMAKES "${CMAKE_CURRENT_SOURCE_DIR}/*.cmake")
 

@@ -24,8 +24,10 @@ set(ecorecpp_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify/Notifier.cpp
 	# resource
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/Resource.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/ResourceSet.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/URIConverter.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/URIHandler.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.cpp
 	#util
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/EcoreUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/Copier.cpp
@@ -75,8 +77,10 @@ set(ecorecpp_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/escape_html.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource_forward.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/Resource.hpp
-	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/ResourceSet.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/URIConverter.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/URIHandler.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/TreeIterator.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/EcoreUtil.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/Copier.hpp
@@ -127,8 +131,10 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/print.hpp DESTINATION in
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/escape_html.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource_forward.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/Resource.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/ResourceSet.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/URIConverter.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/URIHandler.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/resource/XMLResource.hpp DESTINATION include/emf4cpp/ecorecpp/resource)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/TreeIterator.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/EcoreUtil.hpp DESTINATION include/emf4cpp/ecorecpp/util)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/util/Copier.hpp DESTINATION include/emf4cpp/ecorecpp/util)

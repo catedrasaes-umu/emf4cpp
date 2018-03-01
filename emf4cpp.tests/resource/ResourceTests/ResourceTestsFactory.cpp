@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions/ResourceOptionsFactory.cpp
+ * ResourceTests/ResourceTestsFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,17 +18,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <ResourceOptions/ResourceOptionsFactory.hpp>
+#include <ResourceTests/ResourceTestsFactory.hpp>
 
-using namespace ::ResourceOptions;
+using namespace ::ResourceTests;
 
-boost::intrusive_ptr< ::ResourceOptions::ResourceOptionsFactory > ResourceOptionsFactory::s_holder;
+boost::intrusive_ptr< ::ResourceTests::ResourceTestsFactory > ResourceTestsFactory::s_holder;
 
-::ResourceOptions::ResourceOptionsFactory_ptr ResourceOptionsFactory::_instance()
+::ResourceTests::ResourceTestsFactory_ptr ResourceTestsFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < ResourceOptionsFactory
-                > (new ResourceOptionsFactory());
+        s_holder = boost::intrusive_ptr < ResourceTestsFactory
+                > (new ResourceTestsFactory());
 
     return s_holder;
 }

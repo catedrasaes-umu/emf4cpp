@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions/dllResourceOptions.hpp
+ * ResourceTests/dllResourceTests.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,13 +18,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _DLL_RESOURCEOPTIONS_HPP
-#define _DLL_RESOURCEOPTIONS_HPP
+#ifndef _DLL_RESOURCETESTS_HPP
+#define _DLL_RESOURCETESTS_HPP
 /*
  * Defines 3 preprocessor symbols:
- * - MAKE_RESOURCEOPTIONS_DLL  set to 1 when building the dll, else unset
- * - USE_RESOURCEOPTIONS_DLL    set to 1 when using the dll, else unset
- * - EXPORT_RESOURCEOPTIONS_DLL  always set, import when using the dll,
+ * - MAKE_RESOURCETESTS_DLL  set to 1 when building the dll, else unset
+ * - USE_RESOURCETESTS_DLL    set to 1 when using the dll, else unset
+ * - EXPORT_RESOURCETESTS_DLL  always set, import when using the dll,
  *          export when building dll
  *
  * Pattern taken from qglobal.h
@@ -32,30 +32,30 @@
 
 #if defined(__WIN32__) || defined(_WIN32)
 
-#   if defined(MAKE_RESOURCEOPTIONS_DLL)
-#       if defined(USE_RESOURCEOPTIONS_DLL)
-#           undef USE_RESOURCEOPTIONS_DLL
+#   if defined(MAKE_RESOURCETESTS_DLL)
+#       if defined(USE_RESOURCETESTS_DLL)
+#           undef USE_RESOURCETESTS_DLL
 #       endif
 
-#       define EXPORT_RESOURCEOPTIONS_DLL __declspec(dllexport)
-#       define EXTERN_RESOURCEOPTIONS_DLL __declspec(dllimport)
+#       define EXPORT_RESOURCETESTS_DLL __declspec(dllexport)
+#       define EXTERN_RESOURCETESTS_DLL __declspec(dllimport)
 
 #   else
-#       if !defined(USE_RESOURCEOPTIONS_DLL)
-#           define USE_RESOURCEOPTIONS_DLL 1
+#       if !defined(USE_RESOURCETESTS_DLL)
+#           define USE_RESOURCETESTS_DLL 1
 #       endif
 
-#       define EXPORT_RESOURCEOPTIONS_DLL __declspec(dllimport)
-#       define EXTERN_RESOURCEOPTIONS_DLL __declspec(dllexport)
+#       define EXPORT_RESOURCETESTS_DLL __declspec(dllimport)
+#       define EXTERN_RESOURCETESTS_DLL __declspec(dllexport)
 
 #   endif
 
 #else
 
-#   define EXPORT_RESOURCEOPTIONS_DLL
-#   define EXTERN_RESOURCEOPTIONS_DLL
+#   define EXPORT_RESOURCETESTS_DLL
+#   define EXTERN_RESOURCETESTS_DLL
 
 #endif
 
-#endif // _RESOURCEOPTIONS_HPP
+#endif // _RESOURCETESTS_HPP
 

@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions_forward.hpp
+ * ResourceTests_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,12 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _RESOURCEOPTIONS_FORWARD_HPP
-#define _RESOURCEOPTIONS_FORWARD_HPP
+#ifndef _RESOURCETESTS_FORWARD_HPP
+#define _RESOURCETESTS_FORWARD_HPP
 
 #include <ecorecpp/mapping_forward.hpp>
 
-/*PROTECTED REGION ID(ResourceOptions_forward) START*/
+/*PROTECTED REGION ID(ResourceTests_forward) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 // Additional headers here
@@ -33,12 +33,24 @@
 
 #include <ecore_forward.hpp> // for EDataTypes
 
-namespace ResourceOptions
+namespace ResourceTests
 {
 
 // EDataType
 
 // EClass
+
+// Root
+    class Root;
+    using Root_ptr = boost::intrusive_ptr<Root>;
+
+// ReferenceTarget
+    class ReferenceTarget;
+    using ReferenceTarget_ptr = boost::intrusive_ptr<ReferenceTarget>;
+
+// Referrer
+    class Referrer;
+    using Referrer_ptr = boost::intrusive_ptr<Referrer>;
 
 // ETypes
     class ETypes;
@@ -47,10 +59,10 @@ namespace ResourceOptions
 // EEnum
 
 // Package & Factory
-    class ResourceOptionsFactory;
-    using ResourceOptionsFactory_ptr = boost::intrusive_ptr<ResourceOptionsFactory>;
-    class ResourceOptionsPackage;
-    using ResourceOptionsPackage_ptr = boost::intrusive_ptr<ResourceOptionsPackage>;
+    class ResourceTestsFactory;
+    using ResourceTestsFactory_ptr = boost::intrusive_ptr<ResourceTestsFactory>;
+    class ResourceTestsPackage;
+    using ResourceTestsPackage_ptr = boost::intrusive_ptr<ResourceTestsPackage>;
 
     template< typename T, typename S >
     inline boost::intrusive_ptr< T > instanceOf(const S& _s)
@@ -58,7 +70,7 @@ namespace ResourceOptions
         return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
     }
 
-} // ResourceOptions
+} // ResourceTests
 
-#endif // _RESOURCEOPTIONS_FORWARD_HPP
+#endif // _RESOURCETESTS_FORWARD_HPP
 

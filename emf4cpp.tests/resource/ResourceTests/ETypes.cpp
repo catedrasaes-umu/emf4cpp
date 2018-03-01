@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions/ETypes.cpp
+ * ResourceTests/ETypes.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -21,7 +21,7 @@
 #include "ETypes.hpp"
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
-#include "ResourceOptions/ResourceOptionsPackage.hpp"
+#include "ResourceTests/ResourceTestsPackage.hpp"
 #include <ecorecpp/mapping.hpp>
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -33,7 +33,7 @@
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
-using namespace ::ResourceOptions;
+using namespace ::ResourceTests;
 
 // Default constructor
 ETypes::ETypes() :
@@ -75,7 +75,7 @@ void ETypes::setString(::ecore::EString const& _string)
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
                 _this(),
-                ::ResourceOptions::ResourceOptionsPackage::_instance()->getETypes__string(),
+                ::ResourceTests::ResourceTestsPackage::_instance()->getETypes__string(),
                 _old_string,
                 m_string
         );
@@ -101,7 +101,7 @@ void ETypes::setEmptyString(::ecore::EString const& _emptyString)
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
                 _this(),
-                ::ResourceOptions::ResourceOptionsPackage::_instance()->getETypes__emptyString(),
+                ::ResourceTests::ResourceTestsPackage::_instance()->getETypes__emptyString(),
                 _old_emptyString,
                 m_emptyString
         );
@@ -127,7 +127,7 @@ void ETypes::setDate(::ecore::EDate _date)
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
                 _this(),
-                ::ResourceOptions::ResourceOptionsPackage::_instance()->getETypes__date(),
+                ::ResourceTests::ResourceTestsPackage::_instance()->getETypes__date(),
                 _old_date,
                 m_date
         );
@@ -153,7 +153,7 @@ void ETypes::setChar(::ecore::EChar _char)
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
                 _this(),
-                ::ResourceOptions::ResourceOptionsPackage::_instance()->getETypes__char(),
+                ::ResourceTests::ResourceTestsPackage::_instance()->getETypes__char(),
                 _old_char,
                 m_char
         );
@@ -179,7 +179,7 @@ void ETypes::setBool(::ecore::EBoolean _bool)
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
                 _this(),
-                ::ResourceOptions::ResourceOptionsPackage::_instance()->getETypes__bool(),
+                ::ResourceTests::ResourceTestsPackage::_instance()->getETypes__bool(),
                 _old_bool,
                 m_bool
         );
@@ -205,7 +205,7 @@ void ETypes::setDouble(::ecore::EDouble _double)
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
                 _this(),
-                ::ResourceOptions::ResourceOptionsPackage::_instance()->getETypes__double(),
+                ::ResourceTests::ResourceTestsPackage::_instance()->getETypes__double(),
                 _old_double,
                 m_double
         );
@@ -231,7 +231,7 @@ void ETypes::setInt(::ecore::EInt _int)
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
                 _this(),
-                ::ResourceOptions::ResourceOptionsPackage::_instance()->getETypes__int(),
+                ::ResourceTests::ResourceTestsPackage::_instance()->getETypes__int(),
                 _old_int,
                 m_int
         );

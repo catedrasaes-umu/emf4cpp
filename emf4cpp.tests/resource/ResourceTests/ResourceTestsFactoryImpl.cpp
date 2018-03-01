@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions/ResourceOptionsFactoryImpl.cpp
+ * ResourceTests/ResourceTestsFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,31 +18,40 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <ResourceOptions/ResourceOptionsFactory.hpp>
-#include <ResourceOptions/ResourceOptionsPackage.hpp>
-#include <ResourceOptions/ETypes.hpp>
+#include <ResourceTests/ResourceTestsFactory.hpp>
+#include <ResourceTests/ResourceTestsPackage.hpp>
+#include <ResourceTests/Root.hpp>
+#include <ResourceTests/ReferenceTarget.hpp>
+#include <ResourceTests/Referrer.hpp>
+#include <ResourceTests/ETypes.hpp>
 
 #include <ecore.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ResourceOptions;
+using namespace ::ResourceTests;
 
-ResourceOptionsFactory::ResourceOptionsFactory()
+ResourceTestsFactory::ResourceTestsFactory()
 {
 }
 
-::ecore::EObject_ptr ResourceOptionsFactory::create(::ecore::EClass_ptr _eClass)
+::ecore::EObject_ptr ResourceTestsFactory::create(::ecore::EClass_ptr _eClass)
 {
     switch (_eClass->getClassifierID())
     {
-    case ResourceOptionsPackage::ETYPES:
+    case ResourceTestsPackage::ROOT:
+        return createRoot();
+    case ResourceTestsPackage::REFERENCETARGET:
+        return createReferenceTarget();
+    case ResourceTestsPackage::REFERRER:
+        return createReferrer();
+    case ResourceTestsPackage::ETYPES:
         return createETypes();
     default:
         throw "IllegalArgumentException";
     }
 }
 
-::ecore::EJavaObject ResourceOptionsFactory::createFromString(
+::ecore::EJavaObject ResourceTestsFactory::createFromString(
         ::ecore::EDataType_ptr _eDataType,
         ::ecore::EString const& _literalValue)
 {
@@ -53,7 +62,7 @@ ResourceOptionsFactory::ResourceOptionsFactory()
     }
 }
 
-::ecore::EString ResourceOptionsFactory::convertToString(
+::ecore::EString ResourceTestsFactory::convertToString(
         ::ecore::EDataType_ptr _eDataType,
         ::ecore::EJavaObject const& _instanceValue)
 {
@@ -64,7 +73,19 @@ ResourceOptionsFactory::ResourceOptionsFactory()
     }
 }
 
-ETypes_ptr ResourceOptionsFactory::createETypes()
+Root_ptr ResourceTestsFactory::createRoot()
+{
+    return boost::intrusive_ptr < Root > (new Root);
+}
+ReferenceTarget_ptr ResourceTestsFactory::createReferenceTarget()
+{
+    return boost::intrusive_ptr < ReferenceTarget > (new ReferenceTarget);
+}
+Referrer_ptr ResourceTestsFactory::createReferrer()
+{
+    return boost::intrusive_ptr < Referrer > (new Referrer);
+}
+ETypes_ptr ResourceTestsFactory::createETypes()
 {
     return boost::intrusive_ptr < ETypes > (new ETypes);
 }

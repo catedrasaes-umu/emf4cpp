@@ -1,6 +1,6 @@
 
 #
-# ResourceOptions.pri
+# ResourceTests.pri
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
 # Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 #
@@ -21,19 +21,28 @@
 
 
 SOURCES += \
-    ResourceOptions.cpp \
-    ResourceOptions/ResourceOptionsPackage.cpp \
-    ResourceOptions/ResourceOptionsFactory.cpp \
-    ResourceOptions/ResourceOptionsPackageImpl.cpp \
-    ResourceOptions/ResourceOptionsFactoryImpl.cpp \
-    ResourceOptions/ETypes.cpp \
-    ResourceOptions/ETypesImpl.cpp \
+    ResourceTests.cpp \
+    ResourceTests/ResourceTestsPackage.cpp \
+    ResourceTests/ResourceTestsFactory.cpp \
+    ResourceTests/ResourceTestsPackageImpl.cpp \
+    ResourceTests/ResourceTestsFactoryImpl.cpp \
+    ResourceTests/Root.cpp \
+    ResourceTests/RootImpl.cpp \
+    ResourceTests/ReferenceTarget.cpp \
+    ResourceTests/ReferenceTargetImpl.cpp \
+    ResourceTests/Referrer.cpp \
+    ResourceTests/ReferrerImpl.cpp \
+    ResourceTests/ETypes.cpp \
+    ResourceTests/ETypesImpl.cpp \
 
 
 HEADERS += \
-    ResourceOptions.hpp \
-    ResourceOptions_forward.hpp \
-    ResourceOptions/ResourceOptionsPackage.hpp \
-    ResourceOptions/ResourceOptionsFactory.hpp \
-    ResourceOptions/ETypes.hpp \
+    ResourceTests.hpp \
+    ResourceTests_forward.hpp \
+    ResourceTests/ResourceTestsPackage.hpp \
+    ResourceTests/ResourceTestsFactory.hpp \
+    ResourceTests/Root.hpp \
+    ResourceTests/ReferenceTarget.hpp \
+    ResourceTests/Referrer.hpp \
+    ResourceTests/ETypes.hpp \
 

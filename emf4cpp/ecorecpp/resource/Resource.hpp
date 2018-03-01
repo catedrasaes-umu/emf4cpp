@@ -41,6 +41,7 @@ namespace resource {
 class Resource;
 using Resource_ptr = boost::intrusive_ptr<Resource>;
 
+class URIConverter;
 
 class EXPORT_ECORECPP_DLL Resource {
 public:
@@ -113,6 +114,8 @@ public:
 protected:
 	explicit Resource(const QUrl&);
 
+	URIConverter* getURIConverter();
+
     friend void intrusive_ptr_add_ref(Resource* p) { ++p->_refCount; }
     friend void intrusive_ptr_release(Resource* p) {
 		if (--p->_refCount == 0u)
@@ -120,9 +123,13 @@ protected:
     mutable std::atomic_size_t _refCount;
 
 private:
+	class ResourceContentEList;
+
+private:
 	QUrl _qurl;
 	::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type _contents;
 	ResourceSet* _resourceSet;
+	std::unique_ptr<URIConverter> _uriConverter;
 
 	bool _loaded;
 };

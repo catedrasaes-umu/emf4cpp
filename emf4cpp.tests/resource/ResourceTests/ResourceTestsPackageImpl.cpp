@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions/ResourceOptionsPackageImpl.cpp
+ * ResourceTests/ResourceTestsPackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <ResourceOptions/ResourceOptionsPackage.hpp>
-#include <ResourceOptions/ResourceOptionsFactory.hpp>
+#include <ResourceTests/ResourceTestsPackage.hpp>
+#include <ResourceTests/ResourceTestsFactory.hpp>
 #include <ecore.hpp>
 #include <ecore/EcorePackage.hpp>
 #include <ecore/EClass.hpp>
@@ -34,10 +34,22 @@
 #include <ecore/ETypeParameter.hpp>
 #include <ecore/EcorePackage.hpp>
 
-using namespace ::ResourceOptions;
+using namespace ::ResourceTests;
 
-ResourceOptionsPackage::ResourceOptionsPackage()
+ResourceTestsPackage::ResourceTestsPackage()
 {
+
+    // Feature definitions of Root
+    m_Root__target = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Root__referrers = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of ReferenceTarget
+
+    // Feature definitions of Referrer
+    m_Referrer__reference = boost::intrusive_ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ETypes
     m_ETypes__string = boost::intrusive_ptr < ::ecore::EAttribute
@@ -57,14 +69,47 @@ ResourceOptionsPackage::ResourceOptionsPackage()
 
 }
 
-void ResourceOptionsPackage::_initPackage()
+void ResourceTestsPackage::_initPackage()
 {
     // Factory
-    ::ecore::EFactory_ptr _fa = ResourceOptionsFactory::_instance();
+    ::ecore::EFactory_ptr _fa = ResourceTestsFactory::_instance();
     setEFactoryInstance(_fa);
     _fa->setEPackage(_this());
 
     // Create classes and their features
+
+    // Root
+    m_RootEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
+    m_RootEClass->setClassifierID(ROOT);
+    m_RootEClass->setEPackage(_this());
+    getEClassifiers().push_back(m_RootEClass);
+    // m_Root__target has already been allocated above
+    m_Root__target->setFeatureID(
+            ::ResourceTests::ResourceTestsPackage::ROOT__TARGET);
+    m_RootEClass->getEStructuralFeatures().push_back(m_Root__target);
+    // m_Root__referrers has already been allocated above
+    m_Root__referrers->setFeatureID(
+            ::ResourceTests::ResourceTestsPackage::ROOT__REFERRERS);
+    m_RootEClass->getEStructuralFeatures().push_back(m_Root__referrers);
+
+    // ReferenceTarget
+    m_ReferenceTargetEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
+    m_ReferenceTargetEClass->setClassifierID(REFERENCETARGET);
+    m_ReferenceTargetEClass->setEPackage(_this());
+    getEClassifiers().push_back(m_ReferenceTargetEClass);
+
+    // Referrer
+    m_ReferrerEClass = boost::intrusive_ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
+    m_ReferrerEClass->setClassifierID(REFERRER);
+    m_ReferrerEClass->setEPackage(_this());
+    getEClassifiers().push_back(m_ReferrerEClass);
+    // m_Referrer__reference has already been allocated above
+    m_Referrer__reference->setFeatureID(
+            ::ResourceTests::ResourceTestsPackage::REFERRER__REFERENCE);
+    m_ReferrerEClass->getEStructuralFeatures().push_back(m_Referrer__reference);
 
     // ETypes
     m_ETypesEClass = boost::intrusive_ptr < ::ecore::EClass
@@ -74,31 +119,31 @@ void ResourceOptionsPackage::_initPackage()
     getEClassifiers().push_back(m_ETypesEClass);
     // m_ETypes__string has already been allocated above
     m_ETypes__string->setFeatureID(
-            ::ResourceOptions::ResourceOptionsPackage::ETYPES__STRING);
+            ::ResourceTests::ResourceTestsPackage::ETYPES__STRING);
     m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__string);
     // m_ETypes__emptyString has already been allocated above
     m_ETypes__emptyString->setFeatureID(
-            ::ResourceOptions::ResourceOptionsPackage::ETYPES__EMPTYSTRING);
+            ::ResourceTests::ResourceTestsPackage::ETYPES__EMPTYSTRING);
     m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__emptyString);
     // m_ETypes__date has already been allocated above
     m_ETypes__date->setFeatureID(
-            ::ResourceOptions::ResourceOptionsPackage::ETYPES__DATE);
+            ::ResourceTests::ResourceTestsPackage::ETYPES__DATE);
     m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__date);
     // m_ETypes__char has already been allocated above
     m_ETypes__char->setFeatureID(
-            ::ResourceOptions::ResourceOptionsPackage::ETYPES__CHAR);
+            ::ResourceTests::ResourceTestsPackage::ETYPES__CHAR);
     m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__char);
     // m_ETypes__bool has already been allocated above
     m_ETypes__bool->setFeatureID(
-            ::ResourceOptions::ResourceOptionsPackage::ETYPES__BOOL);
+            ::ResourceTests::ResourceTestsPackage::ETYPES__BOOL);
     m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__bool);
     // m_ETypes__double has already been allocated above
     m_ETypes__double->setFeatureID(
-            ::ResourceOptions::ResourceOptionsPackage::ETYPES__DOUBLE);
+            ::ResourceTests::ResourceTestsPackage::ETYPES__DOUBLE);
     m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__double);
     // m_ETypes__int has already been allocated above
     m_ETypes__int->setFeatureID(
-            ::ResourceOptions::ResourceOptionsPackage::ETYPES__INT);
+            ::ResourceTests::ResourceTestsPackage::ETYPES__INT);
     m_ETypesEClass->getEStructuralFeatures().push_back(m_ETypes__int);
 
     // Create enums
@@ -106,9 +151,9 @@ void ResourceOptionsPackage::_initPackage()
     // Create data types
 
     // Initialize package
-    setName("ResourceOptions");
-    setNsPrefix("ResourceOptions");
-    setNsURI("http://www.example.org/ResourceOptions");
+    setName("ResourceTests");
+    setNsPrefix("ResourceTests");
+    setNsURI("http://www.example.org/ResourceTests");
 
     // TODO: bounds for type parameters
 
@@ -116,6 +161,57 @@ void ResourceOptionsPackage::_initPackage()
 
     // TODO: Initialize classes and features; add operations and parameters
     // TODO: GenericTypes
+    // Root
+    m_RootEClass->setName("Root");
+    m_RootEClass->setAbstract(false);
+    m_RootEClass->setInterface(false);
+    m_Root__target->setEType(m_ReferenceTargetEClass);
+    m_Root__target->setName("target");
+    m_Root__target->setDefaultValueLiteral("");
+    m_Root__target->setLowerBound(0);
+    m_Root__target->setUpperBound(1);
+    m_Root__target->setTransient(false);
+    m_Root__target->setVolatile(false);
+    m_Root__target->setChangeable(true);
+    m_Root__target->setContainment(true);
+    m_Root__target->setResolveProxies(true);
+    m_Root__target->setUnique(true);
+    m_Root__target->setDerived(false);
+    m_Root__target->setOrdered(true);
+    m_Root__referrers->setEType(m_ReferrerEClass);
+    m_Root__referrers->setName("referrers");
+    m_Root__referrers->setDefaultValueLiteral("");
+    m_Root__referrers->setLowerBound(0);
+    m_Root__referrers->setUpperBound(-1);
+    m_Root__referrers->setTransient(false);
+    m_Root__referrers->setVolatile(false);
+    m_Root__referrers->setChangeable(true);
+    m_Root__referrers->setContainment(true);
+    m_Root__referrers->setResolveProxies(true);
+    m_Root__referrers->setUnique(true);
+    m_Root__referrers->setDerived(false);
+    m_Root__referrers->setOrdered(true);
+    // ReferenceTarget
+    m_ReferenceTargetEClass->setName("ReferenceTarget");
+    m_ReferenceTargetEClass->setAbstract(false);
+    m_ReferenceTargetEClass->setInterface(false);
+    // Referrer
+    m_ReferrerEClass->setName("Referrer");
+    m_ReferrerEClass->setAbstract(false);
+    m_ReferrerEClass->setInterface(false);
+    m_Referrer__reference->setEType(m_ReferenceTargetEClass);
+    m_Referrer__reference->setName("reference");
+    m_Referrer__reference->setDefaultValueLiteral("");
+    m_Referrer__reference->setLowerBound(0);
+    m_Referrer__reference->setUpperBound(1);
+    m_Referrer__reference->setTransient(false);
+    m_Referrer__reference->setVolatile(false);
+    m_Referrer__reference->setChangeable(true);
+    m_Referrer__reference->setContainment(false);
+    m_Referrer__reference->setResolveProxies(true);
+    m_Referrer__reference->setUnique(true);
+    m_Referrer__reference->setDerived(false);
+    m_Referrer__reference->setOrdered(true);
     // ETypes
     m_ETypesEClass->setName("ETypes");
     m_ETypesEClass->setAbstract(false);
@@ -224,36 +320,60 @@ void ResourceOptionsPackage::_initPackage()
     _initialize();
 }
 
-::ecore::EClass_ptr ResourceOptionsPackage::getETypes()
+::ecore::EClass_ptr ResourceTestsPackage::getRoot()
+{
+    return m_RootEClass;
+}
+::ecore::EClass_ptr ResourceTestsPackage::getReferenceTarget()
+{
+    return m_ReferenceTargetEClass;
+}
+::ecore::EClass_ptr ResourceTestsPackage::getReferrer()
+{
+    return m_ReferrerEClass;
+}
+::ecore::EClass_ptr ResourceTestsPackage::getETypes()
 {
     return m_ETypesEClass;
 }
 
-::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__string()
+::ecore::EReference_ptr ResourceTestsPackage::getRoot__target()
+{
+    return m_Root__target;
+}
+::ecore::EReference_ptr ResourceTestsPackage::getRoot__referrers()
+{
+    return m_Root__referrers;
+}
+::ecore::EReference_ptr ResourceTestsPackage::getReferrer__reference()
+{
+    return m_Referrer__reference;
+}
+::ecore::EAttribute_ptr ResourceTestsPackage::getETypes__string()
 {
     return m_ETypes__string;
 }
-::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__emptyString()
+::ecore::EAttribute_ptr ResourceTestsPackage::getETypes__emptyString()
 {
     return m_ETypes__emptyString;
 }
-::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__date()
+::ecore::EAttribute_ptr ResourceTestsPackage::getETypes__date()
 {
     return m_ETypes__date;
 }
-::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__char()
+::ecore::EAttribute_ptr ResourceTestsPackage::getETypes__char()
 {
     return m_ETypes__char;
 }
-::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__bool()
+::ecore::EAttribute_ptr ResourceTestsPackage::getETypes__bool()
 {
     return m_ETypes__bool;
 }
-::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__double()
+::ecore::EAttribute_ptr ResourceTestsPackage::getETypes__double()
 {
     return m_ETypes__double;
 }
-::ecore::EAttribute_ptr ResourceOptionsPackage::getETypes__int()
+::ecore::EAttribute_ptr ResourceTestsPackage::getETypes__int()
 {
     return m_ETypes__int;
 }

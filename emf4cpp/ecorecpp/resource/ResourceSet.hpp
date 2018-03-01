@@ -39,6 +39,7 @@ namespace resource {
 class ResourceSet;
 using ResourceSet_ptr = boost::intrusive_ptr<ResourceSet>;
 
+class URIConverter;
 
 class EXPORT_ECORECPP_DLL ResourceSet {
 public:
@@ -66,6 +67,9 @@ public:
 
 	::ecore::EObject_ptr getEObject(const QUrl& uri, bool loadOnDemand);
 
+	URIConverter* getURIConverter();
+	void setURIConverter(const URIConverter&);
+
 	Resource::Factory::Registry* getResourceFactoryRegistry() const;
 	void setResourceFactoryRegistry(Resource::Factory::Registry*);
 
@@ -77,8 +81,10 @@ protected:
     mutable std::atomic_size_t _refCount;
 
 private:
-	::ecorecpp::mapping::EList<Resource_ptr>::ptr_type _resources;
+	std::unique_ptr<URIConverter> _uriConverter;
 	std::unique_ptr<Resource::Factory::Registry> _resourceRegistry;
+
+	::ecorecpp::mapping::EList<Resource_ptr>::ptr_type _resources;
 };
 
 } // resource

@@ -28,11 +28,12 @@
 #include <util/EcoreUtil.hpp>
 
 #include "ResourceSet.hpp"
+#include "URIConverter.hpp"
 
 namespace ecorecpp {
 namespace resource {
 
-class ResourceContentEList : public ::ecorecpp::mapping::ContainingEList<::ecore::EObject_ptr> {
+class Resource::ResourceContentEList : public ::ecorecpp::mapping::ContainingEList<::ecore::EObject_ptr> {
 	using base_t = ::ecorecpp::mapping::EListImpl<::ecore::EObject_ptr>;
 
 public:
@@ -49,6 +50,7 @@ public:
 			other->getContents()->remove(_obj);
 		}
 		_obj->_setEResource(_this);
+		_this->_loaded = true;
 	}
 
 private:
@@ -119,6 +121,7 @@ Resource::Resource(const QUrl& uri)
 	  _qurl(uri),
 	  _contents(new ResourceContentEList(this)),
 	  _resourceSet(nullptr),
+	  _uriConverter(nullptr),
 	  _loaded(false) {
 }
 
@@ -162,13 +165,8 @@ void Resource::load(const Resource::OptionMap& options) {
 	if (_loaded)
 		return;
 
-	if (!getURI().isLocalFile())
-		throw std::logic_error("Resource::load() can only treat local file uris.");
-
-	const std::string filename(getURI().toLocalFile().toStdString());
-	std::ifstream ifs(filename.c_str());
-	load(ifs, options);
-	ifs.close();
+	auto is = getURIConverter()->createInputStream(getURI());
+	load(*is, options);
 
 	_loaded = true;
 }
@@ -178,16 +176,11 @@ void Resource::load ( std::istream&, const Resource::OptionMap& ) {
 }
 
 void Resource::save(const Resource::OptionMap& options) {
-	if (!getURI().isLocalFile())
-		throw std::logic_error("Resource::save() can only treat local file uris.");
-
-	const std::string filename(getURI().toLocalFile().toStdString());
-	std::ofstream ofs(filename.c_str(), std::ios_base::trunc);
-	save(ofs, options);
-	ofs.close();
+	auto os = getURIConverter()->createOutputStream(getURI());
+	save(*os, options);
 }
 
-void Resource::save( std::ostream&,	const OptionMap& ) {
+void Resource::save( std::ostream&, const OptionMap& ) {
 	throw std::logic_error("Resource::save() is not implemented.");
 }
 
@@ -353,6 +346,16 @@ const ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type& Resource::getC
 
 bool Resource::useIDAttributes() const {
 	return true;
+}
+
+URIConverter* Resource::getURIConverter() {
+	if (auto rs = getResourceSet())
+		return rs->getURIConverter();
+
+	if (!_uriConverter)
+		_uriConverter.reset(new URIConverter());
+
+	return _uriConverter.get();
 }
 
 } // resource

@@ -7,14 +7,14 @@
 #include <ecorecpp/MetaModelRepository.hpp>
 
 #include <ecore.hpp>
-#include <ResourceOptions.hpp>
+#include <ResourceTests.hpp>
 
 int main(int argc, char* argv[])
 {
 	using ::ecorecpp::resource::Resource;
 	using ::ecorecpp::resource::ResourceSet;
 
-    ::ecorecpp::MetaModelRepository::_instance()->load(::ResourceOptions::ResourceOptionsPackage::_instance());
+    ::ecorecpp::MetaModelRepository::_instance()->load(::ResourceTests::ResourceTestsPackage::_instance());
 
 	QUrl file = QUrl::fromLocalFile("./resourceoptions.xml");
 

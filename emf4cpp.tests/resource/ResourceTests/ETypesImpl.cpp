@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions/ETypesImpl.cpp
+ * ResourceTests/ETypesImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -19,7 +19,7 @@
  */
 
 #include "ETypes.hpp"
-#include <ResourceOptions/ResourceOptionsPackage.hpp>
+#include <ResourceTests/ResourceTestsPackage.hpp>
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
 #include <ecore/EStructuralFeature.hpp>
@@ -32,7 +32,7 @@
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
-using namespace ::ResourceOptions;
+using namespace ::ResourceTests;
 
 void ETypes::_initialize()
 {
@@ -55,43 +55,43 @@ void ETypes::_initialize()
     ::ecore::EJavaObject _any;
     switch (_featureID)
     {
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__STRING:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__STRING:
     {
         ::ecorecpp::mapping::any_traits < ::ecore::EString
                 > ::toAny(_any, m_string);
     }
         return _any;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__EMPTYSTRING:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__EMPTYSTRING:
     {
         ::ecorecpp::mapping::any_traits < ::ecore::EString
                 > ::toAny(_any, m_emptyString);
     }
         return _any;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__DATE:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__DATE:
     {
         ::ecorecpp::mapping::any_traits < ::ecore::EDate
                 > ::toAny(_any, m_date);
     }
         return _any;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__CHAR:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__CHAR:
     {
         ::ecorecpp::mapping::any_traits < ::ecore::EChar
                 > ::toAny(_any, m_char);
     }
         return _any;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__BOOL:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__BOOL:
     {
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
                 > ::toAny(_any, m_bool);
     }
         return _any;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__DOUBLE:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__DOUBLE:
     {
         ::ecorecpp::mapping::any_traits < ::ecore::EDouble
                 > ::toAny(_any, m_double);
     }
         return _any;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__INT:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__INT:
     {
         ::ecorecpp::mapping::any_traits < ::ecore::EInt > ::toAny(_any, m_int);
     }
@@ -106,60 +106,60 @@ void ETypes::eSet(::ecore::EInt _featureID,
 {
     switch (_featureID)
     {
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__STRING:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__STRING:
     {
         ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
                 > ::fromAny(_newValue, _t0);
-        ::ResourceOptions::ETypes::setString(_t0);
+        ::ResourceTests::ETypes::setString(_t0);
     }
         return;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__EMPTYSTRING:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__EMPTYSTRING:
     {
         ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
                 > ::fromAny(_newValue, _t0);
-        ::ResourceOptions::ETypes::setEmptyString(_t0);
+        ::ResourceTests::ETypes::setEmptyString(_t0);
     }
         return;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__DATE:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__DATE:
     {
         ::ecore::EDate _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EDate
                 > ::fromAny(_newValue, _t0);
-        ::ResourceOptions::ETypes::setDate(_t0);
+        ::ResourceTests::ETypes::setDate(_t0);
     }
         return;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__CHAR:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__CHAR:
     {
         ::ecore::EChar _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EChar
                 > ::fromAny(_newValue, _t0);
-        ::ResourceOptions::ETypes::setChar(_t0);
+        ::ResourceTests::ETypes::setChar(_t0);
     }
         return;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__BOOL:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__BOOL:
     {
         ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
                 > ::fromAny(_newValue, _t0);
-        ::ResourceOptions::ETypes::setBool(_t0);
+        ::ResourceTests::ETypes::setBool(_t0);
     }
         return;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__DOUBLE:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__DOUBLE:
     {
         ::ecore::EDouble _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EDouble
                 > ::fromAny(_newValue, _t0);
-        ::ResourceOptions::ETypes::setDouble(_t0);
+        ::ResourceTests::ETypes::setDouble(_t0);
     }
         return;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__INT:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__INT:
     {
         ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
                 > ::fromAny(_newValue, _t0);
-        ::ResourceOptions::ETypes::setInt(_t0);
+        ::ResourceTests::ETypes::setInt(_t0);
     }
         return;
 
@@ -171,21 +171,21 @@ void ETypes::eSet(::ecore::EInt _featureID,
 {
     switch (_featureID)
     {
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__STRING:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__STRING:
         return m_string != "Hallo Welt!";
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__EMPTYSTRING:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__EMPTYSTRING:
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_emptyString);
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__DATE:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__DATE:
         return m_date
                 != ::ecorecpp::mapping::EDate("1976-05-27T12:13:14.123-0300");
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__CHAR:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__CHAR:
         return m_char != 98;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__BOOL:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__BOOL:
         return m_bool != true;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__DOUBLE:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__DOUBLE:
         return m_double != 3.14;
-    case ::ResourceOptions::ResourceOptionsPackage::ETYPES__INT:
+    case ::ResourceTests::ResourceTestsPackage::ETYPES__INT:
         return m_int != 10;
 
     }
@@ -204,7 +204,7 @@ void ETypes::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ETypes::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::ResourceOptions::ResourceOptionsPackage* >(::ResourceOptions::ResourceOptionsPackage::_instance().get())->getETypes();
+            dynamic_cast< ::ResourceTests::ResourceTestsPackage* >(::ResourceTests::ResourceTestsPackage::_instance().get())->getETypes();
     return _eclass;
 }
 

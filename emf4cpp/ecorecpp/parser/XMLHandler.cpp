@@ -366,9 +366,7 @@ void XMLHandler::resolveCrossDocumentReferences() {
 		QUrl refUri( QString::fromStdString(ref._href) );
 #endif
 
-		EObject_ptr resolvedObj = (refUri.isLocalFile())
-				? resourceSet->getEObject(refUri, /*loadOnDemand*/true)
-				: resource->getEObject(refUri.fragment().toStdString());
+		EObject_ptr resolvedObj = resourceSet->getEObject(refUri, /*loadOnDemand*/true);
 
 		if (!resolvedObj) {
 			std::cerr << "Cannot resolve cross reference: " << ref._href

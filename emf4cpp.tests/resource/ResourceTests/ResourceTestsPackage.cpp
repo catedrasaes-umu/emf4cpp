@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions/ResourceOptionsPackage.cpp
+ * ResourceTests/ResourceTestsPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,22 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <ResourceOptions/ResourceOptionsPackage.hpp>
+#include <ResourceTests/ResourceTestsPackage.hpp>
 
-using namespace ::ResourceOptions;
+using namespace ::ResourceTests;
 
-boost::intrusive_ptr< ::ResourceOptions::ResourceOptionsPackage > ResourceOptionsPackage::s_instance;
+boost::intrusive_ptr< ::ResourceTests::ResourceTestsPackage > ResourceTestsPackage::s_instance;
 
-::ResourceOptions::ResourceOptionsPackage_ptr ResourceOptionsPackage::_instance()
+::ResourceTests::ResourceTestsPackage_ptr ResourceTestsPackage::_instance()
 {
     static bool duringConstruction = false;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< ResourceOptionsPackage >();
+            return boost::intrusive_ptr< ResourceTestsPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < ResourceOptionsPackage
-                > (new ResourceOptionsPackage());
+        s_instance = boost::intrusive_ptr < ResourceTestsPackage
+                > (new ResourceTestsPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }
@@ -41,7 +41,7 @@ boost::intrusive_ptr< ::ResourceOptions::ResourceOptionsPackage > ResourceOption
     return s_instance;
 }
 
-::ResourceOptions::ResourceOptionsPackage_ptr ResourceOptionsPackage::_getInstanceAndRemoveOwnership()
+::ResourceTests::ResourceTestsPackage_ptr ResourceTestsPackage::_getInstanceAndRemoveOwnership()
 {
     return _instance();
 }

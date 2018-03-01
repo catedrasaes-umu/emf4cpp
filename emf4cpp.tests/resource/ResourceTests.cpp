@@ -1,6 +1,6 @@
 // -*- mode: c++; c-basic-style: "bsd"; c-basic-offset: 4; -*-
 /*
- * ResourceOptions.hpp
+ * ResourceTests.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
  * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
@@ -18,20 +18,5 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef RESOURCEOPTIONS_HPP
-#define RESOURCEOPTIONS_HPP
+#include "ResourceTests.hpp"
 
-#include "ResourceOptions_forward.hpp"
-#include <boost/intrusive_ptr.hpp>
-#include <ecorecpp/mapping.hpp>
-
-// EPackage
-
-// EClass
-#include "ResourceOptions/ETypes.hpp"
-
-// Package & Factory
-#include "ResourceOptions/ResourceOptionsPackage.hpp"
-#include "ResourceOptions/ResourceOptionsFactory.hpp"
-
-#endif // RESOURCEOPTIONS_HPP

@@ -7,6 +7,8 @@ set(CMAKE_LD_FLAGS "-L.. -L/opt/emf4cpp/lib")
 
 # test
 add_executable(test-resourceoptions test-options.cpp)
-target_link_libraries(test-resourceoptions emf4cpp-ecorecpp emf4cpp-ecore emf4cpp-ResourceOptions)
+add_executable(test-uriconverter test-uriconverter.cpp)
+target_link_libraries(test-resourceoptions emf4cpp-ecorecpp emf4cpp-ecore emf4cpp-ResourceTests)
+target_link_libraries(test-uriconverter emf4cpp-ecorecpp emf4cpp-ecore emf4cpp-ResourceTests)
 
 
