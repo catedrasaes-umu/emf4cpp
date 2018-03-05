@@ -22,6 +22,7 @@
 
 #include "../dllEcorecpp.hpp"
 
+#include <set>
 #include <string>
 
 #include <ecore_forward.hpp>
@@ -29,7 +30,31 @@
 namespace ecorecpp {
 namespace util {
 struct EXPORT_ECORECPP_DLL EcoreUtil {
+
+	/** Return ID-attribute value in string representation.
+	 *
+	 *  If no ID-attribute exists, this function returns an empty
+	 *  string.
+	 */
 	static std::string getId( ::ecore::EObject_ptr );
+
+	/** Return all potential non-abstract subclasses for a given class.
+	 *
+	 * The EPackage and its sub-packages are scanned. As this is an expensive
+	 * operation, the result is cached.
+	 * \note Uses the cache of getAbstractSubClasses()
+	 */
+	static const std::set<::ecore::EClass_ptr>& getSubClasses(
+			::ecore::EPackage_ptr, ::ecore::EClass_ptr );
+
+	/** Return all potential subclasses for a given class, including abstract
+	 * classes.
+	 *
+	 * The EPackage and its sub-packages are scanned. As this is an expensive
+	 * operation, the result is cached.
+	 */
+	static const std::set<::ecore::EClass_ptr>& getAbstractSubClasses(
+			::ecore::EPackage_ptr, ::ecore::EClass_ptr );
 };
 
 } //util

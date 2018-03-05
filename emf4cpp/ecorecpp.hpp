@@ -27,7 +27,8 @@
 #include "ecorecpp/parser/parser.hpp"
 #include "ecorecpp/serializer/serializer.hpp"
 #include "ecorecpp/json/serializer.hpp"
-#include "ecorecpp/util/print.hpp"
+#include "ecorecpp/util/EcoreUtil.hpp"
 #include "ecorecpp/util/TreeIterator.hpp"
+#include "ecorecpp/util/print.hpp"
 
 #endif // ECORECPP_HPP
