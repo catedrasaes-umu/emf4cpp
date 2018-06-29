@@ -107,7 +107,7 @@ void «name»::_initialize()
     ::ecore::EJavaObject _any;
     switch (_featureID)
     {
-    «FOREACH EStructuralFeatures.select(e|!e.derived) AS ef-»
+    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
         case «ef.getCPPFQN()»:
             {
                 «IF EReference.isInstance(ef)-»
@@ -137,7 +137,7 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
 {
     switch (_featureID)
     {
-    «FOREACH EStructuralFeatures.select(e|!e.derived) AS ef-»
+    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
         case «ef.getCPPFQN()» :
             {
                 «IF EReference.isInstance(ef)-»
@@ -170,7 +170,7 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
 {
     switch (_featureID)
     {
-    «FOREACH EStructuralFeatures.select(e|e.EType.ETypeParameters.isEmpty) AS ef-»
+    «FOREACH EAllStructuralFeatures.select(e|e.EType.ETypeParameters.isEmpty) AS ef-»
         case «ef.getCPPFQN()» :
             «IF EReference.isInstance(ef)-»
                 «IF ef.upperBound == 1-»
@@ -202,7 +202,7 @@ void «name»::eUnset ( ::ecore::EInt _featureID)
 {
     switch (_featureID)
     {
-    «FOREACH EStructuralFeatures.select(e|e.unsettable) AS ef-»
+    «FOREACH EAllStructuralFeatures.select(e|e.unsettable) AS ef-»
        «REM»
         case «ef.getCPPFQN()» :
             «IF EClass.isInstance(ef.EType)-»
