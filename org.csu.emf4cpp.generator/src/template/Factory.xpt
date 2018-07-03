@@ -1,6 +1,7 @@
 «REM»
 Factory.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -52,7 +53,7 @@ public:
 
 protected:
 
-    static std::auto_ptr< «name.toFirstUpper()»Factory > s_instance;
+    static std::unique_ptr< «name.toFirstUpper()»Factory > s_instance;
 
     «name.toFirstUpper()»Factory();
     
@@ -74,7 +75,7 @@ protected:
 
 using namespace ::«getFQN()»;
 
-std::auto_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_instance;
+std::unique_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_instance;
 
 ::«getFactoryPrefix("::")»_ptr «name.toFirstUpper()»Factory::_instance()
 {

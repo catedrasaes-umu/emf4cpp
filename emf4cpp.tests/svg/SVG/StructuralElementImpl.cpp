@@ -47,7 +47,7 @@ void StructuralElement::_initialize()
     // Supertypes
     ::SVG::Element::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(StructuralElementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

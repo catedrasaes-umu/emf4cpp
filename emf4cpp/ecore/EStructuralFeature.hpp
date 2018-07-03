@@ -78,7 +78,6 @@ namespace ecore
         /*PROTECTED REGION ID(EStructuralFeature) ENABLED START*/
 
         // virtual void setFeatureID ( ::ecore::EInt _id) = 0;
-
         /*PROTECTED REGION END*/
 
         // EObjectImpl
@@ -128,3 +127,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_ESTRUCTURALFEATURE_HPP
+

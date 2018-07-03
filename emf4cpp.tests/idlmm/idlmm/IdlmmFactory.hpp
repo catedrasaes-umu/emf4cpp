@@ -69,7 +69,7 @@ namespace idlmm
 
     protected:
 
-        static std::auto_ptr< IdlmmFactory > s_instance;
+        static std::unique_ptr< IdlmmFactory > s_instance;
 
         IdlmmFactory();
 

@@ -42,7 +42,7 @@ namespace kdm
 
     protected:
 
-        static std::auto_ptr< KdmFactory > s_instance;
+        static std::unique_ptr< KdmFactory > s_instance;
 
         KdmFactory();
 

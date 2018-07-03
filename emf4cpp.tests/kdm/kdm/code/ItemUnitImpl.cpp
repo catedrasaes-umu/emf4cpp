@@ -51,7 +51,7 @@ void ItemUnit::_initialize()
     // Supertypes
     ::kdm::code::DataElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ItemUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

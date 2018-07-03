@@ -28,6 +28,8 @@
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/code/ControlElement.hpp>
+#include <kdm/code/MethodKind.hpp>
+#include <kdm/code/ExportKind.hpp>
 
 /*PROTECTED REGION ID(MethodUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.

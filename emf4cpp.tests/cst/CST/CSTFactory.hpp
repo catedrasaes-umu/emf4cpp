@@ -47,7 +47,7 @@ namespace CST
 
     protected:
 
-        static std::auto_ptr< CSTFactory > s_instance;
+        static std::unique_ptr< CSTFactory > s_instance;
 
         CSTFactory();
 

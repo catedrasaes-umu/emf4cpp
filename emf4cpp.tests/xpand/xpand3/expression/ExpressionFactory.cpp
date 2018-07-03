@@ -21,7 +21,7 @@
 
 using namespace ::xpand3::expression;
 
-std::auto_ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_instance;
+std::unique_ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_instance;
 
 ::xpand3::expression::ExpressionFactory_ptr ExpressionFactory::_instance()
 {

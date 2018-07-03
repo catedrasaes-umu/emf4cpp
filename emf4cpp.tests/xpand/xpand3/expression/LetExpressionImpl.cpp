@@ -40,7 +40,7 @@ void LetExpression::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_varExpression)
     {
         m_varExpression->_initialize();

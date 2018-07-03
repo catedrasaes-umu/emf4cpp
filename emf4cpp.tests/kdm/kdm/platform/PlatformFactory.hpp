@@ -77,7 +77,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< PlatformFactory > s_instance;
+            static std::unique_ptr< PlatformFactory > s_instance;
 
             PlatformFactory();
 

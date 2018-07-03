@@ -37,12 +37,12 @@ using namespace ::ecore;
 
 // Default constructor
 EFactory::EFactory() :
-    m_ePackage(0)
+        m_ePackage(0)
 {
 
     /*PROTECTED REGION ID(EFactoryImpl__EFactoryImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -60,7 +60,6 @@ EFactory::~EFactory()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecore::EPackage_ptr EFactory::getEPackage()
 {

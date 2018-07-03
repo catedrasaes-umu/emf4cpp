@@ -68,7 +68,7 @@ namespace xpand3
 
         protected:
 
-            static std::auto_ptr< ExpressionFactory > s_instance;
+            static std::unique_ptr< ExpressionFactory > s_instance;
 
             ExpressionFactory();
 

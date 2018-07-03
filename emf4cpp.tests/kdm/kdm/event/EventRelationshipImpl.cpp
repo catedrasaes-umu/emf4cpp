@@ -45,7 +45,7 @@ void EventRelationship::_initialize()
     // Supertypes
     ::kdm::event::AbstractEventRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EventRelationshipImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -48,7 +48,7 @@ void ResourceDescription::_initialize()
     // Supertypes
     ::kdm::source::InventoryItem::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ResourceDescriptionImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

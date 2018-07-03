@@ -51,7 +51,7 @@ void SynonymType::_initialize()
     // Supertypes
     ::kdm::code::DefinedType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(SynonymTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

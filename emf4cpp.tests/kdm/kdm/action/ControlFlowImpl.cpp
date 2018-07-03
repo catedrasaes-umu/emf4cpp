@@ -45,7 +45,7 @@ void ControlFlow::_initialize()
     // Supertypes
     ::kdm::action::AbstractActionRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ControlFlowImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -44,7 +44,7 @@ void EFactory::_initialize()
     // Supertypes
     ::ecore::EModelElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EFactoryImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -93,12 +93,12 @@ void EFactory::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject > ();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_ePackage);
+        _any = static_cast< ::ecore::EObject* >(m_ePackage);
     }
         return _any;
 
@@ -113,18 +113,17 @@ void EFactory::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr >(_t0);
         ::ecore::EFactory::setEPackage(_t1);
     }
         return;
@@ -157,9 +156,8 @@ void EFactory::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EFactory::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEFactory();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEFactory();
     return _eclass;
 }
 

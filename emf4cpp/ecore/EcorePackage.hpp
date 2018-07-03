@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <ecore_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace ecore
 {
@@ -31,6 +32,7 @@ namespace ecore
     public:
 
         static EcorePackage_ptr _instance();
+        static EcorePackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -304,8 +306,7 @@ namespace ecore
 
         // IDs for classifiers for class EAnnotation 
 
-        static const int EANNOTATION__EANNOTATIONS =
-                EMODELELEMENT__EANNOTATIONS;
+        static const int EANNOTATION__EANNOTATIONS = EMODELELEMENT__EANNOTATIONS;
 
         // IDs for classifiers for class EAttribute 
 
@@ -329,8 +330,7 @@ namespace ecore
 
         static const int EATTRIBUTE__EGENERICTYPE = ETYPEDELEMENT__EGENERICTYPE;
 
-        static const int EATTRIBUTE__CHANGEABLE =
-                ESTRUCTURALFEATURE__CHANGEABLE;
+        static const int EATTRIBUTE__CHANGEABLE = ESTRUCTURALFEATURE__CHANGEABLE;
 
         static const int EATTRIBUTE__VOLATILE = ESTRUCTURALFEATURE__VOLATILE;
 
@@ -342,8 +342,7 @@ namespace ecore
         static const int EATTRIBUTE__DEFAULTVALUE =
                 ESTRUCTURALFEATURE__DEFAULTVALUE;
 
-        static const int EATTRIBUTE__UNSETTABLE =
-                ESTRUCTURALFEATURE__UNSETTABLE;
+        static const int EATTRIBUTE__UNSETTABLE = ESTRUCTURALFEATURE__UNSETTABLE;
 
         static const int EATTRIBUTE__DERIVED = ESTRUCTURALFEATURE__DERIVED;
 
@@ -372,8 +371,7 @@ namespace ecore
 
         // IDs for classifiers for class EClassifier 
 
-        static const int ECLASSIFIER__EANNOTATIONS =
-                EMODELELEMENT__EANNOTATIONS;
+        static const int ECLASSIFIER__EANNOTATIONS = EMODELELEMENT__EANNOTATIONS;
 
         static const int ECLASSIFIER__NAME = ENAMEDELEMENT__NAME;
 
@@ -411,8 +409,7 @@ namespace ecore
 
         static const int EENUM__DEFAULTVALUE = ECLASSIFIER__DEFAULTVALUE;
 
-        static const int EENUM__INSTANCETYPENAME =
-                ECLASSIFIER__INSTANCETYPENAME;
+        static const int EENUM__INSTANCETYPENAME = ECLASSIFIER__INSTANCETYPENAME;
 
         static const int EENUM__EPACKAGE = ECLASSIFIER__EPACKAGE;
 
@@ -433,9 +430,7 @@ namespace ecore
 
         // IDs for classifiers for class EGenericType 
 
-
         // IDs for classifiers for class EModelElement 
-
 
         // IDs for classifiers for class ENamedElement 
 
@@ -443,7 +438,6 @@ namespace ecore
                 EMODELELEMENT__EANNOTATIONS;
 
         // IDs for classifiers for class EObject 
-
 
         // IDs for classifiers for class EOperation 
 
@@ -517,8 +511,7 @@ namespace ecore
 
         static const int EREFERENCE__EGENERICTYPE = ETYPEDELEMENT__EGENERICTYPE;
 
-        static const int EREFERENCE__CHANGEABLE =
-                ESTRUCTURALFEATURE__CHANGEABLE;
+        static const int EREFERENCE__CHANGEABLE = ESTRUCTURALFEATURE__CHANGEABLE;
 
         static const int EREFERENCE__VOLATILE = ESTRUCTURALFEATURE__VOLATILE;
 
@@ -530,8 +523,7 @@ namespace ecore
         static const int EREFERENCE__DEFAULTVALUE =
                 ESTRUCTURALFEATURE__DEFAULTVALUE;
 
-        static const int EREFERENCE__UNSETTABLE =
-                ESTRUCTURALFEATURE__UNSETTABLE;
+        static const int EREFERENCE__UNSETTABLE = ESTRUCTURALFEATURE__UNSETTABLE;
 
         static const int EREFERENCE__DERIVED = ESTRUCTURALFEATURE__DERIVED;
 
@@ -539,7 +531,6 @@ namespace ecore
                 ESTRUCTURALFEATURE__ECONTAININGCLASS;
 
         // IDs for classifiers for class EStringToStringMapEntry 
-
 
         // IDs for classifiers for class EStructuralFeature 
 
@@ -717,8 +708,7 @@ namespace ecore
 
         virtual ::ecore::EAttribute_ptr getEStructuralFeature__transient();
 
-        virtual ::ecore::EAttribute_ptr
-                getEStructuralFeature__defaultValueLiteral();
+        virtual ::ecore::EAttribute_ptr getEStructuralFeature__defaultValueLiteral();
 
         virtual ::ecore::EAttribute_ptr getEStructuralFeature__defaultValue();
 
@@ -726,8 +716,7 @@ namespace ecore
 
         virtual ::ecore::EAttribute_ptr getEStructuralFeature__derived();
 
-        virtual ::ecore::EReference_ptr
-                getEStructuralFeature__eContainingClass();
+        virtual ::ecore::EReference_ptr getEStructuralFeature__eContainingClass();
 
         virtual ::ecore::EAttribute_ptr getEAttribute__iD();
 
@@ -857,7 +846,8 @@ namespace ecore
 
     protected:
 
-        static std::auto_ptr< EcorePackage > s_instance;
+        static std::unique_ptr< EcorePackage,
+                ::ecorecpp::PackageDeleter< EcorePackage > > s_instance;
 
         EcorePackage();
 
@@ -904,7 +894,6 @@ namespace ecore
         ::ecore::EClass_ptr m_ETypeParameterEClass;
 
         // EEnuminstances 
-
 
         // EDataType instances 
 
@@ -1142,5 +1131,5 @@ namespace ecore
 
 } // ecore
 
-
 #endif // _ECOREPACKAGE_HPP
+

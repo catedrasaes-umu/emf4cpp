@@ -43,7 +43,7 @@ void AbstractNamedDeclaration::_initialize()
     // Supertypes
     ::xpand3::declaration::AbstractDeclaration::_initialize();
 
-    // Rerefences
+    // References
     if (m_name)
     {
         m_name->_initialize();

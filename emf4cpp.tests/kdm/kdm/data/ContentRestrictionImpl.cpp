@@ -50,7 +50,7 @@ void ContentRestriction::_initialize()
     // Supertypes
     ::kdm::data::AbstractContentElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ContentRestrictionImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

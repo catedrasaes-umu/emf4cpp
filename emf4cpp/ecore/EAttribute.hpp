@@ -44,7 +44,6 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isID() const;
         void setID(::ecore::EBoolean _iD);
@@ -86,3 +85,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EATTRIBUTE_HPP
+

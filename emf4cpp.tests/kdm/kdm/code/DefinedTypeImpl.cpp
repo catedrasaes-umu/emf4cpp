@@ -50,7 +50,7 @@ void DefinedType::_initialize()
     // Supertypes
     ::kdm::code::Datatype::_initialize();
 
-    // Rerefences
+    // References
     if (m_codeElement)
     {
         m_codeElement->_initialize();

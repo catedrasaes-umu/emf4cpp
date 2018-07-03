@@ -53,7 +53,7 @@ void Machine::_initialize()
     // Supertypes
     ::kdm::platform::AbstractPlatformElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_deployedComponent->size(); i++)
     {
         (*m_deployedComponent)[i]->_initialize();

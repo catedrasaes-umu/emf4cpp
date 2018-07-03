@@ -39,7 +39,7 @@ void PrimitiveDef::_initialize()
     // Supertypes
     ::idlmm::IDLType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(PrimitiveDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

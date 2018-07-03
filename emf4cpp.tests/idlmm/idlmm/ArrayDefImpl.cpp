@@ -42,7 +42,7 @@ void ArrayDef::_initialize()
     ::idlmm::Typed::_initialize();
     ::idlmm::IDLType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ArrayDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

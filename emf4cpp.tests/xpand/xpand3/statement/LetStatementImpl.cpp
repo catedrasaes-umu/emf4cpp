@@ -42,7 +42,7 @@ void LetStatement::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatementWithBody::_initialize();
 
-    // Rerefences
+    // References
     if (m_varName)
     {
         m_varName->_initialize();

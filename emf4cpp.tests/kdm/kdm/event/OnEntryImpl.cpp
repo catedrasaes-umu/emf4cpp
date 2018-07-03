@@ -52,7 +52,7 @@ void OnEntry::_initialize()
     // Supertypes
     ::kdm::event::Transition::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(OnEntryImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

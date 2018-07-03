@@ -46,7 +46,7 @@ void DisplaysImage::_initialize()
     // Supertypes
     ::kdm::ui::AbstractUIRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(DisplaysImageImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -46,7 +46,7 @@ void LinksTo::_initialize()
     // Supertypes
     ::kdm::build::AbstractBuildRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(LinksToImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -15,6 +15,10 @@ set(PyEcore_SOURCES
 	CXX/IndirectPythonInterface.cpp
    )
 
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "")
+
 # Find the correct python
 include(FindPythonLibs)
 

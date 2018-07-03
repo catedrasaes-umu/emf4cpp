@@ -21,12 +21,19 @@
 
 using namespace ::xpand3::statement;
 
-std::auto_ptr< ::xpand3::statement::StatementPackage > StatementPackage::s_instance;
+std::unique_ptr< ::xpand3::statement::StatementPackage,
+        ::ecorecpp::PackageDeleter< ::xpand3::statement::StatementPackage > > StatementPackage::s_instance;
 
 ::xpand3::statement::StatementPackage_ptr StatementPackage::_instance()
 {
     if (!s_instance.get())
         new StatementPackage();
     return s_instance.get();
+}
+
+::xpand3::statement::StatementPackage_ptr StatementPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

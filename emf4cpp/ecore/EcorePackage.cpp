@@ -21,12 +21,19 @@
 
 using namespace ::ecore;
 
-std::auto_ptr< ::ecore::EcorePackage > EcorePackage::s_instance;
+std::unique_ptr< ::ecore::EcorePackage,
+        ::ecorecpp::PackageDeleter< ::ecore::EcorePackage > > EcorePackage::s_instance;
 
 ::ecore::EcorePackage_ptr EcorePackage::_instance()
 {
     if (!s_instance.get())
         new EcorePackage();
     return s_instance.get();
+}
+
+::ecore::EcorePackage_ptr EcorePackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

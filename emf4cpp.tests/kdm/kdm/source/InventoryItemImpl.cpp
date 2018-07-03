@@ -48,7 +48,7 @@ void InventoryItem::_initialize()
     // Supertypes
     ::kdm::source::AbstractInventoryElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(InventoryItemImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

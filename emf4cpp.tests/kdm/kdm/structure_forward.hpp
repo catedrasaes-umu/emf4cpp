@@ -81,6 +81,8 @@ namespace kdm
         class StructureElement;
         typedef StructureElement* StructureElement_ptr;
 
+// EEnum
+
 // Package & Factory
         class StructureFactory;
         typedef StructureFactory * StructureFactory_ptr;

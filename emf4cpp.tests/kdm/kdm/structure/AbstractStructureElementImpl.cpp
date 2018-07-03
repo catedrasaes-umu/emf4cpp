@@ -48,7 +48,7 @@ void AbstractStructureElement::_initialize()
     // Supertypes
     ::kdm::core::KDMEntity::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_aggregated->size(); i++)
     {
         (*m_aggregated)[i]->_initialize();

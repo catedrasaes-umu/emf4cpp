@@ -21,7 +21,7 @@
 
 using namespace ::kdm::code;
 
-std::auto_ptr< ::kdm::code::CodeFactory > CodeFactory::s_instance;
+std::unique_ptr< ::kdm::code::CodeFactory > CodeFactory::s_instance;
 
 ::kdm::code::CodeFactory_ptr CodeFactory::_instance()
 {

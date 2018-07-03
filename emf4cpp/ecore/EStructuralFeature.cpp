@@ -36,12 +36,12 @@ using namespace ::ecore;
 
 // Default constructor
 EStructuralFeature::EStructuralFeature() :
-    m_changeable(true), m_eContainingClass(0)
+        m_changeable(true), m_eContainingClass(0)
 {
 
     /*PROTECTED REGION ID(EStructuralFeatureImpl__EStructuralFeatureImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -59,7 +59,6 @@ EStructuralFeature::~EStructuralFeature()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean EStructuralFeature::isChangeable() const
 {
     return m_changeable;

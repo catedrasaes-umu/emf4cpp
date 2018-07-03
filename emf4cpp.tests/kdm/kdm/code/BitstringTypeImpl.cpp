@@ -50,7 +50,7 @@ void BitstringType::_initialize()
     // Supertypes
     ::kdm::code::PrimitiveType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BitstringTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

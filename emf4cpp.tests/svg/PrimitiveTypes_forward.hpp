@@ -59,6 +59,8 @@ namespace PrimitiveTypes
 
 // EClass
 
+// EEnum
+
 // Package & Factory
     class PrimitiveTypesFactory;
     typedef PrimitiveTypesFactory * PrimitiveTypesFactory_ptr;

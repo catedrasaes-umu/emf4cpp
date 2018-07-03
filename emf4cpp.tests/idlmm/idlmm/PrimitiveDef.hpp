@@ -24,6 +24,7 @@
 #include <ecorecpp/mapping_forward.hpp>
 
 #include <idlmm/IDLType.hpp>
+#include <idlmm/PrimitiveKind.hpp>
 
 /*PROTECTED REGION ID(PrimitiveDef_pre) START*/
 // Please, enable the protected region if you add manually written code.

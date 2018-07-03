@@ -45,7 +45,7 @@ void AttributeDef::_initialize()
     ::idlmm::Contained::_initialize();
     ::idlmm::Typed::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AttributeDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

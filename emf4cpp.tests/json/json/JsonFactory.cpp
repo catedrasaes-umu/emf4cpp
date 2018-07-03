@@ -21,7 +21,7 @@
 
 using namespace ::json;
 
-std::auto_ptr< ::json::JsonFactory > JsonFactory::s_instance;
+std::unique_ptr< ::json::JsonFactory > JsonFactory::s_instance;
 
 ::json::JsonFactory_ptr JsonFactory::_instance()
 {

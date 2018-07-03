@@ -21,7 +21,7 @@
 
 using namespace ::tree;
 
-std::auto_ptr< ::tree::TreeFactory > TreeFactory::s_instance;
+std::unique_ptr< ::tree::TreeFactory > TreeFactory::s_instance;
 
 ::tree::TreeFactory_ptr TreeFactory::_instance()
 {

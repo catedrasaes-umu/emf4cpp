@@ -51,7 +51,7 @@ void UIEvent::_initialize()
     // Supertypes
     ::kdm::ui::AbstractUIElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(UIEventImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

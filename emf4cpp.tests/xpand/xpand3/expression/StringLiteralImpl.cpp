@@ -40,7 +40,7 @@ void StringLiteral::_initialize()
     // Supertypes
     ::xpand3::expression::Literal::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(StringLiteralImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -34,12 +34,12 @@ using namespace ::ecore;
 
 // Default constructor
 EEnumLiteral::EEnumLiteral() :
-    m_eEnum(0)
+        m_eEnum(0)
 {
 
     /*PROTECTED REGION ID(EEnumLiteralImpl__EEnumLiteralImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -57,7 +57,6 @@ EEnumLiteral::~EEnumLiteral()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EInt EEnumLiteral::getValue() const
 {
     return m_value;

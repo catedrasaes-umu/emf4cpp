@@ -46,7 +46,7 @@ void DataModel::_initialize()
     // Supertypes
     ::kdm::kdm::KDMModel::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_dataElement->size(); i++)
     {
         (*m_dataElement)[i]->_initialize();

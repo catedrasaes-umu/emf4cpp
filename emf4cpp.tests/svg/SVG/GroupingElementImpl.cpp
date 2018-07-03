@@ -48,7 +48,7 @@ void GroupingElement::_initialize()
     // Supertypes
     ::SVG::StructuralElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_groupContent->size(); i++)
     {
         (*m_groupContent)[i]->_initialize();

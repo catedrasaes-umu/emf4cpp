@@ -21,12 +21,19 @@
 
 using namespace ::CST;
 
-std::auto_ptr< ::CST::CSTPackage > CSTPackage::s_instance;
+std::unique_ptr< ::CST::CSTPackage,
+        ::ecorecpp::PackageDeleter< ::CST::CSTPackage > > CSTPackage::s_instance;
 
 ::CST::CSTPackage_ptr CSTPackage::_instance()
 {
     if (!s_instance.get())
         new CSTPackage();
     return s_instance.get();
+}
+
+::CST::CSTPackage_ptr CSTPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

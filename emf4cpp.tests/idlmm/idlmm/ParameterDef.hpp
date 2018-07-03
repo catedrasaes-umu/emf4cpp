@@ -25,6 +25,7 @@
 
 #include <ecore_forward.hpp>
 #include <idlmm/Typed.hpp>
+#include <idlmm/ParameterMode.hpp>
 
 /*PROTECTED REGION ID(ParameterDef_pre) START*/
 // Please, enable the protected region if you add manually written code.

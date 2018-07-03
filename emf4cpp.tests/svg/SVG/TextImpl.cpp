@@ -47,7 +47,7 @@ void Text::_initialize()
     // Supertypes
     ::SVG::TextElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TextImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

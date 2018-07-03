@@ -21,7 +21,7 @@
 
 using namespace ::kdm::conceptual;
 
-std::auto_ptr< ::kdm::conceptual::ConceptualFactory > ConceptualFactory::s_instance;
+std::unique_ptr< ::kdm::conceptual::ConceptualFactory > ConceptualFactory::s_instance;
 
 ::kdm::conceptual::ConceptualFactory_ptr ConceptualFactory::_instance()
 {

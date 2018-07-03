@@ -1,6 +1,7 @@
 «REM»
 Main.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -31,7 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     «EXPAND template::EClassHPP::hpp FOREACH EClassifiers.typeSelect(EClass)»
     «EXPAND template::EClassCPP::cpp FOREACH EClassifiers.typeSelect(EClass)»
     «EXPAND template::EClassImplCPP::cpp FOREACH EClassifiers.typeSelect(EClass)»
-    
+    «EXPAND template::EEnumHPP::hpp FOREACH EClassifiers.typeSelect(EEnum)»
     «EXPAND template::Factory::hppcpp FOR this»
     «EXPAND template::FactoryImpl::hppcpp FOR this»
     «EXPAND template::Package::hppcpp FOR this»

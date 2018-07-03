@@ -42,7 +42,7 @@ void Check::_initialize()
     // Supertypes
     ::xpand3::declaration::AbstractDeclaration::_initialize();
 
-    // Rerefences
+    // References
     if (m_msg)
     {
         m_msg->_initialize();

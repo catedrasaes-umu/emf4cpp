@@ -21,7 +21,7 @@
 
 using namespace ::idlmm;
 
-std::auto_ptr< ::idlmm::IdlmmFactory > IdlmmFactory::s_instance;
+std::unique_ptr< ::idlmm::IdlmmFactory > IdlmmFactory::s_instance;
 
 ::idlmm::IdlmmFactory_ptr IdlmmFactory::_instance()
 {

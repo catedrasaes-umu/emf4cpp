@@ -48,7 +48,7 @@ void Polyline::_initialize()
     // Supertypes
     ::SVG::Shape::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_waypoints->size(); i++)
     {
         (*m_waypoints)[i]->_initialize();

@@ -81,7 +81,7 @@ namespace SVG
 
     protected:
 
-        static std::auto_ptr< SVGFactory > s_instance;
+        static std::unique_ptr< SVGFactory > s_instance;
 
         SVGFactory();
 

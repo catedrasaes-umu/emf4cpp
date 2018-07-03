@@ -45,7 +45,7 @@ void HasValue::_initialize()
     // Supertypes
     ::kdm::code::AbstractCodeRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(HasValueImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

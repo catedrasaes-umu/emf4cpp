@@ -42,7 +42,7 @@ void AbstractDeclaration::_initialize()
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
     if (m_owner)
     {
         m_owner->_initialize();

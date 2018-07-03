@@ -52,7 +52,7 @@ void Screen::_initialize()
     // Supertypes
     ::kdm::ui::UIDisplay::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ScreenImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

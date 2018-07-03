@@ -49,7 +49,7 @@ void BuildComponent::_initialize()
     // Supertypes
     ::kdm::build::BuildResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BuildComponentImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

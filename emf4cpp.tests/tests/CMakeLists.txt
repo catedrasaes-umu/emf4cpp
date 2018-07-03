@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 2.6)
 
 project(tests CXX)
 
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "")
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../../emf4cpp)
 
 # read-metamodel

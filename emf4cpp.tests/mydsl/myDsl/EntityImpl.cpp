@@ -41,7 +41,7 @@ void Entity::_initialize()
     // Supertypes
     ::myDsl::Type::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_properties->size(); i++)
     {
         (*m_properties)[i]->_initialize();

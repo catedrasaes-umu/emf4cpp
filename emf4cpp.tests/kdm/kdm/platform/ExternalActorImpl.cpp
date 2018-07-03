@@ -52,7 +52,7 @@ void ExternalActor::_initialize()
     // Supertypes
     ::kdm::platform::PlatformAction::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ExternalActorImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

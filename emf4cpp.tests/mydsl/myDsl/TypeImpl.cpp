@@ -37,7 +37,7 @@ void Type::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

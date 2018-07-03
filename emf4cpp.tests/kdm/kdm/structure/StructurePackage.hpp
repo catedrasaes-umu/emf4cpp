@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <kdm/structure_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 #include <kdm/core/CorePackage.hpp>
 #include <kdm/kdm/KdmPackage.hpp>
@@ -36,6 +37,7 @@ namespace kdm
         public:
 
             static StructurePackage_ptr _instance();
+            static StructurePackage_ptr _getInstanceAndRemoveOwnership();
 
             // IDs for classifiers
 
@@ -372,7 +374,8 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< StructurePackage > s_instance;
+            static std::unique_ptr< StructurePackage,
+                    ::ecorecpp::PackageDeleter< StructurePackage > > s_instance;
 
             StructurePackage();
 

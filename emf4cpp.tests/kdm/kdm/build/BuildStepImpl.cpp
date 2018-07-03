@@ -49,7 +49,7 @@ void BuildStep::_initialize()
     // Supertypes
     ::kdm::build::BuildResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BuildStepImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

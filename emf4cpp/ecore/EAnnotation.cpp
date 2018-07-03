@@ -35,7 +35,7 @@ using namespace ::ecore;
 
 // Default constructor
 EAnnotation::EAnnotation() :
-    m_eModelElement(0)
+        m_eModelElement(0)
 {
 
     m_details.reset(
@@ -50,8 +50,8 @@ EAnnotation::EAnnotation() :
                     false, false >(this, NULL));
 
     /*PROTECTED REGION ID(EAnnotationImpl__EAnnotationImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -69,7 +69,6 @@ EAnnotation::~EAnnotation()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& EAnnotation::getSource() const
 {
     return m_source;

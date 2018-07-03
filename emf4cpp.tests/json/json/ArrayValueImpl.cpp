@@ -39,7 +39,7 @@ void ArrayValue::_initialize()
     // Supertypes
     ::json::Value::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_values->size(); i++)
     {
         (*m_values)[i]->_initialize();

@@ -37,12 +37,12 @@ using namespace ::ecore;
 
 // Default constructor
 EAttribute::EAttribute() :
-    m_eAttributeType(0)
+        m_eAttributeType(0)
 {
 
     /*PROTECTED REGION ID(EAttributeImpl__EAttributeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -60,7 +60,6 @@ EAttribute::~EAttribute()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean EAttribute::isID() const
 {
     return m_iD;

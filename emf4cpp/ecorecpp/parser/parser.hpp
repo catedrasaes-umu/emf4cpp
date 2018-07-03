@@ -2,6 +2,7 @@
 /*
  * parser/parser.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,7 +37,7 @@ public:
     virtual ~parser();
 
     ::ecore::EObject_ptr load(const char* _file);
-    ::ecore::EObject_ptr load_str(const ::ecorecpp::mapping::type_traits::char_t* buffer,
+    ::ecore::EObject_ptr load_str(const ::ecorecpp::mapping::type_definitions::char_t* buffer,
                                   int length);
 };
 

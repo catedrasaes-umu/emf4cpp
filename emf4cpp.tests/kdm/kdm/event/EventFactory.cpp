@@ -21,7 +21,7 @@
 
 using namespace ::kdm::event;
 
-std::auto_ptr< ::kdm::event::EventFactory > EventFactory::s_instance;
+std::unique_ptr< ::kdm::event::EventFactory > EventFactory::s_instance;
 
 ::kdm::event::EventFactory_ptr EventFactory::_instance()
 {

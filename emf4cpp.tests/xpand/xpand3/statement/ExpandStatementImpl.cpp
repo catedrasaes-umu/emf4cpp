@@ -41,7 +41,7 @@ void ExpandStatement::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_parameters->size(); i++)
     {
         (*m_parameters)[i]->_initialize();

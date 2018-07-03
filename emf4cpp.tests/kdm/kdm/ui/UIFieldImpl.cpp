@@ -52,7 +52,7 @@ void UIField::_initialize()
     // Supertypes
     ::kdm::ui::UIResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(UIFieldImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

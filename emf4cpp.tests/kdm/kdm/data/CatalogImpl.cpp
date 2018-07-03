@@ -51,7 +51,7 @@ void Catalog::_initialize()
     // Supertypes
     ::kdm::data::DataContainer::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(CatalogImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

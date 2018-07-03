@@ -45,7 +45,7 @@ void BuildRelationship::_initialize()
     // Supertypes
     ::kdm::build::AbstractBuildRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BuildRelationshipImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

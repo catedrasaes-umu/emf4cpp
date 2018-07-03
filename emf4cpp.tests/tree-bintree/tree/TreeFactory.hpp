@@ -46,7 +46,7 @@ namespace tree
 
     protected:
 
-        static std::auto_ptr< TreeFactory > s_instance;
+        static std::unique_ptr< TreeFactory > s_instance;
 
         TreeFactory();
 

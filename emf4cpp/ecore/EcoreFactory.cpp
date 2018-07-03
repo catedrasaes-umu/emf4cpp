@@ -21,7 +21,7 @@
 
 using namespace ::ecore;
 
-std::auto_ptr< ::ecore::EcoreFactory > EcoreFactory::s_instance;
+std::unique_ptr< ::ecore::EcoreFactory > EcoreFactory::s_instance;
 
 ::ecore::EcoreFactory_ptr EcoreFactory::_instance()
 {

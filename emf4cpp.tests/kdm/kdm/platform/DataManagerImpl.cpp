@@ -52,7 +52,7 @@ void DataManager::_initialize()
     // Supertypes
     ::kdm::platform::ResourceType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(DataManagerImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

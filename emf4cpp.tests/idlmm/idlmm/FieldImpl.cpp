@@ -41,7 +41,7 @@ void Field::_initialize()
     // Supertypes
     ::idlmm::Typed::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(FieldImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

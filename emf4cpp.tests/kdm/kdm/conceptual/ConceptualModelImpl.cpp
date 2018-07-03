@@ -46,7 +46,7 @@ void ConceptualModel::_initialize()
     // Supertypes
     ::kdm::kdm::KDMModel::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_conceptualElement->size(); i++)
     {
         (*m_conceptualElement)[i]->_initialize();

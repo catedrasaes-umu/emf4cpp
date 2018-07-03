@@ -45,7 +45,6 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getKey() const;
         void setKey(::ecore::EString const& _key);
@@ -54,7 +53,6 @@ namespace ecore
         void setValue(::ecore::EString const& _value);
 
         // References
-
 
         /*PROTECTED REGION ID(EStringToStringMapEntry) START*/
         // Please, enable the protected region if you add manually written code.
@@ -89,3 +87,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_ESTRINGTOSTRINGMAPENTRY_HPP
+

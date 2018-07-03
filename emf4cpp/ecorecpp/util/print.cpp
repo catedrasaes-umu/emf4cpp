@@ -2,6 +2,7 @@
 /*
  * util/print.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -216,7 +217,7 @@ void print(std::wostream& out, const EObject_ptr obj, int level)
 void print(std::ostream& out, const EObject_ptr obj, int level)
 #endif
 {
-    ::ecorecpp::mapping::type_traits::string_t indent(level, L'\t');
+    ::ecorecpp::mapping::type_definitions::string_t indent(level, L'\t');
 
     EClass_ptr cl = obj->eClass();
     EPackage_ptr pkg = cl->getEPackage();

@@ -52,7 +52,7 @@ void ColumnSet::_initialize()
     // Supertypes
     ::kdm::data::DataContainer::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_itemUnit->size(); i++)
     {
         (*m_itemUnit)[i]->_initialize();

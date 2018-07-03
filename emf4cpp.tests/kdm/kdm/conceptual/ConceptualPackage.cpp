@@ -21,12 +21,19 @@
 
 using namespace ::kdm::conceptual;
 
-std::auto_ptr< ::kdm::conceptual::ConceptualPackage > ConceptualPackage::s_instance;
+std::unique_ptr< ::kdm::conceptual::ConceptualPackage,
+        ::ecorecpp::PackageDeleter< ::kdm::conceptual::ConceptualPackage > > ConceptualPackage::s_instance;
 
 ::kdm::conceptual::ConceptualPackage_ptr ConceptualPackage::_instance()
 {
     if (!s_instance.get())
         new ConceptualPackage();
     return s_instance.get();
+}
+
+::kdm::conceptual::ConceptualPackage_ptr ConceptualPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

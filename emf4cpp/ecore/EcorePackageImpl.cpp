@@ -116,11 +116,13 @@ EcorePackage::EcorePackage()
     m_EClass__eAllAttributes = new ::ecore::EReference();
     m_EClass__eAllAttributes->setFeatureID(
             ::ecore::EcorePackage::ECLASS__EALLATTRIBUTES);
-    m_EClassEClass->getEStructuralFeatures().push_back(m_EClass__eAllAttributes);
+    m_EClassEClass->getEStructuralFeatures().push_back(
+            m_EClass__eAllAttributes);
     m_EClass__eAllReferences = new ::ecore::EReference();
     m_EClass__eAllReferences->setFeatureID(
             ::ecore::EcorePackage::ECLASS__EALLREFERENCES);
-    m_EClassEClass->getEStructuralFeatures().push_back(m_EClass__eAllReferences);
+    m_EClassEClass->getEStructuralFeatures().push_back(
+            m_EClass__eAllReferences);
     m_EClass__eReferences = new ::ecore::EReference();
     m_EClass__eReferences->setFeatureID(
             ::ecore::EcorePackage::ECLASS__EREFERENCES);
@@ -137,7 +139,8 @@ EcorePackage::EcorePackage()
     m_EClass__eAllOperations = new ::ecore::EReference();
     m_EClass__eAllOperations->setFeatureID(
             ::ecore::EcorePackage::ECLASS__EALLOPERATIONS);
-    m_EClassEClass->getEStructuralFeatures().push_back(m_EClass__eAllOperations);
+    m_EClassEClass->getEStructuralFeatures().push_back(
+            m_EClass__eAllOperations);
     m_EClass__eAllStructuralFeatures = new ::ecore::EReference();
     m_EClass__eAllStructuralFeatures->setFeatureID(
             ::ecore::EcorePackage::ECLASS__EALLSTRUCTURALFEATURES);
@@ -146,7 +149,8 @@ EcorePackage::EcorePackage()
     m_EClass__eAllSuperTypes = new ::ecore::EReference();
     m_EClass__eAllSuperTypes->setFeatureID(
             ::ecore::EcorePackage::ECLASS__EALLSUPERTYPES);
-    m_EClassEClass->getEStructuralFeatures().push_back(m_EClass__eAllSuperTypes);
+    m_EClassEClass->getEStructuralFeatures().push_back(
+            m_EClass__eAllSuperTypes);
     m_EClass__eIDAttribute = new ::ecore::EReference();
     m_EClass__eIDAttribute->setFeatureID(
             ::ecore::EcorePackage::ECLASS__EIDATTRIBUTE);
@@ -553,7 +557,6 @@ EcorePackage::EcorePackage()
 
     // Create enums
 
-
     // Create data types
 
     m_EBigDecimalEDataType = new ::ecore::EDataType();
@@ -848,8 +851,8 @@ EcorePackage::EcorePackage()
     m_EAnnotation__eModelElement->setDerived(false);
     m_EAnnotation__eModelElement->setOrdered(true);
     m_EAnnotation__eModelElement->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EModelElementEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EModelElementEClass->getEStructuralFeatures()[0]));
     m_EAnnotation__contents->setEType(m_EObjectEClass);
     m_EAnnotation__contents->setName("contents");
     m_EAnnotation__contents->setDefaultValueLiteral("");
@@ -933,8 +936,8 @@ EcorePackage::EcorePackage()
     m_EClass__eOperations->setDerived(false);
     m_EClass__eOperations->setOrdered(true);
     m_EClass__eOperations->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EOperationEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EOperationEClass->getEStructuralFeatures()[0]));
     m_EClass__eAllAttributes->setEType(m_EAttributeEClass);
     m_EClass__eAllAttributes->setName("eAllAttributes");
     m_EClass__eAllAttributes->setDefaultValueLiteral("");
@@ -1066,8 +1069,8 @@ EcorePackage::EcorePackage()
     m_EClass__eStructuralFeatures->setDerived(false);
     m_EClass__eStructuralFeatures->setOrdered(true);
     m_EClass__eStructuralFeatures->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EStructuralFeatureEClass->getEStructuralFeatures()[7]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EStructuralFeatureEClass->getEStructuralFeatures()[7]));
     m_EClass__eGenericSuperTypes->setEType(m_EGenericTypeEClass);
     m_EClass__eGenericSuperTypes->setName("eGenericSuperTypes");
     m_EClass__eGenericSuperTypes->setDefaultValueLiteral("");
@@ -1299,8 +1302,8 @@ EcorePackage::EcorePackage()
     m_EClassifier__ePackage->setDerived(false);
     m_EClassifier__ePackage->setOrdered(true);
     m_EClassifier__ePackage->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EPackageEClass->getEStructuralFeatures()[3]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EPackageEClass->getEStructuralFeatures()[3]));
     m_EClassifier__eTypeParameters->setEType(m_ETypeParameterEClass);
     m_EClassifier__eTypeParameters->setName("eTypeParameters");
     m_EClassifier__eTypeParameters->setDefaultValueLiteral("");
@@ -1373,8 +1376,8 @@ EcorePackage::EcorePackage()
     m_EEnum__eLiterals->setDerived(false);
     m_EEnum__eLiterals->setOrdered(true);
     m_EEnum__eLiterals->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EEnumLiteralEClass->getEStructuralFeatures()[3]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EEnumLiteralEClass->getEStructuralFeatures()[3]));
     _op = new ::ecore::EOperation();
     _op->setEType(m_EEnumLiteralEClass);
     _op->setName("getEEnumLiteral");
@@ -1480,8 +1483,8 @@ EcorePackage::EcorePackage()
     m_EEnumLiteral__eEnum->setDerived(false);
     m_EEnumLiteral__eEnum->setOrdered(true);
     m_EEnumLiteral__eEnum->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EEnumEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EEnumEClass->getEStructuralFeatures()[0]));
     // EFactory
     m_EFactoryEClass->setName("EFactory");
     m_EFactoryEClass->setAbstract(false);
@@ -1500,8 +1503,8 @@ EcorePackage::EcorePackage()
     m_EFactory__ePackage->setDerived(false);
     m_EFactory__ePackage->setOrdered(true);
     m_EFactory__ePackage->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EPackageEClass->getEStructuralFeatures()[2]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EPackageEClass->getEStructuralFeatures()[2]));
     _op = new ::ecore::EOperation();
     _op->setEType(m_EObjectEClass);
     _op->setName("create");
@@ -1584,8 +1587,8 @@ EcorePackage::EcorePackage()
     m_EModelElement__eAnnotations->setDerived(false);
     m_EModelElement__eAnnotations->setOrdered(true);
     m_EModelElement__eAnnotations->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EAnnotationEClass->getEStructuralFeatures()[2]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EAnnotationEClass->getEStructuralFeatures()[2]));
     _op = new ::ecore::EOperation();
     _op->setEType(m_EAnnotationEClass);
     _op->setName("getEAnnotation");
@@ -1862,8 +1865,8 @@ EcorePackage::EcorePackage()
     m_EOperation__eContainingClass->setDerived(false);
     m_EOperation__eContainingClass->setOrdered(true);
     m_EOperation__eContainingClass->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EClassEClass->getEStructuralFeatures()[3]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EClassEClass->getEStructuralFeatures()[3]));
     m_EOperation__eTypeParameters->setEType(m_ETypeParameterEClass);
     m_EOperation__eTypeParameters->setName("eTypeParameters");
     m_EOperation__eTypeParameters->setDefaultValueLiteral("");
@@ -1891,8 +1894,8 @@ EcorePackage::EcorePackage()
     m_EOperation__eParameters->setDerived(false);
     m_EOperation__eParameters->setOrdered(true);
     m_EOperation__eParameters->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EParameterEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EParameterEClass->getEStructuralFeatures()[0]));
     m_EOperation__eExceptions->setEType(m_EClassifierEClass);
     m_EOperation__eExceptions->setName("eExceptions");
     m_EOperation__eExceptions->setDefaultValueLiteral("");
@@ -1987,8 +1990,8 @@ EcorePackage::EcorePackage()
     m_EPackage__eFactoryInstance->setDerived(false);
     m_EPackage__eFactoryInstance->setOrdered(true);
     m_EPackage__eFactoryInstance->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EFactoryEClass->getEStructuralFeatures()[0]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EFactoryEClass->getEStructuralFeatures()[0]));
     m_EPackage__eClassifiers->setEType(m_EClassifierEClass);
     m_EPackage__eClassifiers->setName("eClassifiers");
     m_EPackage__eClassifiers->setDefaultValueLiteral("");
@@ -2003,8 +2006,8 @@ EcorePackage::EcorePackage()
     m_EPackage__eClassifiers->setDerived(false);
     m_EPackage__eClassifiers->setOrdered(true);
     m_EPackage__eClassifiers->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EClassifierEClass->getEStructuralFeatures()[4]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EClassifierEClass->getEStructuralFeatures()[4]));
     m_EPackage__eSubpackages->setEType(m_EPackageEClass);
     m_EPackage__eSubpackages->setName("eSubpackages");
     m_EPackage__eSubpackages->setDefaultValueLiteral("");
@@ -2019,8 +2022,8 @@ EcorePackage::EcorePackage()
     m_EPackage__eSubpackages->setDerived(false);
     m_EPackage__eSubpackages->setOrdered(true);
     m_EPackage__eSubpackages->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EPackageEClass->getEStructuralFeatures()[5]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EPackageEClass->getEStructuralFeatures()[5]));
     m_EPackage__eSuperPackage->setEType(m_EPackageEClass);
     m_EPackage__eSuperPackage->setName("eSuperPackage");
     m_EPackage__eSuperPackage->setDefaultValueLiteral("");
@@ -2035,8 +2038,8 @@ EcorePackage::EcorePackage()
     m_EPackage__eSuperPackage->setDerived(false);
     m_EPackage__eSuperPackage->setOrdered(true);
     m_EPackage__eSuperPackage->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EPackageEClass->getEStructuralFeatures()[4]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EPackageEClass->getEStructuralFeatures()[4]));
     _op = new ::ecore::EOperation();
     _op->setEType(m_EClassifierEClass);
     _op->setName("getEClassifier");
@@ -2071,8 +2074,8 @@ EcorePackage::EcorePackage()
     m_EParameter__eOperation->setDerived(false);
     m_EParameter__eOperation->setOrdered(true);
     m_EParameter__eOperation->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EOperationEClass->getEStructuralFeatures()[2]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EOperationEClass->getEStructuralFeatures()[2]));
     // EReference
     m_EReferenceEClass->setName("EReference");
     m_EReferenceEClass->setAbstract(false);
@@ -2264,8 +2267,8 @@ EcorePackage::EcorePackage()
     m_EStructuralFeature__eContainingClass->setDerived(false);
     m_EStructuralFeature__eContainingClass->setOrdered(true);
     m_EStructuralFeature__eContainingClass->setEOpposite(
-            ::ecore::instanceOf< ::ecore::EReference >(
-                    m_EClassEClass->getEStructuralFeatures()[13]));
+            ::ecore::instanceOf < ::ecore::EReference
+                    > (m_EClassEClass->getEStructuralFeatures()[13]));
     _op = new ::ecore::EOperation();
     _op->setEType(m_EIntEDataType);
     _op->setName("getFeatureID");
@@ -2658,7 +2661,8 @@ EcorePackage::EcorePackage()
     m_ETreeIteratorEDataType->setSerializable(false);
 
     // EInvocationTargetException
-    m_EInvocationTargetExceptionEDataType->setName("EInvocationTargetException");
+    m_EInvocationTargetExceptionEDataType->setName(
+            "EInvocationTargetException");
     m_EInvocationTargetExceptionEDataType->setSerializable(false);
 
     _initialize();

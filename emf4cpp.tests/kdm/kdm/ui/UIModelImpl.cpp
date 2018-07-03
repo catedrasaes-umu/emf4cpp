@@ -46,7 +46,7 @@ void UIModel::_initialize()
     // Supertypes
     ::kdm::kdm::KDMModel::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_UIElement->size(); i++)
     {
         (*m_UIElement)[i]->_initialize();

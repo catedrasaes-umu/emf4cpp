@@ -135,11 +135,11 @@ Xpand3Package::Xpand3Package()
     // Create data types
 
     getESubpackages().push_back(
-            ::xpand3::expression::ExpressionPackage::_instance());
+            ::xpand3::expression::ExpressionPackage::_getInstanceAndRemoveOwnership());
     getESubpackages().push_back(
-            ::xpand3::statement::StatementPackage::_instance());
+            ::xpand3::statement::StatementPackage::_getInstanceAndRemoveOwnership());
     getESubpackages().push_back(
-            ::xpand3::declaration::DeclarationPackage::_instance());
+            ::xpand3::declaration::DeclarationPackage::_getInstanceAndRemoveOwnership());
 
     // Initialize package
     setName("xpand3");

@@ -38,7 +38,7 @@ void BinTreeNode::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     if (m_left)
     {
         m_left->_initialize();

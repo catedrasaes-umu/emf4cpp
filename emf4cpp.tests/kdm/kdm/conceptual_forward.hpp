@@ -93,6 +93,8 @@ namespace kdm
         class ConceptualRole;
         typedef ConceptualRole* ConceptualRole_ptr;
 
+// EEnum
+
 // Package & Factory
         class ConceptualFactory;
         typedef ConceptualFactory * ConceptualFactory_ptr;

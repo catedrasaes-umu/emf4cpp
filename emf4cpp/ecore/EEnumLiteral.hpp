@@ -44,7 +44,6 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EInt getValue() const;
         void setValue(::ecore::EInt _value);
@@ -96,3 +95,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EENUMLITERAL_HPP
+

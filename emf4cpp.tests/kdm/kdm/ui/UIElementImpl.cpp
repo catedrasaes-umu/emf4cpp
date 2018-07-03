@@ -51,7 +51,7 @@ void UIElement::_initialize()
     // Supertypes
     ::kdm::ui::AbstractUIElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(UIElementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

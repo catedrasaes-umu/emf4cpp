@@ -43,8 +43,8 @@ EEnum::EEnum()
                     -1, true, true >(this, NULL));
 
     /*PROTECTED REGION ID(EEnumImpl__EEnumImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ EEnum::~EEnum()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& EEnum::getELiterals()
 {

@@ -50,7 +50,7 @@ void CodeItem::_initialize()
     // Supertypes
     ::kdm::code::AbstractCodeElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(CodeItemImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

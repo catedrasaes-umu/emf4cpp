@@ -45,7 +45,7 @@ void VisibleIn::_initialize()
     // Supertypes
     ::kdm::code::AbstractCodeRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(VisibleInImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

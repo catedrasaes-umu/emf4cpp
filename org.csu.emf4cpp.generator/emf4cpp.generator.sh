@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 #
 # emf4cpp.generator.sh
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>

@@ -51,7 +51,7 @@ void MixedContent::_initialize()
     // Supertypes
     ::kdm::data::ComplexContentType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(MixedContentImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

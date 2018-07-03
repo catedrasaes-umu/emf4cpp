@@ -51,7 +51,7 @@ void Index::_initialize()
     // Supertypes
     ::kdm::data::IndexElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(IndexImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

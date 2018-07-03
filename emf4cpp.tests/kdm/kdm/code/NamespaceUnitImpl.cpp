@@ -50,7 +50,7 @@ void NamespaceUnit::_initialize()
     // Supertypes
     ::kdm::code::CodeItem::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(NamespaceUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

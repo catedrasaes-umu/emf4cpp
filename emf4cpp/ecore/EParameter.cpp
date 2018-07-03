@@ -36,12 +36,12 @@ using namespace ::ecore;
 
 // Default constructor
 EParameter::EParameter() :
-    m_eOperation(0)
+        m_eOperation(0)
 {
 
     /*PROTECTED REGION ID(EParameterImpl__EParameterImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -59,7 +59,6 @@ EParameter::~EParameter()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecore::EOperation_ptr EParameter::getEOperation()
 {

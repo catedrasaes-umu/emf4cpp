@@ -40,7 +40,7 @@ void Cast::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_type)
     {
         m_type->_initialize();

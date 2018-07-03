@@ -44,7 +44,6 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isOrdered() const;
         void setOrdered(::ecore::EBoolean _ordered);
@@ -116,3 +115,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_ETYPEDELEMENT_HPP
+

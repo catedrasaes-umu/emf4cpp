@@ -51,7 +51,7 @@ void TypeUnit::_initialize()
     // Supertypes
     ::kdm::code::DefinedType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TypeUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -52,7 +52,7 @@ void RelationalSchema::_initialize()
     // Supertypes
     ::kdm::data::DataContainer::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_codeElement->size(); i++)
     {
         (*m_codeElement)[i]->_initialize();

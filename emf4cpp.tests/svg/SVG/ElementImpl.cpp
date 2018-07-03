@@ -45,7 +45,7 @@ void Element::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     if (m_position)
     {
         m_position->_initialize();

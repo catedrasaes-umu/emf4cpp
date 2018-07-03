@@ -40,7 +40,7 @@ void UnaryOperation::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_operator)
     {
         m_operator->_initialize();

@@ -51,7 +51,7 @@ void SharedUnit::_initialize()
     // Supertypes
     ::kdm::code::CompilationUnit::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(SharedUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

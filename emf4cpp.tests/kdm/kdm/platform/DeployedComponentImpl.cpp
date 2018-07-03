@@ -52,7 +52,7 @@ void DeployedComponent::_initialize()
     // Supertypes
     ::kdm::platform::AbstractPlatformElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(DeployedComponentImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

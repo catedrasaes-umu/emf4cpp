@@ -121,6 +121,8 @@ namespace kdm
         class DescribedBy;
         typedef DescribedBy* DescribedBy_ptr;
 
+// EEnum
+
 // Package & Factory
         class BuildFactory;
         typedef BuildFactory * BuildFactory_ptr;

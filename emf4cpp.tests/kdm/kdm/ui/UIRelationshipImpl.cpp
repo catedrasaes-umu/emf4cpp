@@ -45,7 +45,7 @@ void UIRelationship::_initialize()
     // Supertypes
     ::kdm::ui::AbstractUIRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(UIRelationshipImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -51,6 +51,8 @@ namespace tree
     class NonTerminal;
     typedef NonTerminal* NonTerminal_ptr;
 
+// EEnum
+
 // Package & Factory
     class TreeFactory;
     typedef TreeFactory * TreeFactory_ptr;

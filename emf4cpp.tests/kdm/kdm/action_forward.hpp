@@ -141,6 +141,8 @@ namespace kdm
         class ExceptionFlow;
         typedef ExceptionFlow* ExceptionFlow_ptr;
 
+// EEnum
+
 // Package & Factory
         class ActionFactory;
         typedef ActionFactory * ActionFactory_ptr;

@@ -38,7 +38,7 @@ void NVPair::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     if (m_value)
     {
         m_value->_initialize();

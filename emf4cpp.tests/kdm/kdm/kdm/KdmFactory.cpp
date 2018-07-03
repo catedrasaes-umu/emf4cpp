@@ -21,7 +21,7 @@
 
 using namespace ::kdm::kdm;
 
-std::auto_ptr< ::kdm::kdm::KdmFactory > KdmFactory::s_instance;
+std::unique_ptr< ::kdm::kdm::KdmFactory > KdmFactory::s_instance;
 
 ::kdm::kdm::KdmFactory_ptr KdmFactory::_instance()
 {

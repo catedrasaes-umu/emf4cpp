@@ -46,7 +46,7 @@ void StructureModel::_initialize()
     // Supertypes
     ::kdm::kdm::KDMModel::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_structureElement->size(); i++)
     {
         (*m_structureElement)[i]->_initialize();

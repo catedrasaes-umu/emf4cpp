@@ -79,14 +79,14 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EEnumLiteral > > m_eLiterals;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral > > m_eLiterals;
 
     };
 
 } // ecore
 
 #endif // ECORE_EENUM_HPP
+

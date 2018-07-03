@@ -36,16 +36,6 @@ namespace idlmm
 {
 
 // EDataType
-    /*PROTECTED REGION ID(idlmm_ParameterMode) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-    typedef int ParameterMode;
-    /*PROTECTED REGION END*/
-    /*PROTECTED REGION ID(idlmm_PrimitiveKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-    typedef int PrimitiveKind;
-    /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(idlmm_EAny) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
@@ -161,6 +151,16 @@ namespace idlmm
 // Include
     class Include;
     typedef Include* Include_ptr;
+
+// EEnum
+
+// ParameterMode
+    enum class ParameterMode
+    ;
+
+// PrimitiveKind
+    enum class PrimitiveKind
+    ;
 
 // Package & Factory
     class IdlmmFactory;

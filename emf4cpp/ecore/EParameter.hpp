@@ -44,7 +44,6 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -73,7 +72,6 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
         ::ecore::EOperation_ptr m_eOperation;
@@ -83,3 +81,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EPARAMETER_HPP
+

@@ -50,7 +50,7 @@ void ExtendedDataElement::_initialize()
     // Supertypes
     ::kdm::data::AbstractDataElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ExtendedDataElementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

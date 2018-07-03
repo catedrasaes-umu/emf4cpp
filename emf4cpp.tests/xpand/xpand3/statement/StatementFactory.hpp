@@ -56,7 +56,7 @@ namespace xpand3
 
         protected:
 
-            static std::auto_ptr< StatementFactory > s_instance;
+            static std::unique_ptr< StatementFactory > s_instance;
 
             StatementFactory();
 

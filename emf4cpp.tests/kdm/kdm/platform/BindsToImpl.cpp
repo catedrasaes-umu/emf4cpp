@@ -45,7 +45,7 @@ void BindsTo::_initialize()
     // Supertypes
     ::kdm::platform::AbstractPlatformRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BindsToImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

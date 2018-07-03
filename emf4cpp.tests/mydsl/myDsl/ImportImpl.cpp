@@ -37,7 +37,7 @@ void Import::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ImportImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

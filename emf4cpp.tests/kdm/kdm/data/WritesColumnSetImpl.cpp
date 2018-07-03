@@ -46,7 +46,7 @@ void WritesColumnSet::_initialize()
     // Supertypes
     ::kdm::action::AbstractActionRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(WritesColumnSetImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

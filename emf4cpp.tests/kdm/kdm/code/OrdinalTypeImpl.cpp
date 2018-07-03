@@ -50,7 +50,7 @@ void OrdinalType::_initialize()
     // Supertypes
     ::kdm::code::PrimitiveType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(OrdinalTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

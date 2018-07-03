@@ -40,7 +40,7 @@ void Case::_initialize()
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
     if (m_condition)
     {
         m_condition->_initialize();

@@ -52,7 +52,7 @@ void GroupContent::_initialize()
     // Supertypes
     ::kdm::data::ContentItem::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(GroupContentImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

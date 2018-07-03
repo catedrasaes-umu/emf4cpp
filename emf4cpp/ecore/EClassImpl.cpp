@@ -59,10 +59,10 @@ void EClass::_init_collections()
     for (size_t i = 0; i < m_eStructuralFeatures->size(); i++)
     {
         ::ecore::EStructuralFeature_ptr _esf = (*m_eStructuralFeatures)[i];
-        ::ecore::EAttribute_ptr _at =
-                ::ecore::instanceOf< ::ecore::EAttribute >(_esf);
-        ::ecore::EReference_ptr _ref =
-                ::ecore::instanceOf< ::ecore::EReference >(_esf);
+        ::ecore::EAttribute_ptr _at = ::ecore::instanceOf < ::ecore::EAttribute
+                > (_esf);
+        ::ecore::EReference_ptr _ref = ::ecore::instanceOf < ::ecore::EReference
+                > (_esf);
 
         if (_at)
         {
@@ -85,8 +85,8 @@ void EClass::_init_collections()
     for (size_t i = 0; i < m_eAllSuperTypes->size(); i++)
     {
         ::ecore::EClass_ptr _st = (*m_eAllSuperTypes)[i];
-        ::ecorecpp::mapping::EList < ::ecore::EClass > &_s
-                = _st->getESuperTypes();
+        ::ecorecpp::mapping::EList < ::ecore::EClass > &_s =
+                _st->getESuperTypes();
 
         // TODO: check duplicates
         m_eAllSuperTypes->insert_all(_s);
@@ -101,10 +101,10 @@ void EClass::_init_collections()
 
         for (size_t j = 0; j < _s.size(); j++)
         {
-            ::ecore::EAttribute_ptr _at = ::ecore::instanceOf<
-                    ::ecore::EAttribute >(_s[j]);
-            ::ecore::EReference_ptr _ref = ::ecore::instanceOf<
-                    ::ecore::EReference >(_s[j]);
+            ::ecore::EAttribute_ptr _at = ::ecore::instanceOf
+                    < ::ecore::EAttribute > (_s[j]);
+            ::ecore::EReference_ptr _ref = ::ecore::instanceOf
+                    < ::ecore::EReference > (_s[j]);
 
             if (_at)
                 m_eAllAttributes->push_back(_at);
@@ -161,7 +161,7 @@ void EClass::_initialize()
     // Supertypes
     ::ecore::EClassifier::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_eOperations->size(); i++)
     {
         (*m_eOperations)[i]->_initialize();
@@ -171,15 +171,13 @@ void EClass::_initialize()
     for (size_t i = 0; i < m_eStructuralFeatures->size(); i++)
     {
         (*m_eStructuralFeatures)[i]->_initialize();
-        (*m_eStructuralFeatures)[i]->_setEContainer(
-                this,
+        (*m_eStructuralFeatures)[i]->_setEContainer(this,
                 ::ecore::EcorePackage::_instance()->getEClass__eStructuralFeatures());
     }
     for (size_t i = 0; i < m_eGenericSuperTypes->size(); i++)
     {
         (*m_eGenericSuperTypes)[i]->_initialize();
-        (*m_eGenericSuperTypes)[i]->_setEContainer(
-                this,
+        (*m_eGenericSuperTypes)[i]->_setEContainer(this,
                 ::ecore::EcorePackage::_instance()->getEClass__eGenericSuperTypes());
     }
 
@@ -288,66 +286,67 @@ void EClass::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject > ();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCECLASSNAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_instanceClassName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_instanceClassName);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCETYPENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_instanceTypeName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_instanceTypeName);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_ePackage);
+        _any = static_cast< ::ecore::EObject* >(m_ePackage);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
     {
-        _any = m_eTypeParameters->asEListOf< ::ecore::EObject > ();
+        _any = m_eTypeParameters->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ECLASS__ABSTRACT:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_abstract);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_abstract);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASS__INTERFACE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_interface);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_interface);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASS__ESUPERTYPES:
     {
-        _any = m_eSuperTypes->asEListOf< ::ecore::EObject > ();
+        _any = m_eSuperTypes->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ECLASS__EOPERATIONS:
     {
-        _any = m_eOperations->asEListOf< ::ecore::EObject > ();
+        _any = m_eOperations->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ECLASS__ESTRUCTURALFEATURES:
     {
-        _any = m_eStructuralFeatures->asEListOf< ::ecore::EObject > ();
+        _any = m_eStructuralFeatures->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ECLASS__EGENERICSUPERTYPES:
     {
-        _any = m_eGenericSuperTypes->asEListOf< ::ecore::EObject > ();
+        _any = m_eGenericSuperTypes->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -362,92 +361,86 @@ void EClass::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCECLASSNAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_instanceClassName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_instanceClassName);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCETYPENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_instanceTypeName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_instanceTypeName);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr >(_t0);
         ::ecore::EClassifier::setEPackage(_t1);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EClassifier::getETypeParameters().clear();
         ::ecore::EClassifier::getETypeParameters().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASS__ABSTRACT:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_abstract);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_abstract);
     }
         return;
     case ::ecore::EcorePackage::ECLASS__INTERFACE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_interface);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_interface);
     }
         return;
     case ::ecore::EcorePackage::ECLASS__ESUPERTYPES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EClass::getESuperTypes().clear();
         ::ecore::EClass::getESuperTypes().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASS__EOPERATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EClass::getEOperations().clear();
         ::ecore::EClass::getEOperations().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASS__ESTRUCTURALFEATURES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EClass::getEStructuralFeatures().clear();
         ::ecore::EClass::getEStructuralFeatures().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASS__EGENERICSUPERTYPES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EClass::getEGenericSuperTypes().clear();
         ::ecore::EClass::getEGenericSuperTypes().insert_all(*_t0);
     }
@@ -464,27 +457,27 @@ void EClass::eSet(::ecore::EInt _featureID,
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
         return m_eAnnotations && m_eAnnotations->size();
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_name);
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCECLASSNAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_instanceClassName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_instanceClassName);
     case ::ecore::EcorePackage::ECLASSIFIER__DEFAULTVALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EJavaObject >::is_set(
-                m_defaultValue);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EJavaObject
+                > ::is_set(m_defaultValue);
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCETYPENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_instanceTypeName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_instanceTypeName);
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
         return m_ePackage;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
         return m_eTypeParameters && m_eTypeParameters->size();
     case ::ecore::EcorePackage::ECLASS__ABSTRACT:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_abstract);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_abstract);
     case ::ecore::EcorePackage::ECLASS__INTERFACE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_interface);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_interface);
     case ::ecore::EcorePackage::ECLASS__ESUPERTYPES:
         return m_eSuperTypes && m_eSuperTypes->size();
     case ::ecore::EcorePackage::ECLASS__EOPERATIONS:
@@ -529,9 +522,8 @@ void EClass::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EClass::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEClass();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEClass();
     return _eclass;
 }
 

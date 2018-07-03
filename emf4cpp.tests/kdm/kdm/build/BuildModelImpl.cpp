@@ -46,7 +46,7 @@ void BuildModel::_initialize()
     // Supertypes
     ::kdm::kdm::KDMModel::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_buildElement->size(); i++)
     {
         (*m_buildElement)[i]->_initialize();

@@ -21,12 +21,19 @@
 
 using namespace ::myDsl;
 
-std::auto_ptr< ::myDsl::MyDslPackage > MyDslPackage::s_instance;
+std::unique_ptr< ::myDsl::MyDslPackage,
+        ::ecorecpp::PackageDeleter< ::myDsl::MyDslPackage > > MyDslPackage::s_instance;
 
 ::myDsl::MyDslPackage_ptr MyDslPackage::_instance()
 {
     if (!s_instance.get())
         new MyDslPackage();
     return s_instance.get();
+}
+
+::myDsl::MyDslPackage_ptr MyDslPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

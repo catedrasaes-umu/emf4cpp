@@ -46,7 +46,7 @@ void Loads::_initialize()
     // Supertypes
     ::kdm::platform::AbstractPlatformRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(LoadsImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

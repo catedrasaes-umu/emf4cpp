@@ -51,7 +51,7 @@ void Package::_initialize()
     // Supertypes
     ::kdm::code::Module::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(PackageImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -1,6 +1,7 @@
 «REM»
 ClassImplCPP.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -62,7 +63,7 @@ void «name»::_initialize()
     ::«st.getFQN()»::_initialize();
     «ENDFOREACH-»
 
-    // Rerefences
+    // References
     «FOREACH this.EReferences.select(e|e.containment) AS ref-»
         «IF ref.upperBound == 1-»
     if («ref.getMemberName()»)
@@ -174,18 +175,24 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
         case «ef.getCPPFQN()» :
             «IF EReference.isInstance(ef)-»
                 «IF ef.upperBound == 1-»
-            return «ef.getMemberName()»;
+            		return «ef.getMemberName()»;
                 «ELSE-»
-            return «ef.getMemberName()» && «ef.getMemberName()»->size();
+            		return «ef.getMemberName()» && «ef.getMemberName()»->size();
                 «ENDIF-»
             «ELSE-»
                 «IF ef.isList() || ef.isMultiple()-»
-            return «ef.getMemberName()».size();
+            		return «ef.getMemberName()».size();
                 «ELSE-»
-                    «IF ef.defaultValueLiteral != null -»
-            return «ef.getMemberName()» != «ef.defaultValueLiteral»;
+                    «IF ef.defaultValueLiteral != null && ef.defaultValueLiteral != "" -»
+            			«IF ef.EType.name == "EString"-»
+            				return «ef.getMemberName()» != "«ef.defaultValueLiteral»";
+            			«ELSEIF EEnum.isInstance(ef.EType)-»
+            				return «ef.getMemberName()» != «ef.getCPPTypeSignature()»::«ef.defaultValueLiteral»;
+            			«ELSE-»
+            				return «ef.getMemberName()» != «ef.defaultValueLiteral»;
+            			«ENDIF-»
                     «ELSE-»
-            return ::ecorecpp::mapping::set_traits< ::«ef.EType.getFQN()» >::is_set(«ef.getMemberName()»);
+            			return ::ecorecpp::mapping::set_traits< ::«ef.EType.getFQN()» >::is_set(«ef.getMemberName()»);
                     «ENDIF-»
                 «ENDIF-»
             «ENDIF-»

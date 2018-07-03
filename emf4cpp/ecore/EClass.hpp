@@ -28,7 +28,6 @@
 /*PROTECTED REGION ID(EClass_pre) ENABLED START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-
 #ifdef ECORECPP_USE_UNORDERED_MAP
 #ifdef  __GNUG__
 #include <tr1/unordered_map>
@@ -73,8 +72,8 @@ namespace ecore
         virtual ::ecore::EOperation_ptr getEOperation(
                 ::ecore::EInt _operationID);
 
-        virtual ::ecore::EInt
-                getOperationID(::ecore::EOperation_ptr _operation);
+        virtual ::ecore::EInt getOperationID(
+                ::ecore::EOperation_ptr _operation);
 
         virtual ::ecore::EOperation_ptr getOverride(
                 ::ecore::EOperation_ptr _operation);
@@ -99,27 +98,22 @@ namespace ecore
 
         ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEAttributes();
 
-        ::ecorecpp::mapping::EList< ::ecore::EReference >
-                & getEAllContainments();
+        ::ecorecpp::mapping::EList< ::ecore::EReference >& getEAllContainments();
 
         ::ecorecpp::mapping::EList< ::ecore::EOperation >& getEAllOperations();
 
-        ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >
-                & getEAllStructuralFeatures();
+        ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& getEAllStructuralFeatures();
 
         ::ecorecpp::mapping::EList< ::ecore::EClass >& getEAllSuperTypes();
 
         ::ecore::EAttribute_ptr getEIDAttribute();
         void setEIDAttribute(::ecore::EAttribute_ptr _eIDAttribute);
 
-        ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >
-                & getEStructuralFeatures();
+        ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& getEStructuralFeatures();
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >
-                & getEGenericSuperTypes();
+        ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericSuperTypes();
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >
-                & getEAllGenericSuperTypes();
+        ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEAllGenericSuperTypes();
 
         /*PROTECTED REGION ID(EClass) ENABLED START*/
 
@@ -128,14 +122,13 @@ namespace ecore
 #ifdef ECORECPP_USE_UNORDERED_MAP
         typedef std::tr1::unordered_map < ::ecore::EString, ::ecore::EStructuralFeature_ptr > EStructuralFeatureMap;
 #else
-        typedef std::map< ::ecore::EString, ::ecore::EStructuralFeature_ptr >
-                EStructuralFeatureMap;
+        typedef std::map< ::ecore::EString, ::ecore::EStructuralFeature_ptr > EStructuralFeatureMap;
 #endif
 
         EStructuralFeatureMap m_eAllStructuralFeaturesMap;
 
         void _init_collections();
-
+    public:
         /*PROTECTED REGION END*/
 
         // EObjectImpl
@@ -161,49 +154,50 @@ namespace ecore
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EClass > > m_eSuperTypes;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EClass > > m_eSuperTypes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EOperation > > m_eOperations;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EOperation > > m_eOperations;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EAttribute > > m_eAllAttributes;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EAttribute > > m_eAllAttributes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EReference > > m_eAllReferences;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EReference > > m_eAllReferences;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EReference > > m_eReferences;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EReference > > m_eReferences;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EAttribute > > m_eAttributes;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EAttribute > > m_eAttributes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EReference > > m_eAllContainments;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EReference > > m_eAllContainments;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EOperation > > m_eAllOperations;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EOperation > > m_eAllOperations;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EStructuralFeature > > m_eAllStructuralFeatures;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature > > m_eAllStructuralFeatures;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EClass > > m_eAllSuperTypes;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EClass > > m_eAllSuperTypes;
 
         ::ecore::EAttribute_ptr m_eIDAttribute;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EStructuralFeature > > m_eStructuralFeatures;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature > > m_eStructuralFeatures;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eGenericSuperTypes;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eGenericSuperTypes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eAllGenericSuperTypes;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eAllGenericSuperTypes;
 
     };
 
 } // ecore
 
 #endif // ECORE_ECLASS_HPP
+

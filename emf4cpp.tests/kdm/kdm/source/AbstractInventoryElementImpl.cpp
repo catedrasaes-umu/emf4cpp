@@ -47,7 +47,7 @@ void AbstractInventoryElement::_initialize()
     // Supertypes
     ::kdm::core::KDMEntity::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_inventoryRelation->size(); i++)
     {
         (*m_inventoryRelation)[i]->_initialize();

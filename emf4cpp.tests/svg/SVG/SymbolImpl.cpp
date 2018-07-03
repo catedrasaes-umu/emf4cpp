@@ -47,7 +47,7 @@ void Symbol::_initialize()
     // Supertypes
     ::SVG::GroupingElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(SymbolImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

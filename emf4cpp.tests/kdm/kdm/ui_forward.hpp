@@ -117,6 +117,8 @@ namespace kdm
         class ManagesUI;
         typedef ManagesUI* ManagesUI_ptr;
 
+// EEnum
+
 // Package & Factory
         class UiFactory;
         typedef UiFactory * UiFactory_ptr;

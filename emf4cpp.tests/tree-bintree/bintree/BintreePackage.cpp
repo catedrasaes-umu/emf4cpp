@@ -21,12 +21,19 @@
 
 using namespace ::bintree;
 
-std::auto_ptr< ::bintree::BintreePackage > BintreePackage::s_instance;
+std::unique_ptr< ::bintree::BintreePackage,
+        ::ecorecpp::PackageDeleter< ::bintree::BintreePackage > > BintreePackage::s_instance;
 
 ::bintree::BintreePackage_ptr BintreePackage::_instance()
 {
     if (!s_instance.get())
         new BintreePackage();
     return s_instance.get();
+}
+
+::bintree::BintreePackage_ptr BintreePackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

@@ -45,7 +45,7 @@ void DependsOn::_initialize()
     // Supertypes
     ::kdm::source::AbstractInventoryRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(DependsOnImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

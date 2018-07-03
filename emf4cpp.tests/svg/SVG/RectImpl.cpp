@@ -47,7 +47,7 @@ void Rect::_initialize()
     // Supertypes
     ::SVG::Shape::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(RectImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

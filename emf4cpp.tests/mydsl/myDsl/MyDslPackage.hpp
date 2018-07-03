@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <myDsl_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace myDsl
 {
@@ -31,6 +32,7 @@ namespace myDsl
     public:
 
         static MyDslPackage_ptr _instance();
+        static MyDslPackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -116,7 +118,8 @@ namespace myDsl
 
     protected:
 
-        static std::auto_ptr< MyDslPackage > s_instance;
+        static std::unique_ptr< MyDslPackage,
+                ::ecorecpp::PackageDeleter< MyDslPackage > > s_instance;
 
         MyDslPackage();
 

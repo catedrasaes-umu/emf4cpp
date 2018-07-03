@@ -38,7 +38,7 @@ void Property::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(PropertyImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

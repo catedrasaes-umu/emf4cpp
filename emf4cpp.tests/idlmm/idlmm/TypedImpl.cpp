@@ -39,7 +39,7 @@ void Typed::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     if (m_containedType)
     {
         m_containedType->_initialize();

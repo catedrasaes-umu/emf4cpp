@@ -70,7 +70,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< ActionFactory > s_instance;
+            static std::unique_ptr< ActionFactory > s_instance;
 
             ActionFactory();
 

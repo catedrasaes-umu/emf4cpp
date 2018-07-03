@@ -44,7 +44,6 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isContainment() const;
         void setContainment(::ecore::EBoolean _containment);
@@ -98,11 +97,12 @@ namespace ecore
 
         ::ecore::EClass_ptr m_eReferenceType;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EAttribute > > m_eKeys;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EAttribute > > m_eKeys;
 
     };
 
 } // ecore
 
 #endif // ECORE_EREFERENCE_HPP
+

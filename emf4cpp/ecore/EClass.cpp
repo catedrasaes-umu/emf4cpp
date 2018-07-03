@@ -41,7 +41,7 @@ using namespace ::ecore;
 
 // Default constructor
 EClass::EClass() :
-    m_eIDAttribute(0)
+        m_eIDAttribute(0)
 {
 
     m_eSuperTypes.reset(
@@ -70,7 +70,8 @@ EClass::EClass() :
                     -1, false, false >(this, NULL));
     m_eAllStructuralFeatures.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::EStructuralFeature, -1, false, false >(this, NULL));
+                    ::ecore::EStructuralFeature, -1, false, false >(this,
+                    NULL));
     m_eAllSuperTypes.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClass, -1,
                     false, false >(this, NULL));
@@ -85,8 +86,8 @@ EClass::EClass() :
                     -1, false, false >(this, NULL));
 
     /*PROTECTED REGION ID(EClassImpl__EClassImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -104,7 +105,6 @@ EClass::~EClass()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean EClass::isAbstract() const
 {
     return m_abstract;

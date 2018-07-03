@@ -49,7 +49,7 @@ void Library::_initialize()
     // Supertypes
     ::kdm::build::BuildResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(LibraryImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

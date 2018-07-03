@@ -106,71 +106,71 @@ EcoreFactory::EcoreFactory()
     switch (_eDataType->getClassifierID())
     {
     case EcorePackage::EBIGDECIMAL:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBigDecimal >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBigDecimal
+                > ::fromString(_literalValue);
     case EcorePackage::EBIGINTEGER:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBigInteger >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBigInteger
+                > ::fromString(_literalValue);
     case EcorePackage::EBOOLEAN:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBoolean >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBoolean
+                > ::fromString(_literalValue);
     case EcorePackage::EBOOLEANOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBooleanObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBooleanObject
+                > ::fromString(_literalValue);
     case EcorePackage::EBYTE:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EByte >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EByte
+                > ::fromString(_literalValue);
     case EcorePackage::EBYTEARRAY:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EByteArray >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EByteArray
+                > ::fromString(_literalValue);
     case EcorePackage::EBYTEOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EByteObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EByteObject
+                > ::fromString(_literalValue);
     case EcorePackage::ECHAR:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EChar >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EChar
+                > ::fromString(_literalValue);
     case EcorePackage::ECHARACTEROBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::ECharacterObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::ECharacterObject
+                > ::fromString(_literalValue);
     case EcorePackage::EDATE:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EDate >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EDate
+                > ::fromString(_literalValue);
     case EcorePackage::EDOUBLE:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EDouble >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EDouble
+                > ::fromString(_literalValue);
     case EcorePackage::EDOUBLEOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EDoubleObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EDoubleObject
+                > ::fromString(_literalValue);
     case EcorePackage::EFLOAT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EFloat >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EFloat
+                > ::fromString(_literalValue);
     case EcorePackage::EFLOATOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EFloatObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EFloatObject
+                > ::fromString(_literalValue);
     case EcorePackage::EINT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EInt >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EInt
+                > ::fromString(_literalValue);
     case EcorePackage::EINTEGEROBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EIntegerObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EIntegerObject
+                > ::fromString(_literalValue);
     case EcorePackage::EJAVAOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EJavaObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EJavaObject
+                > ::fromString(_literalValue);
     case EcorePackage::ELONG:
-        return ::ecorecpp::mapping::string_traits< ::ecore::ELong >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::ELong
+                > ::fromString(_literalValue);
     case EcorePackage::ELONGOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::ELongObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::ELongObject
+                > ::fromString(_literalValue);
     case EcorePackage::ESHORT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EShort >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EShort
+                > ::fromString(_literalValue);
     case EcorePackage::ESHORTOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EShortObject >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EShortObject
+                > ::fromString(_literalValue);
     case EcorePackage::ESTRING:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EString >::fromString(
-                _literalValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EString
+                > ::fromString(_literalValue);
     default:
         throw "IllegalArgumentException";
     }
@@ -183,71 +183,71 @@ EcoreFactory::EcoreFactory()
     switch (_eDataType->getClassifierID())
     {
     case EcorePackage::EBIGDECIMAL:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBigDecimal >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBigDecimal
+                > ::toString(_instanceValue);
     case EcorePackage::EBIGINTEGER:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBigInteger >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBigInteger
+                > ::toString(_instanceValue);
     case EcorePackage::EBOOLEAN:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBoolean >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBoolean
+                > ::toString(_instanceValue);
     case EcorePackage::EBOOLEANOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EBooleanObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EBooleanObject
+                > ::toString(_instanceValue);
     case EcorePackage::EBYTE:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EByte >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EByte
+                > ::toString(_instanceValue);
     case EcorePackage::EBYTEARRAY:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EByteArray >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EByteArray
+                > ::toString(_instanceValue);
     case EcorePackage::EBYTEOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EByteObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EByteObject
+                > ::toString(_instanceValue);
     case EcorePackage::ECHAR:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EChar >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EChar
+                > ::toString(_instanceValue);
     case EcorePackage::ECHARACTEROBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::ECharacterObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::ECharacterObject
+                > ::toString(_instanceValue);
     case EcorePackage::EDATE:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EDate >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EDate
+                > ::toString(_instanceValue);
     case EcorePackage::EDOUBLE:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EDouble >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EDouble
+                > ::toString(_instanceValue);
     case EcorePackage::EDOUBLEOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EDoubleObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EDoubleObject
+                > ::toString(_instanceValue);
     case EcorePackage::EFLOAT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EFloat >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EFloat
+                > ::toString(_instanceValue);
     case EcorePackage::EFLOATOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EFloatObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EFloatObject
+                > ::toString(_instanceValue);
     case EcorePackage::EINT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EInt >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EInt
+                > ::toString(_instanceValue);
     case EcorePackage::EINTEGEROBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EIntegerObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EIntegerObject
+                > ::toString(_instanceValue);
     case EcorePackage::EJAVAOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EJavaObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EJavaObject
+                > ::toString(_instanceValue);
     case EcorePackage::ELONG:
-        return ::ecorecpp::mapping::string_traits< ::ecore::ELong >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::ELong
+                > ::toString(_instanceValue);
     case EcorePackage::ELONGOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::ELongObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::ELongObject
+                > ::toString(_instanceValue);
     case EcorePackage::ESHORT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EShort >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EShort
+                > ::toString(_instanceValue);
     case EcorePackage::ESHORTOBJECT:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EShortObject >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EShortObject
+                > ::toString(_instanceValue);
     case EcorePackage::ESTRING:
-        return ::ecorecpp::mapping::string_traits< ::ecore::EString >::toString(
-                _instanceValue);
+        return ::ecorecpp::mapping::string_traits < ::ecore::EString
+                > ::toString(_instanceValue);
     default:
         throw "IllegalArgumentException";
     }

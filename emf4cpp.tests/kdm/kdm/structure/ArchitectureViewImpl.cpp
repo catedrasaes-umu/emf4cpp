@@ -48,7 +48,7 @@ void ArchitectureView::_initialize()
     // Supertypes
     ::kdm::structure::AbstractStructureElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ArchitectureViewImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

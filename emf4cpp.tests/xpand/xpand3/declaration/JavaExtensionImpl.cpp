@@ -43,7 +43,7 @@ void JavaExtension::_initialize()
     // Supertypes
     ::xpand3::declaration::AbstractNamedDeclaration::_initialize();
 
-    // Rerefences
+    // References
     if (m_javaType)
     {
         m_javaType->_initialize();

@@ -39,7 +39,7 @@ void NumberValue::_initialize()
     // Supertypes
     ::json::Value::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(NumberValueImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

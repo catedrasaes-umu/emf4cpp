@@ -51,7 +51,7 @@ void MacroDirective::_initialize()
     // Supertypes
     ::kdm::code::PreprocessorDirective::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(MacroDirectiveImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

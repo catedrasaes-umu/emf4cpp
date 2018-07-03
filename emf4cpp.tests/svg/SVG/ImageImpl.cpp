@@ -48,7 +48,7 @@ void Image::_initialize()
     // Supertypes
     ::SVG::StructuralElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ImageImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

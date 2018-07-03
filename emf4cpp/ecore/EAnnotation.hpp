@@ -44,14 +44,12 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getSource() const;
         void setSource(::ecore::EString const& _source);
 
         // References
-        ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >
-                & getDetails();
+        ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry >& getDetails();
 
         ::ecore::EModelElement_ptr getEModelElement();
         void setEModelElement(::ecore::EModelElement_ptr _eModelElement);
@@ -86,19 +84,20 @@ namespace ecore
 
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EStringToStringMapEntry > > m_details;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EStringToStringMapEntry > > m_details;
 
         ::ecore::EModelElement_ptr m_eModelElement;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EObject > > m_contents;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EObject > > m_contents;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EObject > > m_references;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EObject > > m_references;
 
     };
 
 } // ecore
 
 #endif // ECORE_EANNOTATION_HPP
+

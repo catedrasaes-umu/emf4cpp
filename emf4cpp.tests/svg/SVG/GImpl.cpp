@@ -47,7 +47,7 @@ void G::_initialize()
     // Supertypes
     ::SVG::GroupingElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(GImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

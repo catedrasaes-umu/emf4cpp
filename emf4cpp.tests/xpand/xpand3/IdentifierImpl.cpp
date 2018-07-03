@@ -39,7 +39,7 @@ void Identifier::_initialize()
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(IdentifierImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

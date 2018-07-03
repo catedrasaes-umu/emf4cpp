@@ -43,7 +43,7 @@ void AliasDef::_initialize()
     ::idlmm::Typed::_initialize();
     ::idlmm::TypedefDef::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AliasDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

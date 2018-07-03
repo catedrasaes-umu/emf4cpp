@@ -42,7 +42,7 @@ void UnionDef::_initialize()
     // Supertypes
     ::idlmm::TypedefDef::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_unionMembers->size(); i++)
     {
         (*m_unionMembers)[i]->_initialize();

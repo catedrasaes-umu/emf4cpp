@@ -62,6 +62,8 @@ namespace xpand3
     class DeclaredParameter;
     typedef DeclaredParameter* DeclaredParameter_ptr;
 
+// EEnum
+
 // Package & Factory
     class Xpand3Factory;
     typedef Xpand3Factory * Xpand3Factory_ptr;

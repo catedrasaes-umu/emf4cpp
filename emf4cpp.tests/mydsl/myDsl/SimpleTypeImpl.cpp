@@ -39,7 +39,7 @@ void SimpleType::_initialize()
     // Supertypes
     ::myDsl::Type::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(SimpleTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

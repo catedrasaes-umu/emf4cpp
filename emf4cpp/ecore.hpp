@@ -25,7 +25,6 @@
 
 // EPackage
 
-
 // EClass
 #include "ecore/EAttribute.hpp"
 #include "ecore/EAnnotation.hpp"

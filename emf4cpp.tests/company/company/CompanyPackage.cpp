@@ -21,12 +21,19 @@
 
 using namespace ::company;
 
-std::auto_ptr< ::company::CompanyPackage > CompanyPackage::s_instance;
+std::unique_ptr< ::company::CompanyPackage,
+        ::ecorecpp::PackageDeleter< ::company::CompanyPackage > > CompanyPackage::s_instance;
 
 ::company::CompanyPackage_ptr CompanyPackage::_instance()
 {
     if (!s_instance.get())
         new CompanyPackage();
     return s_instance.get();
+}
+
+::company::CompanyPackage_ptr CompanyPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

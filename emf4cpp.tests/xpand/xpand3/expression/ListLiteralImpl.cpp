@@ -39,7 +39,7 @@ void ListLiteral::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_elements->size(); i++)
     {
         (*m_elements)[i]->_initialize();

@@ -38,7 +38,7 @@ void ReferencedFile::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ReferencedFileImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

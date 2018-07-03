@@ -81,6 +81,8 @@ namespace xpand3
         class JavaExtension;
         typedef JavaExtension* JavaExtension_ptr;
 
+// EEnum
+
 // Package & Factory
         class DeclarationFactory;
         typedef DeclarationFactory * DeclarationFactory_ptr;

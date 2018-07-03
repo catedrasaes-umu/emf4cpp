@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 FILES="./tree-bintree/Tree.ecore
 ./tree-bintree/BinTree.ecore
@@ -11,6 +11,7 @@ FILES="./tree-bintree/Tree.ecore
 ./xpand/xpand3.ecore
 ./idlmm/IDLMM.ecore
 ./json/json.ecore
+./enumeration/enumeration.ecore
 "
 
 EMF4CPP=../../emf4cpp

@@ -75,7 +75,7 @@ void EObject::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EObjectImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -132,7 +132,7 @@ void EObject::_initialize()
 {
     /*PROTECTED REGION ID(EObjectImpl_eContainmentFeature) ENABLED START*/
 
-    return m_eContainingFeature->as< EReference > ();
+    return m_eContainingFeature->as< EReference >();
 
     /*PROTECTED REGION END*/
 }
@@ -257,9 +257,8 @@ void EObject::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EObject::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEObject();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEObject();
     return _eclass;
 }
 

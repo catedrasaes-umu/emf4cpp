@@ -39,7 +39,7 @@ void Leaf::_initialize()
     // Supertypes
     ::tree::TreeNode::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(LeafImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

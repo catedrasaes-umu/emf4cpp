@@ -51,7 +51,7 @@ void PlatformEvent::_initialize()
     // Supertypes
     ::kdm::platform::AbstractPlatformElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(PlatformEventImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

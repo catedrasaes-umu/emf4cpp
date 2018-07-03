@@ -44,13 +44,11 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EString const& getName() const;
         void setName(::ecore::EString const& _name);
 
         // References
-
 
         /*PROTECTED REGION ID(ENamedElement) START*/
         // Please, enable the protected region if you add manually written code.
@@ -83,3 +81,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_ENAMEDELEMENT_HPP
+

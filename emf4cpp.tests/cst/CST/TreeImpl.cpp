@@ -40,7 +40,7 @@ void Tree::_initialize()
     // Supertypes
     ::CST::Node::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TreeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

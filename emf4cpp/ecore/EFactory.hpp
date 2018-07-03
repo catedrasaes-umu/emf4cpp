@@ -82,7 +82,6 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
         ::ecore::EPackage_ptr m_ePackage;
@@ -92,3 +91,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EFACTORY_HPP
+

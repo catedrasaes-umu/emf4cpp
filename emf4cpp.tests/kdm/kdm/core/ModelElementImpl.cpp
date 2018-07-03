@@ -43,7 +43,7 @@ void ModelElement::_initialize()
     // Supertypes
     ::kdm::core::Element::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_taggedValue->size(); i++)
     {
         (*m_taggedValue)[i]->_initialize();

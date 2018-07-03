@@ -1,6 +1,7 @@
 «REM»
 EPackageHPP.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -89,7 +90,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 «EXPAND template::EClassHPP::namespaces_begin FOR this»
 
 // EDataType
-«FOREACH EClassifiers.typeSelect(EDataType).select(e|e.ETypeParameters.isEmpty) AS type-»
+«FOREACH EClassifiers.typeSelect(EDataType).select(e|e.ETypeParameters.isEmpty && !EEnum.isInstance(e)) AS type-»
 «PROTECT CSTART '/*' CEND '*/' ID type.getFQN("_") DISABLE»
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
@@ -102,6 +103,12 @@ typedef «getEDataTypeMap(type)» «type.name»;
 // «class.name»
 class «class.name»;
 typedef «class.name»* «class.name»_ptr;
+«ENDFOREACH»
+
+// EEnum
+«FOREACH EClassifiers.typeSelect(EEnum) AS enum»
+// «enum.name»
+enum class «enum.name»;
 «ENDFOREACH»
 
 // Package & Factory

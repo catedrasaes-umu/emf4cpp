@@ -2,6 +2,7 @@
 /*
  * mapping.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,7 +24,7 @@
 #include "mapping/any.hpp"
 #include "mapping/list.hpp" // TODO: remove
 #include "mapping/out_ptr.hpp"
-#include "mapping/type_traits.hpp"
+#include "mapping/type_definitions.hpp"
 #include "mapping/any_traits.hpp"
 #include "mapping/string_traits.hpp"
 #include "mapping/set_traits.hpp"

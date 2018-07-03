@@ -39,7 +39,7 @@ void ChainExpression::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_first)
     {
         m_first->_initialize();

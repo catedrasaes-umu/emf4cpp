@@ -44,7 +44,7 @@ void Definition::_initialize()
     // Supertypes
     ::xpand3::declaration::AbstractNamedDeclaration::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_body->size(); i++)
     {
         (*m_body)[i]->_initialize();

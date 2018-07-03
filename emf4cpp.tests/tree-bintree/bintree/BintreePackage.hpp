@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <bintree_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace bintree
 {
@@ -31,6 +32,7 @@ namespace bintree
     public:
 
         static BintreePackage_ptr _instance();
+        static BintreePackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -62,7 +64,8 @@ namespace bintree
 
     protected:
 
-        static std::auto_ptr< BintreePackage > s_instance;
+        static std::unique_ptr< BintreePackage,
+                ::ecorecpp::PackageDeleter< BintreePackage > > s_instance;
 
         BintreePackage();
 

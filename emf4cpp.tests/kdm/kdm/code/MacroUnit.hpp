@@ -27,6 +27,7 @@
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/PreprocessorDirective.hpp>
+#include <kdm/code/MacroKind.hpp>
 
 /*PROTECTED REGION ID(MacroUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.

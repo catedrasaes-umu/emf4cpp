@@ -44,7 +44,7 @@ void KDMRelationship::_initialize()
     // Supertypes
     ::kdm::core::ModelElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(KDMRelationshipImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

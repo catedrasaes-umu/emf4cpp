@@ -55,15 +55,13 @@ namespace ecore
         ::ecore::EClass_ptr getEContainingClass();
         void setEContainingClass(::ecore::EClass_ptr _eContainingClass);
 
-        ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >
-                & getETypeParameters();
+        ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters();
 
         ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters();
 
         ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions();
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >
-                & getEGenericExceptions();
+        ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEGenericExceptions();
 
         /*PROTECTED REGION ID(EOperation) START*/
         // Please, enable the protected region if you add manually written code.
@@ -87,25 +85,25 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
         ::ecore::EClass_ptr m_eContainingClass;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::ETypeParameter > > m_eTypeParameters;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::ETypeParameter > > m_eTypeParameters;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EParameter > > m_eParameters;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EParameter > > m_eParameters;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EClassifier > > m_eExceptions;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EClassifier > > m_eExceptions;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eGenericExceptions;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eGenericExceptions;
 
     };
 
 } // ecore
 
 #endif // ECORE_EOPERATION_HPP
+

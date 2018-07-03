@@ -48,7 +48,7 @@ void Tool::_initialize()
     // Supertypes
     ::kdm::build::AbstractBuildElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ToolImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

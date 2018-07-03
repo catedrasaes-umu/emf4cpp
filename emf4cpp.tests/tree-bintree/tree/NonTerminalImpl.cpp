@@ -39,7 +39,7 @@ void NonTerminal::_initialize()
     // Supertypes
     ::tree::TreeNode::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_children->size(); i++)
     {
         (*m_children)[i]->_initialize();

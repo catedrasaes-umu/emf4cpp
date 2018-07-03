@@ -51,6 +51,8 @@ namespace company
     class Company;
     typedef Company* Company_ptr;
 
+// EEnum
+
 // Package & Factory
     class CompanyFactory;
     typedef CompanyFactory * CompanyFactory_ptr;

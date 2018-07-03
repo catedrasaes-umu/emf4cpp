@@ -42,7 +42,7 @@ void ForEachStatement::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatementWithBody::_initialize();
 
-    // Rerefences
+    // References
     if (m_target)
     {
         m_target->_initialize();

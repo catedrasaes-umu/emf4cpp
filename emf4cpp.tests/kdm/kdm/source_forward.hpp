@@ -113,6 +113,8 @@ namespace kdm
         class InventoryRelationship;
         typedef InventoryRelationship* InventoryRelationship_ptr;
 
+// EEnum
+
 // Package & Factory
         class SourceFactory;
         typedef SourceFactory * SourceFactory_ptr;

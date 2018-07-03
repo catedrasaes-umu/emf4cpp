@@ -39,7 +39,7 @@ void Model::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_imports->size(); i++)
     {
         (*m_imports)[i]->_initialize();

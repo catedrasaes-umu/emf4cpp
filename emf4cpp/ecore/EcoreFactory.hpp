@@ -63,7 +63,7 @@ namespace ecore
 
     protected:
 
-        static std::auto_ptr< EcoreFactory > s_instance;
+        static std::unique_ptr< EcoreFactory > s_instance;
 
         EcoreFactory();
 
@@ -71,5 +71,5 @@ namespace ecore
 
 } // ecore
 
-
 #endif // _ECOREFACTORY_HPP
+

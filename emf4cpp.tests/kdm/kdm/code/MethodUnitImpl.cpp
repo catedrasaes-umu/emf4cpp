@@ -53,7 +53,7 @@ void MethodUnit::_initialize()
     // Supertypes
     ::kdm::code::ControlElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(MethodUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

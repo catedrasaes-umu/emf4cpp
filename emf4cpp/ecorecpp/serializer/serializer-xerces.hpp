@@ -2,6 +2,7 @@
 /*
  * serializer/serializer.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,9 +44,9 @@ public:
 
 protected:
 
-    ::ecorecpp::mapping::type_traits::string_t get_type(::ecore::EObject_ptr obj) const;
+    ::ecorecpp::mapping::type_definitions::string_t get_type(::ecore::EObject_ptr obj) const;
 
-    ::ecorecpp::mapping::type_traits::string_t get_reference(::ecore::EObject_ptr from, ::ecore::EObject_ptr to) const;
+    ::ecorecpp::mapping::type_definitions::string_t get_reference(::ecore::EObject_ptr from, ::ecore::EObject_ptr to) const;
 
     void serialize_node(xercesc::DOMElement* node, ::ecore::EObject_ptr obj);
 

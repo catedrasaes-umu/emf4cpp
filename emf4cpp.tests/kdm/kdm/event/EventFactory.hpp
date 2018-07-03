@@ -63,7 +63,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< EventFactory > s_instance;
+            static std::unique_ptr< EventFactory > s_instance;
 
             EventFactory();
 

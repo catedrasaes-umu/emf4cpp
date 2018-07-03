@@ -51,7 +51,7 @@ void BagType::_initialize()
     // Supertypes
     ::kdm::code::DerivedType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BagTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

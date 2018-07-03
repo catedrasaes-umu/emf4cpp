@@ -133,6 +133,8 @@ namespace xpand3
         class UnaryOperation;
         typedef UnaryOperation* UnaryOperation_ptr;
 
+// EEnum
+
 // Package & Factory
         class ExpressionFactory;
         typedef ExpressionFactory * ExpressionFactory_ptr;

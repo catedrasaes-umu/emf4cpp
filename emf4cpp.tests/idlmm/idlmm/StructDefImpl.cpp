@@ -41,7 +41,7 @@ void StructDef::_initialize()
     // Supertypes
     ::idlmm::TypedefDef::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_members->size(); i++)
     {
         (*m_members)[i]->_initialize();

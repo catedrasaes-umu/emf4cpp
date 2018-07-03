@@ -42,7 +42,7 @@ void SvgFile::_initialize()
     // Supertypes
     ::SVG::ReferencedFile::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(SvgFileImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

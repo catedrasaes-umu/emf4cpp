@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <PrimitiveTypes_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace PrimitiveTypes
 {
@@ -31,6 +32,7 @@ namespace PrimitiveTypes
     public:
 
         static PrimitiveTypesPackage_ptr _instance();
+        static PrimitiveTypesPackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -56,7 +58,8 @@ namespace PrimitiveTypes
 
     protected:
 
-        static std::auto_ptr< PrimitiveTypesPackage > s_instance;
+        static std::unique_ptr< PrimitiveTypesPackage,
+                ::ecorecpp::PackageDeleter< PrimitiveTypesPackage > > s_instance;
 
         PrimitiveTypesPackage();
 

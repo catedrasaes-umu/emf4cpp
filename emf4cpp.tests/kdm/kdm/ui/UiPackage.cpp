@@ -21,12 +21,19 @@
 
 using namespace ::kdm::ui;
 
-std::auto_ptr< ::kdm::ui::UiPackage > UiPackage::s_instance;
+std::unique_ptr< ::kdm::ui::UiPackage,
+        ::ecorecpp::PackageDeleter< ::kdm::ui::UiPackage > > UiPackage::s_instance;
 
 ::kdm::ui::UiPackage_ptr UiPackage::_instance()
 {
     if (!s_instance.get())
         new UiPackage();
     return s_instance.get();
+}
+
+::kdm::ui::UiPackage_ptr UiPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

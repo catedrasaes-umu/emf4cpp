@@ -39,7 +39,7 @@ void BooleanValue::_initialize()
     // Supertypes
     ::json::Value::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BooleanValueImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

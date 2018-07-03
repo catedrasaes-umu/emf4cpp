@@ -55,7 +55,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< StructureFactory > s_instance;
+            static std::unique_ptr< StructureFactory > s_instance;
 
             StructureFactory();
 

@@ -40,7 +40,7 @@ void ModuleDef::_initialize()
     // Supertypes
     ::idlmm::Container::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ModuleDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

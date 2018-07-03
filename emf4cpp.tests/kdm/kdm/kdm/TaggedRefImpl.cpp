@@ -43,7 +43,7 @@ void TaggedRef::_initialize()
     // Supertypes
     ::kdm::kdm::ExtendedValue::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TaggedRefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

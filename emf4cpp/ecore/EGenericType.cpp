@@ -34,8 +34,8 @@ using namespace ::ecore;
 
 // Default constructor
 EGenericType::EGenericType() :
-    m_eUpperBound(0), m_eRawType(0), m_eLowerBound(0), m_eTypeParameter(0),
-            m_eClassifier(0)
+        m_eUpperBound(0), m_eRawType(0), m_eLowerBound(0), m_eTypeParameter(0), m_eClassifier(
+                0)
 {
 
     m_eTypeArguments.reset(
@@ -43,8 +43,8 @@ EGenericType::EGenericType() :
                     -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(EGenericTypeImpl__EGenericTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -70,7 +70,6 @@ EGenericType::~EGenericType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecore::EGenericType_ptr EGenericType::getEUpperBound()
 {

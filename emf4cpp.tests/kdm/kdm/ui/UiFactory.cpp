@@ -21,7 +21,7 @@
 
 using namespace ::kdm::ui;
 
-std::auto_ptr< ::kdm::ui::UiFactory > UiFactory::s_instance;
+std::unique_ptr< ::kdm::ui::UiFactory > UiFactory::s_instance;
 
 ::kdm::ui::UiFactory_ptr UiFactory::_instance()
 {

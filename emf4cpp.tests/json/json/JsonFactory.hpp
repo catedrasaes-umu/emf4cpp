@@ -51,7 +51,7 @@ namespace json
 
     protected:
 
-        static std::auto_ptr< JsonFactory > s_instance;
+        static std::unique_ptr< JsonFactory > s_instance;
 
         JsonFactory();
 

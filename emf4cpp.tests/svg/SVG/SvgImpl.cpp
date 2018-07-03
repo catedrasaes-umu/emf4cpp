@@ -48,7 +48,7 @@ void Svg::_initialize()
     // Supertypes
     ::SVG::StructuralElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_children->size(); i++)
     {
         (*m_children)[i]->_initialize();

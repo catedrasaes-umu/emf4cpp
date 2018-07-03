@@ -169,6 +169,8 @@ namespace kdm
         class StreamResource;
         typedef StreamResource* StreamResource_ptr;
 
+// EEnum
+
 // Package & Factory
         class PlatformFactory;
         typedef PlatformFactory * PlatformFactory_ptr;

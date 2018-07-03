@@ -50,7 +50,7 @@ void ConceptualElement::_initialize()
     // Supertypes
     ::kdm::conceptual::AbstractConceptualElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ConceptualElementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

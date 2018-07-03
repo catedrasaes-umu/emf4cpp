@@ -51,7 +51,7 @@ void BehaviorUnit::_initialize()
     // Supertypes
     ::kdm::conceptual::ConceptualContainer::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BehaviorUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -21,12 +21,19 @@
 
 using namespace ::xpand3::declaration;
 
-std::auto_ptr< ::xpand3::declaration::DeclarationPackage > DeclarationPackage::s_instance;
+std::unique_ptr< ::xpand3::declaration::DeclarationPackage,
+        ::ecorecpp::PackageDeleter< ::xpand3::declaration::DeclarationPackage > > DeclarationPackage::s_instance;
 
 ::xpand3::declaration::DeclarationPackage_ptr DeclarationPackage::_instance()
 {
     if (!s_instance.get())
         new DeclarationPackage();
     return s_instance.get();
+}
+
+::xpand3::declaration::DeclarationPackage_ptr DeclarationPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

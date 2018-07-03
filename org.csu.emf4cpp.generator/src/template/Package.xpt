@@ -1,6 +1,7 @@
 «REM»
 Package.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <ecore/EPackage.hpp>
 #include <«getFQN("/")»_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 «FOREACH getPackageIncludeFiles() AS e-»
 #include <«e.getFQN("/")»/«e.getPackageName()».hpp>
@@ -48,6 +50,7 @@ class «name.toFirstUpper()»Package : public virtual ::ecore::EPackage
 public:
 
     static «name.toFirstUpper()»Package_ptr _instance();
+	static «name.toFirstUpper()»Package_ptr _getInstanceAndRemoveOwnership();
 
     // IDs for classifiers
 «FOREACH EClassifiers.sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS class ITERATOR it»
@@ -77,7 +80,7 @@ public:
 
 protected:
 
-    static std::auto_ptr< «name.toFirstUpper()»Package > s_instance;
+    static std::unique_ptr< «name.toFirstUpper()»Package, ::ecorecpp::PackageDeleter<«name.toFirstUpper()»Package> > s_instance;
 
     «name.toFirstUpper()»Package();
     
@@ -118,13 +121,19 @@ protected:
 
 using namespace ::«getFQN()»;
 
-std::auto_ptr< ::«getPackagePrefix("::")» > «name.toFirstUpper()»Package::s_instance;
+std::unique_ptr< ::«getPackagePrefix("::")», ::ecorecpp::PackageDeleter<::«getPackagePrefix("::")»> > «name.toFirstUpper()»Package::s_instance;
 
 ::«getPackagePrefix("::")»_ptr «name.toFirstUpper()»Package::_instance()
 {
     if (!s_instance.get())
         new «name.toFirstUpper()»Package();
     return s_instance.get();
+}
+
+::«getPackagePrefix("::")»_ptr «name.toFirstUpper()»Package::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;   	
+   	return _instance();
 }
 
 «ENDFILE»

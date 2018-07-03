@@ -2,6 +2,7 @@
 /*
  * serializer/serializer.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -51,7 +52,7 @@ serializer::~serializer()
 }
 
 typedef std::basic_string<XMLCh> XercesString;
-inline XercesString wstringToXerces(const ::ecorecpp::mapping::type_traits::string_t& str)
+inline XercesString wstringToXerces(const ::ecorecpp::mapping::type_definitions::string_t& str)
 {
     return XercesString(str.begin( ), str.end( ));
 }
@@ -77,7 +78,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
     ++m_level;
 
 #ifdef DEBUG
-    ::ecorecpp::mapping::type_traits::string_t indent(m_level, '\t');
+    ::ecorecpp::mapping::type_definitions::string_t indent(m_level, '\t');
 #endif
 
     EClass_ptr cl = obj->eClass();
@@ -104,7 +105,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
 
                     if (current_at->getUpperBound() == 1)
                     {
-                        ::ecorecpp::mapping::type_traits::string_t value = fac->convertToString(atc, any);
+                        ::ecorecpp::mapping::type_definitions::string_t value = fac->convertToString(atc, any);
 
                         DEBUG_MSG(cout, indent << current_at->getName() << " "
                                 << value);
@@ -123,7 +124,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
                                 std::vector< boost::any > >(any);
                         for (size_t k = 0; k < anys.size(); k++)
                         {
-                            ::ecorecpp::mapping::type_traits::string_t value = fac->convertToString(
+                            ::ecorecpp::mapping::type_definitions::string_t value = fac->convertToString(
                                     atc, anys[k]);
 
                             DEBUG_MSG(cout, indent << current_at->getName()
@@ -188,7 +189,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
                 else
                 {
                     // TODO: create reference
-                    ::ecorecpp::mapping::type_traits::stringstream_t value;
+                    ::ecorecpp::mapping::type_definitions::stringstream_t value;
                     DEBUG_MSG(cout, indent << current_ref->getName());
 
                     if (current_ref->getUpperBound() != 1)
@@ -235,7 +236,7 @@ void serializer::serialize(EObject_ptr obj)
         EClass_ptr cl = obj->eClass();
         EPackage_ptr pkg = cl->getEPackage();
 
-        ::ecorecpp::mapping::type_traits::string_t const& ns_uri = pkg->getNsURI();
+        ::ecorecpp::mapping::type_definitions::string_t const& ns_uri = pkg->getNsURI();
 
         m_doc = m_impl->createDocument(
                 (ns_uri.empty()) ? X("NULL") : W(ns_uri), // root element namespace URI.
@@ -285,12 +286,12 @@ void serializer::serialize(EObject_ptr obj)
         throw "Error";
 }
 
-::ecorecpp::mapping::type_traits::string_t serializer::get_type(EObject_ptr obj) const
+::ecorecpp::mapping::type_definitions::string_t serializer::get_type(EObject_ptr obj) const
 {
     EClass_ptr cl = obj->eClass();
     EPackage_ptr pkg = cl->getEPackage();
 
-    ::ecorecpp::mapping::type_traits::stringstream_t ss;
+    ::ecorecpp::mapping::type_definitions::stringstream_t ss;
     ss << pkg->getName() << ":" << cl->getName();
 
     return ss.str();
@@ -298,9 +299,9 @@ void serializer::serialize(EObject_ptr obj)
 
 #include <list>
 
-::ecorecpp::mapping::type_traits::string_t serializer::get_reference(EObject_ptr from, EObject_ptr to) const
+::ecorecpp::mapping::type_definitions::string_t serializer::get_reference(EObject_ptr from, EObject_ptr to) const
 {
-    ::ecorecpp::mapping::type_traits::stringstream_t value;
+    ::ecorecpp::mapping::type_definitions::stringstream_t value;
 
     std::list< EObject_ptr > to_antecessors;
     EObject_ptr antecessor = to;

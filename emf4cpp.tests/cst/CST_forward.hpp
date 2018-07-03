@@ -55,6 +55,8 @@ namespace CST
     class Leaf;
     typedef Leaf* Leaf_ptr;
 
+// EEnum
+
 // Package & Factory
     class CSTFactory;
     typedef CSTFactory * CSTFactory_ptr;

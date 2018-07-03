@@ -40,7 +40,7 @@ void SwitchExpression::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_switchExpr)
     {
         m_switchExpr->_initialize();

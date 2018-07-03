@@ -51,7 +51,7 @@ void DataAction::_initialize()
     // Supertypes
     ::kdm::data::AbstractDataElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_dataElement->size(); i++)
     {
         (*m_dataElement)[i]->_initialize();

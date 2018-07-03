@@ -42,7 +42,7 @@ void ExtensionFamily::_initialize()
     // Supertypes
     ::kdm::core::Element::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_stereotype->size(); i++)
     {
         (*m_stereotype)[i]->_initialize();

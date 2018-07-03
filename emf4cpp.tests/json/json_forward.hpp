@@ -71,6 +71,8 @@ namespace json
     class NullValue;
     typedef NullValue* NullValue_ptr;
 
+// EEnum
+
 // Package & Factory
     class JsonFactory;
     typedef JsonFactory * JsonFactory_ptr;

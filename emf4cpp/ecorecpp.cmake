@@ -1,5 +1,5 @@
 
-set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops")
 
@@ -30,8 +30,9 @@ set(ecorecpp_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/out_ptr.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/set_traits.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/string_traits.hpp		
-	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/type_traits.hpp		
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/type_definitions.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/MetaModelRepository.hpp		
+	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/PackageDeleter.hpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify/Adapter.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify_forward.hpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify.hpp		
@@ -67,8 +68,9 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/list.hpp DESTINATION 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/out_ptr.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/set_traits.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/string_traits.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/type_traits.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/mapping/type_definitions.hpp DESTINATION include/emf4cpp/ecorecpp/mapping)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/MetaModelRepository.hpp DESTINATION include/emf4cpp/ecorecpp)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/PackageDeleter.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify/Adapter.hpp DESTINATION include/emf4cpp/ecorecpp/notify)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify_forward.hpp DESTINATION include/emf4cpp/ecorecpp)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecorecpp/notify.hpp DESTINATION include/emf4cpp/ecorecpp)

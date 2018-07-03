@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <json_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace json
 {
@@ -31,6 +32,7 @@ namespace json
     public:
 
         static JsonPackage_ptr _instance();
+        static JsonPackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -116,7 +118,8 @@ namespace json
 
     protected:
 
-        static std::auto_ptr< JsonPackage > s_instance;
+        static std::unique_ptr< JsonPackage,
+                ::ecorecpp::PackageDeleter< JsonPackage > > s_instance;
 
         JsonPackage();
 

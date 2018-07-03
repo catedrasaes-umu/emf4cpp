@@ -40,7 +40,7 @@ void Container::_initialize()
     // Supertypes
     ::idlmm::Contained::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_contains->size(); i++)
     {
         (*m_contains)[i]->_initialize();

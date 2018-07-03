@@ -45,7 +45,7 @@ void KDMModel::_initialize()
     // Supertypes
     ::kdm::kdm::KDMFramework::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(KDMModelImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

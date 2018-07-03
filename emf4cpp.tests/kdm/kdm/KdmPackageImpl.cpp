@@ -50,20 +50,30 @@ KdmPackage::KdmPackage()
 
     // Create data types
 
-    getESubpackages().push_back(::kdm::action::ActionPackage::_instance());
-    getESubpackages().push_back(::kdm::build::BuildPackage::_instance());
-    getESubpackages().push_back(::kdm::code::CodePackage::_instance());
     getESubpackages().push_back(
-            ::kdm::conceptual::ConceptualPackage::_instance());
-    getESubpackages().push_back(::kdm::core::CorePackage::_instance());
-    getESubpackages().push_back(::kdm::data::DataPackage::_instance());
-    getESubpackages().push_back(::kdm::event::EventPackage::_instance());
-    getESubpackages().push_back(::kdm::source::SourcePackage::_instance());
-    getESubpackages().push_back(::kdm::platform::PlatformPackage::_instance());
+            ::kdm::action::ActionPackage::_getInstanceAndRemoveOwnership());
     getESubpackages().push_back(
-            ::kdm::structure::StructurePackage::_instance());
-    getESubpackages().push_back(::kdm::kdm::KdmPackage::_instance());
-    getESubpackages().push_back(::kdm::ui::UiPackage::_instance());
+            ::kdm::build::BuildPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::code::CodePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::conceptual::ConceptualPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::core::CorePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::data::DataPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::event::EventPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::source::SourcePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::platform::PlatformPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::structure::StructurePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::kdm::KdmPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::ui::UiPackage::_getInstanceAndRemoveOwnership());
 
     // Initialize package
     setName("kdm");

@@ -52,7 +52,7 @@ void StreamResource::_initialize()
     // Supertypes
     ::kdm::platform::ResourceType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(StreamResourceImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

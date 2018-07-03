@@ -21,12 +21,19 @@
 
 using namespace ::kdm::kdm;
 
-std::auto_ptr< ::kdm::kdm::KdmPackage > KdmPackage::s_instance;
+std::unique_ptr< ::kdm::kdm::KdmPackage,
+        ::ecorecpp::PackageDeleter< ::kdm::kdm::KdmPackage > > KdmPackage::s_instance;
 
 ::kdm::kdm::KdmPackage_ptr KdmPackage::_instance()
 {
     if (!s_instance.get())
         new KdmPackage();
     return s_instance.get();
+}
+
+::kdm::kdm::KdmPackage_ptr KdmPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

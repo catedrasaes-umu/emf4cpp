@@ -53,7 +53,7 @@ void ControlElement::_initialize()
     // Supertypes
     ::kdm::code::ComputationalObject::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_entryFlow->size(); i++)
     {
         (*m_entryFlow)[i]->_initialize();

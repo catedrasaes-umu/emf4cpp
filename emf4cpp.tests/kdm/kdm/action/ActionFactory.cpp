@@ -21,7 +21,7 @@
 
 using namespace ::kdm::action;
 
-std::auto_ptr< ::kdm::action::ActionFactory > ActionFactory::s_instance;
+std::unique_ptr< ::kdm::action::ActionFactory > ActionFactory::s_instance;
 
 ::kdm::action::ActionFactory_ptr ActionFactory::_instance()
 {

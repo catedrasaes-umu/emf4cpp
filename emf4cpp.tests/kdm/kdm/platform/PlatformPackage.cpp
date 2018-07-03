@@ -21,12 +21,19 @@
 
 using namespace ::kdm::platform;
 
-std::auto_ptr< ::kdm::platform::PlatformPackage > PlatformPackage::s_instance;
+std::unique_ptr< ::kdm::platform::PlatformPackage,
+        ::ecorecpp::PackageDeleter< ::kdm::platform::PlatformPackage > > PlatformPackage::s_instance;
 
 ::kdm::platform::PlatformPackage_ptr PlatformPackage::_instance()
 {
     if (!s_instance.get())
         new PlatformPackage();
     return s_instance.get();
+}
+
+::kdm::platform::PlatformPackage_ptr PlatformPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <idlmm_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace idlmm
 {
@@ -31,6 +32,7 @@ namespace idlmm
     public:
 
         static IdlmmPackage_ptr _instance();
+        static IdlmmPackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -576,7 +578,8 @@ namespace idlmm
 
     protected:
 
-        static std::auto_ptr< IdlmmPackage > s_instance;
+        static std::unique_ptr< IdlmmPackage,
+                ::ecorecpp::PackageDeleter< IdlmmPackage > > s_instance;
 
         IdlmmPackage();
 

@@ -39,7 +39,7 @@ void TextStatement::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TextStatementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

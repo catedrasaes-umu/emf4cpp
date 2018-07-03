@@ -50,7 +50,7 @@ void TemplateParameter::_initialize()
     // Supertypes
     ::kdm::code::Datatype::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TemplateParameterImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

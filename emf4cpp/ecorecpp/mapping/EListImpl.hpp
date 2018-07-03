@@ -22,7 +22,6 @@
 
 #include "EList.hpp"
 #include "any.hpp"
-#include <vector>
 #include <ecore/EReference.hpp>
 #include <ecorecpp/notify.hpp>
 
@@ -58,8 +57,24 @@ public:
 
     virtual void clear()
     {
-        return m_content.clear();
+        m_content.clear();
     }
+
+	typename EList<T>::UnderlyingContainer_type::iterator begin() override {
+		return m_content.begin();
+	}
+
+	typename EList<T>::UnderlyingContainer_type::iterator end() override {
+		return m_content.end();
+	}
+
+	typename EList<T>::UnderlyingContainer_type::const_iterator cbegin() const override {
+		return m_content.cbegin();
+	}
+
+	typename EList<T>::UnderlyingContainer_type::const_iterator cend() const override {
+		return m_content.cend();
+	}
 
     virtual ~EListImpl()
     {
@@ -72,7 +87,7 @@ public:
 
 protected:
 
-    std::vector< T* > m_content;
+    typename EList<T>::UnderlyingContainer_type m_content;
 };
 
 template< typename T, int upper_bound = -1, bool containment = false,

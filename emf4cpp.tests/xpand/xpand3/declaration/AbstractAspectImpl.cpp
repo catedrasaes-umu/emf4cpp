@@ -43,7 +43,7 @@ void AbstractAspect::_initialize()
     // Supertypes
     ::xpand3::declaration::AbstractDeclaration::_initialize();
 
-    // Rerefences
+    // References
     if (m_pointcut)
     {
         m_pointcut->_initialize();

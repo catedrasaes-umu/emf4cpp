@@ -52,7 +52,7 @@ void Process::_initialize()
     // Supertypes
     ::kdm::platform::RuntimeResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ProcessImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

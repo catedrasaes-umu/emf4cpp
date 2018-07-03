@@ -21,7 +21,7 @@
 
 using namespace ::kdm::build;
 
-std::auto_ptr< ::kdm::build::BuildFactory > BuildFactory::s_instance;
+std::unique_ptr< ::kdm::build::BuildFactory > BuildFactory::s_instance;
 
 ::kdm::build::BuildFactory_ptr BuildFactory::_instance()
 {

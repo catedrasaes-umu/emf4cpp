@@ -44,7 +44,7 @@ void AbstractInventoryRelationship::_initialize()
     // Supertypes
     ::kdm::core::KDMRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AbstractInventoryRelationshipImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

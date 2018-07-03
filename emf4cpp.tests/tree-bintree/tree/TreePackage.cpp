@@ -21,12 +21,19 @@
 
 using namespace ::tree;
 
-std::auto_ptr< ::tree::TreePackage > TreePackage::s_instance;
+std::unique_ptr< ::tree::TreePackage,
+        ::ecorecpp::PackageDeleter< ::tree::TreePackage > > TreePackage::s_instance;
 
 ::tree::TreePackage_ptr TreePackage::_instance()
 {
     if (!s_instance.get())
         new TreePackage();
     return s_instance.get();
+}
+
+::tree::TreePackage_ptr TreePackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

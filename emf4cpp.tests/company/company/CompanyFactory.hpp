@@ -46,7 +46,7 @@ namespace company
 
     protected:
 
-        static std::auto_ptr< CompanyFactory > s_instance;
+        static std::unique_ptr< CompanyFactory > s_instance;
 
         CompanyFactory();
 

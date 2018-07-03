@@ -40,7 +40,7 @@ void ExpressionStatement::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatement::_initialize();
 
-    // Rerefences
+    // References
     if (m_expression)
     {
         m_expression->_initialize();

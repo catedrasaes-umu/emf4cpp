@@ -39,7 +39,7 @@ void Element::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_attribute->size(); i++)
     {
         (*m_attribute)[i]->_initialize();

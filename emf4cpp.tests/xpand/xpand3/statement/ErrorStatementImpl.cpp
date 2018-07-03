@@ -40,7 +40,7 @@ void ErrorStatement::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatement::_initialize();
 
-    // Rerefences
+    // References
     if (m_message)
     {
         m_message->_initialize();

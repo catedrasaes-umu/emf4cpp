@@ -66,13 +66,11 @@ namespace ecore
         ::ecore::EPackage_ptr getEPackage();
         void setEPackage(::ecore::EPackage_ptr _ePackage);
 
-        ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >
-                & getETypeParameters();
+        ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& getETypeParameters();
 
         /*PROTECTED REGION ID(EClassifier) ENABLED START*/
 
         // virtual void setClassifierID ( ::ecore::EInt _id) = 0;
-
         /*PROTECTED REGION END*/
 
         // EObjectImpl
@@ -111,11 +109,12 @@ namespace ecore
 
         ::ecore::EPackage_ptr m_ePackage;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::ETypeParameter > > m_eTypeParameters;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::ETypeParameter > > m_eTypeParameters;
 
     };
 
 } // ecore
 
 #endif // ECORE_ECLASSIFIER_HPP
+

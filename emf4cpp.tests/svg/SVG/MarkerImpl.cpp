@@ -48,7 +48,7 @@ void Marker::_initialize()
     // Supertypes
     ::SVG::Shape::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_drawing->size(); i++)
     {
         (*m_drawing)[i]->_initialize();

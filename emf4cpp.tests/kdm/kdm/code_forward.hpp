@@ -38,38 +38,9 @@ namespace kdm
     {
 
 // EDataType
-        /*PROTECTED REGION ID(kdm_code_MethodKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int MethodKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_ParameterKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int ParameterKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_ExportKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int ExportKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_StorableKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int StorableKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_CallableKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int CallableKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_MacroKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int MacroKind;
-        /*PROTECTED REGION END*/
 
 // EClass
+
 // AbstractCodeElement
         class AbstractCodeElement;
         typedef AbstractCodeElement* AbstractCodeElement_ptr;
@@ -401,6 +372,32 @@ namespace kdm
 // HasValue
         class HasValue;
         typedef HasValue* HasValue_ptr;
+
+// EEnum
+
+// MethodKind
+        enum class MethodKind
+        ;
+
+// ParameterKind
+        enum class ParameterKind
+        ;
+
+// ExportKind
+        enum class ExportKind
+        ;
+
+// StorableKind
+        enum class StorableKind
+        ;
+
+// CallableKind
+        enum class CallableKind
+        ;
+
+// MacroKind
+        enum class MacroKind
+        ;
 
 // Package & Factory
         class CodeFactory;

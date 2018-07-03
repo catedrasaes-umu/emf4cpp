@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <kdm/data_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 #include <kdm/core/CorePackage.hpp>
 #include <kdm/kdm/KdmPackage.hpp>
@@ -36,6 +37,7 @@ namespace kdm
         public:
 
             static DataPackage_ptr _instance();
+            static DataPackage_ptr _getInstanceAndRemoveOwnership();
 
             // IDs for classifiers
 
@@ -1471,7 +1473,8 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< DataPackage > s_instance;
+            static std::unique_ptr< DataPackage,
+                    ::ecorecpp::PackageDeleter< DataPackage > > s_instance;
 
             DataPackage();
 

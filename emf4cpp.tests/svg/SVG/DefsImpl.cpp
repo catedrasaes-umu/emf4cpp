@@ -47,7 +47,7 @@ void Defs::_initialize()
     // Supertypes
     ::SVG::GroupingElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(DefsImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

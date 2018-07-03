@@ -28,7 +28,6 @@
 /*PROTECTED REGION ID(EPackage_pre) ENABLED START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-
 #ifdef ECORECPP_USE_UNORDERED_MAP
 #ifdef  __GNUG__
 #include <tr1/unordered_map>
@@ -79,19 +78,17 @@ namespace ecore
         /*PROTECTED REGION ID(EPackage) ENABLED START*/
         // Please, enable the protected region if you add manually written code.
         // To do this, add the keyword ENABLED before START.
-
     protected:
         // Hardcoded map to speed up getEClassifier operation
 
 #ifdef ECORECPP_USE_UNORDERED_MAP
         typedef std::tr1::unordered_map< ::ecore::EString , ::ecore::EClassifier_ptr > EClassifierMapType;
 #else
-        typedef std::map< ::ecore::EString, ::ecore::EClassifier_ptr >
-                EClassifierMapType;
+        typedef std::map< ::ecore::EString, ::ecore::EClassifier_ptr > EClassifierMapType;
 #endif
 
         EClassifierMapType m_eClassifiersMap;
-
+    public:
         /*PROTECTED REGION END*/
 
         // EObjectImpl
@@ -119,11 +116,11 @@ namespace ecore
 
         ::ecore::EFactory_ptr m_eFactoryInstance;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EClassifier > > m_eClassifiers;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EClassifier > > m_eClassifiers;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EPackage > > m_eSubpackages;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EPackage > > m_eSubpackages;
 
         ::ecore::EPackage_ptr m_eSuperPackage;
 
@@ -132,3 +129,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EPACKAGE_HPP
+

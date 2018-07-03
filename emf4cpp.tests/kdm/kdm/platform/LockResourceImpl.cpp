@@ -52,7 +52,7 @@ void LockResource::_initialize()
     // Supertypes
     ::kdm::platform::ResourceType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(LockResourceImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

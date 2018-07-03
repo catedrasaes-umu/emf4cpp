@@ -46,7 +46,7 @@ void PlatformModel::_initialize()
     // Supertypes
     ::kdm::kdm::KDMModel::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_platformElement->size(); i++)
     {
         (*m_platformElement)[i]->_initialize();

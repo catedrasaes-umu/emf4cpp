@@ -41,7 +41,7 @@ void File::_initialize()
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_imports->size(); i++)
     {
         (*m_imports)[i]->_initialize();

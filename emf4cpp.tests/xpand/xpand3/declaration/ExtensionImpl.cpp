@@ -43,7 +43,7 @@ void Extension::_initialize()
     // Supertypes
     ::xpand3::declaration::AbstractNamedDeclaration::_initialize();
 
-    // Rerefences
+    // References
     if (m_body)
     {
         m_body->_initialize();

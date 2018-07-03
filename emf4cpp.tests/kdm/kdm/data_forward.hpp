@@ -221,6 +221,8 @@ namespace kdm
         class ManagesData;
         typedef ManagesData* ManagesData_ptr;
 
+// EEnum
+
 // Package & Factory
         class DataFactory;
         typedef DataFactory * DataFactory_ptr;

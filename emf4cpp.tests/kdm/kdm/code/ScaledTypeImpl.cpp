@@ -50,7 +50,7 @@ void ScaledType::_initialize()
     // Supertypes
     ::kdm::code::PrimitiveType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ScaledTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

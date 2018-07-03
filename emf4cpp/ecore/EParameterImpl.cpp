@@ -43,7 +43,7 @@ void EParameter::_initialize()
     // Supertypes
     ::ecore::ETypedElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EParameterImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -52,7 +52,6 @@ void EParameter::_initialize()
 }
 
 // Operations
-
 
 // EObject
 ::ecore::EJavaObject EParameter::eGet(::ecore::EInt _featureID,
@@ -63,51 +62,52 @@ void EParameter::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject > ();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ORDERED:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_ordered);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_ordered);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__UNIQUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_unique);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_unique);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__LOWERBOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any,
-                m_lowerBound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_lowerBound);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__UPPERBOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::toAny(_any,
-                m_upperBound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::toAny(_any, m_upperBound);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eType);
+        _any = static_cast< ::ecore::EObject* >(m_eType);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eGenericType);
+        _any = static_cast< ::ecore::EObject* >(m_eGenericType);
     }
         return _any;
     case ::ecore::EcorePackage::EPARAMETER__EOPERATION:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eOperation);
+        _any = static_cast< ::ecore::EObject* >(m_eOperation);
     }
         return _any;
 
@@ -122,67 +122,66 @@ void EParameter::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_name);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ORDERED:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_ordered);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_ordered);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__UNIQUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_unique);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, m_unique);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__LOWERBOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_lowerBound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_lowerBound);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__UPPERBOUND:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EInt >::fromAny(_newValue,
-                m_upperBound);
+        ::ecorecpp::mapping::any_traits < ::ecore::EInt
+                > ::fromAny(_newValue, m_upperBound);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EClassifier_ptr _t1 =
-                dynamic_cast< ::ecore::EClassifier_ptr > (_t0);
+                dynamic_cast< ::ecore::EClassifier_ptr >(_t0);
         ::ecore::ETypedElement::setEType(_t1);
     }
         return;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EGenericType_ptr _t1 =
-                dynamic_cast< ::ecore::EGenericType_ptr > (_t0);
+                dynamic_cast< ::ecore::EGenericType_ptr >(_t0);
         ::ecore::ETypedElement::setEGenericType(_t1);
     }
         return;
     case ::ecore::EcorePackage::EPARAMETER__EOPERATION:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EOperation_ptr _t1 =
-                dynamic_cast< ::ecore::EOperation_ptr > (_t0);
+                dynamic_cast< ::ecore::EOperation_ptr >(_t0);
         ::ecore::EParameter::setEOperation(_t1);
     }
         return;
@@ -198,23 +197,23 @@ void EParameter::eSet(::ecore::EInt _featureID,
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
         return m_eAnnotations && m_eAnnotations->size();
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_name);
     case ::ecore::EcorePackage::ETYPEDELEMENT__ORDERED:
         return m_ordered != true;
     case ::ecore::EcorePackage::ETYPEDELEMENT__UNIQUE:
         return m_unique != true;
     case ::ecore::EcorePackage::ETYPEDELEMENT__LOWERBOUND:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EInt >::is_set(
-                m_lowerBound);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EInt
+                > ::is_set(m_lowerBound);
     case ::ecore::EcorePackage::ETYPEDELEMENT__UPPERBOUND:
         return m_upperBound != 1;
     case ::ecore::EcorePackage::ETYPEDELEMENT__MANY:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_many);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_many);
     case ::ecore::EcorePackage::ETYPEDELEMENT__REQUIRED:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EBoolean >::is_set(
-                m_required);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
+                > ::is_set(m_required);
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
         return m_eType;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
@@ -237,9 +236,8 @@ void EParameter::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EParameter::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEParameter();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEParameter();
     return _eclass;
 }
 

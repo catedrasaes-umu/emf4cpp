@@ -40,7 +40,7 @@ void DeclaredParameter::_initialize()
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
     if (m_name)
     {
         m_name->_initialize();

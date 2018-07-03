@@ -35,12 +35,12 @@ using namespace ::ecore;
 
 // Default constructor
 EDataType::EDataType() :
-    m_serializable(true)
+        m_serializable(true)
 {
 
     /*PROTECTED REGION ID(EDataTypeImpl__EDataTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -58,7 +58,6 @@ EDataType::~EDataType()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean EDataType::isSerializable() const
 {
     return m_serializable;

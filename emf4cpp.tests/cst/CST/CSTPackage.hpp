@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <CST_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace CST
 {
@@ -31,6 +32,7 @@ namespace CST
     public:
 
         static CSTPackage_ptr _instance();
+        static CSTPackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -92,7 +94,8 @@ namespace CST
 
     protected:
 
-        static std::auto_ptr< CSTPackage > s_instance;
+        static std::unique_ptr< CSTPackage,
+                ::ecorecpp::PackageDeleter< CSTPackage > > s_instance;
 
         CSTPackage();
 

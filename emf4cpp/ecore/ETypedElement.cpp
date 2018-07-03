@@ -35,13 +35,13 @@ using namespace ::ecore;
 
 // Default constructor
 ETypedElement::ETypedElement() :
-    m_ordered(true), m_unique(true), m_upperBound(1), m_eType(0),
-            m_eGenericType(0)
+        m_ordered(true), m_unique(true), m_upperBound(1), m_eType(0), m_eGenericType(
+                0)
 {
 
     /*PROTECTED REGION ID(ETypedElementImpl__ETypedElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -63,7 +63,6 @@ ETypedElement::~ETypedElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EBoolean ETypedElement::isOrdered() const
 {
     return m_ordered;

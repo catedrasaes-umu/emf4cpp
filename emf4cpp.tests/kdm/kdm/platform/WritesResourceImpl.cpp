@@ -46,7 +46,7 @@ void WritesResource::_initialize()
     // Supertypes
     ::kdm::action::AbstractActionRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(WritesResourceImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

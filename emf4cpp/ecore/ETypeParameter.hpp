@@ -44,7 +44,6 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
 
         // References
@@ -72,14 +71,14 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eBounds;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eBounds;
 
     };
 
 } // ecore
 
 #endif // ECORE_ETYPEPARAMETER_HPP
+

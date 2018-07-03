@@ -50,7 +50,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< CoreFactory > s_instance;
+            static std::unique_ptr< CoreFactory > s_instance;
 
             CoreFactory();
 

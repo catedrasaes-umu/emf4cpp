@@ -21,7 +21,7 @@
 
 using namespace ::company;
 
-std::auto_ptr< ::company::CompanyFactory > CompanyFactory::s_instance;
+std::unique_ptr< ::company::CompanyFactory > CompanyFactory::s_instance;
 
 ::company::CompanyFactory_ptr CompanyFactory::_instance()
 {

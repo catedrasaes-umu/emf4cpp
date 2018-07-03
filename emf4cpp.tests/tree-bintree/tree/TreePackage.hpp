@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <tree_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace tree
 {
@@ -31,6 +32,7 @@ namespace tree
     public:
 
         static TreePackage_ptr _instance();
+        static TreePackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -78,7 +80,8 @@ namespace tree
 
     protected:
 
-        static std::auto_ptr< TreePackage > s_instance;
+        static std::unique_ptr< TreePackage,
+                ::ecorecpp::PackageDeleter< TreePackage > > s_instance;
 
         TreePackage();
 

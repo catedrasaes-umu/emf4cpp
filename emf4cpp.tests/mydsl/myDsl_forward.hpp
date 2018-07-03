@@ -63,6 +63,8 @@ namespace myDsl
     class Property;
     typedef Property* Property_ptr;
 
+// EEnum
+
 // Package & Factory
     class MyDslFactory;
     typedef MyDslFactory * MyDslFactory_ptr;

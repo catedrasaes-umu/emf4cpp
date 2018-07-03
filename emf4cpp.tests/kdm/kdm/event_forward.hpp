@@ -113,6 +113,8 @@ namespace kdm
         class HasState;
         typedef HasState* HasState_ptr;
 
+// EEnum
+
 // Package & Factory
         class EventFactory;
         typedef EventFactory * EventFactory_ptr;

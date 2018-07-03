@@ -39,7 +39,7 @@ void AbsoluteCoord::_initialize()
     // Supertypes
     ::SVG::Coordinates::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AbsoluteCoordImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

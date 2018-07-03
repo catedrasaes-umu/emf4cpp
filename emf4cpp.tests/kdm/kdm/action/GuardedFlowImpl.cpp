@@ -45,7 +45,7 @@ void GuardedFlow::_initialize()
     // Supertypes
     ::kdm::action::ControlFlow::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(GuardedFlowImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

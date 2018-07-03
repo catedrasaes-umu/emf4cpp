@@ -52,7 +52,7 @@ void Thread::_initialize()
     // Supertypes
     ::kdm::platform::RuntimeResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ThreadImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

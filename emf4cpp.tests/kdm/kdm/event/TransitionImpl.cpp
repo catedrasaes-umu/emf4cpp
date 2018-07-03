@@ -52,7 +52,7 @@ void Transition::_initialize()
     // Supertypes
     ::kdm::event::EventResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TransitionImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

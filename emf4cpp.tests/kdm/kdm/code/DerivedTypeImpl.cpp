@@ -51,7 +51,7 @@ void DerivedType::_initialize()
     // Supertypes
     ::kdm::code::Datatype::_initialize();
 
-    // Rerefences
+    // References
     if (m_itemUnit)
     {
         m_itemUnit->_initialize();

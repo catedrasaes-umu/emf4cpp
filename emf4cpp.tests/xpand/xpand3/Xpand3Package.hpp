@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <xpand3_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace xpand3
 {
@@ -31,6 +32,7 @@ namespace xpand3
     public:
 
         static Xpand3Package_ptr _instance();
+        static Xpand3Package_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -146,7 +148,8 @@ namespace xpand3
 
     protected:
 
-        static std::auto_ptr< Xpand3Package > s_instance;
+        static std::unique_ptr< Xpand3Package,
+                ::ecorecpp::PackageDeleter< Xpand3Package > > s_instance;
 
         Xpand3Package();
 

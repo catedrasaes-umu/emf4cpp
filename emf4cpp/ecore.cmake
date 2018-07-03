@@ -1,3 +1,4 @@
+
 #
 # ecore.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
@@ -17,9 +18,10 @@
 #
 #
 
-set(CMAKE_CXX_FLAGS "")
-set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -DDEBUG")
-set(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -funroll-loops")
+
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops")
 
 set(ecore_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/ecore.cpp
@@ -121,7 +123,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EStringToStringMapEntry.hpp DEST
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/EGenericType.hpp DESTINATION include/emf4cpp/ecore)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ecore/ETypeParameter.hpp DESTINATION include/emf4cpp/ecore)
    
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} . .)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../org.csu.emf4cpp.generator/../include/emf4cpp ../org.csu.emf4cpp.generator/../include/emf4cpp)
 
 add_library(emf4cpp-ecore SHARED ${ecore_HEADERS} ${ecore_SOURCES})
 set_target_properties(emf4cpp-ecore PROPERTIES VERSION 0.0.1 SOVERSION 1)

@@ -50,7 +50,7 @@ void DataEvent::_initialize()
     // Supertypes
     ::kdm::data::DataResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(DataEventImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

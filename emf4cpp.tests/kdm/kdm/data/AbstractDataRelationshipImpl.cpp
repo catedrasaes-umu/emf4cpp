@@ -44,7 +44,7 @@ void AbstractDataRelationship::_initialize()
     // Supertypes
     ::kdm::core::KDMRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AbstractDataRelationshipImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

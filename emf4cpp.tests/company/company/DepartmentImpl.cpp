@@ -38,7 +38,7 @@ void Department::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_employees->size(); i++)
     {
         (*m_employees)[i]->_initialize();

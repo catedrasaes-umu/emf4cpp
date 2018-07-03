@@ -37,7 +37,7 @@ void IDLType::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(IDLTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <xpand3/expression_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 #include <xpand3/Xpand3Package.hpp>
 
@@ -35,6 +36,7 @@ namespace xpand3
         public:
 
             static ExpressionPackage_ptr _instance();
+            static ExpressionPackage_ptr _getInstanceAndRemoveOwnership();
 
             // IDs for classifiers
 
@@ -617,7 +619,8 @@ namespace xpand3
 
         protected:
 
-            static std::auto_ptr< ExpressionPackage > s_instance;
+            static std::unique_ptr< ExpressionPackage,
+                    ::ecorecpp::PackageDeleter< ExpressionPackage > > s_instance;
 
             ExpressionPackage();
 

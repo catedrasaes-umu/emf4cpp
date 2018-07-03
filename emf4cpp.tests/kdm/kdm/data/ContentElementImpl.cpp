@@ -52,7 +52,7 @@ void ContentElement::_initialize()
     // Supertypes
     ::kdm::data::ContentItem::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ContentElementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

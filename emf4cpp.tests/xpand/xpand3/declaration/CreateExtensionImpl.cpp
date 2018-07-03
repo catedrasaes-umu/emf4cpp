@@ -43,7 +43,7 @@ void CreateExtension::_initialize()
     // Supertypes
     ::xpand3::declaration::Extension::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(CreateExtensionImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

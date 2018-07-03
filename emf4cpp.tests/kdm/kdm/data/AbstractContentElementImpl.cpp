@@ -50,7 +50,7 @@ void AbstractContentElement::_initialize()
     // Supertypes
     ::kdm::data::AbstractDataElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AbstractContentElementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

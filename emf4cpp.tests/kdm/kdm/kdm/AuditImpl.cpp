@@ -41,7 +41,7 @@ void Audit::_initialize()
     // Supertypes
     ::kdm::core::Element::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AuditImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

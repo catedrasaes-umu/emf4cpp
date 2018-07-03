@@ -22,7 +22,7 @@ import org::eclipse::emf::ecore;
 String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 {
 	case "EBigDecimal": "long double" // Will change. See http://beta.boost.org/community/sandbox.html for BigDecimal and BigInt
-	case "EBigInteger": "long long int" // Will change for GMP
+	case "EBigInteger": "int64_t" // Will change for GMP
 	case "EBoolean": "bool"
 	case "EBooleanObject": "bool" // See if we have to implement some different classes for object-types
 	case "EByte": "unsigned char"
@@ -44,15 +44,15 @@ String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 	case "EIntegerObject": "int" // Object/value?
 	case "EJavaClass": "int" // ?? Need class
 	case "EJavaObject": "::ecorecpp::mapping::any"
-	case "ELong": "long"
-	case "ELongObject": "long" // Object/value?
+	case "ELong": "int64_t"
+	case "ELongObject": "int64_t" // Object/value?
 	case "EMap": "int" // TODO: As in EList, we should look for type parameters, in this case K,V.
 	                    // maybe std::map<std::string, ecore::EObject> ó la versión con shared_ptr 
 	case "EResource": "int" // ?? Need class
 	case "EResourceSet": "int" // ?? Need class
 	case "EShort": "short"
 	case "EShortObject": "short" // Object/value?
-	case "EString": "::ecorecpp::mapping::type_traits::string_t"
+	case "EString": "::ecorecpp::mapping::type_definitions::string_t"
 	case "ETreeIterator": "int" // ?? Need class
 	case "EInvocationTargetException": "int" // ?? Need class
 	default: // fallback

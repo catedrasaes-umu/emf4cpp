@@ -40,7 +40,7 @@ void BinaryOperation::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_left)
     {
         m_left->_initialize();

@@ -41,7 +41,7 @@ void CollectionExpression::_initialize()
     // Supertypes
     ::xpand3::expression::FeatureCall::_initialize();
 
-    // Rerefences
+    // References
     if (m_closure)
     {
         m_closure->_initialize();

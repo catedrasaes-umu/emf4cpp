@@ -21,12 +21,19 @@
 
 using namespace ::kdm::event;
 
-std::auto_ptr< ::kdm::event::EventPackage > EventPackage::s_instance;
+std::unique_ptr< ::kdm::event::EventPackage,
+        ::ecorecpp::PackageDeleter< ::kdm::event::EventPackage > > EventPackage::s_instance;
 
 ::kdm::event::EventPackage_ptr EventPackage::_instance()
 {
     if (!s_instance.get())
         new EventPackage();
     return s_instance.get();
+}
+
+::kdm::event::EventPackage_ptr EventPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

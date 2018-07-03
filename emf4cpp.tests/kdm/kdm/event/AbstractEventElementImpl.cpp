@@ -50,7 +50,7 @@ void AbstractEventElement::_initialize()
     // Supertypes
     ::kdm::core::KDMEntity::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_source->size(); i++)
     {
         (*m_source)[i]->_initialize();

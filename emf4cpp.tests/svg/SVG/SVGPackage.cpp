@@ -21,12 +21,19 @@
 
 using namespace ::SVG;
 
-std::auto_ptr< ::SVG::SVGPackage > SVGPackage::s_instance;
+std::unique_ptr< ::SVG::SVGPackage,
+        ::ecorecpp::PackageDeleter< ::SVG::SVGPackage > > SVGPackage::s_instance;
 
 ::SVG::SVGPackage_ptr SVGPackage::_instance()
 {
     if (!s_instance.get())
         new SVGPackage();
     return s_instance.get();
+}
+
+::SVG::SVGPackage_ptr SVGPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

@@ -51,7 +51,7 @@ void AllContent::_initialize()
     // Supertypes
     ::kdm::data::ComplexContentType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AllContentImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

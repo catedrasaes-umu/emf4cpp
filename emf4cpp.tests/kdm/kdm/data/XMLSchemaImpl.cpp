@@ -51,7 +51,7 @@ void XMLSchema::_initialize()
     // Supertypes
     ::kdm::data::AbstractDataElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_contentElement->size(); i++)
     {
         (*m_contentElement)[i]->_initialize();

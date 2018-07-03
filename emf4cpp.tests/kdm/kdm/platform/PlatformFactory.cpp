@@ -21,7 +21,7 @@
 
 using namespace ::kdm::platform;
 
-std::auto_ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_instance;
+std::unique_ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_instance;
 
 ::kdm::platform::PlatformFactory_ptr PlatformFactory::_instance()
 {

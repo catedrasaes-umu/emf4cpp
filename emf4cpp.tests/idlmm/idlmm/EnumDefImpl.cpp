@@ -40,7 +40,7 @@ void EnumDef::_initialize()
     // Supertypes
     ::idlmm::TypedefDef::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EnumDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

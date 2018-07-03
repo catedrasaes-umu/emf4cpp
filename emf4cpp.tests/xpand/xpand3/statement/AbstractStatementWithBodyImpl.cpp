@@ -39,7 +39,7 @@ void AbstractStatementWithBody::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_body->size(); i++)
     {
         (*m_body)[i]->_initialize();

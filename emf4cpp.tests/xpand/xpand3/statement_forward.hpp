@@ -85,6 +85,8 @@ namespace xpand3
         class TextStatement;
         typedef TextStatement* TextStatement_ptr;
 
+// EEnum
+
 // Package & Factory
         class StatementFactory;
         typedef StatementFactory * StatementFactory_ptr;

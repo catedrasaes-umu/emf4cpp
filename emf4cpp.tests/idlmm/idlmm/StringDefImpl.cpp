@@ -39,7 +39,7 @@ void StringDef::_initialize()
     // Supertypes
     ::idlmm::IDLType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(StringDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

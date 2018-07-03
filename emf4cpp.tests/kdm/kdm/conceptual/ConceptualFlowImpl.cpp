@@ -45,7 +45,7 @@ void ConceptualFlow::_initialize()
     // Supertypes
     ::kdm::conceptual::AbstractConceptualRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ConceptualFlowImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

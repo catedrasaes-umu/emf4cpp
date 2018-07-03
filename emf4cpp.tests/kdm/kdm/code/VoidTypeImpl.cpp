@@ -50,7 +50,7 @@ void VoidType::_initialize()
     // Supertypes
     ::kdm::code::PrimitiveType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(VoidTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

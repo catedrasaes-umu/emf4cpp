@@ -21,7 +21,7 @@
 
 using namespace ::CST;
 
-std::auto_ptr< ::CST::CSTFactory > CSTFactory::s_instance;
+std::unique_ptr< ::CST::CSTFactory > CSTFactory::s_instance;
 
 ::CST::CSTFactory_ptr CSTFactory::_instance()
 {

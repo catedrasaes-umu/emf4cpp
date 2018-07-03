@@ -21,12 +21,19 @@
 
 using namespace ::json;
 
-std::auto_ptr< ::json::JsonPackage > JsonPackage::s_instance;
+std::unique_ptr< ::json::JsonPackage,
+        ::ecorecpp::PackageDeleter< ::json::JsonPackage > > JsonPackage::s_instance;
 
 ::json::JsonPackage_ptr JsonPackage::_instance()
 {
     if (!s_instance.get())
         new JsonPackage();
     return s_instance.get();
+}
+
+::json::JsonPackage_ptr JsonPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

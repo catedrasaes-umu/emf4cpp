@@ -51,7 +51,7 @@ void Signature::_initialize()
     // Supertypes
     ::kdm::code::Datatype::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_parameterUnit->size(); i++)
     {
         (*m_parameterUnit)[i]->_initialize();

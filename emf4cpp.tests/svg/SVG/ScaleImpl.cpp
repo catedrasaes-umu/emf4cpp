@@ -40,7 +40,7 @@ void Scale::_initialize()
     // Supertypes
     ::SVG::Transform::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ScaleImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

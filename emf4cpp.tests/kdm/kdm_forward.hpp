@@ -51,6 +51,8 @@ namespace kdm
 
 // EClass
 
+// EEnum
+
 // Package & Factory
     class KdmFactory;
     typedef KdmFactory * KdmFactory_ptr;

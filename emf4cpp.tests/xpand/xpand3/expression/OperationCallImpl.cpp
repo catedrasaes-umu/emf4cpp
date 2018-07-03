@@ -41,7 +41,7 @@ void OperationCall::_initialize()
     // Supertypes
     ::xpand3::expression::FeatureCall::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_params->size(); i++)
     {
         (*m_params)[i]->_initialize();

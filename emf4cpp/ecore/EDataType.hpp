@@ -44,13 +44,11 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
         ::ecore::EBoolean isSerializable() const;
         void setSerializable(::ecore::EBoolean _serializable);
 
         // References
-
 
         /*PROTECTED REGION ID(EDataType) START*/
         // Please, enable the protected region if you add manually written code.
@@ -83,3 +81,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EDATATYPE_HPP
+

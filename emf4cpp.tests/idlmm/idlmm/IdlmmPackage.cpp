@@ -21,12 +21,19 @@
 
 using namespace ::idlmm;
 
-std::auto_ptr< ::idlmm::IdlmmPackage > IdlmmPackage::s_instance;
+std::unique_ptr< ::idlmm::IdlmmPackage,
+        ::ecorecpp::PackageDeleter< ::idlmm::IdlmmPackage > > IdlmmPackage::s_instance;
 
 ::idlmm::IdlmmPackage_ptr IdlmmPackage::_instance()
 {
     if (!s_instance.get())
         new IdlmmPackage();
     return s_instance.get();
+}
+
+::idlmm::IdlmmPackage_ptr IdlmmPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

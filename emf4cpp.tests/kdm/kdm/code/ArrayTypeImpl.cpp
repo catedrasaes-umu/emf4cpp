@@ -52,7 +52,7 @@ void ArrayType::_initialize()
     // Supertypes
     ::kdm::code::DerivedType::_initialize();
 
-    // Rerefences
+    // References
     if (m_indexUnit)
     {
         m_indexUnit->_initialize();

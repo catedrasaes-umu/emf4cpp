@@ -38,12 +38,11 @@ void EModelElement::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_eAnnotations->size(); i++)
     {
         (*m_eAnnotations)[i]->_initialize();
-        (*m_eAnnotations)[i]->_setEContainer(
-                this,
+        (*m_eAnnotations)[i]->_setEContainer(this,
                 ::ecore::EcorePackage::_instance()->getEModelElement__eAnnotations());
     }
 
@@ -74,7 +73,7 @@ void EModelElement::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject > ();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -89,9 +88,8 @@ void EModelElement::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
@@ -123,9 +121,8 @@ void EModelElement::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EModelElement::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEModelElement();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEModelElement();
     return _eclass;
 }
 

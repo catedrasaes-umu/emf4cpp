@@ -49,7 +49,7 @@ void Project::_initialize()
     // Supertypes
     ::kdm::source::InventoryContainer::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ProjectImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

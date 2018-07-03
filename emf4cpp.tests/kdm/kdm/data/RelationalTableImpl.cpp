@@ -52,7 +52,7 @@ void RelationalTable::_initialize()
     // Supertypes
     ::kdm::data::ColumnSet::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(RelationalTableImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

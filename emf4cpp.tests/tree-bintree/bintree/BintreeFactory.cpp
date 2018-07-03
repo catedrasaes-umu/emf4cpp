@@ -21,7 +21,7 @@
 
 using namespace ::bintree;
 
-std::auto_ptr< ::bintree::BintreeFactory > BintreeFactory::s_instance;
+std::unique_ptr< ::bintree::BintreeFactory > BintreeFactory::s_instance;
 
 ::bintree::BintreeFactory_ptr BintreeFactory::_instance()
 {

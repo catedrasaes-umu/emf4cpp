@@ -40,7 +40,7 @@ void ImportStatement::_initialize()
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
     if (m_importedId)
     {
         m_importedId->_initialize();

@@ -89,6 +89,8 @@ namespace kdm
         class TaggedValue;
         typedef TaggedValue* TaggedValue_ptr;
 
+// EEnum
+
 // Package & Factory
         class KdmFactory;
         typedef KdmFactory * KdmFactory_ptr;

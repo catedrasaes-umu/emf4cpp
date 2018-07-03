@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <kdm/conceptual_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 #include <kdm/core/CorePackage.hpp>
 #include <kdm/kdm/KdmPackage.hpp>
@@ -36,6 +37,7 @@ namespace kdm
         public:
 
             static ConceptualPackage_ptr _instance();
+            static ConceptualPackage_ptr _getInstanceAndRemoveOwnership();
 
             // IDs for classifiers
 
@@ -483,7 +485,8 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< ConceptualPackage > s_instance;
+            static std::unique_ptr< ConceptualPackage,
+                    ::ecorecpp::PackageDeleter< ConceptualPackage > > s_instance;
 
             ConceptualPackage();
 

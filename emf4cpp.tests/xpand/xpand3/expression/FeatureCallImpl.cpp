@@ -40,7 +40,7 @@ void FeatureCall::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_target)
     {
         m_target->_initialize();

@@ -53,7 +53,7 @@ void CallableUnit::_initialize()
     // Supertypes
     ::kdm::code::ControlElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(CallableUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -38,7 +38,7 @@ void TreeNode::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TreeNodeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

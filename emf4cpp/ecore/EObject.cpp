@@ -58,6 +58,4 @@ EObject::~EObject()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
-

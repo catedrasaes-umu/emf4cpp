@@ -42,7 +42,7 @@ void IfStatement::_initialize()
     // Supertypes
     ::xpand3::statement::AbstractStatementWithBody::_initialize();
 
-    // Rerefences
+    // References
     if (m_condition)
     {
         m_condition->_initialize();

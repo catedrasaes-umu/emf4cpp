@@ -48,7 +48,7 @@ void InventoryContainer::_initialize()
     // Supertypes
     ::kdm::source::AbstractInventoryElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_inventoryElement->size(); i++)
     {
         (*m_inventoryElement)[i]->_initialize();

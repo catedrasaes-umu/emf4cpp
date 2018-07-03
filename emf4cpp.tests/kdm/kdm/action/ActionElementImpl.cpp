@@ -51,7 +51,7 @@ void ActionElement::_initialize()
     // Supertypes
     ::kdm::code::AbstractCodeElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_codeElement->size(); i++)
     {
         (*m_codeElement)[i]->_initialize();

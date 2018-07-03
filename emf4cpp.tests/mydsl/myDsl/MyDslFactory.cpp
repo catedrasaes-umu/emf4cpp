@@ -21,7 +21,7 @@
 
 using namespace ::myDsl;
 
-std::auto_ptr< ::myDsl::MyDslFactory > MyDslFactory::s_instance;
+std::unique_ptr< ::myDsl::MyDslFactory > MyDslFactory::s_instance;
 
 ::myDsl::MyDslFactory_ptr MyDslFactory::_instance()
 {

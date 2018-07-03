@@ -41,7 +41,7 @@ void TypeSelectExpression::_initialize()
     // Supertypes
     ::xpand3::expression::FeatureCall::_initialize();
 
-    // Rerefences
+    // References
     if (m_typeLiteral)
     {
         m_typeLiteral->_initialize();

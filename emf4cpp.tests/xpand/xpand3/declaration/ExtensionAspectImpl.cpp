@@ -43,7 +43,7 @@ void ExtensionAspect::_initialize()
     // Supertypes
     ::xpand3::declaration::AbstractAspect::_initialize();
 
-    // Rerefences
+    // References
     if (m_expression)
     {
         m_expression->_initialize();

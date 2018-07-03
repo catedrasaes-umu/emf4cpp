@@ -47,7 +47,7 @@ void Segment::_initialize()
     // Supertypes
     ::kdm::kdm::KDMFramework::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_segment->size(); i++)
     {
         (*m_segment)[i]->_initialize();

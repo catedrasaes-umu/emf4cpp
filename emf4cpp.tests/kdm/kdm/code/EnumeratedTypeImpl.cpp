@@ -51,7 +51,7 @@ void EnumeratedType::_initialize()
     // Supertypes
     ::kdm::code::Datatype::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_value->size(); i++)
     {
         (*m_value)[i]->_initialize();

@@ -2,6 +2,7 @@
 /*
  * mapping/set_traits.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,7 +21,7 @@
 #ifndef ECORECPP_MAPPING_SETTRAITS_HPP
 #define    ECORECPP_MAPPING_SETTRAITS_HPP
 
-#include "type_traits.hpp"
+#include "type_definitions.hpp"
 
 namespace ecorecpp
 {
@@ -66,21 +67,21 @@ struct set_traits< bool >
 };
 
 template< >
-struct set_traits< type_traits::string_t >
+struct set_traits< type_definitions::string_t >
 {
-    static const type_traits::string_t _default;
+    static const type_definitions::string_t _default;
 
-    static inline const type_traits::string_t& default_value()
+    static inline const type_definitions::string_t& default_value()
     {
         return _default;
     }
 
-    static inline bool is_set(const type_traits::string_t& value)
+    static inline bool is_set(const type_definitions::string_t& value)
     {
         return !value.empty();
     }
 
-    static inline void unset(type_traits::string_t& value)
+    static inline void unset(type_definitions::string_t& value)
     {
         value.clear();
     }

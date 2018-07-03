@@ -27,6 +27,7 @@
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/DataElement.hpp>
+#include <kdm/code/ParameterKind.hpp>
 
 /*PROTECTED REGION ID(ParameterUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.

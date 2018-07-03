@@ -74,20 +74,18 @@ namespace ecore
 
         virtual void eUnset(::ecore::EStructuralFeature_ptr _feature);
 
-        virtual ::ecore::EJavaObject eInvoke(
-                ::ecore::EOperation_ptr _operation,
+        virtual ::ecore::EJavaObject eInvoke(::ecore::EOperation_ptr _operation,
                 std::list< ::ecorecpp::mapping::any > const& _arguments);
 
         // Attributes
 
         // References
 
-
         // Special EObject C++ mapping internal helper operation
         template< typename T >
         inline T* as()
         {
-            return dynamic_cast< T* > (this);
+            return dynamic_cast< T* >(this);
         }
 
         /*PROTECTED REGION ID(EObject) START*/
@@ -151,7 +149,6 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
     };
@@ -159,3 +156,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EOBJECT_HPP
+

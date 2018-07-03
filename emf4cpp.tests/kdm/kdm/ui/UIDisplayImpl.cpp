@@ -52,7 +52,7 @@ void UIDisplay::_initialize()
     // Supertypes
     ::kdm::ui::UIResource::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(UIDisplayImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

@@ -39,8 +39,8 @@ EModelElement::EModelElement()
                     -1, true, true >(this, NULL));
 
     /*PROTECTED REGION ID(EModelElementImpl__EModelElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -58,7 +58,6 @@ EModelElement::~EModelElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 // References
 ::ecorecpp::mapping::EList< ::ecore::EAnnotation >& EModelElement::getEAnnotations()
 {

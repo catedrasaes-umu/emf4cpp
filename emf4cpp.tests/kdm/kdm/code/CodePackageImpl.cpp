@@ -2290,7 +2290,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // operator
         _el->setName("operator");
-        _el->setValue(0);
+        _el->setValue(1);
         _el->setLiteral("operator");
         _el->setEEnum(m_MethodKindEEnum);
         m_MethodKindEEnum->getELiterals().push_back(_el);
@@ -2300,7 +2300,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // destructor
         _el->setName("destructor");
-        _el->setValue(1);
+        _el->setValue(2);
         _el->setLiteral("destructor");
         _el->setEEnum(m_MethodKindEEnum);
         m_MethodKindEEnum->getELiterals().push_back(_el);
@@ -2310,7 +2310,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // method
         _el->setName("method");
-        _el->setValue(2);
+        _el->setValue(3);
         _el->setLiteral("method");
         _el->setEEnum(m_MethodKindEEnum);
         m_MethodKindEEnum->getELiterals().push_back(_el);
@@ -2320,7 +2320,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // abstract
         _el->setName("abstract");
-        _el->setValue(3);
+        _el->setValue(4);
         _el->setLiteral("abstract");
         _el->setEEnum(m_MethodKindEEnum);
         m_MethodKindEEnum->getELiterals().push_back(_el);
@@ -2330,7 +2330,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // virtual
         _el->setName("virtual");
-        _el->setValue(4);
+        _el->setValue(5);
         _el->setLiteral("virtual");
         _el->setEEnum(m_MethodKindEEnum);
         m_MethodKindEEnum->getELiterals().push_back(_el);
@@ -2340,7 +2340,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // unknown
         _el->setName("unknown");
-        _el->setValue(5);
+        _el->setValue(6);
         _el->setLiteral("unknown");
         _el->setEEnum(m_MethodKindEEnum);
         m_MethodKindEEnum->getELiterals().push_back(_el);
@@ -2350,7 +2350,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // constructor
         _el->setName("constructor");
-        _el->setValue(6);
+        _el->setValue(7);
         _el->setLiteral("constructor");
         _el->setEEnum(m_MethodKindEEnum);
         m_MethodKindEEnum->getELiterals().push_back(_el);
@@ -2364,7 +2364,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // byReference
         _el->setName("byReference");
-        _el->setValue(0);
+        _el->setValue(1);
         _el->setLiteral("byReference");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2374,7 +2374,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // unknown
         _el->setName("unknown");
-        _el->setValue(1);
+        _el->setValue(2);
         _el->setLiteral("unknown");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2384,7 +2384,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // exception
         _el->setName("exception");
-        _el->setValue(2);
+        _el->setValue(3);
         _el->setLiteral("exception");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2394,7 +2394,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // return
         _el->setName("return");
-        _el->setValue(3);
+        _el->setValue(4);
         _el->setLiteral("return");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2404,7 +2404,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // byValue
         _el->setName("byValue");
-        _el->setValue(4);
+        _el->setValue(5);
         _el->setLiteral("byValue");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2414,7 +2414,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // catchall
         _el->setName("catchall");
-        _el->setValue(5);
+        _el->setValue(6);
         _el->setLiteral("catchall");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2424,7 +2424,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // byName
         _el->setName("byName");
-        _el->setValue(6);
+        _el->setValue(7);
         _el->setLiteral("byName");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2434,7 +2434,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // throws
         _el->setName("throws");
-        _el->setValue(7);
+        _el->setValue(8);
         _el->setLiteral("throws");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2444,7 +2444,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // variadic
         _el->setName("variadic");
-        _el->setValue(8);
+        _el->setValue(9);
         _el->setLiteral("variadic");
         _el->setEEnum(m_ParameterKindEEnum);
         m_ParameterKindEEnum->getELiterals().push_back(_el);
@@ -2458,7 +2458,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // private
         _el->setName("private");
-        _el->setValue(0);
+        _el->setValue(1);
         _el->setLiteral("private");
         _el->setEEnum(m_ExportKindEEnum);
         m_ExportKindEEnum->getELiterals().push_back(_el);
@@ -2468,7 +2468,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // unknown
         _el->setName("unknown");
-        _el->setValue(1);
+        _el->setValue(2);
         _el->setLiteral("unknown");
         _el->setEEnum(m_ExportKindEEnum);
         m_ExportKindEEnum->getELiterals().push_back(_el);
@@ -2478,7 +2478,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // public
         _el->setName("public");
-        _el->setValue(2);
+        _el->setValue(3);
         _el->setLiteral("public");
         _el->setEEnum(m_ExportKindEEnum);
         m_ExportKindEEnum->getELiterals().push_back(_el);
@@ -2488,7 +2488,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // protected
         _el->setName("protected");
-        _el->setValue(3);
+        _el->setValue(4);
         _el->setLiteral("protected");
         _el->setEEnum(m_ExportKindEEnum);
         m_ExportKindEEnum->getELiterals().push_back(_el);
@@ -2498,7 +2498,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // final
         _el->setName("final");
-        _el->setValue(4);
+        _el->setValue(5);
         _el->setLiteral("final");
         _el->setEEnum(m_ExportKindEEnum);
         m_ExportKindEEnum->getELiterals().push_back(_el);
@@ -2512,7 +2512,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // global
         _el->setName("global");
-        _el->setValue(0);
+        _el->setValue(1);
         _el->setLiteral("global");
         _el->setEEnum(m_StorableKindEEnum);
         m_StorableKindEEnum->getELiterals().push_back(_el);
@@ -2522,7 +2522,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // external
         _el->setName("external");
-        _el->setValue(1);
+        _el->setValue(2);
         _el->setLiteral("external");
         _el->setEEnum(m_StorableKindEEnum);
         m_StorableKindEEnum->getELiterals().push_back(_el);
@@ -2532,7 +2532,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // static
         _el->setName("static");
-        _el->setValue(2);
+        _el->setValue(3);
         _el->setLiteral("static");
         _el->setEEnum(m_StorableKindEEnum);
         m_StorableKindEEnum->getELiterals().push_back(_el);
@@ -2542,7 +2542,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // unknown
         _el->setName("unknown");
-        _el->setValue(3);
+        _el->setValue(4);
         _el->setLiteral("unknown");
         _el->setEEnum(m_StorableKindEEnum);
         m_StorableKindEEnum->getELiterals().push_back(_el);
@@ -2552,7 +2552,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // register
         _el->setName("register");
-        _el->setValue(4);
+        _el->setValue(5);
         _el->setLiteral("register");
         _el->setEEnum(m_StorableKindEEnum);
         m_StorableKindEEnum->getELiterals().push_back(_el);
@@ -2562,7 +2562,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // local
         _el->setName("local");
-        _el->setValue(5);
+        _el->setValue(6);
         _el->setLiteral("local");
         _el->setEEnum(m_StorableKindEEnum);
         m_StorableKindEEnum->getELiterals().push_back(_el);
@@ -2576,7 +2576,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // external
         _el->setName("external");
-        _el->setValue(0);
+        _el->setValue(1);
         _el->setLiteral("external");
         _el->setEEnum(m_CallableKindEEnum);
         m_CallableKindEEnum->getELiterals().push_back(_el);
@@ -2586,7 +2586,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // regular
         _el->setName("regular");
-        _el->setValue(1);
+        _el->setValue(2);
         _el->setLiteral("regular");
         _el->setEEnum(m_CallableKindEEnum);
         m_CallableKindEEnum->getELiterals().push_back(_el);
@@ -2596,7 +2596,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // stored
         _el->setName("stored");
-        _el->setValue(2);
+        _el->setValue(3);
         _el->setLiteral("stored");
         _el->setEEnum(m_CallableKindEEnum);
         m_CallableKindEEnum->getELiterals().push_back(_el);
@@ -2606,7 +2606,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // operator
         _el->setName("operator");
-        _el->setValue(3);
+        _el->setValue(4);
         _el->setLiteral("operator");
         _el->setEEnum(m_CallableKindEEnum);
         m_CallableKindEEnum->getELiterals().push_back(_el);
@@ -2616,7 +2616,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // unknown
         _el->setName("unknown");
-        _el->setValue(4);
+        _el->setValue(5);
         _el->setLiteral("unknown");
         _el->setEEnum(m_CallableKindEEnum);
         m_CallableKindEEnum->getELiterals().push_back(_el);
@@ -2630,7 +2630,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // external
         _el->setName("external");
-        _el->setValue(0);
+        _el->setValue(1);
         _el->setLiteral("external");
         _el->setEEnum(m_MacroKindEEnum);
         m_MacroKindEEnum->getELiterals().push_back(_el);
@@ -2640,7 +2640,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // unknown
         _el->setName("unknown");
-        _el->setValue(1);
+        _el->setValue(2);
         _el->setLiteral("unknown");
         _el->setEEnum(m_MacroKindEEnum);
         m_MacroKindEEnum->getELiterals().push_back(_el);
@@ -2650,7 +2650,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // option
         _el->setName("option");
-        _el->setValue(2);
+        _el->setValue(3);
         _el->setLiteral("option");
         _el->setEEnum(m_MacroKindEEnum);
         m_MacroKindEEnum->getELiterals().push_back(_el);
@@ -2660,7 +2660,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // undefined
         _el->setName("undefined");
-        _el->setValue(3);
+        _el->setValue(4);
         _el->setLiteral("undefined");
         _el->setEEnum(m_MacroKindEEnum);
         m_MacroKindEEnum->getELiterals().push_back(_el);
@@ -2670,7 +2670,7 @@ CodePackage::CodePackage()
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // regular
         _el->setName("regular");
-        _el->setValue(4);
+        _el->setValue(5);
         _el->setLiteral("regular");
         _el->setEEnum(m_MacroKindEEnum);
         m_MacroKindEEnum->getELiterals().push_back(_el);

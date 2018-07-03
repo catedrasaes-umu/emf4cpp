@@ -63,7 +63,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< SourceFactory > s_instance;
+            static std::unique_ptr< SourceFactory > s_instance;
 
             SourceFactory();
 

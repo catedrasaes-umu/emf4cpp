@@ -51,7 +51,7 @@ void Event::_initialize()
     // Supertypes
     ::kdm::event::AbstractEventElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EventImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

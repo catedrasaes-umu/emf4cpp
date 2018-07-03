@@ -21,7 +21,7 @@
 
 using namespace ::xpand3::statement;
 
-std::auto_ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_instance;
+std::unique_ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_instance;
 
 ::xpand3::statement::StatementFactory_ptr StatementFactory::_instance()
 {

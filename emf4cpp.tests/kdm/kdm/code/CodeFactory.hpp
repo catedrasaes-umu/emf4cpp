@@ -128,7 +128,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< CodeFactory > s_instance;
+            static std::unique_ptr< CodeFactory > s_instance;
 
             CodeFactory();
 

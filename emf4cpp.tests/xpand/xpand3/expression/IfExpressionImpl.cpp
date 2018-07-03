@@ -39,7 +39,7 @@ void IfExpression::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_condition)
     {
         m_condition->_initialize();

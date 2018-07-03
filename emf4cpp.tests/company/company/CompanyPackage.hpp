@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <company_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace company
 {
@@ -31,6 +32,7 @@ namespace company
     public:
 
         static CompanyPackage_ptr _instance();
+        static CompanyPackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -82,7 +84,8 @@ namespace company
 
     protected:
 
-        static std::auto_ptr< CompanyPackage > s_instance;
+        static std::unique_ptr< CompanyPackage,
+                ::ecorecpp::PackageDeleter< CompanyPackage > > s_instance;
 
         CompanyPackage();
 

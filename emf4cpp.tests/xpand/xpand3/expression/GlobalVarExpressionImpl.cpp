@@ -40,7 +40,7 @@ void GlobalVarExpression::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_globalVarName)
     {
         m_globalVarName->_initialize();

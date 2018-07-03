@@ -43,7 +43,7 @@ void InterfaceDef::_initialize()
     ::idlmm::Container::_initialize();
     ::idlmm::TypedefDef::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(InterfaceDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

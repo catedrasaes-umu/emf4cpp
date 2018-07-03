@@ -1,0 +1,67 @@
+«REM»
+EEnumHPP.xpt
+Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Classes»
+«EXTENSION template::Operations»
+«EXTENSION template::Attributes»
+«EXTENSION template::References»
+«EXTENSION template::Types»
+
+«DEFINE hpp FOR EEnum»
+«FILE getFQN("/")+".hpp"-»
+«IF (boolean) GLOBALVAR internalLicense»
+«EXPAND template::License::License FOR getFQN("/")+".hpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getFQN("/")+".hpp"-»
+«ENDIF»
+#ifndef «getHeaderDef()»_HPP
+#define «getHeaderDef()»_HPP
+
+«EXPAND namespaces_begin FOR EPackage-»
+
+enum class «name» {
+		«FOREACH this.ELiterals AS el SEPARATOR ","-»
+		«el.literal» = «el.value»
+		«ENDFOREACH»
+};
+
+«EXPAND namespaces_end FOR EPackage-»
+
+#endif
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE namespaces_begin FOR EPackage-»
+«IF this != null-»
+«EXPAND namespaces_begin FOR ESuperPackage-»
+namespace «name»
+{
+«ENDIF-»
+«ENDDEFINE»
+
+
+
+«DEFINE namespaces_end FOR EPackage-»
+«IF this != null-»
+} // «name»
+«EXPAND namespaces_end FOR ESuperPackage-»
+«ENDIF-»
+«ENDDEFINE»

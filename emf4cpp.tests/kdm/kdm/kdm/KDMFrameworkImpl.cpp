@@ -45,7 +45,7 @@ void KDMFramework::_initialize()
     // Supertypes
     ::kdm::core::ModelElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_audit->size(); i++)
     {
         (*m_audit)[i]->_initialize();

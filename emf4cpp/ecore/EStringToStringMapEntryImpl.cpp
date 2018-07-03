@@ -37,7 +37,7 @@ void EStringToStringMapEntry::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EStringToStringMapEntryImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -46,7 +46,6 @@ void EStringToStringMapEntry::_initialize()
 }
 
 // Operations
-
 
 // EObject
 ::ecore::EJavaObject EStringToStringMapEntry::eGet(::ecore::EInt _featureID,
@@ -57,13 +56,14 @@ void EStringToStringMapEntry::_initialize()
     {
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__KEY:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_key);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_key);
     }
         return _any;
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_value);
     }
         return _any;
 
@@ -78,14 +78,14 @@ void EStringToStringMapEntry::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__KEY:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_key);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_key);
     }
         return;
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_value);
     }
         return;
 
@@ -98,11 +98,11 @@ void EStringToStringMapEntry::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__KEY:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_key);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_key);
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_value);
 
     }
     throw "Error";
@@ -119,9 +119,8 @@ void EStringToStringMapEntry::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EStringToStringMapEntry::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEStringToStringMapEntry();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEStringToStringMapEntry();
     return _eclass;
 }
 

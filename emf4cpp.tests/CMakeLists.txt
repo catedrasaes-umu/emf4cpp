@@ -39,6 +39,8 @@ add_subdirectory(mydsl)
 add_subdirectory(mydsl/antlr EXCLUDE_FROM_ALL)
 add_subdirectory(ast)
 add_subdirectory(json)
+add_subdirectory(enumeration)
+add_subdirectory(enumeration/test)
 
 add_subdirectory(mapping-tests)
 

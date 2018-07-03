@@ -48,7 +48,7 @@ namespace xpand3
 
     protected:
 
-        static std::auto_ptr< Xpand3Factory > s_instance;
+        static std::unique_ptr< Xpand3Factory > s_instance;
 
         Xpand3Factory();
 

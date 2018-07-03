@@ -51,7 +51,7 @@ void UniqueKey::_initialize()
     // Supertypes
     ::kdm::data::IndexElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(UniqueKeyImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

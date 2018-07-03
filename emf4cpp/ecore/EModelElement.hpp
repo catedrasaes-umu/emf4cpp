@@ -75,14 +75,14 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EAnnotation > > m_eAnnotations;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EAnnotation > > m_eAnnotations;
 
     };
 
 } // ecore
 
 #endif // ECORE_EMODELELEMENT_HPP
+

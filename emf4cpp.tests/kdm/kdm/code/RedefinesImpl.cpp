@@ -45,7 +45,7 @@ void Redefines::_initialize()
     // Supertypes
     ::kdm::code::AbstractCodeRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(RedefinesImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

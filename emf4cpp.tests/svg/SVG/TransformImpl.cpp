@@ -40,7 +40,7 @@ void Transform::_initialize()
     // Supertypes
     ::SVG::Attribute::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TransformImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

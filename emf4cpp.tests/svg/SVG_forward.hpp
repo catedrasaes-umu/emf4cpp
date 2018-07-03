@@ -191,6 +191,8 @@ namespace SVG
     class SvgFile;
     typedef SvgFile* SvgFile_ptr;
 
+// EEnum
+
 // Package & Factory
     class SVGFactory;
     typedef SVGFactory * SVGFactory_ptr;

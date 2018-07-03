@@ -51,7 +51,7 @@ void ValueList::_initialize()
     // Supertypes
     ::kdm::code::ValueElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_valueElement->size(); i++)
     {
         (*m_valueElement)[i]->_initialize();

@@ -39,7 +39,7 @@ void Node::_initialize()
     // Supertypes
     ::CST::Element::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_children->size(); i++)
     {
         (*m_children)[i]->_initialize();

@@ -64,7 +64,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< UiFactory > s_instance;
+            static std::unique_ptr< UiFactory > s_instance;
 
             UiFactory();
 

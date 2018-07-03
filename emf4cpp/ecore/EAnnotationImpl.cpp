@@ -42,7 +42,7 @@ void EAnnotation::_initialize()
     // Supertypes
     ::ecore::EModelElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_details->size(); i++)
     {
         (*m_details)[i]->_initialize();
@@ -64,7 +64,6 @@ void EAnnotation::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject EAnnotation::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -74,33 +73,33 @@ void EAnnotation::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject > ();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::EANNOTATION__SOURCE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_source);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_source);
     }
         return _any;
     case ::ecore::EcorePackage::EANNOTATION__DETAILS:
     {
-        _any = m_details->asEListOf< ::ecore::EObject > ();
+        _any = m_details->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eModelElement);
+        _any = static_cast< ::ecore::EObject* >(m_eModelElement);
     }
         return _any;
     case ::ecore::EcorePackage::EANNOTATION__CONTENTS:
     {
-        _any = m_contents->asEListOf< ::ecore::EObject > ();
+        _any = m_contents->asEListOf< ::ecore::EObject >();
     }
         return _any;
     case ::ecore::EcorePackage::EANNOTATION__REFERENCES:
     {
-        _any = m_references->asEListOf< ::ecore::EObject > ();
+        _any = m_references->asEListOf< ::ecore::EObject >();
     }
         return _any;
 
@@ -115,51 +114,47 @@ void EAnnotation::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::EANNOTATION__SOURCE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_source);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, m_source);
     }
         return;
     case ::ecore::EcorePackage::EANNOTATION__DETAILS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EAnnotation::getDetails().clear();
         ::ecore::EAnnotation::getDetails().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EModelElement_ptr _t1 =
-                dynamic_cast< ::ecore::EModelElement_ptr > (_t0);
+                dynamic_cast< ::ecore::EModelElement_ptr >(_t0);
         ::ecore::EAnnotation::setEModelElement(_t1);
     }
         return;
     case ::ecore::EcorePackage::EANNOTATION__CONTENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EAnnotation::getContents().clear();
         ::ecore::EAnnotation::getContents().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::EANNOTATION__REFERENCES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecorecpp::mapping::EList_ptr > (_newValue);
         ::ecore::EAnnotation::getReferences().clear();
         ::ecore::EAnnotation::getReferences().insert_all(*_t0);
     }
@@ -176,8 +171,8 @@ void EAnnotation::eSet(::ecore::EInt _featureID,
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
         return m_eAnnotations && m_eAnnotations->size();
     case ::ecore::EcorePackage::EANNOTATION__SOURCE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_source);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_source);
     case ::ecore::EcorePackage::EANNOTATION__DETAILS:
         return m_details && m_details->size();
     case ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT:
@@ -202,9 +197,8 @@ void EAnnotation::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EAnnotation::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEAnnotation_();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage_ptr >(::ecore::EcorePackage::_instance())->getEAnnotation_();
     return _eclass;
 }
 

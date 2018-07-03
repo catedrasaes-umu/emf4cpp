@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <SVG_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 namespace SVG
 {
@@ -31,6 +32,7 @@ namespace SVG
     public:
 
         static SVGPackage_ptr _instance();
+        static SVGPackage_ptr _getInstanceAndRemoveOwnership();
 
         // IDs for classifiers
 
@@ -1132,7 +1134,8 @@ namespace SVG
 
     protected:
 
-        static std::auto_ptr< SVGPackage > s_instance;
+        static std::unique_ptr< SVGPackage,
+                ::ecorecpp::PackageDeleter< SVGPackage > > s_instance;
 
         SVGPackage();
 

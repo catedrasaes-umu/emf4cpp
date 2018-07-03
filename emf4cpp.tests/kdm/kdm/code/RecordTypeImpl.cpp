@@ -51,7 +51,7 @@ void RecordType::_initialize()
     // Supertypes
     ::kdm::code::CompositeType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(RecordTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

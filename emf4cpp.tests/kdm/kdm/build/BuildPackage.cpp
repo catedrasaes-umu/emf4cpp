@@ -21,12 +21,19 @@
 
 using namespace ::kdm::build;
 
-std::auto_ptr< ::kdm::build::BuildPackage > BuildPackage::s_instance;
+std::unique_ptr< ::kdm::build::BuildPackage,
+        ::ecorecpp::PackageDeleter< ::kdm::build::BuildPackage > > BuildPackage::s_instance;
 
 ::kdm::build::BuildPackage_ptr BuildPackage::_instance()
 {
     if (!s_instance.get())
         new BuildPackage();
     return s_instance.get();
+}
+
+::kdm::build::BuildPackage_ptr BuildPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

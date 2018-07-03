@@ -2,6 +2,7 @@
 /*
  * parser/handler.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -48,13 +49,13 @@ void handler::characters(xml_parser::match_pair const& chars)
         {
             assert( m_level);
 
-            ::ecorecpp::mapping::type_traits::string_t _literal(chars.first, chars.second);
+            ::ecorecpp::mapping::type_definitions::string_t _literal(chars.first, chars.second);
 
             // DEBUG_MSG(cout, "expected!! " << length << " " << _literal);
 
             EObject_ptr const& peobj = m_objects.back();
             EClass_ptr const peclass = peobj->eClass();
-            ::ecorecpp::mapping::type_traits::string_t const& _name =
+            ::ecorecpp::mapping::type_definitions::string_t const& _name =
                   m_expected_literal_name;
 
             DEBUG_MSG(cout, _name);
@@ -85,8 +86,8 @@ void handler::processing_tag (xml_parser::match_pair const& tag,
 void handler::start_tag(xml_parser::match_pair const& name,
                         xml_parser::attr_list_t const& attributes)
 {
-    ::ecorecpp::mapping::type_traits::string_t * _type = 0;
-    ::ecorecpp::mapping::type_traits::string_t _name(name.first, name.second);
+    ::ecorecpp::mapping::type_definitions::string_t * _type = 0;
+    ::ecorecpp::mapping::type_definitions::string_t _name(name.first, name.second);
     static MetaModelRepository_ptr _mmr = MetaModelRepository::_instance();
 
     // Data
@@ -96,7 +97,7 @@ void handler::start_tag(xml_parser::match_pair const& name,
     EClass_ptr eclass = 0;
     EObject_ptr eobj = 0;
     const size_t length = attributes.size();
-    std::vector< std::pair< ::ecorecpp::mapping::type_traits::string_t, ::ecorecpp::mapping::type_traits::string_t > > attr_list(length);
+    std::vector< std::pair< ::ecorecpp::mapping::type_definitions::string_t, ::ecorecpp::mapping::type_definitions::string_t > > attr_list(length);
 
     if (!m_level)
         _type = &_name;
@@ -106,9 +107,9 @@ void handler::start_tag(xml_parser::match_pair const& name,
         {
             // xsi:type may not be the first attribute using our serializer
             attr_list[i] = std::make_pair(
-                ::ecorecpp::mapping::type_traits::string_t (attributes[i].first.first,
+                ::ecorecpp::mapping::type_definitions::string_t (attributes[i].first.first,
                               attributes[i].first.second),
-                ::ecorecpp::mapping::type_traits::string_t (attributes[i].second.first,
+                ::ecorecpp::mapping::type_definitions::string_t (attributes[i].second.first,
                               attributes[i].second.second));
 
             if (!_type && (attr_list[i].first == "xsi:type"))
@@ -118,8 +119,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
     if (_type)
     {
         size_t const double_dot = _type->find(L':', 0);
-        ::ecorecpp::mapping::type_traits::string_t _type_ns = _type->substr(0, double_dot);
-        ::ecorecpp::mapping::type_traits::string_t _type_name = _type->substr(double_dot + 1);
+        ::ecorecpp::mapping::type_definitions::string_t _type_ns = _type->substr(0, double_dot);
+        ::ecorecpp::mapping::type_definitions::string_t _type_name = _type->substr(double_dot + 1);
 
         epkg = _mmr->getByName(_type_ns);
 
@@ -157,12 +158,12 @@ void handler::start_tag(xml_parser::match_pair const& name,
         {
             try
             {
-                ::ecorecpp::mapping::type_traits::string_t const& _aname = attr_list[i].first;
+                ::ecorecpp::mapping::type_definitions::string_t const& _aname = attr_list[i].first;
 
                 if (!isAtCurrentNamespace(_aname))
                     continue;
 
-                ::ecorecpp::mapping::type_traits::string_t const& _avalue = attr_list[i].second;
+                ::ecorecpp::mapping::type_definitions::string_t const& _avalue = attr_list[i].second;
 
                 DEBUG_MSG(cout, "    --- Attributes: (" << (i + 1) << "/"
                         << length << ") " << _aname << " " << _avalue);
@@ -291,8 +292,8 @@ void handler::resolveReferences()
     {
         unresolved_reference_t const& ref = m_unresolved_references.back();
 
-        ::ecorecpp::mapping::type_traits::string_t const& xpath = ref.xpath;
-        ::ecorecpp::mapping::type_traits::string_t const& name = ref.ref_name;
+        ::ecorecpp::mapping::type_definitions::string_t const& xpath = ref.xpath;
+        ::ecorecpp::mapping::type_definitions::string_t const& name = ref.ref_name;
         EObject_ptr const& eobj = ref.eobject;
         EClass_ptr const& eclass = ref.eclass;
 
@@ -308,7 +309,7 @@ void handler::resolveReferences()
 
             // Parse reference
             size_t size = xpath.size();
-            const ::ecorecpp::mapping::type_traits::char_t * s = xpath.c_str();
+            const ::ecorecpp::mapping::type_definitions::char_t * s = xpath.c_str();
 
             ref_parser::SemanticState ss;
             State< ref_parser::SemanticState > st(ss, s, size);
@@ -336,7 +337,7 @@ void handler::resolveReferences()
                     EClass_ptr cl = instanceOf< EClass > (_current);
                     EPackage_ptr pkg = instanceOf< EPackage > (_current);
 
-                    ::ecorecpp::mapping::type_traits::string_t const& _current_id = _path[j].get_id();
+                    ::ecorecpp::mapping::type_definitions::string_t const& _current_id = _path[j].get_id();
 
                     if (pkg) // package
                     {

@@ -45,7 +45,7 @@ void ExtensionTo::_initialize()
     // Supertypes
     ::kdm::data::AbstractDataRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ExtensionToImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

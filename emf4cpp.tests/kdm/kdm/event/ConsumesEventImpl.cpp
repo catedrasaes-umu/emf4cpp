@@ -46,7 +46,7 @@ void ConsumesEvent::_initialize()
     // Supertypes
     ::kdm::event::AbstractEventRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ConsumesEventImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

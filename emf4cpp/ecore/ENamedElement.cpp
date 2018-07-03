@@ -36,8 +36,8 @@ ENamedElement::ENamedElement()
 {
 
     /*PROTECTED REGION ID(ENamedElementImpl__ENamedElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,7 +55,6 @@ ENamedElement::~ENamedElement()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& ENamedElement::getName() const
 {
     return m_name;

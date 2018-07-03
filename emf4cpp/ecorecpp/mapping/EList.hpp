@@ -20,7 +20,7 @@
 #ifndef ECORECPP_MAPPING_ELIST_HPP
 #define ECORECPP_MAPPING_ELIST_HPP
 
-
+#include <vector>
 #include <ecore_forward.hpp>
 #include "out_ptr.hpp"
 #include <ecore/EObject.hpp>
@@ -38,6 +38,7 @@ class EList
 public:
 
     typedef out_ptr< EList< T > > ptr_type;
+	typedef std::vector<T*> UnderlyingContainer_type;
 
     inline T* operator[](size_t _index) const
     {
@@ -68,6 +69,12 @@ public:
     virtual size_t size() const = 0;
 
     virtual void clear() = 0;
+
+	virtual typename UnderlyingContainer_type::iterator begin() = 0;
+	virtual typename UnderlyingContainer_type::iterator end() = 0;
+
+	virtual typename UnderlyingContainer_type::const_iterator cbegin() const = 0;
+	virtual typename UnderlyingContainer_type::const_iterator cend() const = 0;
 
     /**
      * Permite tratar a una EList< T > como una EList< Q >
@@ -126,8 +133,24 @@ public:
 
     virtual void clear()
     {
-        return m_delegate.clear();
+        m_delegate.clear();
     }
+
+	typename EList<T>::UnderlyingContainer_type::iterator begin() override {
+		throw "Iterator not evailable for delegate list";
+	}
+
+	typename EList<T>::UnderlyingContainer_type::iterator end() override {
+		throw "Iterator not evailable for delegate list";
+	}
+
+	typename EList<T>::UnderlyingContainer_type::const_iterator cbegin() const override {
+		throw "Iterator not evailable for delegate list";
+	}
+
+	typename EList<T>::UnderlyingContainer_type::const_iterator cend() const override {
+		throw "Iterator not evailable for delegate list";
+	}
 
     virtual ~DelegateEList()
     {

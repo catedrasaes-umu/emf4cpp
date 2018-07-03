@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <kdm/event_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 #include <kdm/core/CorePackage.hpp>
 #include <kdm/kdm/KdmPackage.hpp>
@@ -36,6 +37,7 @@ namespace kdm
         public:
 
             static EventPackage_ptr _instance();
+            static EventPackage_ptr _getInstanceAndRemoveOwnership();
 
             // IDs for classifiers
 
@@ -620,7 +622,8 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< EventPackage > s_instance;
+            static std::unique_ptr< EventPackage,
+                    ::ecorecpp::PackageDeleter< EventPackage > > s_instance;
 
             EventPackage();
 

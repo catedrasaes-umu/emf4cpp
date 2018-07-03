@@ -46,7 +46,7 @@ void KeyRelation::_initialize()
     // Supertypes
     ::kdm::data::AbstractDataRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(KeyRelationImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

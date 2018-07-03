@@ -21,12 +21,19 @@
 
 using namespace ::xpand3::expression;
 
-std::auto_ptr< ::xpand3::expression::ExpressionPackage > ExpressionPackage::s_instance;
+std::unique_ptr< ::xpand3::expression::ExpressionPackage,
+        ::ecorecpp::PackageDeleter< ::xpand3::expression::ExpressionPackage > > ExpressionPackage::s_instance;
 
 ::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_instance()
 {
     if (!s_instance.get())
         new ExpressionPackage();
     return s_instance.get();
+}
+
+::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

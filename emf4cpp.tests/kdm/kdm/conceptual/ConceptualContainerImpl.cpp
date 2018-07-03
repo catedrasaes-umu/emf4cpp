@@ -50,7 +50,7 @@ void ConceptualContainer::_initialize()
     // Supertypes
     ::kdm::conceptual::AbstractConceptualElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_conceptualElement->size(); i++)
     {
         (*m_conceptualElement)[i]->_initialize();

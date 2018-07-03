@@ -40,7 +40,7 @@ void BooleanLiteral::_initialize()
     // Supertypes
     ::xpand3::expression::Literal::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(BooleanLiteralImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

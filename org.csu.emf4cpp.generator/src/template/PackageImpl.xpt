@@ -110,7 +110,7 @@ using namespace ::«getFQN()»;
 «ENDFOREACH»
 
 «FOREACH ESubpackages AS sub-»
-    getESubpackages().push_back( ::«sub.getPackagePrefix("::")»::_instance());
+    getESubpackages().push_back( ::«sub.getPackagePrefix("::")»::_getInstanceAndRemoveOwnership());
 «ENDFOREACH-»
 
     // Initialize package
@@ -273,12 +273,12 @@ using namespace ::«getFQN()»;
     // «ee.name»
     «getPackageAttribute(ee)»->setName("«ee.name»");
     «getPackageAttribute(ee)»->setSerializable(«ee.serializable»);
-    «FOREACH ee.ELiterals AS el ITERATOR it»
+    «FOREACH ee.ELiterals AS el»
     {
         ::ecore::EEnumLiteral_ptr _el = new ::ecore::EEnumLiteral();
         // «el»
         _el->setName("«el»");
-        _el->setValue(«it.counter0»);
+        _el->setValue(«el.value»);
         _el->setLiteral("«el»");
         _el->setEEnum(«getPackageAttribute(ee)»);
         «getPackageAttribute(ee)»->getELiterals().push_back(_el);

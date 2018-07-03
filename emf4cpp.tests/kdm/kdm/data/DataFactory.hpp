@@ -90,7 +90,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< DataFactory > s_instance;
+            static std::unique_ptr< DataFactory > s_instance;
 
             DataFactory();
 

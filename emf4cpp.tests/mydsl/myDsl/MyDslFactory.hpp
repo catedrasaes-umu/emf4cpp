@@ -49,7 +49,7 @@ namespace myDsl
 
     protected:
 
-        static std::auto_ptr< MyDslFactory > s_instance;
+        static std::unique_ptr< MyDslFactory > s_instance;
 
         MyDslFactory();
 

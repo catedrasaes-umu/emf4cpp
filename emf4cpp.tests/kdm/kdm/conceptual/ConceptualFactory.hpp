@@ -58,7 +58,7 @@ namespace kdm
 
         protected:
 
-            static std::auto_ptr< ConceptualFactory > s_instance;
+            static std::unique_ptr< ConceptualFactory > s_instance;
 
             ConceptualFactory();
 

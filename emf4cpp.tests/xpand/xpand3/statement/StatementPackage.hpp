@@ -22,6 +22,7 @@
 
 #include <ecore/EPackage.hpp>
 #include <xpand3/statement_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
 
 #include <xpand3/Xpand3Package.hpp>
 
@@ -35,6 +36,7 @@ namespace xpand3
         public:
 
             static StatementPackage_ptr _instance();
+            static StatementPackage_ptr _getInstanceAndRemoveOwnership();
 
             // IDs for classifiers
 
@@ -364,7 +366,8 @@ namespace xpand3
 
         protected:
 
-            static std::auto_ptr< StatementPackage > s_instance;
+            static std::unique_ptr< StatementPackage,
+                    ::ecorecpp::PackageDeleter< StatementPackage > > s_instance;
 
             StatementPackage();
 

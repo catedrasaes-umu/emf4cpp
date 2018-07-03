@@ -42,7 +42,7 @@ namespace PrimitiveTypes
 
     protected:
 
-        static std::auto_ptr< PrimitiveTypesFactory > s_instance;
+        static std::unique_ptr< PrimitiveTypesFactory > s_instance;
 
         PrimitiveTypesFactory();
 

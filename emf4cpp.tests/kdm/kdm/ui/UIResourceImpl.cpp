@@ -51,7 +51,7 @@ void UIResource::_initialize()
     // Supertypes
     ::kdm::ui::AbstractUIElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_UIElement->size(); i++)
     {
         (*m_UIElement)[i]->_initialize();

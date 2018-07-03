@@ -19,9 +19,9 @@
 #
 
 
-set(CMAKE_CXX_FLAGS "")
-set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -DDEBUG")
-set(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -funroll-loops")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops")
 
 set(kdm_data_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/kdm/data.cpp

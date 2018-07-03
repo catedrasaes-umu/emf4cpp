@@ -42,7 +42,7 @@ void TaggedValue::_initialize()
     // Supertypes
     ::kdm::kdm::ExtendedValue::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TaggedValueImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

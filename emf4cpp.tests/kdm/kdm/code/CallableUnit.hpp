@@ -28,6 +28,7 @@
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/code/ControlElement.hpp>
+#include <kdm/code/CallableKind.hpp>
 
 /*PROTECTED REGION ID(CallableUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.

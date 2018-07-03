@@ -43,6 +43,8 @@ namespace bintree
     class BinTreeNode;
     typedef BinTreeNode* BinTreeNode_ptr;
 
+// EEnum
+
 // Package & Factory
     class BintreeFactory;
     typedef BintreeFactory * BintreeFactory_ptr;

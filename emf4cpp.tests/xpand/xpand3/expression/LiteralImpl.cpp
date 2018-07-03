@@ -40,7 +40,7 @@ void Literal::_initialize()
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_literalValue)
     {
         m_literalValue->_initialize();

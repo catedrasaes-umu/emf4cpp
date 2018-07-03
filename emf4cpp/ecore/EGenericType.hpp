@@ -45,15 +45,13 @@ namespace ecore
 
         // Operations
 
-
         // Attributes
 
         // References
         ::ecore::EGenericType_ptr getEUpperBound();
         void setEUpperBound(::ecore::EGenericType_ptr _eUpperBound);
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >
-                & getETypeArguments();
+        ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getETypeArguments();
 
         ::ecore::EClassifier_ptr getERawType();
         void setERawType(::ecore::EClassifier_ptr _eRawType);
@@ -89,13 +87,12 @@ namespace ecore
     protected:
         // Attributes
 
-
         // References
 
         ::ecore::EGenericType_ptr m_eUpperBound;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eTypeArguments;
+        ::ecorecpp::mapping::out_ptr<
+                ::ecorecpp::mapping::EList< ::ecore::EGenericType > > m_eTypeArguments;
 
         ::ecore::EClassifier_ptr m_eRawType;
 
@@ -110,3 +107,4 @@ namespace ecore
 } // ecore
 
 #endif // ECORE_EGENERICTYPE_HPP
+

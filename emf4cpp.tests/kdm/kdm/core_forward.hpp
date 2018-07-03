@@ -71,6 +71,8 @@ namespace kdm
         class AggregatedRelationship;
         typedef AggregatedRelationship* AggregatedRelationship_ptr;
 
+// EEnum
+
 // Package & Factory
         class CoreFactory;
         typedef CoreFactory * CoreFactory_ptr;

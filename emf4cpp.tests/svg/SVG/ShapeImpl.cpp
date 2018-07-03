@@ -47,7 +47,7 @@ void Shape::_initialize()
     // Supertypes
     ::SVG::GraphicalElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ShapeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

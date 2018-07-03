@@ -21,7 +21,7 @@
 
 using namespace ::xpand3;
 
-std::auto_ptr< ::xpand3::Xpand3Factory > Xpand3Factory::s_instance;
+std::unique_ptr< ::xpand3::Xpand3Factory > Xpand3Factory::s_instance;
 
 ::xpand3::Xpand3Factory_ptr Xpand3Factory::_instance()
 {

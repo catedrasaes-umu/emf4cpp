@@ -2,6 +2,7 @@
 /*
  * mapping/string_traits.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON Gmbh 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,7 +21,7 @@
 #ifndef ECORECPP_MAPPING_STRINGTRAITS_HPP
 #define    ECORECPP_MAPPING_STRINGTRAITS_HPP
 
-#include "type_traits.hpp"
+#include "type_definitions.hpp"
 
 namespace ecorecpp
 {
@@ -31,18 +32,18 @@ namespace mapping
 template< typename T >
 struct string_traits
 {
-    static inline any fromString(const type_traits::string_t & _str)
+    static inline any fromString(const type_definitions::string_t & _str)
     {
-        type_traits::stringstream_t _ss(_str);
+        type_definitions::stringstream_t _ss(_str);
         T t;
         _ss >> t;
         return t;
     }
 
-    static inline type_traits::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const& _any)
     {
         T _t = any::any_cast< T >(_any);
-        type_traits::stringstream_t _ss;
+        type_definitions::stringstream_t _ss;
 
         _ss << _t;
 
@@ -53,7 +54,7 @@ struct string_traits
 template< >
 struct string_traits< bool >
 {
-    static any fromString(const type_traits::string_t & _str)
+    static any fromString(const type_definitions::string_t & _str)
     {
         if (_str == "true")
             return true;
@@ -63,7 +64,7 @@ struct string_traits< bool >
         throw "fromString exception";
     }
 
-    static inline type_traits::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const& _any)
     {
         bool _t = any::any_cast< bool >(_any);
 
@@ -75,29 +76,29 @@ struct string_traits< bool >
 };
 
 template< >
-struct string_traits< type_traits::string_t >
+struct string_traits< type_definitions::string_t >
 {
-    static inline any fromString(const type_traits::string_t & _str)
+    static inline any fromString(const type_definitions::string_t & _str)
     {
         return &_str;
     }
 
-    static inline type_traits::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const& _any)
     {
-        return *any::any_cast< const type_traits::string_t* >(_any);
+        return *any::any_cast< const type_definitions::string_t* >(_any);
     }
 };
 
 template< >
 struct string_traits< unsigned char >
 {
-    static inline any fromString(const type_traits::string_t & _str)
+    static inline any fromString(const type_definitions::string_t & _str)
     {
         // TODO
         throw "Not implemented!";
     }
 
-    static inline type_traits::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const& _any)
     {
         // TODO
         throw "Not implemented!";
@@ -107,13 +108,13 @@ struct string_traits< unsigned char >
 template< >
 struct string_traits< char >
 {
-    static inline any fromString(const type_traits::string_t & _str)
+    static inline any fromString(const type_definitions::string_t & _str)
     {
         // TODO
         throw "Not implemented!";
     }
 
-    static inline type_traits::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const& _any)
     {
         // TODO
         throw "Not implemented!";
@@ -124,13 +125,13 @@ template< >
 struct string_traits< std::vector< unsigned char > >
 {
     static inline any fromString(
-            const type_traits::string_t & _str)
+            const type_definitions::string_t & _str)
     {
         // TODO
         throw "Not implemented!";
     }
 
-    static inline type_traits::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const& _any)
     {
         // TODO
         throw "Not implemented!";
@@ -140,12 +141,12 @@ struct string_traits< std::vector< unsigned char > >
 template< >
 struct string_traits< any >
 {
-    static inline any fromString(const type_traits::string_t & _str)
+    static inline any fromString(const type_definitions::string_t & _str)
     {
         throw "Impossible!";
     }
 
-    static inline type_traits::string_t toString(any const& _any)
+    static inline type_definitions::string_t toString(any const& _any)
     {
         throw "Impossible!";
     }

@@ -21,12 +21,19 @@
 
 using namespace ::PrimitiveTypes;
 
-std::auto_ptr< ::PrimitiveTypes::PrimitiveTypesPackage > PrimitiveTypesPackage::s_instance;
+std::unique_ptr< ::PrimitiveTypes::PrimitiveTypesPackage,
+        ::ecorecpp::PackageDeleter< ::PrimitiveTypes::PrimitiveTypesPackage > > PrimitiveTypesPackage::s_instance;
 
 ::PrimitiveTypes::PrimitiveTypesPackage_ptr PrimitiveTypesPackage::_instance()
 {
     if (!s_instance.get())
         new PrimitiveTypesPackage();
     return s_instance.get();
+}
+
+::PrimitiveTypes::PrimitiveTypesPackage_ptr PrimitiveTypesPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

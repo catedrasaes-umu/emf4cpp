@@ -50,7 +50,7 @@ void ConceptualRole::_initialize()
     // Supertypes
     ::kdm::conceptual::AbstractConceptualElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ConceptualRoleImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

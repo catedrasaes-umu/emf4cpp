@@ -52,7 +52,7 @@ void InitialState::_initialize()
     // Supertypes
     ::kdm::event::State::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(InitialStateImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

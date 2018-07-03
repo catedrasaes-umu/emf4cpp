@@ -43,7 +43,7 @@ void CommentUnit::_initialize()
     // Supertypes
     ::kdm::core::ModelElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(CommentUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

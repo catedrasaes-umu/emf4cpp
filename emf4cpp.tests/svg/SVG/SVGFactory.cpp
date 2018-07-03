@@ -21,7 +21,7 @@
 
 using namespace ::SVG;
 
-std::auto_ptr< ::SVG::SVGFactory > SVGFactory::s_instance;
+std::unique_ptr< ::SVG::SVGFactory > SVGFactory::s_instance;
 
 ::SVG::SVGFactory_ptr SVGFactory::_instance()
 {

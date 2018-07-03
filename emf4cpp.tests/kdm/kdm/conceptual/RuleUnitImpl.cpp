@@ -51,7 +51,7 @@ void RuleUnit::_initialize()
     // Supertypes
     ::kdm::conceptual::ConceptualContainer::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(RuleUnitImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

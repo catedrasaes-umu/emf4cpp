@@ -45,7 +45,7 @@ void StructureRelationship::_initialize()
     // Supertypes
     ::kdm::structure::AbstractStructureRelationship::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(StructureRelationshipImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

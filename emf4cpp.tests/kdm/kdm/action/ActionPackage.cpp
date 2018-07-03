@@ -21,12 +21,19 @@
 
 using namespace ::kdm::action;
 
-std::auto_ptr< ::kdm::action::ActionPackage > ActionPackage::s_instance;
+std::unique_ptr< ::kdm::action::ActionPackage,
+        ::ecorecpp::PackageDeleter< ::kdm::action::ActionPackage > > ActionPackage::s_instance;
 
 ::kdm::action::ActionPackage_ptr ActionPackage::_instance()
 {
     if (!s_instance.get())
         new ActionPackage();
     return s_instance.get();
+}
+
+::kdm::action::ActionPackage_ptr ActionPackage::_getInstanceAndRemoveOwnership()
+{
+    s_instance.get_deleter()._owner = false;
+    return _instance();
 }
 

@@ -42,7 +42,7 @@ void SourceRef::_initialize()
     // Supertypes
     ::kdm::core::Element::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_region->size(); i++)
     {
         (*m_region)[i]->_initialize();

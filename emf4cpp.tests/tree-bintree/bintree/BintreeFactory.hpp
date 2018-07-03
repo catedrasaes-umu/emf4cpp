@@ -44,7 +44,7 @@ namespace bintree
 
     protected:
 
-        static std::auto_ptr< BintreeFactory > s_instance;
+        static std::unique_ptr< BintreeFactory > s_instance;
 
         BintreeFactory();
 

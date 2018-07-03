@@ -51,7 +51,7 @@ void PointerType::_initialize()
     // Supertypes
     ::kdm::code::DerivedType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(PointerTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.

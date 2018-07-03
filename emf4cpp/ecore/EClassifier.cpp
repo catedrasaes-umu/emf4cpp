@@ -35,7 +35,7 @@ using namespace ::ecore;
 
 // Default constructor
 EClassifier::EClassifier() :
-    m_ePackage(0)
+        m_ePackage(0)
 {
 
     m_eTypeParameters.reset(
@@ -43,8 +43,8 @@ EClassifier::EClassifier() :
                     ::ecore::ETypeParameter, -1, true, false >(this, NULL));
 
     /*PROTECTED REGION ID(EClassifierImpl__EClassifierImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -62,7 +62,6 @@ EClassifier::~EClassifier()
 /*PROTECTED REGION END*/
 
 // Attributes
-
 ::ecore::EString const& EClassifier::getInstanceClassName() const
 {
     return m_instanceClassName;
