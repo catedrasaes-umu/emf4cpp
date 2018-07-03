@@ -100,8 +100,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/TopLevelPackage/Level1/Level2/Level3/L
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/TopLevelPackage/Level1/Level2/Level3/Level3Class.hpp DESTINATION include/emf4cpp/TopLevelPackage/Level1/Level2/Level3)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/TopLevelPackage/dllTopLevelPackage.hpp DESTINATION include/emf4cpp/TopLevelPackage)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-TopLevelPackage SHARED ${TopLevelPackage_HEADERS} ${TopLevelPackage_SOURCES})
 set_target_properties(emf4cpp-TopLevelPackage PROPERTIES COMPILE_FLAGS "-DMAKE_TOPLEVELPACKAGE_DLL" VERSION 0.0.1 SOVERSION 1)

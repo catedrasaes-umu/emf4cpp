@@ -1401,8 +1401,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/kdm/ui/WritesUI.hpp DESTINATION includ
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/kdm/ui/ManagesUI.hpp DESTINATION include/emf4cpp/kdm/ui)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/kdm/dllKdm.hpp DESTINATION include/emf4cpp/kdm)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-kdm SHARED ${kdm_HEADERS} ${kdm_SOURCES})
 set_target_properties(emf4cpp-kdm PROPERTIES COMPILE_FLAGS "-DMAKE_KDM_DLL" VERSION 0.0.1 SOVERSION 1)

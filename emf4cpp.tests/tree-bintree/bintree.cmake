@@ -49,8 +49,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/bintree/BintreePackage.hpp DESTINATION
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/bintree/BinTreeNode.hpp DESTINATION include/emf4cpp/bintree)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/bintree/dllBintree.hpp DESTINATION include/emf4cpp/bintree)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-bintree SHARED ${bintree_HEADERS} ${bintree_SOURCES})
 set_target_properties(emf4cpp-bintree PROPERTIES COMPILE_FLAGS "-DMAKE_BINTREE_DLL" VERSION 0.0.1 SOVERSION 1)

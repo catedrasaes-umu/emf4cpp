@@ -45,8 +45,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicenseFactory.h
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicensePackage.hpp DESTINATION include/emf4cpp/enduserlicense)   
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/dllEnduserlicense.hpp DESTINATION include/emf4cpp/enduserlicense)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-enduserlicense SHARED ${enduserlicense_HEADERS} ${enduserlicense_SOURCES})
 set_target_properties(emf4cpp-enduserlicense PROPERTIES COMPILE_FLAGS "-DMAKE_ENDUSERLICENSE_DLL" VERSION 0.0.1 SOVERSION 1)

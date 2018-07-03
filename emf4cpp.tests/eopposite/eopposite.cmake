@@ -65,8 +65,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/eopposite/RightHand.hpp DESTINATION in
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/eopposite/RightMultiple.hpp DESTINATION include/emf4cpp/eopposite)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/eopposite/dllEopposite.hpp DESTINATION include/emf4cpp/eopposite)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-eopposite SHARED ${eopposite_HEADERS} ${eopposite_SOURCES})
 set_target_properties(emf4cpp-eopposite PROPERTIES COMPILE_FLAGS "-DMAKE_EOPPOSITE_DLL" VERSION 0.0.1 SOVERSION 1)

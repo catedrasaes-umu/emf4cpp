@@ -61,8 +61,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/CST/Node.hpp DESTINATION include/emf4c
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/CST/Leaf.hpp DESTINATION include/emf4cpp/CST)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/CST/dllCST.hpp DESTINATION include/emf4cpp/CST)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-CST SHARED ${CST_HEADERS} ${CST_SOURCES})
 set_target_properties(emf4cpp-CST PROPERTIES COMPILE_FLAGS "-DMAKE_CST_DLL" VERSION 0.0.1 SOVERSION 1)

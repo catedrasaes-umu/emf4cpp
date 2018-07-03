@@ -57,8 +57,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/Leaf.hpp DESTINATION include/emf4
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/NonTerminal.hpp DESTINATION include/emf4cpp/tree)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/tree/dllTree.hpp DESTINATION include/emf4cpp/tree)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-tree SHARED ${tree_HEADERS} ${tree_SOURCES})
 set_target_properties(emf4cpp-tree PROPERTIES COMPILE_FLAGS "-DMAKE_TREE_DLL" VERSION 0.0.1 SOVERSION 1)

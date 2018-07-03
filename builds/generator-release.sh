@@ -3,7 +3,7 @@
 EMF4CPPDIR=../..
 
 # generator-release
-VERSION=emf4cpp-generator-1.1.0-Linux-x86
+VERSION=emf4cpp-generator-2.0.0
 mkdir -p emf4cpp-release
 mkdir -p generator-release
 mkdir -p ${VERSION}

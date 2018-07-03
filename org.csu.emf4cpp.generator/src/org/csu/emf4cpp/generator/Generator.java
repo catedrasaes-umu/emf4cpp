@@ -35,7 +35,7 @@ import org.eclipse.xpand2.output.NoChangesVetoStrategy;
 import org.eclipse.xtend.expression.Variable;
 
 public class Generator {
-	private static String version = "1.1.0";
+	private static String version = "2.0.0";
     private static String templatePath = "template::Main::main";
 
     public void generate(URI fileURI, String targetDir, String prSrcPaths, String ecPath,

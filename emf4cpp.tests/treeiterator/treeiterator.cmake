@@ -53,8 +53,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/treeiterator/TreeNode.hpp DESTINATION 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/treeiterator/Leaf.hpp DESTINATION include/emf4cpp/treeiterator)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/treeiterator/dllTreeiterator.hpp DESTINATION include/emf4cpp/treeiterator)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp ../../builds/emf4cpp-generator-1.1.0-Linux-x86/include/emf4cpp)
-link_directories(../../builds/emf4cpp-generator-1.1.0-Linux-x86/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-treeiterator SHARED ${treeiterator_HEADERS} ${treeiterator_SOURCES})
 set_target_properties(emf4cpp-treeiterator PROPERTIES COMPILE_FLAGS "-DMAKE_TREEITERATOR_DLL" VERSION 0.0.1 SOVERSION 1)

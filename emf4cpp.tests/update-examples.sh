@@ -19,8 +19,8 @@ FILES="./tree-bintree/Tree.ecore
 ./edate/edate.ecore
 "
 
-EMF4CPP=../../builds/emf4cpp-generator-1.1.0-Linux-x86
-EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_1.1.0.jar
+EMF4CPP=../../builds/emf4cpp-generator-2.0.0
+EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_2.0.0.jar
 GENERATOR="java -jar $EMF4CPPJAR"
 
 
