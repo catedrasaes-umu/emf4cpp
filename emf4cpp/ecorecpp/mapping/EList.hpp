@@ -45,15 +45,15 @@ public:
     }
 
     template< typename Q >
-    inline void insert_all(EList< Q >& _q)
+    inline void insert_all(EList< Q > & _q)
     {
-        ptr_type _p(_q.asEListOf< T >());
+        ptr_type _p(_q.template asEListOf< T >());
 
         for (size_t i = 0; i < _p->size(); i++)
             push_back(_p->get(i));
     }
 
-    inline void insert_all(EList& _q)
+    inline void insert_all(EList const & _q)
     {
         for (size_t i = 0; i < _q.size(); i++)
             push_back(_q.get(i));
@@ -70,7 +70,7 @@ public:
     virtual void clear() = 0;
 
     /**
-     * Permite tratar a una EList< T > como una EList< Q >
+     * Allows treating an EList<T> as an EList<Q>
      */
     template< typename Q >
     inline typename EList< Q >::ptr_type asEListOf()
