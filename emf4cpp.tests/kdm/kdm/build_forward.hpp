@@ -44,97 +44,91 @@ namespace kdm
 
 // AbstractBuildElement
         class AbstractBuildElement;
-        using AbstractBuildElement_ptr = boost::intrusive_ptr<AbstractBuildElement>;
+        using AbstractBuildElement_ptr = ::ecore::Ptr<AbstractBuildElement>;
 
 // BuildResource
         class BuildResource;
-        using BuildResource_ptr = boost::intrusive_ptr<BuildResource>;
+        using BuildResource_ptr = ::ecore::Ptr<BuildResource>;
 
 // BuildDescription
         class BuildDescription;
-        using BuildDescription_ptr = boost::intrusive_ptr<BuildDescription>;
+        using BuildDescription_ptr = ::ecore::Ptr<BuildDescription>;
 
 // SymbolicLink
         class SymbolicLink;
-        using SymbolicLink_ptr = boost::intrusive_ptr<SymbolicLink>;
+        using SymbolicLink_ptr = ::ecore::Ptr<SymbolicLink>;
 
 // AbstractBuildRelationship
         class AbstractBuildRelationship;
-        using AbstractBuildRelationship_ptr = boost::intrusive_ptr<AbstractBuildRelationship>;
+        using AbstractBuildRelationship_ptr = ::ecore::Ptr<AbstractBuildRelationship>;
 
 // LinksTo
         class LinksTo;
-        using LinksTo_ptr = boost::intrusive_ptr<LinksTo>;
+        using LinksTo_ptr = ::ecore::Ptr<LinksTo>;
 
 // Consumes
         class Consumes;
-        using Consumes_ptr = boost::intrusive_ptr<Consumes>;
+        using Consumes_ptr = ::ecore::Ptr<Consumes>;
 
 // BuildModel
         class BuildModel;
-        using BuildModel_ptr = boost::intrusive_ptr<BuildModel>;
+        using BuildModel_ptr = ::ecore::Ptr<BuildModel>;
 
 // BuildComponent
         class BuildComponent;
-        using BuildComponent_ptr = boost::intrusive_ptr<BuildComponent>;
+        using BuildComponent_ptr = ::ecore::Ptr<BuildComponent>;
 
 // Supplier
         class Supplier;
-        using Supplier_ptr = boost::intrusive_ptr<Supplier>;
+        using Supplier_ptr = ::ecore::Ptr<Supplier>;
 
 // Tool
         class Tool;
-        using Tool_ptr = boost::intrusive_ptr<Tool>;
+        using Tool_ptr = ::ecore::Ptr<Tool>;
 
 // BuildElement
         class BuildElement;
-        using BuildElement_ptr = boost::intrusive_ptr<BuildElement>;
+        using BuildElement_ptr = ::ecore::Ptr<BuildElement>;
 
 // BuildRelationship
         class BuildRelationship;
-        using BuildRelationship_ptr = boost::intrusive_ptr<BuildRelationship>;
+        using BuildRelationship_ptr = ::ecore::Ptr<BuildRelationship>;
 
 // SuppliedBy
         class SuppliedBy;
-        using SuppliedBy_ptr = boost::intrusive_ptr<SuppliedBy>;
+        using SuppliedBy_ptr = ::ecore::Ptr<SuppliedBy>;
 
 // Library
         class Library;
-        using Library_ptr = boost::intrusive_ptr<Library>;
+        using Library_ptr = ::ecore::Ptr<Library>;
 
 // BuildStep
         class BuildStep;
-        using BuildStep_ptr = boost::intrusive_ptr<BuildStep>;
+        using BuildStep_ptr = ::ecore::Ptr<BuildStep>;
 
 // Produces
         class Produces;
-        using Produces_ptr = boost::intrusive_ptr<Produces>;
+        using Produces_ptr = ::ecore::Ptr<Produces>;
 
 // SupportedBy
         class SupportedBy;
-        using SupportedBy_ptr = boost::intrusive_ptr<SupportedBy>;
+        using SupportedBy_ptr = ::ecore::Ptr<SupportedBy>;
 
 // BuildProduct
         class BuildProduct;
-        using BuildProduct_ptr = boost::intrusive_ptr<BuildProduct>;
+        using BuildProduct_ptr = ::ecore::Ptr<BuildProduct>;
 
 // DescribedBy
         class DescribedBy;
-        using DescribedBy_ptr = boost::intrusive_ptr<DescribedBy>;
+        using DescribedBy_ptr = ::ecore::Ptr<DescribedBy>;
 
 // EEnum
 
 // Package & Factory
         class BuildFactory;
-        using BuildFactory_ptr = boost::intrusive_ptr<BuildFactory>;
+        using BuildFactory_ptr = ::ecore::Ptr<BuildFactory>;
         class BuildPackage;
-        using BuildPackage_ptr = boost::intrusive_ptr<BuildPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using BuildPackage_ptr = ::ecore::Ptr<BuildPackage>;
 
     } // build
 } // kdm

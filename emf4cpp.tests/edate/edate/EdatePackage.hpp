@@ -73,7 +73,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< EdatePackage > s_instance;
+    static ::ecore::Ptr< EdatePackage > s_instance;
 
     EdatePackage();
     void _initPackage();

@@ -46,7 +46,7 @@ namespace company
 
     protected:
 
-        static boost::intrusive_ptr< CompanyFactory > s_holder;
+        static ::ecore::Ptr< CompanyFactory > s_holder;
 
         CompanyFactory();
 
@@ -58,9 +58,9 @@ namespace company
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline Employee_ptr create< Employee >()

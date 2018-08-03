@@ -101,7 +101,7 @@ void UnionDef::_initialize()
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
         if (m_definedIn)
-            _any = m_definedIn->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_definedIn);
     }
         return _any;
     case ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS:
@@ -112,13 +112,13 @@ void UnionDef::_initialize()
     case ::idlmm::IdlmmPackage::UNIONDEF__CONTAINEDDISCRIM:
     {
         if (m_containedDiscrim)
-            _any = m_containedDiscrim->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_containedDiscrim);
     }
         return _any;
     case ::idlmm::IdlmmPackage::UNIONDEF__SHAREDDISCRIM:
     {
         if (m_sharedDiscrim)
-            _any = m_sharedDiscrim->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_sharedDiscrim);
     }
         return _any;
 

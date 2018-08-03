@@ -42,33 +42,27 @@ namespace company
 
 // Employee
     class Employee;
-    using Employee_ptr = boost::intrusive_ptr<Employee>;
+    using Employee_ptr = ::ecore::Ptr<Employee>;
 
 // Department
     class Department;
-    using Department_ptr = boost::intrusive_ptr<Department>;
+    using Department_ptr = ::ecore::Ptr<Department>;
 
 // Company
     class Company;
-    using Company_ptr = boost::intrusive_ptr<Company>;
+    using Company_ptr = ::ecore::Ptr<Company>;
 
 // PhonebookEntry
     class PhonebookEntry;
-    using PhonebookEntry_ptr = boost::intrusive_ptr<PhonebookEntry>;
+    using PhonebookEntry_ptr = ::ecore::Ptr<PhonebookEntry>;
 
 // EEnum
 
 // Package & Factory
     class CompanyFactory;
-    using CompanyFactory_ptr = boost::intrusive_ptr<CompanyFactory>;
+    using CompanyFactory_ptr = ::ecore::Ptr<CompanyFactory>;
     class CompanyPackage;
-    using CompanyPackage_ptr = boost::intrusive_ptr<CompanyPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using CompanyPackage_ptr = ::ecore::Ptr<CompanyPackage>;
 
 } // company
 

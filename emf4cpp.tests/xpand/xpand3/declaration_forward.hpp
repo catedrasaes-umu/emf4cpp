@@ -44,57 +44,51 @@ namespace xpand3
 
 // AbstractDeclaration
         class AbstractDeclaration;
-        using AbstractDeclaration_ptr = boost::intrusive_ptr<AbstractDeclaration>;
+        using AbstractDeclaration_ptr = ::ecore::Ptr<AbstractDeclaration>;
 
 // AbstractNamedDeclaration
         class AbstractNamedDeclaration;
-        using AbstractNamedDeclaration_ptr = boost::intrusive_ptr<AbstractNamedDeclaration>;
+        using AbstractNamedDeclaration_ptr = ::ecore::Ptr<AbstractNamedDeclaration>;
 
 // Definition
         class Definition;
-        using Definition_ptr = boost::intrusive_ptr<Definition>;
+        using Definition_ptr = ::ecore::Ptr<Definition>;
 
 // Extension
         class Extension;
-        using Extension_ptr = boost::intrusive_ptr<Extension>;
+        using Extension_ptr = ::ecore::Ptr<Extension>;
 
 // AbstractAspect
         class AbstractAspect;
-        using AbstractAspect_ptr = boost::intrusive_ptr<AbstractAspect>;
+        using AbstractAspect_ptr = ::ecore::Ptr<AbstractAspect>;
 
 // ExtensionAspect
         class ExtensionAspect;
-        using ExtensionAspect_ptr = boost::intrusive_ptr<ExtensionAspect>;
+        using ExtensionAspect_ptr = ::ecore::Ptr<ExtensionAspect>;
 
 // DefinitionAspect
         class DefinitionAspect;
-        using DefinitionAspect_ptr = boost::intrusive_ptr<DefinitionAspect>;
+        using DefinitionAspect_ptr = ::ecore::Ptr<DefinitionAspect>;
 
 // Check
         class Check;
-        using Check_ptr = boost::intrusive_ptr<Check>;
+        using Check_ptr = ::ecore::Ptr<Check>;
 
 // CreateExtension
         class CreateExtension;
-        using CreateExtension_ptr = boost::intrusive_ptr<CreateExtension>;
+        using CreateExtension_ptr = ::ecore::Ptr<CreateExtension>;
 
 // JavaExtension
         class JavaExtension;
-        using JavaExtension_ptr = boost::intrusive_ptr<JavaExtension>;
+        using JavaExtension_ptr = ::ecore::Ptr<JavaExtension>;
 
 // EEnum
 
 // Package & Factory
         class DeclarationFactory;
-        using DeclarationFactory_ptr = boost::intrusive_ptr<DeclarationFactory>;
+        using DeclarationFactory_ptr = ::ecore::Ptr<DeclarationFactory>;
         class DeclarationPackage;
-        using DeclarationPackage_ptr = boost::intrusive_ptr<DeclarationPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using DeclarationPackage_ptr = ::ecore::Ptr<DeclarationPackage>;
 
     } // declaration
 } // xpand3

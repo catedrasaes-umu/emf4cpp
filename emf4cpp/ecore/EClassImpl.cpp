@@ -60,9 +60,9 @@ void EClass::_init_collections()
     for (size_t i = 0; i < m_eStructuralFeatures->size(); i++)
     {
         ::ecore::EStructuralFeature_ptr _esf = (*m_eStructuralFeatures)[i];
-        ::ecore::EAttribute_ptr _at = ::ecore::instanceOf < ::ecore::EAttribute
+        ::ecore::EAttribute_ptr _at = ::ecore::as < ::ecore::EAttribute
                 > (_esf);
-        ::ecore::EReference_ptr _ref = ::ecore::instanceOf < ::ecore::EReference
+        ::ecore::EReference_ptr _ref = ::ecore::as < ::ecore::EReference
                 > (_esf);
 
         if (_at)
@@ -102,10 +102,10 @@ void EClass::_init_collections()
 
         for (size_t j = 0; j < _s.size(); j++)
         {
-            ::ecore::EAttribute_ptr _at = ::ecore::instanceOf
-                    < ::ecore::EAttribute > (_s[j]);
-            ::ecore::EReference_ptr _ref = ::ecore::instanceOf
-                    < ::ecore::EReference > (_s[j]);
+            ::ecore::EAttribute_ptr _at = ::ecore::as < ::ecore::EAttribute
+                    > (_s[j]);
+            ::ecore::EReference_ptr _ref = ::ecore::as < ::ecore::EReference
+                    > (_s[j]);
 
             if (_at)
                 m_eAllAttributes->push_back(_at);
@@ -311,7 +311,7 @@ void EClass::_initialize()
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
     {
         if (m_ePackage)
-            _any = m_ePackage->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_ePackage);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:

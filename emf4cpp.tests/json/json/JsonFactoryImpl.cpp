@@ -86,34 +86,34 @@ JsonFactory::JsonFactory()
 
 ObjectValue_ptr JsonFactory::createObjectValue()
 {
-    return boost::intrusive_ptr < ObjectValue > (new ObjectValue);
+    return ::ecore::Ptr < ObjectValue > (new ObjectValue);
 }
 NVPair_ptr JsonFactory::createNVPair()
 {
-    return boost::intrusive_ptr < NVPair > (new NVPair);
+    return ::ecore::Ptr < NVPair > (new NVPair);
 }
 Value_ptr JsonFactory::createValue()
 {
-    return boost::intrusive_ptr < Value > (new Value);
+    return ::ecore::Ptr < Value > (new Value);
 }
 StringValue_ptr JsonFactory::createStringValue()
 {
-    return boost::intrusive_ptr < StringValue > (new StringValue);
+    return ::ecore::Ptr < StringValue > (new StringValue);
 }
 NumberValue_ptr JsonFactory::createNumberValue()
 {
-    return boost::intrusive_ptr < NumberValue > (new NumberValue);
+    return ::ecore::Ptr < NumberValue > (new NumberValue);
 }
 BooleanValue_ptr JsonFactory::createBooleanValue()
 {
-    return boost::intrusive_ptr < BooleanValue > (new BooleanValue);
+    return ::ecore::Ptr < BooleanValue > (new BooleanValue);
 }
 ArrayValue_ptr JsonFactory::createArrayValue()
 {
-    return boost::intrusive_ptr < ArrayValue > (new ArrayValue);
+    return ::ecore::Ptr < ArrayValue > (new ArrayValue);
 }
 NullValue_ptr JsonFactory::createNullValue()
 {
-    return boost::intrusive_ptr < NullValue > (new NullValue);
+    return ::ecore::Ptr < NullValue > (new NullValue);
 }
 

@@ -22,13 +22,12 @@
 
 using namespace ::company;
 
-boost::intrusive_ptr< ::company::CompanyFactory > CompanyFactory::s_holder;
+::ecore::Ptr< ::company::CompanyFactory > CompanyFactory::s_holder;
 
 ::company::CompanyFactory_ptr CompanyFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < CompanyFactory
-                > (new CompanyFactory());
+        s_holder = ::ecore::Ptr < CompanyFactory > (new CompanyFactory());
 
     return s_holder;
 }

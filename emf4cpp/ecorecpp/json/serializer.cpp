@@ -78,7 +78,7 @@ serializer::serialize_node(EObject_ptr obj)
 
             if (!current_at->isTransient() && obj->eIsSet(current_at))
             {
-                EDataType_ptr atc = at_classifier->as< EDataType > ();
+                EDataType_ptr atc = ::ecore::as< EDataType >(at_classifier);
                 if (atc)
                 {
                     EFactory_ptr fac =
@@ -277,7 +277,7 @@ serializer::get_reference(EObject_ptr from, EObject_ptr to) const
         antecessor = to_antecessors.back()->eContainer();
     }
 
-    EPackage_ptr pkg = instanceOf< EPackage > (to_antecessors.back());
+    EPackage_ptr pkg = ::ecore::as< EPackage > (to_antecessors.back());
     if (pkg)
     {
         if (m_root_obj != pkg)
@@ -291,7 +291,7 @@ serializer::get_reference(EObject_ptr from, EObject_ptr to) const
         while (to_antecessors.size())
         {
             value << "/"
-                    << to_antecessors.back()->as< ENamedElement > ()->getName();
+                    << ::ecore::as< ENamedElement >(to_antecessors.back())->getName();
             to_antecessors.pop_back();
         }
     }

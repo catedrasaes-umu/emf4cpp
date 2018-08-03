@@ -22,7 +22,7 @@
 
 using namespace ::kdm::action;
 
-boost::intrusive_ptr< ::kdm::action::ActionPackage > ActionPackage::s_instance;
+::ecore::Ptr< ::kdm::action::ActionPackage > ActionPackage::s_instance;
 
 ::kdm::action::ActionPackage_ptr ActionPackage::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::kdm::action::ActionPackage > ActionPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< ActionPackage >();
+            return ::ecore::Ptr< ActionPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < ActionPackage
-                > (new ActionPackage());
+        s_instance = ::ecore::Ptr < ActionPackage > (new ActionPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

@@ -67,7 +67,7 @@ void RightHand::_initialize()
     case ::eopposite::EoppositePackage::RIGHTHAND__LEFTEE:
     {
         if (m_leftee)
-            _any = m_leftee->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_leftee);
     }
         return _any;
 

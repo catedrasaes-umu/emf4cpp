@@ -91,13 +91,13 @@ void Case::_initialize()
     case ::xpand3::expression::ExpressionPackage::CASE__CONDITION:
     {
         if (m_condition)
-            _any = m_condition->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_condition);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::CASE__THENPART:
     {
         if (m_thenPart)
-            _any = m_thenPart->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_thenPart);
     }
         return _any;
 

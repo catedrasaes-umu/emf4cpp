@@ -22,13 +22,12 @@
 
 using namespace ::bintree;
 
-boost::intrusive_ptr< ::bintree::BintreeFactory > BintreeFactory::s_holder;
+::ecore::Ptr< ::bintree::BintreeFactory > BintreeFactory::s_holder;
 
 ::bintree::BintreeFactory_ptr BintreeFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < BintreeFactory
-                > (new BintreeFactory());
+        s_holder = ::ecore::Ptr < BintreeFactory > (new BintreeFactory());
 
     return s_holder;
 }

@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     ::ecorecpp::serializer::serializer ser(outfile);
     ser.serialize(_epkg);
 
-    TreeFactory_ptr _efac = _epkg->getEFactoryInstance()->as< TreeFactory > ();
+    TreeFactory_ptr _efac = ::ecore::as< TreeFactory >(_epkg->getEFactoryInstance());
 
     ::ecorecpp::MetaModelRepository::_instance()->load(_epkg);
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 
         assert(_eobj);
 
-        TreeNode_ptr _node = ::tree::instanceOf< TreeNode >(_eobj);
+        TreeNode_ptr _node = ::ecore::as< TreeNode >(_eobj);
 
         assert(_node);
 

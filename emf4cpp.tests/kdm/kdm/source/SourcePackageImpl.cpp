@@ -48,47 +48,47 @@ SourcePackage::SourcePackage()
 {
 
     // Feature definitions of SourceRef
-    m_SourceRef__language = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRef__language = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRef__snippet = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRef__snippet = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRef__region = boost::intrusive_ptr < ::ecore::EReference
+    m_SourceRef__region = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of SourceRegion
-    m_SourceRegion__startLine = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRegion__startLine = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRegion__startPosition = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRegion__startPosition = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRegion__endLine = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRegion__endLine = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRegion__endPosition = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRegion__endPosition = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRegion__language = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRegion__language = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRegion__path = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceRegion__path = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceRegion__file = boost::intrusive_ptr < ::ecore::EReference
+    m_SourceRegion__file = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of InventoryModel
-    m_InventoryModel__inventoryElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_InventoryModel__inventoryElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of AbstractInventoryElement
-    m_AbstractInventoryElement__inventoryRelation = boost::intrusive_ptr
+    m_AbstractInventoryElement__inventoryRelation = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of InventoryItem
-    m_InventoryItem__version = boost::intrusive_ptr < ::ecore::EAttribute
+    m_InventoryItem__version = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_InventoryItem__path = boost::intrusive_ptr < ::ecore::EAttribute
+    m_InventoryItem__path = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of SourceFile
-    m_SourceFile__language = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceFile__language = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SourceFile__encoding = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SourceFile__encoding = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Image
@@ -98,11 +98,11 @@ SourcePackage::SourcePackage()
     // Feature definitions of Configuration
 
     // Feature definitions of InventoryContainer
-    m_InventoryContainer__inventoryElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_InventoryContainer__inventoryElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Directory
-    m_Directory__path = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Directory__path = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Project
@@ -114,17 +114,17 @@ SourcePackage::SourcePackage()
     // Feature definitions of ExecutableFile
 
     // Feature definitions of DependsOn
-    m_DependsOn__to = boost::intrusive_ptr < ::ecore::EReference
+    m_DependsOn__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_DependsOn__from = boost::intrusive_ptr < ::ecore::EReference
+    m_DependsOn__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of InventoryElement
 
     // Feature definitions of InventoryRelationship
-    m_InventoryRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_InventoryRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_InventoryRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_InventoryRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -139,8 +139,7 @@ void SourcePackage::_initPackage()
     // Create classes and their features
 
     // SourceRef
-    m_SourceRefEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SourceRefEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SourceRefEClass->setClassifierID(SOURCEREF);
     m_SourceRefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SourceRefEClass);
@@ -159,7 +158,7 @@ void SourcePackage::_initPackage()
     m_SourceRefEClass->getEStructuralFeatures().push_back(m_SourceRef__region);
 
     // SourceRegion
-    m_SourceRegionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_SourceRegionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_SourceRegionEClass->setClassifierID(SOURCEREGION);
     m_SourceRegionEClass->setEPackage(_this());
@@ -201,7 +200,7 @@ void SourcePackage::_initPackage()
             m_SourceRegion__file);
 
     // InventoryModel
-    m_InventoryModelEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_InventoryModelEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_InventoryModelEClass->setClassifierID(INVENTORYMODEL);
     m_InventoryModelEClass->setEPackage(_this());
@@ -213,7 +212,7 @@ void SourcePackage::_initPackage()
             m_InventoryModel__inventoryElement);
 
     // AbstractInventoryElement
-    m_AbstractInventoryElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractInventoryElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractInventoryElementEClass->setClassifierID(ABSTRACTINVENTORYELEMENT);
     m_AbstractInventoryElementEClass->setEPackage(_this());
@@ -225,7 +224,7 @@ void SourcePackage::_initPackage()
             m_AbstractInventoryElement__inventoryRelation);
 
     // InventoryItem
-    m_InventoryItemEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_InventoryItemEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_InventoryItemEClass->setClassifierID(INVENTORYITEM);
     m_InventoryItemEClass->setEPackage(_this());
@@ -242,8 +241,7 @@ void SourcePackage::_initPackage()
             m_InventoryItem__path);
 
     // SourceFile
-    m_SourceFileEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SourceFileEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SourceFileEClass->setClassifierID(SOURCEFILE);
     m_SourceFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SourceFileEClass);
@@ -259,28 +257,27 @@ void SourcePackage::_initPackage()
             m_SourceFile__encoding);
 
     // Image
-    m_ImageEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ImageEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ImageEClass->setClassifierID(IMAGE);
     m_ImageEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImageEClass);
 
     // ResourceDescription
-    m_ResourceDescriptionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ResourceDescriptionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ResourceDescriptionEClass->setClassifierID(RESOURCEDESCRIPTION);
     m_ResourceDescriptionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ResourceDescriptionEClass);
 
     // Configuration
-    m_ConfigurationEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConfigurationEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConfigurationEClass->setClassifierID(CONFIGURATION);
     m_ConfigurationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConfigurationEClass);
 
     // InventoryContainer
-    m_InventoryContainerEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_InventoryContainerEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_InventoryContainerEClass->setClassifierID(INVENTORYCONTAINER);
     m_InventoryContainerEClass->setEPackage(_this());
@@ -292,8 +289,7 @@ void SourcePackage::_initPackage()
             m_InventoryContainer__inventoryElement);
 
     // Directory
-    m_DirectoryEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DirectoryEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DirectoryEClass->setClassifierID(DIRECTORY);
     m_DirectoryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DirectoryEClass);
@@ -303,37 +299,34 @@ void SourcePackage::_initPackage()
     m_DirectoryEClass->getEStructuralFeatures().push_back(m_Directory__path);
 
     // Project
-    m_ProjectEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ProjectEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ProjectEClass->setClassifierID(PROJECT);
     m_ProjectEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ProjectEClass);
 
     // AbstractInventoryRelationship
-    m_AbstractInventoryRelationshipEClass = boost::intrusive_ptr
-            < ::ecore::EClass > (new ::ecore::EClass);
+    m_AbstractInventoryRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractInventoryRelationshipEClass->setClassifierID(
             ABSTRACTINVENTORYRELATIONSHIP);
     m_AbstractInventoryRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractInventoryRelationshipEClass);
 
     // BinaryFile
-    m_BinaryFileEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_BinaryFileEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_BinaryFileEClass->setClassifierID(BINARYFILE);
     m_BinaryFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BinaryFileEClass);
 
     // ExecutableFile
-    m_ExecutableFileEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExecutableFileEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExecutableFileEClass->setClassifierID(EXECUTABLEFILE);
     m_ExecutableFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExecutableFileEClass);
 
     // DependsOn
-    m_DependsOnEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DependsOnEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DependsOnEClass->setClassifierID(DEPENDSON);
     m_DependsOnEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DependsOnEClass);
@@ -346,14 +339,14 @@ void SourcePackage::_initPackage()
     m_DependsOnEClass->getEStructuralFeatures().push_back(m_DependsOn__from);
 
     // InventoryElement
-    m_InventoryElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_InventoryElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_InventoryElementEClass->setClassifierID(INVENTORYELEMENT);
     m_InventoryElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InventoryElementEClass);
 
     // InventoryRelationship
-    m_InventoryRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_InventoryRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_InventoryRelationshipEClass->setClassifierID(INVENTORYRELATIONSHIP);
     m_InventoryRelationshipEClass->setEPackage(_this());

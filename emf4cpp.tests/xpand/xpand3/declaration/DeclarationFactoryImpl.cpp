@@ -93,44 +93,43 @@ DeclarationFactory::DeclarationFactory()
 
 AbstractDeclaration_ptr DeclarationFactory::createAbstractDeclaration()
 {
-    return boost::intrusive_ptr < AbstractDeclaration
-            > (new AbstractDeclaration);
+    return ::ecore::Ptr < AbstractDeclaration > (new AbstractDeclaration);
 }
 AbstractNamedDeclaration_ptr DeclarationFactory::createAbstractNamedDeclaration()
 {
-    return boost::intrusive_ptr < AbstractNamedDeclaration
+    return ::ecore::Ptr < AbstractNamedDeclaration
             > (new AbstractNamedDeclaration);
 }
 Definition_ptr DeclarationFactory::createDefinition()
 {
-    return boost::intrusive_ptr < Definition > (new Definition);
+    return ::ecore::Ptr < Definition > (new Definition);
 }
 Extension_ptr DeclarationFactory::createExtension()
 {
-    return boost::intrusive_ptr < Extension > (new Extension);
+    return ::ecore::Ptr < Extension > (new Extension);
 }
 AbstractAspect_ptr DeclarationFactory::createAbstractAspect()
 {
-    return boost::intrusive_ptr < AbstractAspect > (new AbstractAspect);
+    return ::ecore::Ptr < AbstractAspect > (new AbstractAspect);
 }
 ExtensionAspect_ptr DeclarationFactory::createExtensionAspect()
 {
-    return boost::intrusive_ptr < ExtensionAspect > (new ExtensionAspect);
+    return ::ecore::Ptr < ExtensionAspect > (new ExtensionAspect);
 }
 DefinitionAspect_ptr DeclarationFactory::createDefinitionAspect()
 {
-    return boost::intrusive_ptr < DefinitionAspect > (new DefinitionAspect);
+    return ::ecore::Ptr < DefinitionAspect > (new DefinitionAspect);
 }
 Check_ptr DeclarationFactory::createCheck()
 {
-    return boost::intrusive_ptr < Check > (new Check);
+    return ::ecore::Ptr < Check > (new Check);
 }
 CreateExtension_ptr DeclarationFactory::createCreateExtension()
 {
-    return boost::intrusive_ptr < CreateExtension > (new CreateExtension);
+    return ::ecore::Ptr < CreateExtension > (new CreateExtension);
 }
 JavaExtension_ptr DeclarationFactory::createJavaExtension()
 {
-    return boost::intrusive_ptr < JavaExtension > (new JavaExtension);
+    return ::ecore::Ptr < JavaExtension > (new JavaExtension);
 }
 

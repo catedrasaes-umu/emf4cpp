@@ -73,7 +73,7 @@ void SourceRegion::_initialize()
     case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
     {
         if (m_file)
-            _any = m_file->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_file);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:

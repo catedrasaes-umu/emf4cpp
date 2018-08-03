@@ -117,78 +117,76 @@ SourceFactory::SourceFactory()
 
 SourceRef_ptr SourceFactory::createSourceRef()
 {
-    return boost::intrusive_ptr < SourceRef > (new SourceRef);
+    return ::ecore::Ptr < SourceRef > (new SourceRef);
 }
 SourceRegion_ptr SourceFactory::createSourceRegion()
 {
-    return boost::intrusive_ptr < SourceRegion > (new SourceRegion);
+    return ::ecore::Ptr < SourceRegion > (new SourceRegion);
 }
 InventoryModel_ptr SourceFactory::createInventoryModel()
 {
-    return boost::intrusive_ptr < InventoryModel > (new InventoryModel);
+    return ::ecore::Ptr < InventoryModel > (new InventoryModel);
 }
 AbstractInventoryElement_ptr SourceFactory::createAbstractInventoryElement()
 {
-    return boost::intrusive_ptr < AbstractInventoryElement
+    return ::ecore::Ptr < AbstractInventoryElement
             > (new AbstractInventoryElement);
 }
 InventoryItem_ptr SourceFactory::createInventoryItem()
 {
-    return boost::intrusive_ptr < InventoryItem > (new InventoryItem);
+    return ::ecore::Ptr < InventoryItem > (new InventoryItem);
 }
 SourceFile_ptr SourceFactory::createSourceFile()
 {
-    return boost::intrusive_ptr < SourceFile > (new SourceFile);
+    return ::ecore::Ptr < SourceFile > (new SourceFile);
 }
 Image_ptr SourceFactory::createImage()
 {
-    return boost::intrusive_ptr < Image > (new Image);
+    return ::ecore::Ptr < Image > (new Image);
 }
 ResourceDescription_ptr SourceFactory::createResourceDescription()
 {
-    return boost::intrusive_ptr < ResourceDescription
-            > (new ResourceDescription);
+    return ::ecore::Ptr < ResourceDescription > (new ResourceDescription);
 }
 Configuration_ptr SourceFactory::createConfiguration()
 {
-    return boost::intrusive_ptr < Configuration > (new Configuration);
+    return ::ecore::Ptr < Configuration > (new Configuration);
 }
 InventoryContainer_ptr SourceFactory::createInventoryContainer()
 {
-    return boost::intrusive_ptr < InventoryContainer > (new InventoryContainer);
+    return ::ecore::Ptr < InventoryContainer > (new InventoryContainer);
 }
 Directory_ptr SourceFactory::createDirectory()
 {
-    return boost::intrusive_ptr < Directory > (new Directory);
+    return ::ecore::Ptr < Directory > (new Directory);
 }
 Project_ptr SourceFactory::createProject()
 {
-    return boost::intrusive_ptr < Project > (new Project);
+    return ::ecore::Ptr < Project > (new Project);
 }
 AbstractInventoryRelationship_ptr SourceFactory::createAbstractInventoryRelationship()
 {
-    return boost::intrusive_ptr < AbstractInventoryRelationship
+    return ::ecore::Ptr < AbstractInventoryRelationship
             > (new AbstractInventoryRelationship);
 }
 BinaryFile_ptr SourceFactory::createBinaryFile()
 {
-    return boost::intrusive_ptr < BinaryFile > (new BinaryFile);
+    return ::ecore::Ptr < BinaryFile > (new BinaryFile);
 }
 ExecutableFile_ptr SourceFactory::createExecutableFile()
 {
-    return boost::intrusive_ptr < ExecutableFile > (new ExecutableFile);
+    return ::ecore::Ptr < ExecutableFile > (new ExecutableFile);
 }
 DependsOn_ptr SourceFactory::createDependsOn()
 {
-    return boost::intrusive_ptr < DependsOn > (new DependsOn);
+    return ::ecore::Ptr < DependsOn > (new DependsOn);
 }
 InventoryElement_ptr SourceFactory::createInventoryElement()
 {
-    return boost::intrusive_ptr < InventoryElement > (new InventoryElement);
+    return ::ecore::Ptr < InventoryElement > (new InventoryElement);
 }
 InventoryRelationship_ptr SourceFactory::createInventoryRelationship()
 {
-    return boost::intrusive_ptr < InventoryRelationship
-            > (new InventoryRelationship);
+    return ::ecore::Ptr < InventoryRelationship > (new InventoryRelationship);
 }
 

@@ -46,7 +46,7 @@ namespace ResourceTests
 
     protected:
 
-        static boost::intrusive_ptr< ResourceTestsFactory > s_holder;
+        static ::ecore::Ptr< ResourceTestsFactory > s_holder;
 
         ResourceTestsFactory();
 
@@ -58,9 +58,9 @@ namespace ResourceTests
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline Root_ptr create< Root >()

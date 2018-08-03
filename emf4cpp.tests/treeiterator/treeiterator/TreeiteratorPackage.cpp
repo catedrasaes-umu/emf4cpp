@@ -22,7 +22,7 @@
 
 using namespace ::treeiterator;
 
-boost::intrusive_ptr< ::treeiterator::TreeiteratorPackage > TreeiteratorPackage::s_instance;
+::ecore::Ptr< ::treeiterator::TreeiteratorPackage > TreeiteratorPackage::s_instance;
 
 ::treeiterator::TreeiteratorPackage_ptr TreeiteratorPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::treeiterator::TreeiteratorPackage > TreeiteratorPackage:
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< TreeiteratorPackage >();
+            return ::ecore::Ptr< TreeiteratorPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < TreeiteratorPackage
+        s_instance = ::ecore::Ptr < TreeiteratorPackage
                 > (new TreeiteratorPackage());
         s_instance->_initPackage();
         duringConstruction = false;

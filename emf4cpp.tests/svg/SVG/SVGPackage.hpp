@@ -1137,7 +1137,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< SVGPackage > s_instance;
+    static ::ecore::Ptr< SVGPackage > s_instance;
 
     SVGPackage();
     void _initPackage();

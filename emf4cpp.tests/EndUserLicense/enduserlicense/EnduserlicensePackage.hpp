@@ -45,7 +45,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< EnduserlicensePackage > s_instance;
+    static ::ecore::Ptr< EnduserlicensePackage > s_instance;
 
     EnduserlicensePackage();
     void _initPackage();

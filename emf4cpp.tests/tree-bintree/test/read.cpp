@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
         std::cout << "Parsing duration: " << duration.count() << "us" << std::endl;
 
         assert(_eobj);
-        TreeNode_ptr _node = ::tree::instanceOf< TreeNode >(_eobj);
+        TreeNode_ptr _node = ::ecore::as< TreeNode >(_eobj);
 
         tStart = std::chrono::high_resolution_clock::now();
 

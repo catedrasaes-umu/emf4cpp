@@ -74,7 +74,7 @@ void SvgFile::_initialize()
     case ::SVG::SVGPackage::SVGFILE__TAG:
     {
         if (m_tag)
-            _any = m_tag->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_tag);
     }
         return _any;
     case ::SVG::SVGPackage::SVGFILE__ELEMENTS:

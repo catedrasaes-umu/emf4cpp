@@ -86,9 +86,41 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <«subpkg.getFQN("/")»_forward.hpp>
 «ENDFOREACH»
 
+«IF (boolean) GLOBALVAR bootstrap == false -»
 #include <ecore_forward.hpp> // for EDataTypes
+«ENDIF-»
 
 «EXPAND template::EClassHPP::namespaces_begin FOR this»
+
+«IF (boolean) GLOBALVAR bootstrap == true -»
+/** The default pointer type used by the generated EMF implementation. */
+template<class T>
+using Ptr = boost::intrusive_ptr<T>;
+
+/* A helper function to create objects and wrap them in the default pointer type. */
+template<class T, class... Args>
+Ptr<T> make(Args&&... args) {
+	return Ptr<T>(new T(args...));
+}
+
+template< typename T, typename S >
+inline T* as(S* _s)
+{
+    return dynamic_cast< T* >(_s);
+}
+
+template< typename T, typename S >
+inline Ptr< T > as(const Ptr<S>& _s)
+{
+    return Ptr< T > (dynamic_cast< T* >(_s.get()));
+}
+
+template<typename T, typename S>
+inline bool instanceOf(const Ptr<S>& _s)
+{
+    return (bool)dynamic_cast<T*>(_s.get());
+}
+«ENDIF-»
 
 // EDataType
 «FOREACH EClassifiers.typeSelect(EDataType).select(e|e.ETypeParameters.isEmpty && !EEnum.isInstance(e)) AS type-»
@@ -103,7 +135,7 @@ typedef «getEDataTypeMap(type)» «type.name»;
 «FOREACH EClassifiers.typeSelect(EClass) AS class»
 // «class.name»
 class «class.name»;
-using «class.name»_ptr = boost::intrusive_ptr<«class.name»>;
+using «class.name»_ptr = ::ecore::Ptr<«class.name»>;
 «ENDFOREACH»
 
 // EEnum
@@ -114,15 +146,9 @@ enum class «enum.name»;
 
 // Package & Factory
 class «getFactoryName()»;
-using «getFactoryName()»_ptr = boost::intrusive_ptr<«getFactoryName()»>;
+using «getFactoryName()»_ptr = ::ecore::Ptr<«getFactoryName()»>;
 class «getPackageName()»;
-using «getPackageName()»_ptr = boost::intrusive_ptr<«getPackageName()»>;
-
-template<typename T, typename S>
-inline boost::intrusive_ptr<T> instanceOf(const S& _s)
-{
-    return boost::intrusive_ptr<T>(dynamic_cast<T*>(_s.get()));
-}
+using «getPackageName()»_ptr = ::ecore::Ptr<«getPackageName()»>;
 
 «EXPAND template::EClassHPP::namespaces_end FOR this»
 

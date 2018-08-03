@@ -57,49 +57,49 @@ ActionPackage::ActionPackage()
 {
 
     // Feature definitions of ActionElement
-    m_ActionElement__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ActionElement__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ActionElement__codeElement = boost::intrusive_ptr < ::ecore::EReference
+    m_ActionElement__codeElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ActionElement__actionRelation = boost::intrusive_ptr < ::ecore::EReference
+    m_ActionElement__actionRelation = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of AbstractActionRelationship
 
     // Feature definitions of ControlFlow
-    m_ControlFlow__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ControlFlow__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ControlFlow__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ControlFlow__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Calls
-    m_Calls__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Calls__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Calls__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Calls__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Creates
-    m_Creates__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Creates__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Creates__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Creates__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Reads
-    m_Reads__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Reads__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Reads__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Reads__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Writes
-    m_Writes__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Writes__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Writes__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Writes__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of CompliesTo
-    m_CompliesTo__to = boost::intrusive_ptr < ::ecore::EReference
+    m_CompliesTo__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_CompliesTo__from = boost::intrusive_ptr < ::ecore::EReference
+    m_CompliesTo__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Flow
@@ -111,39 +111,39 @@ ActionPackage::ActionPackage()
     // Feature definitions of GuardedFlow
 
     // Feature definitions of UsesType
-    m_UsesType__to = boost::intrusive_ptr < ::ecore::EReference
+    m_UsesType__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_UsesType__from = boost::intrusive_ptr < ::ecore::EReference
+    m_UsesType__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Addresses
-    m_Addresses__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Addresses__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Addresses__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Addresses__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ActionRelationship
-    m_ActionRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ActionRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ActionRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ActionRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Throws
-    m_Throws__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Throws__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Throws__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Throws__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Dispatches
-    m_Dispatches__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Dispatches__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Dispatches__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Dispatches__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of EntryFlow
-    m_EntryFlow__to = boost::intrusive_ptr < ::ecore::EReference
+    m_EntryFlow__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_EntryFlow__from = boost::intrusive_ptr < ::ecore::EReference
+    m_EntryFlow__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of BlockUnit
@@ -157,15 +157,15 @@ ActionPackage::ActionPackage()
     // Feature definitions of CatchUnit
 
     // Feature definitions of ExitFlow
-    m_ExitFlow__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ExitFlow__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ExitFlow__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ExitFlow__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ExceptionFlow
-    m_ExceptionFlow__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ExceptionFlow__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ExceptionFlow__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ExceptionFlow__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -180,7 +180,7 @@ void ActionPackage::_initPackage()
     // Create classes and their features
 
     // ActionElement
-    m_ActionElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ActionElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ActionElementEClass->setClassifierID(ACTIONELEMENT);
     m_ActionElementEClass->setEPackage(_this());
@@ -202,7 +202,7 @@ void ActionPackage::_initPackage()
             m_ActionElement__actionRelation);
 
     // AbstractActionRelationship
-    m_AbstractActionRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractActionRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractActionRelationshipEClass->setClassifierID(
             ABSTRACTACTIONRELATIONSHIP);
@@ -210,7 +210,7 @@ void ActionPackage::_initPackage()
     getEClassifiers().push_back(m_AbstractActionRelationshipEClass);
 
     // ControlFlow
-    m_ControlFlowEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ControlFlowEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ControlFlowEClass->setClassifierID(CONTROLFLOW);
     m_ControlFlowEClass->setEPackage(_this());
@@ -226,8 +226,7 @@ void ActionPackage::_initPackage()
             m_ControlFlow__from);
 
     // Calls
-    m_CallsEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CallsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CallsEClass->setClassifierID(CALLS);
     m_CallsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CallsEClass);
@@ -239,8 +238,7 @@ void ActionPackage::_initPackage()
     m_CallsEClass->getEStructuralFeatures().push_back(m_Calls__from);
 
     // Creates
-    m_CreatesEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CreatesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CreatesEClass->setClassifierID(CREATES);
     m_CreatesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CreatesEClass);
@@ -252,8 +250,7 @@ void ActionPackage::_initPackage()
     m_CreatesEClass->getEStructuralFeatures().push_back(m_Creates__from);
 
     // Reads
-    m_ReadsEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ReadsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ReadsEClass->setClassifierID(READS);
     m_ReadsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReadsEClass);
@@ -265,8 +262,7 @@ void ActionPackage::_initPackage()
     m_ReadsEClass->getEStructuralFeatures().push_back(m_Reads__from);
 
     // Writes
-    m_WritesEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_WritesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_WritesEClass->setClassifierID(WRITES);
     m_WritesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_WritesEClass);
@@ -278,8 +274,7 @@ void ActionPackage::_initPackage()
     m_WritesEClass->getEStructuralFeatures().push_back(m_Writes__from);
 
     // CompliesTo
-    m_CompliesToEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CompliesToEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CompliesToEClass->setClassifierID(COMPLIESTO);
     m_CompliesToEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CompliesToEClass);
@@ -293,36 +288,32 @@ void ActionPackage::_initPackage()
     m_CompliesToEClass->getEStructuralFeatures().push_back(m_CompliesTo__from);
 
     // Flow
-    m_FlowEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_FlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FlowEClass->setClassifierID(FLOW);
     m_FlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FlowEClass);
 
     // TrueFlow
-    m_TrueFlowEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TrueFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TrueFlowEClass->setClassifierID(TRUEFLOW);
     m_TrueFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TrueFlowEClass);
 
     // FalseFlow
-    m_FalseFlowEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_FalseFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FalseFlowEClass->setClassifierID(FALSEFLOW);
     m_FalseFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FalseFlowEClass);
 
     // GuardedFlow
-    m_GuardedFlowEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_GuardedFlowEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_GuardedFlowEClass->setClassifierID(GUARDEDFLOW);
     m_GuardedFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GuardedFlowEClass);
 
     // UsesType
-    m_UsesTypeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_UsesTypeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_UsesTypeEClass->setClassifierID(USESTYPE);
     m_UsesTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UsesTypeEClass);
@@ -335,8 +326,7 @@ void ActionPackage::_initPackage()
     m_UsesTypeEClass->getEStructuralFeatures().push_back(m_UsesType__from);
 
     // Addresses
-    m_AddressesEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_AddressesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AddressesEClass->setClassifierID(ADDRESSES);
     m_AddressesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AddressesEClass);
@@ -349,7 +339,7 @@ void ActionPackage::_initPackage()
     m_AddressesEClass->getEStructuralFeatures().push_back(m_Addresses__from);
 
     // ActionRelationship
-    m_ActionRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ActionRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ActionRelationshipEClass->setClassifierID(ACTIONRELATIONSHIP);
     m_ActionRelationshipEClass->setEPackage(_this());
@@ -366,8 +356,7 @@ void ActionPackage::_initPackage()
             m_ActionRelationship__from);
 
     // Throws
-    m_ThrowsEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ThrowsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ThrowsEClass->setClassifierID(THROWS);
     m_ThrowsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ThrowsEClass);
@@ -379,8 +368,7 @@ void ActionPackage::_initPackage()
     m_ThrowsEClass->getEStructuralFeatures().push_back(m_Throws__from);
 
     // Dispatches
-    m_DispatchesEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DispatchesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DispatchesEClass->setClassifierID(DISPATCHES);
     m_DispatchesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DispatchesEClass);
@@ -394,8 +382,7 @@ void ActionPackage::_initPackage()
     m_DispatchesEClass->getEStructuralFeatures().push_back(m_Dispatches__from);
 
     // EntryFlow
-    m_EntryFlowEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_EntryFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EntryFlowEClass->setClassifierID(ENTRYFLOW);
     m_EntryFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EntryFlowEClass);
@@ -408,43 +395,39 @@ void ActionPackage::_initPackage()
     m_EntryFlowEClass->getEStructuralFeatures().push_back(m_EntryFlow__from);
 
     // BlockUnit
-    m_BlockUnitEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_BlockUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_BlockUnitEClass->setClassifierID(BLOCKUNIT);
     m_BlockUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BlockUnitEClass);
 
     // ExceptionUnit
-    m_ExceptionUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExceptionUnitEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExceptionUnitEClass->setClassifierID(EXCEPTIONUNIT);
     m_ExceptionUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExceptionUnitEClass);
 
     // TryUnit
-    m_TryUnitEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TryUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TryUnitEClass->setClassifierID(TRYUNIT);
     m_TryUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TryUnitEClass);
 
     // FinallyUnit
-    m_FinallyUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_FinallyUnitEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_FinallyUnitEClass->setClassifierID(FINALLYUNIT);
     m_FinallyUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FinallyUnitEClass);
 
     // CatchUnit
-    m_CatchUnitEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CatchUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CatchUnitEClass->setClassifierID(CATCHUNIT);
     m_CatchUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CatchUnitEClass);
 
     // ExitFlow
-    m_ExitFlowEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ExitFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ExitFlowEClass->setClassifierID(EXITFLOW);
     m_ExitFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExitFlowEClass);
@@ -457,7 +440,7 @@ void ActionPackage::_initPackage()
     m_ExitFlowEClass->getEStructuralFeatures().push_back(m_ExitFlow__from);
 
     // ExceptionFlow
-    m_ExceptionFlowEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExceptionFlowEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExceptionFlowEClass->setClassifierID(EXCEPTIONFLOW);
     m_ExceptionFlowEClass->setEPackage(_this());

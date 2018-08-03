@@ -22,7 +22,7 @@
 
 using namespace ::ResourceTests;
 
-boost::intrusive_ptr< ::ResourceTests::ResourceTestsPackage > ResourceTestsPackage::s_instance;
+::ecore::Ptr< ::ResourceTests::ResourceTestsPackage > ResourceTestsPackage::s_instance;
 
 ::ResourceTests::ResourceTestsPackage_ptr ResourceTestsPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::ResourceTests::ResourceTestsPackage > ResourceTestsPacka
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< ResourceTestsPackage >();
+            return ::ecore::Ptr< ResourceTestsPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < ResourceTestsPackage
+        s_instance = ::ecore::Ptr < ResourceTestsPackage
                 > (new ResourceTestsPackage());
         s_instance->_initPackage();
         duringConstruction = false;

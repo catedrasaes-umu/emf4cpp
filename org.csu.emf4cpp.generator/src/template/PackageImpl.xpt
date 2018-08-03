@@ -62,10 +62,10 @@ using namespace ::«getFQN()»;
 «FOREACH EClassifiers.typeSelect(EClass) AS class»
     // Feature definitions of «class.name»
     «FOREACH class.EAttributes AS at-»
-    «getFeatureMember(at)» = boost::intrusive_ptr<::ecore::EAttribute>(new ::ecore::EAttribute);
+    «getFeatureMember(at)» = ::ecore::Ptr<::ecore::EAttribute>(new ::ecore::EAttribute);
     «ENDFOREACH-»
     «FOREACH class.EReferences AS ref-»
-    «getFeatureMember(ref)» = boost::intrusive_ptr<::ecore::EReference>(new ::ecore::EReference);
+    «getFeatureMember(ref)» = ::ecore::Ptr<::ecore::EReference>(new ::ecore::EReference);
     «ENDFOREACH-»
 «ENDFOREACH»
 }
@@ -87,7 +87,7 @@ void «name.toFirstUpper()»Package::_initPackage()
     // Create classes and their features
 «FOREACH EClassifiers.typeSelect(EClass) AS class»
     // «class.name»
-    «getPackageAttribute(class)» = boost::intrusive_ptr<::ecore::EClass>(new ::ecore::EClass);
+    «getPackageAttribute(class)» = ::ecore::Ptr<::ecore::EClass>(new ::ecore::EClass);
     «getPackageAttribute(class)»->setClassifierID(«class.name.toUpperCase()»);
     «getPackageAttribute(class)»->setEPackage(_this());
     getEClassifiers().push_back(«getPackageAttribute(class)»);   
@@ -105,7 +105,7 @@ void «name.toFirstUpper()»Package::_initPackage()
 
     // Create enums
 «FOREACH EClassifiers.typeSelect(EEnum) AS enum»
-    «getPackageAttribute(enum)» = boost::intrusive_ptr<::ecore::EEnum>(new ::ecore::EEnum);
+    «getPackageAttribute(enum)» = ::ecore::Ptr<::ecore::EEnum>(new ::ecore::EEnum);
     «getPackageAttribute(enum)»->setClassifierID(«enum.name.toUpperCase()»);
     «getPackageAttribute(enum)»->setEPackage(_this());
     getEClassifiers().push_back(«getPackageAttribute(enum)»);
@@ -113,7 +113,7 @@ void «name.toFirstUpper()»Package::_initPackage()
 
     // Create data types
 «FOREACH EClassifiers.typeSelect(EDataType).select(e|!EEnum.isInstance(e)) AS dt»
-    «getPackageAttribute(dt)» = boost::intrusive_ptr<::ecore::EDataType>(new ::ecore::EDataType);
+    «getPackageAttribute(dt)» = ::ecore::Ptr<::ecore::EDataType>(new ::ecore::EDataType);
     «getPackageAttribute(dt)»->setClassifierID(«dt.name.toUpperCase()»);
     «getPackageAttribute(dt)»->setEPackage(_this());
     getEClassifiers().push_back(«getPackageAttribute(dt)»);
@@ -134,7 +134,7 @@ void «name.toFirstUpper()»Package::_initPackage()
         ::ecore::ETypeParameter_ptr _tp;
 «FOREACH EClassifiers.typeSelect(EDataType).select(e|!e.ETypeParameters.isEmpty) AS dt»
          «FOREACH dt.ETypeParameters AS tp-»
-        _tp = boost::intrusive_ptr<::ecore::ETypeParameter>(new ::ecore::ETypeParameter);
+        _tp = ::ecore::Ptr<::ecore::ETypeParameter>(new ::ecore::ETypeParameter);
         _tp->setName("«tp.name»");
          «getPackageAttribute(dt)»->getETypeParameters().push_back( _tp );
         «ENDFOREACH-»
@@ -162,10 +162,10 @@ void «name.toFirstUpper()»Package::_initPackage()
     «getFeatureMember(at)»->setEType(«getPackageAttribute(at.EType)»);
         «IF !at.EGenericType.ETypeArguments.isEmpty-»
     {
-        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g0 = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
         _g0->setEClassifier(«getPackageAttribute(at.EGenericType.EClassifier)»);
             «FOREACH at.EGenericType.ETypeArguments AS ta ITERATOR it-»
-        ::ecore::EGenericType_ptr _g«it.counter1» = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g«it.counter1» = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
                 «IF ta.EClassifier != null-»
         _g«it.counter1»->setEClassifier(«getPackageAttribute(ta.EClassifier)»);
                 «ENDIF-»
@@ -191,10 +191,10 @@ void «name.toFirstUpper()»Package::_initPackage()
     «getFeatureMember(ref)»->setEType(«getPackageAttribute(ref.EType)»);
         «IF !ref.EGenericType.ETypeArguments.isEmpty-»
     {
-        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g0 = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
         _g0->setEClassifier(«getPackageAttribute(ref.EGenericType.EClassifier)»);
             «FOREACH ref.EGenericType.ETypeArguments AS ta ITERATOR it-»
-        ::ecore::EGenericType_ptr _g«it.counter1» = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g«it.counter1» = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
                 «IF ta.EClassifier != null-»
         _g«it.counter1»->setEClassifier(«getPackageAttribute(ta.EClassifier)»);
                 «ENDIF-»
@@ -217,20 +217,20 @@ void «name.toFirstUpper()»Package::_initPackage()
     «getFeatureMember(ref)»->setOrdered(«ref.ordered»);
         «IF ref.EOpposite != null-»
             «LET ref.EOpposite.EContainingClass AS opc-»
-    «getFeatureMember(ref)»->setEOpposite( ::ecore::instanceOf< ::ecore::EReference > («getPackageAttribute(opc)»->getEStructuralFeatures()[«opc.EAttributes.size+opc.EReferences.indexOf(ref.EOpposite)»]));
+    «getFeatureMember(ref)»->setEOpposite( ::ecore::as< ::ecore::EReference > («getPackageAttribute(opc)»->getEStructuralFeatures()[«opc.EAttributes.size+opc.EReferences.indexOf(ref.EOpposite)»]));
             «ENDLET-»
         «ENDIF-»
     «ENDFOREACH-»
     «FOREACH class.EOperations AS op ITERATOR it-»
-    _op = boost::intrusive_ptr<::ecore::EOperation>(new ::ecore::EOperation);
+    _op = ::ecore::Ptr<::ecore::EOperation>(new ::ecore::EOperation);
         «IF op.EType != null-»
     _op->setEType(«getPackageAttribute(op.EType)»);
             «IF !op.EGenericType.ETypeArguments.isEmpty-»
     {
-        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g0 = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
         _g0->setEClassifier(«getPackageAttribute(op.EGenericType.EClassifier)»);
                 «FOREACH op.EGenericType.ETypeArguments AS ta ITERATOR it-»
-        ::ecore::EGenericType_ptr _g«it.counter1» = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g«it.counter1» = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
                     «IF ta.EClassifier != null-»
         _g«it.counter1»->setEClassifier(«getPackageAttribute(ta.EClassifier)»);
                     «ENDIF-»
@@ -246,14 +246,14 @@ void «name.toFirstUpper()»Package::_initPackage()
     _op->setUnique(«op.unique»);
     _op->setOrdered(«op.ordered»);
         «FOREACH op.EParameters AS pa-»
-    _pa = boost::intrusive_ptr<::ecore::EParameter>(new ::ecore::EParameter);
+    _pa = ::ecore::Ptr<::ecore::EParameter>(new ::ecore::EParameter);
     _pa->setEType(«getPackageAttribute(pa.EType)»);
             «IF !pa.EGenericType.ETypeArguments.isEmpty-»
     {
-        ::ecore::EGenericType_ptr _g0 = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g0 = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
         _g0->setEClassifier(«getPackageAttribute(pa.EGenericType.EClassifier)»);
                 «FOREACH pa.EGenericType.ETypeArguments AS ta ITERATOR it-»
-        ::ecore::EGenericType_ptr _g«it.counter1» = boost::intrusive_ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
+        ::ecore::EGenericType_ptr _g«it.counter1» = ::ecore::Ptr<::ecore::EGenericType>(new ::ecore::EGenericType);
                     «IF ta.EClassifier != null-»
         _g«it.counter1»->setEClassifier(«getPackageAttribute(ta.EClassifier)»);
                     «ENDIF-»
@@ -285,7 +285,7 @@ void «name.toFirstUpper()»Package::_initPackage()
     «getPackageAttribute(ee)»->setSerializable(«ee.serializable»);
     «FOREACH ee.ELiterals AS el»
     {
-        ::ecore::EEnumLiteral_ptr _el = boost::intrusive_ptr<::ecore::EEnumLiteral>(new ::ecore::EEnumLiteral);
+        ::ecore::EEnumLiteral_ptr _el = ::ecore::Ptr<::ecore::EEnumLiteral>(new ::ecore::EEnumLiteral);
         // «el»
         _el->setName("«el»");
         _el->setValue(«el.value»);

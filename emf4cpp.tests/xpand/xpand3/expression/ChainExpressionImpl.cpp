@@ -90,13 +90,13 @@ void ChainExpression::_initialize()
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
     {
         if (m_first)
-            _any = m_first->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_first);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT:
     {
         if (m_next)
-            _any = m_next->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_next);
     }
         return _any;
 

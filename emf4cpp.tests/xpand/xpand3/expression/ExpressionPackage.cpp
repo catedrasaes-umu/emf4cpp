@@ -22,7 +22,7 @@
 
 using namespace ::xpand3::expression;
 
-boost::intrusive_ptr< ::xpand3::expression::ExpressionPackage > ExpressionPackage::s_instance;
+::ecore::Ptr< ::xpand3::expression::ExpressionPackage > ExpressionPackage::s_instance;
 
 ::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::xpand3::expression::ExpressionPackage > ExpressionPackag
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< ExpressionPackage >();
+            return ::ecore::Ptr< ExpressionPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < ExpressionPackage
+        s_instance = ::ecore::Ptr < ExpressionPackage
                 > (new ExpressionPackage());
         s_instance->_initPackage();
         duringConstruction = false;

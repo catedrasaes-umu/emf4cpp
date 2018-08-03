@@ -98,13 +98,13 @@ void FileStatement::_initialize()
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__FILENAMEEXPRESSION:
     {
         if (m_fileNameExpression)
-            _any = m_fileNameExpression->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_fileNameExpression);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__OUTLETNAMEIDENTIFIER:
     {
         if (m_outletNameIdentifier)
-            _any = m_outletNameIdentifier->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_outletNameIdentifier);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FILESTATEMENT__ONCE:

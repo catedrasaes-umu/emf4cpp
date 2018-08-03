@@ -97,7 +97,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< CompanyPackage > s_instance;
+    static ::ecore::Ptr< CompanyPackage > s_instance;
 
     CompanyPackage();
     void _initPackage();

@@ -42,25 +42,19 @@ namespace edate
 
 // Person
     class Person;
-    using Person_ptr = boost::intrusive_ptr<Person>;
+    using Person_ptr = ::ecore::Ptr<Person>;
 
 // Apollo11
     class Apollo11;
-    using Apollo11_ptr = boost::intrusive_ptr<Apollo11>;
+    using Apollo11_ptr = ::ecore::Ptr<Apollo11>;
 
 // EEnum
 
 // Package & Factory
     class EdateFactory;
-    using EdateFactory_ptr = boost::intrusive_ptr<EdateFactory>;
+    using EdateFactory_ptr = ::ecore::Ptr<EdateFactory>;
     class EdatePackage;
-    using EdatePackage_ptr = boost::intrusive_ptr<EdatePackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using EdatePackage_ptr = ::ecore::Ptr<EdatePackage>;
 
 } // edate
 

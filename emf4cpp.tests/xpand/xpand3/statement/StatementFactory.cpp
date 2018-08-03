@@ -22,13 +22,12 @@
 
 using namespace ::xpand3::statement;
 
-boost::intrusive_ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_holder;
+::ecore::Ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_holder;
 
 ::xpand3::statement::StatementFactory_ptr StatementFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < StatementFactory
-                > (new StatementFactory());
+        s_holder = ::ecore::Ptr < StatementFactory > (new StatementFactory());
 
     return s_holder;
 }

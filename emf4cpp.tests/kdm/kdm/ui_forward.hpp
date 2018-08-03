@@ -44,93 +44,87 @@ namespace kdm
 
 // AbstractUIElement
         class AbstractUIElement;
-        using AbstractUIElement_ptr = boost::intrusive_ptr<AbstractUIElement>;
+        using AbstractUIElement_ptr = ::ecore::Ptr<AbstractUIElement>;
 
 // UIResource
         class UIResource;
-        using UIResource_ptr = boost::intrusive_ptr<UIResource>;
+        using UIResource_ptr = ::ecore::Ptr<UIResource>;
 
 // UIDisplay
         class UIDisplay;
-        using UIDisplay_ptr = boost::intrusive_ptr<UIDisplay>;
+        using UIDisplay_ptr = ::ecore::Ptr<UIDisplay>;
 
 // Screen
         class Screen;
-        using Screen_ptr = boost::intrusive_ptr<Screen>;
+        using Screen_ptr = ::ecore::Ptr<Screen>;
 
 // Report
         class Report;
-        using Report_ptr = boost::intrusive_ptr<Report>;
+        using Report_ptr = ::ecore::Ptr<Report>;
 
 // UIModel
         class UIModel;
-        using UIModel_ptr = boost::intrusive_ptr<UIModel>;
+        using UIModel_ptr = ::ecore::Ptr<UIModel>;
 
 // AbstractUIRelationship
         class AbstractUIRelationship;
-        using AbstractUIRelationship_ptr = boost::intrusive_ptr<AbstractUIRelationship>;
+        using AbstractUIRelationship_ptr = ::ecore::Ptr<AbstractUIRelationship>;
 
 // UILayout
         class UILayout;
-        using UILayout_ptr = boost::intrusive_ptr<UILayout>;
+        using UILayout_ptr = ::ecore::Ptr<UILayout>;
 
 // UIField
         class UIField;
-        using UIField_ptr = boost::intrusive_ptr<UIField>;
+        using UIField_ptr = ::ecore::Ptr<UIField>;
 
 // DisplaysImage
         class DisplaysImage;
-        using DisplaysImage_ptr = boost::intrusive_ptr<DisplaysImage>;
+        using DisplaysImage_ptr = ::ecore::Ptr<DisplaysImage>;
 
 // Displays
         class Displays;
-        using Displays_ptr = boost::intrusive_ptr<Displays>;
+        using Displays_ptr = ::ecore::Ptr<Displays>;
 
 // UIFlow
         class UIFlow;
-        using UIFlow_ptr = boost::intrusive_ptr<UIFlow>;
+        using UIFlow_ptr = ::ecore::Ptr<UIFlow>;
 
 // UIElement
         class UIElement;
-        using UIElement_ptr = boost::intrusive_ptr<UIElement>;
+        using UIElement_ptr = ::ecore::Ptr<UIElement>;
 
 // UIRelationship
         class UIRelationship;
-        using UIRelationship_ptr = boost::intrusive_ptr<UIRelationship>;
+        using UIRelationship_ptr = ::ecore::Ptr<UIRelationship>;
 
 // UIAction
         class UIAction;
-        using UIAction_ptr = boost::intrusive_ptr<UIAction>;
+        using UIAction_ptr = ::ecore::Ptr<UIAction>;
 
 // UIEvent
         class UIEvent;
-        using UIEvent_ptr = boost::intrusive_ptr<UIEvent>;
+        using UIEvent_ptr = ::ecore::Ptr<UIEvent>;
 
 // ReadsUI
         class ReadsUI;
-        using ReadsUI_ptr = boost::intrusive_ptr<ReadsUI>;
+        using ReadsUI_ptr = ::ecore::Ptr<ReadsUI>;
 
 // WritesUI
         class WritesUI;
-        using WritesUI_ptr = boost::intrusive_ptr<WritesUI>;
+        using WritesUI_ptr = ::ecore::Ptr<WritesUI>;
 
 // ManagesUI
         class ManagesUI;
-        using ManagesUI_ptr = boost::intrusive_ptr<ManagesUI>;
+        using ManagesUI_ptr = ::ecore::Ptr<ManagesUI>;
 
 // EEnum
 
 // Package & Factory
         class UiFactory;
-        using UiFactory_ptr = boost::intrusive_ptr<UiFactory>;
+        using UiFactory_ptr = ::ecore::Ptr<UiFactory>;
         class UiPackage;
-        using UiPackage_ptr = boost::intrusive_ptr<UiPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using UiPackage_ptr = ::ecore::Ptr<UiPackage>;
 
     } // ui
 } // kdm

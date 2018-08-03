@@ -133,19 +133,19 @@ void EOperation::_initialize()
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
     {
         if (m_eType)
-            _any = m_eType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eType);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
     {
         if (m_eGenericType)
-            _any = m_eGenericType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eGenericType);
     }
         return _any;
     case ::ecore::EcorePackage::EOPERATION__ECONTAININGCLASS:
     {
         if (m_eContainingClass)
-            _any = m_eContainingClass->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eContainingClass);
     }
         return _any;
     case ::ecore::EcorePackage::EOPERATION__ETYPEPARAMETERS:

@@ -98,50 +98,50 @@ KdmFactory::KdmFactory()
 
 KDMFramework_ptr KdmFactory::createKDMFramework()
 {
-    return boost::intrusive_ptr < KDMFramework > (new KDMFramework);
+    return ::ecore::Ptr < KDMFramework > (new KDMFramework);
 }
 KDMModel_ptr KdmFactory::createKDMModel()
 {
-    return boost::intrusive_ptr < KDMModel > (new KDMModel);
+    return ::ecore::Ptr < KDMModel > (new KDMModel);
 }
 Audit_ptr KdmFactory::createAudit()
 {
-    return boost::intrusive_ptr < Audit > (new Audit);
+    return ::ecore::Ptr < Audit > (new Audit);
 }
 Segment_ptr KdmFactory::createSegment()
 {
-    return boost::intrusive_ptr < Segment > (new Segment);
+    return ::ecore::Ptr < Segment > (new Segment);
 }
 Attribute_ptr KdmFactory::createAttribute()
 {
-    return boost::intrusive_ptr < Attribute > (new Attribute);
+    return ::ecore::Ptr < Attribute > (new Attribute);
 }
 Annotation_ptr KdmFactory::createAnnotation()
 {
-    return boost::intrusive_ptr < Annotation > (new Annotation);
+    return ::ecore::Ptr < Annotation > (new Annotation);
 }
 TagDefinition_ptr KdmFactory::createTagDefinition()
 {
-    return boost::intrusive_ptr < TagDefinition > (new TagDefinition);
+    return ::ecore::Ptr < TagDefinition > (new TagDefinition);
 }
 ExtendedValue_ptr KdmFactory::createExtendedValue()
 {
-    return boost::intrusive_ptr < ExtendedValue > (new ExtendedValue);
+    return ::ecore::Ptr < ExtendedValue > (new ExtendedValue);
 }
 Stereotype_ptr KdmFactory::createStereotype()
 {
-    return boost::intrusive_ptr < Stereotype > (new Stereotype);
+    return ::ecore::Ptr < Stereotype > (new Stereotype);
 }
 ExtensionFamily_ptr KdmFactory::createExtensionFamily()
 {
-    return boost::intrusive_ptr < ExtensionFamily > (new ExtensionFamily);
+    return ::ecore::Ptr < ExtensionFamily > (new ExtensionFamily);
 }
 TaggedRef_ptr KdmFactory::createTaggedRef()
 {
-    return boost::intrusive_ptr < TaggedRef > (new TaggedRef);
+    return ::ecore::Ptr < TaggedRef > (new TaggedRef);
 }
 TaggedValue_ptr KdmFactory::createTaggedValue()
 {
-    return boost::intrusive_ptr < TaggedValue > (new TaggedValue);
+    return ::ecore::Ptr < TaggedValue > (new TaggedValue);
 }
 

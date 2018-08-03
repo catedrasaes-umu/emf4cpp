@@ -117,7 +117,7 @@ void EPackage::_initialize()
     case ::ecore::EcorePackage::EPACKAGE__EFACTORYINSTANCE:
     {
         if (m_eFactoryInstance)
-            _any = m_eFactoryInstance->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eFactoryInstance);
     }
         return _any;
     case ::ecore::EcorePackage::EPACKAGE__ECLASSIFIERS:
@@ -133,7 +133,7 @@ void EPackage::_initialize()
     case ::ecore::EcorePackage::EPACKAGE__ESUPERPACKAGE:
     {
         if (m_eSuperPackage)
-            _any = m_eSuperPackage->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eSuperPackage);
     }
         return _any;
 

@@ -22,7 +22,7 @@
 
 using namespace ::kdm::data;
 
-boost::intrusive_ptr< ::kdm::data::DataPackage > DataPackage::s_instance;
+::ecore::Ptr< ::kdm::data::DataPackage > DataPackage::s_instance;
 
 ::kdm::data::DataPackage_ptr DataPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::kdm::data::DataPackage > DataPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< DataPackage >();
+            return ::ecore::Ptr< DataPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < DataPackage > (new DataPackage());
+        s_instance = ::ecore::Ptr < DataPackage > (new DataPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

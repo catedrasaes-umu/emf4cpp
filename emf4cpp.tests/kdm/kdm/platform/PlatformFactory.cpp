@@ -22,13 +22,12 @@
 
 using namespace ::kdm::platform;
 
-boost::intrusive_ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_holder;
+::ecore::Ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_holder;
 
 ::kdm::platform::PlatformFactory_ptr PlatformFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < PlatformFactory
-                > (new PlatformFactory());
+        s_holder = ::ecore::Ptr < PlatformFactory > (new PlatformFactory());
 
     return s_holder;
 }

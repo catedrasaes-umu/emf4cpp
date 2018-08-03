@@ -45,37 +45,31 @@ namespace xpand3
 
 // SyntaxElement
     class SyntaxElement;
-    using SyntaxElement_ptr = boost::intrusive_ptr<SyntaxElement>;
+    using SyntaxElement_ptr = ::ecore::Ptr<SyntaxElement>;
 
 // File
     class File;
-    using File_ptr = boost::intrusive_ptr<File>;
+    using File_ptr = ::ecore::Ptr<File>;
 
 // ImportStatement
     class ImportStatement;
-    using ImportStatement_ptr = boost::intrusive_ptr<ImportStatement>;
+    using ImportStatement_ptr = ::ecore::Ptr<ImportStatement>;
 
 // Identifier
     class Identifier;
-    using Identifier_ptr = boost::intrusive_ptr<Identifier>;
+    using Identifier_ptr = ::ecore::Ptr<Identifier>;
 
 // DeclaredParameter
     class DeclaredParameter;
-    using DeclaredParameter_ptr = boost::intrusive_ptr<DeclaredParameter>;
+    using DeclaredParameter_ptr = ::ecore::Ptr<DeclaredParameter>;
 
 // EEnum
 
 // Package & Factory
     class Xpand3Factory;
-    using Xpand3Factory_ptr = boost::intrusive_ptr<Xpand3Factory>;
+    using Xpand3Factory_ptr = ::ecore::Ptr<Xpand3Factory>;
     class Xpand3Package;
-    using Xpand3Package_ptr = boost::intrusive_ptr<Xpand3Package>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using Xpand3Package_ptr = ::ecore::Ptr<Xpand3Package>;
 
 } // xpand3
 

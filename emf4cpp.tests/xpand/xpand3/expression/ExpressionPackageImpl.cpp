@@ -46,67 +46,67 @@ ExpressionPackage::ExpressionPackage()
     // Feature definitions of BooleanOperation
 
     // Feature definitions of Cast
-    m_Cast__type = boost::intrusive_ptr < ::ecore::EReference
+    m_Cast__type = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Cast__target = boost::intrusive_ptr < ::ecore::EReference
+    m_Cast__target = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ChainExpression
-    m_ChainExpression__first = boost::intrusive_ptr < ::ecore::EReference
+    m_ChainExpression__first = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ChainExpression__next = boost::intrusive_ptr < ::ecore::EReference
+    m_ChainExpression__next = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ConstructorCallExpression
-    m_ConstructorCallExpression__type = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_ConstructorCallExpression__type = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of FeatureCall
-    m_FeatureCall__target = boost::intrusive_ptr < ::ecore::EReference
+    m_FeatureCall__target = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_FeatureCall__name = boost::intrusive_ptr < ::ecore::EReference
+    m_FeatureCall__name = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of CollectionExpression
-    m_CollectionExpression__closure = boost::intrusive_ptr < ::ecore::EReference
+    m_CollectionExpression__closure = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_CollectionExpression__eleName = boost::intrusive_ptr < ::ecore::EReference
+    m_CollectionExpression__eleName = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of OperationCall
-    m_OperationCall__params = boost::intrusive_ptr < ::ecore::EReference
+    m_OperationCall__params = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of TypeSelectExpression
-    m_TypeSelectExpression__typeLiteral = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_TypeSelectExpression__typeLiteral = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of GlobalVarExpression
-    m_GlobalVarExpression__globalVarName = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_GlobalVarExpression__globalVarName = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of IfExpression
-    m_IfExpression__condition = boost::intrusive_ptr < ::ecore::EReference
+    m_IfExpression__condition = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_IfExpression__thenPart = boost::intrusive_ptr < ::ecore::EReference
+    m_IfExpression__thenPart = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_IfExpression__elsePart = boost::intrusive_ptr < ::ecore::EReference
+    m_IfExpression__elsePart = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of LetExpression
-    m_LetExpression__varExpression = boost::intrusive_ptr < ::ecore::EReference
+    m_LetExpression__varExpression = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_LetExpression__targetExpression = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_LetExpression__varName = boost::intrusive_ptr < ::ecore::EReference
+    m_LetExpression__targetExpression = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_LetExpression__varName = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ListLiteral
-    m_ListLiteral__elements = boost::intrusive_ptr < ::ecore::EReference
+    m_ListLiteral__elements = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Literal
-    m_Literal__literalValue = boost::intrusive_ptr < ::ecore::EReference
+    m_Literal__literalValue = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of BooleanLiteral
@@ -120,31 +120,31 @@ ExpressionPackage::ExpressionPackage()
     // Feature definitions of StringLiteral
 
     // Feature definitions of SwitchExpression
-    m_SwitchExpression__switchExpr = boost::intrusive_ptr < ::ecore::EReference
+    m_SwitchExpression__switchExpr = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_SwitchExpression__defaultExpr = boost::intrusive_ptr < ::ecore::EReference
+    m_SwitchExpression__defaultExpr = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_SwitchExpression__cases = boost::intrusive_ptr < ::ecore::EReference
+    m_SwitchExpression__cases = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Case
-    m_Case__condition = boost::intrusive_ptr < ::ecore::EReference
+    m_Case__condition = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Case__thenPart = boost::intrusive_ptr < ::ecore::EReference
+    m_Case__thenPart = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of BinaryOperation
-    m_BinaryOperation__left = boost::intrusive_ptr < ::ecore::EReference
+    m_BinaryOperation__left = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_BinaryOperation__right = boost::intrusive_ptr < ::ecore::EReference
+    m_BinaryOperation__right = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_BinaryOperation__operator = boost::intrusive_ptr < ::ecore::EReference
+    m_BinaryOperation__operator = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of UnaryOperation
-    m_UnaryOperation__operator = boost::intrusive_ptr < ::ecore::EReference
+    m_UnaryOperation__operator = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_UnaryOperation__operand = boost::intrusive_ptr < ::ecore::EReference
+    m_UnaryOperation__operand = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -159,22 +159,21 @@ void ExpressionPackage::_initPackage()
     // Create classes and their features
 
     // AbstractExpression
-    m_AbstractExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractExpressionEClass->setClassifierID(ABSTRACTEXPRESSION);
     m_AbstractExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractExpressionEClass);
 
     // BooleanOperation
-    m_BooleanOperationEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_BooleanOperationEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_BooleanOperationEClass->setClassifierID(BOOLEANOPERATION);
     m_BooleanOperationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanOperationEClass);
 
     // Cast
-    m_CastEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CastEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CastEClass->setClassifierID(CAST);
     m_CastEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CastEClass);
@@ -188,7 +187,7 @@ void ExpressionPackage::_initPackage()
     m_CastEClass->getEStructuralFeatures().push_back(m_Cast__target);
 
     // ChainExpression
-    m_ChainExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ChainExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ChainExpressionEClass->setClassifierID(CHAINEXPRESSION);
     m_ChainExpressionEClass->setEPackage(_this());
@@ -205,7 +204,7 @@ void ExpressionPackage::_initPackage()
             m_ChainExpression__next);
 
     // ConstructorCallExpression
-    m_ConstructorCallExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConstructorCallExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConstructorCallExpressionEClass->setClassifierID(
             CONSTRUCTORCALLEXPRESSION);
@@ -218,7 +217,7 @@ void ExpressionPackage::_initPackage()
             m_ConstructorCallExpression__type);
 
     // FeatureCall
-    m_FeatureCallEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_FeatureCallEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_FeatureCallEClass->setClassifierID(FEATURECALL);
     m_FeatureCallEClass->setEPackage(_this());
@@ -235,7 +234,7 @@ void ExpressionPackage::_initPackage()
             m_FeatureCall__name);
 
     // CollectionExpression
-    m_CollectionExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_CollectionExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_CollectionExpressionEClass->setClassifierID(COLLECTIONEXPRESSION);
     m_CollectionExpressionEClass->setEPackage(_this());
@@ -252,7 +251,7 @@ void ExpressionPackage::_initPackage()
             m_CollectionExpression__eleName);
 
     // OperationCall
-    m_OperationCallEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_OperationCallEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_OperationCallEClass->setClassifierID(OPERATIONCALL);
     m_OperationCallEClass->setEPackage(_this());
@@ -264,7 +263,7 @@ void ExpressionPackage::_initPackage()
             m_OperationCall__params);
 
     // TypeSelectExpression
-    m_TypeSelectExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_TypeSelectExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_TypeSelectExpressionEClass->setClassifierID(TYPESELECTEXPRESSION);
     m_TypeSelectExpressionEClass->setEPackage(_this());
@@ -276,7 +275,7 @@ void ExpressionPackage::_initPackage()
             m_TypeSelectExpression__typeLiteral);
 
     // GlobalVarExpression
-    m_GlobalVarExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_GlobalVarExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_GlobalVarExpressionEClass->setClassifierID(GLOBALVAREXPRESSION);
     m_GlobalVarExpressionEClass->setEPackage(_this());
@@ -288,7 +287,7 @@ void ExpressionPackage::_initPackage()
             m_GlobalVarExpression__globalVarName);
 
     // IfExpression
-    m_IfExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_IfExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_IfExpressionEClass->setClassifierID(IFEXPRESSION);
     m_IfExpressionEClass->setEPackage(_this());
@@ -310,7 +309,7 @@ void ExpressionPackage::_initPackage()
             m_IfExpression__elsePart);
 
     // LetExpression
-    m_LetExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_LetExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_LetExpressionEClass->setClassifierID(LETEXPRESSION);
     m_LetExpressionEClass->setEPackage(_this());
@@ -332,7 +331,7 @@ void ExpressionPackage::_initPackage()
             m_LetExpression__varName);
 
     // ListLiteral
-    m_ListLiteralEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ListLiteralEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ListLiteralEClass->setClassifierID(LISTLITERAL);
     m_ListLiteralEClass->setEPackage(_this());
@@ -344,8 +343,7 @@ void ExpressionPackage::_initPackage()
             m_ListLiteral__elements);
 
     // Literal
-    m_LiteralEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_LiteralEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LiteralEClass->setClassifierID(LITERAL);
     m_LiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LiteralEClass);
@@ -356,42 +354,42 @@ void ExpressionPackage::_initPackage()
             m_Literal__literalValue);
 
     // BooleanLiteral
-    m_BooleanLiteralEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_BooleanLiteralEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_BooleanLiteralEClass->setClassifierID(BOOLEANLITERAL);
     m_BooleanLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanLiteralEClass);
 
     // IntegerLiteral
-    m_IntegerLiteralEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_IntegerLiteralEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_IntegerLiteralEClass->setClassifierID(INTEGERLITERAL);
     m_IntegerLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IntegerLiteralEClass);
 
     // NullLiteral
-    m_NullLiteralEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_NullLiteralEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_NullLiteralEClass->setClassifierID(NULLLITERAL);
     m_NullLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NullLiteralEClass);
 
     // RealLiteral
-    m_RealLiteralEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RealLiteralEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RealLiteralEClass->setClassifierID(REALLITERAL);
     m_RealLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RealLiteralEClass);
 
     // StringLiteral
-    m_StringLiteralEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_StringLiteralEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_StringLiteralEClass->setClassifierID(STRINGLITERAL);
     m_StringLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StringLiteralEClass);
 
     // SwitchExpression
-    m_SwitchExpressionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_SwitchExpressionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_SwitchExpressionEClass->setClassifierID(SWITCHEXPRESSION);
     m_SwitchExpressionEClass->setEPackage(_this());
@@ -413,8 +411,7 @@ void ExpressionPackage::_initPackage()
             m_SwitchExpression__cases);
 
     // Case
-    m_CaseEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CaseEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CaseEClass->setClassifierID(CASE);
     m_CaseEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CaseEClass);
@@ -428,7 +425,7 @@ void ExpressionPackage::_initPackage()
     m_CaseEClass->getEStructuralFeatures().push_back(m_Case__thenPart);
 
     // BinaryOperation
-    m_BinaryOperationEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_BinaryOperationEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_BinaryOperationEClass->setClassifierID(BINARYOPERATION);
     m_BinaryOperationEClass->setEPackage(_this());
@@ -450,7 +447,7 @@ void ExpressionPackage::_initPackage()
             m_BinaryOperation__operator);
 
     // UnaryOperation
-    m_UnaryOperationEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_UnaryOperationEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_UnaryOperationEClass->setClassifierID(UNARYOPERATION);
     m_UnaryOperationEClass->setEPackage(_this());

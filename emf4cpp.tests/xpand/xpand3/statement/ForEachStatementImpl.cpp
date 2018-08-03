@@ -106,25 +106,25 @@ void ForEachStatement::_initialize()
     case ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__TARGET:
     {
         if (m_target)
-            _any = m_target->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_target);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__SEPARATOR:
     {
         if (m_separator)
-            _any = m_separator->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_separator);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__VARIABLE:
     {
         if (m_variable)
-            _any = m_variable->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_variable);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::FOREACHSTATEMENT__ITERATORNAME:
     {
         if (m_iteratorName)
-            _any = m_iteratorName->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_iteratorName);
     }
         return _any;
 

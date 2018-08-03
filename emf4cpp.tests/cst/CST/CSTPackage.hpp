@@ -97,7 +97,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< CSTPackage > s_instance;
+    static ::ecore::Ptr< CSTPackage > s_instance;
 
     CSTPackage();
     void _initPackage();

@@ -49,13 +49,13 @@ StructurePackage::StructurePackage()
 {
 
     // Feature definitions of AbstractStructureElement
-    m_AbstractStructureElement__aggregated = boost::intrusive_ptr
+    m_AbstractStructureElement__aggregated = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractStructureElement__implementation = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractStructureElement__implementation = boost::intrusive_ptr
+    m_AbstractStructureElement__structureElement = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractStructureElement__structureElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractStructureElement__structureRelationship = boost::intrusive_ptr
+    m_AbstractStructureElement__structureRelationship = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of Subsystem
@@ -63,8 +63,8 @@ StructurePackage::StructurePackage()
     // Feature definitions of Layer
 
     // Feature definitions of StructureModel
-    m_StructureModel__structureElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_StructureModel__structureElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Component
 
@@ -73,9 +73,9 @@ StructurePackage::StructurePackage()
     // Feature definitions of AbstractStructureRelationship
 
     // Feature definitions of StructureRelationship
-    m_StructureRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_StructureRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_StructureRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_StructureRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ArchitectureView
@@ -94,7 +94,7 @@ void StructurePackage::_initPackage()
     // Create classes and their features
 
     // AbstractStructureElement
-    m_AbstractStructureElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractStructureElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractStructureElementEClass->setClassifierID(ABSTRACTSTRUCTUREELEMENT);
     m_AbstractStructureElementEClass->setEPackage(_this());
@@ -121,21 +121,19 @@ void StructurePackage::_initPackage()
             m_AbstractStructureElement__structureRelationship);
 
     // Subsystem
-    m_SubsystemEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SubsystemEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SubsystemEClass->setClassifierID(SUBSYSTEM);
     m_SubsystemEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SubsystemEClass);
 
     // Layer
-    m_LayerEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_LayerEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LayerEClass->setClassifierID(LAYER);
     m_LayerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LayerEClass);
 
     // StructureModel
-    m_StructureModelEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_StructureModelEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_StructureModelEClass->setClassifierID(STRUCTUREMODEL);
     m_StructureModelEClass->setEPackage(_this());
@@ -147,29 +145,28 @@ void StructurePackage::_initPackage()
             m_StructureModel__structureElement);
 
     // Component
-    m_ComponentEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ComponentEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ComponentEClass->setClassifierID(COMPONENT);
     m_ComponentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ComponentEClass);
 
     // SoftwareSystem
-    m_SoftwareSystemEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_SoftwareSystemEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_SoftwareSystemEClass->setClassifierID(SOFTWARESYSTEM);
     m_SoftwareSystemEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SoftwareSystemEClass);
 
     // AbstractStructureRelationship
-    m_AbstractStructureRelationshipEClass = boost::intrusive_ptr
-            < ::ecore::EClass > (new ::ecore::EClass);
+    m_AbstractStructureRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractStructureRelationshipEClass->setClassifierID(
             ABSTRACTSTRUCTURERELATIONSHIP);
     m_AbstractStructureRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractStructureRelationshipEClass);
 
     // StructureRelationship
-    m_StructureRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_StructureRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_StructureRelationshipEClass->setClassifierID(STRUCTURERELATIONSHIP);
     m_StructureRelationshipEClass->setEPackage(_this());
@@ -186,14 +183,14 @@ void StructurePackage::_initPackage()
             m_StructureRelationship__from);
 
     // ArchitectureView
-    m_ArchitectureViewEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ArchitectureViewEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ArchitectureViewEClass->setClassifierID(ARCHITECTUREVIEW);
     m_ArchitectureViewEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ArchitectureViewEClass);
 
     // StructureElement
-    m_StructureElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_StructureElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_StructureElementEClass->setClassifierID(STRUCTUREELEMENT);
     m_StructureElementEClass->setEPackage(_this());

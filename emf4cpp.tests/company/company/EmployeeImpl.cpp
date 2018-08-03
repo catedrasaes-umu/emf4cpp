@@ -69,7 +69,7 @@ void Employee::_initialize()
     case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
     {
         if (m_phonebookEntry)
-            _any = m_phonebookEntry->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_phonebookEntry);
     }
         return _any;
 

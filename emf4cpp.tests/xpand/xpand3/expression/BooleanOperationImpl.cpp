@@ -84,19 +84,19 @@ void BooleanOperation::_initialize()
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__LEFT:
     {
         if (m_left)
-            _any = m_left->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_left);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__RIGHT:
     {
         if (m_right)
-            _any = m_right->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_right);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::BINARYOPERATION__OPERATOR:
     {
         if (m_operator)
-            _any = m_operator->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_operator);
     }
         return _any;
 

@@ -54,7 +54,7 @@ namespace xpand3
 
         protected:
 
-            static boost::intrusive_ptr< DeclarationFactory > s_holder;
+            static ::ecore::Ptr< DeclarationFactory > s_holder;
 
             DeclarationFactory();
 
@@ -66,9 +66,9 @@ namespace xpand3
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline boost::intrusive_ptr< T > create()
+        template< class T > inline ::ecore::Ptr< T > create()
         {
-            return boost::intrusive_ptr< T >();
+            return ::ecore::Ptr< T >();
         }
 
         template< > inline AbstractDeclaration_ptr create< AbstractDeclaration >()

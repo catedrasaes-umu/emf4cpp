@@ -231,7 +231,7 @@ void print(std::ostream& out, const EObject_ptr obj, int level)
     {
         EAttribute_ptr at = attributes[j];
         EClassifier_ptr at_clf = at->getEType();
-        EDataType_ptr at_dt = at_clf->as< EDataType > ();
+        EDataType_ptr at_dt = as< EDataType >(at_clf);
 
         if (!at->isTransient() && obj->eIsSet(at))
         {

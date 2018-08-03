@@ -73,7 +73,7 @@ void EGenericType::_initialize()
     case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
     {
         if (m_eUpperBound)
-            _any = m_eUpperBound->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eUpperBound);
     }
         return _any;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
@@ -84,19 +84,19 @@ void EGenericType::_initialize()
     case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
     {
         if (m_eLowerBound)
-            _any = m_eLowerBound->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eLowerBound);
     }
         return _any;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
     {
         if (m_eTypeParameter)
-            _any = m_eTypeParameter->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eTypeParameter);
     }
         return _any;
     case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
     {
         if (m_eClassifier)
-            _any = m_eClassifier->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eClassifier);
     }
         return _any;
 

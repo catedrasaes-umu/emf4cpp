@@ -46,73 +46,73 @@ StatementPackage::StatementPackage()
     // Feature definitions of AbstractStatement
 
     // Feature definitions of ExpandStatement
-    m_ExpandStatement__foreach = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ExpandStatement__foreach = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ExpandStatement__parameters = boost::intrusive_ptr < ::ecore::EReference
+    m_ExpandStatement__parameters = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ExpandStatement__separator = boost::intrusive_ptr < ::ecore::EReference
+    m_ExpandStatement__separator = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ExpandStatement__target = boost::intrusive_ptr < ::ecore::EReference
+    m_ExpandStatement__target = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ExpandStatement__definition = boost::intrusive_ptr < ::ecore::EReference
+    m_ExpandStatement__definition = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ExpressionStatement
-    m_ExpressionStatement__expression = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_ExpressionStatement__expression = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ErrorStatement
-    m_ErrorStatement__message = boost::intrusive_ptr < ::ecore::EReference
+    m_ErrorStatement__message = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of AbstractStatementWithBody
-    m_AbstractStatementWithBody__body = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractStatementWithBody__body = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of FileStatement
-    m_FileStatement__once = boost::intrusive_ptr < ::ecore::EAttribute
+    m_FileStatement__once = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_FileStatement__fileNameExpression = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_FileStatement__outletNameIdentifier = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_FileStatement__fileNameExpression = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_FileStatement__outletNameIdentifier = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ForEachStatement
-    m_ForEachStatement__target = boost::intrusive_ptr < ::ecore::EReference
+    m_ForEachStatement__target = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ForEachStatement__separator = boost::intrusive_ptr < ::ecore::EReference
+    m_ForEachStatement__separator = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ForEachStatement__variable = boost::intrusive_ptr < ::ecore::EReference
+    m_ForEachStatement__variable = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ForEachStatement__iteratorName = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_ForEachStatement__iteratorName = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of IfStatement
-    m_IfStatement__condition = boost::intrusive_ptr < ::ecore::EReference
+    m_IfStatement__condition = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_IfStatement__elseIf = boost::intrusive_ptr < ::ecore::EReference
+    m_IfStatement__elseIf = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of LetStatement
-    m_LetStatement__varName = boost::intrusive_ptr < ::ecore::EReference
+    m_LetStatement__varName = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_LetStatement__varValue = boost::intrusive_ptr < ::ecore::EReference
+    m_LetStatement__varValue = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ProtectStatement
-    m_ProtectStatement__disable = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ProtectStatement__disable = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ProtectStatement__commentStart = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_ProtectStatement__commentEnd = boost::intrusive_ptr < ::ecore::EReference
+    m_ProtectStatement__commentStart = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ProtectStatement__id = boost::intrusive_ptr < ::ecore::EReference
+    m_ProtectStatement__commentEnd = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ProtectStatement__id = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of TextStatement
-    m_TextStatement__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TextStatement__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_TextStatement__deleteLine = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TextStatement__deleteLine = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
 }
@@ -127,14 +127,14 @@ void StatementPackage::_initPackage()
     // Create classes and their features
 
     // AbstractStatement
-    m_AbstractStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractStatementEClass->setClassifierID(ABSTRACTSTATEMENT);
     m_AbstractStatementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractStatementEClass);
 
     // ExpandStatement
-    m_ExpandStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExpandStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExpandStatementEClass->setClassifierID(EXPANDSTATEMENT);
     m_ExpandStatementEClass->setEPackage(_this());
@@ -166,7 +166,7 @@ void StatementPackage::_initPackage()
             m_ExpandStatement__definition);
 
     // ExpressionStatement
-    m_ExpressionStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExpressionStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExpressionStatementEClass->setClassifierID(EXPRESSIONSTATEMENT);
     m_ExpressionStatementEClass->setEPackage(_this());
@@ -178,7 +178,7 @@ void StatementPackage::_initPackage()
             m_ExpressionStatement__expression);
 
     // ErrorStatement
-    m_ErrorStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ErrorStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ErrorStatementEClass->setClassifierID(ERRORSTATEMENT);
     m_ErrorStatementEClass->setEPackage(_this());
@@ -190,7 +190,7 @@ void StatementPackage::_initPackage()
             m_ErrorStatement__message);
 
     // AbstractStatementWithBody
-    m_AbstractStatementWithBodyEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractStatementWithBodyEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractStatementWithBodyEClass->setClassifierID(
             ABSTRACTSTATEMENTWITHBODY);
@@ -203,7 +203,7 @@ void StatementPackage::_initPackage()
             m_AbstractStatementWithBody__body);
 
     // FileStatement
-    m_FileStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_FileStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_FileStatementEClass->setClassifierID(FILESTATEMENT);
     m_FileStatementEClass->setEPackage(_this());
@@ -225,7 +225,7 @@ void StatementPackage::_initPackage()
             m_FileStatement__outletNameIdentifier);
 
     // ForEachStatement
-    m_ForEachStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ForEachStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ForEachStatementEClass->setClassifierID(FOREACHSTATEMENT);
     m_ForEachStatementEClass->setEPackage(_this());
@@ -252,7 +252,7 @@ void StatementPackage::_initPackage()
             m_ForEachStatement__iteratorName);
 
     // IfStatement
-    m_IfStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_IfStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_IfStatementEClass->setClassifierID(IFSTATEMENT);
     m_IfStatementEClass->setEPackage(_this());
@@ -269,7 +269,7 @@ void StatementPackage::_initPackage()
             m_IfStatement__elseIf);
 
     // LetStatement
-    m_LetStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_LetStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_LetStatementEClass->setClassifierID(LETSTATEMENT);
     m_LetStatementEClass->setEPackage(_this());
@@ -286,7 +286,7 @@ void StatementPackage::_initPackage()
             m_LetStatement__varValue);
 
     // ProtectStatement
-    m_ProtectStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ProtectStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ProtectStatementEClass->setClassifierID(PROTECTSTATEMENT);
     m_ProtectStatementEClass->setEPackage(_this());
@@ -313,7 +313,7 @@ void StatementPackage::_initPackage()
             m_ProtectStatement__id);
 
     // TextStatement
-    m_TextStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_TextStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_TextStatementEClass->setClassifierID(TEXTSTATEMENT);
     m_TextStatementEClass->setEPackage(_this());

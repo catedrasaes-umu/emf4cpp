@@ -22,12 +22,12 @@
 
 using namespace ::PrimitiveTypes;
 
-boost::intrusive_ptr< ::PrimitiveTypes::PrimitiveTypesFactory > PrimitiveTypesFactory::s_holder;
+::ecore::Ptr< ::PrimitiveTypes::PrimitiveTypesFactory > PrimitiveTypesFactory::s_holder;
 
 ::PrimitiveTypes::PrimitiveTypesFactory_ptr PrimitiveTypesFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < PrimitiveTypesFactory
+        s_holder = ::ecore::Ptr < PrimitiveTypesFactory
                 > (new PrimitiveTypesFactory());
 
     return s_holder;

@@ -98,13 +98,13 @@ void LetStatement::_initialize()
     case ::xpand3::statement::StatementPackage::LETSTATEMENT__VARNAME:
     {
         if (m_varName)
-            _any = m_varName->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_varName);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::LETSTATEMENT__VARVALUE:
     {
         if (m_varValue)
-            _any = m_varValue->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_varValue);
     }
         return _any;
 

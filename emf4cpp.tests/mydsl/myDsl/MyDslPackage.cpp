@@ -22,7 +22,7 @@
 
 using namespace ::myDsl;
 
-boost::intrusive_ptr< ::myDsl::MyDslPackage > MyDslPackage::s_instance;
+::ecore::Ptr< ::myDsl::MyDslPackage > MyDslPackage::s_instance;
 
 ::myDsl::MyDslPackage_ptr MyDslPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::myDsl::MyDslPackage > MyDslPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< MyDslPackage >();
+            return ::ecore::Ptr< MyDslPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < MyDslPackage > (new MyDslPackage());
+        s_instance = ::ecore::Ptr < MyDslPackage > (new MyDslPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

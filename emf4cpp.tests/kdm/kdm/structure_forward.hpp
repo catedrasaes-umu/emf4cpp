@@ -44,57 +44,51 @@ namespace kdm
 
 // AbstractStructureElement
         class AbstractStructureElement;
-        using AbstractStructureElement_ptr = boost::intrusive_ptr<AbstractStructureElement>;
+        using AbstractStructureElement_ptr = ::ecore::Ptr<AbstractStructureElement>;
 
 // Subsystem
         class Subsystem;
-        using Subsystem_ptr = boost::intrusive_ptr<Subsystem>;
+        using Subsystem_ptr = ::ecore::Ptr<Subsystem>;
 
 // Layer
         class Layer;
-        using Layer_ptr = boost::intrusive_ptr<Layer>;
+        using Layer_ptr = ::ecore::Ptr<Layer>;
 
 // StructureModel
         class StructureModel;
-        using StructureModel_ptr = boost::intrusive_ptr<StructureModel>;
+        using StructureModel_ptr = ::ecore::Ptr<StructureModel>;
 
 // Component
         class Component;
-        using Component_ptr = boost::intrusive_ptr<Component>;
+        using Component_ptr = ::ecore::Ptr<Component>;
 
 // SoftwareSystem
         class SoftwareSystem;
-        using SoftwareSystem_ptr = boost::intrusive_ptr<SoftwareSystem>;
+        using SoftwareSystem_ptr = ::ecore::Ptr<SoftwareSystem>;
 
 // AbstractStructureRelationship
         class AbstractStructureRelationship;
-        using AbstractStructureRelationship_ptr = boost::intrusive_ptr<AbstractStructureRelationship>;
+        using AbstractStructureRelationship_ptr = ::ecore::Ptr<AbstractStructureRelationship>;
 
 // StructureRelationship
         class StructureRelationship;
-        using StructureRelationship_ptr = boost::intrusive_ptr<StructureRelationship>;
+        using StructureRelationship_ptr = ::ecore::Ptr<StructureRelationship>;
 
 // ArchitectureView
         class ArchitectureView;
-        using ArchitectureView_ptr = boost::intrusive_ptr<ArchitectureView>;
+        using ArchitectureView_ptr = ::ecore::Ptr<ArchitectureView>;
 
 // StructureElement
         class StructureElement;
-        using StructureElement_ptr = boost::intrusive_ptr<StructureElement>;
+        using StructureElement_ptr = ::ecore::Ptr<StructureElement>;
 
 // EEnum
 
 // Package & Factory
         class StructureFactory;
-        using StructureFactory_ptr = boost::intrusive_ptr<StructureFactory>;
+        using StructureFactory_ptr = ::ecore::Ptr<StructureFactory>;
         class StructurePackage;
-        using StructurePackage_ptr = boost::intrusive_ptr<StructurePackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using StructurePackage_ptr = ::ecore::Ptr<StructurePackage>;
 
     } // structure
 } // kdm

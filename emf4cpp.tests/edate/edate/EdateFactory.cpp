@@ -22,12 +22,12 @@
 
 using namespace ::edate;
 
-boost::intrusive_ptr< ::edate::EdateFactory > EdateFactory::s_holder;
+::ecore::Ptr< ::edate::EdateFactory > EdateFactory::s_holder;
 
 ::edate::EdateFactory_ptr EdateFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < EdateFactory > (new EdateFactory());
+        s_holder = ::ecore::Ptr < EdateFactory > (new EdateFactory());
 
     return s_holder;
 }

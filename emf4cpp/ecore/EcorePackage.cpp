@@ -22,7 +22,7 @@
 
 using namespace ::ecore;
 
-boost::intrusive_ptr< ::ecore::EcorePackage > EcorePackage::s_instance;
+::ecore::Ptr< ::ecore::EcorePackage > EcorePackage::s_instance;
 
 ::ecore::EcorePackage_ptr EcorePackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::ecore::EcorePackage > EcorePackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< EcorePackage >();
+            return ::ecore::Ptr< EcorePackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < EcorePackage > (new EcorePackage());
+        s_instance = ::ecore::Ptr < EcorePackage > (new EcorePackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

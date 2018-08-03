@@ -44,7 +44,7 @@ namespace treeiterator
 
     protected:
 
-        static boost::intrusive_ptr< TreeiteratorFactory > s_holder;
+        static ::ecore::Ptr< TreeiteratorFactory > s_holder;
 
         TreeiteratorFactory();
 
@@ -56,9 +56,9 @@ namespace treeiterator
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline TreeNode_ptr create< TreeNode >()

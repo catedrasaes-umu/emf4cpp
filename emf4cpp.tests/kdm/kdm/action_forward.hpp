@@ -44,117 +44,111 @@ namespace kdm
 
 // ActionElement
         class ActionElement;
-        using ActionElement_ptr = boost::intrusive_ptr<ActionElement>;
+        using ActionElement_ptr = ::ecore::Ptr<ActionElement>;
 
 // AbstractActionRelationship
         class AbstractActionRelationship;
-        using AbstractActionRelationship_ptr = boost::intrusive_ptr<AbstractActionRelationship>;
+        using AbstractActionRelationship_ptr = ::ecore::Ptr<AbstractActionRelationship>;
 
 // ControlFlow
         class ControlFlow;
-        using ControlFlow_ptr = boost::intrusive_ptr<ControlFlow>;
+        using ControlFlow_ptr = ::ecore::Ptr<ControlFlow>;
 
 // Calls
         class Calls;
-        using Calls_ptr = boost::intrusive_ptr<Calls>;
+        using Calls_ptr = ::ecore::Ptr<Calls>;
 
 // Creates
         class Creates;
-        using Creates_ptr = boost::intrusive_ptr<Creates>;
+        using Creates_ptr = ::ecore::Ptr<Creates>;
 
 // Reads
         class Reads;
-        using Reads_ptr = boost::intrusive_ptr<Reads>;
+        using Reads_ptr = ::ecore::Ptr<Reads>;
 
 // Writes
         class Writes;
-        using Writes_ptr = boost::intrusive_ptr<Writes>;
+        using Writes_ptr = ::ecore::Ptr<Writes>;
 
 // CompliesTo
         class CompliesTo;
-        using CompliesTo_ptr = boost::intrusive_ptr<CompliesTo>;
+        using CompliesTo_ptr = ::ecore::Ptr<CompliesTo>;
 
 // Flow
         class Flow;
-        using Flow_ptr = boost::intrusive_ptr<Flow>;
+        using Flow_ptr = ::ecore::Ptr<Flow>;
 
 // TrueFlow
         class TrueFlow;
-        using TrueFlow_ptr = boost::intrusive_ptr<TrueFlow>;
+        using TrueFlow_ptr = ::ecore::Ptr<TrueFlow>;
 
 // FalseFlow
         class FalseFlow;
-        using FalseFlow_ptr = boost::intrusive_ptr<FalseFlow>;
+        using FalseFlow_ptr = ::ecore::Ptr<FalseFlow>;
 
 // GuardedFlow
         class GuardedFlow;
-        using GuardedFlow_ptr = boost::intrusive_ptr<GuardedFlow>;
+        using GuardedFlow_ptr = ::ecore::Ptr<GuardedFlow>;
 
 // UsesType
         class UsesType;
-        using UsesType_ptr = boost::intrusive_ptr<UsesType>;
+        using UsesType_ptr = ::ecore::Ptr<UsesType>;
 
 // Addresses
         class Addresses;
-        using Addresses_ptr = boost::intrusive_ptr<Addresses>;
+        using Addresses_ptr = ::ecore::Ptr<Addresses>;
 
 // ActionRelationship
         class ActionRelationship;
-        using ActionRelationship_ptr = boost::intrusive_ptr<ActionRelationship>;
+        using ActionRelationship_ptr = ::ecore::Ptr<ActionRelationship>;
 
 // Throws
         class Throws;
-        using Throws_ptr = boost::intrusive_ptr<Throws>;
+        using Throws_ptr = ::ecore::Ptr<Throws>;
 
 // Dispatches
         class Dispatches;
-        using Dispatches_ptr = boost::intrusive_ptr<Dispatches>;
+        using Dispatches_ptr = ::ecore::Ptr<Dispatches>;
 
 // EntryFlow
         class EntryFlow;
-        using EntryFlow_ptr = boost::intrusive_ptr<EntryFlow>;
+        using EntryFlow_ptr = ::ecore::Ptr<EntryFlow>;
 
 // BlockUnit
         class BlockUnit;
-        using BlockUnit_ptr = boost::intrusive_ptr<BlockUnit>;
+        using BlockUnit_ptr = ::ecore::Ptr<BlockUnit>;
 
 // ExceptionUnit
         class ExceptionUnit;
-        using ExceptionUnit_ptr = boost::intrusive_ptr<ExceptionUnit>;
+        using ExceptionUnit_ptr = ::ecore::Ptr<ExceptionUnit>;
 
 // TryUnit
         class TryUnit;
-        using TryUnit_ptr = boost::intrusive_ptr<TryUnit>;
+        using TryUnit_ptr = ::ecore::Ptr<TryUnit>;
 
 // FinallyUnit
         class FinallyUnit;
-        using FinallyUnit_ptr = boost::intrusive_ptr<FinallyUnit>;
+        using FinallyUnit_ptr = ::ecore::Ptr<FinallyUnit>;
 
 // CatchUnit
         class CatchUnit;
-        using CatchUnit_ptr = boost::intrusive_ptr<CatchUnit>;
+        using CatchUnit_ptr = ::ecore::Ptr<CatchUnit>;
 
 // ExitFlow
         class ExitFlow;
-        using ExitFlow_ptr = boost::intrusive_ptr<ExitFlow>;
+        using ExitFlow_ptr = ::ecore::Ptr<ExitFlow>;
 
 // ExceptionFlow
         class ExceptionFlow;
-        using ExceptionFlow_ptr = boost::intrusive_ptr<ExceptionFlow>;
+        using ExceptionFlow_ptr = ::ecore::Ptr<ExceptionFlow>;
 
 // EEnum
 
 // Package & Factory
         class ActionFactory;
-        using ActionFactory_ptr = boost::intrusive_ptr<ActionFactory>;
+        using ActionFactory_ptr = ::ecore::Ptr<ActionFactory>;
         class ActionPackage;
-        using ActionPackage_ptr = boost::intrusive_ptr<ActionPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using ActionPackage_ptr = ::ecore::Ptr<ActionPackage>;
 
     } // action
 } // kdm

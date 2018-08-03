@@ -10,8 +10,8 @@ namespace ec = ecore;
 
 int main(int argc, char* argv[])
 {
-    EoppositePackage_ptr eoppositePackage = EoppositePackage::_instance()->as< EoppositePackage >();
-    EoppositeFactory_ptr eoppositeFactory = EoppositeFactory::_instance()->as< EoppositeFactory >();
+    EoppositePackage_ptr eoppositePackage = EoppositePackage::_instance();
+    EoppositeFactory_ptr eoppositeFactory = EoppositeFactory::_instance();
 
     {
 		boost::intrusive_ptr<TopLevel> tl ( create<TopLevel>());
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
 	ec::EObject_ptr eobj = _dser.load ("myTopLevel.xmi");
 
     {
-		boost::intrusive_ptr<TopLevel> tl (eobj->as< TopLevel >());
+		boost::intrusive_ptr<TopLevel> tl (::ecore::as< TopLevel >(eobj));
     }
 }
 

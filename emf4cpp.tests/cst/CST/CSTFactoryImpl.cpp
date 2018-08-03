@@ -74,18 +74,18 @@ CSTFactory::CSTFactory()
 
 Tree_ptr CSTFactory::createTree()
 {
-    return boost::intrusive_ptr < Tree > (new Tree);
+    return ::ecore::Ptr < Tree > (new Tree);
 }
 Element_ptr CSTFactory::createElement()
 {
-    return boost::intrusive_ptr < Element > (new Element);
+    return ::ecore::Ptr < Element > (new Element);
 }
 Node_ptr CSTFactory::createNode()
 {
-    return boost::intrusive_ptr < Node > (new Node);
+    return ::ecore::Ptr < Node > (new Node);
 }
 Leaf_ptr CSTFactory::createLeaf()
 {
-    return boost::intrusive_ptr < Leaf > (new Leaf);
+    return ::ecore::Ptr < Leaf > (new Leaf);
 }
 

@@ -78,22 +78,22 @@ Xpand3Factory::Xpand3Factory()
 
 SyntaxElement_ptr Xpand3Factory::createSyntaxElement()
 {
-    return boost::intrusive_ptr < SyntaxElement > (new SyntaxElement);
+    return ::ecore::Ptr < SyntaxElement > (new SyntaxElement);
 }
 File_ptr Xpand3Factory::createFile()
 {
-    return boost::intrusive_ptr < File > (new File);
+    return ::ecore::Ptr < File > (new File);
 }
 ImportStatement_ptr Xpand3Factory::createImportStatement()
 {
-    return boost::intrusive_ptr < ImportStatement > (new ImportStatement);
+    return ::ecore::Ptr < ImportStatement > (new ImportStatement);
 }
 Identifier_ptr Xpand3Factory::createIdentifier()
 {
-    return boost::intrusive_ptr < Identifier > (new Identifier);
+    return ::ecore::Ptr < Identifier > (new Identifier);
 }
 DeclaredParameter_ptr Xpand3Factory::createDeclaredParameter()
 {
-    return boost::intrusive_ptr < DeclaredParameter > (new DeclaredParameter);
+    return ::ecore::Ptr < DeclaredParameter > (new DeclaredParameter);
 }
 

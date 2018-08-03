@@ -109,7 +109,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< ResourceTestsPackage > s_instance;
+    static ::ecore::Ptr< ResourceTestsPackage > s_instance;
 
     ResourceTestsPackage();
     void _initPackage();

@@ -22,7 +22,7 @@
 
 using namespace ::tree;
 
-boost::intrusive_ptr< ::tree::TreePackage > TreePackage::s_instance;
+::ecore::Ptr< ::tree::TreePackage > TreePackage::s_instance;
 
 ::tree::TreePackage_ptr TreePackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::tree::TreePackage > TreePackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< TreePackage >();
+            return ::ecore::Ptr< TreePackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < TreePackage > (new TreePackage());
+        s_instance = ::ecore::Ptr < TreePackage > (new TreePackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

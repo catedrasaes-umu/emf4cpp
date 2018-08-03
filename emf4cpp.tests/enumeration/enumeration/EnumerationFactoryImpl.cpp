@@ -68,7 +68,7 @@ EnumerationFactory::EnumerationFactory()
     {
     case EnumerationPackage::BIRDTYPE:
     {
-        EnumerationPackage_ptr _epkg = ::enumeration::instanceOf
+        EnumerationPackage_ptr _epkg = ::ecore::as
                 < ::enumeration::EnumerationPackage > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
@@ -81,6 +81,6 @@ EnumerationFactory::EnumerationFactory()
 
 Bird_ptr EnumerationFactory::createBird()
 {
-    return boost::intrusive_ptr < Bird > (new Bird);
+    return ::ecore::Ptr < Bird > (new Bird);
 }
 

@@ -94,19 +94,19 @@ void IfExpression::_initialize()
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
     {
         if (m_condition)
-            _any = m_condition->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_condition);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART:
     {
         if (m_thenPart)
-            _any = m_thenPart->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_thenPart);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART:
     {
         if (m_elsePart)
-            _any = m_elsePart->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_elsePart);
     }
         return _any;
 

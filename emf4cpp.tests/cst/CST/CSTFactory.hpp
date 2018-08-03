@@ -46,7 +46,7 @@ namespace CST
 
     protected:
 
-        static boost::intrusive_ptr< CSTFactory > s_holder;
+        static ::ecore::Ptr< CSTFactory > s_holder;
 
         CSTFactory();
 
@@ -58,9 +58,9 @@ namespace CST
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline Tree_ptr create< Tree >()

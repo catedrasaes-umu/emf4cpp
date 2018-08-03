@@ -40,31 +40,31 @@ JsonPackage::JsonPackage()
 {
 
     // Feature definitions of ObjectValue
-    m_ObjectValue__members = boost::intrusive_ptr < ::ecore::EReference
+    m_ObjectValue__members = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of NVPair
-    m_NVPair__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_NVPair__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_NVPair__value = boost::intrusive_ptr < ::ecore::EReference
+    m_NVPair__value = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Value
 
     // Feature definitions of StringValue
-    m_StringValue__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_StringValue__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of NumberValue
-    m_NumberValue__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_NumberValue__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of BooleanValue
-    m_BooleanValue__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_BooleanValue__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of ArrayValue
-    m_ArrayValue__values = boost::intrusive_ptr < ::ecore::EReference
+    m_ArrayValue__values = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of NullValue
@@ -81,7 +81,7 @@ void JsonPackage::_initPackage()
     // Create classes and their features
 
     // ObjectValue
-    m_ObjectValueEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ObjectValueEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ObjectValueEClass->setClassifierID(OBJECTVALUE);
     m_ObjectValueEClass->setEPackage(_this());
@@ -93,8 +93,7 @@ void JsonPackage::_initPackage()
             m_ObjectValue__members);
 
     // NVPair
-    m_NVPairEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_NVPairEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_NVPairEClass->setClassifierID(NVPAIR);
     m_NVPairEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NVPairEClass);
@@ -106,14 +105,13 @@ void JsonPackage::_initPackage()
     m_NVPairEClass->getEStructuralFeatures().push_back(m_NVPair__value);
 
     // Value
-    m_ValueEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ValueEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ValueEClass->setClassifierID(VALUE);
     m_ValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ValueEClass);
 
     // StringValue
-    m_StringValueEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_StringValueEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_StringValueEClass->setClassifierID(STRINGVALUE);
     m_StringValueEClass->setEPackage(_this());
@@ -124,7 +122,7 @@ void JsonPackage::_initPackage()
             m_StringValue__value);
 
     // NumberValue
-    m_NumberValueEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_NumberValueEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_NumberValueEClass->setClassifierID(NUMBERVALUE);
     m_NumberValueEClass->setEPackage(_this());
@@ -135,7 +133,7 @@ void JsonPackage::_initPackage()
             m_NumberValue__value);
 
     // BooleanValue
-    m_BooleanValueEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_BooleanValueEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_BooleanValueEClass->setClassifierID(BOOLEANVALUE);
     m_BooleanValueEClass->setEPackage(_this());
@@ -147,8 +145,7 @@ void JsonPackage::_initPackage()
             m_BooleanValue__value);
 
     // ArrayValue
-    m_ArrayValueEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ArrayValueEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ArrayValueEClass->setClassifierID(ARRAYVALUE);
     m_ArrayValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ArrayValueEClass);
@@ -158,8 +155,7 @@ void JsonPackage::_initPackage()
             m_ArrayValue__values);
 
     // NullValue
-    m_NullValueEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_NullValueEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_NullValueEClass->setClassifierID(NULLVALUE);
     m_NullValueEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NullValueEClass);

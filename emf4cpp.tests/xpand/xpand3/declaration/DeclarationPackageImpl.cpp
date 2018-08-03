@@ -48,65 +48,65 @@ DeclarationPackage::DeclarationPackage()
 {
 
     // Feature definitions of AbstractDeclaration
-    m_AbstractDeclaration__isPrivate = boost::intrusive_ptr
-            < ::ecore::EAttribute > (new ::ecore::EAttribute);
-    m_AbstractDeclaration__owner = boost::intrusive_ptr < ::ecore::EReference
+    m_AbstractDeclaration__isPrivate = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_AbstractDeclaration__owner = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_AbstractDeclaration__params = boost::intrusive_ptr < ::ecore::EReference
+    m_AbstractDeclaration__params = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_AbstractDeclaration__guard = boost::intrusive_ptr < ::ecore::EReference
+    m_AbstractDeclaration__guard = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of AbstractNamedDeclaration
-    m_AbstractNamedDeclaration__name = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractNamedDeclaration__name = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Definition
-    m_Definition__body = boost::intrusive_ptr < ::ecore::EReference
+    m_Definition__body = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Extension
-    m_Extension__cached = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Extension__cached = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Extension__body = boost::intrusive_ptr < ::ecore::EReference
+    m_Extension__body = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Extension__returnType = boost::intrusive_ptr < ::ecore::EReference
+    m_Extension__returnType = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of AbstractAspect
-    m_AbstractAspect__wildparams = boost::intrusive_ptr < ::ecore::EAttribute
+    m_AbstractAspect__wildparams = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_AbstractAspect__pointcut = boost::intrusive_ptr < ::ecore::EReference
+    m_AbstractAspect__pointcut = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ExtensionAspect
-    m_ExtensionAspect__expression = boost::intrusive_ptr < ::ecore::EReference
+    m_ExtensionAspect__expression = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of DefinitionAspect
-    m_DefinitionAspect__body = boost::intrusive_ptr < ::ecore::EReference
+    m_DefinitionAspect__body = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Check
-    m_Check__errorSeverity = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Check__errorSeverity = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Check__feature = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Check__feature = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Check__msg = boost::intrusive_ptr < ::ecore::EReference
+    m_Check__msg = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Check__constraint = boost::intrusive_ptr < ::ecore::EReference
+    m_Check__constraint = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of CreateExtension
-    m_CreateExtension__toBeCreated = boost::intrusive_ptr < ::ecore::EReference
+    m_CreateExtension__toBeCreated = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of JavaExtension
-    m_JavaExtension__javaType = boost::intrusive_ptr < ::ecore::EReference
+    m_JavaExtension__javaType = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_JavaExtension__javaMethod = boost::intrusive_ptr < ::ecore::EReference
+    m_JavaExtension__javaMethod = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_JavaExtension__javaParamTypes = boost::intrusive_ptr < ::ecore::EReference
+    m_JavaExtension__javaParamTypes = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -121,7 +121,7 @@ void DeclarationPackage::_initPackage()
     // Create classes and their features
 
     // AbstractDeclaration
-    m_AbstractDeclarationEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractDeclarationEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractDeclarationEClass->setClassifierID(ABSTRACTDECLARATION);
     m_AbstractDeclarationEClass->setEPackage(_this());
@@ -148,7 +148,7 @@ void DeclarationPackage::_initPackage()
             m_AbstractDeclaration__guard);
 
     // AbstractNamedDeclaration
-    m_AbstractNamedDeclarationEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractNamedDeclarationEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractNamedDeclarationEClass->setClassifierID(ABSTRACTNAMEDDECLARATION);
     m_AbstractNamedDeclarationEClass->setEPackage(_this());
@@ -160,8 +160,7 @@ void DeclarationPackage::_initPackage()
             m_AbstractNamedDeclaration__name);
 
     // Definition
-    m_DefinitionEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DefinitionEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DefinitionEClass->setClassifierID(DEFINITION);
     m_DefinitionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DefinitionEClass);
@@ -171,8 +170,7 @@ void DeclarationPackage::_initPackage()
     m_DefinitionEClass->getEStructuralFeatures().push_back(m_Definition__body);
 
     // Extension
-    m_ExtensionEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ExtensionEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ExtensionEClass->setClassifierID(EXTENSION);
     m_ExtensionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExtensionEClass);
@@ -191,7 +189,7 @@ void DeclarationPackage::_initPackage()
             m_Extension__returnType);
 
     // AbstractAspect
-    m_AbstractAspectEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractAspectEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractAspectEClass->setClassifierID(ABSTRACTASPECT);
     m_AbstractAspectEClass->setEPackage(_this());
@@ -208,7 +206,7 @@ void DeclarationPackage::_initPackage()
             m_AbstractAspect__pointcut);
 
     // ExtensionAspect
-    m_ExtensionAspectEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExtensionAspectEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExtensionAspectEClass->setClassifierID(EXTENSIONASPECT);
     m_ExtensionAspectEClass->setEPackage(_this());
@@ -220,7 +218,7 @@ void DeclarationPackage::_initPackage()
             m_ExtensionAspect__expression);
 
     // DefinitionAspect
-    m_DefinitionAspectEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DefinitionAspectEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DefinitionAspectEClass->setClassifierID(DEFINITIONASPECT);
     m_DefinitionAspectEClass->setEPackage(_this());
@@ -232,8 +230,7 @@ void DeclarationPackage::_initPackage()
             m_DefinitionAspect__body);
 
     // Check
-    m_CheckEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CheckEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CheckEClass->setClassifierID(CHECK);
     m_CheckEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CheckEClass);
@@ -255,7 +252,7 @@ void DeclarationPackage::_initPackage()
     m_CheckEClass->getEStructuralFeatures().push_back(m_Check__constraint);
 
     // CreateExtension
-    m_CreateExtensionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_CreateExtensionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_CreateExtensionEClass->setClassifierID(CREATEEXTENSION);
     m_CreateExtensionEClass->setEPackage(_this());
@@ -267,7 +264,7 @@ void DeclarationPackage::_initPackage()
             m_CreateExtension__toBeCreated);
 
     // JavaExtension
-    m_JavaExtensionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_JavaExtensionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_JavaExtensionEClass->setClassifierID(JAVAEXTENSION);
     m_JavaExtensionEClass->setEPackage(_this());

@@ -98,7 +98,7 @@ void JavaExtension::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
         if (m_owner)
-            _any = m_owner->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_owner);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
@@ -115,25 +115,25 @@ void JavaExtension::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
         if (m_guard)
-            _any = m_guard->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_guard);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
     {
         if (m_name)
-            _any = m_name->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_name);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::JAVAEXTENSION__JAVATYPE:
     {
         if (m_javaType)
-            _any = m_javaType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_javaType);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::JAVAEXTENSION__JAVAMETHOD:
     {
         if (m_javaMethod)
-            _any = m_javaMethod->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_javaMethod);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::JAVAEXTENSION__JAVAPARAMTYPES:

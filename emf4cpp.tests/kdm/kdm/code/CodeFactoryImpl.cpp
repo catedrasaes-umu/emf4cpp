@@ -349,48 +349,48 @@ CodeFactory::CodeFactory()
     {
     case CodePackage::METHODKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getMethodKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::PARAMETERKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getParameterKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::EXPORTKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getExportKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::STORABLEKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getStorableKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::CALLABLEKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getCallableKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::MACROKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getMacroKind()->getEEnumLiteral(_value)->getName();
@@ -402,339 +402,335 @@ CodeFactory::CodeFactory()
 
 AbstractCodeElement_ptr CodeFactory::createAbstractCodeElement()
 {
-    return boost::intrusive_ptr < AbstractCodeElement
-            > (new AbstractCodeElement);
+    return ::ecore::Ptr < AbstractCodeElement > (new AbstractCodeElement);
 }
 CodeItem_ptr CodeFactory::createCodeItem()
 {
-    return boost::intrusive_ptr < CodeItem > (new CodeItem);
+    return ::ecore::Ptr < CodeItem > (new CodeItem);
 }
 ComputationalObject_ptr CodeFactory::createComputationalObject()
 {
-    return boost::intrusive_ptr < ComputationalObject
-            > (new ComputationalObject);
+    return ::ecore::Ptr < ComputationalObject > (new ComputationalObject);
 }
 ControlElement_ptr CodeFactory::createControlElement()
 {
-    return boost::intrusive_ptr < ControlElement > (new ControlElement);
+    return ::ecore::Ptr < ControlElement > (new ControlElement);
 }
 MethodUnit_ptr CodeFactory::createMethodUnit()
 {
-    return boost::intrusive_ptr < MethodUnit > (new MethodUnit);
+    return ::ecore::Ptr < MethodUnit > (new MethodUnit);
 }
 Module_ptr CodeFactory::createModule()
 {
-    return boost::intrusive_ptr < Module > (new Module);
+    return ::ecore::Ptr < Module > (new Module);
 }
 CodeAssembly_ptr CodeFactory::createCodeAssembly()
 {
-    return boost::intrusive_ptr < CodeAssembly > (new CodeAssembly);
+    return ::ecore::Ptr < CodeAssembly > (new CodeAssembly);
 }
 CallableUnit_ptr CodeFactory::createCallableUnit()
 {
-    return boost::intrusive_ptr < CallableUnit > (new CallableUnit);
+    return ::ecore::Ptr < CallableUnit > (new CallableUnit);
 }
 Datatype_ptr CodeFactory::createDatatype()
 {
-    return boost::intrusive_ptr < Datatype > (new Datatype);
+    return ::ecore::Ptr < Datatype > (new Datatype);
 }
 TemplateUnit_ptr CodeFactory::createTemplateUnit()
 {
-    return boost::intrusive_ptr < TemplateUnit > (new TemplateUnit);
+    return ::ecore::Ptr < TemplateUnit > (new TemplateUnit);
 }
 TemplateParameter_ptr CodeFactory::createTemplateParameter()
 {
-    return boost::intrusive_ptr < TemplateParameter > (new TemplateParameter);
+    return ::ecore::Ptr < TemplateParameter > (new TemplateParameter);
 }
 AbstractCodeRelationship_ptr CodeFactory::createAbstractCodeRelationship()
 {
-    return boost::intrusive_ptr < AbstractCodeRelationship
+    return ::ecore::Ptr < AbstractCodeRelationship
             > (new AbstractCodeRelationship);
 }
 InstanceOf_ptr CodeFactory::createInstanceOf()
 {
-    return boost::intrusive_ptr < InstanceOf > (new InstanceOf);
+    return ::ecore::Ptr < InstanceOf > (new InstanceOf);
 }
 CompilationUnit_ptr CodeFactory::createCompilationUnit()
 {
-    return boost::intrusive_ptr < CompilationUnit > (new CompilationUnit);
+    return ::ecore::Ptr < CompilationUnit > (new CompilationUnit);
 }
 CodeModel_ptr CodeFactory::createCodeModel()
 {
-    return boost::intrusive_ptr < CodeModel > (new CodeModel);
+    return ::ecore::Ptr < CodeModel > (new CodeModel);
 }
 DerivedType_ptr CodeFactory::createDerivedType()
 {
-    return boost::intrusive_ptr < DerivedType > (new DerivedType);
+    return ::ecore::Ptr < DerivedType > (new DerivedType);
 }
 ArrayType_ptr CodeFactory::createArrayType()
 {
-    return boost::intrusive_ptr < ArrayType > (new ArrayType);
+    return ::ecore::Ptr < ArrayType > (new ArrayType);
 }
 PrimitiveType_ptr CodeFactory::createPrimitiveType()
 {
-    return boost::intrusive_ptr < PrimitiveType > (new PrimitiveType);
+    return ::ecore::Ptr < PrimitiveType > (new PrimitiveType);
 }
 BooleanType_ptr CodeFactory::createBooleanType()
 {
-    return boost::intrusive_ptr < BooleanType > (new BooleanType);
+    return ::ecore::Ptr < BooleanType > (new BooleanType);
 }
 CharType_ptr CodeFactory::createCharType()
 {
-    return boost::intrusive_ptr < CharType > (new CharType);
+    return ::ecore::Ptr < CharType > (new CharType);
 }
 ClassUnit_ptr CodeFactory::createClassUnit()
 {
-    return boost::intrusive_ptr < ClassUnit > (new ClassUnit);
+    return ::ecore::Ptr < ClassUnit > (new ClassUnit);
 }
 CompositeType_ptr CodeFactory::createCompositeType()
 {
-    return boost::intrusive_ptr < CompositeType > (new CompositeType);
+    return ::ecore::Ptr < CompositeType > (new CompositeType);
 }
 RecordType_ptr CodeFactory::createRecordType()
 {
-    return boost::intrusive_ptr < RecordType > (new RecordType);
+    return ::ecore::Ptr < RecordType > (new RecordType);
 }
 EnumeratedType_ptr CodeFactory::createEnumeratedType()
 {
-    return boost::intrusive_ptr < EnumeratedType > (new EnumeratedType);
+    return ::ecore::Ptr < EnumeratedType > (new EnumeratedType);
 }
 Extends_ptr CodeFactory::createExtends()
 {
-    return boost::intrusive_ptr < Extends > (new Extends);
+    return ::ecore::Ptr < Extends > (new Extends);
 }
 ScaledType_ptr CodeFactory::createScaledType()
 {
-    return boost::intrusive_ptr < ScaledType > (new ScaledType);
+    return ::ecore::Ptr < ScaledType > (new ScaledType);
 }
 FloatType_ptr CodeFactory::createFloatType()
 {
-    return boost::intrusive_ptr < FloatType > (new FloatType);
+    return ::ecore::Ptr < FloatType > (new FloatType);
 }
 HasType_ptr CodeFactory::createHasType()
 {
-    return boost::intrusive_ptr < HasType > (new HasType);
+    return ::ecore::Ptr < HasType > (new HasType);
 }
 ImplementationOf_ptr CodeFactory::createImplementationOf()
 {
-    return boost::intrusive_ptr < ImplementationOf > (new ImplementationOf);
+    return ::ecore::Ptr < ImplementationOf > (new ImplementationOf);
 }
 Implements_ptr CodeFactory::createImplements()
 {
-    return boost::intrusive_ptr < Implements > (new Implements);
+    return ::ecore::Ptr < Implements > (new Implements);
 }
 IntegerType_ptr CodeFactory::createIntegerType()
 {
-    return boost::intrusive_ptr < IntegerType > (new IntegerType);
+    return ::ecore::Ptr < IntegerType > (new IntegerType);
 }
 InterfaceUnit_ptr CodeFactory::createInterfaceUnit()
 {
-    return boost::intrusive_ptr < InterfaceUnit > (new InterfaceUnit);
+    return ::ecore::Ptr < InterfaceUnit > (new InterfaceUnit);
 }
 PointerType_ptr CodeFactory::createPointerType()
 {
-    return boost::intrusive_ptr < PointerType > (new PointerType);
+    return ::ecore::Ptr < PointerType > (new PointerType);
 }
 DefinedType_ptr CodeFactory::createDefinedType()
 {
-    return boost::intrusive_ptr < DefinedType > (new DefinedType);
+    return ::ecore::Ptr < DefinedType > (new DefinedType);
 }
 TypeUnit_ptr CodeFactory::createTypeUnit()
 {
-    return boost::intrusive_ptr < TypeUnit > (new TypeUnit);
+    return ::ecore::Ptr < TypeUnit > (new TypeUnit);
 }
 RangeType_ptr CodeFactory::createRangeType()
 {
-    return boost::intrusive_ptr < RangeType > (new RangeType);
+    return ::ecore::Ptr < RangeType > (new RangeType);
 }
 Signature_ptr CodeFactory::createSignature()
 {
-    return boost::intrusive_ptr < Signature > (new Signature);
+    return ::ecore::Ptr < Signature > (new Signature);
 }
 DataElement_ptr CodeFactory::createDataElement()
 {
-    return boost::intrusive_ptr < DataElement > (new DataElement);
+    return ::ecore::Ptr < DataElement > (new DataElement);
 }
 StringType_ptr CodeFactory::createStringType()
 {
-    return boost::intrusive_ptr < StringType > (new StringType);
+    return ::ecore::Ptr < StringType > (new StringType);
 }
 ChoiceType_ptr CodeFactory::createChoiceType()
 {
-    return boost::intrusive_ptr < ChoiceType > (new ChoiceType);
+    return ::ecore::Ptr < ChoiceType > (new ChoiceType);
 }
 NamespaceUnit_ptr CodeFactory::createNamespaceUnit()
 {
-    return boost::intrusive_ptr < NamespaceUnit > (new NamespaceUnit);
+    return ::ecore::Ptr < NamespaceUnit > (new NamespaceUnit);
 }
 VisibleIn_ptr CodeFactory::createVisibleIn()
 {
-    return boost::intrusive_ptr < VisibleIn > (new VisibleIn);
+    return ::ecore::Ptr < VisibleIn > (new VisibleIn);
 }
 CommentUnit_ptr CodeFactory::createCommentUnit()
 {
-    return boost::intrusive_ptr < CommentUnit > (new CommentUnit);
+    return ::ecore::Ptr < CommentUnit > (new CommentUnit);
 }
 SharedUnit_ptr CodeFactory::createSharedUnit()
 {
-    return boost::intrusive_ptr < SharedUnit > (new SharedUnit);
+    return ::ecore::Ptr < SharedUnit > (new SharedUnit);
 }
 DecimalType_ptr CodeFactory::createDecimalType()
 {
-    return boost::intrusive_ptr < DecimalType > (new DecimalType);
+    return ::ecore::Ptr < DecimalType > (new DecimalType);
 }
 DateType_ptr CodeFactory::createDateType()
 {
-    return boost::intrusive_ptr < DateType > (new DateType);
+    return ::ecore::Ptr < DateType > (new DateType);
 }
 TimeType_ptr CodeFactory::createTimeType()
 {
-    return boost::intrusive_ptr < TimeType > (new TimeType);
+    return ::ecore::Ptr < TimeType > (new TimeType);
 }
 VoidType_ptr CodeFactory::createVoidType()
 {
-    return boost::intrusive_ptr < VoidType > (new VoidType);
+    return ::ecore::Ptr < VoidType > (new VoidType);
 }
 ValueElement_ptr CodeFactory::createValueElement()
 {
-    return boost::intrusive_ptr < ValueElement > (new ValueElement);
+    return ::ecore::Ptr < ValueElement > (new ValueElement);
 }
 Value_ptr CodeFactory::createValue()
 {
-    return boost::intrusive_ptr < Value > (new Value);
+    return ::ecore::Ptr < Value > (new Value);
 }
 ValueList_ptr CodeFactory::createValueList()
 {
-    return boost::intrusive_ptr < ValueList > (new ValueList);
+    return ::ecore::Ptr < ValueList > (new ValueList);
 }
 StorableUnit_ptr CodeFactory::createStorableUnit()
 {
-    return boost::intrusive_ptr < StorableUnit > (new StorableUnit);
+    return ::ecore::Ptr < StorableUnit > (new StorableUnit);
 }
 MemberUnit_ptr CodeFactory::createMemberUnit()
 {
-    return boost::intrusive_ptr < MemberUnit > (new MemberUnit);
+    return ::ecore::Ptr < MemberUnit > (new MemberUnit);
 }
 ParameterUnit_ptr CodeFactory::createParameterUnit()
 {
-    return boost::intrusive_ptr < ParameterUnit > (new ParameterUnit);
+    return ::ecore::Ptr < ParameterUnit > (new ParameterUnit);
 }
 ItemUnit_ptr CodeFactory::createItemUnit()
 {
-    return boost::intrusive_ptr < ItemUnit > (new ItemUnit);
+    return ::ecore::Ptr < ItemUnit > (new ItemUnit);
 }
 IndexUnit_ptr CodeFactory::createIndexUnit()
 {
-    return boost::intrusive_ptr < IndexUnit > (new IndexUnit);
+    return ::ecore::Ptr < IndexUnit > (new IndexUnit);
 }
 SynonymType_ptr CodeFactory::createSynonymType()
 {
-    return boost::intrusive_ptr < SynonymType > (new SynonymType);
+    return ::ecore::Ptr < SynonymType > (new SynonymType);
 }
 SequenceType_ptr CodeFactory::createSequenceType()
 {
-    return boost::intrusive_ptr < SequenceType > (new SequenceType);
+    return ::ecore::Ptr < SequenceType > (new SequenceType);
 }
 BagType_ptr CodeFactory::createBagType()
 {
-    return boost::intrusive_ptr < BagType > (new BagType);
+    return ::ecore::Ptr < BagType > (new BagType);
 }
 SetType_ptr CodeFactory::createSetType()
 {
-    return boost::intrusive_ptr < SetType > (new SetType);
+    return ::ecore::Ptr < SetType > (new SetType);
 }
 CodeElement_ptr CodeFactory::createCodeElement()
 {
-    return boost::intrusive_ptr < CodeElement > (new CodeElement);
+    return ::ecore::Ptr < CodeElement > (new CodeElement);
 }
 CodeRelationship_ptr CodeFactory::createCodeRelationship()
 {
-    return boost::intrusive_ptr < CodeRelationship > (new CodeRelationship);
+    return ::ecore::Ptr < CodeRelationship > (new CodeRelationship);
 }
 LanguageUnit_ptr CodeFactory::createLanguageUnit()
 {
-    return boost::intrusive_ptr < LanguageUnit > (new LanguageUnit);
+    return ::ecore::Ptr < LanguageUnit > (new LanguageUnit);
 }
 OrdinalType_ptr CodeFactory::createOrdinalType()
 {
-    return boost::intrusive_ptr < OrdinalType > (new OrdinalType);
+    return ::ecore::Ptr < OrdinalType > (new OrdinalType);
 }
 BitstringType_ptr CodeFactory::createBitstringType()
 {
-    return boost::intrusive_ptr < BitstringType > (new BitstringType);
+    return ::ecore::Ptr < BitstringType > (new BitstringType);
 }
 OctetType_ptr CodeFactory::createOctetType()
 {
-    return boost::intrusive_ptr < OctetType > (new OctetType);
+    return ::ecore::Ptr < OctetType > (new OctetType);
 }
 OctetstringType_ptr CodeFactory::createOctetstringType()
 {
-    return boost::intrusive_ptr < OctetstringType > (new OctetstringType);
+    return ::ecore::Ptr < OctetstringType > (new OctetstringType);
 }
 BitType_ptr CodeFactory::createBitType()
 {
-    return boost::intrusive_ptr < BitType > (new BitType);
+    return ::ecore::Ptr < BitType > (new BitType);
 }
 Imports_ptr CodeFactory::createImports()
 {
-    return boost::intrusive_ptr < Imports > (new Imports);
+    return ::ecore::Ptr < Imports > (new Imports);
 }
 Package_ptr CodeFactory::createPackage()
 {
-    return boost::intrusive_ptr < Package > (new Package);
+    return ::ecore::Ptr < Package > (new Package);
 }
 ParameterTo_ptr CodeFactory::createParameterTo()
 {
-    return boost::intrusive_ptr < ParameterTo > (new ParameterTo);
+    return ::ecore::Ptr < ParameterTo > (new ParameterTo);
 }
 TemplateType_ptr CodeFactory::createTemplateType()
 {
-    return boost::intrusive_ptr < TemplateType > (new TemplateType);
+    return ::ecore::Ptr < TemplateType > (new TemplateType);
 }
 PreprocessorDirective_ptr CodeFactory::createPreprocessorDirective()
 {
-    return boost::intrusive_ptr < PreprocessorDirective
-            > (new PreprocessorDirective);
+    return ::ecore::Ptr < PreprocessorDirective > (new PreprocessorDirective);
 }
 MacroDirective_ptr CodeFactory::createMacroDirective()
 {
-    return boost::intrusive_ptr < MacroDirective > (new MacroDirective);
+    return ::ecore::Ptr < MacroDirective > (new MacroDirective);
 }
 MacroUnit_ptr CodeFactory::createMacroUnit()
 {
-    return boost::intrusive_ptr < MacroUnit > (new MacroUnit);
+    return ::ecore::Ptr < MacroUnit > (new MacroUnit);
 }
 ConditionalDirective_ptr CodeFactory::createConditionalDirective()
 {
-    return boost::intrusive_ptr < ConditionalDirective
-            > (new ConditionalDirective);
+    return ::ecore::Ptr < ConditionalDirective > (new ConditionalDirective);
 }
 IncludeDirective_ptr CodeFactory::createIncludeDirective()
 {
-    return boost::intrusive_ptr < IncludeDirective > (new IncludeDirective);
+    return ::ecore::Ptr < IncludeDirective > (new IncludeDirective);
 }
 VariantTo_ptr CodeFactory::createVariantTo()
 {
-    return boost::intrusive_ptr < VariantTo > (new VariantTo);
+    return ::ecore::Ptr < VariantTo > (new VariantTo);
 }
 Expands_ptr CodeFactory::createExpands()
 {
-    return boost::intrusive_ptr < Expands > (new Expands);
+    return ::ecore::Ptr < Expands > (new Expands);
 }
 Redefines_ptr CodeFactory::createRedefines()
 {
-    return boost::intrusive_ptr < Redefines > (new Redefines);
+    return ::ecore::Ptr < Redefines > (new Redefines);
 }
 GeneratedFrom_ptr CodeFactory::createGeneratedFrom()
 {
-    return boost::intrusive_ptr < GeneratedFrom > (new GeneratedFrom);
+    return ::ecore::Ptr < GeneratedFrom > (new GeneratedFrom);
 }
 Includes_ptr CodeFactory::createIncludes()
 {
-    return boost::intrusive_ptr < Includes > (new Includes);
+    return ::ecore::Ptr < Includes > (new Includes);
 }
 HasValue_ptr CodeFactory::createHasValue()
 {
-    return boost::intrusive_ptr < HasValue > (new HasValue);
+    return ::ecore::Ptr < HasValue > (new HasValue);
 }
 

@@ -336,7 +336,7 @@ int main(int argc, char* argv[])
 
     // Deserializing the serialized metamodel
     ::ecorecpp::parser::parser _par;
-    EPackage_ptr pkg = _par.load("company.ecore")->as< EPackage >(); // filename
+    EPackage_ptr pkg = ::ecore::as< EPackage >(_par.load("company.ecore")); // filename
 
     // Printing the metamodel
     std::cout << "EPackage: " << pkg->getName() << std::endl;
@@ -345,7 +345,7 @@ int main(int argc, char* argv[])
     for (size_t i = 0; i < classifiers.size(); i++)
     {
         std::cout << "  EClassifier: " << classifiers[i]->getName()
-                  << " (" << classifiers[i]->eClass()->getName() 
+                  << " (" << classifiers[i]->eClass()->getName()
                   << ")" << std::endl;
     }
 

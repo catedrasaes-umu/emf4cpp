@@ -117,7 +117,7 @@ void ConceptualRole::_initialize()
     case ::kdm::conceptual::ConceptualPackage::CONCEPTUALROLE__CONCEPTUALELEMENT:
     {
         if (m_conceptualElement)
-            _any = m_conceptualElement->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_conceptualElement);
     }
         return _any;
 

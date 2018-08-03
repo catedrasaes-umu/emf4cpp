@@ -75,18 +75,18 @@ CompanyFactory::CompanyFactory()
 
 Employee_ptr CompanyFactory::createEmployee()
 {
-    return boost::intrusive_ptr < Employee > (new Employee);
+    return ::ecore::Ptr < Employee > (new Employee);
 }
 Department_ptr CompanyFactory::createDepartment()
 {
-    return boost::intrusive_ptr < Department > (new Department);
+    return ::ecore::Ptr < Department > (new Department);
 }
 Company_ptr CompanyFactory::createCompany()
 {
-    return boost::intrusive_ptr < Company > (new Company);
+    return ::ecore::Ptr < Company > (new Company);
 }
 PhonebookEntry_ptr CompanyFactory::createPhonebookEntry()
 {
-    return boost::intrusive_ptr < PhonebookEntry > (new PhonebookEntry);
+    return ::ecore::Ptr < PhonebookEntry > (new PhonebookEntry);
 }
 

@@ -65,7 +65,7 @@ void Property::_initialize()
     case ::myDsl::MyDslPackage::PROPERTY__TYPE:
     {
         if (m_type)
-            _any = m_type->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_type);
     }
         return _any;
     case ::myDsl::MyDslPackage::PROPERTY__MANY:

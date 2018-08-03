@@ -51,7 +51,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< TopLevelPackagePackage > s_instance;
+    static ::ecore::Ptr< TopLevelPackagePackage > s_instance;
 
     TopLevelPackagePackage();
     void _initPackage();

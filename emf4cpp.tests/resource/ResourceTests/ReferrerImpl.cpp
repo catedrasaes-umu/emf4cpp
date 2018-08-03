@@ -59,7 +59,7 @@ void Referrer::_initialize()
     case ::ResourceTests::ResourceTestsPackage::REFERRER__REFERENCE:
     {
         if (m_reference)
-            _any = m_reference->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_reference);
     }
         return _any;
 

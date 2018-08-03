@@ -44,109 +44,103 @@ namespace xpand3
 
 // AbstractExpression
         class AbstractExpression;
-        using AbstractExpression_ptr = boost::intrusive_ptr<AbstractExpression>;
+        using AbstractExpression_ptr = ::ecore::Ptr<AbstractExpression>;
 
 // BooleanOperation
         class BooleanOperation;
-        using BooleanOperation_ptr = boost::intrusive_ptr<BooleanOperation>;
+        using BooleanOperation_ptr = ::ecore::Ptr<BooleanOperation>;
 
 // Cast
         class Cast;
-        using Cast_ptr = boost::intrusive_ptr<Cast>;
+        using Cast_ptr = ::ecore::Ptr<Cast>;
 
 // ChainExpression
         class ChainExpression;
-        using ChainExpression_ptr = boost::intrusive_ptr<ChainExpression>;
+        using ChainExpression_ptr = ::ecore::Ptr<ChainExpression>;
 
 // ConstructorCallExpression
         class ConstructorCallExpression;
-        using ConstructorCallExpression_ptr = boost::intrusive_ptr<ConstructorCallExpression>;
+        using ConstructorCallExpression_ptr = ::ecore::Ptr<ConstructorCallExpression>;
 
 // FeatureCall
         class FeatureCall;
-        using FeatureCall_ptr = boost::intrusive_ptr<FeatureCall>;
+        using FeatureCall_ptr = ::ecore::Ptr<FeatureCall>;
 
 // CollectionExpression
         class CollectionExpression;
-        using CollectionExpression_ptr = boost::intrusive_ptr<CollectionExpression>;
+        using CollectionExpression_ptr = ::ecore::Ptr<CollectionExpression>;
 
 // OperationCall
         class OperationCall;
-        using OperationCall_ptr = boost::intrusive_ptr<OperationCall>;
+        using OperationCall_ptr = ::ecore::Ptr<OperationCall>;
 
 // TypeSelectExpression
         class TypeSelectExpression;
-        using TypeSelectExpression_ptr = boost::intrusive_ptr<TypeSelectExpression>;
+        using TypeSelectExpression_ptr = ::ecore::Ptr<TypeSelectExpression>;
 
 // GlobalVarExpression
         class GlobalVarExpression;
-        using GlobalVarExpression_ptr = boost::intrusive_ptr<GlobalVarExpression>;
+        using GlobalVarExpression_ptr = ::ecore::Ptr<GlobalVarExpression>;
 
 // IfExpression
         class IfExpression;
-        using IfExpression_ptr = boost::intrusive_ptr<IfExpression>;
+        using IfExpression_ptr = ::ecore::Ptr<IfExpression>;
 
 // LetExpression
         class LetExpression;
-        using LetExpression_ptr = boost::intrusive_ptr<LetExpression>;
+        using LetExpression_ptr = ::ecore::Ptr<LetExpression>;
 
 // ListLiteral
         class ListLiteral;
-        using ListLiteral_ptr = boost::intrusive_ptr<ListLiteral>;
+        using ListLiteral_ptr = ::ecore::Ptr<ListLiteral>;
 
 // Literal
         class Literal;
-        using Literal_ptr = boost::intrusive_ptr<Literal>;
+        using Literal_ptr = ::ecore::Ptr<Literal>;
 
 // BooleanLiteral
         class BooleanLiteral;
-        using BooleanLiteral_ptr = boost::intrusive_ptr<BooleanLiteral>;
+        using BooleanLiteral_ptr = ::ecore::Ptr<BooleanLiteral>;
 
 // IntegerLiteral
         class IntegerLiteral;
-        using IntegerLiteral_ptr = boost::intrusive_ptr<IntegerLiteral>;
+        using IntegerLiteral_ptr = ::ecore::Ptr<IntegerLiteral>;
 
 // NullLiteral
         class NullLiteral;
-        using NullLiteral_ptr = boost::intrusive_ptr<NullLiteral>;
+        using NullLiteral_ptr = ::ecore::Ptr<NullLiteral>;
 
 // RealLiteral
         class RealLiteral;
-        using RealLiteral_ptr = boost::intrusive_ptr<RealLiteral>;
+        using RealLiteral_ptr = ::ecore::Ptr<RealLiteral>;
 
 // StringLiteral
         class StringLiteral;
-        using StringLiteral_ptr = boost::intrusive_ptr<StringLiteral>;
+        using StringLiteral_ptr = ::ecore::Ptr<StringLiteral>;
 
 // SwitchExpression
         class SwitchExpression;
-        using SwitchExpression_ptr = boost::intrusive_ptr<SwitchExpression>;
+        using SwitchExpression_ptr = ::ecore::Ptr<SwitchExpression>;
 
 // Case
         class Case;
-        using Case_ptr = boost::intrusive_ptr<Case>;
+        using Case_ptr = ::ecore::Ptr<Case>;
 
 // BinaryOperation
         class BinaryOperation;
-        using BinaryOperation_ptr = boost::intrusive_ptr<BinaryOperation>;
+        using BinaryOperation_ptr = ::ecore::Ptr<BinaryOperation>;
 
 // UnaryOperation
         class UnaryOperation;
-        using UnaryOperation_ptr = boost::intrusive_ptr<UnaryOperation>;
+        using UnaryOperation_ptr = ::ecore::Ptr<UnaryOperation>;
 
 // EEnum
 
 // Package & Factory
         class ExpressionFactory;
-        using ExpressionFactory_ptr = boost::intrusive_ptr<ExpressionFactory>;
+        using ExpressionFactory_ptr = ::ecore::Ptr<ExpressionFactory>;
         class ExpressionPackage;
-        using ExpressionPackage_ptr = boost::intrusive_ptr<ExpressionPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using ExpressionPackage_ptr = ::ecore::Ptr<ExpressionPackage>;
 
     } // expression
 } // xpand3

@@ -174,7 +174,7 @@ void EObject::_initialize()
 {
     /*PROTECTED REGION ID(EObjectImpl_eContainmentFeature) ENABLED START*/
 
-    return m_eContainingFeature->as< EReference >();
+    return ::ecore::as < EReference > (m_eContainingFeature);
 
     /*PROTECTED REGION END*/
 }

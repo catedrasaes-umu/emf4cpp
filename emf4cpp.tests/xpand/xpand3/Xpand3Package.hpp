@@ -151,7 +151,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< Xpand3Package > s_instance;
+    static ::ecore::Ptr< Xpand3Package > s_instance;
 
     Xpand3Package();
     void _initPackage();

@@ -22,12 +22,12 @@
 
 using namespace ::kdm::source;
 
-boost::intrusive_ptr< ::kdm::source::SourceFactory > SourceFactory::s_holder;
+::ecore::Ptr< ::kdm::source::SourceFactory > SourceFactory::s_holder;
 
 ::kdm::source::SourceFactory_ptr SourceFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < SourceFactory > (new SourceFactory());
+        s_holder = ::ecore::Ptr < SourceFactory > (new SourceFactory());
 
     return s_holder;
 }

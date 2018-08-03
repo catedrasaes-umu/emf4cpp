@@ -22,7 +22,7 @@
 
 using namespace ::kdm::structure;
 
-boost::intrusive_ptr< ::kdm::structure::StructurePackage > StructurePackage::s_instance;
+::ecore::Ptr< ::kdm::structure::StructurePackage > StructurePackage::s_instance;
 
 ::kdm::structure::StructurePackage_ptr StructurePackage::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::kdm::structure::StructurePackage > StructurePackage::s_i
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< StructurePackage >();
+            return ::ecore::Ptr< StructurePackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < StructurePackage
-                > (new StructurePackage());
+        s_instance = ::ecore::Ptr < StructurePackage > (new StructurePackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

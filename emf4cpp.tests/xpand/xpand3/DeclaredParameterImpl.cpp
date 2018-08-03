@@ -91,13 +91,13 @@ void DeclaredParameter::_initialize()
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__NAME:
     {
         if (m_name)
-            _any = m_name->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_name);
     }
         return _any;
     case ::xpand3::Xpand3Package::DECLAREDPARAMETER__TYPE:
     {
         if (m_type)
-            _any = m_type->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_type);
     }
         return _any;
 

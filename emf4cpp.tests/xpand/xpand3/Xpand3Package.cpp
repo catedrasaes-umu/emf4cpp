@@ -22,7 +22,7 @@
 
 using namespace ::xpand3;
 
-boost::intrusive_ptr< ::xpand3::Xpand3Package > Xpand3Package::s_instance;
+::ecore::Ptr< ::xpand3::Xpand3Package > Xpand3Package::s_instance;
 
 ::xpand3::Xpand3Package_ptr Xpand3Package::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::xpand3::Xpand3Package > Xpand3Package::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< Xpand3Package >();
+            return ::ecore::Ptr< Xpand3Package >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < Xpand3Package
-                > (new Xpand3Package());
+        s_instance = ::ecore::Ptr < Xpand3Package > (new Xpand3Package());
         s_instance->_initPackage();
         duringConstruction = false;
     }

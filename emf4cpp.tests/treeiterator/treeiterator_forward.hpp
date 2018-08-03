@@ -42,25 +42,19 @@ namespace treeiterator
 
 // TreeNode
     class TreeNode;
-    using TreeNode_ptr = boost::intrusive_ptr<TreeNode>;
+    using TreeNode_ptr = ::ecore::Ptr<TreeNode>;
 
 // Leaf
     class Leaf;
-    using Leaf_ptr = boost::intrusive_ptr<Leaf>;
+    using Leaf_ptr = ::ecore::Ptr<Leaf>;
 
 // EEnum
 
 // Package & Factory
     class TreeiteratorFactory;
-    using TreeiteratorFactory_ptr = boost::intrusive_ptr<TreeiteratorFactory>;
+    using TreeiteratorFactory_ptr = ::ecore::Ptr<TreeiteratorFactory>;
     class TreeiteratorPackage;
-    using TreeiteratorPackage_ptr = boost::intrusive_ptr<TreeiteratorPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using TreeiteratorPackage_ptr = ::ecore::Ptr<TreeiteratorPackage>;
 
 } // treeiterator
 

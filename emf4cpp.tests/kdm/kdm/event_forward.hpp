@@ -44,89 +44,83 @@ namespace kdm
 
 // EventModel
         class EventModel;
-        using EventModel_ptr = boost::intrusive_ptr<EventModel>;
+        using EventModel_ptr = ::ecore::Ptr<EventModel>;
 
 // AbstractEventElement
         class AbstractEventElement;
-        using AbstractEventElement_ptr = boost::intrusive_ptr<AbstractEventElement>;
+        using AbstractEventElement_ptr = ::ecore::Ptr<AbstractEventElement>;
 
 // Event
         class Event;
-        using Event_ptr = boost::intrusive_ptr<Event>;
+        using Event_ptr = ::ecore::Ptr<Event>;
 
 // AbstractEventRelationship
         class AbstractEventRelationship;
-        using AbstractEventRelationship_ptr = boost::intrusive_ptr<AbstractEventRelationship>;
+        using AbstractEventRelationship_ptr = ::ecore::Ptr<AbstractEventRelationship>;
 
 // EventRelationship
         class EventRelationship;
-        using EventRelationship_ptr = boost::intrusive_ptr<EventRelationship>;
+        using EventRelationship_ptr = ::ecore::Ptr<EventRelationship>;
 
 // EventResource
         class EventResource;
-        using EventResource_ptr = boost::intrusive_ptr<EventResource>;
+        using EventResource_ptr = ::ecore::Ptr<EventResource>;
 
 // State
         class State;
-        using State_ptr = boost::intrusive_ptr<State>;
+        using State_ptr = ::ecore::Ptr<State>;
 
 // Transition
         class Transition;
-        using Transition_ptr = boost::intrusive_ptr<Transition>;
+        using Transition_ptr = ::ecore::Ptr<Transition>;
 
 // OnEntry
         class OnEntry;
-        using OnEntry_ptr = boost::intrusive_ptr<OnEntry>;
+        using OnEntry_ptr = ::ecore::Ptr<OnEntry>;
 
 // OnExit
         class OnExit;
-        using OnExit_ptr = boost::intrusive_ptr<OnExit>;
+        using OnExit_ptr = ::ecore::Ptr<OnExit>;
 
 // EventAction
         class EventAction;
-        using EventAction_ptr = boost::intrusive_ptr<EventAction>;
+        using EventAction_ptr = ::ecore::Ptr<EventAction>;
 
 // ReadsState
         class ReadsState;
-        using ReadsState_ptr = boost::intrusive_ptr<ReadsState>;
+        using ReadsState_ptr = ::ecore::Ptr<ReadsState>;
 
 // ProducesEvent
         class ProducesEvent;
-        using ProducesEvent_ptr = boost::intrusive_ptr<ProducesEvent>;
+        using ProducesEvent_ptr = ::ecore::Ptr<ProducesEvent>;
 
 // ConsumesEvent
         class ConsumesEvent;
-        using ConsumesEvent_ptr = boost::intrusive_ptr<ConsumesEvent>;
+        using ConsumesEvent_ptr = ::ecore::Ptr<ConsumesEvent>;
 
 // NextState
         class NextState;
-        using NextState_ptr = boost::intrusive_ptr<NextState>;
+        using NextState_ptr = ::ecore::Ptr<NextState>;
 
 // InitialState
         class InitialState;
-        using InitialState_ptr = boost::intrusive_ptr<InitialState>;
+        using InitialState_ptr = ::ecore::Ptr<InitialState>;
 
 // EventElement
         class EventElement;
-        using EventElement_ptr = boost::intrusive_ptr<EventElement>;
+        using EventElement_ptr = ::ecore::Ptr<EventElement>;
 
 // HasState
         class HasState;
-        using HasState_ptr = boost::intrusive_ptr<HasState>;
+        using HasState_ptr = ::ecore::Ptr<HasState>;
 
 // EEnum
 
 // Package & Factory
         class EventFactory;
-        using EventFactory_ptr = boost::intrusive_ptr<EventFactory>;
+        using EventFactory_ptr = ::ecore::Ptr<EventFactory>;
         class EventPackage;
-        using EventPackage_ptr = boost::intrusive_ptr<EventPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using EventPackage_ptr = ::ecore::Ptr<EventPackage>;
 
     } // event
 } // kdm

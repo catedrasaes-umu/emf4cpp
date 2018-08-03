@@ -22,7 +22,7 @@
 
 using namespace ::idlmm;
 
-boost::intrusive_ptr< ::idlmm::IdlmmPackage > IdlmmPackage::s_instance;
+::ecore::Ptr< ::idlmm::IdlmmPackage > IdlmmPackage::s_instance;
 
 ::idlmm::IdlmmPackage_ptr IdlmmPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::idlmm::IdlmmPackage > IdlmmPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< IdlmmPackage >();
+            return ::ecore::Ptr< IdlmmPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < IdlmmPackage > (new IdlmmPackage());
+        s_instance = ::ecore::Ptr < IdlmmPackage > (new IdlmmPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

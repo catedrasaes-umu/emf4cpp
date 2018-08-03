@@ -81,26 +81,26 @@ MyDslFactory::MyDslFactory()
 
 Model_ptr MyDslFactory::createModel()
 {
-    return boost::intrusive_ptr < Model > (new Model);
+    return ::ecore::Ptr < Model > (new Model);
 }
 Import_ptr MyDslFactory::createImport()
 {
-    return boost::intrusive_ptr < Import > (new Import);
+    return ::ecore::Ptr < Import > (new Import);
 }
 Type_ptr MyDslFactory::createType()
 {
-    return boost::intrusive_ptr < Type > (new Type);
+    return ::ecore::Ptr < Type > (new Type);
 }
 SimpleType_ptr MyDslFactory::createSimpleType()
 {
-    return boost::intrusive_ptr < SimpleType > (new SimpleType);
+    return ::ecore::Ptr < SimpleType > (new SimpleType);
 }
 Entity_ptr MyDslFactory::createEntity()
 {
-    return boost::intrusive_ptr < Entity > (new Entity);
+    return ::ecore::Ptr < Entity > (new Entity);
 }
 Property_ptr MyDslFactory::createProperty()
 {
-    return boost::intrusive_ptr < Property > (new Property);
+    return ::ecore::Ptr < Property > (new Property);
 }
 

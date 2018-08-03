@@ -52,7 +52,7 @@ void Level3Package::_initPackage()
     // Create classes and their features
 
     // Level3Class
-    m_Level3ClassEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_Level3ClassEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_Level3ClassEClass->setClassifierID(LEVEL3CLASS);
     m_Level3ClassEClass->setEPackage(_this());

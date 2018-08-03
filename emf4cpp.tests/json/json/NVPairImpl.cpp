@@ -69,7 +69,7 @@ void NVPair::_initialize()
     case ::json::JsonPackage::NVPAIR__VALUE:
     {
         if (m_value)
-            _any = m_value->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_value);
     }
         return _any;
 

@@ -68,7 +68,7 @@ void Department::_initialize()
     case ::company::CompanyPackage::DEPARTMENT__MANAGER:
     {
         if (m_manager)
-            _any = m_manager->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_manager);
     }
         return _any;
     case ::company::CompanyPackage::DEPARTMENT__NUMBER:

@@ -56,29 +56,29 @@ PlatformPackage::PlatformPackage()
 {
 
     // Feature definitions of AbstractPlatformElement
-    m_AbstractPlatformElement__source = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractPlatformElement__relation = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractPlatformElement__abstraction = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractPlatformElement__implementation = boost::intrusive_ptr
+    m_AbstractPlatformElement__source = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractPlatformElement__relation = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractPlatformElement__abstraction = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractPlatformElement__implementation = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of PlatformModel
-    m_PlatformModel__platformElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_PlatformModel__platformElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of AbstractPlatformRelationship
 
     // Feature definitions of Requires
-    m_Requires__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Requires__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Requires__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Requires__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ResourceType
-    m_ResourceType__platformElement = boost::intrusive_ptr < ::ecore::EReference
+    m_ResourceType__platformElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of NamingResource
@@ -92,63 +92,63 @@ PlatformPackage::PlatformPackage()
     // Feature definitions of ExecutionResource
 
     // Feature definitions of PlatformAction
-    m_PlatformAction__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_PlatformAction__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_PlatformAction__platformElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_PlatformAction__platformElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of ExternalActor
 
     // Feature definitions of DataManager
 
     // Feature definitions of BindsTo
-    m_BindsTo__to = boost::intrusive_ptr < ::ecore::EReference
+    m_BindsTo__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_BindsTo__from = boost::intrusive_ptr < ::ecore::EReference
+    m_BindsTo__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of PlatformElement
 
     // Feature definitions of PlatformRelationship
-    m_PlatformRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_PlatformRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_PlatformRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_PlatformRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of PlatformEvent
-    m_PlatformEvent__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_PlatformEvent__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of LockResource
 
     // Feature definitions of DeployedSoftwareSystem
-    m_DeployedSoftwareSystem__groupedComponent = boost::intrusive_ptr
+    m_DeployedSoftwareSystem__groupedComponent = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of Machine
-    m_Machine__deployedComponent = boost::intrusive_ptr < ::ecore::EReference
+    m_Machine__deployedComponent = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Machine__deployedResource = boost::intrusive_ptr < ::ecore::EReference
+    m_Machine__deployedResource = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of DeployedComponent
-    m_DeployedComponent__groupedCode = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_DeployedComponent__groupedCode = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of DeployedResource
-    m_DeployedResource__platformElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_DeployedResource__platformElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Loads
-    m_Loads__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Loads__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Loads__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Loads__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Spawns
-    m_Spawns__to = boost::intrusive_ptr < ::ecore::EReference
+    m_Spawns__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Spawns__from = boost::intrusive_ptr < ::ecore::EReference
+    m_Spawns__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of RuntimeResource
@@ -158,27 +158,27 @@ PlatformPackage::PlatformPackage()
     // Feature definitions of Process
 
     // Feature definitions of ReadsResource
-    m_ReadsResource__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ReadsResource__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ReadsResource__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ReadsResource__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of WritesResource
-    m_WritesResource__to = boost::intrusive_ptr < ::ecore::EReference
+    m_WritesResource__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_WritesResource__from = boost::intrusive_ptr < ::ecore::EReference
+    m_WritesResource__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ManagesResource
-    m_ManagesResource__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ManagesResource__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ManagesResource__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ManagesResource__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of DefinedBy
-    m_DefinedBy__to = boost::intrusive_ptr < ::ecore::EReference
+    m_DefinedBy__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_DefinedBy__from = boost::intrusive_ptr < ::ecore::EReference
+    m_DefinedBy__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of StreamResource
@@ -195,7 +195,7 @@ void PlatformPackage::_initPackage()
     // Create classes and their features
 
     // AbstractPlatformElement
-    m_AbstractPlatformElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractPlatformElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractPlatformElementEClass->setClassifierID(ABSTRACTPLATFORMELEMENT);
     m_AbstractPlatformElementEClass->setEPackage(_this());
@@ -222,7 +222,7 @@ void PlatformPackage::_initPackage()
             m_AbstractPlatformElement__implementation);
 
     // PlatformModel
-    m_PlatformModelEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_PlatformModelEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_PlatformModelEClass->setClassifierID(PLATFORMMODEL);
     m_PlatformModelEClass->setEPackage(_this());
@@ -234,16 +234,15 @@ void PlatformPackage::_initPackage()
             m_PlatformModel__platformElement);
 
     // AbstractPlatformRelationship
-    m_AbstractPlatformRelationshipEClass = boost::intrusive_ptr
-            < ::ecore::EClass > (new ::ecore::EClass);
+    m_AbstractPlatformRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractPlatformRelationshipEClass->setClassifierID(
             ABSTRACTPLATFORMRELATIONSHIP);
     m_AbstractPlatformRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractPlatformRelationshipEClass);
 
     // Requires
-    m_RequiresEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_RequiresEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RequiresEClass->setClassifierID(REQUIRES);
     m_RequiresEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RequiresEClass);
@@ -257,7 +256,7 @@ void PlatformPackage::_initPackage()
     m_RequiresEClass->getEStructuralFeatures().push_back(m_Requires__from);
 
     // ResourceType
-    m_ResourceTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ResourceTypeEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ResourceTypeEClass->setClassifierID(RESOURCETYPE);
     m_ResourceTypeEClass->setEPackage(_this());
@@ -269,42 +268,42 @@ void PlatformPackage::_initPackage()
             m_ResourceType__platformElement);
 
     // NamingResource
-    m_NamingResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_NamingResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_NamingResourceEClass->setClassifierID(NAMINGRESOURCE);
     m_NamingResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NamingResourceEClass);
 
     // MarshalledResource
-    m_MarshalledResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_MarshalledResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_MarshalledResourceEClass->setClassifierID(MARSHALLEDRESOURCE);
     m_MarshalledResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MarshalledResourceEClass);
 
     // MessagingResource
-    m_MessagingResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_MessagingResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_MessagingResourceEClass->setClassifierID(MESSAGINGRESOURCE);
     m_MessagingResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MessagingResourceEClass);
 
     // FileResource
-    m_FileResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_FileResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_FileResourceEClass->setClassifierID(FILERESOURCE);
     m_FileResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FileResourceEClass);
 
     // ExecutionResource
-    m_ExecutionResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExecutionResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExecutionResourceEClass->setClassifierID(EXECUTIONRESOURCE);
     m_ExecutionResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExecutionResourceEClass);
 
     // PlatformAction
-    m_PlatformActionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_PlatformActionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_PlatformActionEClass->setClassifierID(PLATFORMACTION);
     m_PlatformActionEClass->setEPackage(_this());
@@ -321,22 +320,21 @@ void PlatformPackage::_initPackage()
             m_PlatformAction__platformElement);
 
     // ExternalActor
-    m_ExternalActorEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExternalActorEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExternalActorEClass->setClassifierID(EXTERNALACTOR);
     m_ExternalActorEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExternalActorEClass);
 
     // DataManager
-    m_DataManagerEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DataManagerEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DataManagerEClass->setClassifierID(DATAMANAGER);
     m_DataManagerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DataManagerEClass);
 
     // BindsTo
-    m_BindsToEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_BindsToEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_BindsToEClass->setClassifierID(BINDSTO);
     m_BindsToEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BindsToEClass);
@@ -349,14 +347,14 @@ void PlatformPackage::_initPackage()
     m_BindsToEClass->getEStructuralFeatures().push_back(m_BindsTo__from);
 
     // PlatformElement
-    m_PlatformElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_PlatformElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_PlatformElementEClass->setClassifierID(PLATFORMELEMENT);
     m_PlatformElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PlatformElementEClass);
 
     // PlatformRelationship
-    m_PlatformRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_PlatformRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_PlatformRelationshipEClass->setClassifierID(PLATFORMRELATIONSHIP);
     m_PlatformRelationshipEClass->setEPackage(_this());
@@ -373,7 +371,7 @@ void PlatformPackage::_initPackage()
             m_PlatformRelationship__from);
 
     // PlatformEvent
-    m_PlatformEventEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_PlatformEventEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_PlatformEventEClass->setClassifierID(PLATFORMEVENT);
     m_PlatformEventEClass->setEPackage(_this());
@@ -385,14 +383,14 @@ void PlatformPackage::_initPackage()
             m_PlatformEvent__kind);
 
     // LockResource
-    m_LockResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_LockResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_LockResourceEClass->setClassifierID(LOCKRESOURCE);
     m_LockResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LockResourceEClass);
 
     // DeployedSoftwareSystem
-    m_DeployedSoftwareSystemEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DeployedSoftwareSystemEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DeployedSoftwareSystemEClass->setClassifierID(DEPLOYEDSOFTWARESYSTEM);
     m_DeployedSoftwareSystemEClass->setEPackage(_this());
@@ -404,8 +402,7 @@ void PlatformPackage::_initPackage()
             m_DeployedSoftwareSystem__groupedComponent);
 
     // Machine
-    m_MachineEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_MachineEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_MachineEClass->setClassifierID(MACHINE);
     m_MachineEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MachineEClass);
@@ -421,7 +418,7 @@ void PlatformPackage::_initPackage()
             m_Machine__deployedResource);
 
     // DeployedComponent
-    m_DeployedComponentEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DeployedComponentEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DeployedComponentEClass->setClassifierID(DEPLOYEDCOMPONENT);
     m_DeployedComponentEClass->setEPackage(_this());
@@ -433,7 +430,7 @@ void PlatformPackage::_initPackage()
             m_DeployedComponent__groupedCode);
 
     // DeployedResource
-    m_DeployedResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DeployedResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DeployedResourceEClass->setClassifierID(DEPLOYEDRESOURCE);
     m_DeployedResourceEClass->setEPackage(_this());
@@ -445,8 +442,7 @@ void PlatformPackage::_initPackage()
             m_DeployedResource__platformElement);
 
     // Loads
-    m_LoadsEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_LoadsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LoadsEClass->setClassifierID(LOADS);
     m_LoadsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LoadsEClass);
@@ -458,8 +454,7 @@ void PlatformPackage::_initPackage()
     m_LoadsEClass->getEStructuralFeatures().push_back(m_Loads__from);
 
     // Spawns
-    m_SpawnsEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SpawnsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SpawnsEClass->setClassifierID(SPAWNS);
     m_SpawnsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SpawnsEClass);
@@ -472,28 +467,26 @@ void PlatformPackage::_initPackage()
     m_SpawnsEClass->getEStructuralFeatures().push_back(m_Spawns__from);
 
     // RuntimeResource
-    m_RuntimeResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RuntimeResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RuntimeResourceEClass->setClassifierID(RUNTIMERESOURCE);
     m_RuntimeResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RuntimeResourceEClass);
 
     // Thread
-    m_ThreadEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ThreadEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ThreadEClass->setClassifierID(THREAD);
     m_ThreadEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ThreadEClass);
 
     // Process
-    m_ProcessEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ProcessEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ProcessEClass->setClassifierID(PROCESS);
     m_ProcessEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ProcessEClass);
 
     // ReadsResource
-    m_ReadsResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ReadsResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ReadsResourceEClass->setClassifierID(READSRESOURCE);
     m_ReadsResourceEClass->setEPackage(_this());
@@ -510,7 +503,7 @@ void PlatformPackage::_initPackage()
             m_ReadsResource__from);
 
     // WritesResource
-    m_WritesResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_WritesResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_WritesResourceEClass->setClassifierID(WRITESRESOURCE);
     m_WritesResourceEClass->setEPackage(_this());
@@ -527,7 +520,7 @@ void PlatformPackage::_initPackage()
             m_WritesResource__from);
 
     // ManagesResource
-    m_ManagesResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ManagesResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ManagesResourceEClass->setClassifierID(MANAGESRESOURCE);
     m_ManagesResourceEClass->setEPackage(_this());
@@ -544,8 +537,7 @@ void PlatformPackage::_initPackage()
             m_ManagesResource__from);
 
     // DefinedBy
-    m_DefinedByEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DefinedByEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DefinedByEClass->setClassifierID(DEFINEDBY);
     m_DefinedByEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DefinedByEClass);
@@ -559,7 +551,7 @@ void PlatformPackage::_initPackage()
     m_DefinedByEClass->getEStructuralFeatures().push_back(m_DefinedBy__from);
 
     // StreamResource
-    m_StreamResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_StreamResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_StreamResourceEClass->setClassifierID(STREAMRESOURCE);
     m_StreamResourceEClass->setEPackage(_this());

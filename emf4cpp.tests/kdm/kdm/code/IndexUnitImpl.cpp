@@ -113,7 +113,7 @@ void IndexUnit::_initialize()
     case ::kdm::code::CodePackage::DATAELEMENT__TYPE:
     {
         if (m_type)
-            _any = m_type->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_type);
     }
         return _any;
     case ::kdm::code::CodePackage::DATAELEMENT__EXT:

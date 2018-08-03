@@ -87,13 +87,13 @@ void Writes::_initialize()
     case ::kdm::action::ActionPackage::WRITES__TO:
     {
         if (m_to)
-            _any = m_to->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_to);
     }
         return _any;
     case ::kdm::action::ActionPackage::WRITES__FROM:
     {
         if (m_from)
-            _any = m_from->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_from);
     }
         return _any;
 

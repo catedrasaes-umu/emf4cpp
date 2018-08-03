@@ -64,7 +64,7 @@ namespace kdm
 
         protected:
 
-            static boost::intrusive_ptr< BuildFactory > s_holder;
+            static ::ecore::Ptr< BuildFactory > s_holder;
 
             BuildFactory();
 
@@ -76,9 +76,9 @@ namespace kdm
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline boost::intrusive_ptr< T > create()
+        template< class T > inline ::ecore::Ptr< T > create()
         {
-            return boost::intrusive_ptr< T >();
+            return ::ecore::Ptr< T >();
         }
 
         template< > inline AbstractBuildElement_ptr create< AbstractBuildElement >()

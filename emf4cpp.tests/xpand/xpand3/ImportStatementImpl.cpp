@@ -87,7 +87,7 @@ void ImportStatement::_initialize()
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__IMPORTEDID:
     {
         if (m_importedId)
-            _any = m_importedId->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_importedId);
     }
         return _any;
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__EXPORTED:

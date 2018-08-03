@@ -22,7 +22,7 @@
 
 using namespace ::json;
 
-boost::intrusive_ptr< ::json::JsonPackage > JsonPackage::s_instance;
+::ecore::Ptr< ::json::JsonPackage > JsonPackage::s_instance;
 
 ::json::JsonPackage_ptr JsonPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::json::JsonPackage > JsonPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< JsonPackage >();
+            return ::ecore::Ptr< JsonPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < JsonPackage > (new JsonPackage());
+        s_instance = ::ecore::Ptr < JsonPackage > (new JsonPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

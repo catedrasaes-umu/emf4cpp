@@ -95,13 +95,13 @@ void SwitchExpression::_initialize()
     case ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__SWITCHEXPR:
     {
         if (m_switchExpr)
-            _any = m_switchExpr->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_switchExpr);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__DEFAULTEXPR:
     {
         if (m_defaultExpr)
-            _any = m_defaultExpr->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_defaultExpr);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__CASES:

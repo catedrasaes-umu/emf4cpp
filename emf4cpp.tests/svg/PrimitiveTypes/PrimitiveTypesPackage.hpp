@@ -61,7 +61,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< PrimitiveTypesPackage > s_instance;
+    static ::ecore::Ptr< PrimitiveTypesPackage > s_instance;
 
     PrimitiveTypesPackage();
     void _initPackage();

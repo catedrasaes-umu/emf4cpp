@@ -79,7 +79,7 @@ void TreeNode::_initialize()
     case ::treeiterator::TreeiteratorPackage::TREENODE__LEAF:
     {
         if (m_leaf)
-            _any = m_leaf->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_leaf);
     }
         return _any;
 

@@ -42,41 +42,35 @@ namespace myDsl
 
 // Model
     class Model;
-    using Model_ptr = boost::intrusive_ptr<Model>;
+    using Model_ptr = ::ecore::Ptr<Model>;
 
 // Import
     class Import;
-    using Import_ptr = boost::intrusive_ptr<Import>;
+    using Import_ptr = ::ecore::Ptr<Import>;
 
 // Type
     class Type;
-    using Type_ptr = boost::intrusive_ptr<Type>;
+    using Type_ptr = ::ecore::Ptr<Type>;
 
 // SimpleType
     class SimpleType;
-    using SimpleType_ptr = boost::intrusive_ptr<SimpleType>;
+    using SimpleType_ptr = ::ecore::Ptr<SimpleType>;
 
 // Entity
     class Entity;
-    using Entity_ptr = boost::intrusive_ptr<Entity>;
+    using Entity_ptr = ::ecore::Ptr<Entity>;
 
 // Property
     class Property;
-    using Property_ptr = boost::intrusive_ptr<Property>;
+    using Property_ptr = ::ecore::Ptr<Property>;
 
 // EEnum
 
 // Package & Factory
     class MyDslFactory;
-    using MyDslFactory_ptr = boost::intrusive_ptr<MyDslFactory>;
+    using MyDslFactory_ptr = ::ecore::Ptr<MyDslFactory>;
     class MyDslPackage;
-    using MyDslPackage_ptr = boost::intrusive_ptr<MyDslPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using MyDslPackage_ptr = ::ecore::Ptr<MyDslPackage>;
 
 } // myDsl
 

@@ -83,7 +83,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< TreePackage > s_instance;
+    static ::ecore::Ptr< TreePackage > s_instance;
 
     TreePackage();
     void _initPackage();

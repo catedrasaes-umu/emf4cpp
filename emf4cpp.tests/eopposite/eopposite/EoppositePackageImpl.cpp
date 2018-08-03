@@ -40,29 +40,29 @@ EoppositePackage::EoppositePackage()
 {
 
     // Feature definitions of TopLevel
-    m_TopLevel__leftees = boost::intrusive_ptr < ::ecore::EReference
+    m_TopLevel__leftees = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_TopLevel__rightees = boost::intrusive_ptr < ::ecore::EReference
+    m_TopLevel__rightees = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_TopLevel__rightMultiples = boost::intrusive_ptr < ::ecore::EReference
+    m_TopLevel__rightMultiples = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of NamedObject
-    m_NamedObject__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_NamedObject__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of LeftHand
-    m_LeftHand__rightee = boost::intrusive_ptr < ::ecore::EReference
+    m_LeftHand__rightee = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_LeftHand__rightMultiple = boost::intrusive_ptr < ::ecore::EReference
+    m_LeftHand__rightMultiple = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of RightHand
-    m_RightHand__leftee = boost::intrusive_ptr < ::ecore::EReference
+    m_RightHand__leftee = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of RightMultiple
-    m_RightMultiple__leftees = boost::intrusive_ptr < ::ecore::EReference
+    m_RightMultiple__leftees = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -77,8 +77,7 @@ void EoppositePackage::_initPackage()
     // Create classes and their features
 
     // TopLevel
-    m_TopLevelEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TopLevelEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TopLevelEClass->setClassifierID(TOPLEVEL);
     m_TopLevelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TopLevelEClass);
@@ -97,7 +96,7 @@ void EoppositePackage::_initPackage()
             m_TopLevel__rightMultiples);
 
     // NamedObject
-    m_NamedObjectEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_NamedObjectEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_NamedObjectEClass->setClassifierID(NAMEDOBJECT);
     m_NamedObjectEClass->setEPackage(_this());
@@ -109,8 +108,7 @@ void EoppositePackage::_initPackage()
             m_NamedObject__name);
 
     // LeftHand
-    m_LeftHandEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_LeftHandEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LeftHandEClass->setClassifierID(LEFTHAND);
     m_LeftHandEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeftHandEClass);
@@ -125,8 +123,7 @@ void EoppositePackage::_initPackage()
             m_LeftHand__rightMultiple);
 
     // RightHand
-    m_RightHandEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_RightHandEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RightHandEClass->setClassifierID(RIGHTHAND);
     m_RightHandEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RightHandEClass);
@@ -136,7 +133,7 @@ void EoppositePackage::_initPackage()
     m_RightHandEClass->getEStructuralFeatures().push_back(m_RightHand__leftee);
 
     // RightMultiple
-    m_RightMultipleEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RightMultipleEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RightMultipleEClass->setClassifierID(RIGHTMULTIPLE);
     m_RightMultipleEClass->setEPackage(_this());
@@ -245,7 +242,7 @@ void EoppositePackage::_initPackage()
     m_LeftHand__rightee->setDerived(false);
     m_LeftHand__rightee->setOrdered(true);
     m_LeftHand__rightee->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_RightHandEClass->getEStructuralFeatures()[0]));
     m_LeftHand__rightMultiple->setEType(m_RightMultipleEClass);
     m_LeftHand__rightMultiple->setName("rightMultiple");
@@ -261,7 +258,7 @@ void EoppositePackage::_initPackage()
     m_LeftHand__rightMultiple->setDerived(false);
     m_LeftHand__rightMultiple->setOrdered(true);
     m_LeftHand__rightMultiple->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_RightMultipleEClass->getEStructuralFeatures()[0]));
     // RightHand
     m_RightHandEClass->setName("RightHand");
@@ -281,7 +278,7 @@ void EoppositePackage::_initPackage()
     m_RightHand__leftee->setDerived(false);
     m_RightHand__leftee->setOrdered(true);
     m_RightHand__leftee->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_LeftHandEClass->getEStructuralFeatures()[0]));
     // RightMultiple
     m_RightMultipleEClass->setName("RightMultiple");
@@ -301,7 +298,7 @@ void EoppositePackage::_initPackage()
     m_RightMultiple__leftees->setDerived(false);
     m_RightMultiple__leftees->setOrdered(true);
     m_RightMultiple__leftees->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_LeftHandEClass->getEStructuralFeatures()[1]));
 
     // TODO: Initialize data types

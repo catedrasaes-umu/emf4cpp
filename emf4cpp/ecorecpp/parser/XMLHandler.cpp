@@ -66,7 +66,7 @@ void XMLHandler::characters(xml_parser::match_pair const& chars) {
 		EStructuralFeature_ptr const esf =
 				eclass->getEStructuralFeature(name);
 
-		EDataType_ptr const edt = esf->getEType()->as<EDataType>();
+		EDataType_ptr const edt = as< EDataType >(esf->getEType());
 
 		EFactory_ptr const efac = edt->getEPackage()->getEFactoryInstance();
 		assert(efac);
@@ -169,7 +169,7 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 
 	assert(eclassifier);
 	assert(epkg);
-	eclass = instanceOf<EClass>(eclassifier);
+	eclass = as<EClass>(eclassifier);
 
 	if (eclass) {
 		efac = epkg->getEFactoryInstance();
@@ -206,7 +206,7 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 				assert(aeclassifier);
 
 				EDataType_ptr const aedt =
-						instanceOf<EDataType>(aeclassifier);
+						as<EDataType>(aeclassifier);
 
 				if (!aedt) {
 					Reference ref;
@@ -240,7 +240,7 @@ void XMLHandler::start_tag(xml_parser::match_pair const& nameP,
 
 			any anyRef;
 
-			EReference_ptr const eref = instanceOf< EReference > (esf);
+			EReference_ptr const eref = as< EReference > (esf);
 
 			if (eref && eref->getUpperBound() != 1) {
 				// Gets the collection and adds the new element

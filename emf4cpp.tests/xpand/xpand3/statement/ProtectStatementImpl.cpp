@@ -101,19 +101,19 @@ void ProtectStatement::_initialize()
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTSTART:
     {
         if (m_commentStart)
-            _any = m_commentStart->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_commentStart);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTEND:
     {
         if (m_commentEnd)
-            _any = m_commentEnd->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_commentEnd);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__ID:
     {
         if (m_id)
-            _any = m_id->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_id);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__DISABLE:

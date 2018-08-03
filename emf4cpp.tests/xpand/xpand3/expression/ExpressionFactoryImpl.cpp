@@ -132,98 +132,95 @@ ExpressionFactory::ExpressionFactory()
 
 AbstractExpression_ptr ExpressionFactory::createAbstractExpression()
 {
-    return boost::intrusive_ptr < AbstractExpression > (new AbstractExpression);
+    return ::ecore::Ptr < AbstractExpression > (new AbstractExpression);
 }
 BooleanOperation_ptr ExpressionFactory::createBooleanOperation()
 {
-    return boost::intrusive_ptr < BooleanOperation > (new BooleanOperation);
+    return ::ecore::Ptr < BooleanOperation > (new BooleanOperation);
 }
 Cast_ptr ExpressionFactory::createCast()
 {
-    return boost::intrusive_ptr < Cast > (new Cast);
+    return ::ecore::Ptr < Cast > (new Cast);
 }
 ChainExpression_ptr ExpressionFactory::createChainExpression()
 {
-    return boost::intrusive_ptr < ChainExpression > (new ChainExpression);
+    return ::ecore::Ptr < ChainExpression > (new ChainExpression);
 }
 ConstructorCallExpression_ptr ExpressionFactory::createConstructorCallExpression()
 {
-    return boost::intrusive_ptr < ConstructorCallExpression
+    return ::ecore::Ptr < ConstructorCallExpression
             > (new ConstructorCallExpression);
 }
 FeatureCall_ptr ExpressionFactory::createFeatureCall()
 {
-    return boost::intrusive_ptr < FeatureCall > (new FeatureCall);
+    return ::ecore::Ptr < FeatureCall > (new FeatureCall);
 }
 CollectionExpression_ptr ExpressionFactory::createCollectionExpression()
 {
-    return boost::intrusive_ptr < CollectionExpression
-            > (new CollectionExpression);
+    return ::ecore::Ptr < CollectionExpression > (new CollectionExpression);
 }
 OperationCall_ptr ExpressionFactory::createOperationCall()
 {
-    return boost::intrusive_ptr < OperationCall > (new OperationCall);
+    return ::ecore::Ptr < OperationCall > (new OperationCall);
 }
 TypeSelectExpression_ptr ExpressionFactory::createTypeSelectExpression()
 {
-    return boost::intrusive_ptr < TypeSelectExpression
-            > (new TypeSelectExpression);
+    return ::ecore::Ptr < TypeSelectExpression > (new TypeSelectExpression);
 }
 GlobalVarExpression_ptr ExpressionFactory::createGlobalVarExpression()
 {
-    return boost::intrusive_ptr < GlobalVarExpression
-            > (new GlobalVarExpression);
+    return ::ecore::Ptr < GlobalVarExpression > (new GlobalVarExpression);
 }
 IfExpression_ptr ExpressionFactory::createIfExpression()
 {
-    return boost::intrusive_ptr < IfExpression > (new IfExpression);
+    return ::ecore::Ptr < IfExpression > (new IfExpression);
 }
 LetExpression_ptr ExpressionFactory::createLetExpression()
 {
-    return boost::intrusive_ptr < LetExpression > (new LetExpression);
+    return ::ecore::Ptr < LetExpression > (new LetExpression);
 }
 ListLiteral_ptr ExpressionFactory::createListLiteral()
 {
-    return boost::intrusive_ptr < ListLiteral > (new ListLiteral);
+    return ::ecore::Ptr < ListLiteral > (new ListLiteral);
 }
 Literal_ptr ExpressionFactory::createLiteral()
 {
-    return boost::intrusive_ptr < Literal > (new Literal);
+    return ::ecore::Ptr < Literal > (new Literal);
 }
 BooleanLiteral_ptr ExpressionFactory::createBooleanLiteral()
 {
-    return boost::intrusive_ptr < BooleanLiteral > (new BooleanLiteral);
+    return ::ecore::Ptr < BooleanLiteral > (new BooleanLiteral);
 }
 IntegerLiteral_ptr ExpressionFactory::createIntegerLiteral()
 {
-    return boost::intrusive_ptr < IntegerLiteral > (new IntegerLiteral);
+    return ::ecore::Ptr < IntegerLiteral > (new IntegerLiteral);
 }
 NullLiteral_ptr ExpressionFactory::createNullLiteral()
 {
-    return boost::intrusive_ptr < NullLiteral > (new NullLiteral);
+    return ::ecore::Ptr < NullLiteral > (new NullLiteral);
 }
 RealLiteral_ptr ExpressionFactory::createRealLiteral()
 {
-    return boost::intrusive_ptr < RealLiteral > (new RealLiteral);
+    return ::ecore::Ptr < RealLiteral > (new RealLiteral);
 }
 StringLiteral_ptr ExpressionFactory::createStringLiteral()
 {
-    return boost::intrusive_ptr < StringLiteral > (new StringLiteral);
+    return ::ecore::Ptr < StringLiteral > (new StringLiteral);
 }
 SwitchExpression_ptr ExpressionFactory::createSwitchExpression()
 {
-    return boost::intrusive_ptr < SwitchExpression > (new SwitchExpression);
+    return ::ecore::Ptr < SwitchExpression > (new SwitchExpression);
 }
 Case_ptr ExpressionFactory::createCase()
 {
-    return boost::intrusive_ptr < Case > (new Case);
+    return ::ecore::Ptr < Case > (new Case);
 }
 BinaryOperation_ptr ExpressionFactory::createBinaryOperation()
 {
-    return boost::intrusive_ptr < BinaryOperation > (new BinaryOperation);
+    return ::ecore::Ptr < BinaryOperation > (new BinaryOperation);
 }
 UnaryOperation_ptr ExpressionFactory::createUnaryOperation()
 {
-    return boost::intrusive_ptr < UnaryOperation > (new UnaryOperation);
+    return ::ecore::Ptr < UnaryOperation > (new UnaryOperation);
 }
 

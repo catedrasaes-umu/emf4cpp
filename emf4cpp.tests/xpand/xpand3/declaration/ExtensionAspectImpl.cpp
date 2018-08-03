@@ -90,7 +90,7 @@ void ExtensionAspect::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
         if (m_owner)
-            _any = m_owner->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_owner);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
@@ -107,13 +107,13 @@ void ExtensionAspect::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
         if (m_guard)
-            _any = m_guard->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_guard);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__POINTCUT:
     {
         if (m_pointcut)
-            _any = m_pointcut->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_pointcut);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__WILDPARAMS:
@@ -125,7 +125,7 @@ void ExtensionAspect::_initialize()
     case ::xpand3::declaration::DeclarationPackage::EXTENSIONASPECT__EXPRESSION:
     {
         if (m_expression)
-            _any = m_expression->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_expression);
     }
         return _any;
 

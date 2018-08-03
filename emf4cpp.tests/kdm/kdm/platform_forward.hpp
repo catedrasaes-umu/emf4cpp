@@ -44,145 +44,139 @@ namespace kdm
 
 // AbstractPlatformElement
         class AbstractPlatformElement;
-        using AbstractPlatformElement_ptr = boost::intrusive_ptr<AbstractPlatformElement>;
+        using AbstractPlatformElement_ptr = ::ecore::Ptr<AbstractPlatformElement>;
 
 // PlatformModel
         class PlatformModel;
-        using PlatformModel_ptr = boost::intrusive_ptr<PlatformModel>;
+        using PlatformModel_ptr = ::ecore::Ptr<PlatformModel>;
 
 // AbstractPlatformRelationship
         class AbstractPlatformRelationship;
-        using AbstractPlatformRelationship_ptr = boost::intrusive_ptr<AbstractPlatformRelationship>;
+        using AbstractPlatformRelationship_ptr = ::ecore::Ptr<AbstractPlatformRelationship>;
 
 // Requires
         class Requires;
-        using Requires_ptr = boost::intrusive_ptr<Requires>;
+        using Requires_ptr = ::ecore::Ptr<Requires>;
 
 // ResourceType
         class ResourceType;
-        using ResourceType_ptr = boost::intrusive_ptr<ResourceType>;
+        using ResourceType_ptr = ::ecore::Ptr<ResourceType>;
 
 // NamingResource
         class NamingResource;
-        using NamingResource_ptr = boost::intrusive_ptr<NamingResource>;
+        using NamingResource_ptr = ::ecore::Ptr<NamingResource>;
 
 // MarshalledResource
         class MarshalledResource;
-        using MarshalledResource_ptr = boost::intrusive_ptr<MarshalledResource>;
+        using MarshalledResource_ptr = ::ecore::Ptr<MarshalledResource>;
 
 // MessagingResource
         class MessagingResource;
-        using MessagingResource_ptr = boost::intrusive_ptr<MessagingResource>;
+        using MessagingResource_ptr = ::ecore::Ptr<MessagingResource>;
 
 // FileResource
         class FileResource;
-        using FileResource_ptr = boost::intrusive_ptr<FileResource>;
+        using FileResource_ptr = ::ecore::Ptr<FileResource>;
 
 // ExecutionResource
         class ExecutionResource;
-        using ExecutionResource_ptr = boost::intrusive_ptr<ExecutionResource>;
+        using ExecutionResource_ptr = ::ecore::Ptr<ExecutionResource>;
 
 // PlatformAction
         class PlatformAction;
-        using PlatformAction_ptr = boost::intrusive_ptr<PlatformAction>;
+        using PlatformAction_ptr = ::ecore::Ptr<PlatformAction>;
 
 // ExternalActor
         class ExternalActor;
-        using ExternalActor_ptr = boost::intrusive_ptr<ExternalActor>;
+        using ExternalActor_ptr = ::ecore::Ptr<ExternalActor>;
 
 // DataManager
         class DataManager;
-        using DataManager_ptr = boost::intrusive_ptr<DataManager>;
+        using DataManager_ptr = ::ecore::Ptr<DataManager>;
 
 // BindsTo
         class BindsTo;
-        using BindsTo_ptr = boost::intrusive_ptr<BindsTo>;
+        using BindsTo_ptr = ::ecore::Ptr<BindsTo>;
 
 // PlatformElement
         class PlatformElement;
-        using PlatformElement_ptr = boost::intrusive_ptr<PlatformElement>;
+        using PlatformElement_ptr = ::ecore::Ptr<PlatformElement>;
 
 // PlatformRelationship
         class PlatformRelationship;
-        using PlatformRelationship_ptr = boost::intrusive_ptr<PlatformRelationship>;
+        using PlatformRelationship_ptr = ::ecore::Ptr<PlatformRelationship>;
 
 // PlatformEvent
         class PlatformEvent;
-        using PlatformEvent_ptr = boost::intrusive_ptr<PlatformEvent>;
+        using PlatformEvent_ptr = ::ecore::Ptr<PlatformEvent>;
 
 // LockResource
         class LockResource;
-        using LockResource_ptr = boost::intrusive_ptr<LockResource>;
+        using LockResource_ptr = ::ecore::Ptr<LockResource>;
 
 // DeployedSoftwareSystem
         class DeployedSoftwareSystem;
-        using DeployedSoftwareSystem_ptr = boost::intrusive_ptr<DeployedSoftwareSystem>;
+        using DeployedSoftwareSystem_ptr = ::ecore::Ptr<DeployedSoftwareSystem>;
 
 // Machine
         class Machine;
-        using Machine_ptr = boost::intrusive_ptr<Machine>;
+        using Machine_ptr = ::ecore::Ptr<Machine>;
 
 // DeployedComponent
         class DeployedComponent;
-        using DeployedComponent_ptr = boost::intrusive_ptr<DeployedComponent>;
+        using DeployedComponent_ptr = ::ecore::Ptr<DeployedComponent>;
 
 // DeployedResource
         class DeployedResource;
-        using DeployedResource_ptr = boost::intrusive_ptr<DeployedResource>;
+        using DeployedResource_ptr = ::ecore::Ptr<DeployedResource>;
 
 // Loads
         class Loads;
-        using Loads_ptr = boost::intrusive_ptr<Loads>;
+        using Loads_ptr = ::ecore::Ptr<Loads>;
 
 // Spawns
         class Spawns;
-        using Spawns_ptr = boost::intrusive_ptr<Spawns>;
+        using Spawns_ptr = ::ecore::Ptr<Spawns>;
 
 // RuntimeResource
         class RuntimeResource;
-        using RuntimeResource_ptr = boost::intrusive_ptr<RuntimeResource>;
+        using RuntimeResource_ptr = ::ecore::Ptr<RuntimeResource>;
 
 // Thread
         class Thread;
-        using Thread_ptr = boost::intrusive_ptr<Thread>;
+        using Thread_ptr = ::ecore::Ptr<Thread>;
 
 // Process
         class Process;
-        using Process_ptr = boost::intrusive_ptr<Process>;
+        using Process_ptr = ::ecore::Ptr<Process>;
 
 // ReadsResource
         class ReadsResource;
-        using ReadsResource_ptr = boost::intrusive_ptr<ReadsResource>;
+        using ReadsResource_ptr = ::ecore::Ptr<ReadsResource>;
 
 // WritesResource
         class WritesResource;
-        using WritesResource_ptr = boost::intrusive_ptr<WritesResource>;
+        using WritesResource_ptr = ::ecore::Ptr<WritesResource>;
 
 // ManagesResource
         class ManagesResource;
-        using ManagesResource_ptr = boost::intrusive_ptr<ManagesResource>;
+        using ManagesResource_ptr = ::ecore::Ptr<ManagesResource>;
 
 // DefinedBy
         class DefinedBy;
-        using DefinedBy_ptr = boost::intrusive_ptr<DefinedBy>;
+        using DefinedBy_ptr = ::ecore::Ptr<DefinedBy>;
 
 // StreamResource
         class StreamResource;
-        using StreamResource_ptr = boost::intrusive_ptr<StreamResource>;
+        using StreamResource_ptr = ::ecore::Ptr<StreamResource>;
 
 // EEnum
 
 // Package & Factory
         class PlatformFactory;
-        using PlatformFactory_ptr = boost::intrusive_ptr<PlatformFactory>;
+        using PlatformFactory_ptr = ::ecore::Ptr<PlatformFactory>;
         class PlatformPackage;
-        using PlatformPackage_ptr = boost::intrusive_ptr<PlatformPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using PlatformPackage_ptr = ::ecore::Ptr<PlatformPackage>;
 
     } // platform
 } // kdm

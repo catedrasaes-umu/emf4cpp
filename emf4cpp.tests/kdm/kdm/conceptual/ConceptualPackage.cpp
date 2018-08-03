@@ -22,7 +22,7 @@
 
 using namespace ::kdm::conceptual;
 
-boost::intrusive_ptr< ::kdm::conceptual::ConceptualPackage > ConceptualPackage::s_instance;
+::ecore::Ptr< ::kdm::conceptual::ConceptualPackage > ConceptualPackage::s_instance;
 
 ::kdm::conceptual::ConceptualPackage_ptr ConceptualPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::kdm::conceptual::ConceptualPackage > ConceptualPackage::
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< ConceptualPackage >();
+            return ::ecore::Ptr< ConceptualPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < ConceptualPackage
+        s_instance = ::ecore::Ptr < ConceptualPackage
                 > (new ConceptualPackage());
         s_instance->_initPackage();
         duringConstruction = false;

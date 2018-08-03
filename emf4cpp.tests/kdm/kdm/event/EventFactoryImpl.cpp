@@ -117,76 +117,75 @@ EventFactory::EventFactory()
 
 EventModel_ptr EventFactory::createEventModel()
 {
-    return boost::intrusive_ptr < EventModel > (new EventModel);
+    return ::ecore::Ptr < EventModel > (new EventModel);
 }
 AbstractEventElement_ptr EventFactory::createAbstractEventElement()
 {
-    return boost::intrusive_ptr < AbstractEventElement
-            > (new AbstractEventElement);
+    return ::ecore::Ptr < AbstractEventElement > (new AbstractEventElement);
 }
 Event_ptr EventFactory::createEvent()
 {
-    return boost::intrusive_ptr < Event > (new Event);
+    return ::ecore::Ptr < Event > (new Event);
 }
 AbstractEventRelationship_ptr EventFactory::createAbstractEventRelationship()
 {
-    return boost::intrusive_ptr < AbstractEventRelationship
+    return ::ecore::Ptr < AbstractEventRelationship
             > (new AbstractEventRelationship);
 }
 EventRelationship_ptr EventFactory::createEventRelationship()
 {
-    return boost::intrusive_ptr < EventRelationship > (new EventRelationship);
+    return ::ecore::Ptr < EventRelationship > (new EventRelationship);
 }
 EventResource_ptr EventFactory::createEventResource()
 {
-    return boost::intrusive_ptr < EventResource > (new EventResource);
+    return ::ecore::Ptr < EventResource > (new EventResource);
 }
 State_ptr EventFactory::createState()
 {
-    return boost::intrusive_ptr < State > (new State);
+    return ::ecore::Ptr < State > (new State);
 }
 Transition_ptr EventFactory::createTransition()
 {
-    return boost::intrusive_ptr < Transition > (new Transition);
+    return ::ecore::Ptr < Transition > (new Transition);
 }
 OnEntry_ptr EventFactory::createOnEntry()
 {
-    return boost::intrusive_ptr < OnEntry > (new OnEntry);
+    return ::ecore::Ptr < OnEntry > (new OnEntry);
 }
 OnExit_ptr EventFactory::createOnExit()
 {
-    return boost::intrusive_ptr < OnExit > (new OnExit);
+    return ::ecore::Ptr < OnExit > (new OnExit);
 }
 EventAction_ptr EventFactory::createEventAction()
 {
-    return boost::intrusive_ptr < EventAction > (new EventAction);
+    return ::ecore::Ptr < EventAction > (new EventAction);
 }
 ReadsState_ptr EventFactory::createReadsState()
 {
-    return boost::intrusive_ptr < ReadsState > (new ReadsState);
+    return ::ecore::Ptr < ReadsState > (new ReadsState);
 }
 ProducesEvent_ptr EventFactory::createProducesEvent()
 {
-    return boost::intrusive_ptr < ProducesEvent > (new ProducesEvent);
+    return ::ecore::Ptr < ProducesEvent > (new ProducesEvent);
 }
 ConsumesEvent_ptr EventFactory::createConsumesEvent()
 {
-    return boost::intrusive_ptr < ConsumesEvent > (new ConsumesEvent);
+    return ::ecore::Ptr < ConsumesEvent > (new ConsumesEvent);
 }
 NextState_ptr EventFactory::createNextState()
 {
-    return boost::intrusive_ptr < NextState > (new NextState);
+    return ::ecore::Ptr < NextState > (new NextState);
 }
 InitialState_ptr EventFactory::createInitialState()
 {
-    return boost::intrusive_ptr < InitialState > (new InitialState);
+    return ::ecore::Ptr < InitialState > (new InitialState);
 }
 EventElement_ptr EventFactory::createEventElement()
 {
-    return boost::intrusive_ptr < EventElement > (new EventElement);
+    return ::ecore::Ptr < EventElement > (new EventElement);
 }
 HasState_ptr EventFactory::createHasState()
 {
-    return boost::intrusive_ptr < HasState > (new HasState);
+    return ::ecore::Ptr < HasState > (new HasState);
 }
 

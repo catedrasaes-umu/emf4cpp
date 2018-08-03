@@ -62,7 +62,7 @@ namespace ecore
 
     protected:
 
-        static boost::intrusive_ptr< EcoreFactory > s_holder;
+        static ::ecore::Ptr< EcoreFactory > s_holder;
 
         EcoreFactory();
 
@@ -74,9 +74,9 @@ namespace ecore
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline EAttribute_ptr create< EAttribute >()

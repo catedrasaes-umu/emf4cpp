@@ -67,7 +67,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< BintreePackage > s_instance;
+    static ::ecore::Ptr< BintreePackage > s_instance;
 
     BintreePackage();
     void _initPackage();

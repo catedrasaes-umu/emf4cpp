@@ -19,7 +19,7 @@
  */
 
 #ifndef ECORECPP_MAPPING_FORWARD_HPP
-#define    ECORECPP_MAPPING_FORWARD_HPP
+#define ECORECPP_MAPPING_FORWARD_HPP
 
 #include <atomic>
 #include <memory>

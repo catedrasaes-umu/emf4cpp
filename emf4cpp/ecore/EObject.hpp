@@ -36,17 +36,6 @@
 namespace ecore
 {
 
-    /** The default pointer type used by the generated EMF implementation. */
-    template< class T >
-    using Ptr = boost::intrusive_ptr<T>;
-
-    /* A helper function to create objects and wrap them in the default pointer type. */
-    template< class T, class ... Args >
-    Ptr< T > make(Args&&... args)
-    {
-        return Ptr< T >(new T(args...));
-    }
-
 class EXPORT_ECORE_DLL EObject
 {
 public:
@@ -93,50 +82,6 @@ public:
     // References
 
     EObject(const EObject&);
-
-    /** Special EObject cast helper operation. This template is enabled for
-     * casts to classes which are not derived from EObject. In that case it
-     * returns a T*.
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-    typename std::enable_if< !std::is_convertible<T*, EObject*>::value,
-    T* >::type
-    as()
-    {
-        return dynamic_cast<T*>(this);
-    }
-
-    /** Special EObject cast helper operation. This template is enabled for
-     * casts to classes which are derived from EObject. In that case it
-     * returns the proper smart pointer type.
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-    typename std::enable_if< std::is_convertible<T*, EObject*>::value,
-    boost::intrusive_ptr<T> >::type
-    as()
-    {
-        return boost::intrusive_ptr<T>(dynamic_cast<T*>(this));
-    }
-
-    /** Special EObject cast helper operation. const version of as<T>().
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-    typename std::enable_if< !std::is_convertible<const T*, const EObject*>::value,
-    const T* >::type
-    as() const
-    {
-        return dynamic_cast<const T*>(this);
-    }
-
-    /* Special EObject cast helper operation. const version of as<T>().
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-    typename std::enable_if< std::is_convertible<const T*, const EObject*>::value,
-    boost::intrusive_ptr<const T> >::type
-    as() const
-    {
-        return boost::intrusive_ptr<const T>(dynamic_cast<const T*>(this));
-    }
 
     /*PROTECTED REGION ID(EObject) START*/
     // Please, enable the protected region if you add manually written code.

@@ -41,69 +41,69 @@ KdmPackage::KdmPackage()
 {
 
     // Feature definitions of KDMFramework
-    m_KDMFramework__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_KDMFramework__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_KDMFramework__audit = boost::intrusive_ptr < ::ecore::EReference
+    m_KDMFramework__audit = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_KDMFramework__extensionFamily = boost::intrusive_ptr < ::ecore::EReference
+    m_KDMFramework__extensionFamily = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of KDMModel
 
     // Feature definitions of Audit
-    m_Audit__description = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Audit__description = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Audit__author = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Audit__author = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Audit__date = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Audit__date = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Segment
-    m_Segment__segment = boost::intrusive_ptr < ::ecore::EReference
+    m_Segment__segment = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Segment__model = boost::intrusive_ptr < ::ecore::EReference
+    m_Segment__model = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Attribute
-    m_Attribute__tag = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Attribute__tag = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Attribute__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Attribute__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Annotation
-    m_Annotation__text = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Annotation__text = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of TagDefinition
-    m_TagDefinition__tag = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TagDefinition__tag = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_TagDefinition__type = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TagDefinition__type = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of ExtendedValue
-    m_ExtendedValue__tag = boost::intrusive_ptr < ::ecore::EReference
+    m_ExtendedValue__tag = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Stereotype
-    m_Stereotype__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Stereotype__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Stereotype__type = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Stereotype__type = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Stereotype__tag = boost::intrusive_ptr < ::ecore::EReference
+    m_Stereotype__tag = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ExtensionFamily
-    m_ExtensionFamily__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ExtensionFamily__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ExtensionFamily__stereotype = boost::intrusive_ptr < ::ecore::EReference
+    m_ExtensionFamily__stereotype = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of TaggedRef
-    m_TaggedRef__reference = boost::intrusive_ptr < ::ecore::EReference
+    m_TaggedRef__reference = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of TaggedValue
-    m_TaggedValue__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TaggedValue__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
 }
@@ -118,7 +118,7 @@ void KdmPackage::_initPackage()
     // Create classes and their features
 
     // KDMFramework
-    m_KDMFrameworkEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_KDMFrameworkEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_KDMFrameworkEClass->setClassifierID(KDMFRAMEWORK);
     m_KDMFrameworkEClass->setEPackage(_this());
@@ -140,15 +140,13 @@ void KdmPackage::_initPackage()
             m_KDMFramework__extensionFamily);
 
     // KDMModel
-    m_KDMModelEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_KDMModelEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_KDMModelEClass->setClassifierID(KDMMODEL);
     m_KDMModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_KDMModelEClass);
 
     // Audit
-    m_AuditEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_AuditEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AuditEClass->setClassifierID(AUDIT);
     m_AuditEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AuditEClass);
@@ -164,8 +162,7 @@ void KdmPackage::_initPackage()
     m_AuditEClass->getEStructuralFeatures().push_back(m_Audit__date);
 
     // Segment
-    m_SegmentEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SegmentEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SegmentEClass->setClassifierID(SEGMENT);
     m_SegmentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SegmentEClass);
@@ -177,8 +174,7 @@ void KdmPackage::_initPackage()
     m_SegmentEClass->getEStructuralFeatures().push_back(m_Segment__model);
 
     // Attribute
-    m_AttributeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_AttributeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AttributeEClass->setClassifierID(ATTRIBUTE);
     m_AttributeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AttributeEClass);
@@ -190,8 +186,7 @@ void KdmPackage::_initPackage()
     m_AttributeEClass->getEStructuralFeatures().push_back(m_Attribute__value);
 
     // Annotation
-    m_AnnotationEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_AnnotationEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AnnotationEClass->setClassifierID(ANNOTATION);
     m_AnnotationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AnnotationEClass);
@@ -200,7 +195,7 @@ void KdmPackage::_initPackage()
     m_AnnotationEClass->getEStructuralFeatures().push_back(m_Annotation__text);
 
     // TagDefinition
-    m_TagDefinitionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_TagDefinitionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_TagDefinitionEClass->setClassifierID(TAGDEFINITION);
     m_TagDefinitionEClass->setEPackage(_this());
@@ -217,7 +212,7 @@ void KdmPackage::_initPackage()
             m_TagDefinition__type);
 
     // ExtendedValue
-    m_ExtendedValueEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExtendedValueEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExtendedValueEClass->setClassifierID(EXTENDEDVALUE);
     m_ExtendedValueEClass->setEPackage(_this());
@@ -229,8 +224,7 @@ void KdmPackage::_initPackage()
             m_ExtendedValue__tag);
 
     // Stereotype
-    m_StereotypeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_StereotypeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_StereotypeEClass->setClassifierID(STEREOTYPE);
     m_StereotypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StereotypeEClass);
@@ -245,7 +239,7 @@ void KdmPackage::_initPackage()
     m_StereotypeEClass->getEStructuralFeatures().push_back(m_Stereotype__tag);
 
     // ExtensionFamily
-    m_ExtensionFamilyEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExtensionFamilyEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExtensionFamilyEClass->setClassifierID(EXTENSIONFAMILY);
     m_ExtensionFamilyEClass->setEPackage(_this());
@@ -262,8 +256,7 @@ void KdmPackage::_initPackage()
             m_ExtensionFamily__stereotype);
 
     // TaggedRef
-    m_TaggedRefEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TaggedRefEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TaggedRefEClass->setClassifierID(TAGGEDREF);
     m_TaggedRefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TaggedRefEClass);
@@ -274,7 +267,7 @@ void KdmPackage::_initPackage()
             m_TaggedRef__reference);
 
     // TaggedValue
-    m_TaggedValueEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_TaggedValueEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_TaggedValueEClass->setClassifierID(TAGGEDVALUE);
     m_TaggedValueEClass->setEPackage(_this());

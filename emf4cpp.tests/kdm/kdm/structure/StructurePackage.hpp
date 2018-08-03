@@ -302,7 +302,7 @@ namespace kdm
 
     protected:
 
-        static boost::intrusive_ptr< StructurePackage > s_instance;
+        static ::ecore::Ptr< StructurePackage > s_instance;
 
         StructurePackage();
         void _initPackage();

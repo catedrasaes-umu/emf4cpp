@@ -54,37 +54,31 @@ namespace kdm
 // EClass
 // Element
         class Element;
-        using Element_ptr = boost::intrusive_ptr<Element>;
+        using Element_ptr = ::ecore::Ptr<Element>;
 
 // ModelElement
         class ModelElement;
-        using ModelElement_ptr = boost::intrusive_ptr<ModelElement>;
+        using ModelElement_ptr = ::ecore::Ptr<ModelElement>;
 
 // KDMEntity
         class KDMEntity;
-        using KDMEntity_ptr = boost::intrusive_ptr<KDMEntity>;
+        using KDMEntity_ptr = ::ecore::Ptr<KDMEntity>;
 
 // KDMRelationship
         class KDMRelationship;
-        using KDMRelationship_ptr = boost::intrusive_ptr<KDMRelationship>;
+        using KDMRelationship_ptr = ::ecore::Ptr<KDMRelationship>;
 
 // AggregatedRelationship
         class AggregatedRelationship;
-        using AggregatedRelationship_ptr = boost::intrusive_ptr<AggregatedRelationship>;
+        using AggregatedRelationship_ptr = ::ecore::Ptr<AggregatedRelationship>;
 
 // EEnum
 
 // Package & Factory
         class CoreFactory;
-        using CoreFactory_ptr = boost::intrusive_ptr<CoreFactory>;
+        using CoreFactory_ptr = ::ecore::Ptr<CoreFactory>;
         class CorePackage;
-        using CorePackage_ptr = boost::intrusive_ptr<CorePackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using CorePackage_ptr = ::ecore::Ptr<CorePackage>;
 
     } // core
 } // kdm

@@ -73,7 +73,7 @@ void TaggedValue::_initialize()
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
     {
         if (m_tag)
-            _any = m_tag->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_tag);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:

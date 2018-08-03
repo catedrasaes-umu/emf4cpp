@@ -44,69 +44,63 @@ namespace kdm
 
 // ConceptualModel
         class ConceptualModel;
-        using ConceptualModel_ptr = boost::intrusive_ptr<ConceptualModel>;
+        using ConceptualModel_ptr = ::ecore::Ptr<ConceptualModel>;
 
 // AbstractConceptualElement
         class AbstractConceptualElement;
-        using AbstractConceptualElement_ptr = boost::intrusive_ptr<AbstractConceptualElement>;
+        using AbstractConceptualElement_ptr = ::ecore::Ptr<AbstractConceptualElement>;
 
 // TermUnit
         class TermUnit;
-        using TermUnit_ptr = boost::intrusive_ptr<TermUnit>;
+        using TermUnit_ptr = ::ecore::Ptr<TermUnit>;
 
 // ConceptualContainer
         class ConceptualContainer;
-        using ConceptualContainer_ptr = boost::intrusive_ptr<ConceptualContainer>;
+        using ConceptualContainer_ptr = ::ecore::Ptr<ConceptualContainer>;
 
 // FactUnit
         class FactUnit;
-        using FactUnit_ptr = boost::intrusive_ptr<FactUnit>;
+        using FactUnit_ptr = ::ecore::Ptr<FactUnit>;
 
 // AbstractConceptualRelationship
         class AbstractConceptualRelationship;
-        using AbstractConceptualRelationship_ptr = boost::intrusive_ptr<AbstractConceptualRelationship>;
+        using AbstractConceptualRelationship_ptr = ::ecore::Ptr<AbstractConceptualRelationship>;
 
 // ConceptualRelationship
         class ConceptualRelationship;
-        using ConceptualRelationship_ptr = boost::intrusive_ptr<ConceptualRelationship>;
+        using ConceptualRelationship_ptr = ::ecore::Ptr<ConceptualRelationship>;
 
 // BehaviorUnit
         class BehaviorUnit;
-        using BehaviorUnit_ptr = boost::intrusive_ptr<BehaviorUnit>;
+        using BehaviorUnit_ptr = ::ecore::Ptr<BehaviorUnit>;
 
 // RuleUnit
         class RuleUnit;
-        using RuleUnit_ptr = boost::intrusive_ptr<RuleUnit>;
+        using RuleUnit_ptr = ::ecore::Ptr<RuleUnit>;
 
 // ScenarioUnit
         class ScenarioUnit;
-        using ScenarioUnit_ptr = boost::intrusive_ptr<ScenarioUnit>;
+        using ScenarioUnit_ptr = ::ecore::Ptr<ScenarioUnit>;
 
 // ConceptualFlow
         class ConceptualFlow;
-        using ConceptualFlow_ptr = boost::intrusive_ptr<ConceptualFlow>;
+        using ConceptualFlow_ptr = ::ecore::Ptr<ConceptualFlow>;
 
 // ConceptualElement
         class ConceptualElement;
-        using ConceptualElement_ptr = boost::intrusive_ptr<ConceptualElement>;
+        using ConceptualElement_ptr = ::ecore::Ptr<ConceptualElement>;
 
 // ConceptualRole
         class ConceptualRole;
-        using ConceptualRole_ptr = boost::intrusive_ptr<ConceptualRole>;
+        using ConceptualRole_ptr = ::ecore::Ptr<ConceptualRole>;
 
 // EEnum
 
 // Package & Factory
         class ConceptualFactory;
-        using ConceptualFactory_ptr = boost::intrusive_ptr<ConceptualFactory>;
+        using ConceptualFactory_ptr = ::ecore::Ptr<ConceptualFactory>;
         class ConceptualPackage;
-        using ConceptualPackage_ptr = boost::intrusive_ptr<ConceptualPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using ConceptualPackage_ptr = ::ecore::Ptr<ConceptualPackage>;
 
     } // conceptual
 } // kdm

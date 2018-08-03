@@ -22,12 +22,12 @@
 
 using namespace ::TopLevelPackage;
 
-boost::intrusive_ptr< ::TopLevelPackage::TopLevelPackageFactory > TopLevelPackageFactory::s_holder;
+::ecore::Ptr< ::TopLevelPackage::TopLevelPackageFactory > TopLevelPackageFactory::s_holder;
 
 ::TopLevelPackage::TopLevelPackageFactory_ptr TopLevelPackageFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < TopLevelPackageFactory
+        s_holder = ::ecore::Ptr < TopLevelPackageFactory
                 > (new TopLevelPackageFactory());
 
     return s_holder;

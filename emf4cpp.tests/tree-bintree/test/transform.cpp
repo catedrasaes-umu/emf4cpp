@@ -65,9 +65,9 @@ int main(int argc, char* argv[])
     ::ecore::EPackage_ptr b_epkg = BintreePackage::_instance();
     //::ecorecpp::serializer::serializer ser("metamodel.ecore");
 
-    //TreeFactory_ptr _efac = _epkg->getEFactoryInstance()->as< TreeFactory > ();
+    //TreeFactory_ptr _efac = ::ecore::as< TreeFactory >(_epkg->getEFactoryInstance());
     BintreeFactory_ptr b_efac =
-        b_epkg->getEFactoryInstance()->as< BintreeFactory > ();
+        ::ecore::as< BintreeFactory >(b_epkg->getEFactoryInstance());
 
     ::ecorecpp::MetaModelRepository::_instance()->load(_epkg);
     ::ecorecpp::MetaModelRepository::_instance()->load(b_epkg);
@@ -90,10 +90,10 @@ int main(int argc, char* argv[])
 	std::cout << "Load time: " << duration.count() << "us" << std::endl;
 
     // In root node
-    TreeNode_ptr in_root_node = ::tree::instanceOf< TreeNode >(_eobj);
+    TreeNode_ptr in_root_node = ::ecore::as< TreeNode >(_eobj);
     assert(in_root_node);
     // Treat node as non-terminal
-    NonTerminal_ptr in_nt_root = in_root_node->as<NonTerminal>();
+    NonTerminal_ptr in_nt_root = ::ecore::as< NonTerminal >(in_root_node);
 
     // Output root node
     BinTreeNode_ptr out_bt_root = b_efac->createBinTreeNode();

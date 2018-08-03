@@ -66,7 +66,7 @@ void handler::characters(xml_parser::match_pair const& chars)
             EStructuralFeature_ptr const esf = peclass->getEStructuralFeature(
                     _name);
 
-            EDataType_ptr const edt = esf->getEType()->as<EDataType>();
+            EDataType_ptr const edt = as< EDataType >(esf->getEType());
 
             EFactory_ptr const efac = edt->getEPackage()->getEFactoryInstance();
             assert(efac);
@@ -147,7 +147,7 @@ void handler::start_tag(xml_parser::match_pair const& name,
 
     assert(eclassifier);
     assert(epkg);
-    eclass = instanceOf< EClass > (eclassifier);
+    eclass = as< EClass > (eclassifier);
 
     if (eclass)
     {
@@ -180,7 +180,7 @@ void handler::start_tag(xml_parser::match_pair const& name,
                 EClassifier_ptr const aeclassifier = esf->getEType();
                 assert(aeclassifier);
 
-                EDataType_ptr const aedt = instanceOf< EDataType > (
+                EDataType_ptr const aedt = as< EDataType > (
                         aeclassifier);
 
                 if (!aedt)
@@ -219,7 +219,7 @@ void handler::start_tag(xml_parser::match_pair const& name,
 
             any _any;
 
-            EReference_ptr const eref = instanceOf< EReference > (esf);
+            EReference_ptr const eref = as< EReference > (esf);
 
             if (eref && eref->getUpperBound() != 1)
             {
@@ -328,7 +328,7 @@ void handler::resolveReferences()
                 EObject_ptr _current = m_objects.front();
                 ref_parser::processed_reference_t & _ref = _references[i];
 
-                EPackage_ptr pkg = instanceOf< EPackage > (_current);
+                EPackage_ptr pkg = as< EPackage > (_current);
                 if (!_ref.get_uri().empty() && (!pkg || (pkg && _ref.get_uri()
                         != pkg->getNsURI())))
                 {
@@ -339,8 +339,8 @@ void handler::resolveReferences()
                 ref_parser::path_t& _path = _ref.get_path();
                 for (size_t j = 0; j < _path.size(); j++)
                 {
-                    EClass_ptr cl = instanceOf< EClass > (_current);
-                    EPackage_ptr pkg = instanceOf< EPackage > (_current);
+                    EClass_ptr cl = as< EClass > (_current);
+                    EPackage_ptr pkg = as< EPackage > (_current);
 
                     ::ecorecpp::mapping::type_definitions::string_t const& _current_id = _path[j].get_id();
 

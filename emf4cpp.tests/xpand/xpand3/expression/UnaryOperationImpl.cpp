@@ -87,13 +87,13 @@ void UnaryOperation::_initialize()
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR:
     {
         if (m_operator)
-            _any = m_operator->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_operator);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND:
     {
         if (m_operand)
-            _any = m_operand->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_operand);
     }
         return _any;
 

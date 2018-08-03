@@ -123,84 +123,83 @@ BuildFactory::BuildFactory()
 
 AbstractBuildElement_ptr BuildFactory::createAbstractBuildElement()
 {
-    return boost::intrusive_ptr < AbstractBuildElement
-            > (new AbstractBuildElement);
+    return ::ecore::Ptr < AbstractBuildElement > (new AbstractBuildElement);
 }
 BuildResource_ptr BuildFactory::createBuildResource()
 {
-    return boost::intrusive_ptr < BuildResource > (new BuildResource);
+    return ::ecore::Ptr < BuildResource > (new BuildResource);
 }
 BuildDescription_ptr BuildFactory::createBuildDescription()
 {
-    return boost::intrusive_ptr < BuildDescription > (new BuildDescription);
+    return ::ecore::Ptr < BuildDescription > (new BuildDescription);
 }
 SymbolicLink_ptr BuildFactory::createSymbolicLink()
 {
-    return boost::intrusive_ptr < SymbolicLink > (new SymbolicLink);
+    return ::ecore::Ptr < SymbolicLink > (new SymbolicLink);
 }
 AbstractBuildRelationship_ptr BuildFactory::createAbstractBuildRelationship()
 {
-    return boost::intrusive_ptr < AbstractBuildRelationship
+    return ::ecore::Ptr < AbstractBuildRelationship
             > (new AbstractBuildRelationship);
 }
 LinksTo_ptr BuildFactory::createLinksTo()
 {
-    return boost::intrusive_ptr < LinksTo > (new LinksTo);
+    return ::ecore::Ptr < LinksTo > (new LinksTo);
 }
 Consumes_ptr BuildFactory::createConsumes()
 {
-    return boost::intrusive_ptr < Consumes > (new Consumes);
+    return ::ecore::Ptr < Consumes > (new Consumes);
 }
 BuildModel_ptr BuildFactory::createBuildModel()
 {
-    return boost::intrusive_ptr < BuildModel > (new BuildModel);
+    return ::ecore::Ptr < BuildModel > (new BuildModel);
 }
 BuildComponent_ptr BuildFactory::createBuildComponent()
 {
-    return boost::intrusive_ptr < BuildComponent > (new BuildComponent);
+    return ::ecore::Ptr < BuildComponent > (new BuildComponent);
 }
 Supplier_ptr BuildFactory::createSupplier()
 {
-    return boost::intrusive_ptr < Supplier > (new Supplier);
+    return ::ecore::Ptr < Supplier > (new Supplier);
 }
 Tool_ptr BuildFactory::createTool()
 {
-    return boost::intrusive_ptr < Tool > (new Tool);
+    return ::ecore::Ptr < Tool > (new Tool);
 }
 BuildElement_ptr BuildFactory::createBuildElement()
 {
-    return boost::intrusive_ptr < BuildElement > (new BuildElement);
+    return ::ecore::Ptr < BuildElement > (new BuildElement);
 }
 BuildRelationship_ptr BuildFactory::createBuildRelationship()
 {
-    return boost::intrusive_ptr < BuildRelationship > (new BuildRelationship);
+    return ::ecore::Ptr < BuildRelationship > (new BuildRelationship);
 }
 SuppliedBy_ptr BuildFactory::createSuppliedBy()
 {
-    return boost::intrusive_ptr < SuppliedBy > (new SuppliedBy);
+    return ::ecore::Ptr < SuppliedBy > (new SuppliedBy);
 }
 Library_ptr BuildFactory::createLibrary()
 {
-    return boost::intrusive_ptr < Library > (new Library);
+    return ::ecore::Ptr < Library > (new Library);
 }
 BuildStep_ptr BuildFactory::createBuildStep()
 {
-    return boost::intrusive_ptr < BuildStep > (new BuildStep);
+    return ::ecore::Ptr < BuildStep > (new BuildStep);
 }
 Produces_ptr BuildFactory::createProduces()
 {
-    return boost::intrusive_ptr < Produces > (new Produces);
+    return ::ecore::Ptr < Produces > (new Produces);
 }
 SupportedBy_ptr BuildFactory::createSupportedBy()
 {
-    return boost::intrusive_ptr < SupportedBy > (new SupportedBy);
+    return ::ecore::Ptr < SupportedBy > (new SupportedBy);
 }
 BuildProduct_ptr BuildFactory::createBuildProduct()
 {
-    return boost::intrusive_ptr < BuildProduct > (new BuildProduct);
+    return ::ecore::Ptr < BuildProduct > (new BuildProduct);
 }
 DescribedBy_ptr BuildFactory::createDescribedBy()
 {
-    return boost::intrusive_ptr < DescribedBy > (new DescribedBy);
+    return ::ecore::Ptr < DescribedBy > (new DescribedBy);
 }
 

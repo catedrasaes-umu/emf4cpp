@@ -22,7 +22,7 @@
 
 using namespace ::company;
 
-boost::intrusive_ptr< ::company::CompanyPackage > CompanyPackage::s_instance;
+::ecore::Ptr< ::company::CompanyPackage > CompanyPackage::s_instance;
 
 ::company::CompanyPackage_ptr CompanyPackage::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::company::CompanyPackage > CompanyPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< CompanyPackage >();
+            return ::ecore::Ptr< CompanyPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < CompanyPackage
-                > (new CompanyPackage());
+        s_instance = ::ecore::Ptr < CompanyPackage > (new CompanyPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

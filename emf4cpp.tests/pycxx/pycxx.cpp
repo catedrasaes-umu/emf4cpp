@@ -78,7 +78,7 @@ protected:
     inline Py::Object set(const char* name, const Py::Tuple &rargs)
     {
         EStructuralFeature_ptr sf = m_class->getEStructuralFeature(name);
-        EAttribute_ptr at = sf->as< EAttribute > ();
+        EAttribute_ptr at = ::ecore::as< EAttribute >(sf);
 
         if (at)
         {
@@ -91,7 +91,7 @@ protected:
         }
         else
         {
-            EReference_ptr ref = sf->as< EReference > ();
+            EReference_ptr ref = ::ecore::as< EReference >(sf);
 
             for (size_t i = 0; i < rargs.length(); i++)
             {
@@ -112,14 +112,14 @@ protected:
         boost::any any = m_obj->eGet(sf);
 
         // TODO: extender para el resto de tipos
-        EAttribute_ptr at = sf->as< EAttribute > ();
+        EAttribute_ptr at = ::ecore::as< EAttribute >(sf);
         if (at)
         {
             return Py::String(*boost::any_cast< const std::string * >(any));
         }
         else
         {
-            EReference_ptr ref = sf->as< EReference > ();
+            EReference_ptr ref = ::ecore::as< EReference >(sf);
 
             if (ref->getUpperBound() == 1)
             {
@@ -257,7 +257,7 @@ protected:
 
         const char * name = meth_def->ext_meth_def.ml_name;
         
-	EClass_ptr eclass = m_pkg->getEClassifier(name)->as< EClass > ();
+	EClass_ptr eclass = ::ecore::as< EClass >(m_pkg->getEClassifier(name));
 
         if (args.length())
         {

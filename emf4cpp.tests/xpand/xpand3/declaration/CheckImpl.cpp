@@ -93,7 +93,7 @@ void Check::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
         if (m_owner)
-            _any = m_owner->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_owner);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
@@ -110,7 +110,7 @@ void Check::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
         if (m_guard)
-            _any = m_guard->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_guard);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::CHECK__ERRORSEVERITY:
@@ -122,13 +122,13 @@ void Check::_initialize()
     case ::xpand3::declaration::DeclarationPackage::CHECK__MSG:
     {
         if (m_msg)
-            _any = m_msg->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_msg);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::CHECK__CONSTRAINT:
     {
         if (m_constraint)
-            _any = m_constraint->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_constraint);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::CHECK__FEATURE:

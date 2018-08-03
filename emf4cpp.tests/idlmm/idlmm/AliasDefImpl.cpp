@@ -64,13 +64,13 @@ void AliasDef::_initialize()
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
         if (m_containedType)
-            _any = m_containedType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_containedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
         if (m_sharedType)
-            _any = m_sharedType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_sharedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
@@ -106,7 +106,7 @@ void AliasDef::_initialize()
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
         if (m_definedIn)
-            _any = m_definedIn->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_definedIn);
     }
         return _any;
 

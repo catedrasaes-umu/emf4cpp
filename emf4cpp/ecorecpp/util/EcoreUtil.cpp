@@ -43,7 +43,7 @@ std::string EcoreUtil::getId( ::ecore::EObject_ptr obj ) {
 				&& obj->eIsSet(attr) ) {
 
 			auto at_classifier = attr->getEType();
-			if ( auto atc = at_classifier->as<::ecore::EDataType>() ) {
+			if ( auto atc = ::ecore::as< ::ecore::EDataType >(at_classifier) ) {
 
 				auto fac =
 						at_classifier->getEPackage()->getEFactoryInstance();
@@ -88,7 +88,7 @@ void scanPackage( ::ecore::EPackage_ptr package, ::ecore::EClass_ptr superclass,
 
 	// 3. Iterate over all EClassifiers
 	for (auto eClassifier : package->getEClassifiers()) {
-		auto eClass = eClassifier->as<::ecore::EClass>();
+		auto eClass = ::ecore::as< ::ecore::EClass >(eClassifier);
 		if (!eClass)
 			continue;
 	// 4. Iterate over all ESuperTypes of an EClass
@@ -137,8 +137,8 @@ const std::set<::ecore::EClass_ptr>& EcoreUtil::getAbstractSubClasses( ::ecore::
  *
  * Intended usage:
  \code{.cpp}
- auto classBase = BasePackage::_instance()
-	->getEClassifier("Base")->as<ecore::EClass>();
+ auto classBase = ::ecore::as<::ecore::EClass>(
+	BasePackage::_instance()->getEClassifier("Base") );
  auto& subclassesOfBase = Utils::getSubClasses(
 	SomePackage::_instance(), classBase );
 

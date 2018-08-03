@@ -22,12 +22,12 @@
 
 using namespace ::SVG;
 
-boost::intrusive_ptr< ::SVG::SVGFactory > SVGFactory::s_holder;
+::ecore::Ptr< ::SVG::SVGFactory > SVGFactory::s_holder;
 
 ::SVG::SVGFactory_ptr SVGFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < SVGFactory > (new SVGFactory());
+        s_holder = ::ecore::Ptr < SVGFactory > (new SVGFactory());
 
     return s_holder;
 }

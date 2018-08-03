@@ -87,7 +87,7 @@ void ExpressionStatement::_initialize()
     case ::xpand3::statement::StatementPackage::EXPRESSIONSTATEMENT__EXPRESSION:
     {
         if (m_expression)
-            _any = m_expression->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_expression);
     }
         return _any;
 

@@ -44,65 +44,59 @@ namespace kdm
 
 // KDMFramework
         class KDMFramework;
-        using KDMFramework_ptr = boost::intrusive_ptr<KDMFramework>;
+        using KDMFramework_ptr = ::ecore::Ptr<KDMFramework>;
 
 // KDMModel
         class KDMModel;
-        using KDMModel_ptr = boost::intrusive_ptr<KDMModel>;
+        using KDMModel_ptr = ::ecore::Ptr<KDMModel>;
 
 // Audit
         class Audit;
-        using Audit_ptr = boost::intrusive_ptr<Audit>;
+        using Audit_ptr = ::ecore::Ptr<Audit>;
 
 // Segment
         class Segment;
-        using Segment_ptr = boost::intrusive_ptr<Segment>;
+        using Segment_ptr = ::ecore::Ptr<Segment>;
 
 // Attribute
         class Attribute;
-        using Attribute_ptr = boost::intrusive_ptr<Attribute>;
+        using Attribute_ptr = ::ecore::Ptr<Attribute>;
 
 // Annotation
         class Annotation;
-        using Annotation_ptr = boost::intrusive_ptr<Annotation>;
+        using Annotation_ptr = ::ecore::Ptr<Annotation>;
 
 // TagDefinition
         class TagDefinition;
-        using TagDefinition_ptr = boost::intrusive_ptr<TagDefinition>;
+        using TagDefinition_ptr = ::ecore::Ptr<TagDefinition>;
 
 // ExtendedValue
         class ExtendedValue;
-        using ExtendedValue_ptr = boost::intrusive_ptr<ExtendedValue>;
+        using ExtendedValue_ptr = ::ecore::Ptr<ExtendedValue>;
 
 // Stereotype
         class Stereotype;
-        using Stereotype_ptr = boost::intrusive_ptr<Stereotype>;
+        using Stereotype_ptr = ::ecore::Ptr<Stereotype>;
 
 // ExtensionFamily
         class ExtensionFamily;
-        using ExtensionFamily_ptr = boost::intrusive_ptr<ExtensionFamily>;
+        using ExtensionFamily_ptr = ::ecore::Ptr<ExtensionFamily>;
 
 // TaggedRef
         class TaggedRef;
-        using TaggedRef_ptr = boost::intrusive_ptr<TaggedRef>;
+        using TaggedRef_ptr = ::ecore::Ptr<TaggedRef>;
 
 // TaggedValue
         class TaggedValue;
-        using TaggedValue_ptr = boost::intrusive_ptr<TaggedValue>;
+        using TaggedValue_ptr = ::ecore::Ptr<TaggedValue>;
 
 // EEnum
 
 // Package & Factory
         class KdmFactory;
-        using KdmFactory_ptr = boost::intrusive_ptr<KdmFactory>;
+        using KdmFactory_ptr = ::ecore::Ptr<KdmFactory>;
         class KdmPackage;
-        using KdmPackage_ptr = boost::intrusive_ptr<KdmPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using KdmPackage_ptr = ::ecore::Ptr<KdmPackage>;
 
     } // kdm
 } // kdm

@@ -40,15 +40,15 @@ EdatePackage::EdatePackage()
 {
 
     // Feature definitions of Person
-    m_Person__Birthday = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Person__Birthday = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Person__Name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Person__Name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Apollo11
-    m_Apollo11__FirstManOnMoonDate = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Apollo11__FirstManOnMoonDate = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Apollo11__Member = boost::intrusive_ptr < ::ecore::EReference
+    m_Apollo11__Member = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -63,8 +63,7 @@ void EdatePackage::_initPackage()
     // Create classes and their features
 
     // Person
-    m_PersonEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_PersonEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PersonEClass->setClassifierID(PERSON);
     m_PersonEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PersonEClass);
@@ -76,8 +75,7 @@ void EdatePackage::_initPackage()
     m_PersonEClass->getEStructuralFeatures().push_back(m_Person__Name);
 
     // Apollo11
-    m_Apollo11EClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_Apollo11EClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_Apollo11EClass->setClassifierID(APOLLO11);
     m_Apollo11EClass->setEPackage(_this());
     getEClassifiers().push_back(m_Apollo11EClass);

@@ -72,7 +72,7 @@ void Entity::_initialize()
     case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
     {
         if (m_extends)
-            _any = m_extends->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_extends);
     }
         return _any;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:

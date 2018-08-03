@@ -22,13 +22,12 @@
 
 using namespace ::xpand3::expression;
 
-boost::intrusive_ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_holder;
+::ecore::Ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_holder;
 
 ::xpand3::expression::ExpressionFactory_ptr ExpressionFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < ExpressionFactory
-                > (new ExpressionFactory());
+        s_holder = ::ecore::Ptr < ExpressionFactory > (new ExpressionFactory());
 
     return s_holder;
 }

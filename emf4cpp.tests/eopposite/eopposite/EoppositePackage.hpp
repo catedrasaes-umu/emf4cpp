@@ -115,7 +115,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< EoppositePackage > s_instance;
+    static ::ecore::Ptr< EoppositePackage > s_instance;
 
     EoppositePackage();
     void _initPackage();

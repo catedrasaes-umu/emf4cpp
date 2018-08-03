@@ -22,7 +22,7 @@
 
 using namespace ::PrimitiveTypes;
 
-boost::intrusive_ptr< ::PrimitiveTypes::PrimitiveTypesPackage > PrimitiveTypesPackage::s_instance;
+::ecore::Ptr< ::PrimitiveTypes::PrimitiveTypesPackage > PrimitiveTypesPackage::s_instance;
 
 ::PrimitiveTypes::PrimitiveTypesPackage_ptr PrimitiveTypesPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::PrimitiveTypes::PrimitiveTypesPackage > PrimitiveTypesPa
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< PrimitiveTypesPackage >();
+            return ::ecore::Ptr< PrimitiveTypesPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < PrimitiveTypesPackage
+        s_instance = ::ecore::Ptr < PrimitiveTypesPackage
                 > (new PrimitiveTypesPackage());
         s_instance->_initPackage();
         duringConstruction = false;

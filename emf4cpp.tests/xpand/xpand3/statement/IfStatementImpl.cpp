@@ -98,13 +98,13 @@ void IfStatement::_initialize()
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__CONDITION:
     {
         if (m_condition)
-            _any = m_condition->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_condition);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::IFSTATEMENT__ELSEIF:
     {
         if (m_elseIf)
-            _any = m_elseIf->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_elseIf);
     }
         return _any;
 

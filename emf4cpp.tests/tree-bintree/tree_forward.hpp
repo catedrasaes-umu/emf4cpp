@@ -42,29 +42,23 @@ namespace tree
 
 // TreeNode
     class TreeNode;
-    using TreeNode_ptr = boost::intrusive_ptr<TreeNode>;
+    using TreeNode_ptr = ::ecore::Ptr<TreeNode>;
 
 // Leaf
     class Leaf;
-    using Leaf_ptr = boost::intrusive_ptr<Leaf>;
+    using Leaf_ptr = ::ecore::Ptr<Leaf>;
 
 // NonTerminal
     class NonTerminal;
-    using NonTerminal_ptr = boost::intrusive_ptr<NonTerminal>;
+    using NonTerminal_ptr = ::ecore::Ptr<NonTerminal>;
 
 // EEnum
 
 // Package & Factory
     class TreeFactory;
-    using TreeFactory_ptr = boost::intrusive_ptr<TreeFactory>;
+    using TreeFactory_ptr = ::ecore::Ptr<TreeFactory>;
     class TreePackage;
-    using TreePackage_ptr = boost::intrusive_ptr<TreePackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using TreePackage_ptr = ::ecore::Ptr<TreePackage>;
 
 } // tree
 

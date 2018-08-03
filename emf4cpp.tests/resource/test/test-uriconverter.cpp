@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 	auto resource3 = rSet2.createResource(file1);
 	resource3->load();
 
-	auto referrer4 = resource3->getContents()->get(0)->as<::ResourceTests::Referrer>();
+	auto referrer4 = ::ecore::as< ::ResourceTests::Referrer >(resource3->getContents()->get(0));
 	assert(referrer4 && referrer4->getReference());
 	return 0;
 }

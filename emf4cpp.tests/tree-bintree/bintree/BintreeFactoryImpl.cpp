@@ -66,6 +66,6 @@ BintreeFactory::BintreeFactory()
 
 BinTreeNode_ptr BintreeFactory::createBinTreeNode()
 {
-    return boost::intrusive_ptr < BinTreeNode > (new BinTreeNode);
+    return ::ecore::Ptr < BinTreeNode > (new BinTreeNode);
 }
 

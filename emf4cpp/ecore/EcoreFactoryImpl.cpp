@@ -255,83 +255,83 @@ EcoreFactory::EcoreFactory()
 
 EAttribute_ptr EcoreFactory::createEAttribute()
 {
-    return boost::intrusive_ptr < EAttribute > (new EAttribute);
+    return ::ecore::Ptr < EAttribute > (new EAttribute);
 }
 EAnnotation_ptr EcoreFactory::createEAnnotation()
 {
-    return boost::intrusive_ptr < EAnnotation > (new EAnnotation);
+    return ::ecore::Ptr < EAnnotation > (new EAnnotation);
 }
 EClass_ptr EcoreFactory::createEClass()
 {
-    return boost::intrusive_ptr < EClass > (new EClass);
+    return ::ecore::Ptr < EClass > (new EClass);
 }
 EClassifier_ptr EcoreFactory::createEClassifier()
 {
-    return boost::intrusive_ptr < EClassifier > (new EClassifier);
+    return ::ecore::Ptr < EClassifier > (new EClassifier);
 }
 EDataType_ptr EcoreFactory::createEDataType()
 {
-    return boost::intrusive_ptr < EDataType > (new EDataType);
+    return ::ecore::Ptr < EDataType > (new EDataType);
 }
 EEnum_ptr EcoreFactory::createEEnum()
 {
-    return boost::intrusive_ptr < EEnum > (new EEnum);
+    return ::ecore::Ptr < EEnum > (new EEnum);
 }
 EEnumLiteral_ptr EcoreFactory::createEEnumLiteral()
 {
-    return boost::intrusive_ptr < EEnumLiteral > (new EEnumLiteral);
+    return ::ecore::Ptr < EEnumLiteral > (new EEnumLiteral);
 }
 EFactory_ptr EcoreFactory::createEFactory()
 {
-    return boost::intrusive_ptr < EFactory > (new EFactory);
+    return ::ecore::Ptr < EFactory > (new EFactory);
 }
 EModelElement_ptr EcoreFactory::createEModelElement()
 {
-    return boost::intrusive_ptr < EModelElement > (new EModelElement);
+    return ::ecore::Ptr < EModelElement > (new EModelElement);
 }
 ENamedElement_ptr EcoreFactory::createENamedElement()
 {
-    return boost::intrusive_ptr < ENamedElement > (new ENamedElement);
+    return ::ecore::Ptr < ENamedElement > (new ENamedElement);
 }
 EObject_ptr EcoreFactory::createEObject()
 {
-    return boost::intrusive_ptr < EObject > (new EObject);
+    return ::ecore::Ptr < EObject > (new EObject);
 }
 EOperation_ptr EcoreFactory::createEOperation()
 {
-    return boost::intrusive_ptr < EOperation > (new EOperation);
+    return ::ecore::Ptr < EOperation > (new EOperation);
 }
 EPackage_ptr EcoreFactory::createEPackage()
 {
-    return boost::intrusive_ptr < EPackage > (new EPackage);
+    return ::ecore::Ptr < EPackage > (new EPackage);
 }
 EParameter_ptr EcoreFactory::createEParameter()
 {
-    return boost::intrusive_ptr < EParameter > (new EParameter);
+    return ::ecore::Ptr < EParameter > (new EParameter);
 }
 EReference_ptr EcoreFactory::createEReference()
 {
-    return boost::intrusive_ptr < EReference > (new EReference);
+    return ::ecore::Ptr < EReference > (new EReference);
 }
 EStructuralFeature_ptr EcoreFactory::createEStructuralFeature()
 {
-    return boost::intrusive_ptr < EStructuralFeature > (new EStructuralFeature);
+    return ::ecore::Ptr < EStructuralFeature > (new EStructuralFeature);
 }
 ETypedElement_ptr EcoreFactory::createETypedElement()
 {
-    return boost::intrusive_ptr < ETypedElement > (new ETypedElement);
+    return ::ecore::Ptr < ETypedElement > (new ETypedElement);
 }
 EStringToStringMapEntry_ptr EcoreFactory::createEStringToStringMapEntry()
 {
-    return boost::intrusive_ptr < EStringToStringMapEntry
+    return ::ecore::Ptr < EStringToStringMapEntry
             > (new EStringToStringMapEntry);
 }
 EGenericType_ptr EcoreFactory::createEGenericType()
 {
-    return boost::intrusive_ptr < EGenericType > (new EGenericType);
+    return ::ecore::Ptr < EGenericType > (new EGenericType);
 }
 ETypeParameter_ptr EcoreFactory::createETypeParameter()
 {
-    return boost::intrusive_ptr < ETypeParameter > (new ETypeParameter);
+    return ::ecore::Ptr < ETypeParameter > (new ETypeParameter);
 }
 

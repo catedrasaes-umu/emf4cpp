@@ -22,12 +22,12 @@
 
 using namespace ::enumeration;
 
-boost::intrusive_ptr< ::enumeration::EnumerationFactory > EnumerationFactory::s_holder;
+::ecore::Ptr< ::enumeration::EnumerationFactory > EnumerationFactory::s_holder;
 
 ::enumeration::EnumerationFactory_ptr EnumerationFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < EnumerationFactory
+        s_holder = ::ecore::Ptr < EnumerationFactory
                 > (new EnumerationFactory());
 
     return s_holder;

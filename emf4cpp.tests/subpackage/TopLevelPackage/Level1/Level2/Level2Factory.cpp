@@ -22,12 +22,12 @@
 
 using namespace ::TopLevelPackage::Level1::Level2;
 
-boost::intrusive_ptr< ::TopLevelPackage::Level1::Level2::Level2Factory > Level2Factory::s_holder;
+::ecore::Ptr< ::TopLevelPackage::Level1::Level2::Level2Factory > Level2Factory::s_holder;
 
 ::TopLevelPackage::Level1::Level2::Level2Factory_ptr Level2Factory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < Level2Factory > (new Level2Factory());
+        s_holder = ::ecore::Ptr < Level2Factory > (new Level2Factory());
 
     return s_holder;
 }

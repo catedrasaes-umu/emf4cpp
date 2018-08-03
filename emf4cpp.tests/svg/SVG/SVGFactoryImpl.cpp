@@ -176,154 +176,154 @@ SVGFactory::SVGFactory()
 
 Element_ptr SVGFactory::createElement()
 {
-    return boost::intrusive_ptr < Element > (new Element);
+    return ::ecore::Ptr < Element > (new Element);
 }
 StructuralElement_ptr SVGFactory::createStructuralElement()
 {
-    return boost::intrusive_ptr < StructuralElement > (new StructuralElement);
+    return ::ecore::Ptr < StructuralElement > (new StructuralElement);
 }
 Image_ptr SVGFactory::createImage()
 {
-    return boost::intrusive_ptr < Image > (new Image);
+    return ::ecore::Ptr < Image > (new Image);
 }
 Svg_ptr SVGFactory::createSvg()
 {
-    return boost::intrusive_ptr < Svg > (new Svg);
+    return ::ecore::Ptr < Svg > (new Svg);
 }
 GroupingElement_ptr SVGFactory::createGroupingElement()
 {
-    return boost::intrusive_ptr < GroupingElement > (new GroupingElement);
+    return ::ecore::Ptr < GroupingElement > (new GroupingElement);
 }
 G_ptr SVGFactory::createG()
 {
-    return boost::intrusive_ptr < G > (new G);
+    return ::ecore::Ptr < G > (new G);
 }
 Defs_ptr SVGFactory::createDefs()
 {
-    return boost::intrusive_ptr < Defs > (new Defs);
+    return ::ecore::Ptr < Defs > (new Defs);
 }
 Symbol_ptr SVGFactory::createSymbol()
 {
-    return boost::intrusive_ptr < Symbol > (new Symbol);
+    return ::ecore::Ptr < Symbol > (new Symbol);
 }
 Use_ptr SVGFactory::createUse()
 {
-    return boost::intrusive_ptr < Use > (new Use);
+    return ::ecore::Ptr < Use > (new Use);
 }
 GraphicalElement_ptr SVGFactory::createGraphicalElement()
 {
-    return boost::intrusive_ptr < GraphicalElement > (new GraphicalElement);
+    return ::ecore::Ptr < GraphicalElement > (new GraphicalElement);
 }
 Shape_ptr SVGFactory::createShape()
 {
-    return boost::intrusive_ptr < Shape > (new Shape);
+    return ::ecore::Ptr < Shape > (new Shape);
 }
 TextElement_ptr SVGFactory::createTextElement()
 {
-    return boost::intrusive_ptr < TextElement > (new TextElement);
+    return ::ecore::Ptr < TextElement > (new TextElement);
 }
 Rect_ptr SVGFactory::createRect()
 {
-    return boost::intrusive_ptr < Rect > (new Rect);
+    return ::ecore::Ptr < Rect > (new Rect);
 }
 Circle_ptr SVGFactory::createCircle()
 {
-    return boost::intrusive_ptr < Circle > (new Circle);
+    return ::ecore::Ptr < Circle > (new Circle);
 }
 Ellipse_ptr SVGFactory::createEllipse()
 {
-    return boost::intrusive_ptr < Ellipse > (new Ellipse);
+    return ::ecore::Ptr < Ellipse > (new Ellipse);
 }
 Line_ptr SVGFactory::createLine()
 {
-    return boost::intrusive_ptr < Line > (new Line);
+    return ::ecore::Ptr < Line > (new Line);
 }
 Polyline_ptr SVGFactory::createPolyline()
 {
-    return boost::intrusive_ptr < Polyline > (new Polyline);
+    return ::ecore::Ptr < Polyline > (new Polyline);
 }
 Polygon_ptr SVGFactory::createPolygon()
 {
-    return boost::intrusive_ptr < Polygon > (new Polygon);
+    return ::ecore::Ptr < Polygon > (new Polygon);
 }
 Path_ptr SVGFactory::createPath()
 {
-    return boost::intrusive_ptr < Path > (new Path);
+    return ::ecore::Ptr < Path > (new Path);
 }
 Point_ptr SVGFactory::createPoint()
 {
-    return boost::intrusive_ptr < Point > (new Point);
+    return ::ecore::Ptr < Point > (new Point);
 }
 Marker_ptr SVGFactory::createMarker()
 {
-    return boost::intrusive_ptr < Marker > (new Marker);
+    return ::ecore::Ptr < Marker > (new Marker);
 }
 Text_ptr SVGFactory::createText()
 {
-    return boost::intrusive_ptr < Text > (new Text);
+    return ::ecore::Ptr < Text > (new Text);
 }
 Tspan_ptr SVGFactory::createTspan()
 {
-    return boost::intrusive_ptr < Tspan > (new Tspan);
+    return ::ecore::Ptr < Tspan > (new Tspan);
 }
 Tref_ptr SVGFactory::createTref()
 {
-    return boost::intrusive_ptr < Tref > (new Tref);
+    return ::ecore::Ptr < Tref > (new Tref);
 }
 Attribute_ptr SVGFactory::createAttribute()
 {
-    return boost::intrusive_ptr < Attribute > (new Attribute);
+    return ::ecore::Ptr < Attribute > (new Attribute);
 }
 Transform_ptr SVGFactory::createTransform()
 {
-    return boost::intrusive_ptr < Transform > (new Transform);
+    return ::ecore::Ptr < Transform > (new Transform);
 }
 Scale_ptr SVGFactory::createScale()
 {
-    return boost::intrusive_ptr < Scale > (new Scale);
+    return ::ecore::Ptr < Scale > (new Scale);
 }
 Translate_ptr SVGFactory::createTranslate()
 {
-    return boost::intrusive_ptr < Translate > (new Translate);
+    return ::ecore::Ptr < Translate > (new Translate);
 }
 Rotate_ptr SVGFactory::createRotate()
 {
-    return boost::intrusive_ptr < Rotate > (new Rotate);
+    return ::ecore::Ptr < Rotate > (new Rotate);
 }
 Visibility_ptr SVGFactory::createVisibility()
 {
-    return boost::intrusive_ptr < Visibility > (new Visibility);
+    return ::ecore::Ptr < Visibility > (new Visibility);
 }
 FontWeight_ptr SVGFactory::createFontWeight()
 {
-    return boost::intrusive_ptr < FontWeight > (new FontWeight);
+    return ::ecore::Ptr < FontWeight > (new FontWeight);
 }
 FontStyle_ptr SVGFactory::createFontStyle()
 {
-    return boost::intrusive_ptr < FontStyle > (new FontStyle);
+    return ::ecore::Ptr < FontStyle > (new FontStyle);
 }
 Dimension_ptr SVGFactory::createDimension()
 {
-    return boost::intrusive_ptr < Dimension > (new Dimension);
+    return ::ecore::Ptr < Dimension > (new Dimension);
 }
 Coordinates_ptr SVGFactory::createCoordinates()
 {
-    return boost::intrusive_ptr < Coordinates > (new Coordinates);
+    return ::ecore::Ptr < Coordinates > (new Coordinates);
 }
 RelativeCoord_ptr SVGFactory::createRelativeCoord()
 {
-    return boost::intrusive_ptr < RelativeCoord > (new RelativeCoord);
+    return ::ecore::Ptr < RelativeCoord > (new RelativeCoord);
 }
 AbsoluteCoord_ptr SVGFactory::createAbsoluteCoord()
 {
-    return boost::intrusive_ptr < AbsoluteCoord > (new AbsoluteCoord);
+    return ::ecore::Ptr < AbsoluteCoord > (new AbsoluteCoord);
 }
 ReferencedFile_ptr SVGFactory::createReferencedFile()
 {
-    return boost::intrusive_ptr < ReferencedFile > (new ReferencedFile);
+    return ::ecore::Ptr < ReferencedFile > (new ReferencedFile);
 }
 SvgFile_ptr SVGFactory::createSvgFile()
 {
-    return boost::intrusive_ptr < SvgFile > (new SvgFile);
+    return ::ecore::Ptr < SvgFile > (new SvgFile);
 }
 

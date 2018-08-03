@@ -118,7 +118,7 @@ void ArrayType::_initialize()
     case ::kdm::code::CodePackage::DERIVEDTYPE__ITEMUNIT:
     {
         if (m_itemUnit)
-            _any = m_itemUnit->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_itemUnit);
     }
         return _any;
     case ::kdm::code::CodePackage::ARRAYTYPE__SIZE:
@@ -130,7 +130,7 @@ void ArrayType::_initialize()
     case ::kdm::code::CodePackage::ARRAYTYPE__INDEXUNIT:
     {
         if (m_indexUnit)
-            _any = m_indexUnit->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_indexUnit);
     }
         return _any;
 

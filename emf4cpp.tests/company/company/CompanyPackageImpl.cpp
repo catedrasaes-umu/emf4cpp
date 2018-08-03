@@ -40,23 +40,23 @@ CompanyPackage::CompanyPackage()
 {
 
     // Feature definitions of Employee
-    m_Employee__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Employee__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Employee__phonebookEntry = boost::intrusive_ptr < ::ecore::EReference
+    m_Employee__phonebookEntry = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Department
-    m_Department__number = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Department__number = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Department__employees = boost::intrusive_ptr < ::ecore::EReference
+    m_Department__employees = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Department__manager = boost::intrusive_ptr < ::ecore::EReference
+    m_Department__manager = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Company
-    m_Company__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Company__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Company__departments = boost::intrusive_ptr < ::ecore::EReference
+    m_Company__departments = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of PhonebookEntry
@@ -73,8 +73,7 @@ void CompanyPackage::_initPackage()
     // Create classes and their features
 
     // Employee
-    m_EmployeeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_EmployeeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EmployeeEClass->setClassifierID(EMPLOYEE);
     m_EmployeeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EmployeeEClass);
@@ -88,8 +87,7 @@ void CompanyPackage::_initPackage()
             m_Employee__phonebookEntry);
 
     // Department
-    m_DepartmentEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DepartmentEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DepartmentEClass->setClassifierID(DEPARTMENT);
     m_DepartmentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DepartmentEClass);
@@ -110,8 +108,7 @@ void CompanyPackage::_initPackage()
             m_Department__manager);
 
     // Company
-    m_CompanyEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CompanyEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CompanyEClass->setClassifierID(COMPANY);
     m_CompanyEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CompanyEClass);
@@ -124,7 +121,7 @@ void CompanyPackage::_initPackage()
     m_CompanyEClass->getEStructuralFeatures().push_back(m_Company__departments);
 
     // PhonebookEntry
-    m_PhonebookEntryEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_PhonebookEntryEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_PhonebookEntryEClass->setClassifierID(PHONEBOOKENTRY);
     m_PhonebookEntryEClass->setEPackage(_this());

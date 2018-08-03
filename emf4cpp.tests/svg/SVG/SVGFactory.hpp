@@ -80,7 +80,7 @@ namespace SVG
 
     protected:
 
-        static boost::intrusive_ptr< SVGFactory > s_holder;
+        static ::ecore::Ptr< SVGFactory > s_holder;
 
         SVGFactory();
 
@@ -92,9 +92,9 @@ namespace SVG
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline Element_ptr create< Element >()

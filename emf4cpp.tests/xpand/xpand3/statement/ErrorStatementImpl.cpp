@@ -87,7 +87,7 @@ void ErrorStatement::_initialize()
     case ::xpand3::statement::StatementPackage::ERRORSTATEMENT__MESSAGE:
     {
         if (m_message)
-            _any = m_message->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_message);
     }
         return _any;
 

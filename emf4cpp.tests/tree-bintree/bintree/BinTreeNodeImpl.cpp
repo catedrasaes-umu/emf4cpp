@@ -67,19 +67,19 @@ void BinTreeNode::_initialize()
     case ::bintree::BintreePackage::BINTREENODE__PARENT:
     {
         if (m_parent)
-            _any = m_parent->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_parent);
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__LEFT:
     {
         if (m_left)
-            _any = m_left->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_left);
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__RIGHT:
     {
         if (m_right)
-            _any = m_right->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_right);
     }
         return _any;
     case ::bintree::BintreePackage::BINTREENODE__DATA:

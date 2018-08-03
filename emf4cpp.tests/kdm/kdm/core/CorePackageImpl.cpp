@@ -44,32 +44,32 @@ CorePackage::CorePackage()
 {
 
     // Feature definitions of Element
-    m_Element__attribute = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__attribute = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__annotation = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__annotation = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ModelElement
-    m_ModelElement__stereotype = boost::intrusive_ptr < ::ecore::EReference
+    m_ModelElement__stereotype = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ModelElement__taggedValue = boost::intrusive_ptr < ::ecore::EReference
+    m_ModelElement__taggedValue = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of KDMEntity
-    m_KDMEntity__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_KDMEntity__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of KDMRelationship
 
     // Feature definitions of AggregatedRelationship
-    m_AggregatedRelationship__density = boost::intrusive_ptr
-            < ::ecore::EAttribute > (new ::ecore::EAttribute);
-    m_AggregatedRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_AggregatedRelationship__density = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_AggregatedRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_AggregatedRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_AggregatedRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_AggregatedRelationship__relation = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AggregatedRelationship__relation = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
 }
 
@@ -86,8 +86,7 @@ void CorePackage::_initPackage()
     // Create classes and their features
 
     // Element
-    m_ElementEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ElementEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ElementEClass->setClassifierID(ELEMENT);
     m_ElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ElementEClass);
@@ -101,7 +100,7 @@ void CorePackage::_initPackage()
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__annotation);
 
     // ModelElement
-    m_ModelElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ModelElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ModelElementEClass->setClassifierID(MODELELEMENT);
     m_ModelElementEClass->setEPackage(_this());
@@ -118,8 +117,7 @@ void CorePackage::_initPackage()
             m_ModelElement__taggedValue);
 
     // KDMEntity
-    m_KDMEntityEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_KDMEntityEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_KDMEntityEClass->setClassifierID(KDMENTITY);
     m_KDMEntityEClass->setEPackage(_this());
     getEClassifiers().push_back(m_KDMEntityEClass);
@@ -128,14 +126,14 @@ void CorePackage::_initPackage()
     m_KDMEntityEClass->getEStructuralFeatures().push_back(m_KDMEntity__name);
 
     // KDMRelationship
-    m_KDMRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_KDMRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_KDMRelationshipEClass->setClassifierID(KDMRELATIONSHIP);
     m_KDMRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_KDMRelationshipEClass);
 
     // AggregatedRelationship
-    m_AggregatedRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AggregatedRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AggregatedRelationshipEClass->setClassifierID(AGGREGATEDRELATIONSHIP);
     m_AggregatedRelationshipEClass->setEPackage(_this());
@@ -165,19 +163,19 @@ void CorePackage::_initPackage()
 
     // Create data types
 
-    m_StringEDataType = boost::intrusive_ptr < ::ecore::EDataType
+    m_StringEDataType = ::ecore::Ptr < ::ecore::EDataType
             > (new ::ecore::EDataType);
     m_StringEDataType->setClassifierID(STRING);
     m_StringEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_StringEDataType);
 
-    m_IntegerEDataType = boost::intrusive_ptr < ::ecore::EDataType
+    m_IntegerEDataType = ::ecore::Ptr < ::ecore::EDataType
             > (new ::ecore::EDataType);
     m_IntegerEDataType->setClassifierID(INTEGER);
     m_IntegerEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_IntegerEDataType);
 
-    m_BooleanEDataType = boost::intrusive_ptr < ::ecore::EDataType
+    m_BooleanEDataType = ::ecore::Ptr < ::ecore::EDataType
             > (new ::ecore::EDataType);
     m_BooleanEDataType->setClassifierID(BOOLEAN);
     m_BooleanEDataType->setEPackage(_this());
@@ -280,15 +278,13 @@ void CorePackage::_initPackage()
     m_KDMEntity__name->setUnique(false);
     m_KDMEntity__name->setDerived(false);
     m_KDMEntity__name->setOrdered(false);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setName("createAggregation");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = boost::intrusive_ptr < ::ecore::EParameter
-            > (new ::ecore::EParameter);
+    _pa = ::ecore::Ptr < ::ecore::EParameter > (new ::ecore::EParameter);
     _pa->setEType(m_KDMEntityEClass);
     _pa->setName("otherEntity");
     _pa->setLowerBound(0);
@@ -297,15 +293,13 @@ void CorePackage::_initPackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setName("deleteAggregation");
     _op->setLowerBound(0);
     _op->setUpperBound(1);
     _op->setUnique(true);
     _op->setOrdered(true);
-    _pa = boost::intrusive_ptr < ::ecore::EParameter
-            > (new ::ecore::EParameter);
+    _pa = ::ecore::Ptr < ::ecore::EParameter > (new ::ecore::EParameter);
     _pa->setEType(m_AggregatedRelationshipEClass);
     _pa->setName("aggregation");
     _pa->setLowerBound(0);
@@ -314,8 +308,7 @@ void CorePackage::_initPackage()
     _pa->setOrdered(true);
     _op->getEParameters().push_back(_pa);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMRelationshipEClass);
     _op->setName("getInbound");
     _op->setLowerBound(0);
@@ -323,8 +316,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMRelationshipEClass);
     _op->setName("getOutbound");
     _op->setLowerBound(0);
@@ -332,8 +324,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMRelationshipEClass);
     _op->setName("getOwnedRelation");
     _op->setLowerBound(0);
@@ -341,8 +332,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_AggregatedRelationshipEClass);
     _op->setName("getInAggregated");
     _op->setLowerBound(0);
@@ -350,8 +340,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_AggregatedRelationshipEClass);
     _op->setName("getOutAggregated");
     _op->setLowerBound(0);
@@ -359,8 +348,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMEntityEClass);
     _op->setName("getOwner");
     _op->setLowerBound(0);
@@ -368,8 +356,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMEntityEClass);
     _op->setName("getOwnedElement");
     _op->setLowerBound(0);
@@ -377,8 +364,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMEntityEClass);
     _op->setName("getGroup");
     _op->setLowerBound(0);
@@ -386,8 +372,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMEntityEClass);
     _op->setName("getGroupedElement");
     _op->setLowerBound(0);
@@ -395,8 +380,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMEntityEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(
             dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getKDMModel());
     _op->setName("getModel");
@@ -409,8 +393,7 @@ void CorePackage::_initPackage()
     m_KDMRelationshipEClass->setName("KDMRelationship");
     m_KDMRelationshipEClass->setAbstract(true);
     m_KDMRelationshipEClass->setInterface(false);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMEntityEClass);
     _op->setName("getTo");
     _op->setLowerBound(0);
@@ -418,8 +401,7 @@ void CorePackage::_initPackage()
     _op->setUnique(true);
     _op->setOrdered(true);
     m_KDMRelationshipEClass->getEOperations().push_back(_op);
-    _op = boost::intrusive_ptr < ::ecore::EOperation
-            > (new ::ecore::EOperation);
+    _op = ::ecore::Ptr < ::ecore::EOperation > (new ::ecore::EOperation);
     _op->setEType(m_KDMEntityEClass);
     _op->setName("getFrom");
     _op->setLowerBound(0);

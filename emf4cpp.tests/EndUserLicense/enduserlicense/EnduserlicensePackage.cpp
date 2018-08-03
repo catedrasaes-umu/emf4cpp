@@ -22,7 +22,7 @@
 
 using namespace ::enduserlicense;
 
-boost::intrusive_ptr< ::enduserlicense::EnduserlicensePackage > EnduserlicensePackage::s_instance;
+::ecore::Ptr< ::enduserlicense::EnduserlicensePackage > EnduserlicensePackage::s_instance;
 
 ::enduserlicense::EnduserlicensePackage_ptr EnduserlicensePackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::enduserlicense::EnduserlicensePackage > EnduserlicensePa
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< EnduserlicensePackage >();
+            return ::ecore::Ptr< EnduserlicensePackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < EnduserlicensePackage
+        s_instance = ::ecore::Ptr < EnduserlicensePackage
                 > (new EnduserlicensePackage());
         s_instance->_initPackage();
         duringConstruction = false;

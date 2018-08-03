@@ -100,7 +100,7 @@ void EFactory::_initialize()
     case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
     {
         if (m_ePackage)
-            _any = m_ePackage->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_ePackage);
     }
         return _any;
 

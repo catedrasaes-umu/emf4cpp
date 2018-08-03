@@ -69,7 +69,7 @@ void Apollo11::_initialize()
     case ::edate::EdatePackage::APOLLO11__MEMBER:
     {
         if (m_Member)
-            _any = m_Member->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_Member);
     }
         return _any;
 

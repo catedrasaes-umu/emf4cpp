@@ -44,15 +44,9 @@ namespace enduserlicense
 
 // Package & Factory
     class EnduserlicenseFactory;
-    using EnduserlicenseFactory_ptr = boost::intrusive_ptr<EnduserlicenseFactory>;
+    using EnduserlicenseFactory_ptr = ::ecore::Ptr<EnduserlicenseFactory>;
     class EnduserlicensePackage;
-    using EnduserlicensePackage_ptr = boost::intrusive_ptr<EnduserlicensePackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using EnduserlicensePackage_ptr = ::ecore::Ptr<EnduserlicensePackage>;
 
 } // enduserlicense
 

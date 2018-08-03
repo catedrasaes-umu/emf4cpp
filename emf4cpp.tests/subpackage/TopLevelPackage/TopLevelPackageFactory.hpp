@@ -43,7 +43,7 @@ namespace TopLevelPackage
 
     protected:
 
-        static boost::intrusive_ptr< TopLevelPackageFactory > s_holder;
+        static ::ecore::Ptr< TopLevelPackageFactory > s_holder;
 
         TopLevelPackageFactory();
 
@@ -55,9 +55,9 @@ namespace TopLevelPackage
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline TopLevelClass_ptr create< TopLevelClass >()

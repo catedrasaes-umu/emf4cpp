@@ -87,7 +87,7 @@ void Literal::_initialize()
     case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
     {
         if (m_literalValue)
-            _any = m_literalValue->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_literalValue);
     }
         return _any;
 

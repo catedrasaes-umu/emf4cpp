@@ -22,7 +22,7 @@
 
 using namespace ::eopposite;
 
-boost::intrusive_ptr< ::eopposite::EoppositePackage > EoppositePackage::s_instance;
+::ecore::Ptr< ::eopposite::EoppositePackage > EoppositePackage::s_instance;
 
 ::eopposite::EoppositePackage_ptr EoppositePackage::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::eopposite::EoppositePackage > EoppositePackage::s_instan
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< EoppositePackage >();
+            return ::ecore::Ptr< EoppositePackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < EoppositePackage
-                > (new EoppositePackage());
+        s_instance = ::ecore::Ptr < EoppositePackage > (new EoppositePackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

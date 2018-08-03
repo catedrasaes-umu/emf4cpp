@@ -581,7 +581,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< IdlmmPackage > s_instance;
+    static ::ecore::Ptr< IdlmmPackage > s_instance;
 
     IdlmmPackage();
     void _initPackage();

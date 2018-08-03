@@ -101,13 +101,13 @@ void EReference::_initialize()
     case ::ecore::EcorePackage::ETYPEDELEMENT__ETYPE:
     {
         if (m_eType)
-            _any = m_eType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eType);
     }
         return _any;
     case ::ecore::EcorePackage::ETYPEDELEMENT__EGENERICTYPE:
     {
         if (m_eGenericType)
-            _any = m_eGenericType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eGenericType);
     }
         return _any;
     case ::ecore::EcorePackage::ESTRUCTURALFEATURE__CHANGEABLE:
@@ -149,7 +149,7 @@ void EReference::_initialize()
     case ::ecore::EcorePackage::ESTRUCTURALFEATURE__ECONTAININGCLASS:
     {
         if (m_eContainingClass)
-            _any = m_eContainingClass->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eContainingClass);
     }
         return _any;
     case ::ecore::EcorePackage::EREFERENCE__CONTAINMENT:
@@ -167,7 +167,7 @@ void EReference::_initialize()
     case ::ecore::EcorePackage::EREFERENCE__EOPPOSITE:
     {
         if (m_eOpposite)
-            _any = m_eOpposite->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eOpposite);
     }
         return _any;
     case ::ecore::EcorePackage::EREFERENCE__EKEYS:

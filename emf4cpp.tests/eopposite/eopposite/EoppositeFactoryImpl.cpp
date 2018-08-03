@@ -78,22 +78,22 @@ EoppositeFactory::EoppositeFactory()
 
 TopLevel_ptr EoppositeFactory::createTopLevel()
 {
-    return boost::intrusive_ptr < TopLevel > (new TopLevel);
+    return ::ecore::Ptr < TopLevel > (new TopLevel);
 }
 NamedObject_ptr EoppositeFactory::createNamedObject()
 {
-    return boost::intrusive_ptr < NamedObject > (new NamedObject);
+    return ::ecore::Ptr < NamedObject > (new NamedObject);
 }
 LeftHand_ptr EoppositeFactory::createLeftHand()
 {
-    return boost::intrusive_ptr < LeftHand > (new LeftHand);
+    return ::ecore::Ptr < LeftHand > (new LeftHand);
 }
 RightHand_ptr EoppositeFactory::createRightHand()
 {
-    return boost::intrusive_ptr < RightHand > (new RightHand);
+    return ::ecore::Ptr < RightHand > (new RightHand);
 }
 RightMultiple_ptr EoppositeFactory::createRightMultiple()
 {
-    return boost::intrusive_ptr < RightMultiple > (new RightMultiple);
+    return ::ecore::Ptr < RightMultiple > (new RightMultiple);
 }
 

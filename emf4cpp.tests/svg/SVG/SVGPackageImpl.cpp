@@ -40,203 +40,198 @@ SVGPackage::SVGPackage()
 {
 
     // Feature definitions of Element
-    m_Element__fill = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Element__fill = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Element__viewBox = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Element__viewBox = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Element__identifier = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Element__identifier = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Element__owner = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__owner = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__target = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__target = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__attribute = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__attribute = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__position = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__position = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__size = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__size = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__root = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__root = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__group = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__group = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Element__drawsMarker = boost::intrusive_ptr < ::ecore::EReference
+    m_Element__drawsMarker = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of StructuralElement
 
     // Feature definitions of Image
-    m_Image__referee = boost::intrusive_ptr < ::ecore::EReference
+    m_Image__referee = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Svg
-    m_Svg__namespace = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Svg__namespace = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Svg__version = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Svg__version = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Svg__baseProfile = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Svg__baseProfile = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Svg__owner_SVG = boost::intrusive_ptr < ::ecore::EReference
+    m_Svg__owner_SVG = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Svg__children = boost::intrusive_ptr < ::ecore::EReference
+    m_Svg__children = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of GroupingElement
-    m_GroupingElement__groupContent = boost::intrusive_ptr < ::ecore::EReference
+    m_GroupingElement__groupContent = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of G
-    m_G__name = boost::intrusive_ptr < ::ecore::EAttribute
-            > (new ::ecore::EAttribute);
+    m_G__name = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
 
     // Feature definitions of Defs
 
     // Feature definitions of Symbol
 
     // Feature definitions of Use
-    m_Use__use = boost::intrusive_ptr < ::ecore::EReference
-            > (new ::ecore::EReference);
+    m_Use__use = ::ecore::Ptr < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of GraphicalElement
-    m_GraphicalElement__stroke = boost::intrusive_ptr < ::ecore::EAttribute
+    m_GraphicalElement__stroke = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Shape
 
     // Feature definitions of TextElement
-    m_TextElement__rotate = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TextElement__rotate = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_TextElement__textLength = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TextElement__textLength = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_TextElement__fontSize = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TextElement__fontSize = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Rect
-    m_Rect__rx = boost::intrusive_ptr < ::ecore::EAttribute
-            > (new ::ecore::EAttribute);
-    m_Rect__ry = boost::intrusive_ptr < ::ecore::EAttribute
-            > (new ::ecore::EAttribute);
+    m_Rect__rx = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_Rect__ry = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
 
     // Feature definitions of Circle
 
     // Feature definitions of Ellipse
 
     // Feature definitions of Line
-    m_Line__markerEnd = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Line__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Line__markerStart = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Line__markerStart = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Line__between = boost::intrusive_ptr < ::ecore::EReference
+    m_Line__between = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Polyline
-    m_Polyline__strokeDashArray = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Polyline__strokeDashArray = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Polyline__markerEnd = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Polyline__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Polyline__markerStart = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Polyline__markerStart = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Polyline__waypoints = boost::intrusive_ptr < ::ecore::EReference
+    m_Polyline__waypoints = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Polygon
-    m_Polygon__markerEnd = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Polygon__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Polygon__markerStart = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Polygon__markerStart = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Polygon__waypoints = boost::intrusive_ptr < ::ecore::EReference
+    m_Polygon__waypoints = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Path
-    m_Path__pathLength = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Path__pathLength = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Path__d = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Path__d = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_Path__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Path__markerEnd = boost::intrusive_ptr < ::ecore::EAttribute
-            > (new ::ecore::EAttribute);
-    m_Path__markerStart = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Path__markerStart = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Point
 
     // Feature definitions of Marker
-    m_Marker__markerUnits = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Marker__markerUnits = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Marker__refX = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Marker__refX = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Marker__refY = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Marker__refY = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Marker__markerWidth = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Marker__markerWidth = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Marker__markerHeight = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Marker__markerHeight = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Marker__orient = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Marker__orient = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Marker__drawing = boost::intrusive_ptr < ::ecore::EReference
+    m_Marker__drawing = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Text
-    m_Text__lengthAdjust = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Text__lengthAdjust = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Text__content = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Text__content = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Tspan
-    m_Tspan__content = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Tspan__content = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Tref
-    m_Tref__xlinkHref = boost::intrusive_ptr < ::ecore::EReference
+    m_Tref__xlinkHref = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Attribute
-    m_Attribute__attOwner = boost::intrusive_ptr < ::ecore::EReference
+    m_Attribute__attOwner = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Transform
 
     // Feature definitions of Scale
-    m_Scale__sx = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Scale__sx = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Scale__sy = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Scale__sy = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Translate
-    m_Translate__tx = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Translate__tx = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Translate__ty = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Translate__ty = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Rotate
-    m_Rotate__angle = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Rotate__angle = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Rotate__cx = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Rotate__cx = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Rotate__cy = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Rotate__cy = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Visibility
-    m_Visibility__visible = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Visibility__visible = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of FontWeight
-    m_FontWeight__bold = boost::intrusive_ptr < ::ecore::EAttribute
+    m_FontWeight__bold = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of FontStyle
-    m_FontStyle__italic = boost::intrusive_ptr < ::ecore::EAttribute
+    m_FontStyle__italic = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Dimension
-    m_Dimension__width = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Dimension__width = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Dimension__height = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Dimension__height = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Coordinates
-    m_Coordinates__x = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Coordinates__x = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Coordinates__y = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Coordinates__y = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of RelativeCoord
@@ -244,15 +239,15 @@ SVGPackage::SVGPackage()
     // Feature definitions of AbsoluteCoord
 
     // Feature definitions of ReferencedFile
-    m_ReferencedFile__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ReferencedFile__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ReferencedFile__referer = boost::intrusive_ptr < ::ecore::EReference
+    m_ReferencedFile__referer = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of SvgFile
-    m_SvgFile__tag = boost::intrusive_ptr < ::ecore::EReference
+    m_SvgFile__tag = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_SvgFile__elements = boost::intrusive_ptr < ::ecore::EReference
+    m_SvgFile__elements = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -267,8 +262,7 @@ void SVGPackage::_initPackage()
     // Create classes and their features
 
     // Element
-    m_ElementEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ElementEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ElementEClass->setClassifierID(ELEMENT);
     m_ElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ElementEClass);
@@ -308,15 +302,14 @@ void SVGPackage::_initPackage()
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__drawsMarker);
 
     // StructuralElement
-    m_StructuralElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_StructuralElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_StructuralElementEClass->setClassifierID(STRUCTURALELEMENT);
     m_StructuralElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StructuralElementEClass);
 
     // Image
-    m_ImageEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ImageEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ImageEClass->setClassifierID(IMAGE);
     m_ImageEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImageEClass);
@@ -325,8 +318,7 @@ void SVGPackage::_initPackage()
     m_ImageEClass->getEStructuralFeatures().push_back(m_Image__referee);
 
     // Svg
-    m_SvgEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SvgEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SvgEClass->setClassifierID(SVG);
     m_SvgEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SvgEClass);
@@ -347,7 +339,7 @@ void SVGPackage::_initPackage()
     m_SvgEClass->getEStructuralFeatures().push_back(m_Svg__children);
 
     // GroupingElement
-    m_GroupingElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_GroupingElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_GroupingElementEClass->setClassifierID(GROUPINGELEMENT);
     m_GroupingElementEClass->setEPackage(_this());
@@ -359,7 +351,7 @@ void SVGPackage::_initPackage()
             m_GroupingElement__groupContent);
 
     // G
-    m_GEClass = boost::intrusive_ptr < ::ecore::EClass > (new ::ecore::EClass);
+    m_GEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_GEClass->setClassifierID(G);
     m_GEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GEClass);
@@ -368,22 +360,19 @@ void SVGPackage::_initPackage()
     m_GEClass->getEStructuralFeatures().push_back(m_G__name);
 
     // Defs
-    m_DefsEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DefsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DefsEClass->setClassifierID(DEFS);
     m_DefsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DefsEClass);
 
     // Symbol
-    m_SymbolEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SymbolEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SymbolEClass->setClassifierID(SYMBOL);
     m_SymbolEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SymbolEClass);
 
     // Use
-    m_UseEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_UseEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_UseEClass->setClassifierID(USE);
     m_UseEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UseEClass);
@@ -392,7 +381,7 @@ void SVGPackage::_initPackage()
     m_UseEClass->getEStructuralFeatures().push_back(m_Use__use);
 
     // GraphicalElement
-    m_GraphicalElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_GraphicalElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_GraphicalElementEClass->setClassifierID(GRAPHICALELEMENT);
     m_GraphicalElementEClass->setEPackage(_this());
@@ -404,14 +393,13 @@ void SVGPackage::_initPackage()
             m_GraphicalElement__stroke);
 
     // Shape
-    m_ShapeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ShapeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ShapeEClass->setClassifierID(SHAPE);
     m_ShapeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ShapeEClass);
 
     // TextElement
-    m_TextElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_TextElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_TextElementEClass->setClassifierID(TEXTELEMENT);
     m_TextElementEClass->setEPackage(_this());
@@ -432,8 +420,7 @@ void SVGPackage::_initPackage()
             m_TextElement__fontSize);
 
     // Rect
-    m_RectEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_RectEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RectEClass->setClassifierID(RECT);
     m_RectEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RectEClass);
@@ -445,22 +432,19 @@ void SVGPackage::_initPackage()
     m_RectEClass->getEStructuralFeatures().push_back(m_Rect__ry);
 
     // Circle
-    m_CircleEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CircleEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CircleEClass->setClassifierID(CIRCLE);
     m_CircleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CircleEClass);
 
     // Ellipse
-    m_EllipseEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_EllipseEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EllipseEClass->setClassifierID(ELLIPSE);
     m_EllipseEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EllipseEClass);
 
     // Line
-    m_LineEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_LineEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LineEClass->setClassifierID(LINE);
     m_LineEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LineEClass);
@@ -475,8 +459,7 @@ void SVGPackage::_initPackage()
     m_LineEClass->getEStructuralFeatures().push_back(m_Line__between);
 
     // Polyline
-    m_PolylineEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_PolylineEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PolylineEClass->setClassifierID(POLYLINE);
     m_PolylineEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PolylineEClass);
@@ -498,8 +481,7 @@ void SVGPackage::_initPackage()
     m_PolylineEClass->getEStructuralFeatures().push_back(m_Polyline__waypoints);
 
     // Polygon
-    m_PolygonEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_PolygonEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PolygonEClass->setClassifierID(POLYGON);
     m_PolygonEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PolygonEClass);
@@ -515,8 +497,7 @@ void SVGPackage::_initPackage()
     m_PolygonEClass->getEStructuralFeatures().push_back(m_Polygon__waypoints);
 
     // Path
-    m_PathEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_PathEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PathEClass->setClassifierID(PATH);
     m_PathEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PathEClass);
@@ -534,15 +515,13 @@ void SVGPackage::_initPackage()
     m_PathEClass->getEStructuralFeatures().push_back(m_Path__markerStart);
 
     // Point
-    m_PointEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_PointEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PointEClass->setClassifierID(POINT);
     m_PointEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PointEClass);
 
     // Marker
-    m_MarkerEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_MarkerEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_MarkerEClass->setClassifierID(MARKER);
     m_MarkerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MarkerEClass);
@@ -570,8 +549,7 @@ void SVGPackage::_initPackage()
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__drawing);
 
     // Text
-    m_TextEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TextEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TextEClass->setClassifierID(TEXT);
     m_TextEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TextEClass);
@@ -583,8 +561,7 @@ void SVGPackage::_initPackage()
     m_TextEClass->getEStructuralFeatures().push_back(m_Text__content);
 
     // Tspan
-    m_TspanEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TspanEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TspanEClass->setClassifierID(TSPAN);
     m_TspanEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TspanEClass);
@@ -593,8 +570,7 @@ void SVGPackage::_initPackage()
     m_TspanEClass->getEStructuralFeatures().push_back(m_Tspan__content);
 
     // Tref
-    m_TrefEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TrefEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TrefEClass->setClassifierID(TREF);
     m_TrefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TrefEClass);
@@ -603,8 +579,7 @@ void SVGPackage::_initPackage()
     m_TrefEClass->getEStructuralFeatures().push_back(m_Tref__xlinkHref);
 
     // Attribute
-    m_AttributeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_AttributeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AttributeEClass->setClassifierID(ATTRIBUTE);
     m_AttributeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AttributeEClass);
@@ -614,15 +589,13 @@ void SVGPackage::_initPackage()
             m_Attribute__attOwner);
 
     // Transform
-    m_TransformEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TransformEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TransformEClass->setClassifierID(TRANSFORM);
     m_TransformEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TransformEClass);
 
     // Scale
-    m_ScaleEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ScaleEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ScaleEClass->setClassifierID(SCALE);
     m_ScaleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ScaleEClass);
@@ -634,8 +607,7 @@ void SVGPackage::_initPackage()
     m_ScaleEClass->getEStructuralFeatures().push_back(m_Scale__sy);
 
     // Translate
-    m_TranslateEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TranslateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TranslateEClass->setClassifierID(TRANSLATE);
     m_TranslateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TranslateEClass);
@@ -647,8 +619,7 @@ void SVGPackage::_initPackage()
     m_TranslateEClass->getEStructuralFeatures().push_back(m_Translate__ty);
 
     // Rotate
-    m_RotateEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_RotateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RotateEClass->setClassifierID(ROTATE);
     m_RotateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RotateEClass);
@@ -663,8 +634,7 @@ void SVGPackage::_initPackage()
     m_RotateEClass->getEStructuralFeatures().push_back(m_Rotate__cy);
 
     // Visibility
-    m_VisibilityEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_VisibilityEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_VisibilityEClass->setClassifierID(VISIBILITY);
     m_VisibilityEClass->setEPackage(_this());
     getEClassifiers().push_back(m_VisibilityEClass);
@@ -674,8 +644,7 @@ void SVGPackage::_initPackage()
             m_Visibility__visible);
 
     // FontWeight
-    m_FontWeightEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_FontWeightEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FontWeightEClass->setClassifierID(FONTWEIGHT);
     m_FontWeightEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FontWeightEClass);
@@ -684,8 +653,7 @@ void SVGPackage::_initPackage()
     m_FontWeightEClass->getEStructuralFeatures().push_back(m_FontWeight__bold);
 
     // FontStyle
-    m_FontStyleEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_FontStyleEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FontStyleEClass->setClassifierID(FONTSTYLE);
     m_FontStyleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FontStyleEClass);
@@ -694,8 +662,7 @@ void SVGPackage::_initPackage()
     m_FontStyleEClass->getEStructuralFeatures().push_back(m_FontStyle__italic);
 
     // Dimension
-    m_DimensionEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DimensionEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DimensionEClass->setClassifierID(DIMENSION);
     m_DimensionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DimensionEClass);
@@ -707,7 +674,7 @@ void SVGPackage::_initPackage()
     m_DimensionEClass->getEStructuralFeatures().push_back(m_Dimension__height);
 
     // Coordinates
-    m_CoordinatesEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_CoordinatesEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_CoordinatesEClass->setClassifierID(COORDINATES);
     m_CoordinatesEClass->setEPackage(_this());
@@ -720,21 +687,21 @@ void SVGPackage::_initPackage()
     m_CoordinatesEClass->getEStructuralFeatures().push_back(m_Coordinates__y);
 
     // RelativeCoord
-    m_RelativeCoordEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RelativeCoordEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RelativeCoordEClass->setClassifierID(RELATIVECOORD);
     m_RelativeCoordEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RelativeCoordEClass);
 
     // AbsoluteCoord
-    m_AbsoluteCoordEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbsoluteCoordEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbsoluteCoordEClass->setClassifierID(ABSOLUTECOORD);
     m_AbsoluteCoordEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbsoluteCoordEClass);
 
     // ReferencedFile
-    m_ReferencedFileEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ReferencedFileEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ReferencedFileEClass->setClassifierID(REFERENCEDFILE);
     m_ReferencedFileEClass->setEPackage(_this());
@@ -751,8 +718,7 @@ void SVGPackage::_initPackage()
             m_ReferencedFile__referer);
 
     // SvgFile
-    m_SvgFileEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SvgFileEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SvgFileEClass->setClassifierID(SVGFILE);
     m_SvgFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SvgFileEClass);
@@ -872,7 +838,7 @@ void SVGPackage::_initPackage()
     m_Element__owner->setDerived(false);
     m_Element__owner->setOrdered(false);
     m_Element__owner->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgFileEClass->getEStructuralFeatures()[1]));
     m_Element__target->setEType(m_UseEClass);
     m_Element__target->setName("target");
@@ -888,7 +854,7 @@ void SVGPackage::_initPackage()
     m_Element__target->setDerived(false);
     m_Element__target->setOrdered(false);
     m_Element__target->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_UseEClass->getEStructuralFeatures()[0]));
     m_Element__attribute->setEType(m_AttributeEClass);
     m_Element__attribute->setName("attribute");
@@ -904,7 +870,7 @@ void SVGPackage::_initPackage()
     m_Element__attribute->setDerived(false);
     m_Element__attribute->setOrdered(false);
     m_Element__attribute->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_AttributeEClass->getEStructuralFeatures()[0]));
     m_Element__position->setEType(m_CoordinatesEClass);
     m_Element__position->setName("position");
@@ -946,7 +912,7 @@ void SVGPackage::_initPackage()
     m_Element__root->setDerived(false);
     m_Element__root->setOrdered(false);
     m_Element__root->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgEClass->getEStructuralFeatures()[4]));
     m_Element__group->setEType(m_GroupingElementEClass);
     m_Element__group->setName("group");
@@ -962,7 +928,7 @@ void SVGPackage::_initPackage()
     m_Element__group->setDerived(false);
     m_Element__group->setOrdered(false);
     m_Element__group->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_GroupingElementEClass->getEStructuralFeatures()[0]));
     m_Element__drawsMarker->setEType(m_MarkerEClass);
     m_Element__drawsMarker->setName("drawsMarker");
@@ -978,7 +944,7 @@ void SVGPackage::_initPackage()
     m_Element__drawsMarker->setDerived(false);
     m_Element__drawsMarker->setOrdered(false);
     m_Element__drawsMarker->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_MarkerEClass->getEStructuralFeatures()[6]));
     // StructuralElement
     m_StructuralElementEClass->setName("StructuralElement");
@@ -1002,7 +968,7 @@ void SVGPackage::_initPackage()
     m_Image__referee->setDerived(false);
     m_Image__referee->setOrdered(false);
     m_Image__referee->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ReferencedFileEClass->getEStructuralFeatures()[1]));
     // Svg
     m_SvgEClass->setName("Svg");
@@ -1064,7 +1030,7 @@ void SVGPackage::_initPackage()
     m_Svg__owner_SVG->setDerived(false);
     m_Svg__owner_SVG->setOrdered(false);
     m_Svg__owner_SVG->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgFileEClass->getEStructuralFeatures()[0]));
     m_Svg__children->setEType(m_ElementEClass);
     m_Svg__children->setName("children");
@@ -1080,7 +1046,7 @@ void SVGPackage::_initPackage()
     m_Svg__children->setDerived(false);
     m_Svg__children->setOrdered(true);
     m_Svg__children->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[8]));
     // GroupingElement
     m_GroupingElementEClass->setName("GroupingElement");
@@ -1100,7 +1066,7 @@ void SVGPackage::_initPackage()
     m_GroupingElement__groupContent->setDerived(false);
     m_GroupingElement__groupContent->setOrdered(true);
     m_GroupingElement__groupContent->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[9]));
     // G
     m_GEClass->setName("G");
@@ -1146,7 +1112,7 @@ void SVGPackage::_initPackage()
     m_Use__use->setDerived(false);
     m_Use__use->setOrdered(false);
     m_Use__use->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[4]));
     // GraphicalElement
     m_GraphicalElementEClass->setName("GraphicalElement");
@@ -1571,7 +1537,7 @@ void SVGPackage::_initPackage()
     m_Marker__drawing->setDerived(false);
     m_Marker__drawing->setOrdered(false);
     m_Marker__drawing->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[10]));
     // Text
     m_TextEClass->setName("Text");
@@ -1658,7 +1624,7 @@ void SVGPackage::_initPackage()
     m_Attribute__attOwner->setDerived(false);
     m_Attribute__attOwner->setOrdered(false);
     m_Attribute__attOwner->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[5]));
     // Transform
     m_TransformEClass->setName("Transform");
@@ -1932,7 +1898,7 @@ void SVGPackage::_initPackage()
     m_ReferencedFile__referer->setDerived(false);
     m_ReferencedFile__referer->setOrdered(false);
     m_ReferencedFile__referer->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ImageEClass->getEStructuralFeatures()[0]));
     // SvgFile
     m_SvgFileEClass->setName("SvgFile");
@@ -1952,7 +1918,7 @@ void SVGPackage::_initPackage()
     m_SvgFile__tag->setDerived(false);
     m_SvgFile__tag->setOrdered(false);
     m_SvgFile__tag->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgEClass->getEStructuralFeatures()[3]));
     m_SvgFile__elements->setEType(m_ElementEClass);
     m_SvgFile__elements->setName("elements");
@@ -1968,7 +1934,7 @@ void SVGPackage::_initPackage()
     m_SvgFile__elements->setDerived(false);
     m_SvgFile__elements->setOrdered(false);
     m_SvgFile__elements->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[3]));
 
     // TODO: Initialize data types

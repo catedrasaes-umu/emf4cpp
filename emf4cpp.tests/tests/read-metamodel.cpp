@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 
             assert(_eobj);
 
-            ::ecore::EPackage_ptr _epkg = ::ecore::instanceOf<
+            ::ecore::EPackage_ptr _epkg = ::ecore::as<
                     ::ecore::EPackage >(_eobj);
 
             assert(_epkg);

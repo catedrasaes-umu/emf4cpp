@@ -47,7 +47,7 @@ namespace eopposite
 
     protected:
 
-        static boost::intrusive_ptr< EoppositeFactory > s_holder;
+        static ::ecore::Ptr< EoppositeFactory > s_holder;
 
         EoppositeFactory();
 
@@ -59,9 +59,9 @@ namespace eopposite
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline TopLevel_ptr create< TopLevel >()

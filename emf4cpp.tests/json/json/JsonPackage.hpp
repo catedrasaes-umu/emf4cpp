@@ -121,7 +121,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< JsonPackage > s_instance;
+    static ::ecore::Ptr< JsonPackage > s_instance;
 
     JsonPackage();
     void _initPackage();

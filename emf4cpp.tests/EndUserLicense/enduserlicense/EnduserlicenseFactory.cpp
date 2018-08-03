@@ -22,12 +22,12 @@
 
 using namespace ::enduserlicense;
 
-boost::intrusive_ptr< ::enduserlicense::EnduserlicenseFactory > EnduserlicenseFactory::s_holder;
+::ecore::Ptr< ::enduserlicense::EnduserlicenseFactory > EnduserlicenseFactory::s_holder;
 
 ::enduserlicense::EnduserlicenseFactory_ptr EnduserlicenseFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < EnduserlicenseFactory
+        s_holder = ::ecore::Ptr < EnduserlicenseFactory
                 > (new EnduserlicenseFactory());
 
     return s_holder;

@@ -87,7 +87,7 @@ void EAnnotation::_initialize()
     case ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT:
     {
         if (m_eModelElement)
-            _any = m_eModelElement->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eModelElement);
     }
         return _any;
     case ::ecore::EcorePackage::EANNOTATION__CONTENTS:

@@ -115,7 +115,7 @@ void CallableUnit::_initialize()
     case ::kdm::code::CodePackage::CONTROLELEMENT__TYPE:
     {
         if (m_type)
-            _any = m_type->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_type);
     }
         return _any;
     case ::kdm::code::CodePackage::CONTROLELEMENT__ENTRYFLOW:

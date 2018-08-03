@@ -68,13 +68,13 @@ void LeftHand::_initialize()
     case ::eopposite::EoppositePackage::LEFTHAND__RIGHTEE:
     {
         if (m_rightee)
-            _any = m_rightee->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_rightee);
     }
         return _any;
     case ::eopposite::EoppositePackage::LEFTHAND__RIGHTMULTIPLE:
     {
         if (m_rightMultiple)
-            _any = m_rightMultiple->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_rightMultiple);
     }
         return _any;
 

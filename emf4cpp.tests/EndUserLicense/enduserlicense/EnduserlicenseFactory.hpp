@@ -41,7 +41,7 @@ namespace enduserlicense
 
     protected:
 
-        static boost::intrusive_ptr< EnduserlicenseFactory > s_holder;
+        static ::ecore::Ptr< EnduserlicenseFactory > s_holder;
 
         EnduserlicenseFactory();
 
@@ -53,9 +53,9 @@ namespace enduserlicense
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
 } // enduserlicense

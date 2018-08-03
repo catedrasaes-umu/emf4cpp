@@ -87,13 +87,13 @@ void DefinedBy::_initialize()
     case ::kdm::platform::PlatformPackage::DEFINEDBY__TO:
     {
         if (m_to)
-            _any = m_to->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_to);
     }
         return _any;
     case ::kdm::platform::PlatformPackage::DEFINEDBY__FROM:
     {
         if (m_from)
-            _any = m_from->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_from);
     }
         return _any;
 

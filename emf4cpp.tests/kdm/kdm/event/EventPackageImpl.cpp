@@ -54,33 +54,33 @@ EventPackage::EventPackage()
 {
 
     // Feature definitions of EventModel
-    m_EventModel__eventElement = boost::intrusive_ptr < ::ecore::EReference
+    m_EventModel__eventElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of AbstractEventElement
-    m_AbstractEventElement__source = boost::intrusive_ptr < ::ecore::EReference
+    m_AbstractEventElement__source = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_AbstractEventElement__eventRelation = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractEventElement__abstraction = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractEventElement__implementation = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractEventElement__eventRelation = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractEventElement__abstraction = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractEventElement__implementation = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of Event
-    m_Event__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Event__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of AbstractEventRelationship
 
     // Feature definitions of EventRelationship
-    m_EventRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_EventRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_EventRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_EventRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of EventResource
-    m_EventResource__eventElement = boost::intrusive_ptr < ::ecore::EReference
+    m_EventResource__eventElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of State
@@ -92,33 +92,33 @@ EventPackage::EventPackage()
     // Feature definitions of OnExit
 
     // Feature definitions of EventAction
-    m_EventAction__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_EventAction__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_EventAction__eventElement = boost::intrusive_ptr < ::ecore::EReference
+    m_EventAction__eventElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ReadsState
-    m_ReadsState__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ReadsState__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ReadsState__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ReadsState__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ProducesEvent
-    m_ProducesEvent__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ProducesEvent__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ProducesEvent__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ProducesEvent__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ConsumesEvent
-    m_ConsumesEvent__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ConsumesEvent__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ConsumesEvent__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ConsumesEvent__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of NextState
-    m_NextState__to = boost::intrusive_ptr < ::ecore::EReference
+    m_NextState__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_NextState__from = boost::intrusive_ptr < ::ecore::EReference
+    m_NextState__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of InitialState
@@ -126,9 +126,9 @@ EventPackage::EventPackage()
     // Feature definitions of EventElement
 
     // Feature definitions of HasState
-    m_HasState__to = boost::intrusive_ptr < ::ecore::EReference
+    m_HasState__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_HasState__from = boost::intrusive_ptr < ::ecore::EReference
+    m_HasState__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -143,8 +143,7 @@ void EventPackage::_initPackage()
     // Create classes and their features
 
     // EventModel
-    m_EventModelEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_EventModelEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EventModelEClass->setClassifierID(EVENTMODEL);
     m_EventModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventModelEClass);
@@ -155,7 +154,7 @@ void EventPackage::_initPackage()
             m_EventModel__eventElement);
 
     // AbstractEventElement
-    m_AbstractEventElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractEventElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractEventElementEClass->setClassifierID(ABSTRACTEVENTELEMENT);
     m_AbstractEventElementEClass->setEPackage(_this());
@@ -182,8 +181,7 @@ void EventPackage::_initPackage()
             m_AbstractEventElement__implementation);
 
     // Event
-    m_EventEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_EventEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EventEClass->setClassifierID(EVENT);
     m_EventEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventEClass);
@@ -192,7 +190,7 @@ void EventPackage::_initPackage()
     m_EventEClass->getEStructuralFeatures().push_back(m_Event__kind);
 
     // AbstractEventRelationship
-    m_AbstractEventRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractEventRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractEventRelationshipEClass->setClassifierID(
             ABSTRACTEVENTRELATIONSHIP);
@@ -200,7 +198,7 @@ void EventPackage::_initPackage()
     getEClassifiers().push_back(m_AbstractEventRelationshipEClass);
 
     // EventRelationship
-    m_EventRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_EventRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_EventRelationshipEClass->setClassifierID(EVENTRELATIONSHIP);
     m_EventRelationshipEClass->setEPackage(_this());
@@ -217,7 +215,7 @@ void EventPackage::_initPackage()
             m_EventRelationship__from);
 
     // EventResource
-    m_EventResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_EventResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_EventResourceEClass->setClassifierID(EVENTRESOURCE);
     m_EventResourceEClass->setEPackage(_this());
@@ -229,35 +227,31 @@ void EventPackage::_initPackage()
             m_EventResource__eventElement);
 
     // State
-    m_StateEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_StateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_StateEClass->setClassifierID(STATE);
     m_StateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StateEClass);
 
     // Transition
-    m_TransitionEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TransitionEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TransitionEClass->setClassifierID(TRANSITION);
     m_TransitionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TransitionEClass);
 
     // OnEntry
-    m_OnEntryEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_OnEntryEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_OnEntryEClass->setClassifierID(ONENTRY);
     m_OnEntryEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OnEntryEClass);
 
     // OnExit
-    m_OnExitEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_OnExitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_OnExitEClass->setClassifierID(ONEXIT);
     m_OnExitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OnExitEClass);
 
     // EventAction
-    m_EventActionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_EventActionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_EventActionEClass->setClassifierID(EVENTACTION);
     m_EventActionEClass->setEPackage(_this());
@@ -274,8 +268,7 @@ void EventPackage::_initPackage()
             m_EventAction__eventElement);
 
     // ReadsState
-    m_ReadsStateEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ReadsStateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ReadsStateEClass->setClassifierID(READSSTATE);
     m_ReadsStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReadsStateEClass);
@@ -288,7 +281,7 @@ void EventPackage::_initPackage()
     m_ReadsStateEClass->getEStructuralFeatures().push_back(m_ReadsState__from);
 
     // ProducesEvent
-    m_ProducesEventEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ProducesEventEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ProducesEventEClass->setClassifierID(PRODUCESEVENT);
     m_ProducesEventEClass->setEPackage(_this());
@@ -305,7 +298,7 @@ void EventPackage::_initPackage()
             m_ProducesEvent__from);
 
     // ConsumesEvent
-    m_ConsumesEventEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConsumesEventEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConsumesEventEClass->setClassifierID(CONSUMESEVENT);
     m_ConsumesEventEClass->setEPackage(_this());
@@ -322,8 +315,7 @@ void EventPackage::_initPackage()
             m_ConsumesEvent__from);
 
     // NextState
-    m_NextStateEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_NextStateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_NextStateEClass->setClassifierID(NEXTSTATE);
     m_NextStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NextStateEClass);
@@ -336,22 +328,21 @@ void EventPackage::_initPackage()
     m_NextStateEClass->getEStructuralFeatures().push_back(m_NextState__from);
 
     // InitialState
-    m_InitialStateEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_InitialStateEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_InitialStateEClass->setClassifierID(INITIALSTATE);
     m_InitialStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_InitialStateEClass);
 
     // EventElement
-    m_EventElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_EventElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_EventElementEClass->setClassifierID(EVENTELEMENT);
     m_EventElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EventElementEClass);
 
     // HasState
-    m_HasStateEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_HasStateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_HasStateEClass->setClassifierID(HASSTATE);
     m_HasStateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_HasStateEClass);

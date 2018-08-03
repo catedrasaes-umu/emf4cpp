@@ -88,19 +88,19 @@ void TypeSelectExpression::_initialize()
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
     {
         if (m_target)
-            _any = m_target->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_target);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
     {
         if (m_name)
-            _any = m_name->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_name);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::TYPESELECTEXPRESSION__TYPELITERAL:
     {
         if (m_typeLiteral)
-            _any = m_typeLiteral->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_typeLiteral);
     }
         return _any;
 

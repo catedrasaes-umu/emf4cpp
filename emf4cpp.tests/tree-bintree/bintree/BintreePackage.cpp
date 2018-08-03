@@ -22,7 +22,7 @@
 
 using namespace ::bintree;
 
-boost::intrusive_ptr< ::bintree::BintreePackage > BintreePackage::s_instance;
+::ecore::Ptr< ::bintree::BintreePackage > BintreePackage::s_instance;
 
 ::bintree::BintreePackage_ptr BintreePackage::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::bintree::BintreePackage > BintreePackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< BintreePackage >();
+            return ::ecore::Ptr< BintreePackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < BintreePackage
-                > (new BintreePackage());
+        s_instance = ::ecore::Ptr < BintreePackage > (new BintreePackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

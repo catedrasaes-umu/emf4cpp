@@ -53,25 +53,25 @@ void PrimitiveTypesPackage::_initPackage()
 
     // Create data types
 
-    m_BooleanEDataType = boost::intrusive_ptr < ::ecore::EDataType
+    m_BooleanEDataType = ::ecore::Ptr < ::ecore::EDataType
             > (new ::ecore::EDataType);
     m_BooleanEDataType->setClassifierID(BOOLEAN);
     m_BooleanEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanEDataType);
 
-    m_IntegerEDataType = boost::intrusive_ptr < ::ecore::EDataType
+    m_IntegerEDataType = ::ecore::Ptr < ::ecore::EDataType
             > (new ::ecore::EDataType);
     m_IntegerEDataType->setClassifierID(INTEGER);
     m_IntegerEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_IntegerEDataType);
 
-    m_StringEDataType = boost::intrusive_ptr < ::ecore::EDataType
+    m_StringEDataType = ::ecore::Ptr < ::ecore::EDataType
             > (new ::ecore::EDataType);
     m_StringEDataType->setClassifierID(STRING);
     m_StringEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_StringEDataType);
 
-    m_DoubleEDataType = boost::intrusive_ptr < ::ecore::EDataType
+    m_DoubleEDataType = ::ecore::Ptr < ::ecore::EDataType
             > (new ::ecore::EDataType);
     m_DoubleEDataType->setClassifierID(DOUBLE);
     m_DoubleEDataType->setEPackage(_this());

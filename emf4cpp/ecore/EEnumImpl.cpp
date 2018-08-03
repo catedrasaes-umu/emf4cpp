@@ -131,7 +131,7 @@ void EEnum::_initialize()
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
     {
         if (m_ePackage)
-            _any = m_ePackage->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_ePackage);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:

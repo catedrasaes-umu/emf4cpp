@@ -121,7 +121,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< MyDslPackage > s_instance;
+    static ::ecore::Ptr< MyDslPackage > s_instance;
 
     MyDslPackage();
     void _initPackage();

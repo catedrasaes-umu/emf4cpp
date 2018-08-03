@@ -41,10 +41,37 @@ namespace ecore
 
 // EPackage
 
-#include <ecore_forward.hpp> // for EDataTypes
-
 namespace ecore
 {
+
+    /** The default pointer type used by the generated EMF implementation. */
+    template< class T >
+    using Ptr = boost::intrusive_ptr<T>;
+
+    /* A helper function to create objects and wrap them in the default pointer type. */
+    template< class T, class ... Args >
+    Ptr< T > make(Args&&... args)
+    {
+        return Ptr< T >(new T(args...));
+    }
+
+    template< typename T, typename S >
+    inline T* as(S* _s)
+    {
+        return dynamic_cast< T* >(_s);
+    }
+
+    template< typename T, typename S >
+    inline Ptr< T > as(const Ptr< S >& _s)
+    {
+        return Ptr< T >(dynamic_cast< T* >(_s.get()));
+    }
+
+    template< typename T, typename S >
+    inline bool instanceOf(const Ptr< S >& _s)
+    {
+        return (bool) dynamic_cast< T* >(_s.get());
+    }
 
 // EDataType
     /*PROTECTED REGION ID(ecore_EBigDecimal) START*/
@@ -196,97 +223,91 @@ namespace ecore
 // EClass
 // EAttribute
     class EAttribute;
-    using EAttribute_ptr = boost::intrusive_ptr<EAttribute>;
+    using EAttribute_ptr = ::ecore::Ptr<EAttribute>;
 
 // EAnnotation
     class EAnnotation;
-    using EAnnotation_ptr = boost::intrusive_ptr<EAnnotation>;
+    using EAnnotation_ptr = ::ecore::Ptr<EAnnotation>;
 
 // EClass
     class EClass;
-    using EClass_ptr = boost::intrusive_ptr<EClass>;
+    using EClass_ptr = ::ecore::Ptr<EClass>;
 
 // EClassifier
     class EClassifier;
-    using EClassifier_ptr = boost::intrusive_ptr<EClassifier>;
+    using EClassifier_ptr = ::ecore::Ptr<EClassifier>;
 
 // EDataType
     class EDataType;
-    using EDataType_ptr = boost::intrusive_ptr<EDataType>;
+    using EDataType_ptr = ::ecore::Ptr<EDataType>;
 
 // EEnum
     class EEnum;
-    using EEnum_ptr = boost::intrusive_ptr<EEnum>;
+    using EEnum_ptr = ::ecore::Ptr<EEnum>;
 
 // EEnumLiteral
     class EEnumLiteral;
-    using EEnumLiteral_ptr = boost::intrusive_ptr<EEnumLiteral>;
+    using EEnumLiteral_ptr = ::ecore::Ptr<EEnumLiteral>;
 
 // EFactory
     class EFactory;
-    using EFactory_ptr = boost::intrusive_ptr<EFactory>;
+    using EFactory_ptr = ::ecore::Ptr<EFactory>;
 
 // EModelElement
     class EModelElement;
-    using EModelElement_ptr = boost::intrusive_ptr<EModelElement>;
+    using EModelElement_ptr = ::ecore::Ptr<EModelElement>;
 
 // ENamedElement
     class ENamedElement;
-    using ENamedElement_ptr = boost::intrusive_ptr<ENamedElement>;
+    using ENamedElement_ptr = ::ecore::Ptr<ENamedElement>;
 
 // EObject
     class EObject;
-    using EObject_ptr = boost::intrusive_ptr<EObject>;
+    using EObject_ptr = ::ecore::Ptr<EObject>;
 
 // EOperation
     class EOperation;
-    using EOperation_ptr = boost::intrusive_ptr<EOperation>;
+    using EOperation_ptr = ::ecore::Ptr<EOperation>;
 
 // EPackage
     class EPackage;
-    using EPackage_ptr = boost::intrusive_ptr<EPackage>;
+    using EPackage_ptr = ::ecore::Ptr<EPackage>;
 
 // EParameter
     class EParameter;
-    using EParameter_ptr = boost::intrusive_ptr<EParameter>;
+    using EParameter_ptr = ::ecore::Ptr<EParameter>;
 
 // EReference
     class EReference;
-    using EReference_ptr = boost::intrusive_ptr<EReference>;
+    using EReference_ptr = ::ecore::Ptr<EReference>;
 
 // EStructuralFeature
     class EStructuralFeature;
-    using EStructuralFeature_ptr = boost::intrusive_ptr<EStructuralFeature>;
+    using EStructuralFeature_ptr = ::ecore::Ptr<EStructuralFeature>;
 
 // ETypedElement
     class ETypedElement;
-    using ETypedElement_ptr = boost::intrusive_ptr<ETypedElement>;
+    using ETypedElement_ptr = ::ecore::Ptr<ETypedElement>;
 
 // EStringToStringMapEntry
     class EStringToStringMapEntry;
-    using EStringToStringMapEntry_ptr = boost::intrusive_ptr<EStringToStringMapEntry>;
+    using EStringToStringMapEntry_ptr = ::ecore::Ptr<EStringToStringMapEntry>;
 
 // EGenericType
     class EGenericType;
-    using EGenericType_ptr = boost::intrusive_ptr<EGenericType>;
+    using EGenericType_ptr = ::ecore::Ptr<EGenericType>;
 
 // ETypeParameter
     class ETypeParameter;
-    using ETypeParameter_ptr = boost::intrusive_ptr<ETypeParameter>;
+    using ETypeParameter_ptr = ::ecore::Ptr<ETypeParameter>;
 
 // EEnum
 
 // Package & Factory
     class EcoreFactory;
-    using EcoreFactory_ptr = boost::intrusive_ptr<EcoreFactory>;
+    using EcoreFactory_ptr = ::ecore::Ptr<EcoreFactory>;
     class EcorePackage;
-    using EcorePackage_ptr = boost::intrusive_ptr<EcorePackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using EcorePackage_ptr = ::ecore::Ptr<EcorePackage>;
 
 } // ecore
 

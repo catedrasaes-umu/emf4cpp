@@ -22,12 +22,12 @@
 
 using namespace ::kdm::code;
 
-boost::intrusive_ptr< ::kdm::code::CodeFactory > CodeFactory::s_holder;
+::ecore::Ptr< ::kdm::code::CodeFactory > CodeFactory::s_holder;
 
 ::kdm::code::CodeFactory_ptr CodeFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < CodeFactory > (new CodeFactory());
+        s_holder = ::ecore::Ptr < CodeFactory > (new CodeFactory());
 
     return s_holder;
 }

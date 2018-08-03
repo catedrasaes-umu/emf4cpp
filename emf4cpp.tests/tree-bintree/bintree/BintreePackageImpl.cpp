@@ -40,13 +40,13 @@ BintreePackage::BintreePackage()
 {
 
     // Feature definitions of BinTreeNode
-    m_BinTreeNode__data = boost::intrusive_ptr < ::ecore::EAttribute
+    m_BinTreeNode__data = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_BinTreeNode__parent = boost::intrusive_ptr < ::ecore::EReference
+    m_BinTreeNode__parent = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_BinTreeNode__left = boost::intrusive_ptr < ::ecore::EReference
+    m_BinTreeNode__left = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_BinTreeNode__right = boost::intrusive_ptr < ::ecore::EReference
+    m_BinTreeNode__right = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -61,7 +61,7 @@ void BintreePackage::_initPackage()
     // Create classes and their features
 
     // BinTreeNode
-    m_BinTreeNodeEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_BinTreeNodeEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_BinTreeNodeEClass->setClassifierID(BINTREENODE);
     m_BinTreeNodeEClass->setEPackage(_this());

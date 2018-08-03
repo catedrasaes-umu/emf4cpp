@@ -66,6 +66,6 @@ TopLevelPackageFactory::TopLevelPackageFactory()
 
 TopLevelClass_ptr TopLevelPackageFactory::createTopLevelClass()
 {
-    return boost::intrusive_ptr < TopLevelClass > (new TopLevelClass);
+    return ::ecore::Ptr < TopLevelClass > (new TopLevelClass);
 }
 

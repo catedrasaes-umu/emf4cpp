@@ -44,197 +44,191 @@ namespace kdm
 
 // DataModel
         class DataModel;
-        using DataModel_ptr = boost::intrusive_ptr<DataModel>;
+        using DataModel_ptr = ::ecore::Ptr<DataModel>;
 
 // AbstractDataElement
         class AbstractDataElement;
-        using AbstractDataElement_ptr = boost::intrusive_ptr<AbstractDataElement>;
+        using AbstractDataElement_ptr = ::ecore::Ptr<AbstractDataElement>;
 
 // DataResource
         class DataResource;
-        using DataResource_ptr = boost::intrusive_ptr<DataResource>;
+        using DataResource_ptr = ::ecore::Ptr<DataResource>;
 
 // IndexElement
         class IndexElement;
-        using IndexElement_ptr = boost::intrusive_ptr<IndexElement>;
+        using IndexElement_ptr = ::ecore::Ptr<IndexElement>;
 
 // UniqueKey
         class UniqueKey;
-        using UniqueKey_ptr = boost::intrusive_ptr<UniqueKey>;
+        using UniqueKey_ptr = ::ecore::Ptr<UniqueKey>;
 
 // Index
         class Index;
-        using Index_ptr = boost::intrusive_ptr<Index>;
+        using Index_ptr = ::ecore::Ptr<Index>;
 
 // AbstractDataRelationship
         class AbstractDataRelationship;
-        using AbstractDataRelationship_ptr = boost::intrusive_ptr<AbstractDataRelationship>;
+        using AbstractDataRelationship_ptr = ::ecore::Ptr<AbstractDataRelationship>;
 
 // KeyRelation
         class KeyRelation;
-        using KeyRelation_ptr = boost::intrusive_ptr<KeyRelation>;
+        using KeyRelation_ptr = ::ecore::Ptr<KeyRelation>;
 
 // ReferenceKey
         class ReferenceKey;
-        using ReferenceKey_ptr = boost::intrusive_ptr<ReferenceKey>;
+        using ReferenceKey_ptr = ::ecore::Ptr<ReferenceKey>;
 
 // DataContainer
         class DataContainer;
-        using DataContainer_ptr = boost::intrusive_ptr<DataContainer>;
+        using DataContainer_ptr = ::ecore::Ptr<DataContainer>;
 
 // Catalog
         class Catalog;
-        using Catalog_ptr = boost::intrusive_ptr<Catalog>;
+        using Catalog_ptr = ::ecore::Ptr<Catalog>;
 
 // RelationalSchema
         class RelationalSchema;
-        using RelationalSchema_ptr = boost::intrusive_ptr<RelationalSchema>;
+        using RelationalSchema_ptr = ::ecore::Ptr<RelationalSchema>;
 
 // ColumnSet
         class ColumnSet;
-        using ColumnSet_ptr = boost::intrusive_ptr<ColumnSet>;
+        using ColumnSet_ptr = ::ecore::Ptr<ColumnSet>;
 
 // RelationalTable
         class RelationalTable;
-        using RelationalTable_ptr = boost::intrusive_ptr<RelationalTable>;
+        using RelationalTable_ptr = ::ecore::Ptr<RelationalTable>;
 
 // RelationalView
         class RelationalView;
-        using RelationalView_ptr = boost::intrusive_ptr<RelationalView>;
+        using RelationalView_ptr = ::ecore::Ptr<RelationalView>;
 
 // RecordFile
         class RecordFile;
-        using RecordFile_ptr = boost::intrusive_ptr<RecordFile>;
+        using RecordFile_ptr = ::ecore::Ptr<RecordFile>;
 
 // DataEvent
         class DataEvent;
-        using DataEvent_ptr = boost::intrusive_ptr<DataEvent>;
+        using DataEvent_ptr = ::ecore::Ptr<DataEvent>;
 
 // XMLSchema
         class XMLSchema;
-        using XMLSchema_ptr = boost::intrusive_ptr<XMLSchema>;
+        using XMLSchema_ptr = ::ecore::Ptr<XMLSchema>;
 
 // AbstractContentElement
         class AbstractContentElement;
-        using AbstractContentElement_ptr = boost::intrusive_ptr<AbstractContentElement>;
+        using AbstractContentElement_ptr = ::ecore::Ptr<AbstractContentElement>;
 
 // ComplexContentType
         class ComplexContentType;
-        using ComplexContentType_ptr = boost::intrusive_ptr<ComplexContentType>;
+        using ComplexContentType_ptr = ::ecore::Ptr<ComplexContentType>;
 
 // AllContent
         class AllContent;
-        using AllContent_ptr = boost::intrusive_ptr<AllContent>;
+        using AllContent_ptr = ::ecore::Ptr<AllContent>;
 
 // SeqContent
         class SeqContent;
-        using SeqContent_ptr = boost::intrusive_ptr<SeqContent>;
+        using SeqContent_ptr = ::ecore::Ptr<SeqContent>;
 
 // ChoiceContent
         class ChoiceContent;
-        using ChoiceContent_ptr = boost::intrusive_ptr<ChoiceContent>;
+        using ChoiceContent_ptr = ::ecore::Ptr<ChoiceContent>;
 
 // ContentItem
         class ContentItem;
-        using ContentItem_ptr = boost::intrusive_ptr<ContentItem>;
+        using ContentItem_ptr = ::ecore::Ptr<ContentItem>;
 
 // GroupContent
         class GroupContent;
-        using GroupContent_ptr = boost::intrusive_ptr<GroupContent>;
+        using GroupContent_ptr = ::ecore::Ptr<GroupContent>;
 
 // ContentRestriction
         class ContentRestriction;
-        using ContentRestriction_ptr = boost::intrusive_ptr<ContentRestriction>;
+        using ContentRestriction_ptr = ::ecore::Ptr<ContentRestriction>;
 
 // SimpleContentType
         class SimpleContentType;
-        using SimpleContentType_ptr = boost::intrusive_ptr<SimpleContentType>;
+        using SimpleContentType_ptr = ::ecore::Ptr<SimpleContentType>;
 
 // ExtendedDataElement
         class ExtendedDataElement;
-        using ExtendedDataElement_ptr = boost::intrusive_ptr<ExtendedDataElement>;
+        using ExtendedDataElement_ptr = ::ecore::Ptr<ExtendedDataElement>;
 
 // DataRelationship
         class DataRelationship;
-        using DataRelationship_ptr = boost::intrusive_ptr<DataRelationship>;
+        using DataRelationship_ptr = ::ecore::Ptr<DataRelationship>;
 
 // MixedContent
         class MixedContent;
-        using MixedContent_ptr = boost::intrusive_ptr<MixedContent>;
+        using MixedContent_ptr = ::ecore::Ptr<MixedContent>;
 
 // ContentReference
         class ContentReference;
-        using ContentReference_ptr = boost::intrusive_ptr<ContentReference>;
+        using ContentReference_ptr = ::ecore::Ptr<ContentReference>;
 
 // DataAction
         class DataAction;
-        using DataAction_ptr = boost::intrusive_ptr<DataAction>;
+        using DataAction_ptr = ::ecore::Ptr<DataAction>;
 
 // ReadsColumnSet
         class ReadsColumnSet;
-        using ReadsColumnSet_ptr = boost::intrusive_ptr<ReadsColumnSet>;
+        using ReadsColumnSet_ptr = ::ecore::Ptr<ReadsColumnSet>;
 
 // ContentAttribute
         class ContentAttribute;
-        using ContentAttribute_ptr = boost::intrusive_ptr<ContentAttribute>;
+        using ContentAttribute_ptr = ::ecore::Ptr<ContentAttribute>;
 
 // TypedBy
         class TypedBy;
-        using TypedBy_ptr = boost::intrusive_ptr<TypedBy>;
+        using TypedBy_ptr = ::ecore::Ptr<TypedBy>;
 
 // ReferenceTo
         class ReferenceTo;
-        using ReferenceTo_ptr = boost::intrusive_ptr<ReferenceTo>;
+        using ReferenceTo_ptr = ::ecore::Ptr<ReferenceTo>;
 
 // RestrictionOf
         class RestrictionOf;
-        using RestrictionOf_ptr = boost::intrusive_ptr<RestrictionOf>;
+        using RestrictionOf_ptr = ::ecore::Ptr<RestrictionOf>;
 
 // ExtensionTo
         class ExtensionTo;
-        using ExtensionTo_ptr = boost::intrusive_ptr<ExtensionTo>;
+        using ExtensionTo_ptr = ::ecore::Ptr<ExtensionTo>;
 
 // DatatypeOf
         class DatatypeOf;
-        using DatatypeOf_ptr = boost::intrusive_ptr<DatatypeOf>;
+        using DatatypeOf_ptr = ::ecore::Ptr<DatatypeOf>;
 
 // HasContent
         class HasContent;
-        using HasContent_ptr = boost::intrusive_ptr<HasContent>;
+        using HasContent_ptr = ::ecore::Ptr<HasContent>;
 
 // WritesColumnSet
         class WritesColumnSet;
-        using WritesColumnSet_ptr = boost::intrusive_ptr<WritesColumnSet>;
+        using WritesColumnSet_ptr = ::ecore::Ptr<WritesColumnSet>;
 
 // ProducesDataEvent
         class ProducesDataEvent;
-        using ProducesDataEvent_ptr = boost::intrusive_ptr<ProducesDataEvent>;
+        using ProducesDataEvent_ptr = ::ecore::Ptr<ProducesDataEvent>;
 
 // DataSegment
         class DataSegment;
-        using DataSegment_ptr = boost::intrusive_ptr<DataSegment>;
+        using DataSegment_ptr = ::ecore::Ptr<DataSegment>;
 
 // ContentElement
         class ContentElement;
-        using ContentElement_ptr = boost::intrusive_ptr<ContentElement>;
+        using ContentElement_ptr = ::ecore::Ptr<ContentElement>;
 
 // ManagesData
         class ManagesData;
-        using ManagesData_ptr = boost::intrusive_ptr<ManagesData>;
+        using ManagesData_ptr = ::ecore::Ptr<ManagesData>;
 
 // EEnum
 
 // Package & Factory
         class DataFactory;
-        using DataFactory_ptr = boost::intrusive_ptr<DataFactory>;
+        using DataFactory_ptr = ::ecore::Ptr<DataFactory>;
         class DataPackage;
-        using DataPackage_ptr = boost::intrusive_ptr<DataPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using DataPackage_ptr = ::ecore::Ptr<DataPackage>;
 
     } // data
 } // kdm

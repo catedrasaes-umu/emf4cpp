@@ -22,7 +22,7 @@
 
 using namespace ::enumeration;
 
-boost::intrusive_ptr< ::enumeration::EnumerationPackage > EnumerationPackage::s_instance;
+::ecore::Ptr< ::enumeration::EnumerationPackage > EnumerationPackage::s_instance;
 
 ::enumeration::EnumerationPackage_ptr EnumerationPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::enumeration::EnumerationPackage > EnumerationPackage::s_
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< EnumerationPackage >();
+            return ::ecore::Ptr< EnumerationPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < EnumerationPackage
+        s_instance = ::ecore::Ptr < EnumerationPackage
                 > (new EnumerationPackage());
         s_instance->_initPackage();
         duringConstruction = false;

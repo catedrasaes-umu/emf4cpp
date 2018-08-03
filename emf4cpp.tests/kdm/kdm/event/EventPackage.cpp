@@ -22,7 +22,7 @@
 
 using namespace ::kdm::event;
 
-boost::intrusive_ptr< ::kdm::event::EventPackage > EventPackage::s_instance;
+::ecore::Ptr< ::kdm::event::EventPackage > EventPackage::s_instance;
 
 ::kdm::event::EventPackage_ptr EventPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::kdm::event::EventPackage > EventPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< EventPackage >();
+            return ::ecore::Ptr< EventPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < EventPackage > (new EventPackage());
+        s_instance = ::ecore::Ptr < EventPackage > (new EventPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

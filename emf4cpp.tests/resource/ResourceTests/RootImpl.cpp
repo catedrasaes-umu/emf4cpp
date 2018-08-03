@@ -68,7 +68,7 @@ void Root::_initialize()
     case ::ResourceTests::ResourceTestsPackage::ROOT__TARGET:
     {
         if (m_target)
-            _any = m_target->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_target);
     }
         return _any;
     case ::ResourceTests::ResourceTestsPackage::ROOT__REFERRERS:

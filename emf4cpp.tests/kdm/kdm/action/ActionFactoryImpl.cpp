@@ -138,103 +138,103 @@ ActionFactory::ActionFactory()
 
 ActionElement_ptr ActionFactory::createActionElement()
 {
-    return boost::intrusive_ptr < ActionElement > (new ActionElement);
+    return ::ecore::Ptr < ActionElement > (new ActionElement);
 }
 AbstractActionRelationship_ptr ActionFactory::createAbstractActionRelationship()
 {
-    return boost::intrusive_ptr < AbstractActionRelationship
+    return ::ecore::Ptr < AbstractActionRelationship
             > (new AbstractActionRelationship);
 }
 ControlFlow_ptr ActionFactory::createControlFlow()
 {
-    return boost::intrusive_ptr < ControlFlow > (new ControlFlow);
+    return ::ecore::Ptr < ControlFlow > (new ControlFlow);
 }
 Calls_ptr ActionFactory::createCalls()
 {
-    return boost::intrusive_ptr < Calls > (new Calls);
+    return ::ecore::Ptr < Calls > (new Calls);
 }
 Creates_ptr ActionFactory::createCreates()
 {
-    return boost::intrusive_ptr < Creates > (new Creates);
+    return ::ecore::Ptr < Creates > (new Creates);
 }
 Reads_ptr ActionFactory::createReads()
 {
-    return boost::intrusive_ptr < Reads > (new Reads);
+    return ::ecore::Ptr < Reads > (new Reads);
 }
 Writes_ptr ActionFactory::createWrites()
 {
-    return boost::intrusive_ptr < Writes > (new Writes);
+    return ::ecore::Ptr < Writes > (new Writes);
 }
 CompliesTo_ptr ActionFactory::createCompliesTo()
 {
-    return boost::intrusive_ptr < CompliesTo > (new CompliesTo);
+    return ::ecore::Ptr < CompliesTo > (new CompliesTo);
 }
 Flow_ptr ActionFactory::createFlow()
 {
-    return boost::intrusive_ptr < Flow > (new Flow);
+    return ::ecore::Ptr < Flow > (new Flow);
 }
 TrueFlow_ptr ActionFactory::createTrueFlow()
 {
-    return boost::intrusive_ptr < TrueFlow > (new TrueFlow);
+    return ::ecore::Ptr < TrueFlow > (new TrueFlow);
 }
 FalseFlow_ptr ActionFactory::createFalseFlow()
 {
-    return boost::intrusive_ptr < FalseFlow > (new FalseFlow);
+    return ::ecore::Ptr < FalseFlow > (new FalseFlow);
 }
 GuardedFlow_ptr ActionFactory::createGuardedFlow()
 {
-    return boost::intrusive_ptr < GuardedFlow > (new GuardedFlow);
+    return ::ecore::Ptr < GuardedFlow > (new GuardedFlow);
 }
 UsesType_ptr ActionFactory::createUsesType()
 {
-    return boost::intrusive_ptr < UsesType > (new UsesType);
+    return ::ecore::Ptr < UsesType > (new UsesType);
 }
 Addresses_ptr ActionFactory::createAddresses()
 {
-    return boost::intrusive_ptr < Addresses > (new Addresses);
+    return ::ecore::Ptr < Addresses > (new Addresses);
 }
 ActionRelationship_ptr ActionFactory::createActionRelationship()
 {
-    return boost::intrusive_ptr < ActionRelationship > (new ActionRelationship);
+    return ::ecore::Ptr < ActionRelationship > (new ActionRelationship);
 }
 Throws_ptr ActionFactory::createThrows()
 {
-    return boost::intrusive_ptr < Throws > (new Throws);
+    return ::ecore::Ptr < Throws > (new Throws);
 }
 Dispatches_ptr ActionFactory::createDispatches()
 {
-    return boost::intrusive_ptr < Dispatches > (new Dispatches);
+    return ::ecore::Ptr < Dispatches > (new Dispatches);
 }
 EntryFlow_ptr ActionFactory::createEntryFlow()
 {
-    return boost::intrusive_ptr < EntryFlow > (new EntryFlow);
+    return ::ecore::Ptr < EntryFlow > (new EntryFlow);
 }
 BlockUnit_ptr ActionFactory::createBlockUnit()
 {
-    return boost::intrusive_ptr < BlockUnit > (new BlockUnit);
+    return ::ecore::Ptr < BlockUnit > (new BlockUnit);
 }
 ExceptionUnit_ptr ActionFactory::createExceptionUnit()
 {
-    return boost::intrusive_ptr < ExceptionUnit > (new ExceptionUnit);
+    return ::ecore::Ptr < ExceptionUnit > (new ExceptionUnit);
 }
 TryUnit_ptr ActionFactory::createTryUnit()
 {
-    return boost::intrusive_ptr < TryUnit > (new TryUnit);
+    return ::ecore::Ptr < TryUnit > (new TryUnit);
 }
 FinallyUnit_ptr ActionFactory::createFinallyUnit()
 {
-    return boost::intrusive_ptr < FinallyUnit > (new FinallyUnit);
+    return ::ecore::Ptr < FinallyUnit > (new FinallyUnit);
 }
 CatchUnit_ptr ActionFactory::createCatchUnit()
 {
-    return boost::intrusive_ptr < CatchUnit > (new CatchUnit);
+    return ::ecore::Ptr < CatchUnit > (new CatchUnit);
 }
 ExitFlow_ptr ActionFactory::createExitFlow()
 {
-    return boost::intrusive_ptr < ExitFlow > (new ExitFlow);
+    return ::ecore::Ptr < ExitFlow > (new ExitFlow);
 }
 ExceptionFlow_ptr ActionFactory::createExceptionFlow()
 {
-    return boost::intrusive_ptr < ExceptionFlow > (new ExceptionFlow);
+    return ::ecore::Ptr < ExceptionFlow > (new ExceptionFlow);
 }
 

@@ -527,7 +527,7 @@ namespace xpand3
 
     protected:
 
-        static boost::intrusive_ptr< ExpressionPackage > s_instance;
+        static ::ecore::Ptr< ExpressionPackage > s_instance;
 
         ExpressionPackage();
         void _initPackage();

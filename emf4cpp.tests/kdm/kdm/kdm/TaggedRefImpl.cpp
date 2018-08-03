@@ -74,13 +74,13 @@ void TaggedRef::_initialize()
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
     {
         if (m_tag)
-            _any = m_tag->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_tag);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::TAGGEDREF__REFERENCE:
     {
         if (m_reference)
-            _any = m_reference->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_reference);
     }
         return _any;
 

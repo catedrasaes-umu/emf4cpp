@@ -52,23 +52,23 @@ ConceptualPackage::ConceptualPackage()
 {
 
     // Feature definitions of ConceptualModel
-    m_ConceptualModel__conceptualElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_ConceptualModel__conceptualElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of AbstractConceptualElement
-    m_AbstractConceptualElement__source = boost::intrusive_ptr
+    m_AbstractConceptualElement__source = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractConceptualElement__implementation = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractConceptualElement__implementation = boost::intrusive_ptr
+    m_AbstractConceptualElement__conceptualRelation = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractConceptualElement__conceptualRelation = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractConceptualElement__abstraction = boost::intrusive_ptr
+    m_AbstractConceptualElement__abstraction = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of TermUnit
 
     // Feature definitions of ConceptualContainer
-    m_ConceptualContainer__conceptualElement = boost::intrusive_ptr
+    m_ConceptualContainer__conceptualElement = ::ecore::Ptr
             < ::ecore::EReference > (new ::ecore::EReference);
 
     // Feature definitions of FactUnit
@@ -76,9 +76,9 @@ ConceptualPackage::ConceptualPackage()
     // Feature definitions of AbstractConceptualRelationship
 
     // Feature definitions of ConceptualRelationship
-    m_ConceptualRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ConceptualRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ConceptualRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ConceptualRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of BehaviorUnit
@@ -88,16 +88,16 @@ ConceptualPackage::ConceptualPackage()
     // Feature definitions of ScenarioUnit
 
     // Feature definitions of ConceptualFlow
-    m_ConceptualFlow__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ConceptualFlow__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ConceptualFlow__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ConceptualFlow__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ConceptualElement
 
     // Feature definitions of ConceptualRole
-    m_ConceptualRole__conceptualElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_ConceptualRole__conceptualElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
 }
 
@@ -111,7 +111,7 @@ void ConceptualPackage::_initPackage()
     // Create classes and their features
 
     // ConceptualModel
-    m_ConceptualModelEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConceptualModelEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConceptualModelEClass->setClassifierID(CONCEPTUALMODEL);
     m_ConceptualModelEClass->setEPackage(_this());
@@ -123,7 +123,7 @@ void ConceptualPackage::_initPackage()
             m_ConceptualModel__conceptualElement);
 
     // AbstractConceptualElement
-    m_AbstractConceptualElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractConceptualElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractConceptualElementEClass->setClassifierID(
             ABSTRACTCONCEPTUALELEMENT);
@@ -151,14 +151,13 @@ void ConceptualPackage::_initPackage()
             m_AbstractConceptualElement__abstraction);
 
     // TermUnit
-    m_TermUnitEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TermUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TermUnitEClass->setClassifierID(TERMUNIT);
     m_TermUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TermUnitEClass);
 
     // ConceptualContainer
-    m_ConceptualContainerEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConceptualContainerEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConceptualContainerEClass->setClassifierID(CONCEPTUALCONTAINER);
     m_ConceptualContainerEClass->setEPackage(_this());
@@ -170,22 +169,21 @@ void ConceptualPackage::_initPackage()
             m_ConceptualContainer__conceptualElement);
 
     // FactUnit
-    m_FactUnitEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_FactUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FactUnitEClass->setClassifierID(FACTUNIT);
     m_FactUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FactUnitEClass);
 
     // AbstractConceptualRelationship
-    m_AbstractConceptualRelationshipEClass = boost::intrusive_ptr
-            < ::ecore::EClass > (new ::ecore::EClass);
+    m_AbstractConceptualRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractConceptualRelationshipEClass->setClassifierID(
             ABSTRACTCONCEPTUALRELATIONSHIP);
     m_AbstractConceptualRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractConceptualRelationshipEClass);
 
     // ConceptualRelationship
-    m_ConceptualRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConceptualRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConceptualRelationshipEClass->setClassifierID(CONCEPTUALRELATIONSHIP);
     m_ConceptualRelationshipEClass->setEPackage(_this());
@@ -202,28 +200,27 @@ void ConceptualPackage::_initPackage()
             m_ConceptualRelationship__from);
 
     // BehaviorUnit
-    m_BehaviorUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_BehaviorUnitEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_BehaviorUnitEClass->setClassifierID(BEHAVIORUNIT);
     m_BehaviorUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BehaviorUnitEClass);
 
     // RuleUnit
-    m_RuleUnitEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_RuleUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RuleUnitEClass->setClassifierID(RULEUNIT);
     m_RuleUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RuleUnitEClass);
 
     // ScenarioUnit
-    m_ScenarioUnitEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ScenarioUnitEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ScenarioUnitEClass->setClassifierID(SCENARIOUNIT);
     m_ScenarioUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ScenarioUnitEClass);
 
     // ConceptualFlow
-    m_ConceptualFlowEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConceptualFlowEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConceptualFlowEClass->setClassifierID(CONCEPTUALFLOW);
     m_ConceptualFlowEClass->setEPackage(_this());
@@ -240,14 +237,14 @@ void ConceptualPackage::_initPackage()
             m_ConceptualFlow__from);
 
     // ConceptualElement
-    m_ConceptualElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConceptualElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConceptualElementEClass->setClassifierID(CONCEPTUALELEMENT);
     m_ConceptualElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConceptualElementEClass);
 
     // ConceptualRole
-    m_ConceptualRoleEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ConceptualRoleEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ConceptualRoleEClass->setClassifierID(CONCEPTUALROLE);
     m_ConceptualRoleEClass->setEPackage(_this());

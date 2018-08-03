@@ -829,7 +829,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< EcorePackage > s_instance;
+    static ::ecore::Ptr< EcorePackage > s_instance;
 
     EcorePackage();
     void _initPackage();

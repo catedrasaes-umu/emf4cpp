@@ -69,10 +69,10 @@ EdateFactory::EdateFactory()
 
 Person_ptr EdateFactory::createPerson()
 {
-    return boost::intrusive_ptr < Person > (new Person);
+    return ::ecore::Ptr < Person > (new Person);
 }
 Apollo11_ptr EdateFactory::createApollo11()
 {
-    return boost::intrusive_ptr < Apollo11 > (new Apollo11);
+    return ::ecore::Ptr < Apollo11 > (new Apollo11);
 }
 

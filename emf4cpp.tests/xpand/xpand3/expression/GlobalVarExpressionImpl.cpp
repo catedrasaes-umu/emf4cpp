@@ -87,7 +87,7 @@ void GlobalVarExpression::_initialize()
     case ::xpand3::expression::ExpressionPackage::GLOBALVAREXPRESSION__GLOBALVARNAME:
     {
         if (m_globalVarName)
-            _any = m_globalVarName->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_globalVarName);
     }
         return _any;
 

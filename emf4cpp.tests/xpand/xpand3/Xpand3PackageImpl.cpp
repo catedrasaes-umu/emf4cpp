@@ -42,35 +42,35 @@ Xpand3Package::Xpand3Package()
 {
 
     // Feature definitions of SyntaxElement
-    m_SyntaxElement__line = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SyntaxElement__line = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SyntaxElement__start = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SyntaxElement__start = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SyntaxElement__end = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SyntaxElement__end = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SyntaxElement__fileName = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SyntaxElement__fileName = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of File
-    m_File__imports = boost::intrusive_ptr < ::ecore::EReference
+    m_File__imports = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_File__declarations = boost::intrusive_ptr < ::ecore::EReference
+    m_File__declarations = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ImportStatement
-    m_ImportStatement__exported = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ImportStatement__exported = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ImportStatement__importedId = boost::intrusive_ptr < ::ecore::EReference
+    m_ImportStatement__importedId = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Identifier
-    m_Identifier__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Identifier__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of DeclaredParameter
-    m_DeclaredParameter__name = boost::intrusive_ptr < ::ecore::EReference
+    m_DeclaredParameter__name = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_DeclaredParameter__type = boost::intrusive_ptr < ::ecore::EReference
+    m_DeclaredParameter__type = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -85,7 +85,7 @@ void Xpand3Package::_initPackage()
     // Create classes and their features
 
     // SyntaxElement
-    m_SyntaxElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_SyntaxElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_SyntaxElementEClass->setClassifierID(SYNTAXELEMENT);
     m_SyntaxElementEClass->setEPackage(_this());
@@ -112,8 +112,7 @@ void Xpand3Package::_initPackage()
             m_SyntaxElement__fileName);
 
     // File
-    m_FileEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_FileEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FileEClass->setClassifierID(FILE);
     m_FileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FileEClass);
@@ -126,7 +125,7 @@ void Xpand3Package::_initPackage()
     m_FileEClass->getEStructuralFeatures().push_back(m_File__declarations);
 
     // ImportStatement
-    m_ImportStatementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ImportStatementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ImportStatementEClass->setClassifierID(IMPORTSTATEMENT);
     m_ImportStatementEClass->setEPackage(_this());
@@ -143,8 +142,7 @@ void Xpand3Package::_initPackage()
             m_ImportStatement__importedId);
 
     // Identifier
-    m_IdentifierEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_IdentifierEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_IdentifierEClass->setClassifierID(IDENTIFIER);
     m_IdentifierEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IdentifierEClass);
@@ -154,7 +152,7 @@ void Xpand3Package::_initPackage()
     m_IdentifierEClass->getEStructuralFeatures().push_back(m_Identifier__value);
 
     // DeclaredParameter
-    m_DeclaredParameterEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DeclaredParameterEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DeclaredParameterEClass->setClassifierID(DECLAREDPARAMETER);
     m_DeclaredParameterEClass->setEPackage(_this());

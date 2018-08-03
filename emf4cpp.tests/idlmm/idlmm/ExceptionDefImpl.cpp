@@ -90,7 +90,7 @@ void ExceptionDef::_initialize()
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
         if (m_definedIn)
-            _any = m_definedIn->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_definedIn);
     }
         return _any;
     case ::idlmm::IdlmmPackage::EXCEPTIONDEF__TYPECODE:

@@ -22,12 +22,12 @@
 
 using namespace ::myDsl;
 
-boost::intrusive_ptr< ::myDsl::MyDslFactory > MyDslFactory::s_holder;
+::ecore::Ptr< ::myDsl::MyDslFactory > MyDslFactory::s_holder;
 
 ::myDsl::MyDslFactory_ptr MyDslFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < MyDslFactory > (new MyDslFactory());
+        s_holder = ::ecore::Ptr < MyDslFactory > (new MyDslFactory());
 
     return s_holder;
 }

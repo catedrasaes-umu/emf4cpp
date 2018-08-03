@@ -102,58 +102,56 @@ ConceptualFactory::ConceptualFactory()
 
 ConceptualModel_ptr ConceptualFactory::createConceptualModel()
 {
-    return boost::intrusive_ptr < ConceptualModel > (new ConceptualModel);
+    return ::ecore::Ptr < ConceptualModel > (new ConceptualModel);
 }
 AbstractConceptualElement_ptr ConceptualFactory::createAbstractConceptualElement()
 {
-    return boost::intrusive_ptr < AbstractConceptualElement
+    return ::ecore::Ptr < AbstractConceptualElement
             > (new AbstractConceptualElement);
 }
 TermUnit_ptr ConceptualFactory::createTermUnit()
 {
-    return boost::intrusive_ptr < TermUnit > (new TermUnit);
+    return ::ecore::Ptr < TermUnit > (new TermUnit);
 }
 ConceptualContainer_ptr ConceptualFactory::createConceptualContainer()
 {
-    return boost::intrusive_ptr < ConceptualContainer
-            > (new ConceptualContainer);
+    return ::ecore::Ptr < ConceptualContainer > (new ConceptualContainer);
 }
 FactUnit_ptr ConceptualFactory::createFactUnit()
 {
-    return boost::intrusive_ptr < FactUnit > (new FactUnit);
+    return ::ecore::Ptr < FactUnit > (new FactUnit);
 }
 AbstractConceptualRelationship_ptr ConceptualFactory::createAbstractConceptualRelationship()
 {
-    return boost::intrusive_ptr < AbstractConceptualRelationship
+    return ::ecore::Ptr < AbstractConceptualRelationship
             > (new AbstractConceptualRelationship);
 }
 ConceptualRelationship_ptr ConceptualFactory::createConceptualRelationship()
 {
-    return boost::intrusive_ptr < ConceptualRelationship
-            > (new ConceptualRelationship);
+    return ::ecore::Ptr < ConceptualRelationship > (new ConceptualRelationship);
 }
 BehaviorUnit_ptr ConceptualFactory::createBehaviorUnit()
 {
-    return boost::intrusive_ptr < BehaviorUnit > (new BehaviorUnit);
+    return ::ecore::Ptr < BehaviorUnit > (new BehaviorUnit);
 }
 RuleUnit_ptr ConceptualFactory::createRuleUnit()
 {
-    return boost::intrusive_ptr < RuleUnit > (new RuleUnit);
+    return ::ecore::Ptr < RuleUnit > (new RuleUnit);
 }
 ScenarioUnit_ptr ConceptualFactory::createScenarioUnit()
 {
-    return boost::intrusive_ptr < ScenarioUnit > (new ScenarioUnit);
+    return ::ecore::Ptr < ScenarioUnit > (new ScenarioUnit);
 }
 ConceptualFlow_ptr ConceptualFactory::createConceptualFlow()
 {
-    return boost::intrusive_ptr < ConceptualFlow > (new ConceptualFlow);
+    return ::ecore::Ptr < ConceptualFlow > (new ConceptualFlow);
 }
 ConceptualElement_ptr ConceptualFactory::createConceptualElement()
 {
-    return boost::intrusive_ptr < ConceptualElement > (new ConceptualElement);
+    return ::ecore::Ptr < ConceptualElement > (new ConceptualElement);
 }
 ConceptualRole_ptr ConceptualFactory::createConceptualRole()
 {
-    return boost::intrusive_ptr < ConceptualRole > (new ConceptualRole);
+    return ::ecore::Ptr < ConceptualRole > (new ConceptualRole);
 }
 

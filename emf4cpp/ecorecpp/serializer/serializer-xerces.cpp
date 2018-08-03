@@ -99,7 +99,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
 
             if (!current_at->isTransient() && obj->eIsSet(current_at))
             {
-                EDataType_ptr atc = at_classifier->as< EDataType > ();
+                EDataType_ptr atc = as< EDataType >(at_classifier);
                 if (atc)
                 {
                     EFactory_ptr fac =
@@ -346,7 +346,7 @@ void serializer::serialize(EObject_ptr obj)
         while (to_antecessors.size())
         {
             value << "/"
-                    << to_antecessors.back()->as< ENamedElement > ()->getName();
+                    << as< ENamedElement >(to_antecessors.back())->getName();
             to_antecessors.pop_back();
         }
     }

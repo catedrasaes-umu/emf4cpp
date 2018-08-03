@@ -56,21 +56,21 @@ DataPackage::DataPackage()
 {
 
     // Feature definitions of DataModel
-    m_DataModel__dataElement = boost::intrusive_ptr < ::ecore::EReference
+    m_DataModel__dataElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of AbstractDataElement
-    m_AbstractDataElement__source = boost::intrusive_ptr < ::ecore::EReference
+    m_AbstractDataElement__source = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_AbstractDataElement__dataRelation = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
-    m_AbstractDataElement__abstraction = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractDataElement__dataRelation = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractDataElement__abstraction = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of DataResource
 
     // Feature definitions of IndexElement
-    m_IndexElement__implementation = boost::intrusive_ptr < ::ecore::EReference
+    m_IndexElement__implementation = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of UniqueKey
@@ -80,25 +80,25 @@ DataPackage::DataPackage()
     // Feature definitions of AbstractDataRelationship
 
     // Feature definitions of KeyRelation
-    m_KeyRelation__to = boost::intrusive_ptr < ::ecore::EReference
+    m_KeyRelation__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_KeyRelation__from = boost::intrusive_ptr < ::ecore::EReference
+    m_KeyRelation__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ReferenceKey
 
     // Feature definitions of DataContainer
-    m_DataContainer__dataElement = boost::intrusive_ptr < ::ecore::EReference
+    m_DataContainer__dataElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Catalog
 
     // Feature definitions of RelationalSchema
-    m_RelationalSchema__codeElement = boost::intrusive_ptr < ::ecore::EReference
+    m_RelationalSchema__codeElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ColumnSet
-    m_ColumnSet__itemUnit = boost::intrusive_ptr < ::ecore::EReference
+    m_ColumnSet__itemUnit = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of RelationalTable
@@ -108,18 +108,18 @@ DataPackage::DataPackage()
     // Feature definitions of RecordFile
 
     // Feature definitions of DataEvent
-    m_DataEvent__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_DataEvent__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of XMLSchema
-    m_XMLSchema__contentElement = boost::intrusive_ptr < ::ecore::EReference
+    m_XMLSchema__contentElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of AbstractContentElement
 
     // Feature definitions of ComplexContentType
-    m_ComplexContentType__contentElement = boost::intrusive_ptr
-            < ::ecore::EReference > (new ::ecore::EReference);
+    m_ComplexContentType__contentElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
     // Feature definitions of AllContent
 
@@ -128,31 +128,31 @@ DataPackage::DataPackage()
     // Feature definitions of ChoiceContent
 
     // Feature definitions of ContentItem
-    m_ContentItem__type = boost::intrusive_ptr < ::ecore::EReference
+    m_ContentItem__type = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ContentItem__contentElement = boost::intrusive_ptr < ::ecore::EReference
+    m_ContentItem__contentElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of GroupContent
 
     // Feature definitions of ContentRestriction
-    m_ContentRestriction__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ContentRestriction__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ContentRestriction__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ContentRestriction__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of SimpleContentType
-    m_SimpleContentType__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_SimpleContentType__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_SimpleContentType__type = boost::intrusive_ptr < ::ecore::EReference
+    m_SimpleContentType__type = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ExtendedDataElement
 
     // Feature definitions of DataRelationship
-    m_DataRelationship__to = boost::intrusive_ptr < ::ecore::EReference
+    m_DataRelationship__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_DataRelationship__from = boost::intrusive_ptr < ::ecore::EReference
+    m_DataRelationship__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of MixedContent
@@ -160,67 +160,67 @@ DataPackage::DataPackage()
     // Feature definitions of ContentReference
 
     // Feature definitions of DataAction
-    m_DataAction__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_DataAction__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_DataAction__implementation = boost::intrusive_ptr < ::ecore::EReference
+    m_DataAction__implementation = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_DataAction__dataElement = boost::intrusive_ptr < ::ecore::EReference
+    m_DataAction__dataElement = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ReadsColumnSet
-    m_ReadsColumnSet__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ReadsColumnSet__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ReadsColumnSet__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ReadsColumnSet__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ContentAttribute
 
     // Feature definitions of TypedBy
-    m_TypedBy__to = boost::intrusive_ptr < ::ecore::EReference
+    m_TypedBy__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_TypedBy__from = boost::intrusive_ptr < ::ecore::EReference
+    m_TypedBy__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ReferenceTo
-    m_ReferenceTo__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ReferenceTo__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ReferenceTo__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ReferenceTo__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of RestrictionOf
-    m_RestrictionOf__to = boost::intrusive_ptr < ::ecore::EReference
+    m_RestrictionOf__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_RestrictionOf__from = boost::intrusive_ptr < ::ecore::EReference
+    m_RestrictionOf__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ExtensionTo
-    m_ExtensionTo__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ExtensionTo__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ExtensionTo__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ExtensionTo__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of DatatypeOf
-    m_DatatypeOf__to = boost::intrusive_ptr < ::ecore::EReference
+    m_DatatypeOf__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_DatatypeOf__from = boost::intrusive_ptr < ::ecore::EReference
+    m_DatatypeOf__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of HasContent
-    m_HasContent__to = boost::intrusive_ptr < ::ecore::EReference
+    m_HasContent__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_HasContent__from = boost::intrusive_ptr < ::ecore::EReference
+    m_HasContent__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of WritesColumnSet
-    m_WritesColumnSet__to = boost::intrusive_ptr < ::ecore::EReference
+    m_WritesColumnSet__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_WritesColumnSet__from = boost::intrusive_ptr < ::ecore::EReference
+    m_WritesColumnSet__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ProducesDataEvent
-    m_ProducesDataEvent__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ProducesDataEvent__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ProducesDataEvent__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ProducesDataEvent__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of DataSegment
@@ -228,9 +228,9 @@ DataPackage::DataPackage()
     // Feature definitions of ContentElement
 
     // Feature definitions of ManagesData
-    m_ManagesData__to = boost::intrusive_ptr < ::ecore::EReference
+    m_ManagesData__to = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_ManagesData__from = boost::intrusive_ptr < ::ecore::EReference
+    m_ManagesData__from = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -245,8 +245,7 @@ void DataPackage::_initPackage()
     // Create classes and their features
 
     // DataModel
-    m_DataModelEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DataModelEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DataModelEClass->setClassifierID(DATAMODEL);
     m_DataModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DataModelEClass);
@@ -257,7 +256,7 @@ void DataPackage::_initPackage()
             m_DataModel__dataElement);
 
     // AbstractDataElement
-    m_AbstractDataElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractDataElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractDataElementEClass->setClassifierID(ABSTRACTDATAELEMENT);
     m_AbstractDataElementEClass->setEPackage(_this());
@@ -279,14 +278,14 @@ void DataPackage::_initPackage()
             m_AbstractDataElement__abstraction);
 
     // DataResource
-    m_DataResourceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DataResourceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DataResourceEClass->setClassifierID(DATARESOURCE);
     m_DataResourceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DataResourceEClass);
 
     // IndexElement
-    m_IndexElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_IndexElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_IndexElementEClass->setClassifierID(INDEXELEMENT);
     m_IndexElementEClass->setEPackage(_this());
@@ -298,28 +297,26 @@ void DataPackage::_initPackage()
             m_IndexElement__implementation);
 
     // UniqueKey
-    m_UniqueKeyEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_UniqueKeyEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_UniqueKeyEClass->setClassifierID(UNIQUEKEY);
     m_UniqueKeyEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UniqueKeyEClass);
 
     // Index
-    m_IndexEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_IndexEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_IndexEClass->setClassifierID(INDEX);
     m_IndexEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IndexEClass);
 
     // AbstractDataRelationship
-    m_AbstractDataRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractDataRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractDataRelationshipEClass->setClassifierID(ABSTRACTDATARELATIONSHIP);
     m_AbstractDataRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractDataRelationshipEClass);
 
     // KeyRelation
-    m_KeyRelationEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_KeyRelationEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_KeyRelationEClass->setClassifierID(KEYRELATION);
     m_KeyRelationEClass->setEPackage(_this());
@@ -334,14 +331,14 @@ void DataPackage::_initPackage()
             m_KeyRelation__from);
 
     // ReferenceKey
-    m_ReferenceKeyEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ReferenceKeyEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ReferenceKeyEClass->setClassifierID(REFERENCEKEY);
     m_ReferenceKeyEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReferenceKeyEClass);
 
     // DataContainer
-    m_DataContainerEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DataContainerEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DataContainerEClass->setClassifierID(DATACONTAINER);
     m_DataContainerEClass->setEPackage(_this());
@@ -353,14 +350,13 @@ void DataPackage::_initPackage()
             m_DataContainer__dataElement);
 
     // Catalog
-    m_CatalogEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_CatalogEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CatalogEClass->setClassifierID(CATALOG);
     m_CatalogEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CatalogEClass);
 
     // RelationalSchema
-    m_RelationalSchemaEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RelationalSchemaEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RelationalSchemaEClass->setClassifierID(RELATIONALSCHEMA);
     m_RelationalSchemaEClass->setEPackage(_this());
@@ -372,8 +368,7 @@ void DataPackage::_initPackage()
             m_RelationalSchema__codeElement);
 
     // ColumnSet
-    m_ColumnSetEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ColumnSetEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ColumnSetEClass->setClassifierID(COLUMNSET);
     m_ColumnSetEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ColumnSetEClass);
@@ -384,29 +379,27 @@ void DataPackage::_initPackage()
             m_ColumnSet__itemUnit);
 
     // RelationalTable
-    m_RelationalTableEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RelationalTableEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RelationalTableEClass->setClassifierID(RELATIONALTABLE);
     m_RelationalTableEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RelationalTableEClass);
 
     // RelationalView
-    m_RelationalViewEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RelationalViewEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RelationalViewEClass->setClassifierID(RELATIONALVIEW);
     m_RelationalViewEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RelationalViewEClass);
 
     // RecordFile
-    m_RecordFileEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_RecordFileEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RecordFileEClass->setClassifierID(RECORDFILE);
     m_RecordFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RecordFileEClass);
 
     // DataEvent
-    m_DataEventEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DataEventEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DataEventEClass->setClassifierID(DATAEVENT);
     m_DataEventEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DataEventEClass);
@@ -415,8 +408,7 @@ void DataPackage::_initPackage()
     m_DataEventEClass->getEStructuralFeatures().push_back(m_DataEvent__kind);
 
     // XMLSchema
-    m_XMLSchemaEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_XMLSchemaEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_XMLSchemaEClass->setClassifierID(XMLSCHEMA);
     m_XMLSchemaEClass->setEPackage(_this());
     getEClassifiers().push_back(m_XMLSchemaEClass);
@@ -427,14 +419,14 @@ void DataPackage::_initPackage()
             m_XMLSchema__contentElement);
 
     // AbstractContentElement
-    m_AbstractContentElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_AbstractContentElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_AbstractContentElementEClass->setClassifierID(ABSTRACTCONTENTELEMENT);
     m_AbstractContentElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractContentElementEClass);
 
     // ComplexContentType
-    m_ComplexContentTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ComplexContentTypeEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ComplexContentTypeEClass->setClassifierID(COMPLEXCONTENTTYPE);
     m_ComplexContentTypeEClass->setEPackage(_this());
@@ -446,28 +438,26 @@ void DataPackage::_initPackage()
             m_ComplexContentType__contentElement);
 
     // AllContent
-    m_AllContentEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_AllContentEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AllContentEClass->setClassifierID(ALLCONTENT);
     m_AllContentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AllContentEClass);
 
     // SeqContent
-    m_SeqContentEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SeqContentEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SeqContentEClass->setClassifierID(SEQCONTENT);
     m_SeqContentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SeqContentEClass);
 
     // ChoiceContent
-    m_ChoiceContentEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ChoiceContentEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ChoiceContentEClass->setClassifierID(CHOICECONTENT);
     m_ChoiceContentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ChoiceContentEClass);
 
     // ContentItem
-    m_ContentItemEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ContentItemEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ContentItemEClass->setClassifierID(CONTENTITEM);
     m_ContentItemEClass->setEPackage(_this());
@@ -484,14 +474,14 @@ void DataPackage::_initPackage()
             m_ContentItem__contentElement);
 
     // GroupContent
-    m_GroupContentEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_GroupContentEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_GroupContentEClass->setClassifierID(GROUPCONTENT);
     m_GroupContentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GroupContentEClass);
 
     // ContentRestriction
-    m_ContentRestrictionEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ContentRestrictionEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ContentRestrictionEClass->setClassifierID(CONTENTRESTRICTION);
     m_ContentRestrictionEClass->setEPackage(_this());
@@ -508,7 +498,7 @@ void DataPackage::_initPackage()
             m_ContentRestriction__value);
 
     // SimpleContentType
-    m_SimpleContentTypeEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_SimpleContentTypeEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_SimpleContentTypeEClass->setClassifierID(SIMPLECONTENTTYPE);
     m_SimpleContentTypeEClass->setEPackage(_this());
@@ -525,14 +515,14 @@ void DataPackage::_initPackage()
             m_SimpleContentType__type);
 
     // ExtendedDataElement
-    m_ExtendedDataElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExtendedDataElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExtendedDataElementEClass->setClassifierID(EXTENDEDDATAELEMENT);
     m_ExtendedDataElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExtendedDataElementEClass);
 
     // DataRelationship
-    m_DataRelationshipEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DataRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DataRelationshipEClass->setClassifierID(DATARELATIONSHIP);
     m_DataRelationshipEClass->setEPackage(_this());
@@ -549,22 +539,21 @@ void DataPackage::_initPackage()
             m_DataRelationship__from);
 
     // MixedContent
-    m_MixedContentEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_MixedContentEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_MixedContentEClass->setClassifierID(MIXEDCONTENT);
     m_MixedContentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MixedContentEClass);
 
     // ContentReference
-    m_ContentReferenceEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ContentReferenceEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ContentReferenceEClass->setClassifierID(CONTENTREFERENCE);
     m_ContentReferenceEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ContentReferenceEClass);
 
     // DataAction
-    m_DataActionEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DataActionEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DataActionEClass->setClassifierID(DATAACTION);
     m_DataActionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DataActionEClass);
@@ -584,7 +573,7 @@ void DataPackage::_initPackage()
             m_DataAction__dataElement);
 
     // ReadsColumnSet
-    m_ReadsColumnSetEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ReadsColumnSetEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ReadsColumnSetEClass->setClassifierID(READSCOLUMNSET);
     m_ReadsColumnSetEClass->setEPackage(_this());
@@ -601,15 +590,14 @@ void DataPackage::_initPackage()
             m_ReadsColumnSet__from);
 
     // ContentAttribute
-    m_ContentAttributeEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ContentAttributeEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ContentAttributeEClass->setClassifierID(CONTENTATTRIBUTE);
     m_ContentAttributeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ContentAttributeEClass);
 
     // TypedBy
-    m_TypedByEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TypedByEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TypedByEClass->setClassifierID(TYPEDBY);
     m_TypedByEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TypedByEClass);
@@ -621,7 +609,7 @@ void DataPackage::_initPackage()
     m_TypedByEClass->getEStructuralFeatures().push_back(m_TypedBy__from);
 
     // ReferenceTo
-    m_ReferenceToEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ReferenceToEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ReferenceToEClass->setClassifierID(REFERENCETO);
     m_ReferenceToEClass->setEPackage(_this());
@@ -636,7 +624,7 @@ void DataPackage::_initPackage()
             m_ReferenceTo__from);
 
     // RestrictionOf
-    m_RestrictionOfEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_RestrictionOfEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_RestrictionOfEClass->setClassifierID(RESTRICTIONOF);
     m_RestrictionOfEClass->setEPackage(_this());
@@ -653,7 +641,7 @@ void DataPackage::_initPackage()
             m_RestrictionOf__from);
 
     // ExtensionTo
-    m_ExtensionToEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ExtensionToEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ExtensionToEClass->setClassifierID(EXTENSIONTO);
     m_ExtensionToEClass->setEPackage(_this());
@@ -668,8 +656,7 @@ void DataPackage::_initPackage()
             m_ExtensionTo__from);
 
     // DatatypeOf
-    m_DatatypeOfEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_DatatypeOfEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DatatypeOfEClass->setClassifierID(DATATYPEOF);
     m_DatatypeOfEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DatatypeOfEClass);
@@ -682,8 +669,7 @@ void DataPackage::_initPackage()
     m_DatatypeOfEClass->getEStructuralFeatures().push_back(m_DatatypeOf__from);
 
     // HasContent
-    m_HasContentEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_HasContentEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_HasContentEClass->setClassifierID(HASCONTENT);
     m_HasContentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_HasContentEClass);
@@ -696,7 +682,7 @@ void DataPackage::_initPackage()
     m_HasContentEClass->getEStructuralFeatures().push_back(m_HasContent__from);
 
     // WritesColumnSet
-    m_WritesColumnSetEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_WritesColumnSetEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_WritesColumnSetEClass->setClassifierID(WRITESCOLUMNSET);
     m_WritesColumnSetEClass->setEPackage(_this());
@@ -713,7 +699,7 @@ void DataPackage::_initPackage()
             m_WritesColumnSet__from);
 
     // ProducesDataEvent
-    m_ProducesDataEventEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ProducesDataEventEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ProducesDataEventEClass->setClassifierID(PRODUCESDATAEVENT);
     m_ProducesDataEventEClass->setEPackage(_this());
@@ -730,21 +716,21 @@ void DataPackage::_initPackage()
             m_ProducesDataEvent__from);
 
     // DataSegment
-    m_DataSegmentEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_DataSegmentEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_DataSegmentEClass->setClassifierID(DATASEGMENT);
     m_DataSegmentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DataSegmentEClass);
 
     // ContentElement
-    m_ContentElementEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ContentElementEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ContentElementEClass->setClassifierID(CONTENTELEMENT);
     m_ContentElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ContentElementEClass);
 
     // ManagesData
-    m_ManagesDataEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ManagesDataEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ManagesDataEClass->setClassifierID(MANAGESDATA);
     m_ManagesDataEClass->setEPackage(_this());

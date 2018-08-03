@@ -66,18 +66,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 «EXPAND namespaces_begin FOR EPackage-»
 
-«IF ESuperTypes.isEmpty && "::"+this.getFQN() == "::ecore::EObject"-»
-/** The default pointer type used by the generated EMF implementation. */
-template<class T>
-using Ptr = boost::intrusive_ptr<T>;
-
-/* A helper function to create objects and wrap them in the default pointer type. */
-template<class T, class... Args>
-Ptr<T> make(Args&&... args) {
-	return Ptr<T>(new T(args...));
-}
-«ENDIF-»
-
 class EXPORT_«EPackage.getTopLevelPackage().name.toUpperCase()»_DLL «name» «IF !ESuperTypes.isEmpty-»: «FOREACH ESuperTypes AS supertype SEPARATOR ", "-»public virtual ::«supertype.getFQN()»«ENDFOREACH-»
         «ELSE-»«IF "::"+this.getFQN() != "::ecore::EObject"»: public virtual ::ecore::EObject«ELSE-»«ENDIF»«ENDIF»
 {
@@ -124,57 +112,13 @@ public:
      * value it can be used in template expansions. */
     static const int classifierId = «EPackage.name.toFirstUpper()»Package::«name.toUpperCase()»;
     «ENDIF-»
-	
-    «IF "::"+this.getFQN() == "::ecore::EObject"-»
+
+	«IF "::"+this.getFQN() == "::ecore::EObject"-»
     «name»(const «name»&);
+    «ENDIF-»
 
-    /** Special EObject cast helper operation. This template is enabled for
-     * casts to classes which are not derived from EObject. In that case it
-     * returns a T*.
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-	typename std::enable_if< !std::is_convertible<T*, EObject*>::value,
-							 T* >::type
-	as()
-    {
-        return dynamic_cast<T*>(this);
-    }
-
-    /** Special EObject cast helper operation. This template is enabled for
-     * casts to classes which are derived from EObject. In that case it
-     * returns the proper smart pointer type.
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-	typename std::enable_if< std::is_convertible<T*, EObject*>::value,
-							 boost::intrusive_ptr<T> >::type
-	as()
-    {
-        return boost::intrusive_ptr<T>(dynamic_cast<T*>(this));
-    }
-
-    /** Special EObject cast helper operation. const version of as<T>().
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-	typename std::enable_if< !std::is_convertible<const T*, const EObject*>::value,
-							 const T* >::type
-	as() const
-    {
-        return dynamic_cast<const T*>(this);
-    }
-
-    /* Special EObject cast helper operation. const version of as<T>().
-     * \warning Undefined behaviour if called on nullptr. */
-    template<typename T>
-	typename std::enable_if< std::is_convertible<const T*, const EObject*>::value,
-							 boost::intrusive_ptr<const T> >::type
-	as() const
-    {
-        return boost::intrusive_ptr<const T>(dynamic_cast<const T*>(this));
-    }
-   «ENDIF-»
-    
     «REM»«EXPAND template::boost_serialization::serialize FOR this»«ENDREM»
-    
+
     «PROTECT CSTART '/*' CEND '*/' ID name DISABLE»
     // Please, enable the protected region if you add manually written code.
     // To do this, add the keyword ENABLED before START.

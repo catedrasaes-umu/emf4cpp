@@ -22,12 +22,12 @@
 
 using namespace ::ResourceTests;
 
-boost::intrusive_ptr< ::ResourceTests::ResourceTestsFactory > ResourceTestsFactory::s_holder;
+::ecore::Ptr< ::ResourceTests::ResourceTestsFactory > ResourceTestsFactory::s_holder;
 
 ::ResourceTests::ResourceTestsFactory_ptr ResourceTestsFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < ResourceTestsFactory
+        s_holder = ::ecore::Ptr < ResourceTestsFactory
                 > (new ResourceTestsFactory());
 
     return s_holder;

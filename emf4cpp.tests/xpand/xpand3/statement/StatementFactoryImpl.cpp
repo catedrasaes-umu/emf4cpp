@@ -96,48 +96,47 @@ StatementFactory::StatementFactory()
 
 AbstractStatement_ptr StatementFactory::createAbstractStatement()
 {
-    return boost::intrusive_ptr < AbstractStatement > (new AbstractStatement);
+    return ::ecore::Ptr < AbstractStatement > (new AbstractStatement);
 }
 ExpandStatement_ptr StatementFactory::createExpandStatement()
 {
-    return boost::intrusive_ptr < ExpandStatement > (new ExpandStatement);
+    return ::ecore::Ptr < ExpandStatement > (new ExpandStatement);
 }
 ExpressionStatement_ptr StatementFactory::createExpressionStatement()
 {
-    return boost::intrusive_ptr < ExpressionStatement
-            > (new ExpressionStatement);
+    return ::ecore::Ptr < ExpressionStatement > (new ExpressionStatement);
 }
 ErrorStatement_ptr StatementFactory::createErrorStatement()
 {
-    return boost::intrusive_ptr < ErrorStatement > (new ErrorStatement);
+    return ::ecore::Ptr < ErrorStatement > (new ErrorStatement);
 }
 AbstractStatementWithBody_ptr StatementFactory::createAbstractStatementWithBody()
 {
-    return boost::intrusive_ptr < AbstractStatementWithBody
+    return ::ecore::Ptr < AbstractStatementWithBody
             > (new AbstractStatementWithBody);
 }
 FileStatement_ptr StatementFactory::createFileStatement()
 {
-    return boost::intrusive_ptr < FileStatement > (new FileStatement);
+    return ::ecore::Ptr < FileStatement > (new FileStatement);
 }
 ForEachStatement_ptr StatementFactory::createForEachStatement()
 {
-    return boost::intrusive_ptr < ForEachStatement > (new ForEachStatement);
+    return ::ecore::Ptr < ForEachStatement > (new ForEachStatement);
 }
 IfStatement_ptr StatementFactory::createIfStatement()
 {
-    return boost::intrusive_ptr < IfStatement > (new IfStatement);
+    return ::ecore::Ptr < IfStatement > (new IfStatement);
 }
 LetStatement_ptr StatementFactory::createLetStatement()
 {
-    return boost::intrusive_ptr < LetStatement > (new LetStatement);
+    return ::ecore::Ptr < LetStatement > (new LetStatement);
 }
 ProtectStatement_ptr StatementFactory::createProtectStatement()
 {
-    return boost::intrusive_ptr < ProtectStatement > (new ProtectStatement);
+    return ::ecore::Ptr < ProtectStatement > (new ProtectStatement);
 }
 TextStatement_ptr StatementFactory::createTextStatement()
 {
-    return boost::intrusive_ptr < TextStatement > (new TextStatement);
+    return ::ecore::Ptr < TextStatement > (new TextStatement);
 }
 

@@ -111,19 +111,19 @@ void ExpandStatement::_initialize()
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__SEPARATOR:
     {
         if (m_separator)
-            _any = m_separator->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_separator);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__TARGET:
     {
         if (m_target)
-            _any = m_target->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_target);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::EXPANDSTATEMENT__DEFINITION:
     {
         if (m_definition)
-            _any = m_definition->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_definition);
     }
         return _any;
 

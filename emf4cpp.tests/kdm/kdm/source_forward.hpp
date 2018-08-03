@@ -44,89 +44,83 @@ namespace kdm
 
 // SourceRef
         class SourceRef;
-        using SourceRef_ptr = boost::intrusive_ptr<SourceRef>;
+        using SourceRef_ptr = ::ecore::Ptr<SourceRef>;
 
 // SourceRegion
         class SourceRegion;
-        using SourceRegion_ptr = boost::intrusive_ptr<SourceRegion>;
+        using SourceRegion_ptr = ::ecore::Ptr<SourceRegion>;
 
 // InventoryModel
         class InventoryModel;
-        using InventoryModel_ptr = boost::intrusive_ptr<InventoryModel>;
+        using InventoryModel_ptr = ::ecore::Ptr<InventoryModel>;
 
 // AbstractInventoryElement
         class AbstractInventoryElement;
-        using AbstractInventoryElement_ptr = boost::intrusive_ptr<AbstractInventoryElement>;
+        using AbstractInventoryElement_ptr = ::ecore::Ptr<AbstractInventoryElement>;
 
 // InventoryItem
         class InventoryItem;
-        using InventoryItem_ptr = boost::intrusive_ptr<InventoryItem>;
+        using InventoryItem_ptr = ::ecore::Ptr<InventoryItem>;
 
 // SourceFile
         class SourceFile;
-        using SourceFile_ptr = boost::intrusive_ptr<SourceFile>;
+        using SourceFile_ptr = ::ecore::Ptr<SourceFile>;
 
 // Image
         class Image;
-        using Image_ptr = boost::intrusive_ptr<Image>;
+        using Image_ptr = ::ecore::Ptr<Image>;
 
 // ResourceDescription
         class ResourceDescription;
-        using ResourceDescription_ptr = boost::intrusive_ptr<ResourceDescription>;
+        using ResourceDescription_ptr = ::ecore::Ptr<ResourceDescription>;
 
 // Configuration
         class Configuration;
-        using Configuration_ptr = boost::intrusive_ptr<Configuration>;
+        using Configuration_ptr = ::ecore::Ptr<Configuration>;
 
 // InventoryContainer
         class InventoryContainer;
-        using InventoryContainer_ptr = boost::intrusive_ptr<InventoryContainer>;
+        using InventoryContainer_ptr = ::ecore::Ptr<InventoryContainer>;
 
 // Directory
         class Directory;
-        using Directory_ptr = boost::intrusive_ptr<Directory>;
+        using Directory_ptr = ::ecore::Ptr<Directory>;
 
 // Project
         class Project;
-        using Project_ptr = boost::intrusive_ptr<Project>;
+        using Project_ptr = ::ecore::Ptr<Project>;
 
 // AbstractInventoryRelationship
         class AbstractInventoryRelationship;
-        using AbstractInventoryRelationship_ptr = boost::intrusive_ptr<AbstractInventoryRelationship>;
+        using AbstractInventoryRelationship_ptr = ::ecore::Ptr<AbstractInventoryRelationship>;
 
 // BinaryFile
         class BinaryFile;
-        using BinaryFile_ptr = boost::intrusive_ptr<BinaryFile>;
+        using BinaryFile_ptr = ::ecore::Ptr<BinaryFile>;
 
 // ExecutableFile
         class ExecutableFile;
-        using ExecutableFile_ptr = boost::intrusive_ptr<ExecutableFile>;
+        using ExecutableFile_ptr = ::ecore::Ptr<ExecutableFile>;
 
 // DependsOn
         class DependsOn;
-        using DependsOn_ptr = boost::intrusive_ptr<DependsOn>;
+        using DependsOn_ptr = ::ecore::Ptr<DependsOn>;
 
 // InventoryElement
         class InventoryElement;
-        using InventoryElement_ptr = boost::intrusive_ptr<InventoryElement>;
+        using InventoryElement_ptr = ::ecore::Ptr<InventoryElement>;
 
 // InventoryRelationship
         class InventoryRelationship;
-        using InventoryRelationship_ptr = boost::intrusive_ptr<InventoryRelationship>;
+        using InventoryRelationship_ptr = ::ecore::Ptr<InventoryRelationship>;
 
 // EEnum
 
 // Package & Factory
         class SourceFactory;
-        using SourceFactory_ptr = boost::intrusive_ptr<SourceFactory>;
+        using SourceFactory_ptr = ::ecore::Ptr<SourceFactory>;
         class SourcePackage;
-        using SourcePackage_ptr = boost::intrusive_ptr<SourcePackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using SourcePackage_ptr = ::ecore::Ptr<SourcePackage>;
 
     } // source
 } // kdm

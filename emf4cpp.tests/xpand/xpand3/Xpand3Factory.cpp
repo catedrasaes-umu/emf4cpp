@@ -22,12 +22,12 @@
 
 using namespace ::xpand3;
 
-boost::intrusive_ptr< ::xpand3::Xpand3Factory > Xpand3Factory::s_holder;
+::ecore::Ptr< ::xpand3::Xpand3Factory > Xpand3Factory::s_holder;
 
 ::xpand3::Xpand3Factory_ptr Xpand3Factory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < Xpand3Factory > (new Xpand3Factory());
+        s_holder = ::ecore::Ptr < Xpand3Factory > (new Xpand3Factory());
 
     return s_holder;
 }

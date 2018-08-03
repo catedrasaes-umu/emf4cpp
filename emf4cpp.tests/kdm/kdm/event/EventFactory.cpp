@@ -22,12 +22,12 @@
 
 using namespace ::kdm::event;
 
-boost::intrusive_ptr< ::kdm::event::EventFactory > EventFactory::s_holder;
+::ecore::Ptr< ::kdm::event::EventFactory > EventFactory::s_holder;
 
 ::kdm::event::EventFactory_ptr EventFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < EventFactory > (new EventFactory());
+        s_holder = ::ecore::Ptr < EventFactory > (new EventFactory());
 
     return s_holder;
 }

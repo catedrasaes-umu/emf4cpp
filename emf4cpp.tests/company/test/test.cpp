@@ -10,8 +10,8 @@ using namespace ecore;
 
 int main(int argc, char* argv[])
 {
-    CompanyPackage_ptr companyPackage = CompanyPackage::_instance()->as< CompanyPackage >();
-    CompanyFactory_ptr companyFactory = CompanyFactory::_instance()->as< CompanyFactory >();
+    CompanyPackage_ptr companyPackage = CompanyPackage::_instance();
+    CompanyFactory_ptr companyFactory = CompanyFactory::_instance();
 
     {
 		boost::intrusive_ptr<Company> umu ( companyFactory->createCompany());
@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
     EObject_ptr eobj = _dser.load ("UMU.xmi");
 
     {
-		boost::intrusive_ptr<Company> umu (eobj->as< Company >());
+		boost::intrusive_ptr<Company> umu (::ecore::as< Company >(eobj));
     }
 }
 

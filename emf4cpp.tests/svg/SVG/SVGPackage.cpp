@@ -22,7 +22,7 @@
 
 using namespace ::SVG;
 
-boost::intrusive_ptr< ::SVG::SVGPackage > SVGPackage::s_instance;
+::ecore::Ptr< ::SVG::SVGPackage > SVGPackage::s_instance;
 
 ::SVG::SVGPackage_ptr SVGPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::SVG::SVGPackage > SVGPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< SVGPackage >();
+            return ::ecore::Ptr< SVGPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < SVGPackage > (new SVGPackage());
+        s_instance = ::ecore::Ptr < SVGPackage > (new SVGPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

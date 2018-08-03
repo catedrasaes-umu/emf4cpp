@@ -40,31 +40,31 @@ ResourceTestsPackage::ResourceTestsPackage()
 {
 
     // Feature definitions of Root
-    m_Root__target = boost::intrusive_ptr < ::ecore::EReference
+    m_Root__target = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Root__referrers = boost::intrusive_ptr < ::ecore::EReference
+    m_Root__referrers = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ReferenceTarget
 
     // Feature definitions of Referrer
-    m_Referrer__reference = boost::intrusive_ptr < ::ecore::EReference
+    m_Referrer__reference = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of ETypes
-    m_ETypes__string = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ETypes__string = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ETypes__emptyString = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ETypes__emptyString = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ETypes__date = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ETypes__date = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ETypes__char = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ETypes__char = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ETypes__bool = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ETypes__bool = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ETypes__double = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ETypes__double = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_ETypes__int = boost::intrusive_ptr < ::ecore::EAttribute
+    m_ETypes__int = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
 }
@@ -79,8 +79,7 @@ void ResourceTestsPackage::_initPackage()
     // Create classes and their features
 
     // Root
-    m_RootEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_RootEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RootEClass->setClassifierID(ROOT);
     m_RootEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RootEClass);
@@ -94,15 +93,14 @@ void ResourceTestsPackage::_initPackage()
     m_RootEClass->getEStructuralFeatures().push_back(m_Root__referrers);
 
     // ReferenceTarget
-    m_ReferenceTargetEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_ReferenceTargetEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_ReferenceTargetEClass->setClassifierID(REFERENCETARGET);
     m_ReferenceTargetEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReferenceTargetEClass);
 
     // Referrer
-    m_ReferrerEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ReferrerEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ReferrerEClass->setClassifierID(REFERRER);
     m_ReferrerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReferrerEClass);
@@ -112,8 +110,7 @@ void ResourceTestsPackage::_initPackage()
     m_ReferrerEClass->getEStructuralFeatures().push_back(m_Referrer__reference);
 
     // ETypes
-    m_ETypesEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ETypesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ETypesEClass->setClassifierID(ETYPES);
     m_ETypesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ETypesEClass);

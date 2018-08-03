@@ -108,7 +108,7 @@ void «name»::_initialize()
                 «IF EReference.isInstance(ef)-»
                     «IF ef.upperBound == 1-»
                         if («ef.getMemberName()»)
-                            _any = «ef.getMemberName()»->as< ::ecore::EObject >();
+                            _any = ::ecore::as<::ecore::EObject>(«ef.getMemberName()»);
                     «ELSE-»
                         _any = «ef.getMemberName()»->asEListOf< ::ecore::EObject_ptr >();
                     «ENDIF-»

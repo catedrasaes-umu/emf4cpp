@@ -95,19 +95,19 @@ void LetExpression::_initialize()
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VAREXPRESSION:
     {
         if (m_varExpression)
-            _any = m_varExpression->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_varExpression);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__TARGETEXPRESSION:
     {
         if (m_targetExpression)
-            _any = m_targetExpression->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_targetExpression);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VARNAME:
     {
         if (m_varName)
-            _any = m_varName->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_varName);
     }
         return _any;
 

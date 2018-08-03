@@ -75,18 +75,18 @@ ResourceTestsFactory::ResourceTestsFactory()
 
 Root_ptr ResourceTestsFactory::createRoot()
 {
-    return boost::intrusive_ptr < Root > (new Root);
+    return ::ecore::Ptr < Root > (new Root);
 }
 ReferenceTarget_ptr ResourceTestsFactory::createReferenceTarget()
 {
-    return boost::intrusive_ptr < ReferenceTarget > (new ReferenceTarget);
+    return ::ecore::Ptr < ReferenceTarget > (new ReferenceTarget);
 }
 Referrer_ptr ResourceTestsFactory::createReferrer()
 {
-    return boost::intrusive_ptr < Referrer > (new Referrer);
+    return ::ecore::Ptr < Referrer > (new Referrer);
 }
 ETypes_ptr ResourceTestsFactory::createETypes()
 {
-    return boost::intrusive_ptr < ETypes > (new ETypes);
+    return ::ecore::Ptr < ETypes > (new ETypes);
 }
 

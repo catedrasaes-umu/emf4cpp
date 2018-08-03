@@ -6,9 +6,9 @@
 #include "../treeiterator/TreeiteratorPackage.hpp"
 
 void printTreeObject(::ecore::EObject_ptr obj) {
-	if ( ::treeiterator::TreeNode_ptr node = obj->as<::treeiterator::TreeNode>()) {
+	if ( ::treeiterator::TreeNode_ptr node = ::ecore::as< ::treeiterator::TreeNode >(obj)) {
 		std::cerr << node->getName() << '\n';
-	} else if (::treeiterator::Leaf_ptr leaf = obj->as<::treeiterator::Leaf>()) {
+	} else if (::treeiterator::Leaf_ptr leaf = ::ecore::as< ::treeiterator::Leaf >(obj)) {
 		std::cerr << leaf->getName() << '\n';
 	} else {
 		throw "Unknown type detected!";

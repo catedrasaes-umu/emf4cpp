@@ -50,7 +50,7 @@ namespace json
 
     protected:
 
-        static boost::intrusive_ptr< JsonFactory > s_holder;
+        static ::ecore::Ptr< JsonFactory > s_holder;
 
         JsonFactory();
 
@@ -62,9 +62,9 @@ namespace json
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline ObjectValue_ptr create< ObjectValue >()

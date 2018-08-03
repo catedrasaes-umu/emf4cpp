@@ -22,7 +22,7 @@
 
 using namespace ::edate;
 
-boost::intrusive_ptr< ::edate::EdatePackage > EdatePackage::s_instance;
+::ecore::Ptr< ::edate::EdatePackage > EdatePackage::s_instance;
 
 ::edate::EdatePackage_ptr EdatePackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::edate::EdatePackage > EdatePackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< EdatePackage >();
+            return ::ecore::Ptr< EdatePackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < EdatePackage > (new EdatePackage());
+        s_instance = ::ecore::Ptr < EdatePackage > (new EdatePackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

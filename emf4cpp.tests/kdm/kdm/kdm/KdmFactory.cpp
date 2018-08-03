@@ -22,12 +22,12 @@
 
 using namespace ::kdm::kdm;
 
-boost::intrusive_ptr< ::kdm::kdm::KdmFactory > KdmFactory::s_holder;
+::ecore::Ptr< ::kdm::kdm::KdmFactory > KdmFactory::s_holder;
 
 ::kdm::kdm::KdmFactory_ptr KdmFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < KdmFactory > (new KdmFactory());
+        s_holder = ::ecore::Ptr < KdmFactory > (new KdmFactory());
 
     return s_holder;
 }

@@ -91,7 +91,7 @@ void EEnumLiteral::_initialize()
     case ::ecore::EcorePackage::EENUMLITERAL__EENUM:
     {
         if (m_eEnum)
-            _any = m_eEnum->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eEnum);
     }
         return _any;
 

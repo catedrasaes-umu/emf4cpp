@@ -22,12 +22,12 @@
 
 using namespace ::json;
 
-boost::intrusive_ptr< ::json::JsonFactory > JsonFactory::s_holder;
+::ecore::Ptr< ::json::JsonFactory > JsonFactory::s_holder;
 
 ::json::JsonFactory_ptr JsonFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < JsonFactory > (new JsonFactory());
+        s_holder = ::ecore::Ptr < JsonFactory > (new JsonFactory());
 
     return s_holder;
 }

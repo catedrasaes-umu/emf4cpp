@@ -22,7 +22,7 @@
 
 using namespace ::kdm::ui;
 
-boost::intrusive_ptr< ::kdm::ui::UiPackage > UiPackage::s_instance;
+::ecore::Ptr< ::kdm::ui::UiPackage > UiPackage::s_instance;
 
 ::kdm::ui::UiPackage_ptr UiPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::kdm::ui::UiPackage > UiPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< UiPackage >();
+            return ::ecore::Ptr< UiPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < UiPackage > (new UiPackage());
+        s_instance = ::ecore::Ptr < UiPackage > (new UiPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

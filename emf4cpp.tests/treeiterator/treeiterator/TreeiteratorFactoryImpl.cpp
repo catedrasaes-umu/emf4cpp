@@ -69,10 +69,10 @@ TreeiteratorFactory::TreeiteratorFactory()
 
 TreeNode_ptr TreeiteratorFactory::createTreeNode()
 {
-    return boost::intrusive_ptr < TreeNode > (new TreeNode);
+    return ::ecore::Ptr < TreeNode > (new TreeNode);
 }
 Leaf_ptr TreeiteratorFactory::createLeaf()
 {
-    return boost::intrusive_ptr < Leaf > (new Leaf);
+    return ::ecore::Ptr < Leaf > (new Leaf);
 }
 

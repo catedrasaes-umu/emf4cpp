@@ -508,7 +508,7 @@ namespace kdm
 
     protected:
 
-        static boost::intrusive_ptr< BuildPackage > s_instance;
+        static ::ecore::Ptr< BuildPackage > s_instance;
 
         BuildPackage();
         void _initPackage();

@@ -89,7 +89,7 @@ namespace kdm
 
         protected:
 
-            static boost::intrusive_ptr< DataFactory > s_holder;
+            static ::ecore::Ptr< DataFactory > s_holder;
 
             DataFactory();
 
@@ -101,9 +101,9 @@ namespace kdm
          *   auto p = create<MyClass>();
          *
          */
-        template< class T > inline boost::intrusive_ptr< T > create()
+        template< class T > inline ::ecore::Ptr< T > create()
         {
-            return boost::intrusive_ptr< T >();
+            return ::ecore::Ptr< T >();
         }
 
         template< > inline DataModel_ptr create< DataModel >()

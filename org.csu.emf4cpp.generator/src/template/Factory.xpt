@@ -55,7 +55,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< «name.toFirstUpper()»Factory > s_holder;
+    static ::ecore::Ptr< «name.toFirstUpper()»Factory > s_holder;
 
     «name.toFirstUpper()»Factory();
     
@@ -68,7 +68,7 @@ protected:
  *
  */
 template<class T> inline
-boost::intrusive_ptr<T> create() { return boost::intrusive_ptr<T>(); }
+::ecore::Ptr<T> create() { return ::ecore::Ptr<T>(); }
 
 «FOREACH this.EClassifiers.typeSelect(EClass) AS class-»
 template<> inline
@@ -96,12 +96,12 @@ template<> inline
 
 using namespace ::«getFQN()»;
 
-boost::intrusive_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_holder;
+::ecore::Ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_holder;
 
 ::«getFactoryPrefix("::")»_ptr «name.toFirstUpper()»Factory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr< «name.toFirstUpper()»Factory >( new «name.toFirstUpper()»Factory() );
+        s_holder = ::ecore::Ptr< «name.toFirstUpper()»Factory >( new «name.toFirstUpper()»Factory() );
 
     return s_holder;
 }

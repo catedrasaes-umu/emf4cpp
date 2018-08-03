@@ -22,7 +22,7 @@
 
 using namespace ::kdm::platform;
 
-boost::intrusive_ptr< ::kdm::platform::PlatformPackage > PlatformPackage::s_instance;
+::ecore::Ptr< ::kdm::platform::PlatformPackage > PlatformPackage::s_instance;
 
 ::kdm::platform::PlatformPackage_ptr PlatformPackage::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::kdm::platform::PlatformPackage > PlatformPackage::s_inst
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< PlatformPackage >();
+            return ::ecore::Ptr< PlatformPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < PlatformPackage
-                > (new PlatformPackage());
+        s_instance = ::ecore::Ptr < PlatformPackage > (new PlatformPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

@@ -51,107 +51,107 @@ namespace idlmm
 // EClass
 // Container
     class Container;
-    using Container_ptr = boost::intrusive_ptr<Container>;
+    using Container_ptr = ::ecore::Ptr<Container>;
 
 // Contained
     class Contained;
-    using Contained_ptr = boost::intrusive_ptr<Contained>;
+    using Contained_ptr = ::ecore::Ptr<Contained>;
 
 // InterfaceDef
     class InterfaceDef;
-    using InterfaceDef_ptr = boost::intrusive_ptr<InterfaceDef>;
+    using InterfaceDef_ptr = ::ecore::Ptr<InterfaceDef>;
 
 // ModuleDef
     class ModuleDef;
-    using ModuleDef_ptr = boost::intrusive_ptr<ModuleDef>;
+    using ModuleDef_ptr = ::ecore::Ptr<ModuleDef>;
 
 // IDLType
     class IDLType;
-    using IDLType_ptr = boost::intrusive_ptr<IDLType>;
+    using IDLType_ptr = ::ecore::Ptr<IDLType>;
 
 // OperationDef
     class OperationDef;
-    using OperationDef_ptr = boost::intrusive_ptr<OperationDef>;
+    using OperationDef_ptr = ::ecore::Ptr<OperationDef>;
 
 // AttributeDef
     class AttributeDef;
-    using AttributeDef_ptr = boost::intrusive_ptr<AttributeDef>;
+    using AttributeDef_ptr = ::ecore::Ptr<AttributeDef>;
 
 // ConstantDef
     class ConstantDef;
-    using ConstantDef_ptr = boost::intrusive_ptr<ConstantDef>;
+    using ConstantDef_ptr = ::ecore::Ptr<ConstantDef>;
 
 // Typed
     class Typed;
-    using Typed_ptr = boost::intrusive_ptr<Typed>;
+    using Typed_ptr = ::ecore::Ptr<Typed>;
 
 // ParameterDef
     class ParameterDef;
-    using ParameterDef_ptr = boost::intrusive_ptr<ParameterDef>;
+    using ParameterDef_ptr = ::ecore::Ptr<ParameterDef>;
 
 // PrimitiveDef
     class PrimitiveDef;
-    using PrimitiveDef_ptr = boost::intrusive_ptr<PrimitiveDef>;
+    using PrimitiveDef_ptr = ::ecore::Ptr<PrimitiveDef>;
 
 // ExceptionDef
     class ExceptionDef;
-    using ExceptionDef_ptr = boost::intrusive_ptr<ExceptionDef>;
+    using ExceptionDef_ptr = ::ecore::Ptr<ExceptionDef>;
 
 // Field
     class Field;
-    using Field_ptr = boost::intrusive_ptr<Field>;
+    using Field_ptr = ::ecore::Ptr<Field>;
 
 // FixedDef
     class FixedDef;
-    using FixedDef_ptr = boost::intrusive_ptr<FixedDef>;
+    using FixedDef_ptr = ::ecore::Ptr<FixedDef>;
 
 // WstringDef
     class WstringDef;
-    using WstringDef_ptr = boost::intrusive_ptr<WstringDef>;
+    using WstringDef_ptr = ::ecore::Ptr<WstringDef>;
 
 // StringDef
     class StringDef;
-    using StringDef_ptr = boost::intrusive_ptr<StringDef>;
+    using StringDef_ptr = ::ecore::Ptr<StringDef>;
 
 // AliasDef
     class AliasDef;
-    using AliasDef_ptr = boost::intrusive_ptr<AliasDef>;
+    using AliasDef_ptr = ::ecore::Ptr<AliasDef>;
 
 // ArrayDef
     class ArrayDef;
-    using ArrayDef_ptr = boost::intrusive_ptr<ArrayDef>;
+    using ArrayDef_ptr = ::ecore::Ptr<ArrayDef>;
 
 // SequenceDef
     class SequenceDef;
-    using SequenceDef_ptr = boost::intrusive_ptr<SequenceDef>;
+    using SequenceDef_ptr = ::ecore::Ptr<SequenceDef>;
 
 // UnionField
     class UnionField;
-    using UnionField_ptr = boost::intrusive_ptr<UnionField>;
+    using UnionField_ptr = ::ecore::Ptr<UnionField>;
 
 // TypedefDef
     class TypedefDef;
-    using TypedefDef_ptr = boost::intrusive_ptr<TypedefDef>;
+    using TypedefDef_ptr = ::ecore::Ptr<TypedefDef>;
 
 // UnionDef
     class UnionDef;
-    using UnionDef_ptr = boost::intrusive_ptr<UnionDef>;
+    using UnionDef_ptr = ::ecore::Ptr<UnionDef>;
 
 // EnumDef
     class EnumDef;
-    using EnumDef_ptr = boost::intrusive_ptr<EnumDef>;
+    using EnumDef_ptr = ::ecore::Ptr<EnumDef>;
 
 // StructDef
     class StructDef;
-    using StructDef_ptr = boost::intrusive_ptr<StructDef>;
+    using StructDef_ptr = ::ecore::Ptr<StructDef>;
 
 // TranslationUnit
     class TranslationUnit;
-    using TranslationUnit_ptr = boost::intrusive_ptr<TranslationUnit>;
+    using TranslationUnit_ptr = ::ecore::Ptr<TranslationUnit>;
 
 // Include
     class Include;
-    using Include_ptr = boost::intrusive_ptr<Include>;
+    using Include_ptr = ::ecore::Ptr<Include>;
 
 // EEnum
 
@@ -165,15 +165,9 @@ namespace idlmm
 
 // Package & Factory
     class IdlmmFactory;
-    using IdlmmFactory_ptr = boost::intrusive_ptr<IdlmmFactory>;
+    using IdlmmFactory_ptr = ::ecore::Ptr<IdlmmFactory>;
     class IdlmmPackage;
-    using IdlmmPackage_ptr = boost::intrusive_ptr<IdlmmPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using IdlmmPackage_ptr = ::ecore::Ptr<IdlmmPackage>;
 
 } // idlmm
 

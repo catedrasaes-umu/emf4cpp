@@ -44,61 +44,55 @@ namespace xpand3
 
 // AbstractStatement
         class AbstractStatement;
-        using AbstractStatement_ptr = boost::intrusive_ptr<AbstractStatement>;
+        using AbstractStatement_ptr = ::ecore::Ptr<AbstractStatement>;
 
 // ExpandStatement
         class ExpandStatement;
-        using ExpandStatement_ptr = boost::intrusive_ptr<ExpandStatement>;
+        using ExpandStatement_ptr = ::ecore::Ptr<ExpandStatement>;
 
 // ExpressionStatement
         class ExpressionStatement;
-        using ExpressionStatement_ptr = boost::intrusive_ptr<ExpressionStatement>;
+        using ExpressionStatement_ptr = ::ecore::Ptr<ExpressionStatement>;
 
 // ErrorStatement
         class ErrorStatement;
-        using ErrorStatement_ptr = boost::intrusive_ptr<ErrorStatement>;
+        using ErrorStatement_ptr = ::ecore::Ptr<ErrorStatement>;
 
 // AbstractStatementWithBody
         class AbstractStatementWithBody;
-        using AbstractStatementWithBody_ptr = boost::intrusive_ptr<AbstractStatementWithBody>;
+        using AbstractStatementWithBody_ptr = ::ecore::Ptr<AbstractStatementWithBody>;
 
 // FileStatement
         class FileStatement;
-        using FileStatement_ptr = boost::intrusive_ptr<FileStatement>;
+        using FileStatement_ptr = ::ecore::Ptr<FileStatement>;
 
 // ForEachStatement
         class ForEachStatement;
-        using ForEachStatement_ptr = boost::intrusive_ptr<ForEachStatement>;
+        using ForEachStatement_ptr = ::ecore::Ptr<ForEachStatement>;
 
 // IfStatement
         class IfStatement;
-        using IfStatement_ptr = boost::intrusive_ptr<IfStatement>;
+        using IfStatement_ptr = ::ecore::Ptr<IfStatement>;
 
 // LetStatement
         class LetStatement;
-        using LetStatement_ptr = boost::intrusive_ptr<LetStatement>;
+        using LetStatement_ptr = ::ecore::Ptr<LetStatement>;
 
 // ProtectStatement
         class ProtectStatement;
-        using ProtectStatement_ptr = boost::intrusive_ptr<ProtectStatement>;
+        using ProtectStatement_ptr = ::ecore::Ptr<ProtectStatement>;
 
 // TextStatement
         class TextStatement;
-        using TextStatement_ptr = boost::intrusive_ptr<TextStatement>;
+        using TextStatement_ptr = ::ecore::Ptr<TextStatement>;
 
 // EEnum
 
 // Package & Factory
         class StatementFactory;
-        using StatementFactory_ptr = boost::intrusive_ptr<StatementFactory>;
+        using StatementFactory_ptr = ::ecore::Ptr<StatementFactory>;
         class StatementPackage;
-        using StatementPackage_ptr = boost::intrusive_ptr<StatementPackage>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using StatementPackage_ptr = ::ecore::Ptr<StatementPackage>;
 
     } // statement
 } // xpand3

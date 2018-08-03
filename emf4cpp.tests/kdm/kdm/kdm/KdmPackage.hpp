@@ -289,7 +289,7 @@ namespace kdm
 
     protected:
 
-        static boost::intrusive_ptr< KdmPackage > s_instance;
+        static ::ecore::Ptr< KdmPackage > s_instance;
 
         KdmPackage();
         void _initPackage();

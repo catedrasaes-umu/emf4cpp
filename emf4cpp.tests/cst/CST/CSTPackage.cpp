@@ -22,7 +22,7 @@
 
 using namespace ::CST;
 
-boost::intrusive_ptr< ::CST::CSTPackage > CSTPackage::s_instance;
+::ecore::Ptr< ::CST::CSTPackage > CSTPackage::s_instance;
 
 ::CST::CSTPackage_ptr CSTPackage::_instance()
 {
@@ -30,9 +30,9 @@ boost::intrusive_ptr< ::CST::CSTPackage > CSTPackage::s_instance;
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< CSTPackage >();
+            return ::ecore::Ptr< CSTPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < CSTPackage > (new CSTPackage());
+        s_instance = ::ecore::Ptr < CSTPackage > (new CSTPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

@@ -22,13 +22,12 @@
 
 using namespace ::kdm::conceptual;
 
-boost::intrusive_ptr< ::kdm::conceptual::ConceptualFactory > ConceptualFactory::s_holder;
+::ecore::Ptr< ::kdm::conceptual::ConceptualFactory > ConceptualFactory::s_holder;
 
 ::kdm::conceptual::ConceptualFactory_ptr ConceptualFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < ConceptualFactory
-                > (new ConceptualFactory());
+        s_holder = ::ecore::Ptr < ConceptualFactory > (new ConceptualFactory());
 
     return s_holder;
 }

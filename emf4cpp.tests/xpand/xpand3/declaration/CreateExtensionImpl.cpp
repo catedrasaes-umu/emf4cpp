@@ -86,7 +86,7 @@ void CreateExtension::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
         if (m_owner)
-            _any = m_owner->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_owner);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
@@ -103,13 +103,13 @@ void CreateExtension::_initialize()
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
         if (m_guard)
-            _any = m_guard->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_guard);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTNAMEDDECLARATION__NAME:
     {
         if (m_name)
-            _any = m_name->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_name);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__CACHED:
@@ -121,19 +121,19 @@ void CreateExtension::_initialize()
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__BODY:
     {
         if (m_body)
-            _any = m_body->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_body);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::EXTENSION__RETURNTYPE:
     {
         if (m_returnType)
-            _any = m_returnType->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_returnType);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::CREATEEXTENSION__TOBECREATED:
     {
         if (m_toBeCreated)
-            _any = m_toBeCreated->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_toBeCreated);
     }
         return _any;
 

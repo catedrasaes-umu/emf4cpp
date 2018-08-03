@@ -22,12 +22,12 @@
 
 using namespace ::CST;
 
-boost::intrusive_ptr< ::CST::CSTFactory > CSTFactory::s_holder;
+::ecore::Ptr< ::CST::CSTFactory > CSTFactory::s_holder;
 
 ::CST::CSTFactory_ptr CSTFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < CSTFactory > (new CSTFactory());
+        s_holder = ::ecore::Ptr < CSTFactory > (new CSTFactory());
 
     return s_holder;
 }

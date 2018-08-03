@@ -42,33 +42,27 @@ namespace ResourceTests
 
 // Root
     class Root;
-    using Root_ptr = boost::intrusive_ptr<Root>;
+    using Root_ptr = ::ecore::Ptr<Root>;
 
 // ReferenceTarget
     class ReferenceTarget;
-    using ReferenceTarget_ptr = boost::intrusive_ptr<ReferenceTarget>;
+    using ReferenceTarget_ptr = ::ecore::Ptr<ReferenceTarget>;
 
 // Referrer
     class Referrer;
-    using Referrer_ptr = boost::intrusive_ptr<Referrer>;
+    using Referrer_ptr = ::ecore::Ptr<Referrer>;
 
 // ETypes
     class ETypes;
-    using ETypes_ptr = boost::intrusive_ptr<ETypes>;
+    using ETypes_ptr = ::ecore::Ptr<ETypes>;
 
 // EEnum
 
 // Package & Factory
     class ResourceTestsFactory;
-    using ResourceTestsFactory_ptr = boost::intrusive_ptr<ResourceTestsFactory>;
+    using ResourceTestsFactory_ptr = ::ecore::Ptr<ResourceTestsFactory>;
     class ResourceTestsPackage;
-    using ResourceTestsPackage_ptr = boost::intrusive_ptr<ResourceTestsPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using ResourceTestsPackage_ptr = ::ecore::Ptr<ResourceTestsPackage>;
 
 } // ResourceTests
 

@@ -40,15 +40,15 @@ TreeiteratorPackage::TreeiteratorPackage()
 {
 
     // Feature definitions of TreeNode
-    m_TreeNode__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_TreeNode__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_TreeNode__children = boost::intrusive_ptr < ::ecore::EReference
+    m_TreeNode__children = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_TreeNode__leaf = boost::intrusive_ptr < ::ecore::EReference
+    m_TreeNode__leaf = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Leaf
-    m_Leaf__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Leaf__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
 }
@@ -63,8 +63,7 @@ void TreeiteratorPackage::_initPackage()
     // Create classes and their features
 
     // TreeNode
-    m_TreeNodeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TreeNodeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TreeNodeEClass->setClassifierID(TREENODE);
     m_TreeNodeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TreeNodeEClass);
@@ -82,8 +81,7 @@ void TreeiteratorPackage::_initPackage()
     m_TreeNodeEClass->getEStructuralFeatures().push_back(m_TreeNode__leaf);
 
     // Leaf
-    m_LeafEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_LeafEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LeafEClass->setClassifierID(LEAF);
     m_LeafEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeafEClass);

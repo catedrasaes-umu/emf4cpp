@@ -22,12 +22,12 @@
 
 using namespace ::ecore;
 
-boost::intrusive_ptr< ::ecore::EcoreFactory > EcoreFactory::s_holder;
+::ecore::Ptr< ::ecore::EcoreFactory > EcoreFactory::s_holder;
 
 ::ecore::EcoreFactory_ptr EcoreFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < EcoreFactory > (new EcoreFactory());
+        s_holder = ::ecore::Ptr < EcoreFactory > (new EcoreFactory());
 
     return s_holder;
 }

@@ -42,33 +42,27 @@ namespace CST
 
 // Tree
     class Tree;
-    using Tree_ptr = boost::intrusive_ptr<Tree>;
+    using Tree_ptr = ::ecore::Ptr<Tree>;
 
 // Element
     class Element;
-    using Element_ptr = boost::intrusive_ptr<Element>;
+    using Element_ptr = ::ecore::Ptr<Element>;
 
 // Node
     class Node;
-    using Node_ptr = boost::intrusive_ptr<Node>;
+    using Node_ptr = ::ecore::Ptr<Node>;
 
 // Leaf
     class Leaf;
-    using Leaf_ptr = boost::intrusive_ptr<Leaf>;
+    using Leaf_ptr = ::ecore::Ptr<Leaf>;
 
 // EEnum
 
 // Package & Factory
     class CSTFactory;
-    using CSTFactory_ptr = boost::intrusive_ptr<CSTFactory>;
+    using CSTFactory_ptr = ::ecore::Ptr<CSTFactory>;
     class CSTPackage;
-    using CSTPackage_ptr = boost::intrusive_ptr<CSTPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using CSTPackage_ptr = ::ecore::Ptr<CSTPackage>;
 
 } // CST
 

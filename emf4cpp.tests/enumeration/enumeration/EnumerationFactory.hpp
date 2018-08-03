@@ -43,7 +43,7 @@ namespace enumeration
 
     protected:
 
-        static boost::intrusive_ptr< EnumerationFactory > s_holder;
+        static ::ecore::Ptr< EnumerationFactory > s_holder;
 
         EnumerationFactory();
 
@@ -55,9 +55,9 @@ namespace enumeration
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline Bird_ptr create< Bird >()

@@ -93,45 +93,44 @@ StructureFactory::StructureFactory()
 
 AbstractStructureElement_ptr StructureFactory::createAbstractStructureElement()
 {
-    return boost::intrusive_ptr < AbstractStructureElement
+    return ::ecore::Ptr < AbstractStructureElement
             > (new AbstractStructureElement);
 }
 Subsystem_ptr StructureFactory::createSubsystem()
 {
-    return boost::intrusive_ptr < Subsystem > (new Subsystem);
+    return ::ecore::Ptr < Subsystem > (new Subsystem);
 }
 Layer_ptr StructureFactory::createLayer()
 {
-    return boost::intrusive_ptr < Layer > (new Layer);
+    return ::ecore::Ptr < Layer > (new Layer);
 }
 StructureModel_ptr StructureFactory::createStructureModel()
 {
-    return boost::intrusive_ptr < StructureModel > (new StructureModel);
+    return ::ecore::Ptr < StructureModel > (new StructureModel);
 }
 Component_ptr StructureFactory::createComponent()
 {
-    return boost::intrusive_ptr < Component > (new Component);
+    return ::ecore::Ptr < Component > (new Component);
 }
 SoftwareSystem_ptr StructureFactory::createSoftwareSystem()
 {
-    return boost::intrusive_ptr < SoftwareSystem > (new SoftwareSystem);
+    return ::ecore::Ptr < SoftwareSystem > (new SoftwareSystem);
 }
 AbstractStructureRelationship_ptr StructureFactory::createAbstractStructureRelationship()
 {
-    return boost::intrusive_ptr < AbstractStructureRelationship
+    return ::ecore::Ptr < AbstractStructureRelationship
             > (new AbstractStructureRelationship);
 }
 StructureRelationship_ptr StructureFactory::createStructureRelationship()
 {
-    return boost::intrusive_ptr < StructureRelationship
-            > (new StructureRelationship);
+    return ::ecore::Ptr < StructureRelationship > (new StructureRelationship);
 }
 ArchitectureView_ptr StructureFactory::createArchitectureView()
 {
-    return boost::intrusive_ptr < ArchitectureView > (new ArchitectureView);
+    return ::ecore::Ptr < ArchitectureView > (new ArchitectureView);
 }
 StructureElement_ptr StructureFactory::createStructureElement()
 {
-    return boost::intrusive_ptr < StructureElement > (new StructureElement);
+    return ::ecore::Ptr < StructureElement > (new StructureElement);
 }
 

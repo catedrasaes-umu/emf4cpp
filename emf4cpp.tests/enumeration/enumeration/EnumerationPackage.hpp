@@ -63,7 +63,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< EnumerationPackage > s_instance;
+    static ::ecore::Ptr< EnumerationPackage > s_instance;
 
     EnumerationPackage();
     void _initPackage();

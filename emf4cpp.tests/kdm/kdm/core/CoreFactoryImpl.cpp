@@ -95,23 +95,22 @@ CoreFactory::CoreFactory()
 
 Element_ptr CoreFactory::createElement()
 {
-    return boost::intrusive_ptr < Element > (new Element);
+    return ::ecore::Ptr < Element > (new Element);
 }
 ModelElement_ptr CoreFactory::createModelElement()
 {
-    return boost::intrusive_ptr < ModelElement > (new ModelElement);
+    return ::ecore::Ptr < ModelElement > (new ModelElement);
 }
 KDMEntity_ptr CoreFactory::createKDMEntity()
 {
-    return boost::intrusive_ptr < KDMEntity > (new KDMEntity);
+    return ::ecore::Ptr < KDMEntity > (new KDMEntity);
 }
 KDMRelationship_ptr CoreFactory::createKDMRelationship()
 {
-    return boost::intrusive_ptr < KDMRelationship > (new KDMRelationship);
+    return ::ecore::Ptr < KDMRelationship > (new KDMRelationship);
 }
 AggregatedRelationship_ptr CoreFactory::createAggregatedRelationship()
 {
-    return boost::intrusive_ptr < AggregatedRelationship
-            > (new AggregatedRelationship);
+    return ::ecore::Ptr < AggregatedRelationship > (new AggregatedRelationship);
 }
 

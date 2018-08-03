@@ -22,12 +22,12 @@
 
 using namespace ::treeiterator;
 
-boost::intrusive_ptr< ::treeiterator::TreeiteratorFactory > TreeiteratorFactory::s_holder;
+::ecore::Ptr< ::treeiterator::TreeiteratorFactory > TreeiteratorFactory::s_holder;
 
 ::treeiterator::TreeiteratorFactory_ptr TreeiteratorFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < TreeiteratorFactory
+        s_holder = ::ecore::Ptr < TreeiteratorFactory
                 > (new TreeiteratorFactory());
 
     return s_holder;

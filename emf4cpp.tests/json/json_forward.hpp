@@ -42,49 +42,43 @@ namespace json
 
 // ObjectValue
     class ObjectValue;
-    using ObjectValue_ptr = boost::intrusive_ptr<ObjectValue>;
+    using ObjectValue_ptr = ::ecore::Ptr<ObjectValue>;
 
 // NVPair
     class NVPair;
-    using NVPair_ptr = boost::intrusive_ptr<NVPair>;
+    using NVPair_ptr = ::ecore::Ptr<NVPair>;
 
 // Value
     class Value;
-    using Value_ptr = boost::intrusive_ptr<Value>;
+    using Value_ptr = ::ecore::Ptr<Value>;
 
 // StringValue
     class StringValue;
-    using StringValue_ptr = boost::intrusive_ptr<StringValue>;
+    using StringValue_ptr = ::ecore::Ptr<StringValue>;
 
 // NumberValue
     class NumberValue;
-    using NumberValue_ptr = boost::intrusive_ptr<NumberValue>;
+    using NumberValue_ptr = ::ecore::Ptr<NumberValue>;
 
 // BooleanValue
     class BooleanValue;
-    using BooleanValue_ptr = boost::intrusive_ptr<BooleanValue>;
+    using BooleanValue_ptr = ::ecore::Ptr<BooleanValue>;
 
 // ArrayValue
     class ArrayValue;
-    using ArrayValue_ptr = boost::intrusive_ptr<ArrayValue>;
+    using ArrayValue_ptr = ::ecore::Ptr<ArrayValue>;
 
 // NullValue
     class NullValue;
-    using NullValue_ptr = boost::intrusive_ptr<NullValue>;
+    using NullValue_ptr = ::ecore::Ptr<NullValue>;
 
 // EEnum
 
 // Package & Factory
     class JsonFactory;
-    using JsonFactory_ptr = boost::intrusive_ptr<JsonFactory>;
+    using JsonFactory_ptr = ::ecore::Ptr<JsonFactory>;
     class JsonPackage;
-    using JsonPackage_ptr = boost::intrusive_ptr<JsonPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using JsonPackage_ptr = ::ecore::Ptr<JsonPackage>;
 
 } // json
 

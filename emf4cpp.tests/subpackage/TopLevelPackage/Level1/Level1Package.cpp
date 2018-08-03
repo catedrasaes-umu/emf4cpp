@@ -22,7 +22,7 @@
 
 using namespace ::TopLevelPackage::Level1;
 
-boost::intrusive_ptr< ::TopLevelPackage::Level1::Level1Package > Level1Package::s_instance;
+::ecore::Ptr< ::TopLevelPackage::Level1::Level1Package > Level1Package::s_instance;
 
 ::TopLevelPackage::Level1::Level1Package_ptr Level1Package::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::TopLevelPackage::Level1::Level1Package > Level1Package::
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< Level1Package >();
+            return ::ecore::Ptr< Level1Package >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < Level1Package
-                > (new Level1Package());
+        s_instance = ::ecore::Ptr < Level1Package > (new Level1Package());
         s_instance->_initPackage();
         duringConstruction = false;
     }

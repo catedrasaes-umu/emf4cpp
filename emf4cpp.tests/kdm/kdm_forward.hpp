@@ -56,15 +56,9 @@ namespace kdm
 
 // Package & Factory
     class KdmFactory;
-    using KdmFactory_ptr = boost::intrusive_ptr<KdmFactory>;
+    using KdmFactory_ptr = ::ecore::Ptr<KdmFactory>;
     class KdmPackage;
-    using KdmPackage_ptr = boost::intrusive_ptr<KdmPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using KdmPackage_ptr = ::ecore::Ptr<KdmPackage>;
 
 } // kdm
 

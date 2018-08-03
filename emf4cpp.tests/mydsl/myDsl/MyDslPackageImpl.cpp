@@ -40,33 +40,33 @@ MyDslPackage::MyDslPackage()
 {
 
     // Feature definitions of Model
-    m_Model__imports = boost::intrusive_ptr < ::ecore::EReference
+    m_Model__imports = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Model__elements = boost::intrusive_ptr < ::ecore::EReference
+    m_Model__elements = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Import
-    m_Import__importURI = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Import__importURI = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Type
-    m_Type__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Type__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of SimpleType
 
     // Feature definitions of Entity
-    m_Entity__extends = boost::intrusive_ptr < ::ecore::EReference
+    m_Entity__extends = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
-    m_Entity__properties = boost::intrusive_ptr < ::ecore::EReference
+    m_Entity__properties = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Property
-    m_Property__name = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Property__name = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Property__many = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Property__many = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Property__type = boost::intrusive_ptr < ::ecore::EReference
+    m_Property__type = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
 }
@@ -81,8 +81,7 @@ void MyDslPackage::_initPackage()
     // Create classes and their features
 
     // Model
-    m_ModelEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ModelEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ModelEClass->setClassifierID(MODEL);
     m_ModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ModelEClass);
@@ -94,8 +93,7 @@ void MyDslPackage::_initPackage()
     m_ModelEClass->getEStructuralFeatures().push_back(m_Model__elements);
 
     // Import
-    m_ImportEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ImportEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ImportEClass->setClassifierID(IMPORT);
     m_ImportEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImportEClass);
@@ -104,8 +102,7 @@ void MyDslPackage::_initPackage()
     m_ImportEClass->getEStructuralFeatures().push_back(m_Import__importURI);
 
     // Type
-    m_TypeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TypeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TypeEClass->setClassifierID(TYPE);
     m_TypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TypeEClass);
@@ -114,15 +111,13 @@ void MyDslPackage::_initPackage()
     m_TypeEClass->getEStructuralFeatures().push_back(m_Type__name);
 
     // SimpleType
-    m_SimpleTypeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_SimpleTypeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SimpleTypeEClass->setClassifierID(SIMPLETYPE);
     m_SimpleTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SimpleTypeEClass);
 
     // Entity
-    m_EntityEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_EntityEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EntityEClass->setClassifierID(ENTITY);
     m_EntityEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EntityEClass);
@@ -135,8 +130,7 @@ void MyDslPackage::_initPackage()
     m_EntityEClass->getEStructuralFeatures().push_back(m_Entity__properties);
 
     // Property
-    m_PropertyEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_PropertyEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PropertyEClass->setClassifierID(PROPERTY);
     m_PropertyEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PropertyEClass);

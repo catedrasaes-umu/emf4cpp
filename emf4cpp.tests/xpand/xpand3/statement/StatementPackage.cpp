@@ -22,7 +22,7 @@
 
 using namespace ::xpand3::statement;
 
-boost::intrusive_ptr< ::xpand3::statement::StatementPackage > StatementPackage::s_instance;
+::ecore::Ptr< ::xpand3::statement::StatementPackage > StatementPackage::s_instance;
 
 ::xpand3::statement::StatementPackage_ptr StatementPackage::_instance()
 {
@@ -30,10 +30,9 @@ boost::intrusive_ptr< ::xpand3::statement::StatementPackage > StatementPackage::
     if (!s_instance.get())
     {
         if (duringConstruction)
-            return boost::intrusive_ptr< StatementPackage >();
+            return ::ecore::Ptr< StatementPackage >();
         duringConstruction = true;
-        s_instance = boost::intrusive_ptr < StatementPackage
-                > (new StatementPackage());
+        s_instance = ::ecore::Ptr < StatementPackage > (new StatementPackage());
         s_instance->_initPackage();
         duringConstruction = false;
     }

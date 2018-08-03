@@ -197,186 +197,183 @@ DataFactory::DataFactory()
 
 DataModel_ptr DataFactory::createDataModel()
 {
-    return boost::intrusive_ptr < DataModel > (new DataModel);
+    return ::ecore::Ptr < DataModel > (new DataModel);
 }
 AbstractDataElement_ptr DataFactory::createAbstractDataElement()
 {
-    return boost::intrusive_ptr < AbstractDataElement
-            > (new AbstractDataElement);
+    return ::ecore::Ptr < AbstractDataElement > (new AbstractDataElement);
 }
 DataResource_ptr DataFactory::createDataResource()
 {
-    return boost::intrusive_ptr < DataResource > (new DataResource);
+    return ::ecore::Ptr < DataResource > (new DataResource);
 }
 IndexElement_ptr DataFactory::createIndexElement()
 {
-    return boost::intrusive_ptr < IndexElement > (new IndexElement);
+    return ::ecore::Ptr < IndexElement > (new IndexElement);
 }
 UniqueKey_ptr DataFactory::createUniqueKey()
 {
-    return boost::intrusive_ptr < UniqueKey > (new UniqueKey);
+    return ::ecore::Ptr < UniqueKey > (new UniqueKey);
 }
 Index_ptr DataFactory::createIndex()
 {
-    return boost::intrusive_ptr < Index > (new Index);
+    return ::ecore::Ptr < Index > (new Index);
 }
 AbstractDataRelationship_ptr DataFactory::createAbstractDataRelationship()
 {
-    return boost::intrusive_ptr < AbstractDataRelationship
+    return ::ecore::Ptr < AbstractDataRelationship
             > (new AbstractDataRelationship);
 }
 KeyRelation_ptr DataFactory::createKeyRelation()
 {
-    return boost::intrusive_ptr < KeyRelation > (new KeyRelation);
+    return ::ecore::Ptr < KeyRelation > (new KeyRelation);
 }
 ReferenceKey_ptr DataFactory::createReferenceKey()
 {
-    return boost::intrusive_ptr < ReferenceKey > (new ReferenceKey);
+    return ::ecore::Ptr < ReferenceKey > (new ReferenceKey);
 }
 DataContainer_ptr DataFactory::createDataContainer()
 {
-    return boost::intrusive_ptr < DataContainer > (new DataContainer);
+    return ::ecore::Ptr < DataContainer > (new DataContainer);
 }
 Catalog_ptr DataFactory::createCatalog()
 {
-    return boost::intrusive_ptr < Catalog > (new Catalog);
+    return ::ecore::Ptr < Catalog > (new Catalog);
 }
 RelationalSchema_ptr DataFactory::createRelationalSchema()
 {
-    return boost::intrusive_ptr < RelationalSchema > (new RelationalSchema);
+    return ::ecore::Ptr < RelationalSchema > (new RelationalSchema);
 }
 ColumnSet_ptr DataFactory::createColumnSet()
 {
-    return boost::intrusive_ptr < ColumnSet > (new ColumnSet);
+    return ::ecore::Ptr < ColumnSet > (new ColumnSet);
 }
 RelationalTable_ptr DataFactory::createRelationalTable()
 {
-    return boost::intrusive_ptr < RelationalTable > (new RelationalTable);
+    return ::ecore::Ptr < RelationalTable > (new RelationalTable);
 }
 RelationalView_ptr DataFactory::createRelationalView()
 {
-    return boost::intrusive_ptr < RelationalView > (new RelationalView);
+    return ::ecore::Ptr < RelationalView > (new RelationalView);
 }
 RecordFile_ptr DataFactory::createRecordFile()
 {
-    return boost::intrusive_ptr < RecordFile > (new RecordFile);
+    return ::ecore::Ptr < RecordFile > (new RecordFile);
 }
 DataEvent_ptr DataFactory::createDataEvent()
 {
-    return boost::intrusive_ptr < DataEvent > (new DataEvent);
+    return ::ecore::Ptr < DataEvent > (new DataEvent);
 }
 XMLSchema_ptr DataFactory::createXMLSchema()
 {
-    return boost::intrusive_ptr < XMLSchema > (new XMLSchema);
+    return ::ecore::Ptr < XMLSchema > (new XMLSchema);
 }
 AbstractContentElement_ptr DataFactory::createAbstractContentElement()
 {
-    return boost::intrusive_ptr < AbstractContentElement
-            > (new AbstractContentElement);
+    return ::ecore::Ptr < AbstractContentElement > (new AbstractContentElement);
 }
 ComplexContentType_ptr DataFactory::createComplexContentType()
 {
-    return boost::intrusive_ptr < ComplexContentType > (new ComplexContentType);
+    return ::ecore::Ptr < ComplexContentType > (new ComplexContentType);
 }
 AllContent_ptr DataFactory::createAllContent()
 {
-    return boost::intrusive_ptr < AllContent > (new AllContent);
+    return ::ecore::Ptr < AllContent > (new AllContent);
 }
 SeqContent_ptr DataFactory::createSeqContent()
 {
-    return boost::intrusive_ptr < SeqContent > (new SeqContent);
+    return ::ecore::Ptr < SeqContent > (new SeqContent);
 }
 ChoiceContent_ptr DataFactory::createChoiceContent()
 {
-    return boost::intrusive_ptr < ChoiceContent > (new ChoiceContent);
+    return ::ecore::Ptr < ChoiceContent > (new ChoiceContent);
 }
 ContentItem_ptr DataFactory::createContentItem()
 {
-    return boost::intrusive_ptr < ContentItem > (new ContentItem);
+    return ::ecore::Ptr < ContentItem > (new ContentItem);
 }
 GroupContent_ptr DataFactory::createGroupContent()
 {
-    return boost::intrusive_ptr < GroupContent > (new GroupContent);
+    return ::ecore::Ptr < GroupContent > (new GroupContent);
 }
 ContentRestriction_ptr DataFactory::createContentRestriction()
 {
-    return boost::intrusive_ptr < ContentRestriction > (new ContentRestriction);
+    return ::ecore::Ptr < ContentRestriction > (new ContentRestriction);
 }
 SimpleContentType_ptr DataFactory::createSimpleContentType()
 {
-    return boost::intrusive_ptr < SimpleContentType > (new SimpleContentType);
+    return ::ecore::Ptr < SimpleContentType > (new SimpleContentType);
 }
 ExtendedDataElement_ptr DataFactory::createExtendedDataElement()
 {
-    return boost::intrusive_ptr < ExtendedDataElement
-            > (new ExtendedDataElement);
+    return ::ecore::Ptr < ExtendedDataElement > (new ExtendedDataElement);
 }
 DataRelationship_ptr DataFactory::createDataRelationship()
 {
-    return boost::intrusive_ptr < DataRelationship > (new DataRelationship);
+    return ::ecore::Ptr < DataRelationship > (new DataRelationship);
 }
 MixedContent_ptr DataFactory::createMixedContent()
 {
-    return boost::intrusive_ptr < MixedContent > (new MixedContent);
+    return ::ecore::Ptr < MixedContent > (new MixedContent);
 }
 ContentReference_ptr DataFactory::createContentReference()
 {
-    return boost::intrusive_ptr < ContentReference > (new ContentReference);
+    return ::ecore::Ptr < ContentReference > (new ContentReference);
 }
 DataAction_ptr DataFactory::createDataAction()
 {
-    return boost::intrusive_ptr < DataAction > (new DataAction);
+    return ::ecore::Ptr < DataAction > (new DataAction);
 }
 ReadsColumnSet_ptr DataFactory::createReadsColumnSet()
 {
-    return boost::intrusive_ptr < ReadsColumnSet > (new ReadsColumnSet);
+    return ::ecore::Ptr < ReadsColumnSet > (new ReadsColumnSet);
 }
 ContentAttribute_ptr DataFactory::createContentAttribute()
 {
-    return boost::intrusive_ptr < ContentAttribute > (new ContentAttribute);
+    return ::ecore::Ptr < ContentAttribute > (new ContentAttribute);
 }
 TypedBy_ptr DataFactory::createTypedBy()
 {
-    return boost::intrusive_ptr < TypedBy > (new TypedBy);
+    return ::ecore::Ptr < TypedBy > (new TypedBy);
 }
 ReferenceTo_ptr DataFactory::createReferenceTo()
 {
-    return boost::intrusive_ptr < ReferenceTo > (new ReferenceTo);
+    return ::ecore::Ptr < ReferenceTo > (new ReferenceTo);
 }
 RestrictionOf_ptr DataFactory::createRestrictionOf()
 {
-    return boost::intrusive_ptr < RestrictionOf > (new RestrictionOf);
+    return ::ecore::Ptr < RestrictionOf > (new RestrictionOf);
 }
 ExtensionTo_ptr DataFactory::createExtensionTo()
 {
-    return boost::intrusive_ptr < ExtensionTo > (new ExtensionTo);
+    return ::ecore::Ptr < ExtensionTo > (new ExtensionTo);
 }
 DatatypeOf_ptr DataFactory::createDatatypeOf()
 {
-    return boost::intrusive_ptr < DatatypeOf > (new DatatypeOf);
+    return ::ecore::Ptr < DatatypeOf > (new DatatypeOf);
 }
 HasContent_ptr DataFactory::createHasContent()
 {
-    return boost::intrusive_ptr < HasContent > (new HasContent);
+    return ::ecore::Ptr < HasContent > (new HasContent);
 }
 WritesColumnSet_ptr DataFactory::createWritesColumnSet()
 {
-    return boost::intrusive_ptr < WritesColumnSet > (new WritesColumnSet);
+    return ::ecore::Ptr < WritesColumnSet > (new WritesColumnSet);
 }
 ProducesDataEvent_ptr DataFactory::createProducesDataEvent()
 {
-    return boost::intrusive_ptr < ProducesDataEvent > (new ProducesDataEvent);
+    return ::ecore::Ptr < ProducesDataEvent > (new ProducesDataEvent);
 }
 DataSegment_ptr DataFactory::createDataSegment()
 {
-    return boost::intrusive_ptr < DataSegment > (new DataSegment);
+    return ::ecore::Ptr < DataSegment > (new DataSegment);
 }
 ContentElement_ptr DataFactory::createContentElement()
 {
-    return boost::intrusive_ptr < ContentElement > (new ContentElement);
+    return ::ecore::Ptr < ContentElement > (new ContentElement);
 }
 ManagesData_ptr DataFactory::createManagesData()
 {
-    return boost::intrusive_ptr < ManagesData > (new ManagesData);
+    return ::ecore::Ptr < ManagesData > (new ManagesData);
 }
 

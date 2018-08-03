@@ -53,7 +53,7 @@ namespace TopLevelPackage
 
     protected:
 
-        static boost::intrusive_ptr< Level1Package > s_instance;
+        static ::ecore::Ptr< Level1Package > s_instance;
 
         Level1Package();
         void _initPackage();

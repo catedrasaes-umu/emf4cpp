@@ -48,7 +48,7 @@ namespace myDsl
 
     protected:
 
-        static boost::intrusive_ptr< MyDslFactory > s_holder;
+        static ::ecore::Ptr< MyDslFactory > s_holder;
 
         MyDslFactory();
 
@@ -60,9 +60,9 @@ namespace myDsl
      *   auto p = create<MyClass>();
      *
      */
-    template< class T > inline boost::intrusive_ptr< T > create()
+    template< class T > inline ::ecore::Ptr< T > create()
     {
-        return boost::intrusive_ptr< T >();
+        return ::ecore::Ptr< T >();
     }
 
     template< > inline Model_ptr create< Model >()

@@ -42,21 +42,15 @@ namespace bintree
 
 // BinTreeNode
     class BinTreeNode;
-    using BinTreeNode_ptr = boost::intrusive_ptr<BinTreeNode>;
+    using BinTreeNode_ptr = ::ecore::Ptr<BinTreeNode>;
 
 // EEnum
 
 // Package & Factory
     class BintreeFactory;
-    using BintreeFactory_ptr = boost::intrusive_ptr<BintreeFactory>;
+    using BintreeFactory_ptr = ::ecore::Ptr<BintreeFactory>;
     class BintreePackage;
-    using BintreePackage_ptr = boost::intrusive_ptr<BintreePackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using BintreePackage_ptr = ::ecore::Ptr<BintreePackage>;
 
 } // bintree
 

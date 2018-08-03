@@ -22,12 +22,12 @@
 
 using namespace ::xpand3::declaration;
 
-boost::intrusive_ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory::s_holder;
+::ecore::Ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory::s_holder;
 
 ::xpand3::declaration::DeclarationFactory_ptr DeclarationFactory::_instance()
 {
     if (!s_holder.get())
-        s_holder = boost::intrusive_ptr < DeclarationFactory
+        s_holder = ::ecore::Ptr < DeclarationFactory
                 > (new DeclarationFactory());
 
     return s_holder;

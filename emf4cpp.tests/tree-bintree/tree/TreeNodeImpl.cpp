@@ -65,7 +65,7 @@ void TreeNode::_initialize()
     case ::tree::TreePackage::TREENODE__PARENT:
     {
         if (m_parent)
-            _any = m_parent->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_parent);
     }
         return _any;
 

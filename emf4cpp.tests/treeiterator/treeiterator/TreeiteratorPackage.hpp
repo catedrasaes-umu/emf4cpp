@@ -73,7 +73,7 @@ public:
 
 protected:
 
-    static boost::intrusive_ptr< TreeiteratorPackage > s_instance;
+    static ::ecore::Ptr< TreeiteratorPackage > s_instance;
 
     TreeiteratorPackage();
     void _initPackage();

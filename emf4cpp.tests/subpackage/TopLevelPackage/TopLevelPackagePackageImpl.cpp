@@ -52,7 +52,7 @@ void TopLevelPackagePackage::_initPackage()
     // Create classes and their features
 
     // TopLevelClass
-    m_TopLevelClassEClass = boost::intrusive_ptr < ::ecore::EClass
+    m_TopLevelClassEClass = ::ecore::Ptr < ::ecore::EClass
             > (new ::ecore::EClass);
     m_TopLevelClassEClass->setClassifierID(TOPLEVELCLASS);
     m_TopLevelClassEClass->setEPackage(_this());

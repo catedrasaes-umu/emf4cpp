@@ -45,21 +45,15 @@ namespace TopLevelPackage
 
 // Level1Class
         class Level1Class;
-        using Level1Class_ptr = boost::intrusive_ptr<Level1Class>;
+        using Level1Class_ptr = ::ecore::Ptr<Level1Class>;
 
 // EEnum
 
 // Package & Factory
         class Level1Factory;
-        using Level1Factory_ptr = boost::intrusive_ptr<Level1Factory>;
+        using Level1Factory_ptr = ::ecore::Ptr<Level1Factory>;
         class Level1Package;
-        using Level1Package_ptr = boost::intrusive_ptr<Level1Package>;
-
-        template< typename T, typename S >
-        inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-        {
-            return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-        }
+        using Level1Package_ptr = ::ecore::Ptr<Level1Package>;
 
     } // Level1
 } // TopLevelPackage

@@ -510,7 +510,7 @@ namespace kdm
 
     protected:
 
-        static boost::intrusive_ptr< EventPackage > s_instance;
+        static ::ecore::Ptr< EventPackage > s_instance;
 
         EventPackage();
         void _initPackage();

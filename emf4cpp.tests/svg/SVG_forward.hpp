@@ -42,169 +42,163 @@ namespace SVG
 
 // Element
     class Element;
-    using Element_ptr = boost::intrusive_ptr<Element>;
+    using Element_ptr = ::ecore::Ptr<Element>;
 
 // StructuralElement
     class StructuralElement;
-    using StructuralElement_ptr = boost::intrusive_ptr<StructuralElement>;
+    using StructuralElement_ptr = ::ecore::Ptr<StructuralElement>;
 
 // Image
     class Image;
-    using Image_ptr = boost::intrusive_ptr<Image>;
+    using Image_ptr = ::ecore::Ptr<Image>;
 
 // Svg
     class Svg;
-    using Svg_ptr = boost::intrusive_ptr<Svg>;
+    using Svg_ptr = ::ecore::Ptr<Svg>;
 
 // GroupingElement
     class GroupingElement;
-    using GroupingElement_ptr = boost::intrusive_ptr<GroupingElement>;
+    using GroupingElement_ptr = ::ecore::Ptr<GroupingElement>;
 
 // G
     class G;
-    using G_ptr = boost::intrusive_ptr<G>;
+    using G_ptr = ::ecore::Ptr<G>;
 
 // Defs
     class Defs;
-    using Defs_ptr = boost::intrusive_ptr<Defs>;
+    using Defs_ptr = ::ecore::Ptr<Defs>;
 
 // Symbol
     class Symbol;
-    using Symbol_ptr = boost::intrusive_ptr<Symbol>;
+    using Symbol_ptr = ::ecore::Ptr<Symbol>;
 
 // Use
     class Use;
-    using Use_ptr = boost::intrusive_ptr<Use>;
+    using Use_ptr = ::ecore::Ptr<Use>;
 
 // GraphicalElement
     class GraphicalElement;
-    using GraphicalElement_ptr = boost::intrusive_ptr<GraphicalElement>;
+    using GraphicalElement_ptr = ::ecore::Ptr<GraphicalElement>;
 
 // Shape
     class Shape;
-    using Shape_ptr = boost::intrusive_ptr<Shape>;
+    using Shape_ptr = ::ecore::Ptr<Shape>;
 
 // TextElement
     class TextElement;
-    using TextElement_ptr = boost::intrusive_ptr<TextElement>;
+    using TextElement_ptr = ::ecore::Ptr<TextElement>;
 
 // Rect
     class Rect;
-    using Rect_ptr = boost::intrusive_ptr<Rect>;
+    using Rect_ptr = ::ecore::Ptr<Rect>;
 
 // Circle
     class Circle;
-    using Circle_ptr = boost::intrusive_ptr<Circle>;
+    using Circle_ptr = ::ecore::Ptr<Circle>;
 
 // Ellipse
     class Ellipse;
-    using Ellipse_ptr = boost::intrusive_ptr<Ellipse>;
+    using Ellipse_ptr = ::ecore::Ptr<Ellipse>;
 
 // Line
     class Line;
-    using Line_ptr = boost::intrusive_ptr<Line>;
+    using Line_ptr = ::ecore::Ptr<Line>;
 
 // Polyline
     class Polyline;
-    using Polyline_ptr = boost::intrusive_ptr<Polyline>;
+    using Polyline_ptr = ::ecore::Ptr<Polyline>;
 
 // Polygon
     class Polygon;
-    using Polygon_ptr = boost::intrusive_ptr<Polygon>;
+    using Polygon_ptr = ::ecore::Ptr<Polygon>;
 
 // Path
     class Path;
-    using Path_ptr = boost::intrusive_ptr<Path>;
+    using Path_ptr = ::ecore::Ptr<Path>;
 
 // Point
     class Point;
-    using Point_ptr = boost::intrusive_ptr<Point>;
+    using Point_ptr = ::ecore::Ptr<Point>;
 
 // Marker
     class Marker;
-    using Marker_ptr = boost::intrusive_ptr<Marker>;
+    using Marker_ptr = ::ecore::Ptr<Marker>;
 
 // Text
     class Text;
-    using Text_ptr = boost::intrusive_ptr<Text>;
+    using Text_ptr = ::ecore::Ptr<Text>;
 
 // Tspan
     class Tspan;
-    using Tspan_ptr = boost::intrusive_ptr<Tspan>;
+    using Tspan_ptr = ::ecore::Ptr<Tspan>;
 
 // Tref
     class Tref;
-    using Tref_ptr = boost::intrusive_ptr<Tref>;
+    using Tref_ptr = ::ecore::Ptr<Tref>;
 
 // Attribute
     class Attribute;
-    using Attribute_ptr = boost::intrusive_ptr<Attribute>;
+    using Attribute_ptr = ::ecore::Ptr<Attribute>;
 
 // Transform
     class Transform;
-    using Transform_ptr = boost::intrusive_ptr<Transform>;
+    using Transform_ptr = ::ecore::Ptr<Transform>;
 
 // Scale
     class Scale;
-    using Scale_ptr = boost::intrusive_ptr<Scale>;
+    using Scale_ptr = ::ecore::Ptr<Scale>;
 
 // Translate
     class Translate;
-    using Translate_ptr = boost::intrusive_ptr<Translate>;
+    using Translate_ptr = ::ecore::Ptr<Translate>;
 
 // Rotate
     class Rotate;
-    using Rotate_ptr = boost::intrusive_ptr<Rotate>;
+    using Rotate_ptr = ::ecore::Ptr<Rotate>;
 
 // Visibility
     class Visibility;
-    using Visibility_ptr = boost::intrusive_ptr<Visibility>;
+    using Visibility_ptr = ::ecore::Ptr<Visibility>;
 
 // FontWeight
     class FontWeight;
-    using FontWeight_ptr = boost::intrusive_ptr<FontWeight>;
+    using FontWeight_ptr = ::ecore::Ptr<FontWeight>;
 
 // FontStyle
     class FontStyle;
-    using FontStyle_ptr = boost::intrusive_ptr<FontStyle>;
+    using FontStyle_ptr = ::ecore::Ptr<FontStyle>;
 
 // Dimension
     class Dimension;
-    using Dimension_ptr = boost::intrusive_ptr<Dimension>;
+    using Dimension_ptr = ::ecore::Ptr<Dimension>;
 
 // Coordinates
     class Coordinates;
-    using Coordinates_ptr = boost::intrusive_ptr<Coordinates>;
+    using Coordinates_ptr = ::ecore::Ptr<Coordinates>;
 
 // RelativeCoord
     class RelativeCoord;
-    using RelativeCoord_ptr = boost::intrusive_ptr<RelativeCoord>;
+    using RelativeCoord_ptr = ::ecore::Ptr<RelativeCoord>;
 
 // AbsoluteCoord
     class AbsoluteCoord;
-    using AbsoluteCoord_ptr = boost::intrusive_ptr<AbsoluteCoord>;
+    using AbsoluteCoord_ptr = ::ecore::Ptr<AbsoluteCoord>;
 
 // ReferencedFile
     class ReferencedFile;
-    using ReferencedFile_ptr = boost::intrusive_ptr<ReferencedFile>;
+    using ReferencedFile_ptr = ::ecore::Ptr<ReferencedFile>;
 
 // SvgFile
     class SvgFile;
-    using SvgFile_ptr = boost::intrusive_ptr<SvgFile>;
+    using SvgFile_ptr = ::ecore::Ptr<SvgFile>;
 
 // EEnum
 
 // Package & Factory
     class SVGFactory;
-    using SVGFactory_ptr = boost::intrusive_ptr<SVGFactory>;
+    using SVGFactory_ptr = ::ecore::Ptr<SVGFactory>;
     class SVGPackage;
-    using SVGPackage_ptr = boost::intrusive_ptr<SVGPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using SVGPackage_ptr = ::ecore::Ptr<SVGPackage>;
 
 } // SVG
 

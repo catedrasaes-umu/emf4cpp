@@ -92,25 +92,25 @@ void CollectionExpression::_initialize()
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
     {
         if (m_target)
-            _any = m_target->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_target);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
     {
         if (m_name)
-            _any = m_name->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_name);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE:
     {
         if (m_closure)
-            _any = m_closure->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_closure);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME:
     {
         if (m_eleName)
-            _any = m_eleName->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_eleName);
     }
         return _any;
 

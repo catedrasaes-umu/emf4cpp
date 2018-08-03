@@ -113,7 +113,7 @@ void RangeType::_initialize()
     case ::kdm::code::CodePackage::DERIVEDTYPE__ITEMUNIT:
     {
         if (m_itemUnit)
-            _any = m_itemUnit->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_itemUnit);
     }
         return _any;
     case ::kdm::code::CodePackage::RANGETYPE__LOWER:

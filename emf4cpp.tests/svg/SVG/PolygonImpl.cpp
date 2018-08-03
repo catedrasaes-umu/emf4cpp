@@ -84,19 +84,19 @@ void Polygon::_initialize()
     case ::SVG::SVGPackage::ELEMENT__POSITION:
     {
         if (m_position)
-            _any = m_position->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_position);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__SIZE:
     {
         if (m_size)
-            _any = m_size->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_size);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__ROOT:
     {
         if (m_root)
-            _any = m_root->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_root);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__FILL:
@@ -114,7 +114,7 @@ void Polygon::_initialize()
     case ::SVG::SVGPackage::ELEMENT__GROUP:
     {
         if (m_group)
-            _any = m_group->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_group);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
@@ -126,7 +126,7 @@ void Polygon::_initialize()
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
     {
         if (m_drawsMarker)
-            _any = m_drawsMarker->as< ::ecore::EObject >();
+            _any = ::ecore::as < ::ecore::EObject > (m_drawsMarker);
     }
         return _any;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:

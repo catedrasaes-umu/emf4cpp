@@ -42,37 +42,31 @@ namespace eopposite
 
 // TopLevel
     class TopLevel;
-    using TopLevel_ptr = boost::intrusive_ptr<TopLevel>;
+    using TopLevel_ptr = ::ecore::Ptr<TopLevel>;
 
 // NamedObject
     class NamedObject;
-    using NamedObject_ptr = boost::intrusive_ptr<NamedObject>;
+    using NamedObject_ptr = ::ecore::Ptr<NamedObject>;
 
 // LeftHand
     class LeftHand;
-    using LeftHand_ptr = boost::intrusive_ptr<LeftHand>;
+    using LeftHand_ptr = ::ecore::Ptr<LeftHand>;
 
 // RightHand
     class RightHand;
-    using RightHand_ptr = boost::intrusive_ptr<RightHand>;
+    using RightHand_ptr = ::ecore::Ptr<RightHand>;
 
 // RightMultiple
     class RightMultiple;
-    using RightMultiple_ptr = boost::intrusive_ptr<RightMultiple>;
+    using RightMultiple_ptr = ::ecore::Ptr<RightMultiple>;
 
 // EEnum
 
 // Package & Factory
     class EoppositeFactory;
-    using EoppositeFactory_ptr = boost::intrusive_ptr<EoppositeFactory>;
+    using EoppositeFactory_ptr = ::ecore::Ptr<EoppositeFactory>;
     class EoppositePackage;
-    using EoppositePackage_ptr = boost::intrusive_ptr<EoppositePackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using EoppositePackage_ptr = ::ecore::Ptr<EoppositePackage>;
 
 } // eopposite
 

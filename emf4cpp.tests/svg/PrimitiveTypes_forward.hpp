@@ -64,15 +64,9 @@ namespace PrimitiveTypes
 
 // Package & Factory
     class PrimitiveTypesFactory;
-    using PrimitiveTypesFactory_ptr = boost::intrusive_ptr<PrimitiveTypesFactory>;
+    using PrimitiveTypesFactory_ptr = ::ecore::Ptr<PrimitiveTypesFactory>;
     class PrimitiveTypesPackage;
-    using PrimitiveTypesPackage_ptr = boost::intrusive_ptr<PrimitiveTypesPackage>;
-
-    template< typename T, typename S >
-    inline boost::intrusive_ptr< T > instanceOf(const S& _s)
-    {
-        return boost::intrusive_ptr < T > (dynamic_cast< T* >(_s.get()));
-    }
+    using PrimitiveTypesPackage_ptr = ::ecore::Ptr<PrimitiveTypesPackage>;
 
 } // PrimitiveTypes
 

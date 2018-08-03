@@ -228,7 +228,7 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 
 			DEBUG_MSG(cout, indent << current_at->getName());
 
-			EDataType_ptr atc = at_classifier->as< EDataType > ();
+			EDataType_ptr atc = as< EDataType >(at_classifier);
 			if (atc) {
 				EFactory_ptr fac =
 						at_classifier->getEPackage()->getEFactoryInstance();
@@ -356,7 +356,7 @@ void XMLSerializer::serialize_node_attributes(EObject_ptr obj) {
 
 			DEBUG_MSG(cout, indent << current_at->getName());
 
-			EDataType_ptr atc = at_classifier->as< EDataType > ();
+			EDataType_ptr atc = as< EDataType >(at_classifier);
 			if (atc) {
 				EFactory_ptr fac =
 						at_classifier->getEPackage()->getEFactoryInstance();

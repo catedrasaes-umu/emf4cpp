@@ -42,19 +42,19 @@ CSTPackage::CSTPackage()
     // Feature definitions of Tree
 
     // Feature definitions of Element
-    m_Element__kind = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Element__kind = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
     // Feature definitions of Node
-    m_Node__children = boost::intrusive_ptr < ::ecore::EReference
+    m_Node__children = ::ecore::Ptr < ::ecore::EReference
             > (new ::ecore::EReference);
 
     // Feature definitions of Leaf
-    m_Leaf__value = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Leaf__value = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Leaf__pos = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Leaf__pos = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
-    m_Leaf__line = boost::intrusive_ptr < ::ecore::EAttribute
+    m_Leaf__line = ::ecore::Ptr < ::ecore::EAttribute
             > (new ::ecore::EAttribute);
 
 }
@@ -69,15 +69,13 @@ void CSTPackage::_initPackage()
     // Create classes and their features
 
     // Tree
-    m_TreeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_TreeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TreeEClass->setClassifierID(TREE);
     m_TreeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TreeEClass);
 
     // Element
-    m_ElementEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_ElementEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ElementEClass->setClassifierID(ELEMENT);
     m_ElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ElementEClass);
@@ -86,8 +84,7 @@ void CSTPackage::_initPackage()
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__kind);
 
     // Node
-    m_NodeEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_NodeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_NodeEClass->setClassifierID(NODE);
     m_NodeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NodeEClass);
@@ -96,8 +93,7 @@ void CSTPackage::_initPackage()
     m_NodeEClass->getEStructuralFeatures().push_back(m_Node__children);
 
     // Leaf
-    m_LeafEClass = boost::intrusive_ptr < ::ecore::EClass
-            > (new ::ecore::EClass);
+    m_LeafEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LeafEClass->setClassifierID(LEAF);
     m_LeafEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeafEClass);
