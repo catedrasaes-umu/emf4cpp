@@ -44,7 +44,7 @@ EPackage::EPackage() :
                     -1, true, true >(this, NULL));
     m_eSubpackages.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EPackage, -1,
-                    true, true >(this, NULL), false);
+                    true, true >(this, NULL));
 
     /*PROTECTED REGION ID(EPackageImpl__EPackageImpl) START*/
     // Please, enable the protected region if you add manually written code.
