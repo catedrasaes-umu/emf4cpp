@@ -2,6 +2,7 @@
 /*
  * xpand3/Xpand3Factory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::xpand3;
 
-std::auto_ptr< ::xpand3::Xpand3Factory > Xpand3Factory::s_instance;
+::ecore::Ptr< ::xpand3::Xpand3Factory > Xpand3Factory::s_holder;
 
 ::xpand3::Xpand3Factory_ptr Xpand3Factory::_instance()
 {
-    if (!s_instance.get())
-        new Xpand3Factory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < Xpand3Factory > (new Xpand3Factory());
+
+    return s_holder;
 }
 

@@ -2,6 +2,7 @@
 /*
  * kdm/code/Signature.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Signature.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -48,7 +54,8 @@ Signature::Signature()
 
     m_parameterUnit.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::ParameterUnit, -1, true, false >(this, NULL));
+                    ::kdm::code::ParameterUnit_ptr, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getSignature__parameterUnit()));
 
     /*PROTECTED REGION ID(SignatureImpl__SignatureImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,14 +71,16 @@ Signature::~Signature()
 {
 }
 
-/*PROTECTED REGION ID(Signature.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit >& Signature::getParameterUnit()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit_ptr >& Signature::getParameterUnit() const
+{
+    return *m_parameterUnit;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::ParameterUnit_ptr >& Signature::getParameterUnit()
 {
     return *m_parameterUnit;
 }

@@ -2,6 +2,7 @@
 /*
  * kdm/conceptual_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,67 +44,63 @@ namespace kdm
 
 // ConceptualModel
         class ConceptualModel;
-        typedef ConceptualModel* ConceptualModel_ptr;
+        using ConceptualModel_ptr = ::ecore::Ptr<ConceptualModel>;
 
 // AbstractConceptualElement
         class AbstractConceptualElement;
-        typedef AbstractConceptualElement* AbstractConceptualElement_ptr;
+        using AbstractConceptualElement_ptr = ::ecore::Ptr<AbstractConceptualElement>;
 
 // TermUnit
         class TermUnit;
-        typedef TermUnit* TermUnit_ptr;
+        using TermUnit_ptr = ::ecore::Ptr<TermUnit>;
 
 // ConceptualContainer
         class ConceptualContainer;
-        typedef ConceptualContainer* ConceptualContainer_ptr;
+        using ConceptualContainer_ptr = ::ecore::Ptr<ConceptualContainer>;
 
 // FactUnit
         class FactUnit;
-        typedef FactUnit* FactUnit_ptr;
+        using FactUnit_ptr = ::ecore::Ptr<FactUnit>;
 
 // AbstractConceptualRelationship
         class AbstractConceptualRelationship;
-        typedef AbstractConceptualRelationship* AbstractConceptualRelationship_ptr;
+        using AbstractConceptualRelationship_ptr = ::ecore::Ptr<AbstractConceptualRelationship>;
 
 // ConceptualRelationship
         class ConceptualRelationship;
-        typedef ConceptualRelationship* ConceptualRelationship_ptr;
+        using ConceptualRelationship_ptr = ::ecore::Ptr<ConceptualRelationship>;
 
 // BehaviorUnit
         class BehaviorUnit;
-        typedef BehaviorUnit* BehaviorUnit_ptr;
+        using BehaviorUnit_ptr = ::ecore::Ptr<BehaviorUnit>;
 
 // RuleUnit
         class RuleUnit;
-        typedef RuleUnit* RuleUnit_ptr;
+        using RuleUnit_ptr = ::ecore::Ptr<RuleUnit>;
 
 // ScenarioUnit
         class ScenarioUnit;
-        typedef ScenarioUnit* ScenarioUnit_ptr;
+        using ScenarioUnit_ptr = ::ecore::Ptr<ScenarioUnit>;
 
 // ConceptualFlow
         class ConceptualFlow;
-        typedef ConceptualFlow* ConceptualFlow_ptr;
+        using ConceptualFlow_ptr = ::ecore::Ptr<ConceptualFlow>;
 
 // ConceptualElement
         class ConceptualElement;
-        typedef ConceptualElement* ConceptualElement_ptr;
+        using ConceptualElement_ptr = ::ecore::Ptr<ConceptualElement>;
 
 // ConceptualRole
         class ConceptualRole;
-        typedef ConceptualRole* ConceptualRole_ptr;
+        using ConceptualRole_ptr = ::ecore::Ptr<ConceptualRole>;
+
+// EEnum
 
 // Package & Factory
         class ConceptualFactory;
-        typedef ConceptualFactory * ConceptualFactory_ptr;
+        using ConceptualFactory_ptr = ::ecore::Ptr<ConceptualFactory>;
         class ConceptualPackage;
-        typedef ConceptualPackage * ConceptualPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using ConceptualPackage_ptr = ::ecore::Ptr<ConceptualPackage>;
 
     } // conceptual
 } // kdm

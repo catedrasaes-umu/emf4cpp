@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/ExtendedValue.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ExtendedValue.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -52,22 +58,20 @@ ExtendedValue::~ExtendedValue()
 {
 }
 
-/*PROTECTED REGION ID(ExtendedValue.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::kdm::TagDefinition_ptr ExtendedValue::getTag()
+
+::kdm::kdm::TagDefinition_ptr ExtendedValue::getTag() const
 {
     return m_tag;
 }
 
 void ExtendedValue::setTag(::kdm::kdm::TagDefinition_ptr _tag)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::kdm::TagDefinition_ptr _old_tag = m_tag;
-
+#endif
     m_tag = _tag;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -75,14 +79,13 @@ void ExtendedValue::setTag(::kdm::kdm::TagDefinition_ptr _tag)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getExtendedValue__tag(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getExtendedValue__tag(),
                 _old_tag,
                 m_tag
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

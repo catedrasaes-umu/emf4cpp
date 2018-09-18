@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceRegionImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,19 +31,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::kdm::source;
-
 /*PROTECTED REGION ID(SourceRegionImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::kdm::source;
 
 void SourceRegion::_initialize()
 {
     // Supertypes
     ::kdm::core::Element::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(SourceRegionImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -61,17 +62,18 @@ void SourceRegion::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject >();
+        _any = m_attribute->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject >();
+        _any = m_annotation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_file);
+        if (m_file)
+            _any = ::ecore::as < ::ecore::EObject > (m_file);
     }
         return _any;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:
@@ -122,16 +124,18 @@ void SourceRegion::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
@@ -141,44 +145,56 @@ void SourceRegion::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::kdm::source::SourceFile_ptr _t1 =
-                dynamic_cast< ::kdm::source::SourceFile_ptr >(_t0);
+                dynamic_cast< ::kdm::source::SourceFile* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::kdm::source::SourceFile >(_t0);*/
         ::kdm::source::SourceRegion::setFile(_t1);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_startLine);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setStartLine(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTPOSITION:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_startPosition);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setStartPosition(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDLINE:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_endLine);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setEndLine(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__ENDPOSITION:
     {
+        ::kdm::core::Integer _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::Integer
-                > ::fromAny(_newValue, m_endPosition);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setEndPosition(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__LANGUAGE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_language);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setLanguage(_t0);
     }
         return;
     case ::kdm::source::SourcePackage::SOURCEREGION__PATH:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_path);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::source::SourceRegion::setPath(_t0);
     }
         return;
 
@@ -195,7 +211,7 @@ void SourceRegion::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
         return m_annotation && m_annotation->size();
     case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
-        return m_file;
+        return (bool) m_file;
     case ::kdm::source::SourcePackage::SOURCEREGION__STARTLINE:
         return ::ecorecpp::mapping::set_traits < ::kdm::core::Integer
                 > ::is_set(m_startLine);
@@ -231,7 +247,55 @@ void SourceRegion::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr SourceRegion::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::kdm::source::SourcePackage_ptr >(::kdm::source::SourcePackage::_instance())->getSourceRegion();
+            dynamic_cast< ::kdm::source::SourcePackage* >(::kdm::source::SourcePackage::_instance().get())->getSourceRegion();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void SourceRegion::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void SourceRegion::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::source::SourcePackage::SOURCEREGION__FILE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

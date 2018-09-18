@@ -2,6 +2,7 @@
 /*
  * json/NumberValue.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(NumberValue.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::json;
 
 // Default constructor
@@ -48,12 +54,8 @@ NumberValue::~NumberValue()
 {
 }
 
-/*PROTECTED REGION ID(NumberValue.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EDouble NumberValue::getValue() const
 {
     return m_value;
@@ -70,8 +72,8 @@ void NumberValue::setValue(::ecore::EDouble _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::json::JsonPackage::_instance()->getNumberValue__value(),
+                _this(),
+                ::json::JsonPackage::_instance()->getNumberValue__value(),
                 _old_value,
                 m_value
         );

@@ -1,0 +1,12 @@
+/usr/local/include/emf4cpp/eopposite.hpp
+/usr/local/include/emf4cpp/eopposite_forward.hpp
+/usr/local/include/emf4cpp/eopposite/EoppositeFactory.hpp
+/usr/local/include/emf4cpp/eopposite/EoppositePackage.hpp
+/usr/local/include/emf4cpp/eopposite/TopLevel.hpp
+/usr/local/include/emf4cpp/eopposite/NamedObject.hpp
+/usr/local/include/emf4cpp/eopposite/LeftHand.hpp
+/usr/local/include/emf4cpp/eopposite/RightHand.hpp
+/usr/local/include/emf4cpp/eopposite/RightMultiple.hpp
+/usr/local/lib/libemf4cpp-eopposite.so.0.0.1
+/usr/local/lib/libemf4cpp-eopposite.so.1
+/usr/local/lib/libemf4cpp-eopposite.so

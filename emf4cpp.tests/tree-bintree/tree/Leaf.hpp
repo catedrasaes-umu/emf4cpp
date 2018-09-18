@@ -2,6 +2,7 @@
 /*
  * tree/Leaf.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef TREE_LEAF_HPP
 #define TREE_LEAF_HPP
 
-#include <tree_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <tree/dllTree.hpp>
+#include <tree_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <tree/TreeNode.hpp>
+
+#include "TreePackage.hpp"
 
 /*PROTECTED REGION ID(Leaf_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,48 +39,56 @@
 namespace tree
 {
 
-    class Leaf: public virtual ::tree::TreeNode
-    {
-    public:
-        Leaf();
+class EXPORT_TREE_DLL Leaf : public virtual ::tree::TreeNode
+{
+public:
+    Leaf();
 
-        virtual ~Leaf();
+    virtual ~Leaf();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(Leaf) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = TreePackage::LEAF;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Leaf) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(LeafImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(LeafImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    Leaf_ptr _this()
+    {   return Leaf_ptr(this);}
 
-    };
+    // Attributes
 
-} // tree
+    // References
+
+};
+
+}
+ // tree
 
 #endif // TREE_LEAF_HPP
 

@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourcePackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::kdm::source;
 
-std::auto_ptr< ::kdm::source::SourcePackage > SourcePackage::s_instance;
+::ecore::Ptr< ::kdm::source::SourcePackage > SourcePackage::s_instance;
 
 ::kdm::source::SourcePackage_ptr SourcePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new SourcePackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< SourcePackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < SourcePackage > (new SourcePackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::kdm::source::SourcePackage_ptr SourcePackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

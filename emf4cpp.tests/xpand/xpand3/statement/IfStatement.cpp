@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/IfStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(IfStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -52,22 +58,19 @@ IfStatement::~IfStatement()
 {
     if (m_condition)
     {
-        delete m_condition;
+        m_condition.reset();
     }
     if (m_elseIf)
     {
-        delete m_elseIf;
+        m_elseIf.reset();
     }
 }
 
-/*PROTECTED REGION ID(IfStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr IfStatement::getCondition()
+
+::xpand3::expression::AbstractExpression_ptr IfStatement::getCondition() const
 {
     return m_condition;
 }
@@ -75,8 +78,16 @@ IfStatement::~IfStatement()
 void IfStatement::setCondition(
         ::xpand3::expression::AbstractExpression_ptr _condition)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+    if (m_condition)
+        m_condition->_setEContainer(IfStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
+    if (_condition)
+        _condition->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+#endif
     m_condition = _condition;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -84,27 +95,33 @@ void IfStatement::setCondition(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__condition(),
                 _old_condition,
                 m_condition
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_condition;
 }
 
-::xpand3::statement::IfStatement_ptr IfStatement::getElseIf()
+::xpand3::statement::IfStatement_ptr IfStatement::getElseIf() const
 {
     return m_elseIf;
 }
 
 void IfStatement::setElseIf(::xpand3::statement::IfStatement_ptr _elseIf)
 {
-    ::xpand3::statement::IfStatement_ptr _old_elseIf = m_elseIf;
+    if (m_elseIf)
+        m_elseIf->_setEContainer(IfStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
+    if (_elseIf)
+        _elseIf->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::statement::IfStatement_ptr _old_elseIf = m_elseIf;
+#endif
     m_elseIf = _elseIf;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -112,15 +129,13 @@ void IfStatement::setElseIf(::xpand3::statement::IfStatement_ptr _elseIf)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getIfStatement__elseIf(),
                 _old_elseIf,
                 m_elseIf
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_elseIf;
 }
 

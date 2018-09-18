@@ -2,6 +2,7 @@
 /*
  * json/serializer.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -26,14 +27,16 @@
 #include "json_serializer.hpp"
 #include <fstream>
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace json
 {
 
-typedef ::ecorecpp::mapping::type_traits::string_t string_t;
+typedef ::ecorecpp::mapping::type_definitions::string_t string_t;
 
-class serializer
+class EXPORT_ECORECPP_DLL serializer
 {
 public:
 
@@ -45,10 +48,10 @@ public:
 
 protected:
 
-    ::ecorecpp::mapping::type_traits::string_t get_type(
+    ::ecorecpp::mapping::type_definitions::string_t get_type(
             ::ecore::EObject_ptr obj) const;
 
-    ::ecorecpp::mapping::type_traits::string_t get_reference(
+    ::ecorecpp::mapping::type_definitions::string_t get_reference(
             ::ecore::EObject_ptr from, ::ecore::EObject_ptr to) const;
 
     void serialize_node(::ecore::EObject_ptr obj);

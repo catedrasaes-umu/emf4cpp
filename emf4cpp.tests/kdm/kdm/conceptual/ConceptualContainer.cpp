@@ -2,6 +2,7 @@
 /*
  * kdm/conceptual/ConceptualContainer.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ConceptualContainer.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::conceptual;
 
 // Default constructor
@@ -47,8 +53,9 @@ ConceptualContainer::ConceptualContainer()
 
     m_conceptualElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::conceptual::AbstractConceptualElement, -1, true,
-                    false >(this, NULL));
+                    ::kdm::conceptual::AbstractConceptualElement_ptr, -1, true,
+                    false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualContainer__conceptualElement()));
 
     /*PROTECTED REGION ID(ConceptualContainerImpl__ConceptualContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,14 +71,17 @@ ConceptualContainer::~ConceptualContainer()
 {
 }
 
-/*PROTECTED REGION ID(ConceptualContainer.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& ConceptualContainer::getConceptualElement()
+
+const ::ecorecpp::mapping::EList<
+        ::kdm::conceptual::AbstractConceptualElement_ptr >& ConceptualContainer::getConceptualElement() const
+{
+    return *m_conceptualElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement_ptr >& ConceptualContainer::getConceptualElement()
 {
     return *m_conceptualElement;
 }

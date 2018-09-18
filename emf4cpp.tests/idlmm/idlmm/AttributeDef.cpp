@@ -2,6 +2,7 @@
 /*
  * idlmm/AttributeDef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -33,6 +34,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AttributeDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -40,11 +46,13 @@ AttributeDef::AttributeDef()
 {
 
     m_getRaises.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::ExceptionDef_ptr, -1, false, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getAttributeDef__getRaises()));
     m_setRaises.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::ExceptionDef,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::ExceptionDef_ptr, -1, false, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getAttributeDef__setRaises()));
 
     /*PROTECTED REGION ID(AttributeDefImpl__AttributeDefImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,12 +68,8 @@ AttributeDef::~AttributeDef()
 {
 }
 
-/*PROTECTED REGION ID(AttributeDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean AttributeDef::isIsReadonly() const
 {
     return m_isReadonly;
@@ -82,8 +86,8 @@ void AttributeDef::setIsReadonly(::ecore::EBoolean _isReadonly)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getAttributeDef__isReadonly(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getAttributeDef__isReadonly(),
                 _old_isReadonly,
                 m_isReadonly
         );
@@ -93,12 +97,23 @@ void AttributeDef::setIsReadonly(::ecore::EBoolean _isReadonly)
 }
 
 // References
-::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getGetRaises()
+
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getGetRaises() const
 {
     return *m_getRaises;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& AttributeDef::getSetRaises()
+::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getGetRaises()
+{
+    return *m_getRaises;
+}
+
+const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getSetRaises() const
+{
+    return *m_setRaises;
+}
+
+::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& AttributeDef::getSetRaises()
 {
     return *m_setRaises;
 }

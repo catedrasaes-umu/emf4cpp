@@ -170,8 +170,8 @@ int main(int argc, char* argv[])
 {
     // argv[1] = nombre del fichero con la estructura
 
-//    JsonPackage_ptr jsonPackage = JsonPackage::_instance()->as< JsonPackage >();
-    JsonFactory_ptr jsonFactory = JsonFactory::_instance()->as< JsonFactory >();
+//    JsonPackage_ptr jsonPackage = JsonPackage::_instance();
+    JsonFactory_ptr jsonFactory = JsonFactory::_instance();
 
     size_t size;
     char * memblock;
@@ -223,7 +223,7 @@ int main(int argc, char* argv[])
     ecorecpp::parser::parser _dser;
     EObject_ptr eobj = _dser.load("salida.xmi");
 
-    obj = eobj->as< json >();
+    obj = ::ecore::as< json >(eobj);
 
     delete obj;
 */

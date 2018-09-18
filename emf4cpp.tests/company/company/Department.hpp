@@ -2,6 +2,7 @@
 /*
  * company/Department.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,15 @@
 #ifndef COMPANY_DEPARTMENT_HPP
 #define COMPANY_DEPARTMENT_HPP
 
-#include <company_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
+
+#include <company/dllCompany.hpp>
+#include <company_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "CompanyPackage.hpp"
 
 /*PROTECTED REGION ID(Department_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -35,62 +39,69 @@
 namespace company
 {
 
-    class Department: public virtual ::ecore::EObject
+class EXPORT_COMPANY_DLL Department : public virtual ::ecore::EObject
+{
+public:
+    Department();
 
-    {
-    public:
-        Department();
+    virtual ~Department();
 
-        virtual ~Department();
+    virtual void _initialize();
 
-        virtual void _initialize();
+    // Operations
 
-        // Operations
+    // Attributes
+    virtual ::ecore::EInt getNumber () const;
+    virtual void setNumber (::ecore::EInt _number);
 
-        // Attributes
-        ::ecore::EInt getNumber() const;
-        void setNumber(::ecore::EInt _number);
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::company::Employee_ptr >& getEmployees () const;
+    virtual ::ecorecpp::mapping::EList< ::company::Employee_ptr >& getEmployees ();
 
-        // References
-        ::ecorecpp::mapping::EList< ::company::Employee >& getEmployees();
+    virtual ::company::Employee_ptr getManager () const;
+    virtual void setManager (::company::Employee_ptr _manager);
 
-        ::company::Employee_ptr getManager();
-        void setManager(::company::Employee_ptr _manager);
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CompanyPackage::DEPARTMENT;
 
-        /*PROTECTED REGION ID(Department) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Department) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(DepartmentImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(DepartmentImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    Department_ptr _this()
+    {   return Department_ptr(this);}
 
-        ::ecore::EInt m_number;
+    // Attributes
 
-        // References
+    ::ecore::EInt m_number;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::company::Employee > > m_employees;
+    // References
 
-        ::company::Employee_ptr m_manager;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::company::Employee_ptr >> m_employees;
 
-    };
+    ::company::Employee_ptr m_manager;
 
-} // company
+};
+
+}
+ // company
 
 #endif // COMPANY_DEPARTMENT_HPP
 

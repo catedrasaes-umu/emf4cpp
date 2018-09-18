@@ -2,6 +2,7 @@
 /*
  * ecore/EGenericTypeImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,38 +30,29 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EGenericTypeImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::ecore;
+
 void EGenericType::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     if (m_eUpperBound)
     {
         m_eUpperBound->_initialize();
-        m_eUpperBound->_setEContainer(
-                this,
-                ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
     }
     for (size_t i = 0; i < m_eTypeArguments->size(); i++)
     {
         (*m_eTypeArguments)[i]->_initialize();
-        (*m_eTypeArguments)[i]->_setEContainer(
-                this,
-                ::ecore::EcorePackage::_instance()->getEGenericType__eTypeArguments());
     }
     if (m_eLowerBound)
     {
         m_eLowerBound->_initialize();
-        m_eLowerBound->_setEContainer(
-                this,
-                ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
     }
 
     /*PROTECTED REGION ID(EGenericTypeImpl__initialize) START*/
@@ -71,7 +63,6 @@ void EGenericType::_initialize()
 
 // Operations
 
-
 // EObject
 ::ecore::EJavaObject EGenericType::eGet(::ecore::EInt _featureID,
         ::ecore::EBoolean _resolve)
@@ -81,27 +72,31 @@ void EGenericType::_initialize()
     {
     case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eUpperBound);
+        if (m_eUpperBound)
+            _any = ::ecore::as < ::ecore::EObject > (m_eUpperBound);
     }
         return _any;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
     {
-        _any = m_eTypeArguments->asEListOf< ::ecore::EObject > ();
+        _any = m_eTypeArguments->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eLowerBound);
+        if (m_eLowerBound)
+            _any = ::ecore::as < ::ecore::EObject > (m_eLowerBound);
     }
         return _any;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eTypeParameter);
+        if (m_eTypeParameter)
+            _any = ::ecore::as < ::ecore::EObject > (m_eTypeParameter);
     }
         return _any;
     case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
     {
-        _any = static_cast< ::ecore::EObject* > (m_eClassifier);
+        if (m_eClassifier)
+            _any = ::ecore::as < ::ecore::EObject > (m_eClassifier);
     }
         return _any;
 
@@ -116,46 +111,46 @@ void EGenericType::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EGenericType_ptr _t1 =
-                dynamic_cast< ::ecore::EGenericType_ptr > (_t0);
+                dynamic_cast< ::ecore::EGenericType* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EGenericType >(_t0);*/
         ::ecore::EGenericType::setEUpperBound(_t1);
     }
         return;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EGenericType::getETypeArguments().clear();
         ::ecore::EGenericType::getETypeArguments().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EGenericType_ptr _t1 =
-                dynamic_cast< ::ecore::EGenericType_ptr > (_t0);
+                dynamic_cast< ::ecore::EGenericType* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EGenericType >(_t0);*/
         ::ecore::EGenericType::setELowerBound(_t1);
     }
         return;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::ETypeParameter_ptr _t1 =
-                dynamic_cast< ::ecore::ETypeParameter_ptr > (_t0);
+                dynamic_cast< ::ecore::ETypeParameter* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::ETypeParameter >(_t0);*/
         ::ecore::EGenericType::setETypeParameter(_t1);
     }
         return;
     case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
         ::ecore::EClassifier_ptr _t1 =
-                dynamic_cast< ::ecore::EClassifier_ptr > (_t0);
+                dynamic_cast< ::ecore::EClassifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EClassifier >(_t0);*/
         ::ecore::EGenericType::setEClassifier(_t1);
     }
         return;
@@ -169,17 +164,17 @@ void EGenericType::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
-        return m_eUpperBound;
+        return (bool) m_eUpperBound;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
         return m_eTypeArguments && m_eTypeArguments->size();
     case ::ecore::EcorePackage::EGENERICTYPE__ERAWTYPE:
-        return m_eRawType;
+        return (bool) m_eRawType;
     case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
-        return m_eLowerBound;
+        return (bool) m_eLowerBound;
     case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
-        return m_eTypeParameter;
+        return (bool) m_eTypeParameter;
     case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
-        return m_eClassifier;
+        return (bool) m_eClassifier;
 
     }
     throw "Error";
@@ -196,9 +191,72 @@ void EGenericType::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EGenericType::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEGenericType();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEGenericType();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EGenericType::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EGenericType::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EGENERICTYPE__EUPPERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEARGUMENTS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ELOWERBOUND:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ETYPEPARAMETER:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EGENERICTYPE__ECLASSIFIER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

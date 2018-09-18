@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/ForEachStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ForEachStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -52,30 +58,27 @@ ForEachStatement::~ForEachStatement()
 {
     if (m_target)
     {
-        delete m_target;
+        m_target.reset();
     }
     if (m_separator)
     {
-        delete m_separator;
+        m_separator.reset();
     }
     if (m_variable)
     {
-        delete m_variable;
+        m_variable.reset();
     }
     if (m_iteratorName)
     {
-        delete m_iteratorName;
+        m_iteratorName.reset();
     }
 }
 
-/*PROTECTED REGION ID(ForEachStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr ForEachStatement::getTarget()
+
+::xpand3::expression::AbstractExpression_ptr ForEachStatement::getTarget() const
 {
     return m_target;
 }
@@ -83,8 +86,16 @@ ForEachStatement::~ForEachStatement()
 void ForEachStatement::setTarget(
         ::xpand3::expression::AbstractExpression_ptr _target)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+    if (m_target)
+        m_target->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target());
+    if (_target)
+        _target->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+#endif
     m_target = _target;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -92,19 +103,17 @@ void ForEachStatement::setTarget(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__target(),
                 _old_target,
                 m_target
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_target;
 }
 
-::xpand3::expression::AbstractExpression_ptr ForEachStatement::getSeparator()
+::xpand3::expression::AbstractExpression_ptr ForEachStatement::getSeparator() const
 {
     return m_separator;
 }
@@ -112,8 +121,16 @@ void ForEachStatement::setTarget(
 void ForEachStatement::setSeparator(
         ::xpand3::expression::AbstractExpression_ptr _separator)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_separator = m_separator;
+    if (m_separator)
+        m_separator->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator());
+    if (_separator)
+        _separator->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_separator = m_separator;
+#endif
     m_separator = _separator;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -121,27 +138,33 @@ void ForEachStatement::setSeparator(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__separator(),
                 _old_separator,
                 m_separator
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_separator;
 }
 
-::xpand3::Identifier_ptr ForEachStatement::getVariable()
+::xpand3::Identifier_ptr ForEachStatement::getVariable() const
 {
     return m_variable;
 }
 
 void ForEachStatement::setVariable(::xpand3::Identifier_ptr _variable)
 {
-    ::xpand3::Identifier_ptr _old_variable = m_variable;
+    if (m_variable)
+        m_variable->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable());
+    if (_variable)
+        _variable->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_variable = m_variable;
+#endif
     m_variable = _variable;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -149,27 +172,33 @@ void ForEachStatement::setVariable(::xpand3::Identifier_ptr _variable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__variable(),
                 _old_variable,
                 m_variable
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_variable;
 }
 
-::xpand3::Identifier_ptr ForEachStatement::getIteratorName()
+::xpand3::Identifier_ptr ForEachStatement::getIteratorName() const
 {
     return m_iteratorName;
 }
 
 void ForEachStatement::setIteratorName(::xpand3::Identifier_ptr _iteratorName)
 {
-    ::xpand3::Identifier_ptr _old_iteratorName = m_iteratorName;
+    if (m_iteratorName)
+        m_iteratorName->_setEContainer(ForEachStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName());
+    if (_iteratorName)
+        _iteratorName->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_iteratorName = m_iteratorName;
+#endif
     m_iteratorName = _iteratorName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -177,15 +206,13 @@ void ForEachStatement::setIteratorName(::xpand3::Identifier_ptr _iteratorName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getForEachStatement__iteratorName(),
                 _old_iteratorName,
                 m_iteratorName
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_iteratorName;
 }
 

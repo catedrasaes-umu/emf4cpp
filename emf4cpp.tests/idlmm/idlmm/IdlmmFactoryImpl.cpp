@@ -2,6 +2,7 @@
 /*
  * idlmm/IdlmmFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -53,7 +54,6 @@ using namespace ::idlmm;
 
 IdlmmFactory::IdlmmFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr IdlmmFactory::create(::ecore::EClass_ptr _eClass)
@@ -127,7 +127,7 @@ IdlmmFactory::IdlmmFactory()
     {
         ::ecore::EJavaObject _any;
         IdlmmPackage_ptr _epkg =
-                dynamic_cast< ::idlmm::IdlmmPackage_ptr >(getEPackage());
+                dynamic_cast< ::idlmm::IdlmmPackage* >(getEPackage().get());
         return _epkg->getParameterMode()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
@@ -135,7 +135,7 @@ IdlmmFactory::IdlmmFactory()
     {
         ::ecore::EJavaObject _any;
         IdlmmPackage_ptr _epkg =
-                dynamic_cast< ::idlmm::IdlmmPackage_ptr >(getEPackage());
+                dynamic_cast< ::idlmm::IdlmmPackage* >(getEPackage().get());
         return _epkg->getPrimitiveKind()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
@@ -158,7 +158,7 @@ IdlmmFactory::IdlmmFactory()
     {
     case IdlmmPackage::PARAMETERMODE:
     {
-        IdlmmPackage_ptr _epkg = ::idlmm::instanceOf < ::idlmm::IdlmmPackage
+        IdlmmPackage_ptr _epkg = ::ecore::as < ::idlmm::IdlmmPackage
                 > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
@@ -166,7 +166,7 @@ IdlmmFactory::IdlmmFactory()
     }
     case IdlmmPackage::PRIMITIVEKIND:
     {
-        IdlmmPackage_ptr _epkg = ::idlmm::instanceOf < ::idlmm::IdlmmPackage
+        IdlmmPackage_ptr _epkg = ::ecore::as < ::idlmm::IdlmmPackage
                 > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
@@ -185,106 +185,106 @@ IdlmmFactory::IdlmmFactory()
 
 Container_ptr IdlmmFactory::createContainer()
 {
-    return new Container();
+    return ::ecore::Ptr < Container > (new Container);
 }
 Contained_ptr IdlmmFactory::createContained()
 {
-    return new Contained();
+    return ::ecore::Ptr < Contained > (new Contained);
 }
 InterfaceDef_ptr IdlmmFactory::createInterfaceDef()
 {
-    return new InterfaceDef();
+    return ::ecore::Ptr < InterfaceDef > (new InterfaceDef);
 }
 ModuleDef_ptr IdlmmFactory::createModuleDef()
 {
-    return new ModuleDef();
+    return ::ecore::Ptr < ModuleDef > (new ModuleDef);
 }
 IDLType_ptr IdlmmFactory::createIDLType()
 {
-    return new IDLType();
+    return ::ecore::Ptr < IDLType > (new IDLType);
 }
 OperationDef_ptr IdlmmFactory::createOperationDef()
 {
-    return new OperationDef();
+    return ::ecore::Ptr < OperationDef > (new OperationDef);
 }
 AttributeDef_ptr IdlmmFactory::createAttributeDef()
 {
-    return new AttributeDef();
+    return ::ecore::Ptr < AttributeDef > (new AttributeDef);
 }
 ConstantDef_ptr IdlmmFactory::createConstantDef()
 {
-    return new ConstantDef();
+    return ::ecore::Ptr < ConstantDef > (new ConstantDef);
 }
 Typed_ptr IdlmmFactory::createTyped()
 {
-    return new Typed();
+    return ::ecore::Ptr < Typed > (new Typed);
 }
 ParameterDef_ptr IdlmmFactory::createParameterDef()
 {
-    return new ParameterDef();
+    return ::ecore::Ptr < ParameterDef > (new ParameterDef);
 }
 PrimitiveDef_ptr IdlmmFactory::createPrimitiveDef()
 {
-    return new PrimitiveDef();
+    return ::ecore::Ptr < PrimitiveDef > (new PrimitiveDef);
 }
 ExceptionDef_ptr IdlmmFactory::createExceptionDef()
 {
-    return new ExceptionDef();
+    return ::ecore::Ptr < ExceptionDef > (new ExceptionDef);
 }
 Field_ptr IdlmmFactory::createField()
 {
-    return new Field();
+    return ::ecore::Ptr < Field > (new Field);
 }
 FixedDef_ptr IdlmmFactory::createFixedDef()
 {
-    return new FixedDef();
+    return ::ecore::Ptr < FixedDef > (new FixedDef);
 }
 WstringDef_ptr IdlmmFactory::createWstringDef()
 {
-    return new WstringDef();
+    return ::ecore::Ptr < WstringDef > (new WstringDef);
 }
 StringDef_ptr IdlmmFactory::createStringDef()
 {
-    return new StringDef();
+    return ::ecore::Ptr < StringDef > (new StringDef);
 }
 AliasDef_ptr IdlmmFactory::createAliasDef()
 {
-    return new AliasDef();
+    return ::ecore::Ptr < AliasDef > (new AliasDef);
 }
 ArrayDef_ptr IdlmmFactory::createArrayDef()
 {
-    return new ArrayDef();
+    return ::ecore::Ptr < ArrayDef > (new ArrayDef);
 }
 SequenceDef_ptr IdlmmFactory::createSequenceDef()
 {
-    return new SequenceDef();
+    return ::ecore::Ptr < SequenceDef > (new SequenceDef);
 }
 UnionField_ptr IdlmmFactory::createUnionField()
 {
-    return new UnionField();
+    return ::ecore::Ptr < UnionField > (new UnionField);
 }
 TypedefDef_ptr IdlmmFactory::createTypedefDef()
 {
-    return new TypedefDef();
+    return ::ecore::Ptr < TypedefDef > (new TypedefDef);
 }
 UnionDef_ptr IdlmmFactory::createUnionDef()
 {
-    return new UnionDef();
+    return ::ecore::Ptr < UnionDef > (new UnionDef);
 }
 EnumDef_ptr IdlmmFactory::createEnumDef()
 {
-    return new EnumDef();
+    return ::ecore::Ptr < EnumDef > (new EnumDef);
 }
 StructDef_ptr IdlmmFactory::createStructDef()
 {
-    return new StructDef();
+    return ::ecore::Ptr < StructDef > (new StructDef);
 }
 TranslationUnit_ptr IdlmmFactory::createTranslationUnit()
 {
-    return new TranslationUnit();
+    return ::ecore::Ptr < TranslationUnit > (new TranslationUnit);
 }
 Include_ptr IdlmmFactory::createInclude()
 {
-    return new Include();
+    return ::ecore::Ptr < Include > (new Include);
 }
 

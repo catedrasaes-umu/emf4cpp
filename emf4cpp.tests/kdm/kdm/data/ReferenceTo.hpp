@@ -2,6 +2,7 @@
 /*
  * kdm/data/ReferenceTo.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef KDM_DATA_REFERENCETO_HPP
 #define KDM_DATA_REFERENCETO_HPP
 
-#include <kdm/data_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/data_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/data/AbstractDataRelationship.hpp>
+
+#include "DataPackage.hpp"
 
 /*PROTECTED REGION ID(ReferenceTo_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -36,58 +41,66 @@ namespace kdm
     namespace data
     {
 
-        class ReferenceTo: public virtual ::kdm::data::AbstractDataRelationship
-        {
-        public:
-            ReferenceTo();
+    class EXPORT_KDM_DLL ReferenceTo : public virtual ::kdm::data::AbstractDataRelationship
+    {
+    public:
+        ReferenceTo();
 
-            virtual ~ReferenceTo();
+        virtual ~ReferenceTo();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::kdm::data::ContentItem_ptr getTo();
-            void setTo(::kdm::data::ContentItem_ptr _to);
+        // References
+        virtual ::kdm::data::ContentItem_ptr getTo () const;
+        virtual void setTo (::kdm::data::ContentItem_ptr _to);
 
-            ::kdm::data::ContentItem_ptr getFrom();
-            void setFrom(::kdm::data::ContentItem_ptr _from);
+        virtual ::kdm::data::ContentItem_ptr getFrom () const;
+        virtual void setFrom (::kdm::data::ContentItem_ptr _from);
 
-            /*PROTECTED REGION ID(ReferenceTo) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DataPackage::REFERENCETO;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(ReferenceTo) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(ReferenceToImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(ReferenceToImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        ReferenceTo_ptr _this()
+        {   return ReferenceTo_ptr(this);}
 
-            ::kdm::data::ContentItem_ptr m_to;
+        // Attributes
 
-            ::kdm::data::ContentItem_ptr m_from;
+        // References
 
-        };
+        ::kdm::data::ContentItem_ptr m_to;
 
-    } // data
-} // kdm
+        ::kdm::data::ContentItem_ptr m_from;
+
+    };
+
+}
+ // data
+}// kdm
 
 #endif // KDM_DATA_REFERENCETO_HPP
 

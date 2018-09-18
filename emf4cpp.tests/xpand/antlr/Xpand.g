@@ -12,7 +12,7 @@ options{
 
 @parser::members{
 
-#define XPAND_FACTORY xpand3::Xpand3Factory::_instance()->as<xpand3::Xpand3Factory>()
+#define XPAND_FACTORY xpand3::Xpand3Factory::_instance()
 
 struct XpandFactory
 {

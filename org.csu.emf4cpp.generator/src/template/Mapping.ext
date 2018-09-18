@@ -22,19 +22,19 @@ import org::eclipse::emf::ecore;
 String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 {
 	case "EBigDecimal": "long double" // Will change. See http://beta.boost.org/community/sandbox.html for BigDecimal and BigInt
-	case "EBigInteger": "long long int" // Will change for GMP
+	case "EBigInteger": "int64_t" // Will change for GMP
 	case "EBoolean": "bool"
 	case "EBooleanObject": "bool" // See if we have to implement some different classes for object-types
 	case "EByte": "unsigned char"
 	case "EByteArray": "std::vector<unsigned char>"
 	case "EByteObject": "unsigned char"
-	case "EChar": "char" // Maybe int, as you should consider UTF-8
-	case "ECharacterObject": "char"
-	case "EDate": "time_t"
-	case "EDiagnosticChain": "int" // ?? Need class
+	case "EChar": "char16_t" // The underlying Java 'char' type is an unsigned 16 bit integer type 
+	case "ECharacterObject": "char16_t"
+	case "EDate": "::ecorecpp::mapping::EDate" // Wrapper class of std::tm struct
+ 	case "EDiagnosticChain": "int" // ?? Need class
 	case "EDouble": "double"
 	case "EDoubleObject": "double" // Object/value?
-	case "EEList": "std::list<" + type_parameters +" >"
+	case "EEList": "std::shared_ptr<::ecorecpp::mapping::EList<" + type_parameters +">>"
 	case "EEnumerator": "int" // ?? Need class
 	case "EFeatureMap": "int" // ?? Need class
 	case "EFeatureMapEntry": "int" // ?? Need class
@@ -44,16 +44,16 @@ String getEDataTypeMap(EDataType d, String type_parameters) : switch (d.name)
 	case "EIntegerObject": "int" // Object/value?
 	case "EJavaClass": "int" // ?? Need class
 	case "EJavaObject": "::ecorecpp::mapping::any"
-	case "ELong": "long"
-	case "ELongObject": "long" // Object/value?
+	case "ELong": "int64_t"
+	case "ELongObject": "int64_t" // Object/value?
 	case "EMap": "int" // TODO: As in EList, we should look for type parameters, in this case K,V.
 	                    // maybe std::map<std::string, ecore::EObject> ó la versión con shared_ptr 
-	case "EResource": "int" // ?? Need class
-	case "EResourceSet": "int" // ?? Need class
+	case "EResource": "::ecorecpp::resource::Resource*" // ?? Need class
+	case "EResourceSet": "::ecorecpp::resource::ResourceSet*" // ?? Need class
 	case "EShort": "short"
 	case "EShortObject": "short" // Object/value?
-	case "EString": "::ecorecpp::mapping::type_traits::string_t"
-	case "ETreeIterator": "int" // ?? Need class
+	case "EString": "::ecorecpp::mapping::type_definitions::string_t"
+	case "ETreeIterator": "::ecorecpp::util::TreeIterator<" + type_parameters +">"
 	case "EInvocationTargetException": "int" // ?? Need class
 	default: // fallback
 		"int"

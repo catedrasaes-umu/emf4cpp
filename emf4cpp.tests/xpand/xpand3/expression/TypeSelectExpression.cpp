@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/TypeSelectExpression.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(TypeSelectExpression.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -51,26 +57,31 @@ TypeSelectExpression::~TypeSelectExpression()
 {
     if (m_typeLiteral)
     {
-        delete m_typeLiteral;
+        m_typeLiteral.reset();
     }
 }
 
-/*PROTECTED REGION ID(TypeSelectExpression.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::Identifier_ptr TypeSelectExpression::getTypeLiteral()
+
+::xpand3::Identifier_ptr TypeSelectExpression::getTypeLiteral() const
 {
     return m_typeLiteral;
 }
 
 void TypeSelectExpression::setTypeLiteral(::xpand3::Identifier_ptr _typeLiteral)
 {
-    ::xpand3::Identifier_ptr _old_typeLiteral = m_typeLiteral;
+    if (m_typeLiteral)
+        m_typeLiteral->_setEContainer(TypeSelectExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
+    if (_typeLiteral)
+        _typeLiteral->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_typeLiteral = m_typeLiteral;
+#endif
     m_typeLiteral = _typeLiteral;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,15 +89,13 @@ void TypeSelectExpression::setTypeLiteral(::xpand3::Identifier_ptr _typeLiteral)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getTypeSelectExpression__typeLiteral(),
                 _old_typeLiteral,
                 m_typeLiteral
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_typeLiteral;
 }
 

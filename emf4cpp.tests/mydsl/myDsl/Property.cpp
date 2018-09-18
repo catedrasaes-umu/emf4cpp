@@ -2,6 +2,7 @@
 /*
  * myDsl/Property.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Property.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::myDsl;
 
 // Default constructor
@@ -49,12 +55,8 @@ Property::~Property()
 {
 }
 
-/*PROTECTED REGION ID(Property.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& Property::getName() const
 {
     return m_name;
@@ -71,8 +73,8 @@ void Property::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getProperty__name(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getProperty__name(),
                 _old_name,
                 m_name
         );
@@ -97,8 +99,8 @@ void Property::setMany(::ecore::EBoolean _many)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getProperty__many(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getProperty__many(),
                 _old_many,
                 m_many
         );
@@ -108,15 +110,17 @@ void Property::setMany(::ecore::EBoolean _many)
 }
 
 // References
-::myDsl::Type_ptr Property::getType()
+
+::myDsl::Type_ptr Property::getType() const
 {
     return m_type;
 }
 
 void Property::setType(::myDsl::Type_ptr _type)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::myDsl::Type_ptr _old_type = m_type;
-
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -124,14 +128,13 @@ void Property::setType(::myDsl::Type_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getProperty__type(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getProperty__type(),
                 _old_type,
                 m_type
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

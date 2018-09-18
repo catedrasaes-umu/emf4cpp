@@ -2,6 +2,7 @@
 /*
  * SVG/Polyline.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Polyline.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -44,8 +50,9 @@ Polyline::Polyline()
 {
 
     m_waypoints.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1, true,
-                    false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point_ptr, -1,
+                    true, false >(this,
+                    ::SVG::SVGPackage::_instance()->getPolyline__waypoints()));
 
     /*PROTECTED REGION ID(PolylineImpl__PolylineImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,12 +68,8 @@ Polyline::~Polyline()
 {
 }
 
-/*PROTECTED REGION ID(Polyline.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::String Polyline::getStrokeDashArray() const
 {
     return m_strokeDashArray;
@@ -83,8 +86,8 @@ void Polyline::setStrokeDashArray(::PrimitiveTypes::String _strokeDashArray)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolyline__strokeDashArray(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolyline__strokeDashArray(),
                 _old_strokeDashArray,
                 m_strokeDashArray
         );
@@ -109,8 +112,8 @@ void Polyline::setMarkerEnd(::PrimitiveTypes::String _markerEnd)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolyline__markerEnd(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolyline__markerEnd(),
                 _old_markerEnd,
                 m_markerEnd
         );
@@ -135,8 +138,8 @@ void Polyline::setMarkerStart(::PrimitiveTypes::String _markerStart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolyline__markerStart(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolyline__markerStart(),
                 _old_markerStart,
                 m_markerStart
         );
@@ -146,7 +149,13 @@ void Polyline::setMarkerStart(::PrimitiveTypes::String _markerStart)
 }
 
 // References
-::ecorecpp::mapping::EList< ::SVG::Point >& Polyline::getWaypoints()
+
+const ::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polyline::getWaypoints() const
+{
+    return *m_waypoints;
+}
+
+::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polyline::getWaypoints()
 {
     return *m_waypoints;
 }

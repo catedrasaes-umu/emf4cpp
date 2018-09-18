@@ -2,6 +2,7 @@
 #
 # enduserlicense.cmake
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+# Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 #
 # EMF4CPP is free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
@@ -19,9 +20,9 @@
 #
 
 
-set(CMAKE_CXX_FLAGS "")
-set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -DDEBUG")
-set(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -funroll-loops")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops")
 
 set(enduserlicense_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense.cpp
@@ -29,24 +30,27 @@ set(enduserlicense_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicenseFactory.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicensePackageImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicenseFactoryImpl.cpp
-   )
-   
+)
+
 set(enduserlicense_HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense_forward.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicensePackage.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicenseFactory.hpp
-   )
+)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense.hpp DESTINATION include/emf4cpp/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense_forward.hpp DESTINATION include/emf4cpp/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicenseFactory.hpp DESTINATION include/emf4cpp/enduserlicense)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/EnduserlicensePackage.hpp DESTINATION include/emf4cpp/enduserlicense)   
-   
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../emf4cpp ../../emf4cpp)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/enduserlicense/dllEnduserlicense.hpp DESTINATION include/emf4cpp/enduserlicense)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp ../../builds/emf4cpp-generator-2.0.0/include/emf4cpp)
+link_directories(../../builds/emf4cpp-generator-2.0.0/lib)
 
 add_library(emf4cpp-enduserlicense SHARED ${enduserlicense_HEADERS} ${enduserlicense_SOURCES})
-set_target_properties(emf4cpp-enduserlicense PROPERTIES VERSION 0.0.1 SOVERSION 1)
+set_target_properties(emf4cpp-enduserlicense PROPERTIES COMPILE_FLAGS "-DMAKE_ENDUSERLICENSE_DLL" VERSION 0.0.1 SOVERSION 1)
+target_link_libraries(emf4cpp-enduserlicense emf4cpp-ecore)
 
 install(TARGETS emf4cpp-enduserlicense DESTINATION lib)
 

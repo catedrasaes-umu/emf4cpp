@@ -18,34 +18,10 @@
  */
 #include "Notification.hpp"
 
-using namespace ::ecorecpp::notify;
+namespace ecorecpp {
 
-Notification::~Notification()
-{
-}
+namespace notify {
 
-Notification::EventType Notification::getEventType()
-{
-    return m_event_type;
-}
+} // namespace notify
 
-Notifier_ptr Notification::getNotifier()
-{
-    return m_notifier;
-}
-
-::ecore::EStructuralFeature_ptr Notification::getFeature()
-{
-    return m_feature;
-}
-
-::ecore::any const& Notification::getNewValue()
-{
-    return m_new_value;
-}
-
-::ecore::any const& Notification::getOldValue()
-{
-    return m_old_value;
-}
-
+} // namespace ecorecpp

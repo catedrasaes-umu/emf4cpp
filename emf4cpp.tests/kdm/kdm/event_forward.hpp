@@ -2,6 +2,7 @@
 /*
  * kdm/event_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,87 +44,83 @@ namespace kdm
 
 // EventModel
         class EventModel;
-        typedef EventModel* EventModel_ptr;
+        using EventModel_ptr = ::ecore::Ptr<EventModel>;
 
 // AbstractEventElement
         class AbstractEventElement;
-        typedef AbstractEventElement* AbstractEventElement_ptr;
+        using AbstractEventElement_ptr = ::ecore::Ptr<AbstractEventElement>;
 
 // Event
         class Event;
-        typedef Event* Event_ptr;
+        using Event_ptr = ::ecore::Ptr<Event>;
 
 // AbstractEventRelationship
         class AbstractEventRelationship;
-        typedef AbstractEventRelationship* AbstractEventRelationship_ptr;
+        using AbstractEventRelationship_ptr = ::ecore::Ptr<AbstractEventRelationship>;
 
 // EventRelationship
         class EventRelationship;
-        typedef EventRelationship* EventRelationship_ptr;
+        using EventRelationship_ptr = ::ecore::Ptr<EventRelationship>;
 
 // EventResource
         class EventResource;
-        typedef EventResource* EventResource_ptr;
+        using EventResource_ptr = ::ecore::Ptr<EventResource>;
 
 // State
         class State;
-        typedef State* State_ptr;
+        using State_ptr = ::ecore::Ptr<State>;
 
 // Transition
         class Transition;
-        typedef Transition* Transition_ptr;
+        using Transition_ptr = ::ecore::Ptr<Transition>;
 
 // OnEntry
         class OnEntry;
-        typedef OnEntry* OnEntry_ptr;
+        using OnEntry_ptr = ::ecore::Ptr<OnEntry>;
 
 // OnExit
         class OnExit;
-        typedef OnExit* OnExit_ptr;
+        using OnExit_ptr = ::ecore::Ptr<OnExit>;
 
 // EventAction
         class EventAction;
-        typedef EventAction* EventAction_ptr;
+        using EventAction_ptr = ::ecore::Ptr<EventAction>;
 
 // ReadsState
         class ReadsState;
-        typedef ReadsState* ReadsState_ptr;
+        using ReadsState_ptr = ::ecore::Ptr<ReadsState>;
 
 // ProducesEvent
         class ProducesEvent;
-        typedef ProducesEvent* ProducesEvent_ptr;
+        using ProducesEvent_ptr = ::ecore::Ptr<ProducesEvent>;
 
 // ConsumesEvent
         class ConsumesEvent;
-        typedef ConsumesEvent* ConsumesEvent_ptr;
+        using ConsumesEvent_ptr = ::ecore::Ptr<ConsumesEvent>;
 
 // NextState
         class NextState;
-        typedef NextState* NextState_ptr;
+        using NextState_ptr = ::ecore::Ptr<NextState>;
 
 // InitialState
         class InitialState;
-        typedef InitialState* InitialState_ptr;
+        using InitialState_ptr = ::ecore::Ptr<InitialState>;
 
 // EventElement
         class EventElement;
-        typedef EventElement* EventElement_ptr;
+        using EventElement_ptr = ::ecore::Ptr<EventElement>;
 
 // HasState
         class HasState;
-        typedef HasState* HasState_ptr;
+        using HasState_ptr = ::ecore::Ptr<HasState>;
+
+// EEnum
 
 // Package & Factory
         class EventFactory;
-        typedef EventFactory * EventFactory_ptr;
+        using EventFactory_ptr = ::ecore::Ptr<EventFactory>;
         class EventPackage;
-        typedef EventPackage * EventPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using EventPackage_ptr = ::ecore::Ptr<EventPackage>;
 
     } // event
 } // kdm

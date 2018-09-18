@@ -2,6 +2,7 @@
 /*
  * kdm/data/DataContainer.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DataContainer.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -47,7 +53,8 @@ DataContainer::DataContainer()
 
     m_dataElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::DataResource, -1, true, false >(this, NULL));
+                    ::kdm::data::DataResource_ptr, -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getDataContainer__dataElement()));
 
     /*PROTECTED REGION ID(DataContainerImpl__DataContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -63,14 +70,16 @@ DataContainer::~DataContainer()
 {
 }
 
-/*PROTECTED REGION ID(DataContainer.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::data::DataResource >& DataContainer::getDataElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::data::DataResource_ptr >& DataContainer::getDataElement() const
+{
+    return *m_dataElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::data::DataResource_ptr >& DataContainer::getDataElement()
 {
     return *m_dataElement;
 }

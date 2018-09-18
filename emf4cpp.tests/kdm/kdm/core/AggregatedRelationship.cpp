@@ -2,6 +2,7 @@
 /*
  * kdm/core/AggregatedRelationship.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -34,6 +35,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AggregatedRelationship.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::core;
 
 // Default constructor
@@ -43,8 +49,8 @@ AggregatedRelationship::AggregatedRelationship() :
 
     m_relation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::KDMRelationship, -1, false, false >(this,
-                    NULL));
+                    ::kdm::core::KDMRelationship_ptr, -1, false, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__relation()));
 
     /*PROTECTED REGION ID(AggregatedRelationshipImpl__AggregatedRelationshipImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,12 +66,8 @@ AggregatedRelationship::~AggregatedRelationship()
 {
 }
 
-/*PROTECTED REGION ID(AggregatedRelationship.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::Integer AggregatedRelationship::getDensity() const
 {
     return m_density;
@@ -82,8 +84,8 @@ void AggregatedRelationship::setDensity(::kdm::core::Integer _density)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__density(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__density(),
                 _old_density,
                 m_density
         );
@@ -93,15 +95,17 @@ void AggregatedRelationship::setDensity(::kdm::core::Integer _density)
 }
 
 // References
-::kdm::core::KDMEntity_ptr AggregatedRelationship::getFrom()
+
+::kdm::core::KDMEntity_ptr AggregatedRelationship::getFrom() const
 {
     return m_from;
 }
 
 void AggregatedRelationship::setFrom(::kdm::core::KDMEntity_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::KDMEntity_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -109,26 +113,26 @@ void AggregatedRelationship::setFrom(::kdm::core::KDMEntity_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__from(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__from(),
                 _old_from,
                 m_from
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::kdm::core::KDMEntity_ptr AggregatedRelationship::getTo()
+::kdm::core::KDMEntity_ptr AggregatedRelationship::getTo() const
 {
     return m_to;
 }
 
 void AggregatedRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::KDMEntity_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -136,18 +140,22 @@ void AggregatedRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__to(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getAggregatedRelationship__to(),
                 _old_to,
                 m_to
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship >& AggregatedRelationship::getRelation()
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >& AggregatedRelationship::getRelation() const
+{
+    return *m_relation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::core::KDMRelationship_ptr >& AggregatedRelationship::getRelation()
 {
     return *m_relation;
 }

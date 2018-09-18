@@ -2,6 +2,7 @@
 /*
  * company/DepartmentImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,23 +28,21 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::company;
-
 /*PROTECTED REGION ID(DepartmentImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::company;
+
 void Department::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_employees->size(); i++)
     {
         (*m_employees)[i]->_initialize();
-        (*m_employees)[i]->_setEContainer(this,
-                ::company::CompanyPackage::_instance()->getDepartment__employees());
     }
 
     /*PROTECTED REGION ID(DepartmentImpl__initialize) START*/
@@ -63,12 +62,13 @@ void Department::_initialize()
     {
     case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
     {
-        _any = m_employees->asEListOf< ::ecore::EObject >();
+        _any = m_employees->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::company::CompanyPackage::DEPARTMENT__MANAGER:
     {
-        _any = static_cast< ::ecore::EObject* >(m_manager);
+        if (m_manager)
+            _any = ::ecore::as < ::ecore::EObject > (m_manager);
     }
         return _any;
     case ::company::CompanyPackage::DEPARTMENT__NUMBER:
@@ -89,8 +89,9 @@ void Department::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::company::Department::getEmployees().clear();
         ::company::Department::getEmployees().insert_all(*_t0);
     }
@@ -100,14 +101,16 @@ void Department::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::company::Employee_ptr _t1 =
-                dynamic_cast< ::company::Employee_ptr >(_t0);
+                dynamic_cast< ::company::Employee* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::company::Employee >(_t0);*/
         ::company::Department::setManager(_t1);
     }
         return;
     case ::company::CompanyPackage::DEPARTMENT__NUMBER:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_number);
+                > ::fromAny(_newValue, _t0);
+        ::company::Department::setNumber(_t0);
     }
         return;
 
@@ -122,7 +125,7 @@ void Department::eSet(::ecore::EInt _featureID,
     case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
         return m_employees && m_employees->size();
     case ::company::CompanyPackage::DEPARTMENT__MANAGER:
-        return m_manager;
+        return (bool) m_manager;
     case ::company::CompanyPackage::DEPARTMENT__NUMBER:
         return ::ecorecpp::mapping::set_traits < ::ecore::EInt
                 > ::is_set(m_number);
@@ -143,7 +146,47 @@ void Department::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Department::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::company::CompanyPackage_ptr >(::company::CompanyPackage::_instance())->getDepartment();
+            dynamic_cast< ::company::CompanyPackage* >(::company::CompanyPackage::_instance().get())->getDepartment();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Department::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
+    {
+    }
+        return;
+    case ::company::CompanyPackage::DEPARTMENT__MANAGER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Department::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::company::CompanyPackage::DEPARTMENT__EMPLOYEES:
+    {
+    }
+        return;
+    case ::company::CompanyPackage::DEPARTMENT__MANAGER:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

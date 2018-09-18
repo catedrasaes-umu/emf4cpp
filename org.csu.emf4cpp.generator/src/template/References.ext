@@ -28,33 +28,40 @@ String getTypeFQN(EReference this) :
 ;
 
 String getPtr(EReference this) :
-    getTypeFQN() + "_ptr"
+    if containment then
+        getTypeFQN() + "_ptr"
+    else
+        getTypeFQN() + "_ptr"
 ;
 
 String getList(EReference this) :
-    "::ecorecpp::mapping::EList< " + getTypeFQN()  + " >"
+    "::ecorecpp::mapping::EList< " + getPtr()  + " >"
 ;
 
 String getListImpl(EReference this) :
-    "::ecorecpp::mapping::ReferenceEListImpl< " + getTypeFQN()  + ", " + upperBound + ", " + containment + ", " + (EOpposite != null) +" >"
+    "::ecorecpp::mapping::ReferenceEListImpl< " + getPtr()  + ", " + upperBound + ", " + containment + ", " + (EOpposite != null) +" >"
 ;
 
 String _getListImplConstructorOpposite(EReference this) :
     if EOpposite != null then
-        ", " + "NULL" // EOpposite.EContainingClass.EPackage.getFeatureGetMemberCall(EOpposite)
+        ", " + EOpposite.EContainingClass.EPackage.getPackageFQN() + "::" + EOpposite.getFeatureIDFQN()
     else
         ""
 ;
 
 String getListImplConstructorParameters(EReference this) :
-//    "this, " + EContainingClass.EPackage.getFeatureGetMemberCall(this) + _getListImplConstructorOpposite(this)
-	"this, NULL"
+	"this, " + EContainingClass.EPackage.getFeatureGetMemberCall(this) + _getListImplConstructorOpposite(this)
+;
+
+String getListImplConstructorParametersOptional(EReference this) :
+	"this, " +
+	EContainingClass.EPackage.getFeatureGetMemberCallOptional(this, this) + _getListImplConstructorOpposite(this)
 ;
 
 // Reference type
 String getReferencEType(EReference this) :
  	if isMultiple() then
-		"::ecorecpp::mapping::out_ptr< "+ getList() + " >"
+		"std::shared_ptr<" + getList() + ">"
 	else
 		getPtr()
 ;
@@ -82,11 +89,30 @@ String getSetCPPSignature(EReference this, String prefix) :
 	
 String getSetCPPSignature(EReference this) : 
 	getSetCPPSignature("");
+
+String getSetCPPSignatureO(EReference this, String prefix) :
+	"void set"+ name.toFirstUpper() + " (" + getTypeFQN() + "_ptr
+	_" + name + ") { set" + name.toFirstUpper() + "( _" + name + ".get() ); }";
+	
+String getSetCPPSignatureO(EReference this) : 
+	getSetCPPSignatureO("");
 	
 // Get
 String getGetCPPSignature(EReference this, String prefix) :
 	getReferenceReturnedType() + " " + prefix + "get"+ name.toFirstUpper() + " ()";
 
+String getGetCPPSignatureConst(EReference this, String prefix) :
+    if isMultiple() then
+		"const " + getReferenceReturnedType() + " " + prefix + "get"+ name.toFirstUpper() + " () const"
+	else
+		getReferenceReturnedType() + " " + prefix + "get"+ name.toFirstUpper() + " () const"
+;
+
 String getGetCPPSignature(EReference this) : 
 	getGetCPPSignature("");
 
+String getGetCPPSignatureConst(EReference this) :
+	getGetCPPSignatureConst("");
+
+String getSetCPPCall(EReference this, String prefix) :
+       prefix + "set"+ name.toFirstUpper();

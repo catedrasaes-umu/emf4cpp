@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/CreateExtension.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(CreateExtension.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -53,14 +59,11 @@ CreateExtension::~CreateExtension()
 {
 }
 
-/*PROTECTED REGION ID(CreateExtension.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::DeclaredParameter_ptr CreateExtension::getToBeCreated()
+
+::xpand3::DeclaredParameter_ptr CreateExtension::getToBeCreated() const
 {
     return m_toBeCreated;
 }
@@ -68,8 +71,9 @@ CreateExtension::~CreateExtension()
 void CreateExtension::setToBeCreated(
         ::xpand3::DeclaredParameter_ptr _toBeCreated)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::xpand3::DeclaredParameter_ptr _old_toBeCreated = m_toBeCreated;
-
+#endif
     m_toBeCreated = _toBeCreated;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -77,14 +81,13 @@ void CreateExtension::setToBeCreated(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getCreateExtension__toBeCreated(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getCreateExtension__toBeCreated(),
                 _old_toBeCreated,
                 m_toBeCreated
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

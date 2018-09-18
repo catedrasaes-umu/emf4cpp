@@ -2,6 +2,7 @@
 /*
  * parser/handler.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,6 +21,7 @@
 #include "handler.hpp"
 #include "../MetaModelRepository.hpp"
 #include "../util/debug.hpp"
+#include "../util/escape_html.hpp"
 #include "../mapping.hpp"
 #include <iostream>
 #include <vector>
@@ -48,13 +50,15 @@ void handler::characters(xml_parser::match_pair const& chars)
         {
             assert( m_level);
 
-            ::ecorecpp::mapping::type_traits::string_t _literal(chars.first, chars.second);
+            ::ecorecpp::mapping::type_definitions::string_t _literal(chars.first, chars.second);
+
+			util::unescape_html(_literal);
 
             // DEBUG_MSG(cout, "expected!! " << length << " " << _literal);
 
             EObject_ptr const& peobj = m_objects.back();
             EClass_ptr const peclass = peobj->eClass();
-            ::ecorecpp::mapping::type_traits::string_t const& _name =
+            ::ecorecpp::mapping::type_definitions::string_t const& _name =
                   m_expected_literal_name;
 
             DEBUG_MSG(cout, _name);
@@ -62,7 +66,7 @@ void handler::characters(xml_parser::match_pair const& chars)
             EStructuralFeature_ptr const esf = peclass->getEStructuralFeature(
                     _name);
 
-            EDataType_ptr const edt = dynamic_cast< EDataType_ptr >(esf->getEType());
+            EDataType_ptr const edt = as< EDataType >(esf->getEType());
 
             EFactory_ptr const efac = edt->getEPackage()->getEFactoryInstance();
             assert(efac);
@@ -85,8 +89,8 @@ void handler::processing_tag (xml_parser::match_pair const& tag,
 void handler::start_tag(xml_parser::match_pair const& name,
                         xml_parser::attr_list_t const& attributes)
 {
-    ::ecorecpp::mapping::type_traits::string_t * _type = 0;
-    ::ecorecpp::mapping::type_traits::string_t _name(name.first, name.second);
+    ::ecorecpp::mapping::type_definitions::string_t * _type = 0;
+    ::ecorecpp::mapping::type_definitions::string_t _name(name.first, name.second);
     static MetaModelRepository_ptr _mmr = MetaModelRepository::_instance();
 
     // Data
@@ -96,7 +100,7 @@ void handler::start_tag(xml_parser::match_pair const& name,
     EClass_ptr eclass = 0;
     EObject_ptr eobj = 0;
     const size_t length = attributes.size();
-    std::vector< std::pair< ::ecorecpp::mapping::type_traits::string_t, ::ecorecpp::mapping::type_traits::string_t > > attr_list(length);
+    std::vector< std::pair< ::ecorecpp::mapping::type_definitions::string_t, ::ecorecpp::mapping::type_definitions::string_t > > attr_list(length);
 
     if (!m_level)
         _type = &_name;
@@ -106,10 +110,12 @@ void handler::start_tag(xml_parser::match_pair const& name,
         {
             // xsi:type may not be the first attribute using our serializer
             attr_list[i] = std::make_pair(
-                ::ecorecpp::mapping::type_traits::string_t (attributes[i].first.first,
+                ::ecorecpp::mapping::type_definitions::string_t (attributes[i].first.first,
                               attributes[i].first.second),
-                ::ecorecpp::mapping::type_traits::string_t (attributes[i].second.first,
+                ::ecorecpp::mapping::type_definitions::string_t (attributes[i].second.first,
                               attributes[i].second.second));
+
+			util::unescape_html(attr_list[i].second);
 
             if (!_type && (attr_list[i].first == "xsi:type"))
                 _type = &attr_list[i].second;
@@ -118,8 +124,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
     if (_type)
     {
         size_t const double_dot = _type->find(L':', 0);
-        ::ecorecpp::mapping::type_traits::string_t _type_ns = _type->substr(0, double_dot);
-        ::ecorecpp::mapping::type_traits::string_t _type_name = _type->substr(double_dot + 1);
+        ::ecorecpp::mapping::type_definitions::string_t _type_ns = _type->substr(0, double_dot);
+        ::ecorecpp::mapping::type_definitions::string_t _type_name = _type->substr(double_dot + 1);
 
         epkg = _mmr->getByName(_type_ns);
 
@@ -141,7 +147,7 @@ void handler::start_tag(xml_parser::match_pair const& name,
 
     assert(eclassifier);
     assert(epkg);
-    eclass = instanceOf< EClass > (eclassifier);
+    eclass = as< EClass > (eclassifier);
 
     if (eclass)
     {
@@ -157,12 +163,12 @@ void handler::start_tag(xml_parser::match_pair const& name,
         {
             try
             {
-                ::ecorecpp::mapping::type_traits::string_t const& _aname = attr_list[i].first;
+                ::ecorecpp::mapping::type_definitions::string_t const& _aname = attr_list[i].first;
 
                 if (!isAtCurrentNamespace(_aname))
                     continue;
 
-                ::ecorecpp::mapping::type_traits::string_t const& _avalue = attr_list[i].second;
+                ::ecorecpp::mapping::type_definitions::string_t const& _avalue = attr_list[i].second;
 
                 DEBUG_MSG(cout, "    --- Attributes: (" << (i + 1) << "/"
                         << length << ") " << _aname << " " << _avalue);
@@ -174,7 +180,7 @@ void handler::start_tag(xml_parser::match_pair const& name,
                 EClassifier_ptr const aeclassifier = esf->getEType();
                 assert(aeclassifier);
 
-                EDataType_ptr const aedt = instanceOf< EDataType > (
+                EDataType_ptr const aedt = as< EDataType > (
                         aeclassifier);
 
                 if (!aedt)
@@ -213,14 +219,14 @@ void handler::start_tag(xml_parser::match_pair const& name,
 
             any _any;
 
-            EReference_ptr const eref = instanceOf< EReference > (esf);
+            EReference_ptr const eref = as< EReference > (esf);
 
             if (eref && eref->getUpperBound() != 1)
             {
                 // Gets the collection and adds the new element
                 _any = peobj->eGet(esf);
-                mapping::EList_ptr list = ecorecpp::mapping::any::any_cast<
-                        mapping::EList_ptr >(_any);
+                mapping::EList<::ecore::EObject_ptr>::ptr_type list = ecorecpp::mapping::any::any_cast<
+                        mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
                 list->push_back(eobj);
             }
@@ -239,8 +245,8 @@ void handler::start_tag(xml_parser::match_pair const& name,
                 {
                     // Gets the collection and adds the new element
                     _any = eobj->eGet(eopref);
-                    mapping::EList_ptr list = ecorecpp::mapping::any::any_cast<
-                            mapping::EList_ptr >(_any);
+                    mapping::EList<::ecore::EObject_ptr>::ptr_type list = ecorecpp::mapping::any::any_cast<
+                            mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
                     list->push_back(peobj);
                 }
@@ -291,8 +297,8 @@ void handler::resolveReferences()
     {
         unresolved_reference_t const& ref = m_unresolved_references.back();
 
-        ::ecorecpp::mapping::type_traits::string_t const& xpath = ref.xpath;
-        ::ecorecpp::mapping::type_traits::string_t const& name = ref.ref_name;
+        ::ecorecpp::mapping::type_definitions::string_t const& xpath = ref.xpath;
+        ::ecorecpp::mapping::type_definitions::string_t const& name = ref.ref_name;
         EObject_ptr const& eobj = ref.eobject;
         EClass_ptr const& eclass = ref.eclass;
 
@@ -308,7 +314,7 @@ void handler::resolveReferences()
 
             // Parse reference
             size_t size = xpath.size();
-            const ::ecorecpp::mapping::type_traits::char_t * s = xpath.c_str();
+            const ::ecorecpp::mapping::type_definitions::char_t * s = xpath.c_str();
 
             ref_parser::SemanticState ss;
             State< ref_parser::SemanticState > st(ss, s, size);
@@ -322,7 +328,7 @@ void handler::resolveReferences()
                 EObject_ptr _current = m_objects.front();
                 ref_parser::processed_reference_t & _ref = _references[i];
 
-                EPackage_ptr pkg = instanceOf< EPackage > (_current);
+                EPackage_ptr pkg = as< EPackage > (_current);
                 if (!_ref.get_uri().empty() && (!pkg || (pkg && _ref.get_uri()
                         != pkg->getNsURI())))
                 {
@@ -333,16 +339,16 @@ void handler::resolveReferences()
                 ref_parser::path_t& _path = _ref.get_path();
                 for (size_t j = 0; j < _path.size(); j++)
                 {
-                    EClass_ptr cl = instanceOf< EClass > (_current);
-                    EPackage_ptr pkg = instanceOf< EPackage > (_current);
+                    EClass_ptr cl = as< EClass > (_current);
+                    EPackage_ptr pkg = as< EPackage > (_current);
 
-                    ::ecorecpp::mapping::type_traits::string_t const& _current_id = _path[j].get_id();
+                    ::ecorecpp::mapping::type_definitions::string_t const& _current_id = _path[j].get_id();
 
                     if (pkg) // package
                     {
                         // Is it a subpackage?
                         bool is_subpackage = false;
-                        ::ecorecpp::mapping::EList< EPackage > const& subpkgs =
+                        ::ecorecpp::mapping::EList< EPackage_ptr > const& subpkgs =
                                 pkg->getESubpackages();
 
                         for (size_t k = 0; k < subpkgs.size() && !is_subpackage; ++k)
@@ -376,8 +382,8 @@ void handler::resolveReferences()
                         {
                             size_t _index = _path[j].get_index();
 
-                            mapping::EList_ptr _collection = ecorecpp::mapping::any::any_cast<
-                                    mapping::EList_ptr >(_any);
+                            mapping::EList<::ecore::EObject_ptr>::ptr_type _collection = ecorecpp::mapping::any::any_cast<
+                                    mapping::EList<::ecore::EObject_ptr>::ptr_type >(_any);
 
                             assert(_collection->size() > _index);
                             DEBUG_MSG(cout, _collection->size());
@@ -391,7 +397,14 @@ void handler::resolveReferences()
 
                 // finally:
                 _any = _current;
-                eobj->eSet(esf, _any);
+
+				EJavaObject targetObject = eobj->eGet(esf);
+				if ( any::is_a<mapping::EList<::ecore::EObject_ptr>::ptr_type>(targetObject) ) {
+					ecorecpp::mapping::any::any_cast<mapping::EList<::ecore::EObject_ptr>::ptr_type >(targetObject)
+							->push_back(_current);
+				} else {
+					eobj->eSet(esf, _any);
+				}
             }
         } catch (const char* e)
         {

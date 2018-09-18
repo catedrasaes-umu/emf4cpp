@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/Stereotype.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Stereotype.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -39,7 +45,8 @@ Stereotype::Stereotype()
 
     m_tag.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::TagDefinition, -1, true, false >(this, NULL));
+                    ::kdm::kdm::TagDefinition_ptr, -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getStereotype__tag()));
 
     /*PROTECTED REGION ID(StereotypeImpl__StereotypeImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,12 +62,8 @@ Stereotype::~Stereotype()
 {
 }
 
-/*PROTECTED REGION ID(Stereotype.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String Stereotype::getName() const
 {
     return m_name;
@@ -77,8 +80,8 @@ void Stereotype::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getStereotype__name(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getStereotype__name(),
                 _old_name,
                 m_name
         );
@@ -103,8 +106,8 @@ void Stereotype::setType(::kdm::core::String _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getStereotype__type(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getStereotype__type(),
                 _old_type,
                 m_type
         );
@@ -114,7 +117,13 @@ void Stereotype::setType(::kdm::core::String _type)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition >& Stereotype::getTag()
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition_ptr >& Stereotype::getTag() const
+{
+    return *m_tag;
+}
+
+::ecorecpp::mapping::EList< ::kdm::kdm::TagDefinition_ptr >& Stereotype::getTag()
 {
     return *m_tag;
 }

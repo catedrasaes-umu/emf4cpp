@@ -21,6 +21,7 @@
 
 #include "../mapping/any.hpp"
 #include "../notify_forward.hpp"
+#include "../dllEcorecpp.hpp"
 #include "Notifier.hpp"
 
 #include <ecore/EStructuralFeature.hpp>
@@ -39,6 +40,7 @@ public:
         CREATE,
         SET,
         UNSET,
+		ADD,
         REMOVE,
         ADD_MANY,
         REMOVE_MANY,
@@ -50,23 +52,24 @@ public:
 
     template< typename T >
     Notification(EventType type, Notifier_ptr notifier,
-            ::ecore::EStructuralFeature_ptr feature, const T & new_value,
-            const T & old_value) :
+				 ::ecore::EStructuralFeature_ptr feature,
+				 const T & old_value,
+				 const T & new_value) :
         m_event_type(type), m_notifier(notifier), m_feature(feature),
-                m_new_value(new_value), m_old_value(old_value)
+		m_old_value(old_value), m_new_value(new_value)
     {
     }
 
-    virtual ~Notification();
+    virtual ~Notification() {}
 
     static const int NO_FEATURE_ID = -1;
 
-    EventType getEventType();
-    Notifier_ptr getNotifier();
-    ::ecore::EStructuralFeature_ptr getFeature();
+    EventType getEventType() { return m_event_type; }
+    Notifier_ptr getNotifier() { return m_notifier; }
+    ::ecore::EStructuralFeature_ptr getFeature() { return m_feature; }
 
-    ::ecore::any const& getNewValue();
-    ::ecore::any const& getOldValue();
+    ::ecore::any const& getOldValue() { return m_old_value; }
+    ::ecore::any const& getNewValue() { return m_new_value; }
 
 protected:
 
@@ -74,8 +77,8 @@ protected:
     Notifier_ptr m_notifier;
     ::ecore::EStructuralFeature_ptr m_feature;
 
-    ::ecore::any m_new_value;
     ::ecore::any m_old_value;
+    ::ecore::any m_new_value;
 
 };
 

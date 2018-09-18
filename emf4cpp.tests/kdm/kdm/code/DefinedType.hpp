@@ -2,6 +2,7 @@
 /*
  * kdm/code/DefinedType.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,13 +21,17 @@
 #ifndef KDM_CODE_DEFINEDTYPE_HPP
 #define KDM_CODE_DEFINEDTYPE_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/Datatype.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(DefinedType_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -38,58 +43,66 @@ namespace kdm
     namespace code
     {
 
-        class DefinedType: public virtual ::kdm::code::Datatype
-        {
-        public:
-            DefinedType();
+    class EXPORT_KDM_DLL DefinedType : public virtual ::kdm::code::Datatype
+    {
+    public:
+        DefinedType();
 
-            virtual ~DefinedType();
+        virtual ~DefinedType();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::kdm::code::Datatype_ptr getType();
-            void setType(::kdm::code::Datatype_ptr _type);
+        // References
+        virtual ::kdm::code::Datatype_ptr getType () const;
+        virtual void setType (::kdm::code::Datatype_ptr _type);
 
-            ::kdm::code::Datatype_ptr getCodeElement();
-            void setCodeElement(::kdm::code::Datatype_ptr _codeElement);
+        virtual ::kdm::code::Datatype_ptr getCodeElement () const;
+        virtual void setCodeElement (::kdm::code::Datatype_ptr _codeElement);
 
-            /*PROTECTED REGION ID(DefinedType) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::DEFINEDTYPE;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(DefinedType) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(DefinedTypeImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(DefinedTypeImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        DefinedType_ptr _this()
+        {   return DefinedType_ptr(this);}
 
-            ::kdm::code::Datatype_ptr m_type;
+        // Attributes
 
-            ::kdm::code::Datatype_ptr m_codeElement;
+        // References
 
-        };
+        ::kdm::code::Datatype_ptr m_type;
 
-    } // code
-} // kdm
+        ::kdm::code::Datatype_ptr m_codeElement;
+
+    };
+
+}
+ // code
+}// kdm
 
 #endif // KDM_CODE_DEFINEDTYPE_HPP
 

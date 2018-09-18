@@ -2,6 +2,7 @@
 /*
  * kdm/structure/StructurePackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -47,110 +48,152 @@ using namespace ::kdm::structure;
 StructurePackage::StructurePackage()
 {
 
-    s_instance.reset(this);
+    // Feature definitions of AbstractStructureElement
+    m_AbstractStructureElement__aggregated = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_AbstractStructureElement__implementation = ::ecore::Ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractStructureElement__structureElement = ::ecore::Ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
+    m_AbstractStructureElement__structureRelationship = ::ecore::Ptr
+            < ::ecore::EReference > (new ::ecore::EReference);
 
+    // Feature definitions of Subsystem
+
+    // Feature definitions of Layer
+
+    // Feature definitions of StructureModel
+    m_StructureModel__structureElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Component
+
+    // Feature definitions of SoftwareSystem
+
+    // Feature definitions of AbstractStructureRelationship
+
+    // Feature definitions of StructureRelationship
+    m_StructureRelationship__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_StructureRelationship__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of ArchitectureView
+
+    // Feature definitions of StructureElement
+
+}
+
+void StructurePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = StructureFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // AbstractStructureElement
-    m_AbstractStructureElementEClass = new ::ecore::EClass();
+    m_AbstractStructureElementEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractStructureElementEClass->setClassifierID(ABSTRACTSTRUCTUREELEMENT);
-    m_AbstractStructureElementEClass->setEPackage(this);
+    m_AbstractStructureElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractStructureElementEClass);
-    m_AbstractStructureElement__aggregated = new ::ecore::EReference();
+    // m_AbstractStructureElement__aggregated has already been allocated above
     m_AbstractStructureElement__aggregated->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__AGGREGATED);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__aggregated);
-    m_AbstractStructureElement__implementation = new ::ecore::EReference();
+    // m_AbstractStructureElement__implementation has already been allocated above
     m_AbstractStructureElement__implementation->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__IMPLEMENTATION);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__implementation);
-    m_AbstractStructureElement__structureElement = new ::ecore::EReference();
+    // m_AbstractStructureElement__structureElement has already been allocated above
     m_AbstractStructureElement__structureElement->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTUREELEMENT);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__structureElement);
-    m_AbstractStructureElement__structureRelationship =
-            new ::ecore::EReference();
+    // m_AbstractStructureElement__structureRelationship has already been allocated above
     m_AbstractStructureElement__structureRelationship->setFeatureID(
             ::kdm::structure::StructurePackage::ABSTRACTSTRUCTUREELEMENT__STRUCTURERELATIONSHIP);
     m_AbstractStructureElementEClass->getEStructuralFeatures().push_back(
             m_AbstractStructureElement__structureRelationship);
 
     // Subsystem
-    m_SubsystemEClass = new ::ecore::EClass();
+    m_SubsystemEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SubsystemEClass->setClassifierID(SUBSYSTEM);
-    m_SubsystemEClass->setEPackage(this);
+    m_SubsystemEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SubsystemEClass);
 
     // Layer
-    m_LayerEClass = new ::ecore::EClass();
+    m_LayerEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LayerEClass->setClassifierID(LAYER);
-    m_LayerEClass->setEPackage(this);
+    m_LayerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LayerEClass);
 
     // StructureModel
-    m_StructureModelEClass = new ::ecore::EClass();
+    m_StructureModelEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StructureModelEClass->setClassifierID(STRUCTUREMODEL);
-    m_StructureModelEClass->setEPackage(this);
+    m_StructureModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StructureModelEClass);
-    m_StructureModel__structureElement = new ::ecore::EReference();
+    // m_StructureModel__structureElement has already been allocated above
     m_StructureModel__structureElement->setFeatureID(
             ::kdm::structure::StructurePackage::STRUCTUREMODEL__STRUCTUREELEMENT);
     m_StructureModelEClass->getEStructuralFeatures().push_back(
             m_StructureModel__structureElement);
 
     // Component
-    m_ComponentEClass = new ::ecore::EClass();
+    m_ComponentEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ComponentEClass->setClassifierID(COMPONENT);
-    m_ComponentEClass->setEPackage(this);
+    m_ComponentEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ComponentEClass);
 
     // SoftwareSystem
-    m_SoftwareSystemEClass = new ::ecore::EClass();
+    m_SoftwareSystemEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SoftwareSystemEClass->setClassifierID(SOFTWARESYSTEM);
-    m_SoftwareSystemEClass->setEPackage(this);
+    m_SoftwareSystemEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SoftwareSystemEClass);
 
     // AbstractStructureRelationship
-    m_AbstractStructureRelationshipEClass = new ::ecore::EClass();
+    m_AbstractStructureRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractStructureRelationshipEClass->setClassifierID(
             ABSTRACTSTRUCTURERELATIONSHIP);
-    m_AbstractStructureRelationshipEClass->setEPackage(this);
+    m_AbstractStructureRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractStructureRelationshipEClass);
 
     // StructureRelationship
-    m_StructureRelationshipEClass = new ::ecore::EClass();
+    m_StructureRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StructureRelationshipEClass->setClassifierID(STRUCTURERELATIONSHIP);
-    m_StructureRelationshipEClass->setEPackage(this);
+    m_StructureRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StructureRelationshipEClass);
-    m_StructureRelationship__to = new ::ecore::EReference();
+    // m_StructureRelationship__to has already been allocated above
     m_StructureRelationship__to->setFeatureID(
             ::kdm::structure::StructurePackage::STRUCTURERELATIONSHIP__TO);
     m_StructureRelationshipEClass->getEStructuralFeatures().push_back(
             m_StructureRelationship__to);
-    m_StructureRelationship__from = new ::ecore::EReference();
+    // m_StructureRelationship__from has already been allocated above
     m_StructureRelationship__from->setFeatureID(
             ::kdm::structure::StructurePackage::STRUCTURERELATIONSHIP__FROM);
     m_StructureRelationshipEClass->getEStructuralFeatures().push_back(
             m_StructureRelationship__from);
 
     // ArchitectureView
-    m_ArchitectureViewEClass = new ::ecore::EClass();
+    m_ArchitectureViewEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ArchitectureViewEClass->setClassifierID(ARCHITECTUREVIEW);
-    m_ArchitectureViewEClass->setEPackage(this);
+    m_ArchitectureViewEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ArchitectureViewEClass);
 
     // StructureElement
-    m_StructureElementEClass = new ::ecore::EClass();
+    m_StructureElementEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StructureElementEClass->setClassifierID(STRUCTUREELEMENT);
-    m_StructureElementEClass->setEPackage(this);
+    m_StructureElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StructureElementEClass);
 
     // Create enums
@@ -166,18 +209,18 @@ StructurePackage::StructurePackage()
 
     // Add supertypes to classes
     m_AbstractStructureElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_SubsystemEClass->getESuperTypes().push_back(
             m_AbstractStructureElementEClass);
     m_LayerEClass->getESuperTypes().push_back(m_AbstractStructureElementEClass);
     m_StructureModelEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance())->getKDMModel());
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getKDMModel());
     m_ComponentEClass->getESuperTypes().push_back(
             m_AbstractStructureElementEClass);
     m_SoftwareSystemEClass->getESuperTypes().push_back(
             m_AbstractStructureElementEClass);
     m_AbstractStructureRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMRelationship());
     m_StructureRelationshipEClass->getESuperTypes().push_back(
             m_AbstractStructureRelationshipEClass);
     m_ArchitectureViewEClass->getESuperTypes().push_back(
@@ -192,7 +235,7 @@ StructurePackage::StructurePackage()
     m_AbstractStructureElementEClass->setAbstract(true);
     m_AbstractStructureElementEClass->setInterface(false);
     m_AbstractStructureElement__aggregated->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getAggregatedRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getAggregatedRelationship());
     m_AbstractStructureElement__aggregated->setName("aggregated");
     m_AbstractStructureElement__aggregated->setDefaultValueLiteral("");
     m_AbstractStructureElement__aggregated->setLowerBound(0);
@@ -206,7 +249,7 @@ StructurePackage::StructurePackage()
     m_AbstractStructureElement__aggregated->setDerived(false);
     m_AbstractStructureElement__aggregated->setOrdered(false);
     m_AbstractStructureElement__implementation->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_AbstractStructureElement__implementation->setName("implementation");
     m_AbstractStructureElement__implementation->setDefaultValueLiteral("");
     m_AbstractStructureElement__implementation->setLowerBound(0);
@@ -293,7 +336,7 @@ StructurePackage::StructurePackage()
     m_StructureRelationshipEClass->setAbstract(false);
     m_StructureRelationshipEClass->setInterface(false);
     m_StructureRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_StructureRelationship__to->setName("to");
     m_StructureRelationship__to->setDefaultValueLiteral("");
     m_StructureRelationship__to->setLowerBound(1);

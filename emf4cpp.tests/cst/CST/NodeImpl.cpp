@@ -2,6 +2,7 @@
 /*
  * CST/NodeImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,24 +28,22 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::CST;
-
 /*PROTECTED REGION ID(NodeImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::CST;
 
 void Node::_initialize()
 {
     // Supertypes
     ::CST::Element::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_children->size(); i++)
     {
         (*m_children)[i]->_initialize();
-        (*m_children)[i]->_setEContainer(this,
-                ::CST::CSTPackage::_instance()->getNode__children());
     }
 
     /*PROTECTED REGION ID(NodeImpl__initialize) START*/
@@ -70,7 +69,7 @@ void Node::_initialize()
         return _any;
     case ::CST::CSTPackage::NODE__CHILDREN:
     {
-        _any = m_children->asEListOf< ::ecore::EObject >();
+        _any = m_children->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -84,14 +83,17 @@ void Node::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::CST::Element::setKind(_t0);
     }
         return;
     case ::CST::CSTPackage::NODE__CHILDREN:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::CST::Node::getChildren().clear();
         ::CST::Node::getChildren().insert_all(*_t0);
     }
@@ -127,7 +129,39 @@ void Node::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Node::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getNode();
+            dynamic_cast< ::CST::CSTPackage* >(::CST::CSTPackage::_instance().get())->getNode();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Node::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::CST::CSTPackage::NODE__CHILDREN:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Node::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::CST::CSTPackage::NODE__CHILDREN:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

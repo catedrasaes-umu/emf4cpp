@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildDescription.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(BuildDescription.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -47,7 +53,8 @@ BuildDescription::BuildDescription()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
+                    ::kdm::build::BuildPackage::_instance()->getBuildDescription__source()));
 
     /*PROTECTED REGION ID(BuildDescriptionImpl__BuildDescriptionImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -63,12 +70,8 @@ BuildDescription::~BuildDescription()
 {
 }
 
-/*PROTECTED REGION ID(BuildDescription.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String BuildDescription::getText() const
 {
     return m_text;
@@ -85,8 +88,8 @@ void BuildDescription::setText(::kdm::core::String _text)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getBuildDescription__text(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getBuildDescription__text(),
                 _old_text,
                 m_text
         );
@@ -96,7 +99,13 @@ void BuildDescription::setText(::kdm::core::String _text)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& BuildDescription::getSource()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& BuildDescription::getSource() const
+{
+    return *m_source;
+}
+
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& BuildDescription::getSource()
 {
     return *m_source;
 }

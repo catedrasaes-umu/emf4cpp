@@ -2,6 +2,7 @@
 /*
  * SVG/Scale.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef SVG_SCALE_HPP
 #define SVG_SCALE_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Transform.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Scale_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,57 +39,65 @@
 namespace SVG
 {
 
-    class Scale: public virtual ::SVG::Transform
-    {
-    public:
-        Scale();
+class EXPORT_SVG_DLL Scale : public virtual ::SVG::Transform
+{
+public:
+    Scale();
 
-        virtual ~Scale();
+    virtual ~Scale();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::Double getSx() const;
-        void setSx(::PrimitiveTypes::Double _sx);
+    // Attributes
+    virtual ::PrimitiveTypes::Double getSx () const;
+    virtual void setSx (::PrimitiveTypes::Double _sx);
 
-        ::PrimitiveTypes::Double getSy() const;
-        void setSy(::PrimitiveTypes::Double _sy);
+    virtual ::PrimitiveTypes::Double getSy () const;
+    virtual void setSy (::PrimitiveTypes::Double _sy);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(Scale) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::SCALE;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Scale) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(ScaleImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(ScaleImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::PrimitiveTypes::Double m_sx;
+protected:
+    Scale_ptr _this()
+    {   return Scale_ptr(this);}
 
-        ::PrimitiveTypes::Double m_sy;
+    // Attributes
 
-        // References
+    ::PrimitiveTypes::Double m_sx;
 
-    };
+    ::PrimitiveTypes::Double m_sy;
 
-} // SVG
+    // References
+
+};
+
+}
+ // SVG
 
 #endif // SVG_SCALE_HPP
 

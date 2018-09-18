@@ -2,6 +2,7 @@
 /*
  * kdm/code/AbstractCodeElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,6 +39,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractCodeElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -46,14 +52,17 @@ AbstractCodeElement::AbstractCodeElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__source()));
     m_comment.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::CommentUnit, -1, true, false >(this, NULL));
+                    ::kdm::code::CommentUnit_ptr, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__comment()));
     m_codeRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeRelationship, -1, true, false >(
-                    this, NULL));
+                    ::kdm::code::AbstractCodeRelationship_ptr, -1, true, false >(
+                    this,
+                    ::kdm::code::CodePackage::_instance()->getAbstractCodeElement__codeRelation()));
 
     /*PROTECTED REGION ID(AbstractCodeElementImpl__AbstractCodeElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -69,24 +78,36 @@ AbstractCodeElement::~AbstractCodeElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractCodeElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractCodeElement::getSource()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractCodeElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::CommentUnit >& AbstractCodeElement::getComment()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractCodeElement::getSource()
+{
+    return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::CommentUnit_ptr >& AbstractCodeElement::getComment() const
 {
     return *m_comment;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship >& AbstractCodeElement::getCodeRelation()
+::ecorecpp::mapping::EList< ::kdm::code::CommentUnit_ptr >& AbstractCodeElement::getComment()
+{
+    return *m_comment;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship_ptr >& AbstractCodeElement::getCodeRelation() const
+{
+    return *m_codeRelation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeRelationship_ptr >& AbstractCodeElement::getCodeRelation()
 {
     return *m_codeRelation;
 }

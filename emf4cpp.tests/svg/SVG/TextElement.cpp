@@ -2,6 +2,7 @@
 /*
  * SVG/TextElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(TextElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -56,12 +62,8 @@ TextElement::~TextElement()
 {
 }
 
-/*PROTECTED REGION ID(TextElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::Double TextElement::getRotate() const
 {
     return m_rotate;
@@ -78,8 +80,8 @@ void TextElement::setRotate(::PrimitiveTypes::Double _rotate)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTextElement__rotate(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTextElement__rotate(),
                 _old_rotate,
                 m_rotate
         );
@@ -104,8 +106,8 @@ void TextElement::setTextLength(::PrimitiveTypes::String _textLength)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTextElement__textLength(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTextElement__textLength(),
                 _old_textLength,
                 m_textLength
         );
@@ -130,8 +132,8 @@ void TextElement::setFontSize(::PrimitiveTypes::String _fontSize)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getTextElement__fontSize(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getTextElement__fontSize(),
                 _old_fontSize,
                 m_fontSize
         );

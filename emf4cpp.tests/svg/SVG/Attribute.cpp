@@ -2,6 +2,7 @@
 /*
  * SVG/Attribute.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Attribute.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -35,8 +41,10 @@ Attribute::Attribute()
 {
 
     m_attOwner.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    false, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getAttribute__attOwner(),
+                    ::SVG::SVGPackage::ELEMENT__ATTRIBUTE));
 
     /*PROTECTED REGION ID(AttributeImpl__AttributeImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -52,14 +60,16 @@ Attribute::~Attribute()
 {
 }
 
-/*PROTECTED REGION ID(Attribute.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::SVG::Element >& Attribute::getAttOwner()
+
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Attribute::getAttOwner() const
+{
+    return *m_attOwner;
+}
+
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Attribute::getAttOwner()
 {
     return *m_attOwner;
 }

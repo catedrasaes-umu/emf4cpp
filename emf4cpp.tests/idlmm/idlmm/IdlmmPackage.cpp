@@ -2,6 +2,7 @@
 /*
  * idlmm/IdlmmPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::idlmm;
 
-std::auto_ptr< ::idlmm::IdlmmPackage > IdlmmPackage::s_instance;
+::ecore::Ptr< ::idlmm::IdlmmPackage > IdlmmPackage::s_instance;
 
 ::idlmm::IdlmmPackage_ptr IdlmmPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new IdlmmPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< IdlmmPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < IdlmmPackage > (new IdlmmPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::idlmm::IdlmmPackage_ptr IdlmmPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

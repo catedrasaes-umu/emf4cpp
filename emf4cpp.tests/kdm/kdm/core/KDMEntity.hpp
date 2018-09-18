@@ -2,6 +2,7 @@
 /*
  * kdm/core/KDMEntity.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef KDM_CORE_KDMENTITY_HPP
 #define KDM_CORE_KDMENTITY_HPP
 
-#include <kdm/core_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/core_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core/ModelElement.hpp>
+
+#include "CorePackage.hpp"
 
 /*PROTECTED REGION ID(KDMEntity_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -36,79 +41,85 @@ namespace kdm
     namespace core
     {
 
-        class KDMEntity: public virtual ::kdm::core::ModelElement
-        {
-        public:
-            KDMEntity();
+    class EXPORT_KDM_DLL KDMEntity : public virtual ::kdm::core::ModelElement
+    {
+    public:
+        KDMEntity();
 
-            virtual ~KDMEntity();
+        virtual ~KDMEntity();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            virtual void createAggregation(
-                    ::kdm::core::KDMEntity_ptr _otherEntity);
+        virtual void createAggregation ( ::kdm::core::KDMEntity_ptr _otherEntity);
 
-            virtual void deleteAggregation(
-                    ::kdm::core::AggregatedRelationship_ptr _aggregation);
+        virtual void deleteAggregation ( ::kdm::core::AggregatedRelationship_ptr _aggregation);
 
-            virtual ::kdm::core::KDMRelationship_ptr getInbound();
+        virtual ::kdm::core::KDMRelationship_ptr getInbound ();
 
-            virtual ::kdm::core::KDMRelationship_ptr getOutbound();
+        virtual ::kdm::core::KDMRelationship_ptr getOutbound ();
 
-            virtual ::kdm::core::KDMRelationship_ptr getOwnedRelation();
+        virtual ::kdm::core::KDMRelationship_ptr getOwnedRelation ();
 
-            virtual ::kdm::core::AggregatedRelationship_ptr getInAggregated();
+        virtual ::kdm::core::AggregatedRelationship_ptr getInAggregated ();
 
-            virtual ::kdm::core::AggregatedRelationship_ptr getOutAggregated();
+        virtual ::kdm::core::AggregatedRelationship_ptr getOutAggregated ();
 
-            virtual ::kdm::core::KDMEntity_ptr getOwner();
+        virtual ::kdm::core::KDMEntity_ptr getOwner ();
 
-            virtual ::kdm::core::KDMEntity_ptr getOwnedElement();
+        virtual ::kdm::core::KDMEntity_ptr getOwnedElement ();
 
-            virtual ::kdm::core::KDMEntity_ptr getGroup();
+        virtual ::kdm::core::KDMEntity_ptr getGroup ();
 
-            virtual ::kdm::core::KDMEntity_ptr getGroupedElement();
+        virtual ::kdm::core::KDMEntity_ptr getGroupedElement ();
 
-            virtual ::kdm::kdm::KDMModel_ptr getModel();
+        virtual ::kdm::kdm::KDMModel_ptr getModel ();
 
-            // Attributes
-            ::kdm::core::String getName() const;
-            void setName(::kdm::core::String _name);
+        // Attributes
+        virtual ::kdm::core::String getName () const;
+        virtual void setName (::kdm::core::String _name);
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(KDMEntity) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CorePackage::KDMENTITY;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(KDMEntity) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(KDMEntityImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(KDMEntityImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::kdm::core::String m_name;
+    protected:
+        KDMEntity_ptr _this()
+        {   return KDMEntity_ptr(this);}
 
-            // References
+        // Attributes
 
-        };
+        ::kdm::core::String m_name;
 
-    } // core
-} // kdm
+        // References
+
+    };
+
+}
+ // core
+}// kdm
 
 #endif // KDM_CORE_KDMENTITY_HPP
 

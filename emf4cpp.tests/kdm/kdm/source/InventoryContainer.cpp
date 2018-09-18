@@ -2,6 +2,7 @@
 /*
  * kdm/source/InventoryContainer.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(InventoryContainer.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::source;
 
 // Default constructor
@@ -45,8 +51,9 @@ InventoryContainer::InventoryContainer()
 
     m_inventoryElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::AbstractInventoryElement, -1, true, false >(
-                    this, NULL));
+                    ::kdm::source::AbstractInventoryElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::source::SourcePackage::_instance()->getInventoryContainer__inventoryElement()));
 
     /*PROTECTED REGION ID(InventoryContainerImpl__InventoryContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -62,14 +69,16 @@ InventoryContainer::~InventoryContainer()
 {
 }
 
-/*PROTECTED REGION ID(InventoryContainer.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement >& InventoryContainer::getInventoryElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement_ptr >& InventoryContainer::getInventoryElement() const
+{
+    return *m_inventoryElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryElement_ptr >& InventoryContainer::getInventoryElement()
 {
     return *m_inventoryElement;
 }

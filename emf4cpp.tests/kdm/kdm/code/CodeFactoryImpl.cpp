@@ -2,6 +2,7 @@
 /*
  * kdm/code/CodeFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -110,7 +111,6 @@ using namespace ::kdm::code;
 
 CodeFactory::CodeFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CodeFactory::create(::ecore::EClass_ptr _eClass)
@@ -298,14 +298,14 @@ CodeFactory::CodeFactory()
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage* >(getEPackage().get());
         return _epkg->getMethodKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::PARAMETERKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage* >(getEPackage().get());
         return _epkg->getParameterKind()->getEEnumLiteralByLiteral(
                 _literalValue)->getValue();
     }
@@ -313,28 +313,28 @@ CodeFactory::CodeFactory()
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage* >(getEPackage().get());
         return _epkg->getExportKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::STORABLEKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage* >(getEPackage().get());
         return _epkg->getStorableKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::CALLABLEKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage* >(getEPackage().get());
         return _epkg->getCallableKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     case CodePackage::MACROKIND:
     {
         ::ecore::EJavaObject _any;
         CodePackage_ptr _epkg =
-                dynamic_cast< ::kdm::code::CodePackage_ptr >(getEPackage());
+                dynamic_cast< ::kdm::code::CodePackage* >(getEPackage().get());
         return _epkg->getMacroKind()->getEEnumLiteralByLiteral(_literalValue)->getValue();
     }
     default:
@@ -349,48 +349,48 @@ CodeFactory::CodeFactory()
     {
     case CodePackage::METHODKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getMethodKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::PARAMETERKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getParameterKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::EXPORTKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getExportKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::STORABLEKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getStorableKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::CALLABLEKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getCallableKind()->getEEnumLiteral(_value)->getName();
     }
     case CodePackage::MACROKIND:
     {
-        CodePackage_ptr _epkg = ::kdm::code::instanceOf
-                < ::kdm::code::CodePackage > (getEPackage());
+        CodePackage_ptr _epkg = ::ecore::as < ::kdm::code::CodePackage
+                > (getEPackage());
         ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EInt > (_instanceValue);
         return _epkg->getMacroKind()->getEEnumLiteral(_value)->getName();
@@ -402,334 +402,335 @@ CodeFactory::CodeFactory()
 
 AbstractCodeElement_ptr CodeFactory::createAbstractCodeElement()
 {
-    return new AbstractCodeElement();
+    return ::ecore::Ptr < AbstractCodeElement > (new AbstractCodeElement);
 }
 CodeItem_ptr CodeFactory::createCodeItem()
 {
-    return new CodeItem();
+    return ::ecore::Ptr < CodeItem > (new CodeItem);
 }
 ComputationalObject_ptr CodeFactory::createComputationalObject()
 {
-    return new ComputationalObject();
+    return ::ecore::Ptr < ComputationalObject > (new ComputationalObject);
 }
 ControlElement_ptr CodeFactory::createControlElement()
 {
-    return new ControlElement();
+    return ::ecore::Ptr < ControlElement > (new ControlElement);
 }
 MethodUnit_ptr CodeFactory::createMethodUnit()
 {
-    return new MethodUnit();
+    return ::ecore::Ptr < MethodUnit > (new MethodUnit);
 }
 Module_ptr CodeFactory::createModule()
 {
-    return new Module();
+    return ::ecore::Ptr < Module > (new Module);
 }
 CodeAssembly_ptr CodeFactory::createCodeAssembly()
 {
-    return new CodeAssembly();
+    return ::ecore::Ptr < CodeAssembly > (new CodeAssembly);
 }
 CallableUnit_ptr CodeFactory::createCallableUnit()
 {
-    return new CallableUnit();
+    return ::ecore::Ptr < CallableUnit > (new CallableUnit);
 }
 Datatype_ptr CodeFactory::createDatatype()
 {
-    return new Datatype();
+    return ::ecore::Ptr < Datatype > (new Datatype);
 }
 TemplateUnit_ptr CodeFactory::createTemplateUnit()
 {
-    return new TemplateUnit();
+    return ::ecore::Ptr < TemplateUnit > (new TemplateUnit);
 }
 TemplateParameter_ptr CodeFactory::createTemplateParameter()
 {
-    return new TemplateParameter();
+    return ::ecore::Ptr < TemplateParameter > (new TemplateParameter);
 }
 AbstractCodeRelationship_ptr CodeFactory::createAbstractCodeRelationship()
 {
-    return new AbstractCodeRelationship();
+    return ::ecore::Ptr < AbstractCodeRelationship
+            > (new AbstractCodeRelationship);
 }
 InstanceOf_ptr CodeFactory::createInstanceOf()
 {
-    return new InstanceOf();
+    return ::ecore::Ptr < InstanceOf > (new InstanceOf);
 }
 CompilationUnit_ptr CodeFactory::createCompilationUnit()
 {
-    return new CompilationUnit();
+    return ::ecore::Ptr < CompilationUnit > (new CompilationUnit);
 }
 CodeModel_ptr CodeFactory::createCodeModel()
 {
-    return new CodeModel();
+    return ::ecore::Ptr < CodeModel > (new CodeModel);
 }
 DerivedType_ptr CodeFactory::createDerivedType()
 {
-    return new DerivedType();
+    return ::ecore::Ptr < DerivedType > (new DerivedType);
 }
 ArrayType_ptr CodeFactory::createArrayType()
 {
-    return new ArrayType();
+    return ::ecore::Ptr < ArrayType > (new ArrayType);
 }
 PrimitiveType_ptr CodeFactory::createPrimitiveType()
 {
-    return new PrimitiveType();
+    return ::ecore::Ptr < PrimitiveType > (new PrimitiveType);
 }
 BooleanType_ptr CodeFactory::createBooleanType()
 {
-    return new BooleanType();
+    return ::ecore::Ptr < BooleanType > (new BooleanType);
 }
 CharType_ptr CodeFactory::createCharType()
 {
-    return new CharType();
+    return ::ecore::Ptr < CharType > (new CharType);
 }
 ClassUnit_ptr CodeFactory::createClassUnit()
 {
-    return new ClassUnit();
+    return ::ecore::Ptr < ClassUnit > (new ClassUnit);
 }
 CompositeType_ptr CodeFactory::createCompositeType()
 {
-    return new CompositeType();
+    return ::ecore::Ptr < CompositeType > (new CompositeType);
 }
 RecordType_ptr CodeFactory::createRecordType()
 {
-    return new RecordType();
+    return ::ecore::Ptr < RecordType > (new RecordType);
 }
 EnumeratedType_ptr CodeFactory::createEnumeratedType()
 {
-    return new EnumeratedType();
+    return ::ecore::Ptr < EnumeratedType > (new EnumeratedType);
 }
 Extends_ptr CodeFactory::createExtends()
 {
-    return new Extends();
+    return ::ecore::Ptr < Extends > (new Extends);
 }
 ScaledType_ptr CodeFactory::createScaledType()
 {
-    return new ScaledType();
+    return ::ecore::Ptr < ScaledType > (new ScaledType);
 }
 FloatType_ptr CodeFactory::createFloatType()
 {
-    return new FloatType();
+    return ::ecore::Ptr < FloatType > (new FloatType);
 }
 HasType_ptr CodeFactory::createHasType()
 {
-    return new HasType();
+    return ::ecore::Ptr < HasType > (new HasType);
 }
 ImplementationOf_ptr CodeFactory::createImplementationOf()
 {
-    return new ImplementationOf();
+    return ::ecore::Ptr < ImplementationOf > (new ImplementationOf);
 }
 Implements_ptr CodeFactory::createImplements()
 {
-    return new Implements();
+    return ::ecore::Ptr < Implements > (new Implements);
 }
 IntegerType_ptr CodeFactory::createIntegerType()
 {
-    return new IntegerType();
+    return ::ecore::Ptr < IntegerType > (new IntegerType);
 }
 InterfaceUnit_ptr CodeFactory::createInterfaceUnit()
 {
-    return new InterfaceUnit();
+    return ::ecore::Ptr < InterfaceUnit > (new InterfaceUnit);
 }
 PointerType_ptr CodeFactory::createPointerType()
 {
-    return new PointerType();
+    return ::ecore::Ptr < PointerType > (new PointerType);
 }
 DefinedType_ptr CodeFactory::createDefinedType()
 {
-    return new DefinedType();
+    return ::ecore::Ptr < DefinedType > (new DefinedType);
 }
 TypeUnit_ptr CodeFactory::createTypeUnit()
 {
-    return new TypeUnit();
+    return ::ecore::Ptr < TypeUnit > (new TypeUnit);
 }
 RangeType_ptr CodeFactory::createRangeType()
 {
-    return new RangeType();
+    return ::ecore::Ptr < RangeType > (new RangeType);
 }
 Signature_ptr CodeFactory::createSignature()
 {
-    return new Signature();
+    return ::ecore::Ptr < Signature > (new Signature);
 }
 DataElement_ptr CodeFactory::createDataElement()
 {
-    return new DataElement();
+    return ::ecore::Ptr < DataElement > (new DataElement);
 }
 StringType_ptr CodeFactory::createStringType()
 {
-    return new StringType();
+    return ::ecore::Ptr < StringType > (new StringType);
 }
 ChoiceType_ptr CodeFactory::createChoiceType()
 {
-    return new ChoiceType();
+    return ::ecore::Ptr < ChoiceType > (new ChoiceType);
 }
 NamespaceUnit_ptr CodeFactory::createNamespaceUnit()
 {
-    return new NamespaceUnit();
+    return ::ecore::Ptr < NamespaceUnit > (new NamespaceUnit);
 }
 VisibleIn_ptr CodeFactory::createVisibleIn()
 {
-    return new VisibleIn();
+    return ::ecore::Ptr < VisibleIn > (new VisibleIn);
 }
 CommentUnit_ptr CodeFactory::createCommentUnit()
 {
-    return new CommentUnit();
+    return ::ecore::Ptr < CommentUnit > (new CommentUnit);
 }
 SharedUnit_ptr CodeFactory::createSharedUnit()
 {
-    return new SharedUnit();
+    return ::ecore::Ptr < SharedUnit > (new SharedUnit);
 }
 DecimalType_ptr CodeFactory::createDecimalType()
 {
-    return new DecimalType();
+    return ::ecore::Ptr < DecimalType > (new DecimalType);
 }
 DateType_ptr CodeFactory::createDateType()
 {
-    return new DateType();
+    return ::ecore::Ptr < DateType > (new DateType);
 }
 TimeType_ptr CodeFactory::createTimeType()
 {
-    return new TimeType();
+    return ::ecore::Ptr < TimeType > (new TimeType);
 }
 VoidType_ptr CodeFactory::createVoidType()
 {
-    return new VoidType();
+    return ::ecore::Ptr < VoidType > (new VoidType);
 }
 ValueElement_ptr CodeFactory::createValueElement()
 {
-    return new ValueElement();
+    return ::ecore::Ptr < ValueElement > (new ValueElement);
 }
 Value_ptr CodeFactory::createValue()
 {
-    return new Value();
+    return ::ecore::Ptr < Value > (new Value);
 }
 ValueList_ptr CodeFactory::createValueList()
 {
-    return new ValueList();
+    return ::ecore::Ptr < ValueList > (new ValueList);
 }
 StorableUnit_ptr CodeFactory::createStorableUnit()
 {
-    return new StorableUnit();
+    return ::ecore::Ptr < StorableUnit > (new StorableUnit);
 }
 MemberUnit_ptr CodeFactory::createMemberUnit()
 {
-    return new MemberUnit();
+    return ::ecore::Ptr < MemberUnit > (new MemberUnit);
 }
 ParameterUnit_ptr CodeFactory::createParameterUnit()
 {
-    return new ParameterUnit();
+    return ::ecore::Ptr < ParameterUnit > (new ParameterUnit);
 }
 ItemUnit_ptr CodeFactory::createItemUnit()
 {
-    return new ItemUnit();
+    return ::ecore::Ptr < ItemUnit > (new ItemUnit);
 }
 IndexUnit_ptr CodeFactory::createIndexUnit()
 {
-    return new IndexUnit();
+    return ::ecore::Ptr < IndexUnit > (new IndexUnit);
 }
 SynonymType_ptr CodeFactory::createSynonymType()
 {
-    return new SynonymType();
+    return ::ecore::Ptr < SynonymType > (new SynonymType);
 }
 SequenceType_ptr CodeFactory::createSequenceType()
 {
-    return new SequenceType();
+    return ::ecore::Ptr < SequenceType > (new SequenceType);
 }
 BagType_ptr CodeFactory::createBagType()
 {
-    return new BagType();
+    return ::ecore::Ptr < BagType > (new BagType);
 }
 SetType_ptr CodeFactory::createSetType()
 {
-    return new SetType();
+    return ::ecore::Ptr < SetType > (new SetType);
 }
 CodeElement_ptr CodeFactory::createCodeElement()
 {
-    return new CodeElement();
+    return ::ecore::Ptr < CodeElement > (new CodeElement);
 }
 CodeRelationship_ptr CodeFactory::createCodeRelationship()
 {
-    return new CodeRelationship();
+    return ::ecore::Ptr < CodeRelationship > (new CodeRelationship);
 }
 LanguageUnit_ptr CodeFactory::createLanguageUnit()
 {
-    return new LanguageUnit();
+    return ::ecore::Ptr < LanguageUnit > (new LanguageUnit);
 }
 OrdinalType_ptr CodeFactory::createOrdinalType()
 {
-    return new OrdinalType();
+    return ::ecore::Ptr < OrdinalType > (new OrdinalType);
 }
 BitstringType_ptr CodeFactory::createBitstringType()
 {
-    return new BitstringType();
+    return ::ecore::Ptr < BitstringType > (new BitstringType);
 }
 OctetType_ptr CodeFactory::createOctetType()
 {
-    return new OctetType();
+    return ::ecore::Ptr < OctetType > (new OctetType);
 }
 OctetstringType_ptr CodeFactory::createOctetstringType()
 {
-    return new OctetstringType();
+    return ::ecore::Ptr < OctetstringType > (new OctetstringType);
 }
 BitType_ptr CodeFactory::createBitType()
 {
-    return new BitType();
+    return ::ecore::Ptr < BitType > (new BitType);
 }
 Imports_ptr CodeFactory::createImports()
 {
-    return new Imports();
+    return ::ecore::Ptr < Imports > (new Imports);
 }
 Package_ptr CodeFactory::createPackage()
 {
-    return new Package();
+    return ::ecore::Ptr < Package > (new Package);
 }
 ParameterTo_ptr CodeFactory::createParameterTo()
 {
-    return new ParameterTo();
+    return ::ecore::Ptr < ParameterTo > (new ParameterTo);
 }
 TemplateType_ptr CodeFactory::createTemplateType()
 {
-    return new TemplateType();
+    return ::ecore::Ptr < TemplateType > (new TemplateType);
 }
 PreprocessorDirective_ptr CodeFactory::createPreprocessorDirective()
 {
-    return new PreprocessorDirective();
+    return ::ecore::Ptr < PreprocessorDirective > (new PreprocessorDirective);
 }
 MacroDirective_ptr CodeFactory::createMacroDirective()
 {
-    return new MacroDirective();
+    return ::ecore::Ptr < MacroDirective > (new MacroDirective);
 }
 MacroUnit_ptr CodeFactory::createMacroUnit()
 {
-    return new MacroUnit();
+    return ::ecore::Ptr < MacroUnit > (new MacroUnit);
 }
 ConditionalDirective_ptr CodeFactory::createConditionalDirective()
 {
-    return new ConditionalDirective();
+    return ::ecore::Ptr < ConditionalDirective > (new ConditionalDirective);
 }
 IncludeDirective_ptr CodeFactory::createIncludeDirective()
 {
-    return new IncludeDirective();
+    return ::ecore::Ptr < IncludeDirective > (new IncludeDirective);
 }
 VariantTo_ptr CodeFactory::createVariantTo()
 {
-    return new VariantTo();
+    return ::ecore::Ptr < VariantTo > (new VariantTo);
 }
 Expands_ptr CodeFactory::createExpands()
 {
-    return new Expands();
+    return ::ecore::Ptr < Expands > (new Expands);
 }
 Redefines_ptr CodeFactory::createRedefines()
 {
-    return new Redefines();
+    return ::ecore::Ptr < Redefines > (new Redefines);
 }
 GeneratedFrom_ptr CodeFactory::createGeneratedFrom()
 {
-    return new GeneratedFrom();
+    return ::ecore::Ptr < GeneratedFrom > (new GeneratedFrom);
 }
 Includes_ptr CodeFactory::createIncludes()
 {
-    return new Includes();
+    return ::ecore::Ptr < Includes > (new Includes);
 }
 HasValue_ptr CodeFactory::createHasValue()
 {
-    return new HasValue();
+    return ::ecore::Ptr < HasValue > (new HasValue);
 }
 

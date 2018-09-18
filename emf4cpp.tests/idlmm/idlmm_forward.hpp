@@ -2,6 +2,7 @@
 /*
  * idlmm_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,16 +37,6 @@ namespace idlmm
 {
 
 // EDataType
-    /*PROTECTED REGION ID(idlmm_ParameterMode) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-    typedef int ParameterMode;
-    /*PROTECTED REGION END*/
-    /*PROTECTED REGION ID(idlmm_PrimitiveKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-    typedef int PrimitiveKind;
-    /*PROTECTED REGION END*/
     /*PROTECTED REGION ID(idlmm_EAny) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
@@ -60,119 +51,123 @@ namespace idlmm
 // EClass
 // Container
     class Container;
-    typedef Container* Container_ptr;
+    using Container_ptr = ::ecore::Ptr<Container>;
 
 // Contained
     class Contained;
-    typedef Contained* Contained_ptr;
+    using Contained_ptr = ::ecore::Ptr<Contained>;
 
 // InterfaceDef
     class InterfaceDef;
-    typedef InterfaceDef* InterfaceDef_ptr;
+    using InterfaceDef_ptr = ::ecore::Ptr<InterfaceDef>;
 
 // ModuleDef
     class ModuleDef;
-    typedef ModuleDef* ModuleDef_ptr;
+    using ModuleDef_ptr = ::ecore::Ptr<ModuleDef>;
 
 // IDLType
     class IDLType;
-    typedef IDLType* IDLType_ptr;
+    using IDLType_ptr = ::ecore::Ptr<IDLType>;
 
 // OperationDef
     class OperationDef;
-    typedef OperationDef* OperationDef_ptr;
+    using OperationDef_ptr = ::ecore::Ptr<OperationDef>;
 
 // AttributeDef
     class AttributeDef;
-    typedef AttributeDef* AttributeDef_ptr;
+    using AttributeDef_ptr = ::ecore::Ptr<AttributeDef>;
 
 // ConstantDef
     class ConstantDef;
-    typedef ConstantDef* ConstantDef_ptr;
+    using ConstantDef_ptr = ::ecore::Ptr<ConstantDef>;
 
 // Typed
     class Typed;
-    typedef Typed* Typed_ptr;
+    using Typed_ptr = ::ecore::Ptr<Typed>;
 
 // ParameterDef
     class ParameterDef;
-    typedef ParameterDef* ParameterDef_ptr;
+    using ParameterDef_ptr = ::ecore::Ptr<ParameterDef>;
 
 // PrimitiveDef
     class PrimitiveDef;
-    typedef PrimitiveDef* PrimitiveDef_ptr;
+    using PrimitiveDef_ptr = ::ecore::Ptr<PrimitiveDef>;
 
 // ExceptionDef
     class ExceptionDef;
-    typedef ExceptionDef* ExceptionDef_ptr;
+    using ExceptionDef_ptr = ::ecore::Ptr<ExceptionDef>;
 
 // Field
     class Field;
-    typedef Field* Field_ptr;
+    using Field_ptr = ::ecore::Ptr<Field>;
 
 // FixedDef
     class FixedDef;
-    typedef FixedDef* FixedDef_ptr;
+    using FixedDef_ptr = ::ecore::Ptr<FixedDef>;
 
 // WstringDef
     class WstringDef;
-    typedef WstringDef* WstringDef_ptr;
+    using WstringDef_ptr = ::ecore::Ptr<WstringDef>;
 
 // StringDef
     class StringDef;
-    typedef StringDef* StringDef_ptr;
+    using StringDef_ptr = ::ecore::Ptr<StringDef>;
 
 // AliasDef
     class AliasDef;
-    typedef AliasDef* AliasDef_ptr;
+    using AliasDef_ptr = ::ecore::Ptr<AliasDef>;
 
 // ArrayDef
     class ArrayDef;
-    typedef ArrayDef* ArrayDef_ptr;
+    using ArrayDef_ptr = ::ecore::Ptr<ArrayDef>;
 
 // SequenceDef
     class SequenceDef;
-    typedef SequenceDef* SequenceDef_ptr;
+    using SequenceDef_ptr = ::ecore::Ptr<SequenceDef>;
 
 // UnionField
     class UnionField;
-    typedef UnionField* UnionField_ptr;
+    using UnionField_ptr = ::ecore::Ptr<UnionField>;
 
 // TypedefDef
     class TypedefDef;
-    typedef TypedefDef* TypedefDef_ptr;
+    using TypedefDef_ptr = ::ecore::Ptr<TypedefDef>;
 
 // UnionDef
     class UnionDef;
-    typedef UnionDef* UnionDef_ptr;
+    using UnionDef_ptr = ::ecore::Ptr<UnionDef>;
 
 // EnumDef
     class EnumDef;
-    typedef EnumDef* EnumDef_ptr;
+    using EnumDef_ptr = ::ecore::Ptr<EnumDef>;
 
 // StructDef
     class StructDef;
-    typedef StructDef* StructDef_ptr;
+    using StructDef_ptr = ::ecore::Ptr<StructDef>;
 
 // TranslationUnit
     class TranslationUnit;
-    typedef TranslationUnit* TranslationUnit_ptr;
+    using TranslationUnit_ptr = ::ecore::Ptr<TranslationUnit>;
 
 // Include
     class Include;
-    typedef Include* Include_ptr;
+    using Include_ptr = ::ecore::Ptr<Include>;
+
+// EEnum
+
+// ParameterMode
+    enum class ParameterMode
+    ;
+
+// PrimitiveKind
+    enum class PrimitiveKind
+    ;
 
 // Package & Factory
     class IdlmmFactory;
-    typedef IdlmmFactory * IdlmmFactory_ptr;
+    using IdlmmFactory_ptr = ::ecore::Ptr<IdlmmFactory>;
     class IdlmmPackage;
-    typedef IdlmmPackage * IdlmmPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using IdlmmPackage_ptr = ::ecore::Ptr<IdlmmPackage>;
 
 } // idlmm
 

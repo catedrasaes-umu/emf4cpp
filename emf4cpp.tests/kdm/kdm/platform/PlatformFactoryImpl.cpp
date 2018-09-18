@@ -2,6 +2,7 @@
 /*
  * kdm/platform/PlatformFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -59,7 +60,6 @@ using namespace ::kdm::platform;
 
 PlatformFactory::PlatformFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr PlatformFactory::create(::ecore::EClass_ptr _eClass)
@@ -159,130 +159,132 @@ PlatformFactory::PlatformFactory()
 
 AbstractPlatformElement_ptr PlatformFactory::createAbstractPlatformElement()
 {
-    return new AbstractPlatformElement();
+    return ::ecore::Ptr < AbstractPlatformElement
+            > (new AbstractPlatformElement);
 }
 PlatformModel_ptr PlatformFactory::createPlatformModel()
 {
-    return new PlatformModel();
+    return ::ecore::Ptr < PlatformModel > (new PlatformModel);
 }
 AbstractPlatformRelationship_ptr PlatformFactory::createAbstractPlatformRelationship()
 {
-    return new AbstractPlatformRelationship();
+    return ::ecore::Ptr < AbstractPlatformRelationship
+            > (new AbstractPlatformRelationship);
 }
 Requires_ptr PlatformFactory::createRequires()
 {
-    return new Requires();
+    return ::ecore::Ptr < Requires > (new Requires);
 }
 ResourceType_ptr PlatformFactory::createResourceType()
 {
-    return new ResourceType();
+    return ::ecore::Ptr < ResourceType > (new ResourceType);
 }
 NamingResource_ptr PlatformFactory::createNamingResource()
 {
-    return new NamingResource();
+    return ::ecore::Ptr < NamingResource > (new NamingResource);
 }
 MarshalledResource_ptr PlatformFactory::createMarshalledResource()
 {
-    return new MarshalledResource();
+    return ::ecore::Ptr < MarshalledResource > (new MarshalledResource);
 }
 MessagingResource_ptr PlatformFactory::createMessagingResource()
 {
-    return new MessagingResource();
+    return ::ecore::Ptr < MessagingResource > (new MessagingResource);
 }
 FileResource_ptr PlatformFactory::createFileResource()
 {
-    return new FileResource();
+    return ::ecore::Ptr < FileResource > (new FileResource);
 }
 ExecutionResource_ptr PlatformFactory::createExecutionResource()
 {
-    return new ExecutionResource();
+    return ::ecore::Ptr < ExecutionResource > (new ExecutionResource);
 }
 PlatformAction_ptr PlatformFactory::createPlatformAction()
 {
-    return new PlatformAction();
+    return ::ecore::Ptr < PlatformAction > (new PlatformAction);
 }
 ExternalActor_ptr PlatformFactory::createExternalActor()
 {
-    return new ExternalActor();
+    return ::ecore::Ptr < ExternalActor > (new ExternalActor);
 }
 DataManager_ptr PlatformFactory::createDataManager()
 {
-    return new DataManager();
+    return ::ecore::Ptr < DataManager > (new DataManager);
 }
 BindsTo_ptr PlatformFactory::createBindsTo()
 {
-    return new BindsTo();
+    return ::ecore::Ptr < BindsTo > (new BindsTo);
 }
 PlatformElement_ptr PlatformFactory::createPlatformElement()
 {
-    return new PlatformElement();
+    return ::ecore::Ptr < PlatformElement > (new PlatformElement);
 }
 PlatformRelationship_ptr PlatformFactory::createPlatformRelationship()
 {
-    return new PlatformRelationship();
+    return ::ecore::Ptr < PlatformRelationship > (new PlatformRelationship);
 }
 PlatformEvent_ptr PlatformFactory::createPlatformEvent()
 {
-    return new PlatformEvent();
+    return ::ecore::Ptr < PlatformEvent > (new PlatformEvent);
 }
 LockResource_ptr PlatformFactory::createLockResource()
 {
-    return new LockResource();
+    return ::ecore::Ptr < LockResource > (new LockResource);
 }
 DeployedSoftwareSystem_ptr PlatformFactory::createDeployedSoftwareSystem()
 {
-    return new DeployedSoftwareSystem();
+    return ::ecore::Ptr < DeployedSoftwareSystem > (new DeployedSoftwareSystem);
 }
 Machine_ptr PlatformFactory::createMachine()
 {
-    return new Machine();
+    return ::ecore::Ptr < Machine > (new Machine);
 }
 DeployedComponent_ptr PlatformFactory::createDeployedComponent()
 {
-    return new DeployedComponent();
+    return ::ecore::Ptr < DeployedComponent > (new DeployedComponent);
 }
 DeployedResource_ptr PlatformFactory::createDeployedResource()
 {
-    return new DeployedResource();
+    return ::ecore::Ptr < DeployedResource > (new DeployedResource);
 }
 Loads_ptr PlatformFactory::createLoads()
 {
-    return new Loads();
+    return ::ecore::Ptr < Loads > (new Loads);
 }
 Spawns_ptr PlatformFactory::createSpawns()
 {
-    return new Spawns();
+    return ::ecore::Ptr < Spawns > (new Spawns);
 }
 RuntimeResource_ptr PlatformFactory::createRuntimeResource()
 {
-    return new RuntimeResource();
+    return ::ecore::Ptr < RuntimeResource > (new RuntimeResource);
 }
 Thread_ptr PlatformFactory::createThread()
 {
-    return new Thread();
+    return ::ecore::Ptr < Thread > (new Thread);
 }
 Process_ptr PlatformFactory::createProcess()
 {
-    return new Process();
+    return ::ecore::Ptr < Process > (new Process);
 }
 ReadsResource_ptr PlatformFactory::createReadsResource()
 {
-    return new ReadsResource();
+    return ::ecore::Ptr < ReadsResource > (new ReadsResource);
 }
 WritesResource_ptr PlatformFactory::createWritesResource()
 {
-    return new WritesResource();
+    return ::ecore::Ptr < WritesResource > (new WritesResource);
 }
 ManagesResource_ptr PlatformFactory::createManagesResource()
 {
-    return new ManagesResource();
+    return ::ecore::Ptr < ManagesResource > (new ManagesResource);
 }
 DefinedBy_ptr PlatformFactory::createDefinedBy()
 {
-    return new DefinedBy();
+    return ::ecore::Ptr < DefinedBy > (new DefinedBy);
 }
 StreamResource_ptr PlatformFactory::createStreamResource()
 {
-    return new StreamResource();
+    return ::ecore::Ptr < StreamResource > (new StreamResource);
 }
 

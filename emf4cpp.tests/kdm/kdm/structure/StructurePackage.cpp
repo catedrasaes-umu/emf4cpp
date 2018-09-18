@@ -2,6 +2,7 @@
 /*
  * kdm/structure/StructurePackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::kdm::structure;
 
-std::auto_ptr< ::kdm::structure::StructurePackage > StructurePackage::s_instance;
+::ecore::Ptr< ::kdm::structure::StructurePackage > StructurePackage::s_instance;
 
 ::kdm::structure::StructurePackage_ptr StructurePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new StructurePackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< StructurePackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < StructurePackage > (new StructurePackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::kdm::structure::StructurePackage_ptr StructurePackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

@@ -2,6 +2,7 @@
 /*
  * CST/CSTPackage.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -22,109 +23,115 @@
 
 #include <ecore/EPackage.hpp>
 #include <CST_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
+
+#include <CST/dllCST.hpp>
 
 namespace CST
 {
 
-    class CSTPackage: public virtual ::ecore::EPackage
-    {
-    public:
+class EXPORT_CST_DLL CSTPackage : public virtual ::ecore::EPackage
+{
+public:
 
-        static CSTPackage_ptr _instance();
+    static CSTPackage_ptr _instance();
+    static CSTPackage_ptr _getInstanceAndRemoveOwnership();
 
-        // IDs for classifiers
+    // IDs for classifiers
 
-        static const int ELEMENT = 0;
+    static const int ELEMENT = 0;
 
-        static const int LEAF = 1;
+    static const int LEAF = 1;
 
-        static const int NODE = 2;
+    static const int NODE = 2;
 
-        static const int TREE = 3;
+    static const int TREE = 3;
 
-        static const int ELEMENT__KIND = 0;
+    static const int ELEMENT__KIND = 0;
 
-        static const int NODE__CHILDREN = 1;
+    static const int NODE__CHILDREN = 1;
 
-        static const int LEAF__VALUE = 2;
+    static const int LEAF__VALUE = 2;
 
-        static const int LEAF__POS = 3;
+    static const int LEAF__POS = 3;
 
-        static const int LEAF__LINE = 4;
+    static const int LEAF__LINE = 4;
 
-        // IDs for classifiers for class Element 
+    // IDs for classifiers for class Element 
 
-        // IDs for classifiers for class Leaf 
+    // IDs for classifiers for class Leaf 
 
-        static const int LEAF__KIND = ELEMENT__KIND;
+    static const int LEAF__KIND = ELEMENT__KIND;
 
-        // IDs for classifiers for class Node 
+    // IDs for classifiers for class Node 
 
-        static const int NODE__KIND = ELEMENT__KIND;
+    static const int NODE__KIND = ELEMENT__KIND;
 
-        // IDs for classifiers for class Tree 
+    // IDs for classifiers for class Tree 
 
-        static const int TREE__KIND = ELEMENT__KIND;
+    static const int TREE__KIND = ELEMENT__KIND;
 
-        static const int TREE__CHILDREN = NODE__CHILDREN;
+    static const int TREE__CHILDREN = NODE__CHILDREN;
 
-        // EClassifiers methods
+    // EClassifiers methods
 
-        virtual ::ecore::EClass_ptr getTree();
+    virtual ::ecore::EClass_ptr getTree();
 
-        virtual ::ecore::EClass_ptr getElement();
+    virtual ::ecore::EClass_ptr getElement();
 
-        virtual ::ecore::EClass_ptr getNode();
+    virtual ::ecore::EClass_ptr getNode();
 
-        virtual ::ecore::EClass_ptr getLeaf();
+    virtual ::ecore::EClass_ptr getLeaf();
 
-        // EStructuralFeatures methods
+    // EStructuralFeatures methods
 
-        virtual ::ecore::EAttribute_ptr getElement__kind();
+    virtual ::ecore::EAttribute_ptr getElement__kind();
 
-        virtual ::ecore::EReference_ptr getNode__children();
+    virtual ::ecore::EReference_ptr getNode__children();
 
-        virtual ::ecore::EAttribute_ptr getLeaf__value();
+    virtual ::ecore::EAttribute_ptr getLeaf__value();
 
-        virtual ::ecore::EAttribute_ptr getLeaf__pos();
+    virtual ::ecore::EAttribute_ptr getLeaf__pos();
 
-        virtual ::ecore::EAttribute_ptr getLeaf__line();
+    virtual ::ecore::EAttribute_ptr getLeaf__line();
 
-    protected:
+protected:
 
-        static std::auto_ptr< CSTPackage > s_instance;
+    static ::ecore::Ptr< CSTPackage > s_instance;
 
-        CSTPackage();
+    CSTPackage();
+    void _initPackage();
 
-        // EClass instances 
+    // EClass instances 
 
-        ::ecore::EClass_ptr m_TreeEClass;
+    ::ecore::EClass_ptr m_TreeEClass;
 
-        ::ecore::EClass_ptr m_ElementEClass;
+    ::ecore::EClass_ptr m_ElementEClass;
 
-        ::ecore::EClass_ptr m_NodeEClass;
+    ::ecore::EClass_ptr m_NodeEClass;
 
-        ::ecore::EClass_ptr m_LeafEClass;
+    ::ecore::EClass_ptr m_LeafEClass;
 
-        // EEnuminstances 
+    // EEnuminstances 
 
-        // EDataType instances 
+    // EDataType instances 
 
-        // EStructuralFeatures instances
+    // EStructuralFeatures instances
 
-        ::ecore::EAttribute_ptr m_Element__kind;
+    ::ecore::EAttribute_ptr m_Element__kind;
 
-        ::ecore::EReference_ptr m_Node__children;
+    ::ecore::EReference_ptr m_Node__children;
 
-        ::ecore::EAttribute_ptr m_Leaf__value;
+    ::ecore::EAttribute_ptr m_Leaf__value;
 
-        ::ecore::EAttribute_ptr m_Leaf__pos;
+    ::ecore::EAttribute_ptr m_Leaf__pos;
 
-        ::ecore::EAttribute_ptr m_Leaf__line;
+    ::ecore::EAttribute_ptr m_Leaf__line;
 
-    };
+};
 
-} // CST
+}
+ // CST
 
 #endif // _CSTPACKAGE_HPP
 

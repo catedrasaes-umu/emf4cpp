@@ -2,6 +2,7 @@
 /*
  * myDsl/Model.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Model.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::myDsl;
 
 // Default constructor
@@ -36,11 +42,13 @@ Model::Model()
 {
 
     m_imports.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Import, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Import_ptr,
+                    -1, true, false >(this,
+                    ::myDsl::MyDslPackage::_instance()->getModel__imports()));
     m_elements.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Type, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Type_ptr, -1,
+                    true, false >(this,
+                    ::myDsl::MyDslPackage::_instance()->getModel__elements()));
 
     /*PROTECTED REGION ID(ModelImpl__ModelImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,19 +64,26 @@ Model::~Model()
 {
 }
 
-/*PROTECTED REGION ID(Model.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::myDsl::Import >& Model::getImports()
+
+const ::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& Model::getImports() const
 {
     return *m_imports;
 }
 
-::ecorecpp::mapping::EList< ::myDsl::Type >& Model::getElements()
+::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& Model::getImports()
+{
+    return *m_imports;
+}
+
+const ::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& Model::getElements() const
+{
+    return *m_elements;
+}
+
+::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& Model::getElements()
 {
     return *m_elements;
 }

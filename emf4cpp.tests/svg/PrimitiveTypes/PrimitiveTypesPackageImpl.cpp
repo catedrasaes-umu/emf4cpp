@@ -2,6 +2,7 @@
 /*
  * PrimitiveTypes/PrimitiveTypesPackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,12 +38,14 @@ using namespace ::PrimitiveTypes;
 PrimitiveTypesPackage::PrimitiveTypesPackage()
 {
 
-    s_instance.reset(this);
+}
 
+void PrimitiveTypesPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = PrimitiveTypesFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
@@ -50,24 +53,28 @@ PrimitiveTypesPackage::PrimitiveTypesPackage()
 
     // Create data types
 
-    m_BooleanEDataType = new ::ecore::EDataType();
+    m_BooleanEDataType = ::ecore::Ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_BooleanEDataType->setClassifierID(BOOLEAN);
-    m_BooleanEDataType->setEPackage(this);
+    m_BooleanEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanEDataType);
 
-    m_IntegerEDataType = new ::ecore::EDataType();
+    m_IntegerEDataType = ::ecore::Ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_IntegerEDataType->setClassifierID(INTEGER);
-    m_IntegerEDataType->setEPackage(this);
+    m_IntegerEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_IntegerEDataType);
 
-    m_StringEDataType = new ::ecore::EDataType();
+    m_StringEDataType = ::ecore::Ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_StringEDataType->setClassifierID(STRING);
-    m_StringEDataType->setEPackage(this);
+    m_StringEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_StringEDataType);
 
-    m_DoubleEDataType = new ::ecore::EDataType();
+    m_DoubleEDataType = ::ecore::Ptr < ::ecore::EDataType
+            > (new ::ecore::EDataType);
     m_DoubleEDataType->setClassifierID(DOUBLE);
-    m_DoubleEDataType->setEPackage(this);
+    m_DoubleEDataType->setEPackage(_this());
     getEClassifiers().push_back(m_DoubleEDataType);
 
     // Initialize package

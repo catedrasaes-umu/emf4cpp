@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -47,7 +48,6 @@ using namespace ::kdm::build;
 
 BuildFactory::BuildFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr BuildFactory::create(::ecore::EClass_ptr _eClass)
@@ -123,82 +123,83 @@ BuildFactory::BuildFactory()
 
 AbstractBuildElement_ptr BuildFactory::createAbstractBuildElement()
 {
-    return new AbstractBuildElement();
+    return ::ecore::Ptr < AbstractBuildElement > (new AbstractBuildElement);
 }
 BuildResource_ptr BuildFactory::createBuildResource()
 {
-    return new BuildResource();
+    return ::ecore::Ptr < BuildResource > (new BuildResource);
 }
 BuildDescription_ptr BuildFactory::createBuildDescription()
 {
-    return new BuildDescription();
+    return ::ecore::Ptr < BuildDescription > (new BuildDescription);
 }
 SymbolicLink_ptr BuildFactory::createSymbolicLink()
 {
-    return new SymbolicLink();
+    return ::ecore::Ptr < SymbolicLink > (new SymbolicLink);
 }
 AbstractBuildRelationship_ptr BuildFactory::createAbstractBuildRelationship()
 {
-    return new AbstractBuildRelationship();
+    return ::ecore::Ptr < AbstractBuildRelationship
+            > (new AbstractBuildRelationship);
 }
 LinksTo_ptr BuildFactory::createLinksTo()
 {
-    return new LinksTo();
+    return ::ecore::Ptr < LinksTo > (new LinksTo);
 }
 Consumes_ptr BuildFactory::createConsumes()
 {
-    return new Consumes();
+    return ::ecore::Ptr < Consumes > (new Consumes);
 }
 BuildModel_ptr BuildFactory::createBuildModel()
 {
-    return new BuildModel();
+    return ::ecore::Ptr < BuildModel > (new BuildModel);
 }
 BuildComponent_ptr BuildFactory::createBuildComponent()
 {
-    return new BuildComponent();
+    return ::ecore::Ptr < BuildComponent > (new BuildComponent);
 }
 Supplier_ptr BuildFactory::createSupplier()
 {
-    return new Supplier();
+    return ::ecore::Ptr < Supplier > (new Supplier);
 }
 Tool_ptr BuildFactory::createTool()
 {
-    return new Tool();
+    return ::ecore::Ptr < Tool > (new Tool);
 }
 BuildElement_ptr BuildFactory::createBuildElement()
 {
-    return new BuildElement();
+    return ::ecore::Ptr < BuildElement > (new BuildElement);
 }
 BuildRelationship_ptr BuildFactory::createBuildRelationship()
 {
-    return new BuildRelationship();
+    return ::ecore::Ptr < BuildRelationship > (new BuildRelationship);
 }
 SuppliedBy_ptr BuildFactory::createSuppliedBy()
 {
-    return new SuppliedBy();
+    return ::ecore::Ptr < SuppliedBy > (new SuppliedBy);
 }
 Library_ptr BuildFactory::createLibrary()
 {
-    return new Library();
+    return ::ecore::Ptr < Library > (new Library);
 }
 BuildStep_ptr BuildFactory::createBuildStep()
 {
-    return new BuildStep();
+    return ::ecore::Ptr < BuildStep > (new BuildStep);
 }
 Produces_ptr BuildFactory::createProduces()
 {
-    return new Produces();
+    return ::ecore::Ptr < Produces > (new Produces);
 }
 SupportedBy_ptr BuildFactory::createSupportedBy()
 {
-    return new SupportedBy();
+    return ::ecore::Ptr < SupportedBy > (new SupportedBy);
 }
 BuildProduct_ptr BuildFactory::createBuildProduct()
 {
-    return new BuildProduct();
+    return ::ecore::Ptr < BuildProduct > (new BuildProduct);
 }
 DescribedBy_ptr BuildFactory::createDescribedBy()
 {
-    return new DescribedBy();
+    return ::ecore::Ptr < DescribedBy > (new DescribedBy);
 }
 

@@ -2,6 +2,7 @@
 /*
  * SVG/AbsoluteCoordImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,19 +28,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::SVG;
-
 /*PROTECTED REGION ID(AbsoluteCoordImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::SVG;
 
 void AbsoluteCoord::_initialize()
 {
     // Supertypes
     ::SVG::Coordinates::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AbsoluteCoordImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -80,14 +81,18 @@ void AbsoluteCoord::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::COORDINATES__X:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_x);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Coordinates::setX(_t0);
     }
         return;
     case ::SVG::SVGPackage::COORDINATES__Y:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_y);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Coordinates::setY(_t0);
     }
         return;
 
@@ -122,7 +127,31 @@ void AbsoluteCoord::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr AbsoluteCoord::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getAbsoluteCoord();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getAbsoluteCoord();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void AbsoluteCoord::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void AbsoluteCoord::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

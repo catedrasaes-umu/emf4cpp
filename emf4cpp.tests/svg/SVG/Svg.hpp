@@ -2,6 +2,7 @@
 /*
  * SVG/Svg.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef SVG_SVG_HPP
 #define SVG_SVG_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/StructuralElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Svg_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,71 +39,79 @@
 namespace SVG
 {
 
-    class Svg: public virtual ::SVG::StructuralElement
-    {
-    public:
-        Svg();
+class EXPORT_SVG_DLL Svg : public virtual ::SVG::StructuralElement
+{
+public:
+    Svg();
 
-        virtual ~Svg();
+    virtual ~Svg();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::String getNamespace() const;
-        void setNamespace(::PrimitiveTypes::String _namespace);
+    // Attributes
+    virtual ::PrimitiveTypes::String getNamespace () const;
+    virtual void setNamespace (::PrimitiveTypes::String _namespace);
 
-        ::PrimitiveTypes::String getVersion() const;
-        void setVersion(::PrimitiveTypes::String _version);
+    virtual ::PrimitiveTypes::String getVersion () const;
+    virtual void setVersion (::PrimitiveTypes::String _version);
 
-        ::PrimitiveTypes::String getBaseProfile() const;
-        void setBaseProfile(::PrimitiveTypes::String _baseProfile);
+    virtual ::PrimitiveTypes::String getBaseProfile () const;
+    virtual void setBaseProfile (::PrimitiveTypes::String _baseProfile);
 
-        // References
-        ::ecorecpp::mapping::EList< ::SVG::SvgFile >& getOwner_SVG();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& getOwner_SVG () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& getOwner_SVG ();
 
-        ::ecorecpp::mapping::EList< ::SVG::Element >& getChildren();
+    virtual const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getChildren () const;
+    virtual ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& getChildren ();
 
-        /*PROTECTED REGION ID(Svg) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::SVG;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Svg) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(SvgImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(SvgImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::PrimitiveTypes::String m_namespace;
+protected:
+    Svg_ptr _this()
+    {   return Svg_ptr(this);}
 
-        ::PrimitiveTypes::String m_version;
+    // Attributes
 
-        ::PrimitiveTypes::String m_baseProfile;
+    ::PrimitiveTypes::String m_namespace;
 
-        // References
+    ::PrimitiveTypes::String m_version;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::SVG::SvgFile > > m_owner_SVG;
+    ::PrimitiveTypes::String m_baseProfile;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::SVG::Element > > m_children;
+    // References
 
-    };
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >> m_owner_SVG;
 
-} // SVG
+    std::shared_ptr<::ecorecpp::mapping::EList< ::SVG::Element_ptr >> m_children;
+
+};
+
+}
+ // SVG
 
 #endif // SVG_SVG_HPP
 

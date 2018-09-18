@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/Extension.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Extension.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -53,20 +59,16 @@ Extension::~Extension()
 {
     if (m_body)
     {
-        delete m_body;
+        m_body.reset();
     }
     if (m_returnType)
     {
-        delete m_returnType;
+        m_returnType.reset();
     }
 }
 
-/*PROTECTED REGION ID(Extension.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean Extension::isCached() const
 {
     return m_cached;
@@ -83,8 +85,8 @@ void Extension::setCached(::ecore::EBoolean _cached)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__cached(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__cached(),
                 _old_cached,
                 m_cached
         );
@@ -94,15 +96,24 @@ void Extension::setCached(::ecore::EBoolean _cached)
 }
 
 // References
-::xpand3::expression::AbstractExpression_ptr Extension::getBody()
+
+::xpand3::expression::AbstractExpression_ptr Extension::getBody() const
 {
     return m_body;
 }
 
 void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_body = m_body;
+    if (m_body)
+        m_body->_setEContainer(Extension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
+    if (_body)
+        _body->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_body = m_body;
+#endif
     m_body = _body;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -110,27 +121,33 @@ void Extension::setBody(::xpand3::expression::AbstractExpression_ptr _body)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__body(),
                 _old_body,
                 m_body
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_body;
 }
 
-::xpand3::Identifier_ptr Extension::getReturnType()
+::xpand3::Identifier_ptr Extension::getReturnType() const
 {
     return m_returnType;
 }
 
 void Extension::setReturnType(::xpand3::Identifier_ptr _returnType)
 {
-    ::xpand3::Identifier_ptr _old_returnType = m_returnType;
+    if (m_returnType)
+        m_returnType->_setEContainer(Extension_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
+    if (_returnType)
+        _returnType->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_returnType = m_returnType;
+#endif
     m_returnType = _returnType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -138,15 +155,13 @@ void Extension::setReturnType(::xpand3::Identifier_ptr _returnType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtension__returnType(),
                 _old_returnType,
                 m_returnType
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_returnType;
 }
 

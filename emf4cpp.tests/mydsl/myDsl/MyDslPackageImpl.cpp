@@ -2,6 +2,7 @@
 /*
  * myDsl/MyDslPackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,76 +39,108 @@ using namespace ::myDsl;
 MyDslPackage::MyDslPackage()
 {
 
-    s_instance.reset(this);
+    // Feature definitions of Model
+    m_Model__imports = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Model__elements = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
+    // Feature definitions of Import
+    m_Import__importURI = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Type
+    m_Type__name = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of SimpleType
+
+    // Feature definitions of Entity
+    m_Entity__extends = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Entity__properties = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Property
+    m_Property__name = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Property__many = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Property__type = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+}
+
+void MyDslPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = MyDslFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Model
-    m_ModelEClass = new ::ecore::EClass();
+    m_ModelEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ModelEClass->setClassifierID(MODEL);
-    m_ModelEClass->setEPackage(this);
+    m_ModelEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ModelEClass);
-    m_Model__imports = new ::ecore::EReference();
+    // m_Model__imports has already been allocated above
     m_Model__imports->setFeatureID(::myDsl::MyDslPackage::MODEL__IMPORTS);
     m_ModelEClass->getEStructuralFeatures().push_back(m_Model__imports);
-    m_Model__elements = new ::ecore::EReference();
+    // m_Model__elements has already been allocated above
     m_Model__elements->setFeatureID(::myDsl::MyDslPackage::MODEL__ELEMENTS);
     m_ModelEClass->getEStructuralFeatures().push_back(m_Model__elements);
 
     // Import
-    m_ImportEClass = new ::ecore::EClass();
+    m_ImportEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ImportEClass->setClassifierID(IMPORT);
-    m_ImportEClass->setEPackage(this);
+    m_ImportEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImportEClass);
-    m_Import__importURI = new ::ecore::EAttribute();
+    // m_Import__importURI has already been allocated above
     m_Import__importURI->setFeatureID(::myDsl::MyDslPackage::IMPORT__IMPORTURI);
     m_ImportEClass->getEStructuralFeatures().push_back(m_Import__importURI);
 
     // Type
-    m_TypeEClass = new ::ecore::EClass();
+    m_TypeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TypeEClass->setClassifierID(TYPE);
-    m_TypeEClass->setEPackage(this);
+    m_TypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TypeEClass);
-    m_Type__name = new ::ecore::EAttribute();
+    // m_Type__name has already been allocated above
     m_Type__name->setFeatureID(::myDsl::MyDslPackage::TYPE__NAME);
     m_TypeEClass->getEStructuralFeatures().push_back(m_Type__name);
 
     // SimpleType
-    m_SimpleTypeEClass = new ::ecore::EClass();
+    m_SimpleTypeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SimpleTypeEClass->setClassifierID(SIMPLETYPE);
-    m_SimpleTypeEClass->setEPackage(this);
+    m_SimpleTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SimpleTypeEClass);
 
     // Entity
-    m_EntityEClass = new ::ecore::EClass();
+    m_EntityEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EntityEClass->setClassifierID(ENTITY);
-    m_EntityEClass->setEPackage(this);
+    m_EntityEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EntityEClass);
-    m_Entity__extends = new ::ecore::EReference();
+    // m_Entity__extends has already been allocated above
     m_Entity__extends->setFeatureID(::myDsl::MyDslPackage::ENTITY__EXTENDS);
     m_EntityEClass->getEStructuralFeatures().push_back(m_Entity__extends);
-    m_Entity__properties = new ::ecore::EReference();
+    // m_Entity__properties has already been allocated above
     m_Entity__properties->setFeatureID(
             ::myDsl::MyDslPackage::ENTITY__PROPERTIES);
     m_EntityEClass->getEStructuralFeatures().push_back(m_Entity__properties);
 
     // Property
-    m_PropertyEClass = new ::ecore::EClass();
+    m_PropertyEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PropertyEClass->setClassifierID(PROPERTY);
-    m_PropertyEClass->setEPackage(this);
+    m_PropertyEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PropertyEClass);
-    m_Property__name = new ::ecore::EAttribute();
+    // m_Property__name has already been allocated above
     m_Property__name->setFeatureID(::myDsl::MyDslPackage::PROPERTY__NAME);
     m_PropertyEClass->getEStructuralFeatures().push_back(m_Property__name);
-    m_Property__many = new ::ecore::EAttribute();
+    // m_Property__many has already been allocated above
     m_Property__many->setFeatureID(::myDsl::MyDslPackage::PROPERTY__MANY);
     m_PropertyEClass->getEStructuralFeatures().push_back(m_Property__many);
-    m_Property__type = new ::ecore::EReference();
+    // m_Property__type has already been allocated above
     m_Property__type->setFeatureID(::myDsl::MyDslPackage::PROPERTY__TYPE);
     m_PropertyEClass->getEStructuralFeatures().push_back(m_Property__type);
 
@@ -163,7 +196,7 @@ MyDslPackage::MyDslPackage()
     m_ImportEClass->setAbstract(false);
     m_ImportEClass->setInterface(false);
     m_Import__importURI->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Import__importURI->setName("importURI");
     m_Import__importURI->setDefaultValueLiteral("");
     m_Import__importURI->setLowerBound(0);
@@ -181,7 +214,7 @@ MyDslPackage::MyDslPackage()
     m_TypeEClass->setAbstract(false);
     m_TypeEClass->setInterface(false);
     m_Type__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Type__name->setName("name");
     m_Type__name->setDefaultValueLiteral("");
     m_Type__name->setLowerBound(0);
@@ -233,7 +266,7 @@ MyDslPackage::MyDslPackage()
     m_PropertyEClass->setAbstract(false);
     m_PropertyEClass->setInterface(false);
     m_Property__name->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_Property__name->setName("name");
     m_Property__name->setDefaultValueLiteral("");
     m_Property__name->setLowerBound(0);
@@ -247,7 +280,7 @@ MyDslPackage::MyDslPackage()
     m_Property__name->setDerived(false);
     m_Property__name->setOrdered(true);
     m_Property__many->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEBoolean());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEBoolean());
     m_Property__many->setName("many");
     m_Property__many->setDefaultValueLiteral("");
     m_Property__many->setLowerBound(0);

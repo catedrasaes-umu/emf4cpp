@@ -2,6 +2,7 @@
 /*
  * SVG/DimensionImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -26,18 +27,18 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::SVG;
-
 /*PROTECTED REGION ID(DimensionImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::SVG;
+
 void Dimension::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(DimensionImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -78,14 +79,18 @@ void Dimension::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::DIMENSION__WIDTH:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_width);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Dimension::setWidth(_t0);
     }
         return;
     case ::SVG::SVGPackage::DIMENSION__HEIGHT:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_height);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Dimension::setHeight(_t0);
     }
         return;
 
@@ -120,7 +125,31 @@ void Dimension::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Dimension::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getDimension();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getDimension();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Dimension::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Dimension::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

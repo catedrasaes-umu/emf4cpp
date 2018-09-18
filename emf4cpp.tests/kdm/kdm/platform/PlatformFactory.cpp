@@ -2,6 +2,7 @@
 /*
  * kdm/platform/PlatformFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::kdm::platform;
 
-std::auto_ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_instance;
+::ecore::Ptr< ::kdm::platform::PlatformFactory > PlatformFactory::s_holder;
 
 ::kdm::platform::PlatformFactory_ptr PlatformFactory::_instance()
 {
-    if (!s_instance.get())
-        new PlatformFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < PlatformFactory > (new PlatformFactory());
+
+    return s_holder;
 }
 

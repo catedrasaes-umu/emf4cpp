@@ -2,6 +2,7 @@
 /*
  * SVG/Path.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Path.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -56,12 +62,8 @@ Path::~Path()
 {
 }
 
-/*PROTECTED REGION ID(Path.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::Double Path::getPathLength() const
 {
     return m_pathLength;
@@ -78,8 +80,8 @@ void Path::setPathLength(::PrimitiveTypes::Double _pathLength)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPath__pathLength(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPath__pathLength(),
                 _old_pathLength,
                 m_pathLength
         );
@@ -104,8 +106,8 @@ void Path::setD(::PrimitiveTypes::String _d)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPath__d(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPath__d(),
                 _old_d,
                 m_d
         );
@@ -130,8 +132,8 @@ void Path::setMarkerEnd(::PrimitiveTypes::String _markerEnd)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPath__markerEnd(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPath__markerEnd(),
                 _old_markerEnd,
                 m_markerEnd
         );
@@ -156,8 +158,8 @@ void Path::setMarkerStart(::PrimitiveTypes::String _markerStart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPath__markerStart(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPath__markerStart(),
                 _old_markerStart,
                 m_markerStart
         );

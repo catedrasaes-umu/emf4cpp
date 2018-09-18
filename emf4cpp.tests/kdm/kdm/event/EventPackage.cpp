@@ -2,6 +2,7 @@
 /*
  * kdm/event/EventPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::kdm::event;
 
-std::auto_ptr< ::kdm::event::EventPackage > EventPackage::s_instance;
+::ecore::Ptr< ::kdm::event::EventPackage > EventPackage::s_instance;
 
 ::kdm::event::EventPackage_ptr EventPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new EventPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< EventPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < EventPackage > (new EventPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::kdm::event::EventPackage_ptr EventPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/ProtectStatementImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,36 +30,30 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::statement;
-
 /*PROTECTED REGION ID(ProtectStatementImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::statement;
 
 void ProtectStatement::_initialize()
 {
     // Supertypes
     ::xpand3::statement::AbstractStatementWithBody::_initialize();
 
-    // Rerefences
+    // References
     if (m_commentStart)
     {
         m_commentStart->_initialize();
-        m_commentStart->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
     }
     if (m_commentEnd)
     {
         m_commentEnd->_initialize();
-        m_commentEnd->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
     }
     if (m_id)
     {
         m_id->_initialize();
-        m_id->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
     }
 
     /*PROTECTED REGION ID(ProtectStatementImpl__initialize) START*/
@@ -100,22 +95,25 @@ void ProtectStatement::_initialize()
         return _any;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        _any = m_body->asEListOf< ::ecore::EObject >();
+        _any = m_body->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTSTART:
     {
-        _any = static_cast< ::ecore::EObject* >(m_commentStart);
+        if (m_commentStart)
+            _any = ::ecore::as < ::ecore::EObject > (m_commentStart);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTEND:
     {
-        _any = static_cast< ::ecore::EObject* >(m_commentEnd);
+        if (m_commentEnd)
+            _any = ::ecore::as < ::ecore::EObject > (m_commentEnd);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__ID:
     {
-        _any = static_cast< ::ecore::EObject* >(m_id);
+        if (m_id)
+            _any = ::ecore::as < ::ecore::EObject > (m_id);
     }
         return _any;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__DISABLE:
@@ -136,32 +134,41 @@ void ProtectStatement::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::statement::AbstractStatementWithBody::getBody().clear();
         ::xpand3::statement::AbstractStatementWithBody::getBody().insert_all(
                 *_t0);
@@ -172,7 +179,7 @@ void ProtectStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::ProtectStatement::setCommentStart(_t1);
     }
         return;
@@ -181,7 +188,7 @@ void ProtectStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::ProtectStatement::setCommentEnd(_t1);
     }
         return;
@@ -190,14 +197,16 @@ void ProtectStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::statement::ProtectStatement::setId(_t1);
     }
         return;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__DISABLE:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_disable);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::statement::ProtectStatement::setDisable(_t0);
     }
         return;
 
@@ -223,11 +232,11 @@ void ProtectStatement::eSet(::ecore::EInt _featureID,
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
         return m_body && m_body->size();
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTSTART:
-        return m_commentStart;
+        return (bool) m_commentStart;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTEND:
-        return m_commentEnd;
+        return (bool) m_commentEnd;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__ID:
-        return m_id;
+        return (bool) m_id;
     case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__DISABLE:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_disable);
@@ -248,7 +257,63 @@ void ProtectStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ProtectStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getProtectStatement();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getProtectStatement();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void ProtectStatement::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTSTART:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTEND:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__ID:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void ProtectStatement::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTSTART:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__COMMENTEND:
+    {
+    }
+        return;
+    case ::xpand3::statement::StatementPackage::PROTECTSTATEMENT__ID:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

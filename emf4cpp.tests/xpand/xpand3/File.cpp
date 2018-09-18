@@ -2,6 +2,7 @@
 /*
  * xpand3/File.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(File.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3;
 
 // Default constructor
@@ -38,11 +44,13 @@ File::File()
 
     m_imports.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::ImportStatement, -1, true, false >(this, NULL));
+                    ::xpand3::ImportStatement_ptr, -1, true, false >(this,
+                    ::xpand3::Xpand3Package::_instance()->getFile__imports()));
     m_declarations.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::declaration::AbstractDeclaration, -1, true, false >(
-                    this, NULL));
+                    ::xpand3::declaration::AbstractDeclaration_ptr, -1, true,
+                    false >(this,
+                    ::xpand3::Xpand3Package::_instance()->getFile__declarations()));
 
     /*PROTECTED REGION ID(FileImpl__FileImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -58,19 +66,26 @@ File::~File()
 {
 }
 
-/*PROTECTED REGION ID(File.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& File::getImports()
+
+const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& File::getImports() const
 {
     return *m_imports;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& File::getDeclarations()
+::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& File::getImports()
+{
+    return *m_imports;
+}
+
+const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& File::getDeclarations() const
+{
+    return *m_declarations;
+}
+
+::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& File::getDeclarations()
 {
     return *m_declarations;
 }

@@ -2,6 +2,7 @@
 /*
  * tree/TreePackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,39 +39,54 @@ using namespace ::tree;
 TreePackage::TreePackage()
 {
 
-    s_instance.reset(this);
+    // Feature definitions of TreeNode
+    m_TreeNode__data = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_TreeNode__parent = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
+    // Feature definitions of Leaf
+
+    // Feature definitions of NonTerminal
+    m_NonTerminal__children = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+}
+
+void TreePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = TreeFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // TreeNode
-    m_TreeNodeEClass = new ::ecore::EClass();
+    m_TreeNodeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TreeNodeEClass->setClassifierID(TREENODE);
-    m_TreeNodeEClass->setEPackage(this);
+    m_TreeNodeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TreeNodeEClass);
-    m_TreeNode__data = new ::ecore::EAttribute();
+    // m_TreeNode__data has already been allocated above
     m_TreeNode__data->setFeatureID(::tree::TreePackage::TREENODE__DATA);
     m_TreeNodeEClass->getEStructuralFeatures().push_back(m_TreeNode__data);
-    m_TreeNode__parent = new ::ecore::EReference();
+    // m_TreeNode__parent has already been allocated above
     m_TreeNode__parent->setFeatureID(::tree::TreePackage::TREENODE__PARENT);
     m_TreeNodeEClass->getEStructuralFeatures().push_back(m_TreeNode__parent);
 
     // Leaf
-    m_LeafEClass = new ::ecore::EClass();
+    m_LeafEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LeafEClass->setClassifierID(LEAF);
-    m_LeafEClass->setEPackage(this);
+    m_LeafEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LeafEClass);
 
     // NonTerminal
-    m_NonTerminalEClass = new ::ecore::EClass();
+    m_NonTerminalEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NonTerminalEClass->setClassifierID(NONTERMINAL);
-    m_NonTerminalEClass->setEPackage(this);
+    m_NonTerminalEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NonTerminalEClass);
-    m_NonTerminal__children = new ::ecore::EReference();
+    // m_NonTerminal__children has already been allocated above
     m_NonTerminal__children->setFeatureID(
             ::tree::TreePackage::NONTERMINAL__CHILDREN);
     m_NonTerminalEClass->getEStructuralFeatures().push_back(
@@ -98,7 +114,7 @@ TreePackage::TreePackage()
     m_TreeNodeEClass->setAbstract(true);
     m_TreeNodeEClass->setInterface(false);
     m_TreeNode__data->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_TreeNode__data->setName("data");
     m_TreeNode__data->setDefaultValueLiteral("");
     m_TreeNode__data->setLowerBound(0);

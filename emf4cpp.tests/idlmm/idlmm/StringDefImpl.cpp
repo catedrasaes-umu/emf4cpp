@@ -2,6 +2,7 @@
 /*
  * idlmm/StringDefImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,19 +28,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::idlmm;
-
 /*PROTECTED REGION ID(StringDefImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::idlmm;
 
 void StringDef::_initialize()
 {
     // Supertypes
     ::idlmm::IDLType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(StringDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -80,14 +81,18 @@ void StringDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
+        ::idlmm::ETypeCode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
-                > ::fromAny(_newValue, m_typeCode);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::IDLType::setTypeCode(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::STRINGDEF__BOUND:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_bound);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::StringDef::setBound(_t0);
     }
         return;
 
@@ -122,7 +127,31 @@ void StringDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr StringDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getStringDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getStringDef();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void StringDef::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void StringDef::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

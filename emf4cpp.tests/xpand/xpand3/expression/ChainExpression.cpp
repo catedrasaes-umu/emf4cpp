@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ChainExpression.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ChainExpression.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -49,22 +55,19 @@ ChainExpression::~ChainExpression()
 {
     if (m_first)
     {
-        delete m_first;
+        m_first.reset();
     }
     if (m_next)
     {
-        delete m_next;
+        m_next.reset();
     }
 }
 
-/*PROTECTED REGION ID(ChainExpression.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr ChainExpression::getFirst()
+
+::xpand3::expression::AbstractExpression_ptr ChainExpression::getFirst() const
 {
     return m_first;
 }
@@ -72,8 +75,16 @@ ChainExpression::~ChainExpression()
 void ChainExpression::setFirst(
         ::xpand3::expression::AbstractExpression_ptr _first)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_first = m_first;
+    if (m_first)
+        m_first->_setEContainer(ChainExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
+    if (_first)
+        _first->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_first = m_first;
+#endif
     m_first = _first;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -81,19 +92,17 @@ void ChainExpression::setFirst(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first(),
                 _old_first,
                 m_first
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_first;
 }
 
-::xpand3::expression::AbstractExpression_ptr ChainExpression::getNext()
+::xpand3::expression::AbstractExpression_ptr ChainExpression::getNext() const
 {
     return m_next;
 }
@@ -101,8 +110,16 @@ void ChainExpression::setFirst(
 void ChainExpression::setNext(
         ::xpand3::expression::AbstractExpression_ptr _next)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_next = m_next;
+    if (m_next)
+        m_next->_setEContainer(ChainExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
+    if (_next)
+        _next->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_next = m_next;
+#endif
     m_next = _next;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -110,15 +127,13 @@ void ChainExpression::setNext(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next(),
                 _old_next,
                 m_next
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_next;
 }
 

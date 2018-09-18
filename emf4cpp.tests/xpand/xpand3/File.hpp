@@ -2,6 +2,7 @@
 /*
  * xpand3/File.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef XPAND3_FILE_HPP
 #define XPAND3_FILE_HPP
 
-#include <xpand3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/declaration_forward.hpp>
 #include <xpand3/SyntaxElement.hpp>
+
+#include "Xpand3Package.hpp"
 
 /*PROTECTED REGION ID(File_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -35,58 +40,65 @@
 namespace xpand3
 {
 
-    class File: public virtual ::xpand3::SyntaxElement
-    {
-    public:
-        File();
+class EXPORT_XPAND3_DLL File : public virtual ::xpand3::SyntaxElement
+{
+public:
+    File();
 
-        virtual ~File();
+    virtual ~File();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecorecpp::mapping::EList< ::xpand3::ImportStatement >& getImports();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& getImports () const;
+    virtual ::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >& getImports ();
 
-        ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration >& getDeclarations();
+    virtual const ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& getDeclarations () const;
+    virtual ::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >& getDeclarations ();
 
-        /*PROTECTED REGION ID(File) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = Xpand3Package::FILE;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(File) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(FileImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(FileImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    File_ptr _this()
+    {   return File_ptr(this);}
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::xpand3::ImportStatement > > m_imports;
+    // Attributes
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList<
-                        ::xpand3::declaration::AbstractDeclaration > > m_declarations;
+    // References
 
-    };
+    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::ImportStatement_ptr >> m_imports;
 
-} // xpand3
+    std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::declaration::AbstractDeclaration_ptr >> m_declarations;
+
+};
+
+}
+ // xpand3
 
 #endif // XPAND3_FILE_HPP
 

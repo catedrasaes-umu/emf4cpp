@@ -2,6 +2,7 @@
 /*
  * CST/Tree.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef CST_TREE_HPP
 #define CST_TREE_HPP
 
-#include <CST_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <CST/dllCST.hpp>
+#include <CST_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <CST/Node.hpp>
+
+#include "CSTPackage.hpp"
 
 /*PROTECTED REGION ID(Tree_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,48 +39,56 @@
 namespace CST
 {
 
-    class Tree: public virtual ::CST::Node
-    {
-    public:
-        Tree();
+class EXPORT_CST_DLL Tree : public virtual ::CST::Node
+{
+public:
+    Tree();
 
-        virtual ~Tree();
+    virtual ~Tree();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(Tree) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CSTPackage::TREE;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Tree) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(TreeImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(TreeImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    Tree_ptr _this()
+    {   return Tree_ptr(this);}
 
-    };
+    // Attributes
 
-} // CST
+    // References
+
+};
+
+}
+ // CST
 
 #endif // CST_TREE_HPP
 

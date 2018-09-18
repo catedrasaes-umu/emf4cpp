@@ -2,6 +2,7 @@
 /*
  * kdm/structure/StructureFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,7 +38,6 @@ using namespace ::kdm::structure;
 
 StructureFactory::StructureFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr StructureFactory::create(::ecore::EClass_ptr _eClass)
@@ -93,42 +93,44 @@ StructureFactory::StructureFactory()
 
 AbstractStructureElement_ptr StructureFactory::createAbstractStructureElement()
 {
-    return new AbstractStructureElement();
+    return ::ecore::Ptr < AbstractStructureElement
+            > (new AbstractStructureElement);
 }
 Subsystem_ptr StructureFactory::createSubsystem()
 {
-    return new Subsystem();
+    return ::ecore::Ptr < Subsystem > (new Subsystem);
 }
 Layer_ptr StructureFactory::createLayer()
 {
-    return new Layer();
+    return ::ecore::Ptr < Layer > (new Layer);
 }
 StructureModel_ptr StructureFactory::createStructureModel()
 {
-    return new StructureModel();
+    return ::ecore::Ptr < StructureModel > (new StructureModel);
 }
 Component_ptr StructureFactory::createComponent()
 {
-    return new Component();
+    return ::ecore::Ptr < Component > (new Component);
 }
 SoftwareSystem_ptr StructureFactory::createSoftwareSystem()
 {
-    return new SoftwareSystem();
+    return ::ecore::Ptr < SoftwareSystem > (new SoftwareSystem);
 }
 AbstractStructureRelationship_ptr StructureFactory::createAbstractStructureRelationship()
 {
-    return new AbstractStructureRelationship();
+    return ::ecore::Ptr < AbstractStructureRelationship
+            > (new AbstractStructureRelationship);
 }
 StructureRelationship_ptr StructureFactory::createStructureRelationship()
 {
-    return new StructureRelationship();
+    return ::ecore::Ptr < StructureRelationship > (new StructureRelationship);
 }
 ArchitectureView_ptr StructureFactory::createArchitectureView()
 {
-    return new ArchitectureView();
+    return ::ecore::Ptr < ArchitectureView > (new ArchitectureView);
 }
 StructureElement_ptr StructureFactory::createStructureElement()
 {
-    return new StructureElement();
+    return ::ecore::Ptr < StructureElement > (new StructureElement);
 }
 

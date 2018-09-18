@@ -35,7 +35,7 @@ void ac1(eobject& _val, ecore::EObject_ptr _h1)
     if(!_val.obj)
         _val.obj = ::idlmm::IdlmmFactory::_instance()->createTranslationUnit();
 
-    _val.obj->as< ::idlmm::TranslationUnit >()->addContains(_h1->as< ::idlmm::Contained >());
+    ::ecore::as< ::idlmm::TranslationUnit >(_val.obj)->addContains(::ecore::as< ::idlmm::Contained >(_h1));
 }
 
 void ac2(eobject& _val, const std::string& _id)
@@ -45,7 +45,7 @@ void ac2(eobject& _val, const std::string& _id)
     if(!_val.obj)
         _val.obj = ::idlmm::IdlmmFactory::_instance()->createInterfaceDef();
      
-    _val.obj->as< ::idlmm::InterfaceDef >()->setIdentifier(_id);
+    ::ecore::as< ::idlmm::InterfaceDef >(_val.obj)->setIdentifier(_id);
 }
 } // idl_actions
 

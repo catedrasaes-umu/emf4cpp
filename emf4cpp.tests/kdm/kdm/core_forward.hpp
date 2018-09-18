@@ -2,6 +2,7 @@
 /*
  * kdm/core_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -53,35 +54,31 @@ namespace kdm
 // EClass
 // Element
         class Element;
-        typedef Element* Element_ptr;
+        using Element_ptr = ::ecore::Ptr<Element>;
 
 // ModelElement
         class ModelElement;
-        typedef ModelElement* ModelElement_ptr;
+        using ModelElement_ptr = ::ecore::Ptr<ModelElement>;
 
 // KDMEntity
         class KDMEntity;
-        typedef KDMEntity* KDMEntity_ptr;
+        using KDMEntity_ptr = ::ecore::Ptr<KDMEntity>;
 
 // KDMRelationship
         class KDMRelationship;
-        typedef KDMRelationship* KDMRelationship_ptr;
+        using KDMRelationship_ptr = ::ecore::Ptr<KDMRelationship>;
 
 // AggregatedRelationship
         class AggregatedRelationship;
-        typedef AggregatedRelationship* AggregatedRelationship_ptr;
+        using AggregatedRelationship_ptr = ::ecore::Ptr<AggregatedRelationship>;
+
+// EEnum
 
 // Package & Factory
         class CoreFactory;
-        typedef CoreFactory * CoreFactory_ptr;
+        using CoreFactory_ptr = ::ecore::Ptr<CoreFactory>;
         class CorePackage;
-        typedef CorePackage * CorePackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using CorePackage_ptr = ::ecore::Ptr<CorePackage>;
 
     } // core
 } // kdm

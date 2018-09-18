@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/AbstractAspectImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,24 +32,22 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::declaration;
-
 /*PROTECTED REGION ID(AbstractAspectImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::declaration;
 
 void AbstractAspect::_initialize()
 {
     // Supertypes
     ::xpand3::declaration::AbstractDeclaration::_initialize();
 
-    // Rerefences
+    // References
     if (m_pointcut)
     {
         m_pointcut->_initialize();
-        m_pointcut->_setEContainer(this,
-                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
     }
 
     /*PROTECTED REGION ID(AbstractAspectImpl__initialize) START*/
@@ -90,12 +89,13 @@ void AbstractAspect::_initialize()
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
-        _any = static_cast< ::ecore::EObject* >(m_owner);
+        if (m_owner)
+            _any = ::ecore::as < ::ecore::EObject > (m_owner);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        _any = m_params->asEListOf< ::ecore::EObject >();
+        _any = m_params->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
@@ -106,12 +106,14 @@ void AbstractAspect::_initialize()
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
     {
-        _any = static_cast< ::ecore::EObject* >(m_guard);
+        if (m_guard)
+            _any = ::ecore::as < ::ecore::EObject > (m_guard);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__POINTCUT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_pointcut);
+        if (m_pointcut)
+            _any = ::ecore::as < ::ecore::EObject > (m_pointcut);
     }
         return _any;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__WILDPARAMS:
@@ -132,40 +134,49 @@ void AbstractAspect::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File_ptr >(_t0);
+        ::xpand3::File_ptr _t1 = dynamic_cast< ::xpand3::File* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::File >(_t0);*/
         ::xpand3::declaration::AbstractDeclaration::setOwner(_t1);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::declaration::AbstractDeclaration::getParams().clear();
         ::xpand3::declaration::AbstractDeclaration::getParams().insert_all(
                 *_t0);
@@ -173,8 +184,10 @@ void AbstractAspect::eSet(::ecore::EInt _featureID,
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_isPrivate);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::declaration::AbstractDeclaration::setIsPrivate(_t0);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
@@ -182,7 +195,7 @@ void AbstractAspect::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::declaration::AbstractDeclaration::setGuard(_t1);
     }
         return;
@@ -191,14 +204,16 @@ void AbstractAspect::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::declaration::AbstractAspect::setPointcut(_t1);
     }
         return;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__WILDPARAMS:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_wildparams);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::declaration::AbstractAspect::setWildparams(_t0);
     }
         return;
 
@@ -222,16 +237,16 @@ void AbstractAspect::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
-        return m_owner;
+        return (bool) m_owner;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
         return m_params && m_params->size();
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__ISPRIVATE:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_isPrivate);
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
-        return m_guard;
+        return (bool) m_guard;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__POINTCUT:
-        return m_pointcut;
+        return (bool) m_pointcut;
     case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__WILDPARAMS:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_wildparams);
@@ -252,7 +267,63 @@ void AbstractAspect::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr AbstractAspect::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::declaration::DeclarationPackage_ptr >(::xpand3::declaration::DeclarationPackage::_instance())->getAbstractAspect();
+            dynamic_cast< ::xpand3::declaration::DeclarationPackage* >(::xpand3::declaration::DeclarationPackage::_instance().get())->getAbstractAspect();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void AbstractAspect::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__POINTCUT:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void AbstractAspect::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__OWNER:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__PARAMS:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTDECLARATION__GUARD:
+    {
+    }
+        return;
+    case ::xpand3::declaration::DeclarationPackage::ABSTRACTASPECT__POINTCUT:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

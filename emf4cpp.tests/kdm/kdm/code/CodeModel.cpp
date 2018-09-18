@@ -2,6 +2,7 @@
 /*
  * kdm/code/CodeModel.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(CodeModel.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -43,8 +49,9 @@ CodeModel::CodeModel()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::code::AbstractCodeElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::code::CodePackage::_instance()->getCodeModel__codeElement()));
 
     /*PROTECTED REGION ID(CodeModelImpl__CodeModelImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,14 +67,16 @@ CodeModel::~CodeModel()
 {
 }
 
-/*PROTECTED REGION ID(CodeModel.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& CodeModel::getCodeElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& CodeModel::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& CodeModel::getCodeElement()
 {
     return *m_codeElement;
 }

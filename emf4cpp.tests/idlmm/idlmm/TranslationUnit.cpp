@@ -2,6 +2,7 @@
 /*
  * idlmm/TranslationUnit.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(TranslationUnit.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -36,11 +42,13 @@ TranslationUnit::TranslationUnit()
 {
 
     m_contains.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained_ptr,
+                    -1, true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__contains()));
     m_includes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Include, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Include_ptr,
+                    -1, true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__includes()));
 
     /*PROTECTED REGION ID(TranslationUnitImpl__TranslationUnitImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,12 +64,8 @@ TranslationUnit::~TranslationUnit()
 {
 }
 
-/*PROTECTED REGION ID(TranslationUnit.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& TranslationUnit::getIdentifier() const
 {
     return m_identifier;
@@ -78,8 +82,8 @@ void TranslationUnit::setIdentifier(::ecore::EString const& _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__identifier(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__identifier(),
                 _old_identifier,
                 m_identifier
         );
@@ -89,12 +93,23 @@ void TranslationUnit::setIdentifier(::ecore::EString const& _identifier)
 }
 
 // References
-::ecorecpp::mapping::EList< ::idlmm::Contained >& TranslationUnit::getContains()
+
+const ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& TranslationUnit::getContains() const
 {
     return *m_contains;
 }
 
-::ecorecpp::mapping::EList< ::idlmm::Include >& TranslationUnit::getIncludes()
+::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& TranslationUnit::getContains()
+{
+    return *m_contains;
+}
+
+const ::ecorecpp::mapping::EList< ::idlmm::Include_ptr >& TranslationUnit::getIncludes() const
+{
+    return *m_includes;
+}
+
+::ecorecpp::mapping::EList< ::idlmm::Include_ptr >& TranslationUnit::getIncludes()
 {
     return *m_includes;
 }

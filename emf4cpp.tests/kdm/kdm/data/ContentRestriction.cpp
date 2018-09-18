@@ -2,6 +2,7 @@
 /*
  * kdm/data/ContentRestriction.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ContentRestriction.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -59,12 +65,8 @@ ContentRestriction::~ContentRestriction()
 {
 }
 
-/*PROTECTED REGION ID(ContentRestriction.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String ContentRestriction::getKind() const
 {
     return m_kind;
@@ -81,8 +83,8 @@ void ContentRestriction::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getContentRestriction__kind(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getContentRestriction__kind(),
                 _old_kind,
                 m_kind
         );
@@ -107,8 +109,8 @@ void ContentRestriction::setValue(::kdm::core::String _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getContentRestriction__value(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getContentRestriction__value(),
                 _old_value,
                 m_value
         );

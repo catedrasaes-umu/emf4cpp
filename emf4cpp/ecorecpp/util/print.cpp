@@ -2,6 +2,7 @@
 /*
  * util/print.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -216,7 +217,7 @@ void print(std::wostream& out, const EObject_ptr obj, int level)
 void print(std::ostream& out, const EObject_ptr obj, int level)
 #endif
 {
-    ::ecorecpp::mapping::type_traits::string_t indent(level, L'\t');
+    ::ecorecpp::mapping::type_definitions::string_t indent(level, L'\t');
 
     EClass_ptr cl = obj->eClass();
     EPackage_ptr pkg = cl->getEPackage();
@@ -225,12 +226,12 @@ void print(std::ostream& out, const EObject_ptr obj, int level)
     PRINT("Type: " << cl->getName());
 
     // Attributes
-    ::ecorecpp::mapping::EList< EAttribute > const& attributes = cl->getEAllAttributes();
+    ::ecorecpp::mapping::EList< EAttribute_ptr > const& attributes = cl->getEAllAttributes();
     for (size_t j = 0; j < attributes.size(); j++)
     {
         EAttribute_ptr at = attributes[j];
         EClassifier_ptr at_clf = at->getEType();
-        EDataType_ptr at_dt = at_clf->as< EDataType > ();
+        EDataType_ptr at_dt = as< EDataType >(at_clf);
 
         if (!at->isTransient() && obj->eIsSet(at))
         {
@@ -247,7 +248,7 @@ void print(std::ostream& out, const EObject_ptr obj, int level)
     }
 
     // References
-    ::ecorecpp::mapping::EList< EReference > const& references = cl->getEAllReferences();
+    ::ecorecpp::mapping::EList< EReference_ptr > const& references = cl->getEAllReferences();
     for (size_t j = 0; j < references.size(); j++)
     {
         EReference_ptr ref = references[j];

@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/KDMFramework.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -34,6 +35,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(KDMFramework.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -41,11 +47,13 @@ KDMFramework::KDMFramework()
 {
 
     m_audit.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Audit, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Audit_ptr,
+                    -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__audit()));
     m_extensionFamily.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::ExtensionFamily, -1, true, false >(this, NULL));
+                    ::kdm::kdm::ExtensionFamily_ptr, -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__extensionFamily()));
 
     /*PROTECTED REGION ID(KDMFrameworkImpl__KDMFrameworkImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,12 +69,8 @@ KDMFramework::~KDMFramework()
 {
 }
 
-/*PROTECTED REGION ID(KDMFramework.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String KDMFramework::getName() const
 {
     return m_name;
@@ -83,8 +87,8 @@ void KDMFramework::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__name(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__name(),
                 _old_name,
                 m_name
         );
@@ -94,12 +98,23 @@ void KDMFramework::setName(::kdm::core::String _name)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::kdm::Audit >& KDMFramework::getAudit()
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Audit_ptr >& KDMFramework::getAudit() const
 {
     return *m_audit;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily >& KDMFramework::getExtensionFamily()
+::ecorecpp::mapping::EList< ::kdm::kdm::Audit_ptr >& KDMFramework::getAudit()
+{
+    return *m_audit;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily_ptr >& KDMFramework::getExtensionFamily() const
+{
+    return *m_extensionFamily;
+}
+
+::ecorecpp::mapping::EList< ::kdm::kdm::ExtensionFamily_ptr >& KDMFramework::getExtensionFamily()
 {
     return *m_extensionFamily;
 }

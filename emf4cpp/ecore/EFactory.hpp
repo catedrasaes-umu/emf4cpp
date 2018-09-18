@@ -2,6 +2,7 @@
 /*
  * ecore/EFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,8 +21,10 @@
 #ifndef ECORE_EFACTORY_HPP
 #define ECORE_EFACTORY_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/EModelElement.hpp>
 
@@ -33,62 +36,64 @@
 namespace ecore
 {
 
-    class EFactory: public virtual ::ecore::EModelElement
-    {
-    public:
-        EFactory();
+class EXPORT_ECORE_DLL EFactory : public virtual ::ecore::EModelElement
+{
+public:
+    EFactory();
 
-        virtual ~EFactory();
+    virtual ~EFactory();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
+    virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
 
-        virtual ::ecore::EJavaObject createFromString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EString const& _literalValue);
+    virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
 
-        virtual ::ecore::EString convertToString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EJavaObject const& _instanceValue);
+    virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecore::EPackage_ptr getEPackage();
-        void setEPackage(::ecore::EPackage_ptr _ePackage);
+    // References
+    virtual ::ecore::EPackage_ptr getEPackage () const;
+    virtual void setEPackage (::ecore::EPackage_ptr _ePackage);
+    virtual ::ecore::EPackage_ptr basicgetEPackage ();
+    virtual void basicsetEPackage (::ecore::EPackage_ptr _ePackage);
 
-        /*PROTECTED REGION ID(EFactory) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EFactory) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(EFactoryImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EFactoryImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    EFactory_ptr _this()
+    {   return EFactory_ptr(this);}
 
+    // Attributes
 
-        // References
+    // References
 
-        ::ecore::EPackage_ptr m_ePackage;
+    ::ecore::EPackage_ptr m_ePackage;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EFACTORY_HPP
+

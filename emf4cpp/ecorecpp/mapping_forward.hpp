@@ -2,6 +2,7 @@
 /*
  * mapping_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -18,24 +19,23 @@
  */
 
 #ifndef ECORECPP_MAPPING_FORWARD_HPP
-#define    ECORECPP_MAPPING_FORWARD_HPP
+#define ECORECPP_MAPPING_FORWARD_HPP
 
+#include <atomic>
 #include <memory>
-#include <ctime>
+#include <cstdint>
 #include <list>
 #include <vector>
+#include <boost/intrusive_ptr.hpp>
 
-#include "mapping/type_traits.hpp"
+#include "mapping/EDate.hpp"
+#include "mapping/type_definitions.hpp"
 #include "mapping/any.hpp"
-#include "mapping/out_ptr.hpp"
 
 namespace ecorecpp
 {
 namespace mapping
 {
-
-template< typename T >
-class out_ptr;
 
 template< typename T >
 struct any_traits;

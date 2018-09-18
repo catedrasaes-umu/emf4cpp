@@ -2,6 +2,7 @@
 /*
  * idlmm/InterfaceDef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(InterfaceDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -38,8 +44,9 @@ InterfaceDef::InterfaceDef()
 {
 
     m_derivesFrom.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::InterfaceDef,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::idlmm::InterfaceDef_ptr, -1, false, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__derivesFrom()));
 
     /*PROTECTED REGION ID(InterfaceDefImpl__InterfaceDefImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,12 +62,8 @@ InterfaceDef::~InterfaceDef()
 {
 }
 
-/*PROTECTED REGION ID(InterfaceDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean InterfaceDef::isIsAbstract() const
 {
     return m_isAbstract;
@@ -77,8 +80,8 @@ void InterfaceDef::setIsAbstract(::ecore::EBoolean _isAbstract)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isAbstract(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isAbstract(),
                 _old_isAbstract,
                 m_isAbstract
         );
@@ -103,8 +106,8 @@ void InterfaceDef::setIsCustom(::ecore::EBoolean _isCustom)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isCustom(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isCustom(),
                 _old_isCustom,
                 m_isCustom
         );
@@ -129,8 +132,8 @@ void InterfaceDef::setIsTruncatable(::ecore::EBoolean _isTruncatable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isTruncatable(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getInterfaceDef__isTruncatable(),
                 _old_isTruncatable,
                 m_isTruncatable
         );
@@ -140,7 +143,13 @@ void InterfaceDef::setIsTruncatable(::ecore::EBoolean _isTruncatable)
 }
 
 // References
-::ecorecpp::mapping::EList< ::idlmm::InterfaceDef >& InterfaceDef::getDerivesFrom()
+
+const ::ecorecpp::mapping::EList< ::idlmm::InterfaceDef_ptr >& InterfaceDef::getDerivesFrom() const
+{
+    return *m_derivesFrom;
+}
+
+::ecorecpp::mapping::EList< ::idlmm::InterfaceDef_ptr >& InterfaceDef::getDerivesFrom()
 {
     return *m_derivesFrom;
 }

@@ -2,6 +2,7 @@
 /*
  * kdm/core/KDMEntity.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(KDMEntity.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::core;
 
 // Default constructor
@@ -56,12 +62,8 @@ KDMEntity::~KDMEntity()
 {
 }
 
-/*PROTECTED REGION ID(KDMEntity.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String KDMEntity::getName() const
 {
     return m_name;
@@ -78,8 +80,8 @@ void KDMEntity::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::core::CorePackage::_instance()->getKDMEntity__name(),
+                _this(),
+                ::kdm::core::CorePackage::_instance()->getKDMEntity__name(),
                 _old_name,
                 m_name
         );

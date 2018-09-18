@@ -2,6 +2,7 @@
 /*
  * SVG/SVGPackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,472 +39,693 @@ using namespace ::SVG;
 SVGPackage::SVGPackage()
 {
 
-    s_instance.reset(this);
+    // Feature definitions of Element
+    m_Element__fill = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Element__viewBox = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Element__identifier = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Element__owner = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Element__target = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Element__attribute = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Element__position = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Element__size = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Element__root = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Element__group = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Element__drawsMarker = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
+    // Feature definitions of StructuralElement
+
+    // Feature definitions of Image
+    m_Image__referee = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Svg
+    m_Svg__namespace = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Svg__version = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Svg__baseProfile = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Svg__owner_SVG = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Svg__children = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of GroupingElement
+    m_GroupingElement__groupContent = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of G
+    m_G__name = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
+
+    // Feature definitions of Defs
+
+    // Feature definitions of Symbol
+
+    // Feature definitions of Use
+    m_Use__use = ::ecore::Ptr < ::ecore::EReference > (new ::ecore::EReference);
+
+    // Feature definitions of GraphicalElement
+    m_GraphicalElement__stroke = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Shape
+
+    // Feature definitions of TextElement
+    m_TextElement__rotate = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_TextElement__textLength = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_TextElement__fontSize = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Rect
+    m_Rect__rx = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_Rect__ry = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
+
+    // Feature definitions of Circle
+
+    // Feature definitions of Ellipse
+
+    // Feature definitions of Line
+    m_Line__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Line__markerStart = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Line__between = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Polyline
+    m_Polyline__strokeDashArray = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Polyline__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Polyline__markerStart = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Polyline__waypoints = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Polygon
+    m_Polygon__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Polygon__markerStart = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Polygon__waypoints = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Path
+    m_Path__pathLength = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Path__d = ::ecore::Ptr < ::ecore::EAttribute > (new ::ecore::EAttribute);
+    m_Path__markerEnd = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Path__markerStart = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Point
+
+    // Feature definitions of Marker
+    m_Marker__markerUnits = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Marker__refX = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Marker__refY = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Marker__markerWidth = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Marker__markerHeight = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Marker__orient = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Marker__drawing = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Text
+    m_Text__lengthAdjust = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Text__content = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Tspan
+    m_Tspan__content = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Tref
+    m_Tref__xlinkHref = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Attribute
+    m_Attribute__attOwner = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Transform
+
+    // Feature definitions of Scale
+    m_Scale__sx = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Scale__sy = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Translate
+    m_Translate__tx = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Translate__ty = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Rotate
+    m_Rotate__angle = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Rotate__cx = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Rotate__cy = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Visibility
+    m_Visibility__visible = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of FontWeight
+    m_FontWeight__bold = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of FontStyle
+    m_FontStyle__italic = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Dimension
+    m_Dimension__width = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Dimension__height = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of Coordinates
+    m_Coordinates__x = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_Coordinates__y = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+
+    // Feature definitions of RelativeCoord
+
+    // Feature definitions of AbsoluteCoord
+
+    // Feature definitions of ReferencedFile
+    m_ReferencedFile__name = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ReferencedFile__referer = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of SvgFile
+    m_SvgFile__tag = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_SvgFile__elements = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+}
+
+void SVGPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = SVGFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // Element
-    m_ElementEClass = new ::ecore::EClass();
+    m_ElementEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ElementEClass->setClassifierID(ELEMENT);
-    m_ElementEClass->setEPackage(this);
+    m_ElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ElementEClass);
-    m_Element__fill = new ::ecore::EAttribute();
+    // m_Element__fill has already been allocated above
     m_Element__fill->setFeatureID(::SVG::SVGPackage::ELEMENT__FILL);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__fill);
-    m_Element__viewBox = new ::ecore::EAttribute();
+    // m_Element__viewBox has already been allocated above
     m_Element__viewBox->setFeatureID(::SVG::SVGPackage::ELEMENT__VIEWBOX);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__viewBox);
-    m_Element__identifier = new ::ecore::EAttribute();
+    // m_Element__identifier has already been allocated above
     m_Element__identifier->setFeatureID(::SVG::SVGPackage::ELEMENT__IDENTIFIER);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__identifier);
-    m_Element__owner = new ::ecore::EReference();
+    // m_Element__owner has already been allocated above
     m_Element__owner->setFeatureID(::SVG::SVGPackage::ELEMENT__OWNER);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__owner);
-    m_Element__target = new ::ecore::EReference();
+    // m_Element__target has already been allocated above
     m_Element__target->setFeatureID(::SVG::SVGPackage::ELEMENT__TARGET);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__target);
-    m_Element__attribute = new ::ecore::EReference();
+    // m_Element__attribute has already been allocated above
     m_Element__attribute->setFeatureID(::SVG::SVGPackage::ELEMENT__ATTRIBUTE);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__attribute);
-    m_Element__position = new ::ecore::EReference();
+    // m_Element__position has already been allocated above
     m_Element__position->setFeatureID(::SVG::SVGPackage::ELEMENT__POSITION);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__position);
-    m_Element__size = new ::ecore::EReference();
+    // m_Element__size has already been allocated above
     m_Element__size->setFeatureID(::SVG::SVGPackage::ELEMENT__SIZE);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__size);
-    m_Element__root = new ::ecore::EReference();
+    // m_Element__root has already been allocated above
     m_Element__root->setFeatureID(::SVG::SVGPackage::ELEMENT__ROOT);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__root);
-    m_Element__group = new ::ecore::EReference();
+    // m_Element__group has already been allocated above
     m_Element__group->setFeatureID(::SVG::SVGPackage::ELEMENT__GROUP);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__group);
-    m_Element__drawsMarker = new ::ecore::EReference();
+    // m_Element__drawsMarker has already been allocated above
     m_Element__drawsMarker->setFeatureID(
             ::SVG::SVGPackage::ELEMENT__DRAWSMARKER);
     m_ElementEClass->getEStructuralFeatures().push_back(m_Element__drawsMarker);
 
     // StructuralElement
-    m_StructuralElementEClass = new ::ecore::EClass();
+    m_StructuralElementEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StructuralElementEClass->setClassifierID(STRUCTURALELEMENT);
-    m_StructuralElementEClass->setEPackage(this);
+    m_StructuralElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StructuralElementEClass);
 
     // Image
-    m_ImageEClass = new ::ecore::EClass();
+    m_ImageEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ImageEClass->setClassifierID(IMAGE);
-    m_ImageEClass->setEPackage(this);
+    m_ImageEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ImageEClass);
-    m_Image__referee = new ::ecore::EReference();
+    // m_Image__referee has already been allocated above
     m_Image__referee->setFeatureID(::SVG::SVGPackage::IMAGE__REFEREE);
     m_ImageEClass->getEStructuralFeatures().push_back(m_Image__referee);
 
     // Svg
-    m_SvgEClass = new ::ecore::EClass();
+    m_SvgEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SvgEClass->setClassifierID(SVG);
-    m_SvgEClass->setEPackage(this);
+    m_SvgEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SvgEClass);
-    m_Svg__namespace = new ::ecore::EAttribute();
+    // m_Svg__namespace has already been allocated above
     m_Svg__namespace->setFeatureID(::SVG::SVGPackage::SVG__NAMESPACE);
     m_SvgEClass->getEStructuralFeatures().push_back(m_Svg__namespace);
-    m_Svg__version = new ::ecore::EAttribute();
+    // m_Svg__version has already been allocated above
     m_Svg__version->setFeatureID(::SVG::SVGPackage::SVG__VERSION);
     m_SvgEClass->getEStructuralFeatures().push_back(m_Svg__version);
-    m_Svg__baseProfile = new ::ecore::EAttribute();
+    // m_Svg__baseProfile has already been allocated above
     m_Svg__baseProfile->setFeatureID(::SVG::SVGPackage::SVG__BASEPROFILE);
     m_SvgEClass->getEStructuralFeatures().push_back(m_Svg__baseProfile);
-    m_Svg__owner_SVG = new ::ecore::EReference();
+    // m_Svg__owner_SVG has already been allocated above
     m_Svg__owner_SVG->setFeatureID(::SVG::SVGPackage::SVG__OWNER_SVG);
     m_SvgEClass->getEStructuralFeatures().push_back(m_Svg__owner_SVG);
-    m_Svg__children = new ::ecore::EReference();
+    // m_Svg__children has already been allocated above
     m_Svg__children->setFeatureID(::SVG::SVGPackage::SVG__CHILDREN);
     m_SvgEClass->getEStructuralFeatures().push_back(m_Svg__children);
 
     // GroupingElement
-    m_GroupingElementEClass = new ::ecore::EClass();
+    m_GroupingElementEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_GroupingElementEClass->setClassifierID(GROUPINGELEMENT);
-    m_GroupingElementEClass->setEPackage(this);
+    m_GroupingElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GroupingElementEClass);
-    m_GroupingElement__groupContent = new ::ecore::EReference();
+    // m_GroupingElement__groupContent has already been allocated above
     m_GroupingElement__groupContent->setFeatureID(
             ::SVG::SVGPackage::GROUPINGELEMENT__GROUPCONTENT);
     m_GroupingElementEClass->getEStructuralFeatures().push_back(
             m_GroupingElement__groupContent);
 
     // G
-    m_GEClass = new ::ecore::EClass();
+    m_GEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_GEClass->setClassifierID(G);
-    m_GEClass->setEPackage(this);
+    m_GEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GEClass);
-    m_G__name = new ::ecore::EAttribute();
+    // m_G__name has already been allocated above
     m_G__name->setFeatureID(::SVG::SVGPackage::G__NAME);
     m_GEClass->getEStructuralFeatures().push_back(m_G__name);
 
     // Defs
-    m_DefsEClass = new ::ecore::EClass();
+    m_DefsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DefsEClass->setClassifierID(DEFS);
-    m_DefsEClass->setEPackage(this);
+    m_DefsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DefsEClass);
 
     // Symbol
-    m_SymbolEClass = new ::ecore::EClass();
+    m_SymbolEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SymbolEClass->setClassifierID(SYMBOL);
-    m_SymbolEClass->setEPackage(this);
+    m_SymbolEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SymbolEClass);
 
     // Use
-    m_UseEClass = new ::ecore::EClass();
+    m_UseEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_UseEClass->setClassifierID(USE);
-    m_UseEClass->setEPackage(this);
+    m_UseEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UseEClass);
-    m_Use__use = new ::ecore::EReference();
+    // m_Use__use has already been allocated above
     m_Use__use->setFeatureID(::SVG::SVGPackage::USE__USE);
     m_UseEClass->getEStructuralFeatures().push_back(m_Use__use);
 
     // GraphicalElement
-    m_GraphicalElementEClass = new ::ecore::EClass();
+    m_GraphicalElementEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_GraphicalElementEClass->setClassifierID(GRAPHICALELEMENT);
-    m_GraphicalElementEClass->setEPackage(this);
+    m_GraphicalElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GraphicalElementEClass);
-    m_GraphicalElement__stroke = new ::ecore::EAttribute();
+    // m_GraphicalElement__stroke has already been allocated above
     m_GraphicalElement__stroke->setFeatureID(
             ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE);
     m_GraphicalElementEClass->getEStructuralFeatures().push_back(
             m_GraphicalElement__stroke);
 
     // Shape
-    m_ShapeEClass = new ::ecore::EClass();
+    m_ShapeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ShapeEClass->setClassifierID(SHAPE);
-    m_ShapeEClass->setEPackage(this);
+    m_ShapeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ShapeEClass);
 
     // TextElement
-    m_TextElementEClass = new ::ecore::EClass();
+    m_TextElementEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TextElementEClass->setClassifierID(TEXTELEMENT);
-    m_TextElementEClass->setEPackage(this);
+    m_TextElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TextElementEClass);
-    m_TextElement__rotate = new ::ecore::EAttribute();
+    // m_TextElement__rotate has already been allocated above
     m_TextElement__rotate->setFeatureID(::SVG::SVGPackage::TEXTELEMENT__ROTATE);
     m_TextElementEClass->getEStructuralFeatures().push_back(
             m_TextElement__rotate);
-    m_TextElement__textLength = new ::ecore::EAttribute();
+    // m_TextElement__textLength has already been allocated above
     m_TextElement__textLength->setFeatureID(
             ::SVG::SVGPackage::TEXTELEMENT__TEXTLENGTH);
     m_TextElementEClass->getEStructuralFeatures().push_back(
             m_TextElement__textLength);
-    m_TextElement__fontSize = new ::ecore::EAttribute();
+    // m_TextElement__fontSize has already been allocated above
     m_TextElement__fontSize->setFeatureID(
             ::SVG::SVGPackage::TEXTELEMENT__FONTSIZE);
     m_TextElementEClass->getEStructuralFeatures().push_back(
             m_TextElement__fontSize);
 
     // Rect
-    m_RectEClass = new ::ecore::EClass();
+    m_RectEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RectEClass->setClassifierID(RECT);
-    m_RectEClass->setEPackage(this);
+    m_RectEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RectEClass);
-    m_Rect__rx = new ::ecore::EAttribute();
+    // m_Rect__rx has already been allocated above
     m_Rect__rx->setFeatureID(::SVG::SVGPackage::RECT__RX);
     m_RectEClass->getEStructuralFeatures().push_back(m_Rect__rx);
-    m_Rect__ry = new ::ecore::EAttribute();
+    // m_Rect__ry has already been allocated above
     m_Rect__ry->setFeatureID(::SVG::SVGPackage::RECT__RY);
     m_RectEClass->getEStructuralFeatures().push_back(m_Rect__ry);
 
     // Circle
-    m_CircleEClass = new ::ecore::EClass();
+    m_CircleEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CircleEClass->setClassifierID(CIRCLE);
-    m_CircleEClass->setEPackage(this);
+    m_CircleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CircleEClass);
 
     // Ellipse
-    m_EllipseEClass = new ::ecore::EClass();
+    m_EllipseEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EllipseEClass->setClassifierID(ELLIPSE);
-    m_EllipseEClass->setEPackage(this);
+    m_EllipseEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EllipseEClass);
 
     // Line
-    m_LineEClass = new ::ecore::EClass();
+    m_LineEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LineEClass->setClassifierID(LINE);
-    m_LineEClass->setEPackage(this);
+    m_LineEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LineEClass);
-    m_Line__markerEnd = new ::ecore::EAttribute();
+    // m_Line__markerEnd has already been allocated above
     m_Line__markerEnd->setFeatureID(::SVG::SVGPackage::LINE__MARKEREND);
     m_LineEClass->getEStructuralFeatures().push_back(m_Line__markerEnd);
-    m_Line__markerStart = new ::ecore::EAttribute();
+    // m_Line__markerStart has already been allocated above
     m_Line__markerStart->setFeatureID(::SVG::SVGPackage::LINE__MARKERSTART);
     m_LineEClass->getEStructuralFeatures().push_back(m_Line__markerStart);
-    m_Line__between = new ::ecore::EReference();
+    // m_Line__between has already been allocated above
     m_Line__between->setFeatureID(::SVG::SVGPackage::LINE__BETWEEN);
     m_LineEClass->getEStructuralFeatures().push_back(m_Line__between);
 
     // Polyline
-    m_PolylineEClass = new ::ecore::EClass();
+    m_PolylineEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PolylineEClass->setClassifierID(POLYLINE);
-    m_PolylineEClass->setEPackage(this);
+    m_PolylineEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PolylineEClass);
-    m_Polyline__strokeDashArray = new ::ecore::EAttribute();
+    // m_Polyline__strokeDashArray has already been allocated above
     m_Polyline__strokeDashArray->setFeatureID(
             ::SVG::SVGPackage::POLYLINE__STROKEDASHARRAY);
     m_PolylineEClass->getEStructuralFeatures().push_back(
             m_Polyline__strokeDashArray);
-    m_Polyline__markerEnd = new ::ecore::EAttribute();
+    // m_Polyline__markerEnd has already been allocated above
     m_Polyline__markerEnd->setFeatureID(::SVG::SVGPackage::POLYLINE__MARKEREND);
     m_PolylineEClass->getEStructuralFeatures().push_back(m_Polyline__markerEnd);
-    m_Polyline__markerStart = new ::ecore::EAttribute();
+    // m_Polyline__markerStart has already been allocated above
     m_Polyline__markerStart->setFeatureID(
             ::SVG::SVGPackage::POLYLINE__MARKERSTART);
     m_PolylineEClass->getEStructuralFeatures().push_back(
             m_Polyline__markerStart);
-    m_Polyline__waypoints = new ::ecore::EReference();
+    // m_Polyline__waypoints has already been allocated above
     m_Polyline__waypoints->setFeatureID(::SVG::SVGPackage::POLYLINE__WAYPOINTS);
     m_PolylineEClass->getEStructuralFeatures().push_back(m_Polyline__waypoints);
 
     // Polygon
-    m_PolygonEClass = new ::ecore::EClass();
+    m_PolygonEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PolygonEClass->setClassifierID(POLYGON);
-    m_PolygonEClass->setEPackage(this);
+    m_PolygonEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PolygonEClass);
-    m_Polygon__markerEnd = new ::ecore::EAttribute();
+    // m_Polygon__markerEnd has already been allocated above
     m_Polygon__markerEnd->setFeatureID(::SVG::SVGPackage::POLYGON__MARKEREND);
     m_PolygonEClass->getEStructuralFeatures().push_back(m_Polygon__markerEnd);
-    m_Polygon__markerStart = new ::ecore::EAttribute();
+    // m_Polygon__markerStart has already been allocated above
     m_Polygon__markerStart->setFeatureID(
             ::SVG::SVGPackage::POLYGON__MARKERSTART);
     m_PolygonEClass->getEStructuralFeatures().push_back(m_Polygon__markerStart);
-    m_Polygon__waypoints = new ::ecore::EReference();
+    // m_Polygon__waypoints has already been allocated above
     m_Polygon__waypoints->setFeatureID(::SVG::SVGPackage::POLYGON__WAYPOINTS);
     m_PolygonEClass->getEStructuralFeatures().push_back(m_Polygon__waypoints);
 
     // Path
-    m_PathEClass = new ::ecore::EClass();
+    m_PathEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PathEClass->setClassifierID(PATH);
-    m_PathEClass->setEPackage(this);
+    m_PathEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PathEClass);
-    m_Path__pathLength = new ::ecore::EAttribute();
+    // m_Path__pathLength has already been allocated above
     m_Path__pathLength->setFeatureID(::SVG::SVGPackage::PATH__PATHLENGTH);
     m_PathEClass->getEStructuralFeatures().push_back(m_Path__pathLength);
-    m_Path__d = new ::ecore::EAttribute();
+    // m_Path__d has already been allocated above
     m_Path__d->setFeatureID(::SVG::SVGPackage::PATH__D);
     m_PathEClass->getEStructuralFeatures().push_back(m_Path__d);
-    m_Path__markerEnd = new ::ecore::EAttribute();
+    // m_Path__markerEnd has already been allocated above
     m_Path__markerEnd->setFeatureID(::SVG::SVGPackage::PATH__MARKEREND);
     m_PathEClass->getEStructuralFeatures().push_back(m_Path__markerEnd);
-    m_Path__markerStart = new ::ecore::EAttribute();
+    // m_Path__markerStart has already been allocated above
     m_Path__markerStart->setFeatureID(::SVG::SVGPackage::PATH__MARKERSTART);
     m_PathEClass->getEStructuralFeatures().push_back(m_Path__markerStart);
 
     // Point
-    m_PointEClass = new ::ecore::EClass();
+    m_PointEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_PointEClass->setClassifierID(POINT);
-    m_PointEClass->setEPackage(this);
+    m_PointEClass->setEPackage(_this());
     getEClassifiers().push_back(m_PointEClass);
 
     // Marker
-    m_MarkerEClass = new ::ecore::EClass();
+    m_MarkerEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_MarkerEClass->setClassifierID(MARKER);
-    m_MarkerEClass->setEPackage(this);
+    m_MarkerEClass->setEPackage(_this());
     getEClassifiers().push_back(m_MarkerEClass);
-    m_Marker__markerUnits = new ::ecore::EAttribute();
+    // m_Marker__markerUnits has already been allocated above
     m_Marker__markerUnits->setFeatureID(::SVG::SVGPackage::MARKER__MARKERUNITS);
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__markerUnits);
-    m_Marker__refX = new ::ecore::EAttribute();
+    // m_Marker__refX has already been allocated above
     m_Marker__refX->setFeatureID(::SVG::SVGPackage::MARKER__REFX);
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__refX);
-    m_Marker__refY = new ::ecore::EAttribute();
+    // m_Marker__refY has already been allocated above
     m_Marker__refY->setFeatureID(::SVG::SVGPackage::MARKER__REFY);
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__refY);
-    m_Marker__markerWidth = new ::ecore::EAttribute();
+    // m_Marker__markerWidth has already been allocated above
     m_Marker__markerWidth->setFeatureID(::SVG::SVGPackage::MARKER__MARKERWIDTH);
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__markerWidth);
-    m_Marker__markerHeight = new ::ecore::EAttribute();
+    // m_Marker__markerHeight has already been allocated above
     m_Marker__markerHeight->setFeatureID(
             ::SVG::SVGPackage::MARKER__MARKERHEIGHT);
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__markerHeight);
-    m_Marker__orient = new ::ecore::EAttribute();
+    // m_Marker__orient has already been allocated above
     m_Marker__orient->setFeatureID(::SVG::SVGPackage::MARKER__ORIENT);
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__orient);
-    m_Marker__drawing = new ::ecore::EReference();
+    // m_Marker__drawing has already been allocated above
     m_Marker__drawing->setFeatureID(::SVG::SVGPackage::MARKER__DRAWING);
     m_MarkerEClass->getEStructuralFeatures().push_back(m_Marker__drawing);
 
     // Text
-    m_TextEClass = new ::ecore::EClass();
+    m_TextEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TextEClass->setClassifierID(TEXT);
-    m_TextEClass->setEPackage(this);
+    m_TextEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TextEClass);
-    m_Text__lengthAdjust = new ::ecore::EAttribute();
+    // m_Text__lengthAdjust has already been allocated above
     m_Text__lengthAdjust->setFeatureID(::SVG::SVGPackage::TEXT__LENGTHADJUST);
     m_TextEClass->getEStructuralFeatures().push_back(m_Text__lengthAdjust);
-    m_Text__content = new ::ecore::EAttribute();
+    // m_Text__content has already been allocated above
     m_Text__content->setFeatureID(::SVG::SVGPackage::TEXT__CONTENT);
     m_TextEClass->getEStructuralFeatures().push_back(m_Text__content);
 
     // Tspan
-    m_TspanEClass = new ::ecore::EClass();
+    m_TspanEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TspanEClass->setClassifierID(TSPAN);
-    m_TspanEClass->setEPackage(this);
+    m_TspanEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TspanEClass);
-    m_Tspan__content = new ::ecore::EAttribute();
+    // m_Tspan__content has already been allocated above
     m_Tspan__content->setFeatureID(::SVG::SVGPackage::TSPAN__CONTENT);
     m_TspanEClass->getEStructuralFeatures().push_back(m_Tspan__content);
 
     // Tref
-    m_TrefEClass = new ::ecore::EClass();
+    m_TrefEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TrefEClass->setClassifierID(TREF);
-    m_TrefEClass->setEPackage(this);
+    m_TrefEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TrefEClass);
-    m_Tref__xlinkHref = new ::ecore::EReference();
+    // m_Tref__xlinkHref has already been allocated above
     m_Tref__xlinkHref->setFeatureID(::SVG::SVGPackage::TREF__XLINKHREF);
     m_TrefEClass->getEStructuralFeatures().push_back(m_Tref__xlinkHref);
 
     // Attribute
-    m_AttributeEClass = new ::ecore::EClass();
+    m_AttributeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AttributeEClass->setClassifierID(ATTRIBUTE);
-    m_AttributeEClass->setEPackage(this);
+    m_AttributeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AttributeEClass);
-    m_Attribute__attOwner = new ::ecore::EReference();
+    // m_Attribute__attOwner has already been allocated above
     m_Attribute__attOwner->setFeatureID(::SVG::SVGPackage::ATTRIBUTE__ATTOWNER);
     m_AttributeEClass->getEStructuralFeatures().push_back(
             m_Attribute__attOwner);
 
     // Transform
-    m_TransformEClass = new ::ecore::EClass();
+    m_TransformEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TransformEClass->setClassifierID(TRANSFORM);
-    m_TransformEClass->setEPackage(this);
+    m_TransformEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TransformEClass);
 
     // Scale
-    m_ScaleEClass = new ::ecore::EClass();
+    m_ScaleEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ScaleEClass->setClassifierID(SCALE);
-    m_ScaleEClass->setEPackage(this);
+    m_ScaleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ScaleEClass);
-    m_Scale__sx = new ::ecore::EAttribute();
+    // m_Scale__sx has already been allocated above
     m_Scale__sx->setFeatureID(::SVG::SVGPackage::SCALE__SX);
     m_ScaleEClass->getEStructuralFeatures().push_back(m_Scale__sx);
-    m_Scale__sy = new ::ecore::EAttribute();
+    // m_Scale__sy has already been allocated above
     m_Scale__sy->setFeatureID(::SVG::SVGPackage::SCALE__SY);
     m_ScaleEClass->getEStructuralFeatures().push_back(m_Scale__sy);
 
     // Translate
-    m_TranslateEClass = new ::ecore::EClass();
+    m_TranslateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TranslateEClass->setClassifierID(TRANSLATE);
-    m_TranslateEClass->setEPackage(this);
+    m_TranslateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TranslateEClass);
-    m_Translate__tx = new ::ecore::EAttribute();
+    // m_Translate__tx has already been allocated above
     m_Translate__tx->setFeatureID(::SVG::SVGPackage::TRANSLATE__TX);
     m_TranslateEClass->getEStructuralFeatures().push_back(m_Translate__tx);
-    m_Translate__ty = new ::ecore::EAttribute();
+    // m_Translate__ty has already been allocated above
     m_Translate__ty->setFeatureID(::SVG::SVGPackage::TRANSLATE__TY);
     m_TranslateEClass->getEStructuralFeatures().push_back(m_Translate__ty);
 
     // Rotate
-    m_RotateEClass = new ::ecore::EClass();
+    m_RotateEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_RotateEClass->setClassifierID(ROTATE);
-    m_RotateEClass->setEPackage(this);
+    m_RotateEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RotateEClass);
-    m_Rotate__angle = new ::ecore::EAttribute();
+    // m_Rotate__angle has already been allocated above
     m_Rotate__angle->setFeatureID(::SVG::SVGPackage::ROTATE__ANGLE);
     m_RotateEClass->getEStructuralFeatures().push_back(m_Rotate__angle);
-    m_Rotate__cx = new ::ecore::EAttribute();
+    // m_Rotate__cx has already been allocated above
     m_Rotate__cx->setFeatureID(::SVG::SVGPackage::ROTATE__CX);
     m_RotateEClass->getEStructuralFeatures().push_back(m_Rotate__cx);
-    m_Rotate__cy = new ::ecore::EAttribute();
+    // m_Rotate__cy has already been allocated above
     m_Rotate__cy->setFeatureID(::SVG::SVGPackage::ROTATE__CY);
     m_RotateEClass->getEStructuralFeatures().push_back(m_Rotate__cy);
 
     // Visibility
-    m_VisibilityEClass = new ::ecore::EClass();
+    m_VisibilityEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_VisibilityEClass->setClassifierID(VISIBILITY);
-    m_VisibilityEClass->setEPackage(this);
+    m_VisibilityEClass->setEPackage(_this());
     getEClassifiers().push_back(m_VisibilityEClass);
-    m_Visibility__visible = new ::ecore::EAttribute();
+    // m_Visibility__visible has already been allocated above
     m_Visibility__visible->setFeatureID(::SVG::SVGPackage::VISIBILITY__VISIBLE);
     m_VisibilityEClass->getEStructuralFeatures().push_back(
             m_Visibility__visible);
 
     // FontWeight
-    m_FontWeightEClass = new ::ecore::EClass();
+    m_FontWeightEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FontWeightEClass->setClassifierID(FONTWEIGHT);
-    m_FontWeightEClass->setEPackage(this);
+    m_FontWeightEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FontWeightEClass);
-    m_FontWeight__bold = new ::ecore::EAttribute();
+    // m_FontWeight__bold has already been allocated above
     m_FontWeight__bold->setFeatureID(::SVG::SVGPackage::FONTWEIGHT__BOLD);
     m_FontWeightEClass->getEStructuralFeatures().push_back(m_FontWeight__bold);
 
     // FontStyle
-    m_FontStyleEClass = new ::ecore::EClass();
+    m_FontStyleEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FontStyleEClass->setClassifierID(FONTSTYLE);
-    m_FontStyleEClass->setEPackage(this);
+    m_FontStyleEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FontStyleEClass);
-    m_FontStyle__italic = new ::ecore::EAttribute();
+    // m_FontStyle__italic has already been allocated above
     m_FontStyle__italic->setFeatureID(::SVG::SVGPackage::FONTSTYLE__ITALIC);
     m_FontStyleEClass->getEStructuralFeatures().push_back(m_FontStyle__italic);
 
     // Dimension
-    m_DimensionEClass = new ::ecore::EClass();
+    m_DimensionEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DimensionEClass->setClassifierID(DIMENSION);
-    m_DimensionEClass->setEPackage(this);
+    m_DimensionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DimensionEClass);
-    m_Dimension__width = new ::ecore::EAttribute();
+    // m_Dimension__width has already been allocated above
     m_Dimension__width->setFeatureID(::SVG::SVGPackage::DIMENSION__WIDTH);
     m_DimensionEClass->getEStructuralFeatures().push_back(m_Dimension__width);
-    m_Dimension__height = new ::ecore::EAttribute();
+    // m_Dimension__height has already been allocated above
     m_Dimension__height->setFeatureID(::SVG::SVGPackage::DIMENSION__HEIGHT);
     m_DimensionEClass->getEStructuralFeatures().push_back(m_Dimension__height);
 
     // Coordinates
-    m_CoordinatesEClass = new ::ecore::EClass();
+    m_CoordinatesEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CoordinatesEClass->setClassifierID(COORDINATES);
-    m_CoordinatesEClass->setEPackage(this);
+    m_CoordinatesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CoordinatesEClass);
-    m_Coordinates__x = new ::ecore::EAttribute();
+    // m_Coordinates__x has already been allocated above
     m_Coordinates__x->setFeatureID(::SVG::SVGPackage::COORDINATES__X);
     m_CoordinatesEClass->getEStructuralFeatures().push_back(m_Coordinates__x);
-    m_Coordinates__y = new ::ecore::EAttribute();
+    // m_Coordinates__y has already been allocated above
     m_Coordinates__y->setFeatureID(::SVG::SVGPackage::COORDINATES__Y);
     m_CoordinatesEClass->getEStructuralFeatures().push_back(m_Coordinates__y);
 
     // RelativeCoord
-    m_RelativeCoordEClass = new ::ecore::EClass();
+    m_RelativeCoordEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_RelativeCoordEClass->setClassifierID(RELATIVECOORD);
-    m_RelativeCoordEClass->setEPackage(this);
+    m_RelativeCoordEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RelativeCoordEClass);
 
     // AbsoluteCoord
-    m_AbsoluteCoordEClass = new ::ecore::EClass();
+    m_AbsoluteCoordEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbsoluteCoordEClass->setClassifierID(ABSOLUTECOORD);
-    m_AbsoluteCoordEClass->setEPackage(this);
+    m_AbsoluteCoordEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbsoluteCoordEClass);
 
     // ReferencedFile
-    m_ReferencedFileEClass = new ::ecore::EClass();
+    m_ReferencedFileEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ReferencedFileEClass->setClassifierID(REFERENCEDFILE);
-    m_ReferencedFileEClass->setEPackage(this);
+    m_ReferencedFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReferencedFileEClass);
-    m_ReferencedFile__name = new ::ecore::EAttribute();
+    // m_ReferencedFile__name has already been allocated above
     m_ReferencedFile__name->setFeatureID(
             ::SVG::SVGPackage::REFERENCEDFILE__NAME);
     m_ReferencedFileEClass->getEStructuralFeatures().push_back(
             m_ReferencedFile__name);
-    m_ReferencedFile__referer = new ::ecore::EReference();
+    // m_ReferencedFile__referer has already been allocated above
     m_ReferencedFile__referer->setFeatureID(
             ::SVG::SVGPackage::REFERENCEDFILE__REFERER);
     m_ReferencedFileEClass->getEStructuralFeatures().push_back(
             m_ReferencedFile__referer);
 
     // SvgFile
-    m_SvgFileEClass = new ::ecore::EClass();
+    m_SvgFileEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_SvgFileEClass->setClassifierID(SVGFILE);
-    m_SvgFileEClass->setEPackage(this);
+    m_SvgFileEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SvgFileEClass);
-    m_SvgFile__tag = new ::ecore::EReference();
+    // m_SvgFile__tag has already been allocated above
     m_SvgFile__tag->setFeatureID(::SVG::SVGPackage::SVGFILE__TAG);
     m_SvgFileEClass->getEStructuralFeatures().push_back(m_SvgFile__tag);
-    m_SvgFile__elements = new ::ecore::EReference();
+    // m_SvgFile__elements has already been allocated above
     m_SvgFile__elements->setFeatureID(::SVG::SVGPackage::SVGFILE__ELEMENTS);
     m_SvgFileEClass->getEStructuralFeatures().push_back(m_SvgFile__elements);
 
@@ -561,7 +783,7 @@ SVGPackage::SVGPackage()
     m_ElementEClass->setAbstract(true);
     m_ElementEClass->setInterface(false);
     m_Element__fill->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Element__fill->setName("fill");
     m_Element__fill->setDefaultValueLiteral("");
     m_Element__fill->setLowerBound(0);
@@ -575,7 +797,7 @@ SVGPackage::SVGPackage()
     m_Element__fill->setDerived(false);
     m_Element__fill->setOrdered(false);
     m_Element__viewBox->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Element__viewBox->setName("viewBox");
     m_Element__viewBox->setDefaultValueLiteral("");
     m_Element__viewBox->setLowerBound(0);
@@ -589,7 +811,7 @@ SVGPackage::SVGPackage()
     m_Element__viewBox->setDerived(false);
     m_Element__viewBox->setOrdered(false);
     m_Element__identifier->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Element__identifier->setName("identifier");
     m_Element__identifier->setDefaultValueLiteral("");
     m_Element__identifier->setLowerBound(0);
@@ -616,7 +838,7 @@ SVGPackage::SVGPackage()
     m_Element__owner->setDerived(false);
     m_Element__owner->setOrdered(false);
     m_Element__owner->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgFileEClass->getEStructuralFeatures()[1]));
     m_Element__target->setEType(m_UseEClass);
     m_Element__target->setName("target");
@@ -632,7 +854,7 @@ SVGPackage::SVGPackage()
     m_Element__target->setDerived(false);
     m_Element__target->setOrdered(false);
     m_Element__target->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_UseEClass->getEStructuralFeatures()[0]));
     m_Element__attribute->setEType(m_AttributeEClass);
     m_Element__attribute->setName("attribute");
@@ -648,7 +870,7 @@ SVGPackage::SVGPackage()
     m_Element__attribute->setDerived(false);
     m_Element__attribute->setOrdered(false);
     m_Element__attribute->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_AttributeEClass->getEStructuralFeatures()[0]));
     m_Element__position->setEType(m_CoordinatesEClass);
     m_Element__position->setName("position");
@@ -690,7 +912,7 @@ SVGPackage::SVGPackage()
     m_Element__root->setDerived(false);
     m_Element__root->setOrdered(false);
     m_Element__root->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgEClass->getEStructuralFeatures()[4]));
     m_Element__group->setEType(m_GroupingElementEClass);
     m_Element__group->setName("group");
@@ -706,7 +928,7 @@ SVGPackage::SVGPackage()
     m_Element__group->setDerived(false);
     m_Element__group->setOrdered(false);
     m_Element__group->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_GroupingElementEClass->getEStructuralFeatures()[0]));
     m_Element__drawsMarker->setEType(m_MarkerEClass);
     m_Element__drawsMarker->setName("drawsMarker");
@@ -722,7 +944,7 @@ SVGPackage::SVGPackage()
     m_Element__drawsMarker->setDerived(false);
     m_Element__drawsMarker->setOrdered(false);
     m_Element__drawsMarker->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_MarkerEClass->getEStructuralFeatures()[6]));
     // StructuralElement
     m_StructuralElementEClass->setName("StructuralElement");
@@ -746,14 +968,14 @@ SVGPackage::SVGPackage()
     m_Image__referee->setDerived(false);
     m_Image__referee->setOrdered(false);
     m_Image__referee->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ReferencedFileEClass->getEStructuralFeatures()[1]));
     // Svg
     m_SvgEClass->setName("Svg");
     m_SvgEClass->setAbstract(false);
     m_SvgEClass->setInterface(false);
     m_Svg__namespace->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Svg__namespace->setName("namespace");
     m_Svg__namespace->setDefaultValueLiteral("");
     m_Svg__namespace->setLowerBound(0);
@@ -767,7 +989,7 @@ SVGPackage::SVGPackage()
     m_Svg__namespace->setDerived(false);
     m_Svg__namespace->setOrdered(false);
     m_Svg__version->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Svg__version->setName("version");
     m_Svg__version->setDefaultValueLiteral("");
     m_Svg__version->setLowerBound(0);
@@ -781,7 +1003,7 @@ SVGPackage::SVGPackage()
     m_Svg__version->setDerived(false);
     m_Svg__version->setOrdered(false);
     m_Svg__baseProfile->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Svg__baseProfile->setName("baseProfile");
     m_Svg__baseProfile->setDefaultValueLiteral("");
     m_Svg__baseProfile->setLowerBound(0);
@@ -808,7 +1030,7 @@ SVGPackage::SVGPackage()
     m_Svg__owner_SVG->setDerived(false);
     m_Svg__owner_SVG->setOrdered(false);
     m_Svg__owner_SVG->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgFileEClass->getEStructuralFeatures()[0]));
     m_Svg__children->setEType(m_ElementEClass);
     m_Svg__children->setName("children");
@@ -824,7 +1046,7 @@ SVGPackage::SVGPackage()
     m_Svg__children->setDerived(false);
     m_Svg__children->setOrdered(true);
     m_Svg__children->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[8]));
     // GroupingElement
     m_GroupingElementEClass->setName("GroupingElement");
@@ -844,14 +1066,14 @@ SVGPackage::SVGPackage()
     m_GroupingElement__groupContent->setDerived(false);
     m_GroupingElement__groupContent->setOrdered(true);
     m_GroupingElement__groupContent->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[9]));
     // G
     m_GEClass->setName("G");
     m_GEClass->setAbstract(false);
     m_GEClass->setInterface(false);
     m_G__name->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_G__name->setName("name");
     m_G__name->setDefaultValueLiteral("");
     m_G__name->setLowerBound(0);
@@ -890,14 +1112,14 @@ SVGPackage::SVGPackage()
     m_Use__use->setDerived(false);
     m_Use__use->setOrdered(false);
     m_Use__use->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[4]));
     // GraphicalElement
     m_GraphicalElementEClass->setName("GraphicalElement");
     m_GraphicalElementEClass->setAbstract(true);
     m_GraphicalElementEClass->setInterface(false);
     m_GraphicalElement__stroke->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_GraphicalElement__stroke->setName("stroke");
     m_GraphicalElement__stroke->setDefaultValueLiteral("");
     m_GraphicalElement__stroke->setLowerBound(0);
@@ -919,7 +1141,7 @@ SVGPackage::SVGPackage()
     m_TextElementEClass->setAbstract(true);
     m_TextElementEClass->setInterface(false);
     m_TextElement__rotate->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_TextElement__rotate->setName("rotate");
     m_TextElement__rotate->setDefaultValueLiteral("");
     m_TextElement__rotate->setLowerBound(0);
@@ -933,7 +1155,7 @@ SVGPackage::SVGPackage()
     m_TextElement__rotate->setDerived(false);
     m_TextElement__rotate->setOrdered(false);
     m_TextElement__textLength->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_TextElement__textLength->setName("textLength");
     m_TextElement__textLength->setDefaultValueLiteral("");
     m_TextElement__textLength->setLowerBound(0);
@@ -947,7 +1169,7 @@ SVGPackage::SVGPackage()
     m_TextElement__textLength->setDerived(false);
     m_TextElement__textLength->setOrdered(false);
     m_TextElement__fontSize->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_TextElement__fontSize->setName("fontSize");
     m_TextElement__fontSize->setDefaultValueLiteral("");
     m_TextElement__fontSize->setLowerBound(0);
@@ -965,7 +1187,7 @@ SVGPackage::SVGPackage()
     m_RectEClass->setAbstract(false);
     m_RectEClass->setInterface(false);
     m_Rect__rx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Rect__rx->setName("rx");
     m_Rect__rx->setDefaultValueLiteral("");
     m_Rect__rx->setLowerBound(0);
@@ -979,7 +1201,7 @@ SVGPackage::SVGPackage()
     m_Rect__rx->setDerived(false);
     m_Rect__rx->setOrdered(false);
     m_Rect__ry->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Rect__ry->setName("ry");
     m_Rect__ry->setDefaultValueLiteral("");
     m_Rect__ry->setLowerBound(0);
@@ -1005,7 +1227,7 @@ SVGPackage::SVGPackage()
     m_LineEClass->setAbstract(false);
     m_LineEClass->setInterface(false);
     m_Line__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Line__markerEnd->setName("markerEnd");
     m_Line__markerEnd->setDefaultValueLiteral("");
     m_Line__markerEnd->setLowerBound(0);
@@ -1019,7 +1241,7 @@ SVGPackage::SVGPackage()
     m_Line__markerEnd->setDerived(false);
     m_Line__markerEnd->setOrdered(false);
     m_Line__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Line__markerStart->setName("markerStart");
     m_Line__markerStart->setDefaultValueLiteral("");
     m_Line__markerStart->setLowerBound(0);
@@ -1050,7 +1272,7 @@ SVGPackage::SVGPackage()
     m_PolylineEClass->setAbstract(false);
     m_PolylineEClass->setInterface(false);
     m_Polyline__strokeDashArray->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Polyline__strokeDashArray->setName("strokeDashArray");
     m_Polyline__strokeDashArray->setDefaultValueLiteral("");
     m_Polyline__strokeDashArray->setLowerBound(0);
@@ -1064,7 +1286,7 @@ SVGPackage::SVGPackage()
     m_Polyline__strokeDashArray->setDerived(false);
     m_Polyline__strokeDashArray->setOrdered(false);
     m_Polyline__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Polyline__markerEnd->setName("markerEnd");
     m_Polyline__markerEnd->setDefaultValueLiteral("");
     m_Polyline__markerEnd->setLowerBound(0);
@@ -1078,7 +1300,7 @@ SVGPackage::SVGPackage()
     m_Polyline__markerEnd->setDerived(false);
     m_Polyline__markerEnd->setOrdered(false);
     m_Polyline__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Polyline__markerStart->setName("markerStart");
     m_Polyline__markerStart->setDefaultValueLiteral("");
     m_Polyline__markerStart->setLowerBound(0);
@@ -1109,7 +1331,7 @@ SVGPackage::SVGPackage()
     m_PolygonEClass->setAbstract(false);
     m_PolygonEClass->setInterface(false);
     m_Polygon__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Polygon__markerEnd->setName("markerEnd");
     m_Polygon__markerEnd->setDefaultValueLiteral("");
     m_Polygon__markerEnd->setLowerBound(0);
@@ -1123,7 +1345,7 @@ SVGPackage::SVGPackage()
     m_Polygon__markerEnd->setDerived(false);
     m_Polygon__markerEnd->setOrdered(false);
     m_Polygon__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Polygon__markerStart->setName("markerStart");
     m_Polygon__markerStart->setDefaultValueLiteral("");
     m_Polygon__markerStart->setLowerBound(0);
@@ -1154,7 +1376,7 @@ SVGPackage::SVGPackage()
     m_PathEClass->setAbstract(false);
     m_PathEClass->setInterface(false);
     m_Path__pathLength->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Path__pathLength->setName("pathLength");
     m_Path__pathLength->setDefaultValueLiteral("");
     m_Path__pathLength->setLowerBound(0);
@@ -1168,7 +1390,7 @@ SVGPackage::SVGPackage()
     m_Path__pathLength->setDerived(false);
     m_Path__pathLength->setOrdered(false);
     m_Path__d->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Path__d->setName("d");
     m_Path__d->setDefaultValueLiteral("");
     m_Path__d->setLowerBound(1);
@@ -1182,7 +1404,7 @@ SVGPackage::SVGPackage()
     m_Path__d->setDerived(false);
     m_Path__d->setOrdered(false);
     m_Path__markerEnd->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Path__markerEnd->setName("markerEnd");
     m_Path__markerEnd->setDefaultValueLiteral("");
     m_Path__markerEnd->setLowerBound(0);
@@ -1196,7 +1418,7 @@ SVGPackage::SVGPackage()
     m_Path__markerEnd->setDerived(false);
     m_Path__markerEnd->setOrdered(false);
     m_Path__markerStart->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Path__markerStart->setName("markerStart");
     m_Path__markerStart->setDefaultValueLiteral("");
     m_Path__markerStart->setLowerBound(0);
@@ -1218,7 +1440,7 @@ SVGPackage::SVGPackage()
     m_MarkerEClass->setAbstract(false);
     m_MarkerEClass->setInterface(false);
     m_Marker__markerUnits->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Marker__markerUnits->setName("markerUnits");
     m_Marker__markerUnits->setDefaultValueLiteral("");
     m_Marker__markerUnits->setLowerBound(0);
@@ -1232,7 +1454,7 @@ SVGPackage::SVGPackage()
     m_Marker__markerUnits->setDerived(false);
     m_Marker__markerUnits->setOrdered(false);
     m_Marker__refX->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Marker__refX->setName("refX");
     m_Marker__refX->setDefaultValueLiteral("");
     m_Marker__refX->setLowerBound(0);
@@ -1246,7 +1468,7 @@ SVGPackage::SVGPackage()
     m_Marker__refX->setDerived(false);
     m_Marker__refX->setOrdered(false);
     m_Marker__refY->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Marker__refY->setName("refY");
     m_Marker__refY->setDefaultValueLiteral("");
     m_Marker__refY->setLowerBound(0);
@@ -1260,7 +1482,7 @@ SVGPackage::SVGPackage()
     m_Marker__refY->setDerived(false);
     m_Marker__refY->setOrdered(false);
     m_Marker__markerWidth->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Marker__markerWidth->setName("markerWidth");
     m_Marker__markerWidth->setDefaultValueLiteral("");
     m_Marker__markerWidth->setLowerBound(0);
@@ -1274,7 +1496,7 @@ SVGPackage::SVGPackage()
     m_Marker__markerWidth->setDerived(false);
     m_Marker__markerWidth->setOrdered(false);
     m_Marker__markerHeight->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Marker__markerHeight->setName("markerHeight");
     m_Marker__markerHeight->setDefaultValueLiteral("");
     m_Marker__markerHeight->setLowerBound(0);
@@ -1288,7 +1510,7 @@ SVGPackage::SVGPackage()
     m_Marker__markerHeight->setDerived(false);
     m_Marker__markerHeight->setOrdered(false);
     m_Marker__orient->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Marker__orient->setName("orient");
     m_Marker__orient->setDefaultValueLiteral("");
     m_Marker__orient->setLowerBound(0);
@@ -1315,14 +1537,14 @@ SVGPackage::SVGPackage()
     m_Marker__drawing->setDerived(false);
     m_Marker__drawing->setOrdered(false);
     m_Marker__drawing->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[10]));
     // Text
     m_TextEClass->setName("Text");
     m_TextEClass->setAbstract(false);
     m_TextEClass->setInterface(false);
     m_Text__lengthAdjust->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Text__lengthAdjust->setName("lengthAdjust");
     m_Text__lengthAdjust->setDefaultValueLiteral("");
     m_Text__lengthAdjust->setLowerBound(0);
@@ -1336,7 +1558,7 @@ SVGPackage::SVGPackage()
     m_Text__lengthAdjust->setDerived(false);
     m_Text__lengthAdjust->setOrdered(false);
     m_Text__content->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Text__content->setName("content");
     m_Text__content->setDefaultValueLiteral("");
     m_Text__content->setLowerBound(1);
@@ -1354,7 +1576,7 @@ SVGPackage::SVGPackage()
     m_TspanEClass->setAbstract(false);
     m_TspanEClass->setInterface(false);
     m_Tspan__content->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_Tspan__content->setName("content");
     m_Tspan__content->setDefaultValueLiteral("");
     m_Tspan__content->setLowerBound(0);
@@ -1402,7 +1624,7 @@ SVGPackage::SVGPackage()
     m_Attribute__attOwner->setDerived(false);
     m_Attribute__attOwner->setOrdered(false);
     m_Attribute__attOwner->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[5]));
     // Transform
     m_TransformEClass->setName("Transform");
@@ -1413,7 +1635,7 @@ SVGPackage::SVGPackage()
     m_ScaleEClass->setAbstract(false);
     m_ScaleEClass->setInterface(false);
     m_Scale__sx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Scale__sx->setName("sx");
     m_Scale__sx->setDefaultValueLiteral("");
     m_Scale__sx->setLowerBound(1);
@@ -1427,7 +1649,7 @@ SVGPackage::SVGPackage()
     m_Scale__sx->setDerived(false);
     m_Scale__sx->setOrdered(false);
     m_Scale__sy->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Scale__sy->setName("sy");
     m_Scale__sy->setDefaultValueLiteral("");
     m_Scale__sy->setLowerBound(1);
@@ -1445,7 +1667,7 @@ SVGPackage::SVGPackage()
     m_TranslateEClass->setAbstract(false);
     m_TranslateEClass->setInterface(false);
     m_Translate__tx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Translate__tx->setName("tx");
     m_Translate__tx->setDefaultValueLiteral("");
     m_Translate__tx->setLowerBound(1);
@@ -1459,7 +1681,7 @@ SVGPackage::SVGPackage()
     m_Translate__tx->setDerived(false);
     m_Translate__tx->setOrdered(false);
     m_Translate__ty->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Translate__ty->setName("ty");
     m_Translate__ty->setDefaultValueLiteral("");
     m_Translate__ty->setLowerBound(1);
@@ -1477,7 +1699,7 @@ SVGPackage::SVGPackage()
     m_RotateEClass->setAbstract(false);
     m_RotateEClass->setInterface(false);
     m_Rotate__angle->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Rotate__angle->setName("angle");
     m_Rotate__angle->setDefaultValueLiteral("");
     m_Rotate__angle->setLowerBound(1);
@@ -1491,7 +1713,7 @@ SVGPackage::SVGPackage()
     m_Rotate__angle->setDerived(false);
     m_Rotate__angle->setOrdered(false);
     m_Rotate__cx->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Rotate__cx->setName("cx");
     m_Rotate__cx->setDefaultValueLiteral("");
     m_Rotate__cx->setLowerBound(1);
@@ -1505,7 +1727,7 @@ SVGPackage::SVGPackage()
     m_Rotate__cx->setDerived(false);
     m_Rotate__cx->setOrdered(false);
     m_Rotate__cy->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Rotate__cy->setName("cy");
     m_Rotate__cy->setDefaultValueLiteral("");
     m_Rotate__cy->setLowerBound(1);
@@ -1523,7 +1745,7 @@ SVGPackage::SVGPackage()
     m_VisibilityEClass->setAbstract(false);
     m_VisibilityEClass->setInterface(false);
     m_Visibility__visible->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getBoolean());
     m_Visibility__visible->setName("visible");
     m_Visibility__visible->setDefaultValueLiteral("");
     m_Visibility__visible->setLowerBound(1);
@@ -1541,7 +1763,7 @@ SVGPackage::SVGPackage()
     m_FontWeightEClass->setAbstract(false);
     m_FontWeightEClass->setInterface(false);
     m_FontWeight__bold->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getBoolean());
     m_FontWeight__bold->setName("bold");
     m_FontWeight__bold->setDefaultValueLiteral("");
     m_FontWeight__bold->setLowerBound(1);
@@ -1559,7 +1781,7 @@ SVGPackage::SVGPackage()
     m_FontStyleEClass->setAbstract(false);
     m_FontStyleEClass->setInterface(false);
     m_FontStyle__italic->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getBoolean());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getBoolean());
     m_FontStyle__italic->setName("italic");
     m_FontStyle__italic->setDefaultValueLiteral("");
     m_FontStyle__italic->setLowerBound(1);
@@ -1577,7 +1799,7 @@ SVGPackage::SVGPackage()
     m_DimensionEClass->setAbstract(false);
     m_DimensionEClass->setInterface(false);
     m_Dimension__width->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Dimension__width->setName("width");
     m_Dimension__width->setDefaultValueLiteral("");
     m_Dimension__width->setLowerBound(1);
@@ -1591,7 +1813,7 @@ SVGPackage::SVGPackage()
     m_Dimension__width->setDerived(false);
     m_Dimension__width->setOrdered(false);
     m_Dimension__height->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Dimension__height->setName("height");
     m_Dimension__height->setDefaultValueLiteral("");
     m_Dimension__height->setLowerBound(1);
@@ -1609,7 +1831,7 @@ SVGPackage::SVGPackage()
     m_CoordinatesEClass->setAbstract(true);
     m_CoordinatesEClass->setInterface(false);
     m_Coordinates__x->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Coordinates__x->setName("x");
     m_Coordinates__x->setDefaultValueLiteral("");
     m_Coordinates__x->setLowerBound(1);
@@ -1623,7 +1845,7 @@ SVGPackage::SVGPackage()
     m_Coordinates__x->setDerived(false);
     m_Coordinates__x->setOrdered(false);
     m_Coordinates__y->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getDouble());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getDouble());
     m_Coordinates__y->setName("y");
     m_Coordinates__y->setDefaultValueLiteral("");
     m_Coordinates__y->setLowerBound(1);
@@ -1649,7 +1871,7 @@ SVGPackage::SVGPackage()
     m_ReferencedFileEClass->setAbstract(true);
     m_ReferencedFileEClass->setInterface(false);
     m_ReferencedFile__name->setEType(
-            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance())->getString());
+            dynamic_cast< ::PrimitiveTypes::PrimitiveTypesPackage* >(::PrimitiveTypes::PrimitiveTypesPackage::_instance().get())->getString());
     m_ReferencedFile__name->setName("name");
     m_ReferencedFile__name->setDefaultValueLiteral("");
     m_ReferencedFile__name->setLowerBound(1);
@@ -1676,7 +1898,7 @@ SVGPackage::SVGPackage()
     m_ReferencedFile__referer->setDerived(false);
     m_ReferencedFile__referer->setOrdered(false);
     m_ReferencedFile__referer->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ImageEClass->getEStructuralFeatures()[0]));
     // SvgFile
     m_SvgFileEClass->setName("SvgFile");
@@ -1696,7 +1918,7 @@ SVGPackage::SVGPackage()
     m_SvgFile__tag->setDerived(false);
     m_SvgFile__tag->setOrdered(false);
     m_SvgFile__tag->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_SvgEClass->getEStructuralFeatures()[3]));
     m_SvgFile__elements->setEType(m_ElementEClass);
     m_SvgFile__elements->setName("elements");
@@ -1712,7 +1934,7 @@ SVGPackage::SVGPackage()
     m_SvgFile__elements->setDerived(false);
     m_SvgFile__elements->setOrdered(false);
     m_SvgFile__elements->setEOpposite(
-            ::ecore::instanceOf < ::ecore::EReference
+            ::ecore::as < ::ecore::EReference
                     > (m_ElementEClass->getEStructuralFeatures()[3]));
 
     // TODO: Initialize data types

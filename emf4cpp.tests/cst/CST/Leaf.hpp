@@ -2,6 +2,7 @@
 /*
  * CST/Leaf.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef CST_LEAF_HPP
 #define CST_LEAF_HPP
 
-#include <CST_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <CST/dllCST.hpp>
+#include <CST_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <CST/Element.hpp>
+
+#include "CSTPackage.hpp"
 
 /*PROTECTED REGION ID(Leaf_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,62 +39,70 @@
 namespace CST
 {
 
-    class Leaf: public virtual ::CST::Element
-    {
-    public:
-        Leaf();
+class EXPORT_CST_DLL Leaf : public virtual ::CST::Element
+{
+public:
+    Leaf();
 
-        virtual ~Leaf();
+    virtual ~Leaf();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EString const& getValue() const;
-        void setValue(::ecore::EString const& _value);
+    // Attributes
+    virtual ::ecore::EString const& getValue () const;
+    virtual void setValue (::ecore::EString const& _value);
 
-        ::ecore::EInt getPos() const;
-        void setPos(::ecore::EInt _pos);
+    virtual ::ecore::EInt getPos () const;
+    virtual void setPos (::ecore::EInt _pos);
 
-        ::ecore::EInt getLine() const;
-        void setLine(::ecore::EInt _line);
+    virtual ::ecore::EInt getLine () const;
+    virtual void setLine (::ecore::EInt _line);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(Leaf) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CSTPackage::LEAF;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Leaf) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(LeafImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(LeafImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::ecore::EString m_value;
+protected:
+    Leaf_ptr _this()
+    {   return Leaf_ptr(this);}
 
-        ::ecore::EInt m_pos;
+    // Attributes
 
-        ::ecore::EInt m_line;
+    ::ecore::EString m_value;
 
-        // References
+    ::ecore::EInt m_pos;
 
-    };
+    ::ecore::EInt m_line;
 
-} // CST
+    // References
+
+};
+
+}
+ // CST
 
 #endif // CST_LEAF_HPP
 

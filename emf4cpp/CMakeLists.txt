@@ -16,8 +16,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
+cmake_minimum_required(VERSION 3.1)
 
-FILE(GLOB CMAKES "${CMAKE_CURRENT_SOURCE_DIR}/*.cmake")
+FILE(GLOB CMAKES ecore.cmake ecorecpp.cmake)
 
 foreach(cmake ${CMAKES})
   include(${cmake})

@@ -2,6 +2,7 @@
 /*
  * idlmm/OperationDef.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef IDLMM_OPERATIONDEF_HPP
 #define IDLMM_OPERATIONDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/Contained.hpp>
 #include <idlmm/Typed.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(OperationDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -35,72 +40,78 @@
 namespace idlmm
 {
 
-    class OperationDef: public virtual ::idlmm::Contained,
-            public virtual ::idlmm::Typed
-    {
-    public:
-        OperationDef();
+class EXPORT_IDLMM_DLL OperationDef : public virtual ::idlmm::Contained, public virtual ::idlmm::Typed
+{
+public:
+    OperationDef();
 
-        virtual ~OperationDef();
+    virtual ~OperationDef();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EBoolean isIsOneway() const;
-        void setIsOneway(::ecore::EBoolean _isOneway);
+    // Attributes
+    virtual ::ecore::EBoolean isIsOneway () const;
+    virtual void setIsOneway (::ecore::EBoolean _isOneway);
 
-        std::vector< ::ecore::EString > const& getContexts() const;
-        void setContexts(std::vector< ::ecore::EString > const& _contexts);
+    virtual std::vector< ::ecore::EString > const& getContexts () const;
+    virtual void setContexts (std::vector< ::ecore::EString > const& _contexts);
 
-        void addContexts(::ecore::EString const& _new_element_in_contexts);
-        void setContextsAt(size_t _position,
-                ::ecore::EString const& _new_element_in_contexts);
-        void deleteContextsAt(size_t _position);
+    virtual void addContexts (::ecore::EString const& _new_element_in_contexts);
+    virtual void setContextsAt ( size_t _position, ::ecore::EString const& _new_element_in_contexts);
+    virtual void deleteContextsAt ( size_t _position );
 
-        // References
-        ::ecorecpp::mapping::EList< ::idlmm::ParameterDef >& getParameters();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >& getParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >& getParameters ();
 
-        ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef >& getCanRaise();
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getCanRaise () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >& getCanRaise ();
 
-        /*PROTECTED REGION ID(OperationDef) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::OPERATIONDEF;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(OperationDef) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(OperationDefImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(OperationDefImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::ecore::EBoolean m_isOneway;
+protected:
+    OperationDef_ptr _this()
+    {   return OperationDef_ptr(this);}
 
-        std::vector< ::ecore::EString > m_contexts;
+    // Attributes
 
-        // References
+    ::ecore::EBoolean m_isOneway;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::idlmm::ParameterDef > > m_parameters;
+    std::vector< ::ecore::EString > m_contexts;
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::idlmm::ExceptionDef > > m_canRaise;
+    // References
 
-    };
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ParameterDef_ptr >> m_parameters;
 
-} // idlmm
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::ExceptionDef_ptr >> m_canRaise;
+
+};
+
+}
+ // idlmm
 
 #endif // IDLMM_OPERATIONDEF_HPP
 

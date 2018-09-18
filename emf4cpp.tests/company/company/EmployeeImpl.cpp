@@ -2,6 +2,7 @@
 /*
  * company/EmployeeImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -19,6 +20,7 @@
 
 #include "Employee.hpp"
 #include <company/CompanyPackage.hpp>
+#include <company/PhonebookEntry.hpp>
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
 #include <ecore/EStructuralFeature.hpp>
@@ -26,18 +28,22 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::company;
-
 /*PROTECTED REGION ID(EmployeeImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::company;
+
 void Employee::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
+    if (m_phonebookEntry)
+    {
+        m_phonebookEntry->_initialize();
+    }
 
     /*PROTECTED REGION ID(EmployeeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -60,6 +66,12 @@ void Employee::_initialize()
                 > ::toAny(_any, m_name);
     }
         return _any;
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+    {
+        if (m_phonebookEntry)
+            _any = ::ecore::as < ::ecore::EObject > (m_phonebookEntry);
+    }
+        return _any;
 
     }
     throw "Error";
@@ -72,8 +84,19 @@ void Employee::eSet(::ecore::EInt _featureID,
     {
     case ::company::CompanyPackage::EMPLOYEE__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::company::Employee::setName(_t0);
+    }
+        return;
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::company::PhonebookEntry_ptr _t1 =
+                dynamic_cast< ::company::PhonebookEntry* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::company::PhonebookEntry >(_t0);*/
+        ::company::Employee::setPhonebookEntry(_t1);
     }
         return;
 
@@ -88,6 +111,8 @@ void Employee::eSet(::ecore::EInt _featureID,
     case ::company::CompanyPackage::EMPLOYEE__NAME:
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+        return (bool) m_phonebookEntry;
 
     }
     throw "Error";
@@ -105,7 +130,39 @@ void Employee::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Employee::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::company::CompanyPackage_ptr >(::company::CompanyPackage::_instance())->getEmployee();
+            dynamic_cast< ::company::CompanyPackage* >(::company::CompanyPackage::_instance().get())->getEmployee();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Employee::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Employee::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::company::CompanyPackage::EMPLOYEE__PHONEBOOKENTRY:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

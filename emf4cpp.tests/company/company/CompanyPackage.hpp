@@ -2,6 +2,7 @@
 /*
  * company/CompanyPackage.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -22,99 +23,119 @@
 
 #include <ecore/EPackage.hpp>
 #include <company_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
+
+#include <company/dllCompany.hpp>
 
 namespace company
 {
 
-    class CompanyPackage: public virtual ::ecore::EPackage
-    {
-    public:
+class EXPORT_COMPANY_DLL CompanyPackage : public virtual ::ecore::EPackage
+{
+public:
 
-        static CompanyPackage_ptr _instance();
+    static CompanyPackage_ptr _instance();
+    static CompanyPackage_ptr _getInstanceAndRemoveOwnership();
 
-        // IDs for classifiers
+    // IDs for classifiers
 
-        static const int COMPANY = 0;
+    static const int COMPANY = 0;
 
-        static const int DEPARTMENT = 1;
+    static const int DEPARTMENT = 1;
 
-        static const int EMPLOYEE = 2;
+    static const int EMPLOYEE = 2;
 
-        static const int EMPLOYEE__NAME = 0;
+    static const int PHONEBOOKENTRY = 3;
 
-        static const int DEPARTMENT__EMPLOYEES = 1;
+    static const int EMPLOYEE__NAME = 0;
 
-        static const int DEPARTMENT__MANAGER = 2;
+    static const int EMPLOYEE__PHONEBOOKENTRY = 1;
 
-        static const int DEPARTMENT__NUMBER = 3;
+    static const int DEPARTMENT__EMPLOYEES = 2;
 
-        static const int COMPANY__NAME = 4;
+    static const int DEPARTMENT__MANAGER = 3;
 
-        static const int COMPANY__DEPARTMENTS = 5;
+    static const int DEPARTMENT__NUMBER = 4;
 
-        // IDs for classifiers for class Company 
+    static const int COMPANY__NAME = 5;
 
-        // IDs for classifiers for class Department 
+    static const int COMPANY__DEPARTMENTS = 6;
 
-        // IDs for classifiers for class Employee 
+    // IDs for classifiers for class Company 
 
-        // EClassifiers methods
+    // IDs for classifiers for class Department 
 
-        virtual ::ecore::EClass_ptr getEmployee();
+    // IDs for classifiers for class Employee 
 
-        virtual ::ecore::EClass_ptr getDepartment();
+    // IDs for classifiers for class PhonebookEntry 
 
-        virtual ::ecore::EClass_ptr getCompany();
+    // EClassifiers methods
 
-        // EStructuralFeatures methods
+    virtual ::ecore::EClass_ptr getEmployee();
 
-        virtual ::ecore::EAttribute_ptr getEmployee__name();
+    virtual ::ecore::EClass_ptr getDepartment();
 
-        virtual ::ecore::EReference_ptr getDepartment__employees();
+    virtual ::ecore::EClass_ptr getCompany();
 
-        virtual ::ecore::EReference_ptr getDepartment__manager();
+    virtual ::ecore::EClass_ptr getPhonebookEntry();
 
-        virtual ::ecore::EAttribute_ptr getDepartment__number();
+    // EStructuralFeatures methods
 
-        virtual ::ecore::EAttribute_ptr getCompany__name();
+    virtual ::ecore::EAttribute_ptr getEmployee__name();
 
-        virtual ::ecore::EReference_ptr getCompany__departments();
+    virtual ::ecore::EReference_ptr getEmployee__phonebookEntry();
 
-    protected:
+    virtual ::ecore::EReference_ptr getDepartment__employees();
 
-        static std::auto_ptr< CompanyPackage > s_instance;
+    virtual ::ecore::EReference_ptr getDepartment__manager();
 
-        CompanyPackage();
+    virtual ::ecore::EAttribute_ptr getDepartment__number();
 
-        // EClass instances 
+    virtual ::ecore::EAttribute_ptr getCompany__name();
 
-        ::ecore::EClass_ptr m_EmployeeEClass;
+    virtual ::ecore::EReference_ptr getCompany__departments();
 
-        ::ecore::EClass_ptr m_DepartmentEClass;
+protected:
 
-        ::ecore::EClass_ptr m_CompanyEClass;
+    static ::ecore::Ptr< CompanyPackage > s_instance;
 
-        // EEnuminstances 
+    CompanyPackage();
+    void _initPackage();
 
-        // EDataType instances 
+    // EClass instances 
 
-        // EStructuralFeatures instances
+    ::ecore::EClass_ptr m_EmployeeEClass;
 
-        ::ecore::EAttribute_ptr m_Employee__name;
+    ::ecore::EClass_ptr m_DepartmentEClass;
 
-        ::ecore::EReference_ptr m_Department__employees;
+    ::ecore::EClass_ptr m_CompanyEClass;
 
-        ::ecore::EReference_ptr m_Department__manager;
+    ::ecore::EClass_ptr m_PhonebookEntryEClass;
 
-        ::ecore::EAttribute_ptr m_Department__number;
+    // EEnuminstances 
 
-        ::ecore::EAttribute_ptr m_Company__name;
+    // EDataType instances 
 
-        ::ecore::EReference_ptr m_Company__departments;
+    // EStructuralFeatures instances
 
-    };
+    ::ecore::EAttribute_ptr m_Employee__name;
 
-} // company
+    ::ecore::EReference_ptr m_Employee__phonebookEntry;
+
+    ::ecore::EReference_ptr m_Department__employees;
+
+    ::ecore::EReference_ptr m_Department__manager;
+
+    ::ecore::EAttribute_ptr m_Department__number;
+
+    ::ecore::EAttribute_ptr m_Company__name;
+
+    ::ecore::EReference_ptr m_Company__departments;
+
+};
+
+}
+ // company
 
 #endif // _COMPANYPACKAGE_HPP
 

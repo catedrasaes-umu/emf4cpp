@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/AbstractNamedDeclaration.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractNamedDeclaration.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -53,26 +59,31 @@ AbstractNamedDeclaration::~AbstractNamedDeclaration()
 {
     if (m_name)
     {
-        delete m_name;
+        m_name.reset();
     }
 }
 
-/*PROTECTED REGION ID(AbstractNamedDeclaration.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::Identifier_ptr AbstractNamedDeclaration::getName()
+
+::xpand3::Identifier_ptr AbstractNamedDeclaration::getName() const
 {
     return m_name;
 }
 
 void AbstractNamedDeclaration::setName(::xpand3::Identifier_ptr _name)
 {
-    ::xpand3::Identifier_ptr _old_name = m_name;
+    if (m_name)
+        m_name->_setEContainer(AbstractNamedDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
+    if (_name)
+        _name->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_name = m_name;
+#endif
     m_name = _name;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -80,15 +91,13 @@ void AbstractNamedDeclaration::setName(::xpand3::Identifier_ptr _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractNamedDeclaration__name(),
                 _old_name,
                 m_name
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_name;
 }
 

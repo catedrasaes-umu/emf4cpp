@@ -2,6 +2,7 @@
 /*
  * ecore/ETypeParameter.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,8 +21,10 @@
 #ifndef ECORE_ETYPEPARAMETER_HPP
 #define ECORE_ETYPEPARAMETER_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/ENamedElement.hpp>
 
@@ -33,53 +36,56 @@
 namespace ecore
 {
 
-    class ETypeParameter: public virtual ::ecore::ENamedElement
-    {
-    public:
-        ETypeParameter();
+class EXPORT_ECORE_DLL ETypeParameter : public virtual ::ecore::ENamedElement
+{
+public:
+    ETypeParameter();
 
-        virtual ~ETypeParameter();
+    virtual ~ETypeParameter();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
+    // Attributes
 
-        // Attributes
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEBounds () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEBounds ();
 
-        // References
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >& getEBounds();
+    /*PROTECTED REGION ID(ETypeParameter) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(ETypeParameter) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(ETypeParameterImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(ETypeParameterImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+protected:
+    ETypeParameter_ptr _this()
+    {   return ETypeParameter_ptr(this);}
 
-    protected:
-        // Attributes
+    // Attributes
 
+    // References
 
-        // References
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >> m_eBounds;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eBounds;
+};
 
-    };
-
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_ETYPEPARAMETER_HPP
+

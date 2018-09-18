@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildModel.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef KDM_BUILD_BUILDMODEL_HPP
 #define KDM_BUILD_BUILDMODEL_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/KDMModel.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(BuildModel_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -37,54 +42,61 @@ namespace kdm
     namespace build
     {
 
-        class BuildModel: public virtual ::kdm::kdm::KDMModel
-        {
-        public:
-            BuildModel();
+    class EXPORT_KDM_DLL BuildModel : public virtual ::kdm::kdm::KDMModel
+    {
+    public:
+        BuildModel();
 
-            virtual ~BuildModel();
+        virtual ~BuildModel();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement();
+        // References
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getBuildElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getBuildElement ();
 
-            /*PROTECTED REGION ID(BuildModel) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::BUILDMODEL;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(BuildModel) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(BuildModelImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(BuildModelImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        BuildModel_ptr _this()
+        {   return BuildModel_ptr(this);}
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList<
-                            ::kdm::build::AbstractBuildElement > > m_buildElement;
+        // Attributes
 
-        };
+        // References
 
-    } // build
-} // kdm
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >> m_buildElement;
+
+    };
+
+}
+ // build
+}// kdm
 
 #endif // KDM_BUILD_BUILDMODEL_HPP
 

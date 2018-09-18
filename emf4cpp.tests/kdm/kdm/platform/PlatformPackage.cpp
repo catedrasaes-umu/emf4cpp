@@ -2,6 +2,7 @@
 /*
  * kdm/platform/PlatformPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::kdm::platform;
 
-std::auto_ptr< ::kdm::platform::PlatformPackage > PlatformPackage::s_instance;
+::ecore::Ptr< ::kdm::platform::PlatformPackage > PlatformPackage::s_instance;
 
 ::kdm::platform::PlatformPackage_ptr PlatformPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new PlatformPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< PlatformPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < PlatformPackage > (new PlatformPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::kdm::platform::PlatformPackage_ptr PlatformPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

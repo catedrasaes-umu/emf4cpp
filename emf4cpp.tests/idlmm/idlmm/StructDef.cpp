@@ -2,6 +2,7 @@
 /*
  * idlmm/StructDef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(StructDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -37,8 +43,9 @@ StructDef::StructDef()
 {
 
     m_members.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field_ptr, -1,
+                    true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getStructDef__members()));
 
     /*PROTECTED REGION ID(StructDefImpl__StructDefImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -54,14 +61,16 @@ StructDef::~StructDef()
 {
 }
 
-/*PROTECTED REGION ID(StructDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::idlmm::Field >& StructDef::getMembers()
+
+const ::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& StructDef::getMembers() const
+{
+    return *m_members;
+}
+
+::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& StructDef::getMembers()
 {
     return *m_members;
 }

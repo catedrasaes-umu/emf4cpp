@@ -2,6 +2,7 @@
 /*
  * kdm/build/SuppliedBy.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SuppliedBy.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -56,22 +62,20 @@ SuppliedBy::~SuppliedBy()
 {
 }
 
-/*PROTECTED REGION ID(SuppliedBy.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::build::Supplier_ptr SuppliedBy::getTo()
+
+::kdm::build::Supplier_ptr SuppliedBy::getTo() const
 {
     return m_to;
 }
 
 void SuppliedBy::setTo(::kdm::build::Supplier_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::build::Supplier_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -79,26 +83,26 @@ void SuppliedBy::setTo(::kdm::build::Supplier_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getSuppliedBy__to(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getSuppliedBy__to(),
                 _old_to,
                 m_to
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::kdm::build::AbstractBuildElement_ptr SuppliedBy::getFrom()
+::kdm::build::AbstractBuildElement_ptr SuppliedBy::getFrom() const
 {
     return m_from;
 }
 
 void SuppliedBy::setFrom(::kdm::build::AbstractBuildElement_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::build::AbstractBuildElement_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -106,14 +110,13 @@ void SuppliedBy::setFrom(::kdm::build::AbstractBuildElement_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::build::BuildPackage::_instance()->getSuppliedBy__from(),
+                _this(),
+                ::kdm::build::BuildPackage::_instance()->getSuppliedBy__from(),
                 _old_from,
                 m_from
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

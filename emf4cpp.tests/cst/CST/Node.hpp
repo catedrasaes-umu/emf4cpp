@@ -2,6 +2,7 @@
 /*
  * CST/Node.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef CST_NODE_HPP
 #define CST_NODE_HPP
 
-#include <CST_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <CST/dllCST.hpp>
+#include <CST_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <CST/Element.hpp>
+
+#include "CSTPackage.hpp"
 
 /*PROTECTED REGION ID(Node_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,52 +39,60 @@
 namespace CST
 {
 
-    class Node: public virtual ::CST::Element
-    {
-    public:
-        Node();
+class EXPORT_CST_DLL Node : public virtual ::CST::Element
+{
+public:
+    Node();
 
-        virtual ~Node();
+    virtual ~Node();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecorecpp::mapping::EList< ::CST::Element >& getChildren();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::CST::Element_ptr >& getChildren () const;
+    virtual ::ecorecpp::mapping::EList< ::CST::Element_ptr >& getChildren ();
 
-        /*PROTECTED REGION ID(Node) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = CSTPackage::NODE;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Node) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(NodeImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(NodeImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    Node_ptr _this()
+    {   return Node_ptr(this);}
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::CST::Element > > m_children;
+    // Attributes
 
-    };
+    // References
 
-} // CST
+    std::shared_ptr<::ecorecpp::mapping::EList< ::CST::Element_ptr >> m_children;
+
+};
+
+}
+ // CST
 
 #endif // CST_NODE_HPP
 

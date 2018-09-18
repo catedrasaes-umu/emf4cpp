@@ -2,6 +2,7 @@
 /*
  * xpand3/FileImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,30 +30,26 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3;
-
 /*PROTECTED REGION ID(FileImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3;
 
 void File::_initialize()
 {
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_imports->size(); i++)
     {
         (*m_imports)[i]->_initialize();
-        (*m_imports)[i]->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getFile__imports());
     }
     for (size_t i = 0; i < m_declarations->size(); i++)
     {
         (*m_declarations)[i]->_initialize();
-        (*m_declarations)[i]->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getFile__declarations());
     }
 
     /*PROTECTED REGION ID(FileImpl__initialize) START*/
@@ -94,12 +91,12 @@ void File::_initialize()
         return _any;
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
     {
-        _any = m_imports->asEListOf< ::ecore::EObject >();
+        _any = m_imports->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
     {
-        _any = m_declarations->asEListOf< ::ecore::EObject >();
+        _any = m_declarations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -113,40 +110,50 @@ void File::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::FILE__IMPORTS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::File::getImports().clear();
         ::xpand3::File::getImports().insert_all(*_t0);
     }
         return;
     case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::File::getDeclarations().clear();
         ::xpand3::File::getDeclarations().insert_all(*_t0);
     }
@@ -192,7 +199,47 @@ void File::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr File::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::Xpand3Package_ptr >(::xpand3::Xpand3Package::_instance())->getFile();
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getFile();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void File::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::Xpand3Package::FILE__IMPORTS:
+    {
+    }
+        return;
+    case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void File::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::Xpand3Package::FILE__IMPORTS:
+    {
+    }
+        return;
+    case ::xpand3::Xpand3Package::FILE__DECLARATIONS:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

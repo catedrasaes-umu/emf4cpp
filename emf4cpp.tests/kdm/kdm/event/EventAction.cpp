@@ -2,6 +2,7 @@
 /*
  * kdm/event/EventAction.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,6 +42,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EventAction.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::event;
 
 // Default constructor
@@ -48,8 +54,9 @@ EventAction::EventAction()
 {
 
     m_eventElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::event::Event,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::event::Event_ptr, -1, true, false >(this,
+                    ::kdm::event::EventPackage::_instance()->getEventAction__eventElement()));
 
     /*PROTECTED REGION ID(EventActionImpl__EventActionImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,12 +72,8 @@ EventAction::~EventAction()
 {
 }
 
-/*PROTECTED REGION ID(EventAction.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String EventAction::getKind() const
 {
     return m_kind;
@@ -87,8 +90,8 @@ void EventAction::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::event::EventPackage::_instance()->getEventAction__kind(),
+                _this(),
+                ::kdm::event::EventPackage::_instance()->getEventAction__kind(),
                 _old_kind,
                 m_kind
         );
@@ -98,7 +101,13 @@ void EventAction::setKind(::kdm::core::String _kind)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::event::Event >& EventAction::getEventElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::event::Event_ptr >& EventAction::getEventElement() const
+{
+    return *m_eventElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::event::Event_ptr >& EventAction::getEventElement()
 {
     return *m_eventElement;
 }

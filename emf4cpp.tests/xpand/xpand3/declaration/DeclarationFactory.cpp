@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/DeclarationFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,14 @@
 
 using namespace ::xpand3::declaration;
 
-std::auto_ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory::s_instance;
+::ecore::Ptr< ::xpand3::declaration::DeclarationFactory > DeclarationFactory::s_holder;
 
 ::xpand3::declaration::DeclarationFactory_ptr DeclarationFactory::_instance()
 {
-    if (!s_instance.get())
-        new DeclarationFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < DeclarationFactory
+                > (new DeclarationFactory());
+
+    return s_holder;
 }
 

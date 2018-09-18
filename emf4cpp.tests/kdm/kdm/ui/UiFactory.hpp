@@ -2,6 +2,7 @@
 /*
  * kdm/ui/UiFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,12 +24,14 @@
 #include <ecore/EFactory.hpp>
 #include <kdm/ui.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 namespace kdm
 {
     namespace ui
     {
 
-        class UiFactory: public virtual ::ecore::EFactory
+        class EXPORT_KDM_DLL UiFactory : public virtual ::ecore::EFactory
         {
         public:
 
@@ -54,21 +57,162 @@ namespace kdm
             virtual WritesUI_ptr createWritesUI();
             virtual ManagesUI_ptr createManagesUI();
 
-            virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-            virtual ::ecore::EJavaObject createFromString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EString const& _literalValue);
-            virtual ::ecore::EString convertToString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EJavaObject const& _instanceValue);
+            virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+            virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+            virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
         protected:
 
-            static std::auto_ptr< UiFactory > s_instance;
+            static ::ecore::Ptr< UiFactory > s_holder;
 
             UiFactory();
 
         };
+
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline ::ecore::Ptr< T > create()
+        {
+            return ::ecore::Ptr< T >();
+        }
+
+        template< > inline AbstractUIElement_ptr create< AbstractUIElement >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createAbstractUIElement();
+        }
+
+        template< > inline UIResource_ptr create< UIResource >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIResource();
+        }
+
+        template< > inline UIDisplay_ptr create< UIDisplay >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIDisplay();
+        }
+
+        template< > inline Screen_ptr create< Screen >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createScreen();
+        }
+
+        template< > inline Report_ptr create< Report >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createReport();
+        }
+
+        template< > inline UIModel_ptr create< UIModel >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIModel();
+        }
+
+        template< > inline AbstractUIRelationship_ptr create<
+                AbstractUIRelationship >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createAbstractUIRelationship();
+        }
+
+        template< > inline UILayout_ptr create< UILayout >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUILayout();
+        }
+
+        template< > inline UIField_ptr create< UIField >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIField();
+        }
+
+        template< > inline DisplaysImage_ptr create< DisplaysImage >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createDisplaysImage();
+        }
+
+        template< > inline Displays_ptr create< Displays >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createDisplays();
+        }
+
+        template< > inline UIFlow_ptr create< UIFlow >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIFlow();
+        }
+
+        template< > inline UIElement_ptr create< UIElement >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIElement();
+        }
+
+        template< > inline UIRelationship_ptr create< UIRelationship >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIRelationship();
+        }
+
+        template< > inline UIAction_ptr create< UIAction >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIAction();
+        }
+
+        template< > inline UIEvent_ptr create< UIEvent >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createUIEvent();
+        }
+
+        template< > inline ReadsUI_ptr create< ReadsUI >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createReadsUI();
+        }
+
+        template< > inline WritesUI_ptr create< WritesUI >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createWritesUI();
+        }
+
+        template< > inline ManagesUI_ptr create< ManagesUI >()
+        {
+            auto eFactory = UiPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< UiFactory* >(eFactory.get());
+            return packageFactory->createManagesUI();
+        }
 
     } // ui
 } // kdm

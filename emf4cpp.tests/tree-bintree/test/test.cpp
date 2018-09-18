@@ -19,7 +19,7 @@
 #include <ecorecpp.hpp>
 #include <tree.hpp>
 #include <fstream>
-#include <boost/lexical_cast.hpp>
+#include <string>
 
 using namespace tree;
 
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     ::ecorecpp::serializer::serializer ser(outfile);
     ser.serialize(_epkg);
 
-    TreeFactory_ptr _efac = _epkg->getEFactoryInstance()->as< TreeFactory > ();
+    TreeFactory_ptr _efac = ::ecore::as< TreeFactory >(_epkg->getEFactoryInstance());
 
     ::ecorecpp::MetaModelRepository::_instance()->load(_epkg);
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 
         assert(_eobj);
 
-        TreeNode_ptr _node = ::tree::instanceOf< TreeNode >(_eobj);
+        TreeNode_ptr _node = ::ecore::as< TreeNode >(_eobj);
 
         assert(_node);
 
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
     for (size_t i = 0; i < 1000000; i++)
     {
         TreeNode_ptr current = _efac->createLeaf();
-        current->setData(boost::lexical_cast< std::string >(i));
+        current->setData(std::to_string(i));
 
         root_node->getChildren().push_back(current);
         current->setParent(root_node);

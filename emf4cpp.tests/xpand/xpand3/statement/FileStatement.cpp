@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/FileStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(FileStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -52,20 +58,16 @@ FileStatement::~FileStatement()
 {
     if (m_fileNameExpression)
     {
-        delete m_fileNameExpression;
+        m_fileNameExpression.reset();
     }
     if (m_outletNameIdentifier)
     {
-        delete m_outletNameIdentifier;
+        m_outletNameIdentifier.reset();
     }
 }
 
-/*PROTECTED REGION ID(FileStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean FileStatement::isOnce() const
 {
     return m_once;
@@ -82,8 +84,8 @@ void FileStatement::setOnce(::ecore::EBoolean _once)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getFileStatement__once(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__once(),
                 _old_once,
                 m_once
         );
@@ -93,7 +95,8 @@ void FileStatement::setOnce(::ecore::EBoolean _once)
 }
 
 // References
-::xpand3::expression::AbstractExpression_ptr FileStatement::getFileNameExpression()
+
+::xpand3::expression::AbstractExpression_ptr FileStatement::getFileNameExpression() const
 {
     return m_fileNameExpression;
 }
@@ -101,9 +104,16 @@ void FileStatement::setOnce(::ecore::EBoolean _once)
 void FileStatement::setFileNameExpression(
         ::xpand3::expression::AbstractExpression_ptr _fileNameExpression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_fileNameExpression =
-            m_fileNameExpression;
+    if (m_fileNameExpression)
+        m_fileNameExpression->_setEContainer(FileStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
+    if (_fileNameExpression)
+        _fileNameExpression->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_fileNameExpression = m_fileNameExpression;
+#endif
     m_fileNameExpression = _fileNameExpression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -111,19 +121,17 @@ void FileStatement::setFileNameExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__fileNameExpression(),
                 _old_fileNameExpression,
                 m_fileNameExpression
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_fileNameExpression;
 }
 
-::xpand3::Identifier_ptr FileStatement::getOutletNameIdentifier()
+::xpand3::Identifier_ptr FileStatement::getOutletNameIdentifier() const
 {
     return m_outletNameIdentifier;
 }
@@ -131,8 +139,16 @@ void FileStatement::setFileNameExpression(
 void FileStatement::setOutletNameIdentifier(
         ::xpand3::Identifier_ptr _outletNameIdentifier)
 {
-    ::xpand3::Identifier_ptr _old_outletNameIdentifier = m_outletNameIdentifier;
+    if (m_outletNameIdentifier)
+        m_outletNameIdentifier->_setEContainer(FileStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
+    if (_outletNameIdentifier)
+        _outletNameIdentifier->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_outletNameIdentifier = m_outletNameIdentifier;
+#endif
     m_outletNameIdentifier = _outletNameIdentifier;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -140,15 +156,13 @@ void FileStatement::setOutletNameIdentifier(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getFileStatement__outletNameIdentifier(),
                 _old_outletNameIdentifier,
                 m_outletNameIdentifier
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_outletNameIdentifier;
 }
 

@@ -2,6 +2,7 @@
 /*
  * ecore/EStringToStringMapEntryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -26,18 +27,18 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EStringToStringMapEntryImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::ecore;
+
 void EStringToStringMapEntry::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EStringToStringMapEntryImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -46,7 +47,6 @@ void EStringToStringMapEntry::_initialize()
 }
 
 // Operations
-
 
 // EObject
 ::ecore::EJavaObject EStringToStringMapEntry::eGet(::ecore::EInt _featureID,
@@ -57,13 +57,14 @@ void EStringToStringMapEntry::_initialize()
     {
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__KEY:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_key);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_key);
     }
         return _any;
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_value);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_value);
     }
         return _any;
 
@@ -78,14 +79,18 @@ void EStringToStringMapEntry::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__KEY:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_key);
+        ::ecore::EString _t0;
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EStringToStringMapEntry::setKey(_t0);
     }
         return;
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__VALUE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_value);
+        ::ecore::EString _t0;
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EStringToStringMapEntry::setValue(_t0);
     }
         return;
 
@@ -98,11 +103,11 @@ void EStringToStringMapEntry::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__KEY:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_key);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_key);
     case ::ecore::EcorePackage::ESTRINGTOSTRINGMAPENTRY__VALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_value);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_value);
 
     }
     throw "Error";
@@ -119,9 +124,32 @@ void EStringToStringMapEntry::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EStringToStringMapEntry::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEStringToStringMapEntry();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEStringToStringMapEntry();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EStringToStringMapEntry::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EStringToStringMapEntry::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

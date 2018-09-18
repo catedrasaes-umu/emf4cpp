@@ -2,6 +2,7 @@
 /*
  * json_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,47 +42,43 @@ namespace json
 
 // ObjectValue
     class ObjectValue;
-    typedef ObjectValue* ObjectValue_ptr;
+    using ObjectValue_ptr = ::ecore::Ptr<ObjectValue>;
 
 // NVPair
     class NVPair;
-    typedef NVPair* NVPair_ptr;
+    using NVPair_ptr = ::ecore::Ptr<NVPair>;
 
 // Value
     class Value;
-    typedef Value* Value_ptr;
+    using Value_ptr = ::ecore::Ptr<Value>;
 
 // StringValue
     class StringValue;
-    typedef StringValue* StringValue_ptr;
+    using StringValue_ptr = ::ecore::Ptr<StringValue>;
 
 // NumberValue
     class NumberValue;
-    typedef NumberValue* NumberValue_ptr;
+    using NumberValue_ptr = ::ecore::Ptr<NumberValue>;
 
 // BooleanValue
     class BooleanValue;
-    typedef BooleanValue* BooleanValue_ptr;
+    using BooleanValue_ptr = ::ecore::Ptr<BooleanValue>;
 
 // ArrayValue
     class ArrayValue;
-    typedef ArrayValue* ArrayValue_ptr;
+    using ArrayValue_ptr = ::ecore::Ptr<ArrayValue>;
 
 // NullValue
     class NullValue;
-    typedef NullValue* NullValue_ptr;
+    using NullValue_ptr = ::ecore::Ptr<NullValue>;
+
+// EEnum
 
 // Package & Factory
     class JsonFactory;
-    typedef JsonFactory * JsonFactory_ptr;
+    using JsonFactory_ptr = ::ecore::Ptr<JsonFactory>;
     class JsonPackage;
-    typedef JsonPackage * JsonPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using JsonPackage_ptr = ::ecore::Ptr<JsonPackage>;
 
 } // json
 

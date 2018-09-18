@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/TaggedValueImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,19 +31,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::kdm::kdm;
-
 /*PROTECTED REGION ID(TaggedValueImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::kdm::kdm;
 
 void TaggedValue::_initialize()
 {
     // Supertypes
     ::kdm::kdm::ExtendedValue::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TaggedValueImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -61,17 +62,18 @@ void TaggedValue::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject >();
+        _any = m_attribute->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject >();
+        _any = m_annotation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
     {
-        _any = static_cast< ::ecore::EObject* >(m_tag);
+        if (m_tag)
+            _any = ::ecore::as < ::ecore::EObject > (m_tag);
     }
         return _any;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:
@@ -92,16 +94,18 @@ void TaggedValue::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
@@ -111,14 +115,16 @@ void TaggedValue::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::kdm::kdm::TagDefinition_ptr _t1 =
-                dynamic_cast< ::kdm::kdm::TagDefinition_ptr >(_t0);
+                dynamic_cast< ::kdm::kdm::TagDefinition* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::kdm::kdm::TagDefinition >(_t0);*/
         ::kdm::kdm::ExtendedValue::setTag(_t1);
     }
         return;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::TaggedValue::setValue(_t0);
     }
         return;
 
@@ -135,7 +141,7 @@ void TaggedValue::eSet(::ecore::EInt _featureID,
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
         return m_annotation && m_annotation->size();
     case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
-        return m_tag;
+        return (bool) m_tag;
     case ::kdm::kdm::KdmPackage::TAGGEDVALUE__VALUE:
         return ::ecorecpp::mapping::set_traits < ::kdm::core::String
                 > ::is_set(m_value);
@@ -156,7 +162,55 @@ void TaggedValue::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr TaggedValue::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getTaggedValue();
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getTaggedValue();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void TaggedValue::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void TaggedValue::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::EXTENDEDVALUE__TAG:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::kdm::build;
 
-std::auto_ptr< ::kdm::build::BuildFactory > BuildFactory::s_instance;
+::ecore::Ptr< ::kdm::build::BuildFactory > BuildFactory::s_holder;
 
 ::kdm::build::BuildFactory_ptr BuildFactory::_instance()
 {
-    if (!s_instance.get())
-        new BuildFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < BuildFactory > (new BuildFactory());
+
+    return s_holder;
 }
 

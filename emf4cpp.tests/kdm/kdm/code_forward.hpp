@@ -2,6 +2,7 @@
 /*
  * kdm/code_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,381 +39,372 @@ namespace kdm
     {
 
 // EDataType
-        /*PROTECTED REGION ID(kdm_code_MethodKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int MethodKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_ParameterKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int ParameterKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_ExportKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int ExportKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_StorableKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int StorableKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_CallableKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int CallableKind;
-        /*PROTECTED REGION END*/
-        /*PROTECTED REGION ID(kdm_code_MacroKind) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-        typedef int MacroKind;
-        /*PROTECTED REGION END*/
 
 // EClass
+
 // AbstractCodeElement
         class AbstractCodeElement;
-        typedef AbstractCodeElement* AbstractCodeElement_ptr;
+        using AbstractCodeElement_ptr = ::ecore::Ptr<AbstractCodeElement>;
 
 // CodeItem
         class CodeItem;
-        typedef CodeItem* CodeItem_ptr;
+        using CodeItem_ptr = ::ecore::Ptr<CodeItem>;
 
 // ComputationalObject
         class ComputationalObject;
-        typedef ComputationalObject* ComputationalObject_ptr;
+        using ComputationalObject_ptr = ::ecore::Ptr<ComputationalObject>;
 
 // ControlElement
         class ControlElement;
-        typedef ControlElement* ControlElement_ptr;
+        using ControlElement_ptr = ::ecore::Ptr<ControlElement>;
 
 // MethodUnit
         class MethodUnit;
-        typedef MethodUnit* MethodUnit_ptr;
+        using MethodUnit_ptr = ::ecore::Ptr<MethodUnit>;
 
 // Module
         class Module;
-        typedef Module* Module_ptr;
+        using Module_ptr = ::ecore::Ptr<Module>;
 
 // CodeAssembly
         class CodeAssembly;
-        typedef CodeAssembly* CodeAssembly_ptr;
+        using CodeAssembly_ptr = ::ecore::Ptr<CodeAssembly>;
 
 // CallableUnit
         class CallableUnit;
-        typedef CallableUnit* CallableUnit_ptr;
+        using CallableUnit_ptr = ::ecore::Ptr<CallableUnit>;
 
 // Datatype
         class Datatype;
-        typedef Datatype* Datatype_ptr;
+        using Datatype_ptr = ::ecore::Ptr<Datatype>;
 
 // TemplateUnit
         class TemplateUnit;
-        typedef TemplateUnit* TemplateUnit_ptr;
+        using TemplateUnit_ptr = ::ecore::Ptr<TemplateUnit>;
 
 // TemplateParameter
         class TemplateParameter;
-        typedef TemplateParameter* TemplateParameter_ptr;
+        using TemplateParameter_ptr = ::ecore::Ptr<TemplateParameter>;
 
 // AbstractCodeRelationship
         class AbstractCodeRelationship;
-        typedef AbstractCodeRelationship* AbstractCodeRelationship_ptr;
+        using AbstractCodeRelationship_ptr = ::ecore::Ptr<AbstractCodeRelationship>;
 
 // InstanceOf
         class InstanceOf;
-        typedef InstanceOf* InstanceOf_ptr;
+        using InstanceOf_ptr = ::ecore::Ptr<InstanceOf>;
 
 // CompilationUnit
         class CompilationUnit;
-        typedef CompilationUnit* CompilationUnit_ptr;
+        using CompilationUnit_ptr = ::ecore::Ptr<CompilationUnit>;
 
 // CodeModel
         class CodeModel;
-        typedef CodeModel* CodeModel_ptr;
+        using CodeModel_ptr = ::ecore::Ptr<CodeModel>;
 
 // DerivedType
         class DerivedType;
-        typedef DerivedType* DerivedType_ptr;
+        using DerivedType_ptr = ::ecore::Ptr<DerivedType>;
 
 // ArrayType
         class ArrayType;
-        typedef ArrayType* ArrayType_ptr;
+        using ArrayType_ptr = ::ecore::Ptr<ArrayType>;
 
 // PrimitiveType
         class PrimitiveType;
-        typedef PrimitiveType* PrimitiveType_ptr;
+        using PrimitiveType_ptr = ::ecore::Ptr<PrimitiveType>;
 
 // BooleanType
         class BooleanType;
-        typedef BooleanType* BooleanType_ptr;
+        using BooleanType_ptr = ::ecore::Ptr<BooleanType>;
 
 // CharType
         class CharType;
-        typedef CharType* CharType_ptr;
+        using CharType_ptr = ::ecore::Ptr<CharType>;
 
 // ClassUnit
         class ClassUnit;
-        typedef ClassUnit* ClassUnit_ptr;
+        using ClassUnit_ptr = ::ecore::Ptr<ClassUnit>;
 
 // CompositeType
         class CompositeType;
-        typedef CompositeType* CompositeType_ptr;
+        using CompositeType_ptr = ::ecore::Ptr<CompositeType>;
 
 // RecordType
         class RecordType;
-        typedef RecordType* RecordType_ptr;
+        using RecordType_ptr = ::ecore::Ptr<RecordType>;
 
 // EnumeratedType
         class EnumeratedType;
-        typedef EnumeratedType* EnumeratedType_ptr;
+        using EnumeratedType_ptr = ::ecore::Ptr<EnumeratedType>;
 
 // Extends
         class Extends;
-        typedef Extends* Extends_ptr;
+        using Extends_ptr = ::ecore::Ptr<Extends>;
 
 // ScaledType
         class ScaledType;
-        typedef ScaledType* ScaledType_ptr;
+        using ScaledType_ptr = ::ecore::Ptr<ScaledType>;
 
 // FloatType
         class FloatType;
-        typedef FloatType* FloatType_ptr;
+        using FloatType_ptr = ::ecore::Ptr<FloatType>;
 
 // HasType
         class HasType;
-        typedef HasType* HasType_ptr;
+        using HasType_ptr = ::ecore::Ptr<HasType>;
 
 // ImplementationOf
         class ImplementationOf;
-        typedef ImplementationOf* ImplementationOf_ptr;
+        using ImplementationOf_ptr = ::ecore::Ptr<ImplementationOf>;
 
 // Implements
         class Implements;
-        typedef Implements* Implements_ptr;
+        using Implements_ptr = ::ecore::Ptr<Implements>;
 
 // IntegerType
         class IntegerType;
-        typedef IntegerType* IntegerType_ptr;
+        using IntegerType_ptr = ::ecore::Ptr<IntegerType>;
 
 // InterfaceUnit
         class InterfaceUnit;
-        typedef InterfaceUnit* InterfaceUnit_ptr;
+        using InterfaceUnit_ptr = ::ecore::Ptr<InterfaceUnit>;
 
 // PointerType
         class PointerType;
-        typedef PointerType* PointerType_ptr;
+        using PointerType_ptr = ::ecore::Ptr<PointerType>;
 
 // DefinedType
         class DefinedType;
-        typedef DefinedType* DefinedType_ptr;
+        using DefinedType_ptr = ::ecore::Ptr<DefinedType>;
 
 // TypeUnit
         class TypeUnit;
-        typedef TypeUnit* TypeUnit_ptr;
+        using TypeUnit_ptr = ::ecore::Ptr<TypeUnit>;
 
 // RangeType
         class RangeType;
-        typedef RangeType* RangeType_ptr;
+        using RangeType_ptr = ::ecore::Ptr<RangeType>;
 
 // Signature
         class Signature;
-        typedef Signature* Signature_ptr;
+        using Signature_ptr = ::ecore::Ptr<Signature>;
 
 // DataElement
         class DataElement;
-        typedef DataElement* DataElement_ptr;
+        using DataElement_ptr = ::ecore::Ptr<DataElement>;
 
 // StringType
         class StringType;
-        typedef StringType* StringType_ptr;
+        using StringType_ptr = ::ecore::Ptr<StringType>;
 
 // ChoiceType
         class ChoiceType;
-        typedef ChoiceType* ChoiceType_ptr;
+        using ChoiceType_ptr = ::ecore::Ptr<ChoiceType>;
 
 // NamespaceUnit
         class NamespaceUnit;
-        typedef NamespaceUnit* NamespaceUnit_ptr;
+        using NamespaceUnit_ptr = ::ecore::Ptr<NamespaceUnit>;
 
 // VisibleIn
         class VisibleIn;
-        typedef VisibleIn* VisibleIn_ptr;
+        using VisibleIn_ptr = ::ecore::Ptr<VisibleIn>;
 
 // CommentUnit
         class CommentUnit;
-        typedef CommentUnit* CommentUnit_ptr;
+        using CommentUnit_ptr = ::ecore::Ptr<CommentUnit>;
 
 // SharedUnit
         class SharedUnit;
-        typedef SharedUnit* SharedUnit_ptr;
+        using SharedUnit_ptr = ::ecore::Ptr<SharedUnit>;
 
 // DecimalType
         class DecimalType;
-        typedef DecimalType* DecimalType_ptr;
+        using DecimalType_ptr = ::ecore::Ptr<DecimalType>;
 
 // DateType
         class DateType;
-        typedef DateType* DateType_ptr;
+        using DateType_ptr = ::ecore::Ptr<DateType>;
 
 // TimeType
         class TimeType;
-        typedef TimeType* TimeType_ptr;
+        using TimeType_ptr = ::ecore::Ptr<TimeType>;
 
 // VoidType
         class VoidType;
-        typedef VoidType* VoidType_ptr;
+        using VoidType_ptr = ::ecore::Ptr<VoidType>;
 
 // ValueElement
         class ValueElement;
-        typedef ValueElement* ValueElement_ptr;
+        using ValueElement_ptr = ::ecore::Ptr<ValueElement>;
 
 // Value
         class Value;
-        typedef Value* Value_ptr;
+        using Value_ptr = ::ecore::Ptr<Value>;
 
 // ValueList
         class ValueList;
-        typedef ValueList* ValueList_ptr;
+        using ValueList_ptr = ::ecore::Ptr<ValueList>;
 
 // StorableUnit
         class StorableUnit;
-        typedef StorableUnit* StorableUnit_ptr;
+        using StorableUnit_ptr = ::ecore::Ptr<StorableUnit>;
 
 // MemberUnit
         class MemberUnit;
-        typedef MemberUnit* MemberUnit_ptr;
+        using MemberUnit_ptr = ::ecore::Ptr<MemberUnit>;
 
 // ParameterUnit
         class ParameterUnit;
-        typedef ParameterUnit* ParameterUnit_ptr;
+        using ParameterUnit_ptr = ::ecore::Ptr<ParameterUnit>;
 
 // ItemUnit
         class ItemUnit;
-        typedef ItemUnit* ItemUnit_ptr;
+        using ItemUnit_ptr = ::ecore::Ptr<ItemUnit>;
 
 // IndexUnit
         class IndexUnit;
-        typedef IndexUnit* IndexUnit_ptr;
+        using IndexUnit_ptr = ::ecore::Ptr<IndexUnit>;
 
 // SynonymType
         class SynonymType;
-        typedef SynonymType* SynonymType_ptr;
+        using SynonymType_ptr = ::ecore::Ptr<SynonymType>;
 
 // SequenceType
         class SequenceType;
-        typedef SequenceType* SequenceType_ptr;
+        using SequenceType_ptr = ::ecore::Ptr<SequenceType>;
 
 // BagType
         class BagType;
-        typedef BagType* BagType_ptr;
+        using BagType_ptr = ::ecore::Ptr<BagType>;
 
 // SetType
         class SetType;
-        typedef SetType* SetType_ptr;
+        using SetType_ptr = ::ecore::Ptr<SetType>;
 
 // CodeElement
         class CodeElement;
-        typedef CodeElement* CodeElement_ptr;
+        using CodeElement_ptr = ::ecore::Ptr<CodeElement>;
 
 // CodeRelationship
         class CodeRelationship;
-        typedef CodeRelationship* CodeRelationship_ptr;
+        using CodeRelationship_ptr = ::ecore::Ptr<CodeRelationship>;
 
 // LanguageUnit
         class LanguageUnit;
-        typedef LanguageUnit* LanguageUnit_ptr;
+        using LanguageUnit_ptr = ::ecore::Ptr<LanguageUnit>;
 
 // OrdinalType
         class OrdinalType;
-        typedef OrdinalType* OrdinalType_ptr;
+        using OrdinalType_ptr = ::ecore::Ptr<OrdinalType>;
 
 // BitstringType
         class BitstringType;
-        typedef BitstringType* BitstringType_ptr;
+        using BitstringType_ptr = ::ecore::Ptr<BitstringType>;
 
 // OctetType
         class OctetType;
-        typedef OctetType* OctetType_ptr;
+        using OctetType_ptr = ::ecore::Ptr<OctetType>;
 
 // OctetstringType
         class OctetstringType;
-        typedef OctetstringType* OctetstringType_ptr;
+        using OctetstringType_ptr = ::ecore::Ptr<OctetstringType>;
 
 // BitType
         class BitType;
-        typedef BitType* BitType_ptr;
+        using BitType_ptr = ::ecore::Ptr<BitType>;
 
 // Imports
         class Imports;
-        typedef Imports* Imports_ptr;
+        using Imports_ptr = ::ecore::Ptr<Imports>;
 
 // Package
         class Package;
-        typedef Package* Package_ptr;
+        using Package_ptr = ::ecore::Ptr<Package>;
 
 // ParameterTo
         class ParameterTo;
-        typedef ParameterTo* ParameterTo_ptr;
+        using ParameterTo_ptr = ::ecore::Ptr<ParameterTo>;
 
 // TemplateType
         class TemplateType;
-        typedef TemplateType* TemplateType_ptr;
+        using TemplateType_ptr = ::ecore::Ptr<TemplateType>;
 
 // PreprocessorDirective
         class PreprocessorDirective;
-        typedef PreprocessorDirective* PreprocessorDirective_ptr;
+        using PreprocessorDirective_ptr = ::ecore::Ptr<PreprocessorDirective>;
 
 // MacroDirective
         class MacroDirective;
-        typedef MacroDirective* MacroDirective_ptr;
+        using MacroDirective_ptr = ::ecore::Ptr<MacroDirective>;
 
 // MacroUnit
         class MacroUnit;
-        typedef MacroUnit* MacroUnit_ptr;
+        using MacroUnit_ptr = ::ecore::Ptr<MacroUnit>;
 
 // ConditionalDirective
         class ConditionalDirective;
-        typedef ConditionalDirective* ConditionalDirective_ptr;
+        using ConditionalDirective_ptr = ::ecore::Ptr<ConditionalDirective>;
 
 // IncludeDirective
         class IncludeDirective;
-        typedef IncludeDirective* IncludeDirective_ptr;
+        using IncludeDirective_ptr = ::ecore::Ptr<IncludeDirective>;
 
 // VariantTo
         class VariantTo;
-        typedef VariantTo* VariantTo_ptr;
+        using VariantTo_ptr = ::ecore::Ptr<VariantTo>;
 
 // Expands
         class Expands;
-        typedef Expands* Expands_ptr;
+        using Expands_ptr = ::ecore::Ptr<Expands>;
 
 // Redefines
         class Redefines;
-        typedef Redefines* Redefines_ptr;
+        using Redefines_ptr = ::ecore::Ptr<Redefines>;
 
 // GeneratedFrom
         class GeneratedFrom;
-        typedef GeneratedFrom* GeneratedFrom_ptr;
+        using GeneratedFrom_ptr = ::ecore::Ptr<GeneratedFrom>;
 
 // Includes
         class Includes;
-        typedef Includes* Includes_ptr;
+        using Includes_ptr = ::ecore::Ptr<Includes>;
 
 // HasValue
         class HasValue;
-        typedef HasValue* HasValue_ptr;
+        using HasValue_ptr = ::ecore::Ptr<HasValue>;
+
+// EEnum
+
+// MethodKind
+        enum class MethodKind
+        ;
+
+// ParameterKind
+        enum class ParameterKind
+        ;
+
+// ExportKind
+        enum class ExportKind
+        ;
+
+// StorableKind
+        enum class StorableKind
+        ;
+
+// CallableKind
+        enum class CallableKind
+        ;
+
+// MacroKind
+        enum class MacroKind
+        ;
 
 // Package & Factory
         class CodeFactory;
-        typedef CodeFactory * CodeFactory_ptr;
+        using CodeFactory_ptr = ::ecore::Ptr<CodeFactory>;
         class CodePackage;
-        typedef CodePackage * CodePackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using CodePackage_ptr = ::ecore::Ptr<CodePackage>;
 
     } // code
 } // kdm

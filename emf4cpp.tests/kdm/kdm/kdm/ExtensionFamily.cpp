@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/ExtensionFamily.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ExtensionFamily.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -38,8 +44,9 @@ ExtensionFamily::ExtensionFamily()
 {
 
     m_stereotype.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Stereotype_ptr, -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__stereotype()));
 
     /*PROTECTED REGION ID(ExtensionFamilyImpl__ExtensionFamilyImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,12 +62,8 @@ ExtensionFamily::~ExtensionFamily()
 {
 }
 
-/*PROTECTED REGION ID(ExtensionFamily.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String ExtensionFamily::getName() const
 {
     return m_name;
@@ -77,8 +80,8 @@ void ExtensionFamily::setName(::kdm::core::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__name(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getExtensionFamily__name(),
                 _old_name,
                 m_name
         );
@@ -88,7 +91,13 @@ void ExtensionFamily::setName(::kdm::core::String _name)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ExtensionFamily::getStereotype()
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ExtensionFamily::getStereotype() const
+{
+    return *m_stereotype;
+}
+
+::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ExtensionFamily::getStereotype()
 {
     return *m_stereotype;
 }

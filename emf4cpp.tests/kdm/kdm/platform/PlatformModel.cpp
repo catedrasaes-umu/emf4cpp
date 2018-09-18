@@ -2,6 +2,7 @@
 /*
  * kdm/platform/PlatformModel.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(PlatformModel.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::platform;
 
 // Default constructor
@@ -43,8 +49,9 @@ PlatformModel::PlatformModel()
 
     m_platformElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::AbstractPlatformElement, -1, true, false >(
-                    this, NULL));
+                    ::kdm::platform::AbstractPlatformElement_ptr, -1, true,
+                    false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getPlatformModel__platformElement()));
 
     /*PROTECTED REGION ID(PlatformModelImpl__PlatformModelImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,14 +67,16 @@ PlatformModel::~PlatformModel()
 {
 }
 
-/*PROTECTED REGION ID(PlatformModel.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement >& PlatformModel::getPlatformElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement_ptr >& PlatformModel::getPlatformElement() const
+{
+    return *m_platformElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformElement_ptr >& PlatformModel::getPlatformElement()
 {
     return *m_platformElement;
 }

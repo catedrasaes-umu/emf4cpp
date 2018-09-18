@@ -2,6 +2,7 @@
 /*
  * idlmm/ArrayDefImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,12 +30,12 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::idlmm;
-
 /*PROTECTED REGION ID(ArrayDefImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::idlmm;
 
 void ArrayDef::_initialize()
 {
@@ -42,7 +43,7 @@ void ArrayDef::_initialize()
     ::idlmm::Typed::_initialize();
     ::idlmm::IDLType::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ArrayDefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -61,12 +62,14 @@ void ArrayDef::_initialize()
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_containedType);
+        if (m_containedType)
+            _any = ::ecore::as < ::ecore::EObject > (m_containedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_sharedType);
+        if (m_sharedType)
+            _any = ::ecore::as < ::ecore::EObject > (m_sharedType);
     }
         return _any;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
@@ -95,7 +98,7 @@ void ArrayDef::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr >(_t0);
+        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::IDLType >(_t0);*/
         ::idlmm::Typed::setContainedType(_t1);
     }
         return;
@@ -104,20 +107,24 @@ void ArrayDef::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::idlmm::TypedefDef_ptr _t1 =
-                dynamic_cast< ::idlmm::TypedefDef_ptr >(_t0);
+                dynamic_cast< ::idlmm::TypedefDef* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::TypedefDef >(_t0);*/
         ::idlmm::Typed::setSharedType(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
+        ::idlmm::ETypeCode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
-                > ::fromAny(_newValue, m_typeCode);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::IDLType::setTypeCode(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::ARRAYDEF__BOUND:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_bound);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::ArrayDef::setBound(_t0);
     }
         return;
 
@@ -130,9 +137,9 @@ void ArrayDef::eSet(::ecore::EInt _featureID,
     switch (_featureID)
     {
     case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
-        return m_containedType;
+        return (bool) m_containedType;
     case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
-        return m_sharedType;
+        return (bool) m_sharedType;
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
         return ::ecorecpp::mapping::set_traits < ::idlmm::ETypeCode
                 > ::is_set(m_typeCode);
@@ -156,7 +163,47 @@ void ArrayDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ArrayDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getArrayDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getArrayDef();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void ArrayDef::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void ArrayDef::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::TYPED__CONTAINEDTYPE:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::TYPED__SHAREDTYPE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

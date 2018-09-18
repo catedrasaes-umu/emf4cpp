@@ -2,6 +2,7 @@
 /*
  * kdm/conceptual/AbstractConceptualElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,6 +39,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractConceptualElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::conceptual;
 
 // Default constructor
@@ -46,18 +52,21 @@ AbstractConceptualElement::AbstractConceptualElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__source()));
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::core::KDMEntity_ptr, -1, false, false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__implementation()));
     m_conceptualRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::conceptual::AbstractConceptualRelationship, -1, true,
-                    false >(this, NULL));
+                    ::kdm::conceptual::AbstractConceptualRelationship_ptr, -1,
+                    true, false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__conceptualRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getAbstractConceptualElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractConceptualElementImpl__AbstractConceptualElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -73,29 +82,48 @@ AbstractConceptualElement::~AbstractConceptualElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractConceptualElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractConceptualElement::getSource()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractConceptualElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractConceptualElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractConceptualElement::getSource()
+{
+    return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractConceptualElement::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualRelationship >& AbstractConceptualElement::getConceptualRelation()
+::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractConceptualElement::getImplementation()
+{
+    return *m_implementation;
+}
+
+const ::ecorecpp::mapping::EList<
+        ::kdm::conceptual::AbstractConceptualRelationship_ptr >& AbstractConceptualElement::getConceptualRelation() const
 {
     return *m_conceptualRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractConceptualElement::getAbstraction()
+::ecorecpp::mapping::EList<
+        ::kdm::conceptual::AbstractConceptualRelationship_ptr >& AbstractConceptualElement::getConceptualRelation()
+{
+    return *m_conceptualRelation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractConceptualElement::getAbstraction() const
+{
+    return *m_abstraction;
+}
+
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractConceptualElement::getAbstraction()
 {
     return *m_abstraction;
 }

@@ -2,6 +2,7 @@
 /*
  * kdm/structure_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,55 +44,51 @@ namespace kdm
 
 // AbstractStructureElement
         class AbstractStructureElement;
-        typedef AbstractStructureElement* AbstractStructureElement_ptr;
+        using AbstractStructureElement_ptr = ::ecore::Ptr<AbstractStructureElement>;
 
 // Subsystem
         class Subsystem;
-        typedef Subsystem* Subsystem_ptr;
+        using Subsystem_ptr = ::ecore::Ptr<Subsystem>;
 
 // Layer
         class Layer;
-        typedef Layer* Layer_ptr;
+        using Layer_ptr = ::ecore::Ptr<Layer>;
 
 // StructureModel
         class StructureModel;
-        typedef StructureModel* StructureModel_ptr;
+        using StructureModel_ptr = ::ecore::Ptr<StructureModel>;
 
 // Component
         class Component;
-        typedef Component* Component_ptr;
+        using Component_ptr = ::ecore::Ptr<Component>;
 
 // SoftwareSystem
         class SoftwareSystem;
-        typedef SoftwareSystem* SoftwareSystem_ptr;
+        using SoftwareSystem_ptr = ::ecore::Ptr<SoftwareSystem>;
 
 // AbstractStructureRelationship
         class AbstractStructureRelationship;
-        typedef AbstractStructureRelationship* AbstractStructureRelationship_ptr;
+        using AbstractStructureRelationship_ptr = ::ecore::Ptr<AbstractStructureRelationship>;
 
 // StructureRelationship
         class StructureRelationship;
-        typedef StructureRelationship* StructureRelationship_ptr;
+        using StructureRelationship_ptr = ::ecore::Ptr<StructureRelationship>;
 
 // ArchitectureView
         class ArchitectureView;
-        typedef ArchitectureView* ArchitectureView_ptr;
+        using ArchitectureView_ptr = ::ecore::Ptr<ArchitectureView>;
 
 // StructureElement
         class StructureElement;
-        typedef StructureElement* StructureElement_ptr;
+        using StructureElement_ptr = ::ecore::Ptr<StructureElement>;
+
+// EEnum
 
 // Package & Factory
         class StructureFactory;
-        typedef StructureFactory * StructureFactory_ptr;
+        using StructureFactory_ptr = ::ecore::Ptr<StructureFactory>;
         class StructurePackage;
-        typedef StructurePackage * StructurePackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using StructurePackage_ptr = ::ecore::Ptr<StructurePackage>;
 
     } // structure
 } // kdm

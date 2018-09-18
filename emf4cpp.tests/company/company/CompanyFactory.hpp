@@ -2,6 +2,7 @@
 /*
  * company/CompanyFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,10 +24,12 @@
 #include <ecore/EFactory.hpp>
 #include <company.hpp>
 
+#include <company/dllCompany.hpp>
+
 namespace company
 {
 
-    class CompanyFactory: public virtual ::ecore::EFactory
+    class EXPORT_COMPANY_DLL CompanyFactory : public virtual ::ecore::EFactory
     {
     public:
 
@@ -35,22 +38,58 @@ namespace company
         virtual Employee_ptr createEmployee();
         virtual Department_ptr createDepartment();
         virtual Company_ptr createCompany();
+        virtual PhonebookEntry_ptr createPhonebookEntry();
 
-        virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-        virtual ::ecore::EJavaObject createFromString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EString const& _literalValue);
-        virtual ::ecore::EString convertToString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EJavaObject const& _instanceValue);
+        virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+        virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+        virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
     protected:
 
-        static std::auto_ptr< CompanyFactory > s_instance;
+        static ::ecore::Ptr< CompanyFactory > s_holder;
 
         CompanyFactory();
 
     };
+
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline ::ecore::Ptr< T > create()
+    {
+        return ::ecore::Ptr< T >();
+    }
+
+    template< > inline Employee_ptr create< Employee >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
+        return packageFactory->createEmployee();
+    }
+
+    template< > inline Department_ptr create< Department >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
+        return packageFactory->createDepartment();
+    }
+
+    template< > inline Company_ptr create< Company >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
+        return packageFactory->createCompany();
+    }
+
+    template< > inline PhonebookEntry_ptr create< PhonebookEntry >()
+    {
+        auto eFactory = CompanyPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CompanyFactory* >(eFactory.get());
+        return packageFactory->createPhonebookEntry();
+    }
 
 } // company
 

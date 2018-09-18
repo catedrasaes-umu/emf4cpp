@@ -2,6 +2,7 @@
 /*
  * kdm/code/DerivedType.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DerivedType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -61,26 +67,31 @@ DerivedType::~DerivedType()
 {
     if (m_itemUnit)
     {
-        delete m_itemUnit;
+        m_itemUnit.reset();
     }
 }
 
-/*PROTECTED REGION ID(DerivedType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::code::ItemUnit_ptr DerivedType::getItemUnit()
+
+::kdm::code::ItemUnit_ptr DerivedType::getItemUnit() const
 {
     return m_itemUnit;
 }
 
 void DerivedType::setItemUnit(::kdm::code::ItemUnit_ptr _itemUnit)
 {
-    ::kdm::code::ItemUnit_ptr _old_itemUnit = m_itemUnit;
+    if (m_itemUnit)
+        m_itemUnit->_setEContainer(DerivedType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
+    if (_itemUnit)
+        _itemUnit->_setEContainer(_this(),
+                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::kdm::code::ItemUnit_ptr _old_itemUnit = m_itemUnit;
+#endif
     m_itemUnit = _itemUnit;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -88,15 +99,13 @@ void DerivedType::setItemUnit(::kdm::code::ItemUnit_ptr _itemUnit)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDerivedType__itemUnit(),
                 _old_itemUnit,
                 m_itemUnit
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_itemUnit;
 }
 

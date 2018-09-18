@@ -2,6 +2,7 @@
 /*
  * kdm/code/CodeRelationship.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -34,6 +35,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(CodeRelationship.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -55,22 +61,20 @@ CodeRelationship::~CodeRelationship()
 {
 }
 
-/*PROTECTED REGION ID(CodeRelationship.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::core::KDMEntity_ptr CodeRelationship::getTo()
+
+::kdm::core::KDMEntity_ptr CodeRelationship::getTo() const
 {
     return m_to;
 }
 
 void CodeRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::KDMEntity_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,26 +82,26 @@ void CodeRelationship::setTo(::kdm::core::KDMEntity_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getCodeRelationship__to(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getCodeRelationship__to(),
                 _old_to,
                 m_to
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::kdm::code::CodeItem_ptr CodeRelationship::getFrom()
+::kdm::code::CodeItem_ptr CodeRelationship::getFrom() const
 {
     return m_from;
 }
 
 void CodeRelationship::setFrom(::kdm::code::CodeItem_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::CodeItem_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -105,14 +109,13 @@ void CodeRelationship::setFrom(::kdm::code::CodeItem_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getCodeRelationship__from(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getCodeRelationship__from(),
                 _old_from,
                 m_from
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

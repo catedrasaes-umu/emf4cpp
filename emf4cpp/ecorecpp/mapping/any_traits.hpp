@@ -2,6 +2,7 @@
 /*
  * mapping/any_traits.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,7 +21,9 @@
 #ifndef ECORECPP_MAPPING_ANYTRAITS_HPP
 #define    ECORECPP_MAPPING_ANYTRAITS_HPP
 
-#include "type_traits.hpp"
+#include <type_traits>
+#include <typeinfo>
+#include "type_definitions.hpp"
 
 namespace ecorecpp
 {
@@ -32,30 +35,45 @@ struct any_traits
 {
     static inline void fromAny(const any& _any, T& _t)
     {
-        _t = any::any_cast< T >(_any);
+        _t = fromAnyHelper<T>(_any);
+	}
+
+	static inline void toAny(any& _any, const T& _t)
+    {
+		_any = toAnyHelper<T>(_t);
     }
 
-    static inline void toAny(any& _any, const T& _t)
-    {
-        _any = _t;
-    }
-};
+	/* The function templates toAnyHelper()/fromAnyHelper() use the SFINAE ('Substitution
+	 * failure is not an arror') technique to offer a special treatment
+	 * for c++ enums.
+	 */
+	template <class U>
+	static inline
+	auto toAnyHelper(const U& _t)
+		-> typename std::enable_if<std::is_enum<U>::value, int>::type {
+		return static_cast<int>(_t);
+	}
 
-template< >
-struct any_traits< type_traits::string_t >
-{
-    static inline void fromAny(const any& _any, type_traits::string_t& _t)
-    {
-        if (_any.type() == type_id<const type_traits::string_t*>::id())
-            _t = *any::any_cast< const type_traits::string_t* >(_any);
-        else if (_any.type() == type_id<type_traits::string_t*>::id())
-            _t = *any::any_cast< type_traits::string_t* >(_any);
-    }
+	template <class U>
+	static inline
+	auto toAnyHelper(const U& _t)
+		-> typename std::enable_if<!std::is_enum<U>::value, U>::type {
+		return _t;
+	}
 
-    static inline void toAny(any& _any, const type_traits::string_t& _t)
-    {
-        _any = &_t;
-    }
+	template <class U>
+	static inline
+	auto fromAnyHelper(const any& _any)
+		-> typename std::enable_if<std::is_enum<U>::value, U>::type {
+		return static_cast<U>(any::any_cast<int>(_any));
+	}
+
+	template <class U>
+	static inline
+	auto fromAnyHelper(const any& _any)
+		-> typename std::enable_if<!std::is_enum<U>::value, U>::type {
+		return any::any_cast<U>(_any);
+	}
 };
 
 } // mapping

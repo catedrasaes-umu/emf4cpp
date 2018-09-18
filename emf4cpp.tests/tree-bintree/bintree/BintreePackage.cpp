@@ -2,6 +2,7 @@
 /*
  * bintree/BintreePackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::bintree;
 
-std::auto_ptr< ::bintree::BintreePackage > BintreePackage::s_instance;
+::ecore::Ptr< ::bintree::BintreePackage > BintreePackage::s_instance;
 
 ::bintree::BintreePackage_ptr BintreePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new BintreePackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< BintreePackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < BintreePackage > (new BintreePackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::bintree::BintreePackage_ptr BintreePackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

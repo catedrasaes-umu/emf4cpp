@@ -2,6 +2,7 @@
 /*
  * kdm/data/AbstractDataElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,6 +39,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractDataElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -46,15 +52,17 @@ AbstractDataElement::AbstractDataElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getAbstractDataElement__source()));
     m_dataRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractDataRelationship, -1, true, false >(
-                    this, NULL));
+                    ::kdm::data::AbstractDataRelationship_ptr, -1, true, false >(
+                    this,
+                    ::kdm::data::DataPackage::_instance()->getAbstractDataElement__dataRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getAbstractDataElement__abstraction()));
 
     /*PROTECTED REGION ID(AbstractDataElementImpl__AbstractDataElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -70,24 +78,36 @@ AbstractDataElement::~AbstractDataElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractDataElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractDataElement::getSource()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractDataElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship >& AbstractDataElement::getDataRelation()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractDataElement::getSource()
+{
+    return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship_ptr >& AbstractDataElement::getDataRelation() const
 {
     return *m_dataRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractDataElement::getAbstraction()
+::ecorecpp::mapping::EList< ::kdm::data::AbstractDataRelationship_ptr >& AbstractDataElement::getDataRelation()
+{
+    return *m_dataRelation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractDataElement::getAbstraction() const
+{
+    return *m_abstraction;
+}
+
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractDataElement::getAbstraction()
 {
     return *m_abstraction;
 }

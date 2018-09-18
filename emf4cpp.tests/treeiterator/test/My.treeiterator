@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treeiterator:TreeNode xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:treeiterator="http://inchron.com/tests/treeiterator" name="root_node">
+  <children name="level1_node1"/>
+  <children name="level1_node2">
+    <children name="level2_node1"/>
+    <children name="level2_node2">
+      <children name="level3_node1"/>
+      <children name="level3_node2">
+        <leaf name="Leaf_level3_node2"/>
+      </children>
+      <children name="level3_node3"/>
+    </children>
+  </children>
+  <children name="level1_node3">
+    <leaf name="Leaf_level1_node3"/>
+  </children>
+</treeiterator:TreeNode>

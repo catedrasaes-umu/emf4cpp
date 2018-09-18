@@ -2,6 +2,7 @@
 /*
  * SVG/Svg.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Svg.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -44,11 +50,15 @@ Svg::Svg()
 {
 
     m_owner_SVG.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile, -1,
-                    false, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile_ptr, -1,
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getSvg__owner_SVG(),
+                    ::SVG::SVGPackage::SVGFILE__TAG));
     m_children.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    true, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
+                    true, true >(this,
+                    ::SVG::SVGPackage::_instance()->getSvg__children(),
+                    ::SVG::SVGPackage::ELEMENT__ROOT));
 
     /*PROTECTED REGION ID(SvgImpl__SvgImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,12 +74,8 @@ Svg::~Svg()
 {
 }
 
-/*PROTECTED REGION ID(Svg.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::String Svg::getNamespace() const
 {
     return m_namespace;
@@ -86,8 +92,8 @@ void Svg::setNamespace(::PrimitiveTypes::String _namespace)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvg__namespace(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvg__namespace(),
                 _old_namespace,
                 m_namespace
         );
@@ -112,8 +118,8 @@ void Svg::setVersion(::PrimitiveTypes::String _version)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvg__version(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvg__version(),
                 _old_version,
                 m_version
         );
@@ -138,8 +144,8 @@ void Svg::setBaseProfile(::PrimitiveTypes::String _baseProfile)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvg__baseProfile(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvg__baseProfile(),
                 _old_baseProfile,
                 m_baseProfile
         );
@@ -149,12 +155,23 @@ void Svg::setBaseProfile(::PrimitiveTypes::String _baseProfile)
 }
 
 // References
-::ecorecpp::mapping::EList< ::SVG::SvgFile >& Svg::getOwner_SVG()
+
+const ::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& Svg::getOwner_SVG() const
 {
     return *m_owner_SVG;
 }
 
-::ecorecpp::mapping::EList< ::SVG::Element >& Svg::getChildren()
+::ecorecpp::mapping::EList< ::SVG::SvgFile_ptr >& Svg::getOwner_SVG()
+{
+    return *m_owner_SVG;
+}
+
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Svg::getChildren() const
+{
+    return *m_children;
+}
+
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Svg::getChildren()
 {
     return *m_children;
 }

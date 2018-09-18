@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ChainExpressionImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,30 +28,26 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::expression;
-
 /*PROTECTED REGION ID(ChainExpressionImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::expression;
 
 void ChainExpression::_initialize()
 {
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_first)
     {
         m_first->_initialize();
-        m_first->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__first());
     }
     if (m_next)
     {
         m_next->_initialize();
-        m_next->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getChainExpression__next());
     }
 
     /*PROTECTED REGION ID(ChainExpressionImpl__initialize) START*/
@@ -92,12 +89,14 @@ void ChainExpression::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
     {
-        _any = static_cast< ::ecore::EObject* >(m_first);
+        if (m_first)
+            _any = ::ecore::as < ::ecore::EObject > (m_first);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_next);
+        if (m_next)
+            _any = ::ecore::as < ::ecore::EObject > (m_next);
     }
         return _any;
 
@@ -112,26 +111,34 @@ void ChainExpression::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
@@ -139,7 +146,7 @@ void ChainExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::ChainExpression::setFirst(_t1);
     }
         return;
@@ -148,7 +155,7 @@ void ChainExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::ChainExpression::setNext(_t1);
     }
         return;
@@ -173,9 +180,9 @@ void ChainExpression::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
-        return m_first;
+        return (bool) m_first;
     case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT:
-        return m_next;
+        return (bool) m_next;
 
     }
     throw "Error";
@@ -193,7 +200,47 @@ void ChainExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ChainExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getChainExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getChainExpression();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void ChainExpression::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void ChainExpression::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

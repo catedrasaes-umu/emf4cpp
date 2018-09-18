@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/CollectionExpression.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(CollectionExpression.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -51,22 +57,19 @@ CollectionExpression::~CollectionExpression()
 {
     if (m_closure)
     {
-        delete m_closure;
+        m_closure.reset();
     }
     if (m_eleName)
     {
-        delete m_eleName;
+        m_eleName.reset();
     }
 }
 
-/*PROTECTED REGION ID(CollectionExpression.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr CollectionExpression::getClosure()
+
+::xpand3::expression::AbstractExpression_ptr CollectionExpression::getClosure() const
 {
     return m_closure;
 }
@@ -74,8 +77,16 @@ CollectionExpression::~CollectionExpression()
 void CollectionExpression::setClosure(
         ::xpand3::expression::AbstractExpression_ptr _closure)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_closure = m_closure;
+    if (m_closure)
+        m_closure->_setEContainer(CollectionExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
+    if (_closure)
+        _closure->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_closure = m_closure;
+#endif
     m_closure = _closure;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -83,27 +94,33 @@ void CollectionExpression::setClosure(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure(),
                 _old_closure,
                 m_closure
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_closure;
 }
 
-::xpand3::Identifier_ptr CollectionExpression::getEleName()
+::xpand3::Identifier_ptr CollectionExpression::getEleName() const
 {
     return m_eleName;
 }
 
 void CollectionExpression::setEleName(::xpand3::Identifier_ptr _eleName)
 {
-    ::xpand3::Identifier_ptr _old_eleName = m_eleName;
+    if (m_eleName)
+        m_eleName->_setEContainer(CollectionExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
+    if (_eleName)
+        _eleName->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_eleName = m_eleName;
+#endif
     m_eleName = _eleName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -111,15 +128,13 @@ void CollectionExpression::setEleName(::xpand3::Identifier_ptr _eleName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName(),
                 _old_eleName,
                 m_eleName
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_eleName;
 }
 

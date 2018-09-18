@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/StatementPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::xpand3::statement;
 
-std::auto_ptr< ::xpand3::statement::StatementPackage > StatementPackage::s_instance;
+::ecore::Ptr< ::xpand3::statement::StatementPackage > StatementPackage::s_instance;
 
 ::xpand3::statement::StatementPackage_ptr StatementPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new StatementPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< StatementPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < StatementPackage > (new StatementPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::xpand3::statement::StatementPackage_ptr StatementPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

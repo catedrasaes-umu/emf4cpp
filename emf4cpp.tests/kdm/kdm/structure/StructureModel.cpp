@@ -2,6 +2,7 @@
 /*
  * kdm/structure/StructureModel.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(StructureModel.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::structure;
 
 // Default constructor
@@ -43,8 +49,9 @@ StructureModel::StructureModel()
 
     m_structureElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::structure::AbstractStructureElement, -1, true, false >(
-                    this, NULL));
+                    ::kdm::structure::AbstractStructureElement_ptr, -1, true,
+                    false >(this,
+                    ::kdm::structure::StructurePackage::_instance()->getStructureModel__structureElement()));
 
     /*PROTECTED REGION ID(StructureModelImpl__StructureModelImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,14 +67,16 @@ StructureModel::~StructureModel()
 {
 }
 
-/*PROTECTED REGION ID(StructureModel.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& StructureModel::getStructureElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& StructureModel::getStructureElement() const
+{
+    return *m_structureElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& StructureModel::getStructureElement()
 {
     return *m_structureElement;
 }

@@ -2,6 +2,7 @@
 /*
  * myDsl/EntityImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,24 +30,22 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::myDsl;
-
 /*PROTECTED REGION ID(EntityImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::myDsl;
 
 void Entity::_initialize()
 {
     // Supertypes
     ::myDsl::Type::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_properties->size(); i++)
     {
         (*m_properties)[i]->_initialize();
-        (*m_properties)[i]->_setEContainer(this,
-                ::myDsl::MyDslPackage::_instance()->getEntity__properties());
     }
 
     /*PROTECTED REGION ID(EntityImpl__initialize) START*/
@@ -72,12 +71,13 @@ void Entity::_initialize()
         return _any;
     case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
     {
-        _any = static_cast< ::ecore::EObject* >(m_extends);
+        if (m_extends)
+            _any = ::ecore::as < ::ecore::EObject > (m_extends);
     }
         return _any;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
     {
-        _any = m_properties->asEListOf< ::ecore::EObject >();
+        _any = m_properties->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -92,22 +92,25 @@ void Entity::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::TYPE__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::myDsl::Type::setName(_t0);
     }
         return;
     case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::myDsl::Entity_ptr _t1 = dynamic_cast< ::myDsl::Entity_ptr >(_t0);
+        ::myDsl::Entity_ptr _t1 = dynamic_cast< ::myDsl::Entity* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::myDsl::Entity >(_t0);*/
         ::myDsl::Entity::setExtends(_t1);
     }
         return;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::myDsl::Entity::getProperties().clear();
         ::myDsl::Entity::getProperties().insert_all(*_t0);
     }
@@ -125,7 +128,7 @@ void Entity::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
     case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
-        return m_extends;
+        return (bool) m_extends;
     case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
         return m_properties && m_properties->size();
 
@@ -145,7 +148,47 @@ void Entity::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Entity::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getEntity();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getEntity();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Entity::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
+    {
+    }
+        return;
+    case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Entity::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::myDsl::MyDslPackage::ENTITY__EXTENDS:
+    {
+    }
+        return;
+    case ::myDsl::MyDslPackage::ENTITY__PROPERTIES:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

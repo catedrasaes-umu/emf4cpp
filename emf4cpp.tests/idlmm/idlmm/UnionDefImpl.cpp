@@ -2,6 +2,7 @@
 /*
  * idlmm/UnionDefImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,30 +31,26 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::idlmm;
-
 /*PROTECTED REGION ID(UnionDefImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::idlmm;
 
 void UnionDef::_initialize()
 {
     // Supertypes
     ::idlmm::TypedefDef::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_unionMembers->size(); i++)
     {
         (*m_unionMembers)[i]->_initialize();
-        (*m_unionMembers)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getUnionDef__unionMembers());
     }
     if (m_containedDiscrim)
     {
         m_containedDiscrim->_initialize();
-        m_containedDiscrim->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getUnionDef__containedDiscrim());
     }
 
     /*PROTECTED REGION ID(UnionDefImpl__initialize) START*/
@@ -103,22 +100,25 @@ void UnionDef::_initialize()
         return _any;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
-        _any = static_cast< ::ecore::EObject* >(m_definedIn);
+        if (m_definedIn)
+            _any = ::ecore::as < ::ecore::EObject > (m_definedIn);
     }
         return _any;
     case ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS:
     {
-        _any = m_unionMembers->asEListOf< ::ecore::EObject >();
+        _any = m_unionMembers->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::UNIONDEF__CONTAINEDDISCRIM:
     {
-        _any = static_cast< ::ecore::EObject* >(m_containedDiscrim);
+        if (m_containedDiscrim)
+            _any = ::ecore::as < ::ecore::EObject > (m_containedDiscrim);
     }
         return _any;
     case ::idlmm::IdlmmPackage::UNIONDEF__SHAREDDISCRIM:
     {
-        _any = static_cast< ::ecore::EObject* >(m_sharedDiscrim);
+        if (m_sharedDiscrim)
+            _any = ::ecore::as < ::ecore::EObject > (m_sharedDiscrim);
     }
         return _any;
 
@@ -133,46 +133,58 @@ void UnionDef::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
+        ::idlmm::ETypeCode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
-                > ::fromAny(_newValue, m_typeCode);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::IDLType::setTypeCode(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__IDENTIFIER:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setIdentifier(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__REPOSITORYID:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_repositoryId);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setRepositoryId(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__VERSION:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_version);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setVersion(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__ABSOLUTENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_absoluteName);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::Contained::setAbsoluteName(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::Container_ptr _t1 = dynamic_cast< ::idlmm::Container_ptr >(_t0);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::Container >(_t0);*/
         ::idlmm::Contained::setDefinedIn(_t1);
     }
         return;
     case ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::idlmm::UnionDef::getUnionMembers().clear();
         ::idlmm::UnionDef::getUnionMembers().insert_all(*_t0);
     }
@@ -181,7 +193,7 @@ void UnionDef::eSet(::ecore::EInt _featureID,
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType_ptr >(_t0);
+        ::idlmm::IDLType_ptr _t1 = dynamic_cast< ::idlmm::IDLType* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::IDLType >(_t0);*/
         ::idlmm::UnionDef::setContainedDiscrim(_t1);
     }
         return;
@@ -190,7 +202,7 @@ void UnionDef::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::idlmm::TypedefDef_ptr _t1 =
-                dynamic_cast< ::idlmm::TypedefDef_ptr >(_t0);
+                dynamic_cast< ::idlmm::TypedefDef* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::idlmm::TypedefDef >(_t0);*/
         ::idlmm::UnionDef::setSharedDiscrim(_t1);
     }
         return;
@@ -219,13 +231,13 @@ void UnionDef::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_absoluteName);
     case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
-        return m_definedIn;
+        return (bool) m_definedIn;
     case ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS:
         return m_unionMembers && m_unionMembers->size();
     case ::idlmm::IdlmmPackage::UNIONDEF__CONTAINEDDISCRIM:
-        return m_containedDiscrim;
+        return (bool) m_containedDiscrim;
     case ::idlmm::IdlmmPackage::UNIONDEF__SHAREDDISCRIM:
-        return m_sharedDiscrim;
+        return (bool) m_sharedDiscrim;
 
     }
     throw "Error";
@@ -243,7 +255,78 @@ void UnionDef::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr UnionDef::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getUnionDef();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getUnionDef();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void UnionDef::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get());
+
+        // set reference
+        basicsetDefinedIn(_t1);
+    }
+        return;
+    case ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::UNIONDEF__CONTAINEDDISCRIM:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::UNIONDEF__SHAREDDISCRIM:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void UnionDef::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::idlmm::Container_ptr _t1 =
+                dynamic_cast< ::idlmm::Container* >(_t0.get());
+
+        // set reference
+        if (basicgetDefinedIn() == _t1)
+            basicsetDefinedIn(nullptr);
+    }
+        return;
+    case ::idlmm::IdlmmPackage::UNIONDEF__UNIONMEMBERS:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::UNIONDEF__CONTAINEDDISCRIM:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::UNIONDEF__SHAREDDISCRIM:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

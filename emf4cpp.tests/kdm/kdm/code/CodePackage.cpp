@@ -2,6 +2,7 @@
 /*
  * kdm/code/CodePackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::kdm::code;
 
-std::auto_ptr< ::kdm::code::CodePackage > CodePackage::s_instance;
+::ecore::Ptr< ::kdm::code::CodePackage > CodePackage::s_instance;
 
 ::kdm::code::CodePackage_ptr CodePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new CodePackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< CodePackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < CodePackage > (new CodePackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::kdm::code::CodePackage_ptr CodePackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

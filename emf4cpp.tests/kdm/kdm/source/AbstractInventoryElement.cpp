@@ -2,6 +2,7 @@
 /*
  * kdm/source/AbstractInventoryElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractInventoryElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::source;
 
 // Default constructor
@@ -44,8 +50,9 @@ AbstractInventoryElement::AbstractInventoryElement()
 
     m_inventoryRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::AbstractInventoryRelationship, -1, true,
-                    false >(this, NULL));
+                    ::kdm::source::AbstractInventoryRelationship_ptr, -1, true,
+                    false >(this,
+                    ::kdm::source::SourcePackage::_instance()->getAbstractInventoryElement__inventoryRelation()));
 
     /*PROTECTED REGION ID(AbstractInventoryElementImpl__AbstractInventoryElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,14 +68,17 @@ AbstractInventoryElement::~AbstractInventoryElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractInventoryElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship >& AbstractInventoryElement::getInventoryRelation()
+
+const ::ecorecpp::mapping::EList<
+        ::kdm::source::AbstractInventoryRelationship_ptr >& AbstractInventoryElement::getInventoryRelation() const
+{
+    return *m_inventoryRelation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::source::AbstractInventoryRelationship_ptr >& AbstractInventoryElement::getInventoryRelation()
 {
     return *m_inventoryRelation;
 }

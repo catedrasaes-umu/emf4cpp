@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildResource.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(BuildResource.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -44,16 +50,19 @@ BuildResource::BuildResource()
 {
 
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::core::KDMEntity_ptr, -1, false, false >(this,
+                    ::kdm::build::BuildPackage::_instance()->getBuildResource__implementation()));
     m_groupedBuild.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::build::AbstractBuildElement_ptr, -1, false, false >(
+                    this,
+                    ::kdm::build::BuildPackage::_instance()->getBuildResource__groupedBuild()));
     m_buildElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::build::AbstractBuildElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::build::BuildPackage::_instance()->getBuildResource__buildElement()));
 
     /*PROTECTED REGION ID(BuildResourceImpl__BuildResourceImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -69,24 +78,36 @@ BuildResource::~BuildResource()
 {
 }
 
-/*PROTECTED REGION ID(BuildResource.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& BuildResource::getImplementation()
+
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& BuildResource::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getGroupedBuild()
+::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& BuildResource::getImplementation()
+{
+    return *m_implementation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getGroupedBuild() const
 {
     return *m_groupedBuild;
 }
 
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildResource::getBuildElement()
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getGroupedBuild()
+{
+    return *m_groupedBuild;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getBuildElement() const
+{
+    return *m_buildElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildResource::getBuildElement()
 {
     return *m_buildElement;
 }

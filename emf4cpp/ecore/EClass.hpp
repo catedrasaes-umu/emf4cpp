@@ -2,6 +2,7 @@
 /*
  * ecore/EClass.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,15 +21,16 @@
 #ifndef ECORE_ECLASS_HPP
 #define ECORE_ECLASS_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/EClassifier.hpp>
 
 /*PROTECTED REGION ID(EClass_pre) ENABLED START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
-
 #ifdef ECORECPP_USE_UNORDERED_MAP
 #ifdef  __GNUG__
 #include <tr1/unordered_map>
@@ -44,166 +46,159 @@
 namespace ecore
 {
 
-    class EClass: public virtual ::ecore::EClassifier
-    {
-    public:
-        EClass();
+class EXPORT_ECORE_DLL EClass : public virtual ::ecore::EClassifier
+{
+public:
+    EClass();
 
-        virtual ~EClass();
+    virtual ~EClass();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        virtual ::ecore::EBoolean isSuperTypeOf(::ecore::EClass_ptr _someClass);
+    virtual ::ecore::EBoolean isSuperTypeOf ( ::ecore::EClass_ptr _someClass);
 
-        virtual ::ecore::EInt getFeatureCount();
+    virtual ::ecore::EInt getFeatureCount ();
 
-        virtual ::ecore::EStructuralFeature_ptr getEStructuralFeature(
-                ::ecore::EInt _featureID);
+    virtual ::ecore::EStructuralFeature_ptr getEStructuralFeature ( ::ecore::EInt _featureID);
 
-        virtual ::ecore::EInt getFeatureID(
-                ::ecore::EStructuralFeature_ptr _feature);
+    virtual ::ecore::EInt getFeatureID ( ::ecore::EStructuralFeature_ptr _feature);
 
-        virtual ::ecore::EStructuralFeature_ptr getEStructuralFeature(
-                ::ecore::EString const& _featureName);
+    virtual ::ecore::EStructuralFeature_ptr getEStructuralFeature ( ::ecore::EString const& _featureName);
 
-        virtual ::ecore::EInt getOperationCount();
+    virtual ::ecore::EInt getOperationCount ();
 
-        virtual ::ecore::EOperation_ptr getEOperation(
-                ::ecore::EInt _operationID);
+    virtual ::ecore::EOperation_ptr getEOperation ( ::ecore::EInt _operationID);
 
-        virtual ::ecore::EInt
-                getOperationID(::ecore::EOperation_ptr _operation);
+    virtual ::ecore::EInt getOperationID ( ::ecore::EOperation_ptr _operation);
 
-        virtual ::ecore::EOperation_ptr getOverride(
-                ::ecore::EOperation_ptr _operation);
+    virtual ::ecore::EOperation_ptr getOverride ( ::ecore::EOperation_ptr _operation);
 
-        // Attributes
-        ::ecore::EBoolean isAbstract() const;
-        void setAbstract(::ecore::EBoolean _abstract);
+    // Attributes
+    virtual ::ecore::EBoolean isAbstract () const;
+    virtual void setAbstract (::ecore::EBoolean _abstract);
 
-        ::ecore::EBoolean isInterface() const;
-        void setInterface(::ecore::EBoolean _interface);
+    virtual ::ecore::EBoolean isInterface () const;
+    virtual void setInterface (::ecore::EBoolean _interface);
 
-        // References
-        ::ecorecpp::mapping::EList< ::ecore::EClass >& getESuperTypes();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& getESuperTypes () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& getESuperTypes ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EOperation >& getEOperations();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& getEOperations () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& getEOperations ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEAllAttributes();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEAllAttributes () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEAllAttributes ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EReference >& getEAllReferences();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& getEAllReferences () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& getEAllReferences ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EReference >& getEReferences();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& getEReferences () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& getEReferences ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEAttributes();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEAttributes () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEAttributes ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EReference >
-                & getEAllContainments();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& getEAllContainments () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& getEAllContainments ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EOperation >& getEAllOperations();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& getEAllOperations () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& getEAllOperations ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >
-                & getEAllStructuralFeatures();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& getEAllStructuralFeatures () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& getEAllStructuralFeatures ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EClass >& getEAllSuperTypes();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& getEAllSuperTypes () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& getEAllSuperTypes ();
 
-        ::ecore::EAttribute_ptr getEIDAttribute();
-        void setEIDAttribute(::ecore::EAttribute_ptr _eIDAttribute);
+    virtual ::ecore::EAttribute_ptr getEIDAttribute () const;
+    virtual void setEIDAttribute (::ecore::EAttribute_ptr _eIDAttribute);
 
-        ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >
-                & getEStructuralFeatures();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& getEStructuralFeatures () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& getEStructuralFeatures ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >
-                & getEGenericSuperTypes();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEGenericSuperTypes () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEGenericSuperTypes ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >
-                & getEAllGenericSuperTypes();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEAllGenericSuperTypes () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEAllGenericSuperTypes ();
 
-        /*PROTECTED REGION ID(EClass) ENABLED START*/
+    /*PROTECTED REGION ID(EClass) ENABLED START*/
 
-    protected:
+protected:
 
 #ifdef ECORECPP_USE_UNORDERED_MAP
-        typedef std::tr1::unordered_map < ::ecore::EString, ::ecore::EStructuralFeature_ptr > EStructuralFeatureMap;
+    typedef std::tr1::unordered_map < ::ecore::EString, ::ecore::EStructuralFeature_ptr > EStructuralFeatureMap;
 #else
-        typedef std::map< ::ecore::EString, ::ecore::EStructuralFeature_ptr >
-                EStructuralFeatureMap;
+    typedef std::map< ::ecore::EString, ::ecore::EStructuralFeature_ptr > EStructuralFeatureMap;
 #endif
 
-        EStructuralFeatureMap m_eAllStructuralFeaturesMap;
+    EStructuralFeatureMap m_eAllStructuralFeaturesMap;
 
-        void _init_collections();
+    void _init_collections();
+public:
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(EClassImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(EClassImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+protected:
+    EClass_ptr _this()
+    {   return EClass_ptr(this);}
 
-    protected:
-        // Attributes
+    // Attributes
 
-        ::ecore::EBoolean m_abstract;
+    ::ecore::EBoolean m_abstract;
 
-        ::ecore::EBoolean m_interface;
+    ::ecore::EBoolean m_interface;
 
-        // References
+    // References
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EClass > > m_eSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClass_ptr >> m_eSuperTypes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EOperation > > m_eOperations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >> m_eOperations;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EAttribute > > m_eAllAttributes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >> m_eAllAttributes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EReference > > m_eAllReferences;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EReference_ptr >> m_eAllReferences;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EReference > > m_eReferences;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EReference_ptr >> m_eReferences;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EAttribute > > m_eAttributes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >> m_eAttributes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EReference > > m_eAllContainments;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EReference_ptr >> m_eAllContainments;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EOperation > > m_eAllOperations;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >> m_eAllOperations;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EStructuralFeature > > m_eAllStructuralFeatures;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >> m_eAllStructuralFeatures;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EClass > > m_eAllSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClass_ptr >> m_eAllSuperTypes;
 
-        ::ecore::EAttribute_ptr m_eIDAttribute;
+    ::ecore::EAttribute_ptr m_eIDAttribute;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EStructuralFeature > > m_eStructuralFeatures;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >> m_eStructuralFeatures;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eGenericSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >> m_eGenericSuperTypes;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eAllGenericSuperTypes;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >> m_eAllGenericSuperTypes;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_ECLASS_HPP
+

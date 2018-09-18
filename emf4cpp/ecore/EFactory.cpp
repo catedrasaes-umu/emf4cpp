@@ -2,6 +2,7 @@
 /*
  * ecore/EFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -33,16 +34,21 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EFactory.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EFactory::EFactory() :
-    m_ePackage(0)
+        m_ePackage(0)
 {
 
     /*PROTECTED REGION ID(EFactoryImpl__EFactoryImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -54,23 +60,25 @@ EFactory::~EFactory()
 {
 }
 
-/*PROTECTED REGION ID(EFactory.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
 
 // References
-::ecore::EPackage_ptr EFactory::getEPackage()
+
+::ecore::EPackage_ptr EFactory::getEPackage() const
 {
     return m_ePackage;
 }
 
-void EFactory::setEPackage(::ecore::EPackage_ptr _ePackage)
+::ecore::EPackage_ptr EFactory::basicgetEPackage()
 {
-    ::ecore::EPackage_ptr _old_ePackage = m_ePackage;
+    return m_ePackage;
+}
 
+void EFactory::basicsetEPackage(::ecore::EPackage_ptr _ePackage)
+{
+#ifdef ECORECPP_NOTIFICATION_API
+    ::ecore::EPackage_ptr _old_ePackage = m_ePackage;
+#endif
     m_ePackage = _ePackage;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,14 +86,32 @@ void EFactory::setEPackage(::ecore::EPackage_ptr _ePackage)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEFactory__ePackage(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEFactory__ePackage(),
                 _old_ePackage,
                 m_ePackage
         );
         eNotify(&notification);
     }
 #endif
+}
 
+void EFactory::setEPackage(::ecore::EPackage_ptr _ePackage)
+{
+    if (_ePackage != m_ePackage)
+    {
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
+        if (m_ePackage != nullptr)
+        {
+            m_ePackage->_inverseRemove(
+                    ::ecore::EcorePackage::EPACKAGE__EFACTORYINSTANCE, _this);
+        }
+        if (_ePackage != nullptr)
+        {
+            _ePackage->_inverseAdd(
+                    ::ecore::EcorePackage::EPACKAGE__EFACTORYINSTANCE, _this);
+        }
+        basicsetEPackage(_ePackage);
+    }
 }
 

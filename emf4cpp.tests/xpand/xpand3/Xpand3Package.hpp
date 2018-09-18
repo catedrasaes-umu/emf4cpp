@@ -2,6 +2,7 @@
 /*
  * xpand3/Xpand3Package.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -22,177 +23,183 @@
 
 #include <ecore/EPackage.hpp>
 #include <xpand3_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
+
+#include <xpand3/dllXpand3.hpp>
 
 namespace xpand3
 {
 
-    class Xpand3Package: public virtual ::ecore::EPackage
-    {
-    public:
+class EXPORT_XPAND3_DLL Xpand3Package : public virtual ::ecore::EPackage
+{
+public:
 
-        static Xpand3Package_ptr _instance();
+    static Xpand3Package_ptr _instance();
+    static Xpand3Package_ptr _getInstanceAndRemoveOwnership();
 
-        // IDs for classifiers
+    // IDs for classifiers
 
-        static const int DECLAREDPARAMETER = 0;
+    static const int DECLAREDPARAMETER = 0;
 
-        static const int FILE = 1;
+    static const int FILE = 1;
 
-        static const int IDENTIFIER = 2;
+    static const int IDENTIFIER = 2;
 
-        static const int IMPORTSTATEMENT = 3;
+    static const int IMPORTSTATEMENT = 3;
 
-        static const int SYNTAXELEMENT = 4;
+    static const int SYNTAXELEMENT = 4;
 
-        static const int SYNTAXELEMENT__LINE = 0;
+    static const int SYNTAXELEMENT__LINE = 0;
 
-        static const int SYNTAXELEMENT__START = 1;
+    static const int SYNTAXELEMENT__START = 1;
 
-        static const int SYNTAXELEMENT__END = 2;
+    static const int SYNTAXELEMENT__END = 2;
 
-        static const int SYNTAXELEMENT__FILENAME = 3;
+    static const int SYNTAXELEMENT__FILENAME = 3;
 
-        static const int FILE__IMPORTS = 4;
+    static const int FILE__IMPORTS = 4;
 
-        static const int FILE__DECLARATIONS = 5;
+    static const int FILE__DECLARATIONS = 5;
 
-        static const int IMPORTSTATEMENT__IMPORTEDID = 6;
+    static const int IMPORTSTATEMENT__IMPORTEDID = 6;
 
-        static const int IMPORTSTATEMENT__EXPORTED = 7;
+    static const int IMPORTSTATEMENT__EXPORTED = 7;
 
-        static const int IDENTIFIER__VALUE = 8;
+    static const int IDENTIFIER__VALUE = 8;
 
-        static const int DECLAREDPARAMETER__NAME = 9;
+    static const int DECLAREDPARAMETER__NAME = 9;
 
-        static const int DECLAREDPARAMETER__TYPE = 10;
+    static const int DECLAREDPARAMETER__TYPE = 10;
 
-        // IDs for classifiers for class DeclaredParameter 
+    // IDs for classifiers for class DeclaredParameter 
 
-        static const int DECLAREDPARAMETER__LINE = SYNTAXELEMENT__LINE;
+    static const int DECLAREDPARAMETER__LINE = SYNTAXELEMENT__LINE;
 
-        static const int DECLAREDPARAMETER__START = SYNTAXELEMENT__START;
+    static const int DECLAREDPARAMETER__START = SYNTAXELEMENT__START;
 
-        static const int DECLAREDPARAMETER__END = SYNTAXELEMENT__END;
+    static const int DECLAREDPARAMETER__END = SYNTAXELEMENT__END;
 
-        static const int DECLAREDPARAMETER__FILENAME = SYNTAXELEMENT__FILENAME;
+    static const int DECLAREDPARAMETER__FILENAME = SYNTAXELEMENT__FILENAME;
 
-        // IDs for classifiers for class File 
+    // IDs for classifiers for class File 
 
-        static const int FILE__LINE = SYNTAXELEMENT__LINE;
+    static const int FILE__LINE = SYNTAXELEMENT__LINE;
 
-        static const int FILE__START = SYNTAXELEMENT__START;
+    static const int FILE__START = SYNTAXELEMENT__START;
 
-        static const int FILE__END = SYNTAXELEMENT__END;
+    static const int FILE__END = SYNTAXELEMENT__END;
 
-        static const int FILE__FILENAME = SYNTAXELEMENT__FILENAME;
+    static const int FILE__FILENAME = SYNTAXELEMENT__FILENAME;
 
-        // IDs for classifiers for class Identifier 
+    // IDs for classifiers for class Identifier 
 
-        static const int IDENTIFIER__LINE = SYNTAXELEMENT__LINE;
+    static const int IDENTIFIER__LINE = SYNTAXELEMENT__LINE;
 
-        static const int IDENTIFIER__START = SYNTAXELEMENT__START;
+    static const int IDENTIFIER__START = SYNTAXELEMENT__START;
 
-        static const int IDENTIFIER__END = SYNTAXELEMENT__END;
+    static const int IDENTIFIER__END = SYNTAXELEMENT__END;
 
-        static const int IDENTIFIER__FILENAME = SYNTAXELEMENT__FILENAME;
+    static const int IDENTIFIER__FILENAME = SYNTAXELEMENT__FILENAME;
 
-        // IDs for classifiers for class ImportStatement 
+    // IDs for classifiers for class ImportStatement 
 
-        static const int IMPORTSTATEMENT__LINE = SYNTAXELEMENT__LINE;
+    static const int IMPORTSTATEMENT__LINE = SYNTAXELEMENT__LINE;
 
-        static const int IMPORTSTATEMENT__START = SYNTAXELEMENT__START;
+    static const int IMPORTSTATEMENT__START = SYNTAXELEMENT__START;
 
-        static const int IMPORTSTATEMENT__END = SYNTAXELEMENT__END;
+    static const int IMPORTSTATEMENT__END = SYNTAXELEMENT__END;
 
-        static const int IMPORTSTATEMENT__FILENAME = SYNTAXELEMENT__FILENAME;
+    static const int IMPORTSTATEMENT__FILENAME = SYNTAXELEMENT__FILENAME;
 
-        // IDs for classifiers for class SyntaxElement 
+    // IDs for classifiers for class SyntaxElement 
 
-        // EClassifiers methods
+    // EClassifiers methods
 
-        virtual ::ecore::EClass_ptr getSyntaxElement();
+    virtual ::ecore::EClass_ptr getSyntaxElement();
 
-        virtual ::ecore::EClass_ptr getFile();
+    virtual ::ecore::EClass_ptr getFile();
 
-        virtual ::ecore::EClass_ptr getImportStatement();
+    virtual ::ecore::EClass_ptr getImportStatement();
 
-        virtual ::ecore::EClass_ptr getIdentifier();
+    virtual ::ecore::EClass_ptr getIdentifier();
 
-        virtual ::ecore::EClass_ptr getDeclaredParameter();
+    virtual ::ecore::EClass_ptr getDeclaredParameter();
 
-        // EStructuralFeatures methods
+    // EStructuralFeatures methods
 
-        virtual ::ecore::EAttribute_ptr getSyntaxElement__line();
+    virtual ::ecore::EAttribute_ptr getSyntaxElement__line();
 
-        virtual ::ecore::EAttribute_ptr getSyntaxElement__start();
+    virtual ::ecore::EAttribute_ptr getSyntaxElement__start();
 
-        virtual ::ecore::EAttribute_ptr getSyntaxElement__end();
+    virtual ::ecore::EAttribute_ptr getSyntaxElement__end();
 
-        virtual ::ecore::EAttribute_ptr getSyntaxElement__fileName();
+    virtual ::ecore::EAttribute_ptr getSyntaxElement__fileName();
 
-        virtual ::ecore::EReference_ptr getFile__imports();
+    virtual ::ecore::EReference_ptr getFile__imports();
 
-        virtual ::ecore::EReference_ptr getFile__declarations();
+    virtual ::ecore::EReference_ptr getFile__declarations();
 
-        virtual ::ecore::EReference_ptr getImportStatement__importedId();
+    virtual ::ecore::EReference_ptr getImportStatement__importedId();
 
-        virtual ::ecore::EAttribute_ptr getImportStatement__exported();
+    virtual ::ecore::EAttribute_ptr getImportStatement__exported();
 
-        virtual ::ecore::EAttribute_ptr getIdentifier__value();
+    virtual ::ecore::EAttribute_ptr getIdentifier__value();
 
-        virtual ::ecore::EReference_ptr getDeclaredParameter__name();
+    virtual ::ecore::EReference_ptr getDeclaredParameter__name();
 
-        virtual ::ecore::EReference_ptr getDeclaredParameter__type();
+    virtual ::ecore::EReference_ptr getDeclaredParameter__type();
 
-    protected:
+protected:
 
-        static std::auto_ptr< Xpand3Package > s_instance;
+    static ::ecore::Ptr< Xpand3Package > s_instance;
 
-        Xpand3Package();
+    Xpand3Package();
+    void _initPackage();
 
-        // EClass instances 
+    // EClass instances 
 
-        ::ecore::EClass_ptr m_SyntaxElementEClass;
+    ::ecore::EClass_ptr m_SyntaxElementEClass;
 
-        ::ecore::EClass_ptr m_FileEClass;
+    ::ecore::EClass_ptr m_FileEClass;
 
-        ::ecore::EClass_ptr m_ImportStatementEClass;
+    ::ecore::EClass_ptr m_ImportStatementEClass;
 
-        ::ecore::EClass_ptr m_IdentifierEClass;
+    ::ecore::EClass_ptr m_IdentifierEClass;
 
-        ::ecore::EClass_ptr m_DeclaredParameterEClass;
+    ::ecore::EClass_ptr m_DeclaredParameterEClass;
 
-        // EEnuminstances 
+    // EEnuminstances 
 
-        // EDataType instances 
+    // EDataType instances 
 
-        // EStructuralFeatures instances
+    // EStructuralFeatures instances
 
-        ::ecore::EAttribute_ptr m_SyntaxElement__line;
+    ::ecore::EAttribute_ptr m_SyntaxElement__line;
 
-        ::ecore::EAttribute_ptr m_SyntaxElement__start;
+    ::ecore::EAttribute_ptr m_SyntaxElement__start;
 
-        ::ecore::EAttribute_ptr m_SyntaxElement__end;
+    ::ecore::EAttribute_ptr m_SyntaxElement__end;
 
-        ::ecore::EAttribute_ptr m_SyntaxElement__fileName;
+    ::ecore::EAttribute_ptr m_SyntaxElement__fileName;
 
-        ::ecore::EReference_ptr m_File__imports;
+    ::ecore::EReference_ptr m_File__imports;
 
-        ::ecore::EReference_ptr m_File__declarations;
+    ::ecore::EReference_ptr m_File__declarations;
 
-        ::ecore::EReference_ptr m_ImportStatement__importedId;
+    ::ecore::EReference_ptr m_ImportStatement__importedId;
 
-        ::ecore::EAttribute_ptr m_ImportStatement__exported;
+    ::ecore::EAttribute_ptr m_ImportStatement__exported;
 
-        ::ecore::EAttribute_ptr m_Identifier__value;
+    ::ecore::EAttribute_ptr m_Identifier__value;
 
-        ::ecore::EReference_ptr m_DeclaredParameter__name;
+    ::ecore::EReference_ptr m_DeclaredParameter__name;
 
-        ::ecore::EReference_ptr m_DeclaredParameter__type;
+    ::ecore::EReference_ptr m_DeclaredParameter__type;
 
-    };
+};
 
-} // xpand3
+}
+ // xpand3
 
 #endif // _XPAND3PACKAGE_HPP
 

@@ -27,5 +27,4 @@ foreach(cmake ${CMAKES})
   include(${cmake})
 endforeach(cmake)
 
-add_subdirectory(test)
 

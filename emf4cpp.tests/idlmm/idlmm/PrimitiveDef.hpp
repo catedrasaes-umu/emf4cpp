@@ -2,6 +2,7 @@
 /*
  * idlmm/PrimitiveDef.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,10 +21,15 @@
 #ifndef IDLMM_PRIMITIVEDEF_HPP
 #define IDLMM_PRIMITIVEDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
+
 #include <idlmm/IDLType.hpp>
+#include <idlmm/PrimitiveKind.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(PrimitiveDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -33,52 +39,60 @@
 namespace idlmm
 {
 
-    class PrimitiveDef: public virtual ::idlmm::IDLType
-    {
-    public:
-        PrimitiveDef();
+class EXPORT_IDLMM_DLL PrimitiveDef : public virtual ::idlmm::IDLType
+{
+public:
+    PrimitiveDef();
 
-        virtual ~PrimitiveDef();
+    virtual ~PrimitiveDef();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::idlmm::PrimitiveKind getKind() const;
-        void setKind(::idlmm::PrimitiveKind _kind);
+    // Attributes
+    virtual ::idlmm::PrimitiveKind getKind () const;
+    virtual void setKind (::idlmm::PrimitiveKind _kind);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(PrimitiveDef) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::PRIMITIVEDEF;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(PrimitiveDef) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(PrimitiveDefImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(PrimitiveDefImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::idlmm::PrimitiveKind m_kind;
+protected:
+    PrimitiveDef_ptr _this()
+    {   return PrimitiveDef_ptr(this);}
 
-        // References
+    // Attributes
 
-    };
+    ::idlmm::PrimitiveKind m_kind;
 
-} // idlmm
+    // References
+
+};
+
+}
+ // idlmm
 
 #endif // IDLMM_PRIMITIVEDEF_HPP
 

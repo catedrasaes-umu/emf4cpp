@@ -2,6 +2,7 @@
 /*
  * company/Department.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Department.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::company;
 
 // Default constructor
@@ -36,8 +42,9 @@ Department::Department() :
 {
 
     m_employees.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::company::Employee,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::company::Employee_ptr, -1, true, false >(this,
+                    ::company::CompanyPackage::_instance()->getDepartment__employees()));
 
     /*PROTECTED REGION ID(DepartmentImpl__DepartmentImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,12 +60,8 @@ Department::~Department()
 {
 }
 
-/*PROTECTED REGION ID(Department.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EInt Department::getNumber() const
 {
     return m_number;
@@ -75,8 +78,8 @@ void Department::setNumber(::ecore::EInt _number)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getDepartment__number(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getDepartment__number(),
                 _old_number,
                 m_number
         );
@@ -86,20 +89,27 @@ void Department::setNumber(::ecore::EInt _number)
 }
 
 // References
-::ecorecpp::mapping::EList< ::company::Employee >& Department::getEmployees()
+
+const ::ecorecpp::mapping::EList< ::company::Employee_ptr >& Department::getEmployees() const
 {
     return *m_employees;
 }
 
-::company::Employee_ptr Department::getManager()
+::ecorecpp::mapping::EList< ::company::Employee_ptr >& Department::getEmployees()
+{
+    return *m_employees;
+}
+
+::company::Employee_ptr Department::getManager() const
 {
     return m_manager;
 }
 
 void Department::setManager(::company::Employee_ptr _manager)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::company::Employee_ptr _old_manager = m_manager;
-
+#endif
     m_manager = _manager;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -107,14 +117,13 @@ void Department::setManager(::company::Employee_ptr _manager)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getDepartment__manager(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getDepartment__manager(),
                 _old_manager,
                 m_manager
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

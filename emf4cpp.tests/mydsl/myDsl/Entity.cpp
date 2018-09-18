@@ -2,6 +2,7 @@
 /*
  * myDsl/Entity.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Entity.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::myDsl;
 
 // Default constructor
@@ -38,8 +44,9 @@ Entity::Entity() :
 {
 
     m_properties.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Property, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::myDsl::Property_ptr,
+                    -1, true, false >(this,
+                    ::myDsl::MyDslPackage::_instance()->getEntity__properties()));
 
     /*PROTECTED REGION ID(EntityImpl__EntityImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,22 +62,20 @@ Entity::~Entity()
 {
 }
 
-/*PROTECTED REGION ID(Entity.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::myDsl::Entity_ptr Entity::getExtends()
+
+::myDsl::Entity_ptr Entity::getExtends() const
 {
     return m_extends;
 }
 
 void Entity::setExtends(::myDsl::Entity_ptr _extends)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::myDsl::Entity_ptr _old_extends = m_extends;
-
+#endif
     m_extends = _extends;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,18 +83,22 @@ void Entity::setExtends(::myDsl::Entity_ptr _extends)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::myDsl::MyDslPackage::_instance()->getEntity__extends(),
+                _this(),
+                ::myDsl::MyDslPackage::_instance()->getEntity__extends(),
                 _old_extends,
                 m_extends
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::myDsl::Property >& Entity::getProperties()
+const ::ecorecpp::mapping::EList< ::myDsl::Property_ptr >& Entity::getProperties() const
+{
+    return *m_properties;
+}
+
+::ecorecpp::mapping::EList< ::myDsl::Property_ptr >& Entity::getProperties()
 {
     return *m_properties;
 }

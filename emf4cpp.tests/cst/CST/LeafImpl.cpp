@@ -2,6 +2,7 @@
 /*
  * CST/LeafImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,19 +28,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::CST;
-
 /*PROTECTED REGION ID(LeafImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::CST;
 
 void Leaf::_initialize()
 {
     // Supertypes
     ::CST::Element::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(LeafImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -89,26 +90,34 @@ void Leaf::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::CST::Element::setKind(_t0);
     }
         return;
     case ::CST::CSTPackage::LEAF__VALUE:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::CST::Leaf::setValue(_t0);
     }
         return;
     case ::CST::CSTPackage::LEAF__POS:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_pos);
+                > ::fromAny(_newValue, _t0);
+        ::CST::Leaf::setPos(_t0);
     }
         return;
     case ::CST::CSTPackage::LEAF__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::CST::Leaf::setLine(_t0);
     }
         return;
 
@@ -148,7 +157,31 @@ void Leaf::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Leaf::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getLeaf();
+            dynamic_cast< ::CST::CSTPackage* >(::CST::CSTPackage::_instance().get())->getLeaf();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Leaf::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Leaf::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

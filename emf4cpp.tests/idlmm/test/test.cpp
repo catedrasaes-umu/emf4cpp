@@ -7,7 +7,7 @@
 template<typename T>
 void print_container(T container, int level)
 {
-    typedef ::ecorecpp::mapping::EList< ::idlmm::Contained > containeds_t;
+    typedef ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr > containeds_t;
 
     std::string indent(level, '\t');
 
@@ -16,11 +16,11 @@ void print_container(T container, int level)
     for (size_t i = 0; i < contains.size(); i++)
     {
     	::idlmm::Contained_ptr contained = contains[i];
-    	::ecore::EObject_ptr eobj = ::ecore::instanceOf< ::ecore::EObject >(contained);
+    	::ecore::EObject_ptr eobj = ::ecore::as< ::ecore::EObject >(contained);
 
     	std::cout << indent << contained->getIdentifier() << "\t" << eobj->eClass()->getName() << std::endl;
 
-    	::idlmm::Container_ptr child = ::idlmm::instanceOf< ::idlmm::Container >(contained);
+    	::idlmm::Container_ptr child = ::ecore::as< ::idlmm::Container >(contained);
     	if (child)
             print_container(child, level+1);
     }
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 
         assert(_eobj);
 
-        ::idlmm::TranslationUnit_ptr _tu = ::idlmm::instanceOf<
+        ::idlmm::TranslationUnit_ptr _tu = ::ecore::as<
             ::idlmm::TranslationUnit >(_eobj);
 
         assert(_tu);

@@ -1,5 +1,6 @@
 #include <ecorecpp/mapping/out_ptr.hpp>
 #include <ecorecpp/mapping/any.hpp>
+#include <ecore/EObject.hpp>
 #include <iostream>
 
 using namespace ecorecpp::mapping;

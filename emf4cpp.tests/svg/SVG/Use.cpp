@@ -2,6 +2,7 @@
 /*
  * SVG/Use.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Use.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -44,8 +50,10 @@ Use::Use()
 {
 
     m_use.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    false, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getUse__use(),
+                    ::SVG::SVGPackage::ELEMENT__TARGET));
 
     /*PROTECTED REGION ID(UseImpl__UseImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,14 +69,16 @@ Use::~Use()
 {
 }
 
-/*PROTECTED REGION ID(Use.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::SVG::Element >& Use::getUse()
+
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Use::getUse() const
+{
+    return *m_use;
+}
+
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& Use::getUse()
 {
     return *m_use;
 }

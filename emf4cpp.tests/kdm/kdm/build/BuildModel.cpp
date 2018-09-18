@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildModel.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(BuildModel.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -43,8 +49,9 @@ BuildModel::BuildModel()
 
     m_buildElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::build::AbstractBuildElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::build::BuildPackage::_instance()->getBuildModel__buildElement()));
 
     /*PROTECTED REGION ID(BuildModelImpl__BuildModelImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,14 +67,16 @@ BuildModel::~BuildModel()
 {
 }
 
-/*PROTECTED REGION ID(BuildModel.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& BuildModel::getBuildElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildModel::getBuildElement() const
+{
+    return *m_buildElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& BuildModel::getBuildElement()
 {
     return *m_buildElement;
 }

@@ -2,6 +2,7 @@
 /*
  * CST/CSTFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,7 +32,6 @@ using namespace ::CST;
 
 CSTFactory::CSTFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CSTFactory::create(::ecore::EClass_ptr _eClass)
@@ -74,18 +74,18 @@ CSTFactory::CSTFactory()
 
 Tree_ptr CSTFactory::createTree()
 {
-    return new Tree();
+    return ::ecore::Ptr < Tree > (new Tree);
 }
 Element_ptr CSTFactory::createElement()
 {
-    return new Element();
+    return ::ecore::Ptr < Element > (new Element);
 }
 Node_ptr CSTFactory::createNode()
 {
-    return new Node();
+    return ::ecore::Ptr < Node > (new Node);
 }
 Leaf_ptr CSTFactory::createLeaf()
 {
-    return new Leaf();
+    return ::ecore::Ptr < Leaf > (new Leaf);
 }
 

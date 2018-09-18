@@ -1,6 +1,7 @@
 «REM»
 Factory.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -34,9 +35,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <ecore/EFactory.hpp>
 #include <«getFQN("/")».hpp>
 
+#include <«getDllExtensionPrefix()».hpp>
+
 «EXPAND template::EClassHPP::namespaces_begin FOR this-»
 
-class «name.toFirstUpper()»Factory : public virtual ::ecore::EFactory
+class EXPORT_«getTopLevelPackage().name.toUpperCase()»_DLL «name.toFirstUpper()»Factory : public virtual ::ecore::EFactory
 {
 public:
 
@@ -46,17 +49,36 @@ public:
     virtual «class.name»_ptr create«class.name»();
 «ENDFOREACH-»
 
-    virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);    
-    virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);    
+    virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+    virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
     virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
 protected:
 
-    static std::auto_ptr< «name.toFirstUpper()»Factory > s_instance;
+    static ::ecore::Ptr< «name.toFirstUpper()»Factory > s_holder;
 
     «name.toFirstUpper()»Factory();
     
 };
+
+/** An object creation helper
+ *
+ * Usage (add namespaces as required):
+ *   auto p = create<MyClass>();
+ *
+ */
+template<class T> inline
+::ecore::Ptr<T> create() { return ::ecore::Ptr<T>(); }
+
+«FOREACH this.EClassifiers.typeSelect(EClass) AS class-»
+template<> inline
+«class.name»_ptr create<«class.name»>() {
+    auto eFactory = «name.toFirstUpper()»Package::_instance()->getEFactoryInstance();
+    auto packageFactory = dynamic_cast<«name.toFirstUpper()»Factory*>(eFactory.get());
+    return packageFactory->create«class.name»();
+}
+
+«ENDFOREACH-»
 
 «EXPAND template::EClassHPP::namespaces_end FOR this»
 
@@ -74,13 +96,14 @@ protected:
 
 using namespace ::«getFQN()»;
 
-std::auto_ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_instance;
+::ecore::Ptr< ::«getFactoryPrefix("::")» > «name.toFirstUpper()»Factory::s_holder;
 
 ::«getFactoryPrefix("::")»_ptr «name.toFirstUpper()»Factory::_instance()
 {
-    if (!s_instance.get())
-        new «name.toFirstUpper()»Factory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr< «name.toFirstUpper()»Factory >( new «name.toFirstUpper()»Factory() );
+
+    return s_holder;
 }
 
 «ENDFILE»

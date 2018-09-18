@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edate:Apollo11 xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edate="http://www.example.org/edate">
+  <Member Birthday="1976-06-19T20:25:00.000+0700" Name="Heinz"/>
+</edate:Apollo11>

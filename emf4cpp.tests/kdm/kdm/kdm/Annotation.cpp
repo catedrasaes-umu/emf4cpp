@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/Annotation.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Annotation.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -50,12 +56,8 @@ Annotation::~Annotation()
 {
 }
 
-/*PROTECTED REGION ID(Annotation.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String Annotation::getText() const
 {
     return m_text;
@@ -72,8 +74,8 @@ void Annotation::setText(::kdm::core::String _text)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAnnotation__text(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAnnotation__text(),
                 _old_text,
                 m_text
         );

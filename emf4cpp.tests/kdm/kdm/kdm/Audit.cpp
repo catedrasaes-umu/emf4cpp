@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/Audit.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Audit.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -50,12 +56,8 @@ Audit::~Audit()
 {
 }
 
-/*PROTECTED REGION ID(Audit.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String Audit::getDescription() const
 {
     return m_description;
@@ -72,8 +74,8 @@ void Audit::setDescription(::kdm::core::String _description)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAudit__description(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAudit__description(),
                 _old_description,
                 m_description
         );
@@ -98,8 +100,8 @@ void Audit::setAuthor(::kdm::core::String _author)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAudit__author(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAudit__author(),
                 _old_author,
                 m_author
         );
@@ -124,8 +126,8 @@ void Audit::setDate(::kdm::core::String _date)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getAudit__date(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getAudit__date(),
                 _old_date,
                 m_date
         );

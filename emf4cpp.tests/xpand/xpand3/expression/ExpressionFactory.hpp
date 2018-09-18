@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ExpressionFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,12 +24,14 @@
 #include <ecore/EFactory.hpp>
 #include <xpand3/expression.hpp>
 
+#include <xpand3/dllXpand3.hpp>
+
 namespace xpand3
 {
     namespace expression
     {
 
-        class ExpressionFactory: public virtual ::ecore::EFactory
+        class EXPORT_XPAND3_DLL ExpressionFactory : public virtual ::ecore::EFactory
         {
         public:
 
@@ -58,21 +61,236 @@ namespace xpand3
             virtual BinaryOperation_ptr createBinaryOperation();
             virtual UnaryOperation_ptr createUnaryOperation();
 
-            virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-            virtual ::ecore::EJavaObject createFromString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EString const& _literalValue);
-            virtual ::ecore::EString convertToString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EJavaObject const& _instanceValue);
+            virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+            virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+            virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
         protected:
 
-            static std::auto_ptr< ExpressionFactory > s_instance;
+            static ::ecore::Ptr< ExpressionFactory > s_holder;
 
             ExpressionFactory();
 
         };
+
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline ::ecore::Ptr< T > create()
+        {
+            return ::ecore::Ptr< T >();
+        }
+
+        template< > inline AbstractExpression_ptr create< AbstractExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createAbstractExpression();
+        }
+
+        template< > inline BooleanOperation_ptr create< BooleanOperation >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createBooleanOperation();
+        }
+
+        template< > inline Cast_ptr create< Cast >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createCast();
+        }
+
+        template< > inline ChainExpression_ptr create< ChainExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createChainExpression();
+        }
+
+        template< > inline ConstructorCallExpression_ptr create<
+                ConstructorCallExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createConstructorCallExpression();
+        }
+
+        template< > inline FeatureCall_ptr create< FeatureCall >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createFeatureCall();
+        }
+
+        template< > inline CollectionExpression_ptr create< CollectionExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createCollectionExpression();
+        }
+
+        template< > inline OperationCall_ptr create< OperationCall >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createOperationCall();
+        }
+
+        template< > inline TypeSelectExpression_ptr create< TypeSelectExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createTypeSelectExpression();
+        }
+
+        template< > inline GlobalVarExpression_ptr create< GlobalVarExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createGlobalVarExpression();
+        }
+
+        template< > inline IfExpression_ptr create< IfExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createIfExpression();
+        }
+
+        template< > inline LetExpression_ptr create< LetExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createLetExpression();
+        }
+
+        template< > inline ListLiteral_ptr create< ListLiteral >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createListLiteral();
+        }
+
+        template< > inline Literal_ptr create< Literal >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createLiteral();
+        }
+
+        template< > inline BooleanLiteral_ptr create< BooleanLiteral >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createBooleanLiteral();
+        }
+
+        template< > inline IntegerLiteral_ptr create< IntegerLiteral >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createIntegerLiteral();
+        }
+
+        template< > inline NullLiteral_ptr create< NullLiteral >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createNullLiteral();
+        }
+
+        template< > inline RealLiteral_ptr create< RealLiteral >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createRealLiteral();
+        }
+
+        template< > inline StringLiteral_ptr create< StringLiteral >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createStringLiteral();
+        }
+
+        template< > inline SwitchExpression_ptr create< SwitchExpression >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createSwitchExpression();
+        }
+
+        template< > inline Case_ptr create< Case >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createCase();
+        }
+
+        template< > inline BinaryOperation_ptr create< BinaryOperation >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createBinaryOperation();
+        }
+
+        template< > inline UnaryOperation_ptr create< UnaryOperation >()
+        {
+            auto eFactory =
+                    ExpressionPackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< ExpressionFactory* >(eFactory.get());
+            return packageFactory->createUnaryOperation();
+        }
 
     } // expression
 } // xpand3

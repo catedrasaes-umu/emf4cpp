@@ -2,6 +2,7 @@
 /*
  * CST/CSTFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::CST;
 
-std::auto_ptr< ::CST::CSTFactory > CSTFactory::s_instance;
+::ecore::Ptr< ::CST::CSTFactory > CSTFactory::s_holder;
 
 ::CST::CSTFactory_ptr CSTFactory::_instance()
 {
-    if (!s_instance.get())
-        new CSTFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < CSTFactory > (new CSTFactory());
+
+    return s_holder;
 }
 

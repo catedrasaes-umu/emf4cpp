@@ -1,6 +1,7 @@
 «REM»
 CMakeLists.ext
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -19,14 +20,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 «IMPORT org::eclipse::emf::ecore»
 
 «EXTENSION template::FQN»
+«EXTENSION template::Packages»
 
 «DEFINE MainCMake FOR EPackage»
 «FILE "CMakeLists.txt" NOOVERWRITE-»
-«IF (boolean) GLOBALVAR internalLicense»
+«IF (boolean) GLOBALVAR internalLicense-»
 «EXPAND template::License::LicenseMakefile FOR "CMakeLists.txt"-»
-«ELSE»
+«ELSE-»
 «EXPAND template::EndUserLicense::LicenseMakefile FOR "CMakeLists.txt"-»
-«ENDIF»
+«ENDIF-»
 cmake_minimum_required(VERSION 2.6)
 
 project(emf4cpp-«name» CXX)
@@ -48,8 +50,42 @@ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Cátedra SAES-UMU: EMF4CPP «name» metam
 set(CPACK_SOURCE_GENERATOR TGZ)
 include(CPack)
 «ENDREM»
-
 «ENDFILE-»
+«ENDDEFINE»
+
+«DEFINE SOURCES FOR EPackage-»
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")».cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")».cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")».cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")»Impl.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")»Impl.cpp
+    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
+    ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")».cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")»Impl.cpp
+    «ENDFOREACH-»
+«EXPAND SOURCES FOREACH ESubpackages-»
+«ENDDEFINE»
+
+«DEFINE HEADERS FOR EPackage-»
+	${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")».hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")»_forward.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")».hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")».hpp
+    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
+    ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")».hpp
+    «ENDFOREACH-»
+«EXPAND HEADERS FOREACH ESubpackages-»
+«ENDDEFINE»
+
+«DEFINE INSTALL FOR EPackage-»
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")».hpp DESTINATION include/emf4cpp/«getDirFQN()»)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")»_forward.hpp DESTINATION include/emf4cpp/«getDirFQN()»)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")».hpp DESTINATION include/emf4cpp/«getFQN("/")»)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")».hpp DESTINATION include/emf4cpp/«getFQN("/")»)   
+«FOREACH EClassifiers.typeSelect(EClass) AS class-»
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")».hpp DESTINATION include/emf4cpp/«getFQN("/")»)
+«ENDFOREACH-»
+«EXPAND INSTALL FOREACH ESubpackages-»
 «ENDDEFINE»
 
 «DEFINE CMake FOR EPackage»
@@ -60,44 +96,33 @@ include(CPack)
 «ELSE»
 «EXPAND template::EndUserLicense::LicenseMakefile FOR fqn+".cmake"-»
 «ENDIF»
-set(CMAKE_CXX_FLAGS "")
-set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -DDEBUG")
-set(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -funroll-loops")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -funroll-loops")
 
 set(«fqn»_SOURCES
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")».cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")».cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")».cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")»Impl.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")»Impl.cpp
-    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
-    ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")».cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")»Impl.cpp
-    «ENDFOREACH-»
-   )
-   
-set(«fqn»_HEADERS
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")».hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")»_forward.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")».hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")».hpp
-    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
-    ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")».hpp
-    «ENDFOREACH-»
-   )
+«EXPAND SOURCES FOR this-»
+)
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")».hpp DESTINATION include/emf4cpp/«getDirFQN()»)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getFQN("/")»_forward.hpp DESTINATION include/emf4cpp/«getDirFQN()»)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getFactoryPrefix("/")».hpp DESTINATION include/emf4cpp/«getFQN("/")»)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getPackagePrefix("/")».hpp DESTINATION include/emf4cpp/«getFQN("/")»)   
-    «FOREACH EClassifiers.typeSelect(EClass) AS class-»
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«class.getFQN("/")».hpp DESTINATION include/emf4cpp/«getFQN("/")»)
-    «ENDFOREACH-»
-   
+set(«fqn»_HEADERS
+«EXPAND HEADERS FOR this-»
+)
+
+«EXPAND INSTALL FOR this-»
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/«getDllExtensionPrefix()».hpp DESTINATION include/emf4cpp/«getFQN("/")»)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} «GLOBALVAR ecorePath» «GLOBALVAR ecoreCppPath»)
+«IF (boolean) GLOBALVAR bootstrap-»
+«ELSE-»
+link_directories(«GLOBALVAR ecoreLibraryPath»)
+«ENDIF-»
 
 add_library(emf4cpp-«fqn» SHARED ${«fqn»_HEADERS} ${«fqn»_SOURCES})
-set_target_properties(emf4cpp-«fqn» PROPERTIES VERSION 0.0.1 SOVERSION 1)
+set_target_properties(emf4cpp-«fqn» PROPERTIES COMPILE_FLAGS "-DMAKE_«getHeaderDef()»_DLL" VERSION 0.0.1 SOVERSION 1)
+«IF (boolean) GLOBALVAR bootstrap-»
+«ELSE-»
+target_link_libraries(emf4cpp-«fqn» emf4cpp-ecore)
+«ENDIF-»
 
 install(TARGETS emf4cpp-«fqn» DESTINATION lib)
 

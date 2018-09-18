@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/TaggedValue.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef KDM_KDM_TAGGEDVALUE_HPP
 #define KDM_KDM_TAGGEDVALUE_HPP
 
-#include <kdm/kdm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/kdm_forward.hpp>
 
 #include <kdm/core_forward.hpp>
 #include <kdm/kdm/ExtendedValue.hpp>
+
+#include "KdmPackage.hpp"
 
 /*PROTECTED REGION ID(TaggedValue_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -36,53 +41,61 @@ namespace kdm
     namespace kdm
     {
 
-        class TaggedValue: public virtual ::kdm::kdm::ExtendedValue
-        {
-        public:
-            TaggedValue();
+    class EXPORT_KDM_DLL TaggedValue : public virtual ::kdm::kdm::ExtendedValue
+    {
+    public:
+        TaggedValue();
 
-            virtual ~TaggedValue();
+        virtual ~TaggedValue();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::core::String getValue() const;
-            void setValue(::kdm::core::String _value);
+        // Attributes
+        virtual ::kdm::core::String getValue () const;
+        virtual void setValue (::kdm::core::String _value);
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(TaggedValue) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = KdmPackage::TAGGEDVALUE;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(TaggedValue) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(TaggedValueImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(TaggedValueImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::kdm::core::String m_value;
+    protected:
+        TaggedValue_ptr _this()
+        {   return TaggedValue_ptr(this);}
 
-            // References
+        // Attributes
 
-        };
+        ::kdm::core::String m_value;
 
-    } // kdm
-} // kdm
+        // References
+
+    };
+
+}
+ // kdm
+}// kdm
 
 #endif // KDM_KDM_TAGGEDVALUE_HPP
 

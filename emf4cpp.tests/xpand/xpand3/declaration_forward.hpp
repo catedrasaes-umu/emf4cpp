@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,55 +44,51 @@ namespace xpand3
 
 // AbstractDeclaration
         class AbstractDeclaration;
-        typedef AbstractDeclaration* AbstractDeclaration_ptr;
+        using AbstractDeclaration_ptr = ::ecore::Ptr<AbstractDeclaration>;
 
 // AbstractNamedDeclaration
         class AbstractNamedDeclaration;
-        typedef AbstractNamedDeclaration* AbstractNamedDeclaration_ptr;
+        using AbstractNamedDeclaration_ptr = ::ecore::Ptr<AbstractNamedDeclaration>;
 
 // Definition
         class Definition;
-        typedef Definition* Definition_ptr;
+        using Definition_ptr = ::ecore::Ptr<Definition>;
 
 // Extension
         class Extension;
-        typedef Extension* Extension_ptr;
+        using Extension_ptr = ::ecore::Ptr<Extension>;
 
 // AbstractAspect
         class AbstractAspect;
-        typedef AbstractAspect* AbstractAspect_ptr;
+        using AbstractAspect_ptr = ::ecore::Ptr<AbstractAspect>;
 
 // ExtensionAspect
         class ExtensionAspect;
-        typedef ExtensionAspect* ExtensionAspect_ptr;
+        using ExtensionAspect_ptr = ::ecore::Ptr<ExtensionAspect>;
 
 // DefinitionAspect
         class DefinitionAspect;
-        typedef DefinitionAspect* DefinitionAspect_ptr;
+        using DefinitionAspect_ptr = ::ecore::Ptr<DefinitionAspect>;
 
 // Check
         class Check;
-        typedef Check* Check_ptr;
+        using Check_ptr = ::ecore::Ptr<Check>;
 
 // CreateExtension
         class CreateExtension;
-        typedef CreateExtension* CreateExtension_ptr;
+        using CreateExtension_ptr = ::ecore::Ptr<CreateExtension>;
 
 // JavaExtension
         class JavaExtension;
-        typedef JavaExtension* JavaExtension_ptr;
+        using JavaExtension_ptr = ::ecore::Ptr<JavaExtension>;
+
+// EEnum
 
 // Package & Factory
         class DeclarationFactory;
-        typedef DeclarationFactory * DeclarationFactory_ptr;
+        using DeclarationFactory_ptr = ::ecore::Ptr<DeclarationFactory>;
         class DeclarationPackage;
-        typedef DeclarationPackage * DeclarationPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using DeclarationPackage_ptr = ::ecore::Ptr<DeclarationPackage>;
 
     } // declaration
 } // xpand3

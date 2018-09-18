@@ -2,6 +2,7 @@
 /*
  * ecore/EObjectImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,15 +32,46 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EObjectImpl.cpp) ENABLED START*/
+#include <ecorecpp/mapping/FeatureEListImpl.hpp>
+#include <ecorecpp/resource/Resource.hpp>
+
+using namespace ::ecore;
 
 void EObject::_setEContainer(::ecore::EObject_ptr _eContainer,
         ::ecore::EStructuralFeature_ptr _eContainingFeature)
 {
+    if (m_eContainer == _eContainer
+            && m_eContainingFeature == _eContainingFeature)
+        return;
+
+    /* [SUITE3-208] m_eResource is not touched to allow cross resource
+     * containment. */
+
     m_eContainer = _eContainer;
     m_eContainingFeature = _eContainingFeature;
+}
+
+void EObject::_setEResource(::ecorecpp::resource::Resource* res)
+{
+    if (m_eResource == res)
+        return;
+
+    /* [SUITE3-208] m_eContainer is not touched to allow cross resource
+     * containment. */
+
+    if (m_eResource)
+    {
+        auto list = m_eResource->getContents();
+        list->remove(_this());
+    }
+
+    m_eResource = res;
+}
+
+::ecorecpp::resource::Resource* EObject::_getDirectResource()
+{
+    return m_eResource;
 }
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -47,35 +79,32 @@ void EObject::_setEContainer(::ecore::EObject_ptr _eContainer,
 #include <ecorecpp/notify.hpp>
 
 // Notification API
-std::vector< ::ecorecpp::notify::Adapter_ptr >& EObject::eAdapters()
+::ecorecpp::mapping::EList< ::ecorecpp::notify::Adapter_ptr >& EObject::eAdapters()
 {
-    return m_eAdapters;
+    return *m_eAdapters;
 }
 
 void EObject::eNotify( ::ecorecpp::notify::Notification_ptr _notification)
 {
-    for(size_t i = 0; i < m_eAdapters.size(); i++)
-    m_eAdapters[i]->notifyChanged(_notification);
+    for (auto adapter : *m_eAdapters)
+    adapter->notifyChanged(_notification);
 }
 
 bool EObject::eNotificationRequired()
 {
-    return m_eDeliver && !m_eAdapters.empty();
-}
-
-void EObject::notifyChanged( ::ecorecpp::notify::Notification_ptr _notification)
-{
-    // TODO: _notifyChanged
+    return m_eDeliver && m_eAdapters->size() > 0;
 }
 
 #endif
 /*PROTECTED REGION END*/
 
+using namespace ::ecore;
+
 void EObject::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EObjectImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -105,10 +134,23 @@ void EObject::_initialize()
 
 ::ecore::EResource EObject::eResource()
 {
-    /*PROTECTED REGION ID(EObjectImpl_eResource) START*/
+    /*PROTECTED REGION ID(EObjectImpl_eResource) ENABLED START*/
     // Please, enable the protected region if you add manually written code.
     // To do this, add the keyword ENABLED before START.
-    throw "UnsupportedOperationException: ecore::EObject::eResource";
+    if (m_eResource || !eContainer())
+        return m_eResource;
+
+    EObject_ptr current = eContainer();
+    size_t count = 0;
+    while (current && !current->_getDirectResource() && current->eContainer()
+            && current.get() != this // prevent cyclic containments
+            && count < 10000000) // last resort
+    {
+        count++;
+        current = current->eContainer();
+    }
+
+    return current->_getDirectResource();
     /*PROTECTED REGION END*/
 }
 
@@ -132,35 +174,102 @@ void EObject::_initialize()
 {
     /*PROTECTED REGION ID(EObjectImpl_eContainmentFeature) ENABLED START*/
 
-    return m_eContainingFeature->as< EReference > ();
+    return ::ecore::as < EReference > (m_eContainingFeature);
 
     /*PROTECTED REGION END*/
 }
 
-std::list< ::ecore::EObject_ptr > EObject::eContents()
+std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject_ptr > > EObject::eContents()
 {
-    /*PROTECTED REGION ID(EObjectImpl_eContents) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
-    throw "UnsupportedOperationException: ecore::EObject::eContents";
+    /*PROTECTED REGION ID(EObjectImpl_eContents) ENABLED START*/
+    auto retList = std::make_shared<
+            ::ecorecpp::mapping::FeatureEListImpl< ::ecore::EObject_ptr > >();
+
+    ::ecore::EClass_ptr eclass = eClass();
+    for (const auto& ref : eclass->getEAllReferences())
+    {
+        if (ref->isTransient() || !ref->isContainment() || !eIsSet(ref))
+        {
+            continue;
+        }
+
+        ::ecorecpp::mapping::any any = eGet(ref);
+        if (ref->getUpperBound() != 1)
+        {
+            auto children = ecorecpp::mapping::any::any_cast
+                    < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
+                    > ::ptr_type > (any);
+            retList->insert_all(*children, ref);
+        }
+        else
+        {
+            EObject_ptr child = ecorecpp::mapping::any::any_cast < EObject_ptr
+                    > (any);
+            retList->push_back(child, ref);
+        }
+    }
+
+    return retList;
     /*PROTECTED REGION END*/
 }
 
-int EObject::eAllContents()
+::ecorecpp::util::TreeIterator< ::ecore::EObject_ptr > EObject::eAllContents()
 {
-    /*PROTECTED REGION ID(EObjectImpl_eAllContents) START*/
+    /*PROTECTED REGION ID(EObjectImpl_eAllContents) ENABLED START*/
     // Please, enable the protected region if you add manually written code.
     // To do this, add the keyword ENABLED before START.
-    throw "UnsupportedOperationException: ecore::EObject::eAllContents";
+    return ::ecorecpp::util::TreeIterator < ::ecore::EObject_ptr > (_this());
+
     /*PROTECTED REGION END*/
 }
 
-std::list< ::ecore::EObject_ptr > EObject::eCrossReferences()
+std::shared_ptr< ::ecorecpp::mapping::EList< ::ecore::EObject_ptr > > EObject::eCrossReferences()
 {
-    /*PROTECTED REGION ID(EObjectImpl_eCrossReferences) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
-    throw "UnsupportedOperationException: ecore::EObject::eCrossReferences";
+    /*PROTECTED REGION ID(EObjectImpl_eCrossReferences) ENABLED START*/
+    /*
+     * http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.2/org/eclipse/emf/ecore/EObject.html#eCrossReferences()
+     *
+     * This will be the list of EObjects determined by the contents of the
+     * reference features of this object's meta class, excluding containment
+     * features and their opposites.
+     *
+     * Note: The returned EList<> is actually an FeatureEListImpl<>, whose
+     * iterator allows access to the feature.
+     */
+    auto retList = std::make_shared<
+            ::ecorecpp::mapping::FeatureEListImpl< ::ecore::EObject_ptr > >();
+
+    ::ecore::EClass_ptr eclass = eClass();
+    for (const auto& ref : eclass->getEAllReferences())
+    {
+        if (ref->isTransient() || ref->isContainment() || !eIsSet(ref))
+        {
+            continue;
+        }
+
+        auto eOpposite = ref->getEOpposite();
+        if (eOpposite && eOpposite->isContainment())
+        {
+            continue;
+        }
+
+        ::ecorecpp::mapping::any any = eGet(ref);
+        if (ref->getUpperBound() != 1)
+        {
+            auto children = ecorecpp::mapping::any::any_cast
+                    < ::ecorecpp::mapping::EList < ::ecore::EObject_ptr
+                    > ::ptr_type > (any);
+            retList->insert_all(*children, ref);
+        }
+        else
+        {
+            EObject_ptr child = ecorecpp::mapping::any::any_cast < EObject_ptr
+                    > (any);
+            retList->push_back(child, ref);
+        }
+    }
+
+    return retList;
     /*PROTECTED REGION END*/
 }
 
@@ -206,7 +315,7 @@ void EObject::eUnset(::ecore::EStructuralFeature_ptr _feature)
 }
 
 ::ecore::EJavaObject EObject::eInvoke(::ecore::EOperation_ptr _operation,
-        std::list< ::ecorecpp::mapping::any > const& _arguments)
+        std::shared_ptr< ::ecorecpp::mapping::EList< ::ecorecpp::mapping::any > > const& _arguments)
 {
     /*PROTECTED REGION ID(EObjectImpl_eInvoke) START*/
     // Please, enable the protected region if you add manually written code.
@@ -257,9 +366,32 @@ void EObject::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EObject::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEObject();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEObject();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EObject::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EObject::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

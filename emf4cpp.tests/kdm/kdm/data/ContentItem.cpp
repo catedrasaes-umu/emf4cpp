@@ -2,6 +2,7 @@
 /*
  * kdm/data/ContentItem.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ContentItem.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -49,8 +55,9 @@ ContentItem::ContentItem() :
 
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractContentElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::data::AbstractContentElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::data::DataPackage::_instance()->getContentItem__contentElement()));
 
     /*PROTECTED REGION ID(ContentItemImpl__ContentItemImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -66,22 +73,20 @@ ContentItem::~ContentItem()
 {
 }
 
-/*PROTECTED REGION ID(ContentItem.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::data::ComplexContentType_ptr ContentItem::getType()
+
+::kdm::data::ComplexContentType_ptr ContentItem::getType() const
 {
     return m_type;
 }
 
 void ContentItem::setType(::kdm::data::ComplexContentType_ptr _type)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::ComplexContentType_ptr _old_type = m_type;
-
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -89,18 +94,22 @@ void ContentItem::setType(::kdm::data::ComplexContentType_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getContentItem__type(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getContentItem__type(),
                 _old_type,
                 m_type
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& ContentItem::getContentElement()
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& ContentItem::getContentElement() const
+{
+    return *m_contentElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& ContentItem::getContentElement()
 {
     return *m_contentElement;
 }

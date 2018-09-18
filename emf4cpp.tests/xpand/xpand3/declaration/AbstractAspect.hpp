@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/AbstractAspect.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,13 +21,17 @@
 #ifndef XPAND3_DECLARATION_ABSTRACTASPECT_HPP
 #define XPAND3_DECLARATION_ABSTRACTASPECT_HPP
 
-#include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/declaration/AbstractDeclaration.hpp>
+
+#include "DeclarationPackage.hpp"
 
 /*PROTECTED REGION ID(AbstractAspect_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -38,57 +43,65 @@ namespace xpand3
     namespace declaration
     {
 
-        class AbstractAspect: public virtual ::xpand3::declaration::AbstractDeclaration
-        {
-        public:
-            AbstractAspect();
+    class EXPORT_XPAND3_DLL AbstractAspect : public virtual ::xpand3::declaration::AbstractDeclaration
+    {
+    public:
+        AbstractAspect();
 
-            virtual ~AbstractAspect();
+        virtual ~AbstractAspect();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::ecore::EBoolean isWildparams() const;
-            void setWildparams(::ecore::EBoolean _wildparams);
+        // Attributes
+        virtual ::ecore::EBoolean isWildparams () const;
+        virtual void setWildparams (::ecore::EBoolean _wildparams);
 
-            // References
-            ::xpand3::Identifier_ptr getPointcut();
-            void setPointcut(::xpand3::Identifier_ptr _pointcut);
+        // References
+        virtual ::xpand3::Identifier_ptr getPointcut () const;
+        virtual void setPointcut (::xpand3::Identifier_ptr _pointcut);
 
-            /*PROTECTED REGION ID(AbstractAspect) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DeclarationPackage::ABSTRACTASPECT;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(AbstractAspect) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(AbstractAspectImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(AbstractAspectImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::ecore::EBoolean m_wildparams;
+    protected:
+        AbstractAspect_ptr _this()
+        {   return AbstractAspect_ptr(this);}
 
-            // References
+        // Attributes
 
-            ::xpand3::Identifier_ptr m_pointcut;
+        ::ecore::EBoolean m_wildparams;
 
-        };
+        // References
 
-    } // declaration
-} // xpand3
+        ::xpand3::Identifier_ptr m_pointcut;
+
+    };
+
+}
+ // declaration
+}// xpand3
 
 #endif // XPAND3_DECLARATION_ABSTRACTASPECT_HPP
 

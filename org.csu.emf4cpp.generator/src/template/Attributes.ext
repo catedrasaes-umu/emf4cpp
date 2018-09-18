@@ -1,7 +1,8 @@
 /*
  * Attributes.ext
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
- * 
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
+ *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
@@ -75,10 +76,16 @@ String getDeleteAtCPPSignature(EAttribute this) :
 
 // Default value
 String getDefaultValue(EAttribute this) :
-	if defaultValueLiteral != null then
-		getAttrMemberName() + "(" + defaultValueLiteral+ ")"
+	if defaultValueLiteral == null then
+		getAttrMemberName() + "()"
+	else if this.EType.name == "EString" then
+		getAttrMemberName() + "(\"" + defaultValueLiteral + "\")"
+	else if this.EType.name == "EDate" then
+		getAttrMemberName() + "(\"" + defaultValueLiteral + "\")"
+	else if EEnum.isInstance(this.EType) then
+		getAttrMemberName() + "(" + this.getCPPTypeSignature() + "::" + defaultValueLiteral+ ")"
 	else
-		getAttrMemberName() + "()" 
+		getAttrMemberName() + "(" + defaultValueLiteral+ ")"
 ;
 
 String getDefaultValue(EReference this) :

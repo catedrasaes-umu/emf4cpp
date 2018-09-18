@@ -2,6 +2,7 @@
 /*
  * CST/Node.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Node.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::CST;
 
 // Default constructor
@@ -35,8 +41,9 @@ Node::Node()
 {
 
     m_children.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::CST::Element, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::CST::Element_ptr, -1,
+                    true, false >(this,
+                    ::CST::CSTPackage::_instance()->getNode__children()));
 
     /*PROTECTED REGION ID(NodeImpl__NodeImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -52,14 +59,16 @@ Node::~Node()
 {
 }
 
-/*PROTECTED REGION ID(Node.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::CST::Element >& Node::getChildren()
+
+const ::ecorecpp::mapping::EList< ::CST::Element_ptr >& Node::getChildren() const
+{
+    return *m_children;
+}
+
+::ecorecpp::mapping::EList< ::CST::Element_ptr >& Node::getChildren()
 {
     return *m_children;
 }

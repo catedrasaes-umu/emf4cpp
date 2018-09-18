@@ -2,6 +2,7 @@
 /*
  * kdm/action/ActionFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::kdm::action;
 
-std::auto_ptr< ::kdm::action::ActionFactory > ActionFactory::s_instance;
+::ecore::Ptr< ::kdm::action::ActionFactory > ActionFactory::s_holder;
 
 ::kdm::action::ActionFactory_ptr ActionFactory::_instance()
 {
-    if (!s_instance.get())
-        new ActionFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < ActionFactory > (new ActionFactory());
+
+    return s_holder;
 }
 

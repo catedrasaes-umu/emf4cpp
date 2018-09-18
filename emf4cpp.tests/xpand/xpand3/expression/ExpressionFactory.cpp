@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ExpressionFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::xpand3::expression;
 
-std::auto_ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_instance;
+::ecore::Ptr< ::xpand3::expression::ExpressionFactory > ExpressionFactory::s_holder;
 
 ::xpand3::expression::ExpressionFactory_ptr ExpressionFactory::_instance()
 {
-    if (!s_instance.get())
-        new ExpressionFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < ExpressionFactory > (new ExpressionFactory());
+
+    return s_holder;
 }
 

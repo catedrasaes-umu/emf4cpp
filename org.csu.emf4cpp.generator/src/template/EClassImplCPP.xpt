@@ -1,6 +1,7 @@
 «REM»
 ClassImplCPP.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -48,12 +49,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::«EPackage.getFQN()»;
-
 «PROTECT CSTART '/*' CEND '*/' ID name+"Impl.cpp" DISABLE»
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 «ENDPROTECT»
+
+using namespace ::«EPackage.getFQN()»;
 
 void «name»::_initialize()
 {
@@ -62,23 +63,17 @@ void «name»::_initialize()
     ::«st.getFQN()»::_initialize();
     «ENDFOREACH-»
 
-    // Rerefences
+    // References
     «FOREACH this.EReferences.select(e|e.containment) AS ref-»
         «IF ref.upperBound == 1-»
     if («ref.getMemberName()»)
     {
         «ref.getMemberName()»->_initialize();
-        «ref.getMemberName()»->_setEContainer(
-                this,
-                «EPackage.getFeatureGetMemberCall(ref)»);
     }
         «ELSE-»
     for (size_t i = 0; i < «ref.getMemberName()»->size(); i++)
     {
         (*«ref.getMemberName()»)[i]->_initialize();
-        (*«ref.getMemberName()»)[i]->_setEContainer(
-                this,
-                «EPackage.getFeatureGetMemberCall(ref)»);
     }
         «ENDIF-»
     «ENDFOREACH-»
@@ -112,9 +107,10 @@ void «name»::_initialize()
             {
                 «IF EReference.isInstance(ef)-»
                     «IF ef.upperBound == 1-»
-                _any = static_cast< ::ecore::EObject* >(«ef.getMemberName()»);
+                        if («ef.getMemberName()»)
+                            _any = ::ecore::as<::ecore::EObject>(«ef.getMemberName()»);
                     «ELSE-»
-                _any = «ef.getMemberName()»->asEListOf< ::ecore::EObject >();
+                        _any = «ef.getMemberName()»->asEListOf< ::ecore::EObject_ptr >();
                     «ENDIF-»
                 «ELSE-»
                     «IF ef.upperBound == 1-»
@@ -142,21 +138,24 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
             {
                 «IF EReference.isInstance(ef)-»
                     «IF ef.upperBound == 1-»
-                ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
-                «ef.getCPPTypeSignatureImpl()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»_ptr >(_t0);
-                ::«ef.EContainingClass.getFQN()»::set«ef.name.toFirstUpper()»(_t1);
+		        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
+			«((EReference)ef).getPtr()» _t1 = dynamic_cast<::«ef.EType.getFQN()»*>(_t0.get()); /*/// std::dynamic_pointer_cast< ::«ef.EType.getFQN()» >(_t0);*/
+ 			::«ef.EContainingClass.getFQN()»::set«ef.name.toFirstUpper()»(_t1);
                     «ELSE-»
-                ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecorecpp::mapping::EList_ptr >(_newValue);
-                ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().clear();
-                ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().insert_all(*_t0);
+                        ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type _t0 =
+                            ::ecorecpp::mapping::any::any_cast< ::ecorecpp::mapping::EList<::ecore::EObject_ptr>::ptr_type >(_newValue);
+                        ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().clear();
+                        ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»().insert_all(*_t0);
                     «ENDIF-»
                 «ELSE-»
                     «IF ef.isList() || ef.isMultiple()-»
-                «ef.getCPPTypeSignatureImpl()» _t0;
-                ::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, _t0);
-                ::«ef.EContainingClass.getFQN()»::add«ef.name.toFirstUpper()»(_t0);
+                        «ef.getCPPTypeSignatureImpl()» _t0;
+ 			::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, _t0);
+ 			::«ef.EContainingClass.getFQN()»::add«ef.name.toFirstUpper()»(_t0);
                     «ELSE-»
-                ::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, «ef.getMemberName()»);
+                    	«ef.getCPPTypeSignatureImpl()» _t0;
+ 		        		::ecorecpp::mapping::any_traits< ::«ef.EType.getFQN()» >::fromAny(_newValue, _t0);
+ 		        		::«ef.EContainingClass.getFQN()»::set«ef.name.toFirstUpper()»(_t0);
                     «ENDIF-»
                 «ENDIF-»
             }
@@ -174,18 +173,26 @@ void «name»::eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _new
         case «ef.getCPPFQN()» :
             «IF EReference.isInstance(ef)-»
                 «IF ef.upperBound == 1-»
-            return «ef.getMemberName()»;
+            	    return (bool)«ef.getMemberName()»;
                 «ELSE-»
-            return «ef.getMemberName()» && «ef.getMemberName()»->size();
+            		return «ef.getMemberName()» && «ef.getMemberName()»->size();
                 «ENDIF-»
             «ELSE-»
                 «IF ef.isList() || ef.isMultiple()-»
-            return «ef.getMemberName()».size();
+            		return «ef.getMemberName()».size();
                 «ELSE-»
-                    «IF ef.defaultValueLiteral != null -»
-            return «ef.getMemberName()» != «ef.defaultValueLiteral»;
+                    «IF ef.defaultValueLiteral != null && ef.defaultValueLiteral != "" -»
+            			«IF ef.EType.name == "EString"-»
+            				return «ef.getMemberName()» != "«ef.defaultValueLiteral»";
+            			«ELSEIF ef.EType.name == "EDate"-»
+            				return «ef.getMemberName()» != ::ecorecpp::mapping::EDate("«ef.defaultValueLiteral»");
+            			«ELSEIF EEnum.isInstance(ef.EType)-»
+            				return «ef.getMemberName()» != «ef.getCPPTypeSignature()»::«ef.defaultValueLiteral»;
+            			«ELSE-»
+            				return «ef.getMemberName()» != «ef.defaultValueLiteral»;
+            			«ENDIF-»
                     «ELSE-»
-            return ::ecorecpp::mapping::set_traits< ::«ef.EType.getFQN()» >::is_set(«ef.getMemberName()»);
+            			return ::ecorecpp::mapping::set_traits< ::«ef.EType.getFQN()» >::is_set(«ef.getMemberName()»);
                     «ENDIF-»
                 «ENDIF-»
             «ENDIF-»
@@ -228,9 +235,76 @@ void «name»::eUnset ( ::ecore::EInt _featureID)
 ::ecore::EClass_ptr «name»::_eClass ()
 {
     «LET "::"+EPackage.getFQN()+"::"+EPackage.getPackageName() AS pkg-»
-    static ::ecore::EClass_ptr _eclass = dynamic_cast< «pkg»_ptr > («pkg»::_instance())->«EPackage.getPackageGetAttribute(this)»();
+    static ::ecore::EClass_ptr _eclass = dynamic_cast< «pkg»* > («pkg»::_instance().get())->«EPackage.getPackageGetAttribute(this)»();
     return _eclass;
     «ENDLET-»
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void «name»::_inverseAdd( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
+      «IF EReference.isInstance(ef)-»
+        case «ef.getCPPFQN()» :
+            {
+      «IF ((EReference)ef).EOpposite != null-»
+          ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_newValue);
+          «((EReference)ef).getPtr()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»* >(_t0.get());
+
+          «IF ef.upperBound == 1-»
+              // set reference
+	      basicset«ef.name.toFirstUpper()»(_t1);
+          «ELSE-»
+	      // add to a list
+	      auto& container =
+	          («((EReference)ef).getListImpl()»&)
+	          ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»();
+	        container.basicAdd(_t1);
+          «ENDIF-»
+      «ENDIF-»
+            }
+            return;
+      «ENDIF-»
+    «ENDFOREACH»
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void «name»::_inverseRemove( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    «FOREACH EAllStructuralFeatures.select(e|!e.derived) AS ef-»
+      «IF EReference.isInstance(ef)-»
+        case «ef.getCPPFQN()» :
+            {
+      «IF ((EReference)ef).EOpposite != null-»
+          ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast< ::ecore::EObject_ptr >(_oldValue);
+          «((EReference)ef).getPtr()» _t1 = dynamic_cast< ::«ef.EType.getFQN()»* >(_t0.get());
+
+          «IF ef.upperBound == 1-»
+	      // set reference
+	      if (basicget«ef.name.toFirstUpper()»() == _t1)
+	          basicset«ef.name.toFirstUpper()»(nullptr);
+          «ELSE-»
+	      // add to a list
+	      auto& container =
+	          («((EReference)ef).getListImpl()»&)
+	          ::«ef.EContainingClass.getFQN()»::get«ef.name.toFirstUpper()»();
+	      container.basicRemove(_t1);
+          «ENDIF-»
+      «ENDIF-»
+            }
+            return;
+      «ENDIF-»
+    «ENDFOREACH»
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 
 «ENDFILE»

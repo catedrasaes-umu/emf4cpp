@@ -2,6 +2,7 @@
 /*
  * kdm/event/EventFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -45,7 +46,6 @@ using namespace ::kdm::event;
 
 EventFactory::EventFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr EventFactory::create(::ecore::EClass_ptr _eClass)
@@ -117,74 +117,75 @@ EventFactory::EventFactory()
 
 EventModel_ptr EventFactory::createEventModel()
 {
-    return new EventModel();
+    return ::ecore::Ptr < EventModel > (new EventModel);
 }
 AbstractEventElement_ptr EventFactory::createAbstractEventElement()
 {
-    return new AbstractEventElement();
+    return ::ecore::Ptr < AbstractEventElement > (new AbstractEventElement);
 }
 Event_ptr EventFactory::createEvent()
 {
-    return new Event();
+    return ::ecore::Ptr < Event > (new Event);
 }
 AbstractEventRelationship_ptr EventFactory::createAbstractEventRelationship()
 {
-    return new AbstractEventRelationship();
+    return ::ecore::Ptr < AbstractEventRelationship
+            > (new AbstractEventRelationship);
 }
 EventRelationship_ptr EventFactory::createEventRelationship()
 {
-    return new EventRelationship();
+    return ::ecore::Ptr < EventRelationship > (new EventRelationship);
 }
 EventResource_ptr EventFactory::createEventResource()
 {
-    return new EventResource();
+    return ::ecore::Ptr < EventResource > (new EventResource);
 }
 State_ptr EventFactory::createState()
 {
-    return new State();
+    return ::ecore::Ptr < State > (new State);
 }
 Transition_ptr EventFactory::createTransition()
 {
-    return new Transition();
+    return ::ecore::Ptr < Transition > (new Transition);
 }
 OnEntry_ptr EventFactory::createOnEntry()
 {
-    return new OnEntry();
+    return ::ecore::Ptr < OnEntry > (new OnEntry);
 }
 OnExit_ptr EventFactory::createOnExit()
 {
-    return new OnExit();
+    return ::ecore::Ptr < OnExit > (new OnExit);
 }
 EventAction_ptr EventFactory::createEventAction()
 {
-    return new EventAction();
+    return ::ecore::Ptr < EventAction > (new EventAction);
 }
 ReadsState_ptr EventFactory::createReadsState()
 {
-    return new ReadsState();
+    return ::ecore::Ptr < ReadsState > (new ReadsState);
 }
 ProducesEvent_ptr EventFactory::createProducesEvent()
 {
-    return new ProducesEvent();
+    return ::ecore::Ptr < ProducesEvent > (new ProducesEvent);
 }
 ConsumesEvent_ptr EventFactory::createConsumesEvent()
 {
-    return new ConsumesEvent();
+    return ::ecore::Ptr < ConsumesEvent > (new ConsumesEvent);
 }
 NextState_ptr EventFactory::createNextState()
 {
-    return new NextState();
+    return ::ecore::Ptr < NextState > (new NextState);
 }
 InitialState_ptr EventFactory::createInitialState()
 {
-    return new InitialState();
+    return ::ecore::Ptr < InitialState > (new InitialState);
 }
 EventElement_ptr EventFactory::createEventElement()
 {
-    return new EventElement();
+    return ::ecore::Ptr < EventElement > (new EventElement);
 }
 HasState_ptr EventFactory::createHasState()
 {
-    return new HasState();
+    return ::ecore::Ptr < HasState > (new HasState);
 }
 

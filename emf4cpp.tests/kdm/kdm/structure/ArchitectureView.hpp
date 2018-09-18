@@ -2,6 +2,7 @@
 /*
  * kdm/structure/ArchitectureView.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef KDM_STRUCTURE_ARCHITECTUREVIEW_HPP
 #define KDM_STRUCTURE_ARCHITECTUREVIEW_HPP
 
-#include <kdm/structure_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/structure_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/structure/AbstractStructureElement.hpp>
+
+#include "StructurePackage.hpp"
 
 /*PROTECTED REGION ID(ArchitectureView_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -37,49 +42,57 @@ namespace kdm
     namespace structure
     {
 
-        class ArchitectureView: public virtual ::kdm::structure::AbstractStructureElement
-        {
-        public:
-            ArchitectureView();
+    class EXPORT_KDM_DLL ArchitectureView : public virtual ::kdm::structure::AbstractStructureElement
+    {
+    public:
+        ArchitectureView();
 
-            virtual ~ArchitectureView();
+        virtual ~ArchitectureView();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(ArchitectureView) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StructurePackage::ARCHITECTUREVIEW;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(ArchitectureView) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(ArchitectureViewImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(ArchitectureViewImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        ArchitectureView_ptr _this()
+        {   return ArchitectureView_ptr(this);}
 
-        };
+        // Attributes
 
-    } // structure
-} // kdm
+        // References
+
+    };
+
+}
+ // structure
+}// kdm
 
 #endif // KDM_STRUCTURE_ARCHITECTUREVIEW_HPP
 

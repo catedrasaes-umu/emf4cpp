@@ -2,6 +2,7 @@
 /*
  * parser/test.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,7 +28,7 @@ using namespace ::ecorecpp::parser;
 
 int main()
 {
-    typedef std::vector< ::ecorecpp::mapping::type_traits::string_t > refs_t;
+    typedef std::vector< ::ecorecpp::mapping::type_definitions::string_t > refs_t;
     refs_t r;
 
     r.push_back("#//EString #//Feo/wow #//Crunch");
@@ -40,7 +41,7 @@ int main()
     for (refs_t::iterator it = r.begin(); it != r.end(); it++)
     {
         size_t size = it->size();
-        const ::ecorecpp::mapping::type_traits::char_t * s = it->c_str();
+        const ::ecorecpp::mapping::type_definitions::char_t * s = it->c_str();
 
         SemanticState ss;
         reference::State< SemanticState > st(ss, s, size);
@@ -54,9 +55,9 @@ int main()
             std::cout << "REF #/";
             for (path_t::iterator j = path.begin(); j != path.end(); j++)
             {
-                std::cout << "/";
+                std::cout << "/@";
                 if (j->is_collection())
-                    std::cout << "@" << j->get_id() << "." << j->get_index();
+                    std::cout << j->get_id() << "." << j->get_index();
                 else
                     std::cout << j->get_id();
             }

@@ -2,6 +2,7 @@
 /*
  * kdm/action_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,115 +44,111 @@ namespace kdm
 
 // ActionElement
         class ActionElement;
-        typedef ActionElement* ActionElement_ptr;
+        using ActionElement_ptr = ::ecore::Ptr<ActionElement>;
 
 // AbstractActionRelationship
         class AbstractActionRelationship;
-        typedef AbstractActionRelationship* AbstractActionRelationship_ptr;
+        using AbstractActionRelationship_ptr = ::ecore::Ptr<AbstractActionRelationship>;
 
 // ControlFlow
         class ControlFlow;
-        typedef ControlFlow* ControlFlow_ptr;
+        using ControlFlow_ptr = ::ecore::Ptr<ControlFlow>;
 
 // Calls
         class Calls;
-        typedef Calls* Calls_ptr;
+        using Calls_ptr = ::ecore::Ptr<Calls>;
 
 // Creates
         class Creates;
-        typedef Creates* Creates_ptr;
+        using Creates_ptr = ::ecore::Ptr<Creates>;
 
 // Reads
         class Reads;
-        typedef Reads* Reads_ptr;
+        using Reads_ptr = ::ecore::Ptr<Reads>;
 
 // Writes
         class Writes;
-        typedef Writes* Writes_ptr;
+        using Writes_ptr = ::ecore::Ptr<Writes>;
 
 // CompliesTo
         class CompliesTo;
-        typedef CompliesTo* CompliesTo_ptr;
+        using CompliesTo_ptr = ::ecore::Ptr<CompliesTo>;
 
 // Flow
         class Flow;
-        typedef Flow* Flow_ptr;
+        using Flow_ptr = ::ecore::Ptr<Flow>;
 
 // TrueFlow
         class TrueFlow;
-        typedef TrueFlow* TrueFlow_ptr;
+        using TrueFlow_ptr = ::ecore::Ptr<TrueFlow>;
 
 // FalseFlow
         class FalseFlow;
-        typedef FalseFlow* FalseFlow_ptr;
+        using FalseFlow_ptr = ::ecore::Ptr<FalseFlow>;
 
 // GuardedFlow
         class GuardedFlow;
-        typedef GuardedFlow* GuardedFlow_ptr;
+        using GuardedFlow_ptr = ::ecore::Ptr<GuardedFlow>;
 
 // UsesType
         class UsesType;
-        typedef UsesType* UsesType_ptr;
+        using UsesType_ptr = ::ecore::Ptr<UsesType>;
 
 // Addresses
         class Addresses;
-        typedef Addresses* Addresses_ptr;
+        using Addresses_ptr = ::ecore::Ptr<Addresses>;
 
 // ActionRelationship
         class ActionRelationship;
-        typedef ActionRelationship* ActionRelationship_ptr;
+        using ActionRelationship_ptr = ::ecore::Ptr<ActionRelationship>;
 
 // Throws
         class Throws;
-        typedef Throws* Throws_ptr;
+        using Throws_ptr = ::ecore::Ptr<Throws>;
 
 // Dispatches
         class Dispatches;
-        typedef Dispatches* Dispatches_ptr;
+        using Dispatches_ptr = ::ecore::Ptr<Dispatches>;
 
 // EntryFlow
         class EntryFlow;
-        typedef EntryFlow* EntryFlow_ptr;
+        using EntryFlow_ptr = ::ecore::Ptr<EntryFlow>;
 
 // BlockUnit
         class BlockUnit;
-        typedef BlockUnit* BlockUnit_ptr;
+        using BlockUnit_ptr = ::ecore::Ptr<BlockUnit>;
 
 // ExceptionUnit
         class ExceptionUnit;
-        typedef ExceptionUnit* ExceptionUnit_ptr;
+        using ExceptionUnit_ptr = ::ecore::Ptr<ExceptionUnit>;
 
 // TryUnit
         class TryUnit;
-        typedef TryUnit* TryUnit_ptr;
+        using TryUnit_ptr = ::ecore::Ptr<TryUnit>;
 
 // FinallyUnit
         class FinallyUnit;
-        typedef FinallyUnit* FinallyUnit_ptr;
+        using FinallyUnit_ptr = ::ecore::Ptr<FinallyUnit>;
 
 // CatchUnit
         class CatchUnit;
-        typedef CatchUnit* CatchUnit_ptr;
+        using CatchUnit_ptr = ::ecore::Ptr<CatchUnit>;
 
 // ExitFlow
         class ExitFlow;
-        typedef ExitFlow* ExitFlow_ptr;
+        using ExitFlow_ptr = ::ecore::Ptr<ExitFlow>;
 
 // ExceptionFlow
         class ExceptionFlow;
-        typedef ExceptionFlow* ExceptionFlow_ptr;
+        using ExceptionFlow_ptr = ::ecore::Ptr<ExceptionFlow>;
+
+// EEnum
 
 // Package & Factory
         class ActionFactory;
-        typedef ActionFactory * ActionFactory_ptr;
+        using ActionFactory_ptr = ::ecore::Ptr<ActionFactory>;
         class ActionPackage;
-        typedef ActionPackage * ActionPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using ActionPackage_ptr = ::ecore::Ptr<ActionPackage>;
 
     } // action
 } // kdm

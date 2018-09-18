@@ -2,6 +2,7 @@
 /*
  * idlmm/EnumDef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EnumDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -49,12 +55,8 @@ EnumDef::~EnumDef()
 {
 }
 
-/*PROTECTED REGION ID(EnumDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 std::vector< ::ecore::EString > const& EnumDef::getMembers() const
 {
     return m_members;
@@ -71,8 +73,8 @@ void EnumDef::setMembers(std::vector< ::ecore::EString > const& _members)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getEnumDef__members(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getEnumDef__members(),
                 _old_members,
                 m_members
         );
@@ -90,7 +92,7 @@ void EnumDef::setMembersAt(size_t _position,
         ::ecore::EString const& _new_element_in_members)
 {
     if (_position >= m_members.size())
-        m_members.resize(_position + 1, 0);
+        m_members.resize(_position + 1, ::ecore::EString());
 
     m_members[_position] = _new_element_in_members;
 }
