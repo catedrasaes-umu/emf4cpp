@@ -52,9 +52,4 @@
 #include "ecore/EcorePackage.hpp"
 #include "ecore/EcoreFactory.hpp"
 
-namespace ecore {
-
-	void addAnnotation(::ecore::EAttribute_ptr attr, std::string source, std::string key, std::string value );
-
-}
 #endif // ECORE_HPP

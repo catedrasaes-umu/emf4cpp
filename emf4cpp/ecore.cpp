@@ -19,16 +19,3 @@
 
 #include "ecore.hpp"
 
-namespace ecore {
-
-	void addAnnotation(::ecore::EAttribute_ptr attr, std::string source, std::string key, std::string value ) {
-		ecore::EAnnotation* annotation = new ecore::EAnnotation();
-		annotation->setSource(source);
-		::ecore::EStringToStringMapEntry* entry = new ::ecore::EStringToStringMapEntry();
-		entry->setKey(key);
-		entry->setValue(value);
-		annotation->getDetails().push_back(entry);
-		attr->getEAnnotations().push_back(annotation);
-	}
-
-}				 

@@ -51,7 +51,7 @@ using namespace ::«EPackage.getFQN()»;
 
 // Default constructor
 «name»::«name»()
-«LET this.EAttributes.select(a|a.defaultValue != null) AS attrs-»
+«LET this.EAttributes.select(a|a.defaultValueLiteral != null) AS attrs-»
 «LET this.EReferences.select(r|r.upperBound == 1) AS refs-»
 «LET attrs.getDefaultValue().addAll(refs.getDefaultValue()) AS e-»
 «IF !e.isEmpty -»
