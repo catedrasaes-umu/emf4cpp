@@ -117,19 +117,19 @@ public:
     }
 
     template< typename Q >
-    inline void insert_all(EList< Q >& _q, ef* ef = nullptr)
+    inline void insert_all(EList< Q > & _q, ef* _ef = nullptr)
     {
         ptr_type _p(_q.template asEListOf< T >());
 
         for (size_t i = 0; i < _p->size(); i++)
-            push_back(_p->get(i), ef);
+            push_back(_p->get(i), _ef);
     }
 
-    inline void insert_all(EList& _q, ef* ef = nullptr)
+    inline void insert_all(EList const & _q, ef* _ef = nullptr)
     {
         for (size_t i = 0; i < _q.size(); i++)
-            push_back(_q.get(i), ef);
-    }
+            push_back(_q.get(i), _ef);
+     }
 
     virtual void insert_at(size_t _pos, T _obj, ef* = nullptr) = 0;
 
@@ -175,7 +175,7 @@ public:
 	virtual void remove(iterator) = 0;
 
     /**
-     * Allows for treating an EList<T> as EList<Q> (if T can be casted to Q dynamically)
+     * Allows treating an EList<T> as an EList<Q> (if T can be casted to Q dynamically)
      */
     template< typename Q >
     inline typename EList< Q >::ptr_type asEListOf()
