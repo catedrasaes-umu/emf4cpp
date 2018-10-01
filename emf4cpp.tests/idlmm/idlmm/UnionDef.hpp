@@ -2,6 +2,7 @@
 /*
  * idlmm/UnionDef.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef IDLMM_UNIONDEF_HPP
 #define IDLMM_UNIONDEF_HPP
 
-#include <idlmm_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <idlmm/dllIdlmm.hpp>
+#include <idlmm_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <idlmm/TypedefDef.hpp>
+
+#include "IdlmmPackage.hpp"
 
 /*PROTECTED REGION ID(UnionDef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,62 +39,70 @@
 namespace idlmm
 {
 
-    class UnionDef: public virtual ::idlmm::TypedefDef
-    {
-    public:
-        UnionDef();
+class EXPORT_IDLMM_DLL UnionDef : public virtual ::idlmm::TypedefDef
+{
+public:
+    UnionDef();
 
-        virtual ~UnionDef();
+    virtual ~UnionDef();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecorecpp::mapping::EList< ::idlmm::UnionField >& getUnionMembers();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::idlmm::UnionField_ptr >& getUnionMembers () const;
+    virtual ::ecorecpp::mapping::EList< ::idlmm::UnionField_ptr >& getUnionMembers ();
 
-        ::idlmm::IDLType_ptr getContainedDiscrim();
-        void setContainedDiscrim(::idlmm::IDLType_ptr _containedDiscrim);
+    virtual ::idlmm::IDLType_ptr getContainedDiscrim () const;
+    virtual void setContainedDiscrim (::idlmm::IDLType_ptr _containedDiscrim);
 
-        ::idlmm::TypedefDef_ptr getSharedDiscrim();
-        void setSharedDiscrim(::idlmm::TypedefDef_ptr _sharedDiscrim);
+    virtual ::idlmm::TypedefDef_ptr getSharedDiscrim () const;
+    virtual void setSharedDiscrim (::idlmm::TypedefDef_ptr _sharedDiscrim);
 
-        /*PROTECTED REGION ID(UnionDef) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = IdlmmPackage::UNIONDEF;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(UnionDef) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(UnionDefImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(UnionDefImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    UnionDef_ptr _this()
+    {   return UnionDef_ptr(this);}
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::idlmm::UnionField > > m_unionMembers;
+    // Attributes
 
-        ::idlmm::IDLType_ptr m_containedDiscrim;
+    // References
 
-        ::idlmm::TypedefDef_ptr m_sharedDiscrim;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::idlmm::UnionField_ptr >> m_unionMembers;
 
-    };
+    ::idlmm::IDLType_ptr m_containedDiscrim;
 
-} // idlmm
+    ::idlmm::TypedefDef_ptr m_sharedDiscrim;
+
+};
+
+}
+ // idlmm
 
 #endif // IDLMM_UNIONDEF_HPP
 

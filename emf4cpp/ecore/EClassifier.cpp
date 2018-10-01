@@ -2,6 +2,7 @@
 /*
  * ecore/EClassifier.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,20 +32,27 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EClassifier.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EClassifier::EClassifier() :
-    m_ePackage(0)
+        m_ePackage(0)
 {
 
     m_eTypeParameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::ETypeParameter, -1, true, false >(this, NULL));
+                    ::ecore::ETypeParameter_ptr, -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClassifier__eTypeParameters() :
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(EClassifierImpl__EClassifierImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -55,11 +63,6 @@ EClassifier::EClassifier() :
 EClassifier::~EClassifier()
 {
 }
-
-/*PROTECTED REGION ID(EClassifier.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
 
 // Attributes
 
@@ -80,8 +83,8 @@ void EClassifier::setInstanceClassName(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClassifier__instanceClassName(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClassifier__instanceClassName(),
                 _old_instanceClassName,
                 m_instanceClassName
         );
@@ -106,8 +109,8 @@ void EClassifier::setInstanceClass(int _instanceClass)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClassifier__instanceClass(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClassifier__instanceClass(),
                 _old_instanceClass,
                 m_instanceClass
         );
@@ -132,8 +135,8 @@ void EClassifier::setDefaultValue(::ecore::EJavaObject const& _defaultValue)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClassifier__defaultValue(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClassifier__defaultValue(),
                 _old_defaultValue,
                 m_defaultValue
         );
@@ -158,8 +161,8 @@ void EClassifier::setInstanceTypeName(::ecore::EString const& _instanceTypeName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClassifier__instanceTypeName(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClassifier__instanceTypeName(),
                 _old_instanceTypeName,
                 m_instanceTypeName
         );
@@ -169,15 +172,22 @@ void EClassifier::setInstanceTypeName(::ecore::EString const& _instanceTypeName)
 }
 
 // References
-::ecore::EPackage_ptr EClassifier::getEPackage()
+
+::ecore::EPackage_ptr EClassifier::getEPackage() const
 {
     return m_ePackage;
 }
 
-void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)
+::ecore::EPackage_ptr EClassifier::basicgetEPackage()
 {
-    ::ecore::EPackage_ptr _old_ePackage = m_ePackage;
+    return m_ePackage;
+}
 
+void EClassifier::basicsetEPackage(::ecore::EPackage_ptr _ePackage)
+{
+#ifdef ECORECPP_NOTIFICATION_API
+    ::ecore::EPackage_ptr _old_ePackage = m_ePackage;
+#endif
     m_ePackage = _ePackage;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -185,18 +195,41 @@ void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClassifier__ePackage(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClassifier__ePackage(),
                 _old_ePackage,
                 m_ePackage
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::ecore::ETypeParameter >& EClassifier::getETypeParameters()
+void EClassifier::setEPackage(::ecore::EPackage_ptr _ePackage)
+{
+    if (_ePackage != m_ePackage)
+    {
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
+        if (m_ePackage != nullptr)
+        {
+            m_ePackage->_inverseRemove(
+                    ::ecore::EcorePackage::EPACKAGE__ECLASSIFIERS, _this);
+        }
+        if (_ePackage != nullptr)
+        {
+            _ePackage->_inverseAdd(
+                    ::ecore::EcorePackage::EPACKAGE__ECLASSIFIERS, _this);
+        }
+        basicsetEPackage(_ePackage);
+    }
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& EClassifier::getETypeParameters() const
+{
+    return *m_eTypeParameters;
+}
+
+::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& EClassifier::getETypeParameters()
 {
     return *m_eTypeParameters;
 }

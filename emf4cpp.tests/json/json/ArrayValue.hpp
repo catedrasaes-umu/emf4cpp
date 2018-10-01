@@ -2,6 +2,7 @@
 /*
  * json/ArrayValue.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,10 +21,14 @@
 #ifndef JSON_ARRAYVALUE_HPP
 #define JSON_ARRAYVALUE_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
 
+#include <json/dllJson.hpp>
+#include <json_forward.hpp>
+
 #include <json/Value.hpp>
+
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(ArrayValue_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -33,52 +38,60 @@
 namespace json
 {
 
-    class ArrayValue: public virtual ::json::Value
-    {
-    public:
-        ArrayValue();
+class EXPORT_JSON_DLL ArrayValue : public virtual ::json::Value
+{
+public:
+    ArrayValue();
 
-        virtual ~ArrayValue();
+    virtual ~ArrayValue();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecorecpp::mapping::EList< ::json::Value >& getValues();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::json::Value_ptr >& getValues () const;
+    virtual ::ecorecpp::mapping::EList< ::json::Value_ptr >& getValues ();
 
-        /*PROTECTED REGION ID(ArrayValue) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::ARRAYVALUE;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(ArrayValue) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(ArrayValueImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(ArrayValueImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    ArrayValue_ptr _this()
+    {   return ArrayValue_ptr(this);}
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::json::Value > > m_values;
+    // Attributes
 
-    };
+    // References
 
-} // json
+    std::shared_ptr<::ecorecpp::mapping::EList< ::json::Value_ptr >> m_values;
+
+};
+
+}
+ // json
 
 #endif // JSON_ARRAYVALUE_HPP
 

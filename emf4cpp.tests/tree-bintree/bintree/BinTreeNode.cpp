@@ -2,6 +2,7 @@
 /*
  * bintree/BinTreeNode.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(BinTreeNode.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::bintree;
 
 // Default constructor
@@ -49,20 +55,16 @@ BinTreeNode::~BinTreeNode()
 {
     if (m_left)
     {
-        delete m_left;
+        m_left.reset();
     }
     if (m_right)
     {
-        delete m_right;
+        m_right.reset();
     }
 }
 
-/*PROTECTED REGION ID(BinTreeNode.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& BinTreeNode::getData() const
 {
     return m_data;
@@ -79,8 +81,8 @@ void BinTreeNode::setData(::ecore::EString const& _data)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::bintree::BintreePackage::_instance()->getBinTreeNode__data(),
+                _this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__data(),
                 _old_data,
                 m_data
         );
@@ -90,15 +92,17 @@ void BinTreeNode::setData(::ecore::EString const& _data)
 }
 
 // References
-::bintree::BinTreeNode_ptr BinTreeNode::getParent()
+
+::bintree::BinTreeNode_ptr BinTreeNode::getParent() const
 {
     return m_parent;
 }
 
 void BinTreeNode::setParent(::bintree::BinTreeNode_ptr _parent)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::bintree::BinTreeNode_ptr _old_parent = m_parent;
-
+#endif
     m_parent = _parent;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -106,26 +110,33 @@ void BinTreeNode::setParent(::bintree::BinTreeNode_ptr _parent)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::bintree::BintreePackage::_instance()->getBinTreeNode__parent(),
+                _this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__parent(),
                 _old_parent,
                 m_parent
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::bintree::BinTreeNode_ptr BinTreeNode::getLeft()
+::bintree::BinTreeNode_ptr BinTreeNode::getLeft() const
 {
     return m_left;
 }
 
 void BinTreeNode::setLeft(::bintree::BinTreeNode_ptr _left)
 {
-    ::bintree::BinTreeNode_ptr _old_left = m_left;
+    if (m_left)
+        m_left->_setEContainer(BinTreeNode_ptr(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
+    if (_left)
+        _left->_setEContainer(_this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__left());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::bintree::BinTreeNode_ptr _old_left = m_left;
+#endif
     m_left = _left;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -133,27 +144,33 @@ void BinTreeNode::setLeft(::bintree::BinTreeNode_ptr _left)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::bintree::BintreePackage::_instance()->getBinTreeNode__left(),
+                _this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__left(),
                 _old_left,
                 m_left
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_left;
 }
 
-::bintree::BinTreeNode_ptr BinTreeNode::getRight()
+::bintree::BinTreeNode_ptr BinTreeNode::getRight() const
 {
     return m_right;
 }
 
 void BinTreeNode::setRight(::bintree::BinTreeNode_ptr _right)
 {
-    ::bintree::BinTreeNode_ptr _old_right = m_right;
+    if (m_right)
+        m_right->_setEContainer(BinTreeNode_ptr(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
+    if (_right)
+        _right->_setEContainer(_this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__right());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::bintree::BinTreeNode_ptr _old_right = m_right;
+#endif
     m_right = _right;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -161,15 +178,13 @@ void BinTreeNode::setRight(::bintree::BinTreeNode_ptr _right)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::bintree::BintreePackage::_instance()->getBinTreeNode__right(),
+                _this(),
+                ::bintree::BintreePackage::_instance()->getBinTreeNode__right(),
                 _old_right,
                 m_right
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_right;
 }
 

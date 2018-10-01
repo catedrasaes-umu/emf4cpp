@@ -2,6 +2,7 @@
 /*
  * bintree/BintreePackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,36 +39,49 @@ using namespace ::bintree;
 BintreePackage::BintreePackage()
 {
 
-    s_instance.reset(this);
+    // Feature definitions of BinTreeNode
+    m_BinTreeNode__data = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_BinTreeNode__parent = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_BinTreeNode__left = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_BinTreeNode__right = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
+}
+
+void BintreePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = BintreeFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // BinTreeNode
-    m_BinTreeNodeEClass = new ::ecore::EClass();
+    m_BinTreeNodeEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BinTreeNodeEClass->setClassifierID(BINTREENODE);
-    m_BinTreeNodeEClass->setEPackage(this);
+    m_BinTreeNodeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BinTreeNodeEClass);
-    m_BinTreeNode__data = new ::ecore::EAttribute();
+    // m_BinTreeNode__data has already been allocated above
     m_BinTreeNode__data->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__DATA);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
             m_BinTreeNode__data);
-    m_BinTreeNode__parent = new ::ecore::EReference();
+    // m_BinTreeNode__parent has already been allocated above
     m_BinTreeNode__parent->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__PARENT);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
             m_BinTreeNode__parent);
-    m_BinTreeNode__left = new ::ecore::EReference();
+    // m_BinTreeNode__left has already been allocated above
     m_BinTreeNode__left->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__LEFT);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
             m_BinTreeNode__left);
-    m_BinTreeNode__right = new ::ecore::EReference();
+    // m_BinTreeNode__right has already been allocated above
     m_BinTreeNode__right->setFeatureID(
             ::bintree::BintreePackage::BINTREENODE__RIGHT);
     m_BinTreeNodeEClass->getEStructuralFeatures().push_back(
@@ -93,7 +107,7 @@ BintreePackage::BintreePackage()
     m_BinTreeNodeEClass->setAbstract(false);
     m_BinTreeNodeEClass->setInterface(false);
     m_BinTreeNode__data->setEType(
-            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance())->getEString());
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEString());
     m_BinTreeNode__data->setName("data");
     m_BinTreeNode__data->setDefaultValueLiteral("");
     m_BinTreeNode__data->setLowerBound(0);

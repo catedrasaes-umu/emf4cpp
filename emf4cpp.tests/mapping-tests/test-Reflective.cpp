@@ -8,7 +8,7 @@ using ::ecorecpp::mapping::EList;
 
 int main(int argc, char* argv[])
 {
-	EList< EClassifier > const& classifiers =
+	EList< EClassifier_ptr > const& classifiers =
 			EcorePackage::_instance()->getEClassifiers();
 
         std::ofstream outfile ("salida.ecore");

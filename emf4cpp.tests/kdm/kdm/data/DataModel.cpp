@@ -2,6 +2,7 @@
 /*
  * kdm/data/DataModel.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DataModel.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -43,8 +49,9 @@ DataModel::DataModel()
 
     m_dataElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractDataElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::data::AbstractDataElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::data::DataPackage::_instance()->getDataModel__dataElement()));
 
     /*PROTECTED REGION ID(DataModelImpl__DataModelImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,14 +67,16 @@ DataModel::~DataModel()
 {
 }
 
-/*PROTECTED REGION ID(DataModel.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement >& DataModel::getDataElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement_ptr >& DataModel::getDataElement() const
+{
+    return *m_dataElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::data::AbstractDataElement_ptr >& DataModel::getDataElement()
 {
     return *m_dataElement;
 }

@@ -2,6 +2,7 @@
 /*
  * json/NVPairImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,23 +28,21 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::json;
-
 /*PROTECTED REGION ID(NVPairImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::json;
+
 void NVPair::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     if (m_value)
     {
         m_value->_initialize();
-        m_value->_setEContainer(this,
-                ::json::JsonPackage::_instance()->getNVPair__value());
     }
 
     /*PROTECTED REGION ID(NVPairImpl__initialize) START*/
@@ -69,7 +68,8 @@ void NVPair::_initialize()
         return _any;
     case ::json::JsonPackage::NVPAIR__VALUE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_value);
+        if (m_value)
+            _any = ::ecore::as < ::ecore::EObject > (m_value);
     }
         return _any;
 
@@ -84,15 +84,17 @@ void NVPair::eSet(::ecore::EInt _featureID,
     {
     case ::json::JsonPackage::NVPAIR__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::json::NVPair::setName(_t0);
     }
         return;
     case ::json::JsonPackage::NVPAIR__VALUE:
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::json::Value_ptr _t1 = dynamic_cast< ::json::Value_ptr >(_t0);
+        ::json::Value_ptr _t1 = dynamic_cast< ::json::Value* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::json::Value >(_t0);*/
         ::json::NVPair::setValue(_t1);
     }
         return;
@@ -109,7 +111,7 @@ void NVPair::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_name);
     case ::json::JsonPackage::NVPAIR__VALUE:
-        return m_value;
+        return (bool) m_value;
 
     }
     throw "Error";
@@ -127,7 +129,39 @@ void NVPair::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr NVPair::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::json::JsonPackage_ptr >(::json::JsonPackage::_instance())->getNVPair();
+            dynamic_cast< ::json::JsonPackage* >(::json::JsonPackage::_instance().get())->getNVPair();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void NVPair::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::json::JsonPackage::NVPAIR__VALUE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void NVPair::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::json::JsonPackage::NVPAIR__VALUE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

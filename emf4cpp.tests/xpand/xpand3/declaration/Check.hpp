@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/Check.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,13 +21,17 @@
 #ifndef XPAND3_DECLARATION_CHECK_HPP
 #define XPAND3_DECLARATION_CHECK_HPP
 
-#include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/declaration/AbstractDeclaration.hpp>
+
+#include "DeclarationPackage.hpp"
 
 /*PROTECTED REGION ID(Check_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -38,68 +43,75 @@ namespace xpand3
     namespace declaration
     {
 
-        class Check: public virtual ::xpand3::declaration::AbstractDeclaration
-        {
-        public:
-            Check();
+    class EXPORT_XPAND3_DLL Check : public virtual ::xpand3::declaration::AbstractDeclaration
+    {
+    public:
+        Check();
 
-            virtual ~Check();
+        virtual ~Check();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::ecore::EBoolean isErrorSeverity() const;
-            void setErrorSeverity(::ecore::EBoolean _errorSeverity);
+        // Attributes
+        virtual ::ecore::EBoolean isErrorSeverity () const;
+        virtual void setErrorSeverity (::ecore::EBoolean _errorSeverity);
 
-            ::ecore::EString const& getFeature() const;
-            void setFeature(::ecore::EString const& _feature);
+        virtual ::ecore::EString const& getFeature () const;
+        virtual void setFeature (::ecore::EString const& _feature);
 
-            // References
-            ::xpand3::expression::AbstractExpression_ptr getMsg();
-            void setMsg(::xpand3::expression::AbstractExpression_ptr _msg);
+        // References
+        virtual ::xpand3::expression::AbstractExpression_ptr getMsg () const;
+        virtual void setMsg (::xpand3::expression::AbstractExpression_ptr _msg);
 
-            ::xpand3::expression::AbstractExpression_ptr getConstraint();
-            void setConstraint(
-                    ::xpand3::expression::AbstractExpression_ptr _constraint);
+        virtual ::xpand3::expression::AbstractExpression_ptr getConstraint () const;
+        virtual void setConstraint (::xpand3::expression::AbstractExpression_ptr _constraint);
 
-            /*PROTECTED REGION ID(Check) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DeclarationPackage::CHECK;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(Check) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(CheckImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(CheckImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::ecore::EBoolean m_errorSeverity;
+    protected:
+        Check_ptr _this()
+        {   return Check_ptr(this);}
 
-            ::ecore::EString m_feature;
+        // Attributes
 
-            // References
+        ::ecore::EBoolean m_errorSeverity;
 
-            ::xpand3::expression::AbstractExpression_ptr m_msg;
+        ::ecore::EString m_feature;
 
-            ::xpand3::expression::AbstractExpression_ptr m_constraint;
+        // References
 
-        };
+        ::xpand3::expression::AbstractExpression_ptr m_msg;
 
-    } // declaration
-} // xpand3
+        ::xpand3::expression::AbstractExpression_ptr m_constraint;
+
+    };
+
+}
+ // declaration
+}// xpand3
 
 #endif // XPAND3_DECLARATION_CHECK_HPP
 

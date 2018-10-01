@@ -2,6 +2,7 @@
 /*
  * SVG/Tspan.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef SVG_TSPAN_HPP
 #define SVG_TSPAN_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/TextElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Tspan_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,52 +39,60 @@
 namespace SVG
 {
 
-    class Tspan: public virtual ::SVG::TextElement
-    {
-    public:
-        Tspan();
+class EXPORT_SVG_DLL Tspan : public virtual ::SVG::TextElement
+{
+public:
+    Tspan();
 
-        virtual ~Tspan();
+    virtual ~Tspan();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::String getContent() const;
-        void setContent(::PrimitiveTypes::String _content);
+    // Attributes
+    virtual ::PrimitiveTypes::String getContent () const;
+    virtual void setContent (::PrimitiveTypes::String _content);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(Tspan) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::TSPAN;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Tspan) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(TspanImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(TspanImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::PrimitiveTypes::String m_content;
+protected:
+    Tspan_ptr _this()
+    {   return Tspan_ptr(this);}
 
-        // References
+    // Attributes
 
-    };
+    ::PrimitiveTypes::String m_content;
 
-} // SVG
+    // References
+
+};
+
+}
+ // SVG
 
 #endif // SVG_TSPAN_HPP
 

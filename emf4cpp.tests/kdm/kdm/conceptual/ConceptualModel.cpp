@@ -2,6 +2,7 @@
 /*
  * kdm/conceptual/ConceptualModel.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,6 +36,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ConceptualModel.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::conceptual;
 
 // Default constructor
@@ -43,8 +49,9 @@ ConceptualModel::ConceptualModel()
 
     m_conceptualElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::conceptual::AbstractConceptualElement, -1, true,
-                    false >(this, NULL));
+                    ::kdm::conceptual::AbstractConceptualElement_ptr, -1, true,
+                    false >(this,
+                    ::kdm::conceptual::ConceptualPackage::_instance()->getConceptualModel__conceptualElement()));
 
     /*PROTECTED REGION ID(ConceptualModelImpl__ConceptualModelImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -60,14 +67,17 @@ ConceptualModel::~ConceptualModel()
 {
 }
 
-/*PROTECTED REGION ID(ConceptualModel.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement >& ConceptualModel::getConceptualElement()
+
+const ::ecorecpp::mapping::EList<
+        ::kdm::conceptual::AbstractConceptualElement_ptr >& ConceptualModel::getConceptualElement() const
+{
+    return *m_conceptualElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::conceptual::AbstractConceptualElement_ptr >& ConceptualModel::getConceptualElement()
 {
     return *m_conceptualElement;
 }

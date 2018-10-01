@@ -2,6 +2,7 @@
 /*
  * idlmm/IDLTypeImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -26,18 +27,18 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::idlmm;
-
 /*PROTECTED REGION ID(IDLTypeImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::idlmm;
+
 void IDLType::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(IDLTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -72,8 +73,10 @@ void IDLType::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::IDLTYPE__TYPECODE:
     {
+        ::idlmm::ETypeCode _t0;
         ::ecorecpp::mapping::any_traits < ::idlmm::ETypeCode
-                > ::fromAny(_newValue, m_typeCode);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::IDLType::setTypeCode(_t0);
     }
         return;
 
@@ -105,7 +108,31 @@ void IDLType::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr IDLType::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getIDLType();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getIDLType();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void IDLType::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void IDLType::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

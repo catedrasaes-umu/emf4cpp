@@ -2,6 +2,7 @@
 /*
  * kdm/ui/UIResource.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(UIResource.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::ui;
 
 // Default constructor
@@ -48,8 +54,8 @@ UIResource::UIResource()
 
     m_UIElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::ui::AbstractUIElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::ui::AbstractUIElement_ptr, -1, true, false >(this,
+                    ::kdm::ui::UiPackage::_instance()->getUIResource__UIElement()));
 
     /*PROTECTED REGION ID(UIResourceImpl__UIResourceImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,14 +71,16 @@ UIResource::~UIResource()
 {
 }
 
-/*PROTECTED REGION ID(UIResource.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement >& UIResource::getUIElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement_ptr >& UIResource::getUIElement() const
+{
+    return *m_UIElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIElement_ptr >& UIResource::getUIElement()
 {
     return *m_UIElement;
 }

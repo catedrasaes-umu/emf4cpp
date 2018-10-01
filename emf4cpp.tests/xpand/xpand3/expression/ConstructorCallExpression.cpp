@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ConstructorCallExpression.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ConstructorCallExpression.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -50,26 +56,31 @@ ConstructorCallExpression::~ConstructorCallExpression()
 {
     if (m_type)
     {
-        delete m_type;
+        m_type.reset();
     }
 }
 
-/*PROTECTED REGION ID(ConstructorCallExpression.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::Identifier_ptr ConstructorCallExpression::getType()
+
+::xpand3::Identifier_ptr ConstructorCallExpression::getType() const
 {
     return m_type;
 }
 
 void ConstructorCallExpression::setType(::xpand3::Identifier_ptr _type)
 {
-    ::xpand3::Identifier_ptr _old_type = m_type;
+    if (m_type)
+        m_type->_setEContainer(ConstructorCallExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
+    if (_type)
+        _type->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_type = m_type;
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -77,15 +88,13 @@ void ConstructorCallExpression::setType(::xpand3::Identifier_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getConstructorCallExpression__type(),
                 _old_type,
                 m_type
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_type;
 }
 

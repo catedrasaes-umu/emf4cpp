@@ -27,10 +27,10 @@ namespace notify
 {
 
 typedef ::ecore::EObject Notifier;
-typedef Notifier * Notifier_ptr;
+using Notifier_ptr = ::ecore::EObject_ptr;
 
-typedef ::ecore::EObject Adapter;
-typedef Adapter * Adapter_ptr;
+class Adapter;
+using Adapter_ptr = Adapter*;
 
 class Notification;
 typedef Notification * Notification_ptr;

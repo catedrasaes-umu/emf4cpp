@@ -2,6 +2,7 @@
 /*
  * kdm/KdmPackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,12 +38,14 @@ using namespace ::kdm;
 KdmPackage::KdmPackage()
 {
 
-    s_instance.reset(this);
+}
 
+void KdmPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = KdmFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
@@ -50,20 +53,30 @@ KdmPackage::KdmPackage()
 
     // Create data types
 
-    getESubpackages().push_back(::kdm::action::ActionPackage::_instance());
-    getESubpackages().push_back(::kdm::build::BuildPackage::_instance());
-    getESubpackages().push_back(::kdm::code::CodePackage::_instance());
     getESubpackages().push_back(
-            ::kdm::conceptual::ConceptualPackage::_instance());
-    getESubpackages().push_back(::kdm::core::CorePackage::_instance());
-    getESubpackages().push_back(::kdm::data::DataPackage::_instance());
-    getESubpackages().push_back(::kdm::event::EventPackage::_instance());
-    getESubpackages().push_back(::kdm::source::SourcePackage::_instance());
-    getESubpackages().push_back(::kdm::platform::PlatformPackage::_instance());
+            ::kdm::action::ActionPackage::_getInstanceAndRemoveOwnership());
     getESubpackages().push_back(
-            ::kdm::structure::StructurePackage::_instance());
-    getESubpackages().push_back(::kdm::kdm::KdmPackage::_instance());
-    getESubpackages().push_back(::kdm::ui::UiPackage::_instance());
+            ::kdm::build::BuildPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::code::CodePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::conceptual::ConceptualPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::core::CorePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::data::DataPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::event::EventPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::source::SourcePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::platform::PlatformPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::structure::StructurePackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::kdm::KdmPackage::_getInstanceAndRemoveOwnership());
+    getESubpackages().push_back(
+            ::kdm::ui::UiPackage::_getInstanceAndRemoveOwnership());
 
     // Initialize package
     setName("kdm");

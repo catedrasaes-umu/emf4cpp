@@ -2,6 +2,7 @@
 /*
  * kdm/structure/StructureFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::kdm::structure;
 
-std::auto_ptr< ::kdm::structure::StructureFactory > StructureFactory::s_instance;
+::ecore::Ptr< ::kdm::structure::StructureFactory > StructureFactory::s_holder;
 
 ::kdm::structure::StructureFactory_ptr StructureFactory::_instance()
 {
-    if (!s_instance.get())
-        new StructureFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < StructureFactory > (new StructureFactory());
+
+    return s_holder;
 }
 

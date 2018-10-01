@@ -2,6 +2,7 @@
 /*
  * company/Employee.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -18,6 +19,7 @@
  */
 
 #include "Employee.hpp"
+#include <company/PhonebookEntry.hpp>
 #include <ecore/EObject.hpp>
 #include <ecore/EClass.hpp>
 #include "company/CompanyPackage.hpp"
@@ -27,10 +29,16 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Employee.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::company;
 
 // Default constructor
-Employee::Employee()
+Employee::Employee() :
+        m_phonebookEntry(0)
 {
 
     /*PROTECTED REGION ID(EmployeeImpl__EmployeeImpl) START*/
@@ -45,14 +53,14 @@ Employee::Employee()
 
 Employee::~Employee()
 {
+    if (m_phonebookEntry)
+    {
+        m_phonebookEntry.reset();
+    }
 }
 
-/*PROTECTED REGION ID(Employee.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& Employee::getName() const
 {
     return m_name;
@@ -69,8 +77,8 @@ void Employee::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getEmployee__name(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getEmployee__name(),
                 _old_name,
                 m_name
         );
@@ -80,4 +88,38 @@ void Employee::setName(::ecore::EString const& _name)
 }
 
 // References
+
+::company::PhonebookEntry_ptr Employee::getPhonebookEntry() const
+{
+    return m_phonebookEntry;
+}
+
+void Employee::setPhonebookEntry(::company::PhonebookEntry_ptr _phonebookEntry)
+{
+    if (m_phonebookEntry)
+        m_phonebookEntry->_setEContainer(Employee_ptr(),
+                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
+    if (_phonebookEntry)
+        _phonebookEntry->_setEContainer(_this(),
+                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry());
+
+#ifdef ECORECPP_NOTIFICATION_API
+    ::company::PhonebookEntry_ptr _old_phonebookEntry = m_phonebookEntry;
+#endif
+    m_phonebookEntry = _phonebookEntry;
+
+#ifdef ECORECPP_NOTIFICATION_API
+    if (eNotificationRequired())
+    {
+        ::ecorecpp::notify::Notification notification(
+                ::ecorecpp::notify::Notification::SET,
+                _this(),
+                ::company::CompanyPackage::_instance()->getEmployee__phonebookEntry(),
+                _old_phonebookEntry,
+                m_phonebookEntry
+        );
+        eNotify(&notification);
+    }
+#endif
+}
 

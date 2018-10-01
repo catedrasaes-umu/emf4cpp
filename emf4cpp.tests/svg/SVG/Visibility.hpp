@@ -2,6 +2,7 @@
 /*
  * SVG/Visibility.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef SVG_VISIBILITY_HPP
 #define SVG_VISIBILITY_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/Attribute.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Visibility_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,52 +39,60 @@
 namespace SVG
 {
 
-    class Visibility: public virtual ::SVG::Attribute
-    {
-    public:
-        Visibility();
+class EXPORT_SVG_DLL Visibility : public virtual ::SVG::Attribute
+{
+public:
+    Visibility();
 
-        virtual ~Visibility();
+    virtual ~Visibility();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::Boolean getVisible() const;
-        void setVisible(::PrimitiveTypes::Boolean _visible);
+    // Attributes
+    virtual ::PrimitiveTypes::Boolean getVisible () const;
+    virtual void setVisible (::PrimitiveTypes::Boolean _visible);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(Visibility) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::VISIBILITY;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Visibility) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(VisibilityImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(VisibilityImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::PrimitiveTypes::Boolean m_visible;
+protected:
+    Visibility_ptr _this()
+    {   return Visibility_ptr(this);}
 
-        // References
+    // Attributes
 
-    };
+    ::PrimitiveTypes::Boolean m_visible;
 
-} // SVG
+    // References
+
+};
+
+}
+ // SVG
 
 #endif // SVG_VISIBILITY_HPP
 

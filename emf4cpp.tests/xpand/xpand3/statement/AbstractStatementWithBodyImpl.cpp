@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/AbstractStatementWithBodyImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,24 +28,22 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::statement;
-
 /*PROTECTED REGION ID(AbstractStatementWithBodyImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::statement;
 
 void AbstractStatementWithBody::_initialize()
 {
     // Supertypes
     ::xpand3::statement::AbstractStatement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_body->size(); i++)
     {
         (*m_body)[i]->_initialize();
-        (*m_body)[i]->_setEContainer(this,
-                ::xpand3::statement::StatementPackage::_instance()->getAbstractStatementWithBody__body());
     }
 
     /*PROTECTED REGION ID(AbstractStatementWithBodyImpl__initialize) START*/
@@ -86,7 +85,7 @@ void AbstractStatementWithBody::_initialize()
         return _any;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        _any = m_body->asEListOf< ::ecore::EObject >();
+        _any = m_body->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -101,32 +100,41 @@ void AbstractStatementWithBody::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::xpand3::statement::AbstractStatementWithBody::getBody().clear();
         ::xpand3::statement::AbstractStatementWithBody::getBody().insert_all(
                 *_t0);
@@ -171,7 +179,39 @@ void AbstractStatementWithBody::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr AbstractStatementWithBody::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getAbstractStatementWithBody();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getAbstractStatementWithBody();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void AbstractStatementWithBody::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void AbstractStatementWithBody::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::statement::StatementPackage::ABSTRACTSTATEMENTWITHBODY__BODY:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

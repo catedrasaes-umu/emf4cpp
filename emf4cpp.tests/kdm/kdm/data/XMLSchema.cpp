@@ -2,6 +2,7 @@
 /*
  * kdm/data/XMLSchema.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(XMLSchema.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -48,8 +54,9 @@ XMLSchema::XMLSchema()
 
     m_contentElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::AbstractContentElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::data::AbstractContentElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::data::DataPackage::_instance()->getXMLSchema__contentElement()));
 
     /*PROTECTED REGION ID(XMLSchemaImpl__XMLSchemaImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,14 +72,16 @@ XMLSchema::~XMLSchema()
 {
 }
 
-/*PROTECTED REGION ID(XMLSchema.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement >& XMLSchema::getContentElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& XMLSchema::getContentElement() const
+{
+    return *m_contentElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::data::AbstractContentElement_ptr >& XMLSchema::getContentElement()
 {
     return *m_contentElement;
 }

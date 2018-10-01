@@ -2,6 +2,7 @@
 /*
  * idlmm/IDLType.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,6 +28,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(IDLType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -47,12 +53,8 @@ IDLType::~IDLType()
 {
 }
 
-/*PROTECTED REGION ID(IDLType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::idlmm::ETypeCode IDLType::getTypeCode() const
 {
     return m_typeCode;
@@ -69,8 +71,8 @@ void IDLType::setTypeCode(::idlmm::ETypeCode _typeCode)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getIDLType__typeCode(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getIDLType__typeCode(),
                 _old_typeCode,
                 m_typeCode
         );

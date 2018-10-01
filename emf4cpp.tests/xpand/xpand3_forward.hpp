@@ -2,6 +2,7 @@
 /*
  * xpand3_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -44,35 +45,31 @@ namespace xpand3
 
 // SyntaxElement
     class SyntaxElement;
-    typedef SyntaxElement* SyntaxElement_ptr;
+    using SyntaxElement_ptr = ::ecore::Ptr<SyntaxElement>;
 
 // File
     class File;
-    typedef File* File_ptr;
+    using File_ptr = ::ecore::Ptr<File>;
 
 // ImportStatement
     class ImportStatement;
-    typedef ImportStatement* ImportStatement_ptr;
+    using ImportStatement_ptr = ::ecore::Ptr<ImportStatement>;
 
 // Identifier
     class Identifier;
-    typedef Identifier* Identifier_ptr;
+    using Identifier_ptr = ::ecore::Ptr<Identifier>;
 
 // DeclaredParameter
     class DeclaredParameter;
-    typedef DeclaredParameter* DeclaredParameter_ptr;
+    using DeclaredParameter_ptr = ::ecore::Ptr<DeclaredParameter>;
+
+// EEnum
 
 // Package & Factory
     class Xpand3Factory;
-    typedef Xpand3Factory * Xpand3Factory_ptr;
+    using Xpand3Factory_ptr = ::ecore::Ptr<Xpand3Factory>;
     class Xpand3Package;
-    typedef Xpand3Package * Xpand3Package_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using Xpand3Package_ptr = ::ecore::Ptr<Xpand3Package>;
 
 } // xpand3
 

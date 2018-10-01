@@ -2,6 +2,7 @@
 /*
  * kdm/ui/AbstractUIElement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,8 +21,10 @@
 #ifndef KDM_UI_ABSTRACTUIELEMENT_HPP
 #define KDM_UI_ABSTRACTUIELEMENT_HPP
 
-#include <kdm/ui_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/ui_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
@@ -29,6 +32,8 @@
 #include <kdm/code_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/core/KDMEntity.hpp>
+
+#include "UiPackage.hpp"
 
 /*PROTECTED REGION ID(AbstractUIElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -40,69 +45,76 @@ namespace kdm
     namespace ui
     {
 
-        class AbstractUIElement: public virtual ::kdm::core::KDMEntity
-        {
-        public:
-            AbstractUIElement();
+    class EXPORT_KDM_DLL AbstractUIElement : public virtual ::kdm::core::KDMEntity
+    {
+    public:
+        AbstractUIElement();
 
-            virtual ~AbstractUIElement();
+        virtual ~AbstractUIElement();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& getSource();
+        // References
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& getSource ();
 
-            ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship >& getUIRelation();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >& getUIRelation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >& getUIRelation ();
 
-            ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& getImplementation();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& getImplementation ();
 
-            ::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& getAbstraction();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& getAbstraction ();
 
-            /*PROTECTED REGION ID(AbstractUIElement) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = UiPackage::ABSTRACTUIELEMENT;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(AbstractUIElement) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(AbstractUIElementImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(AbstractUIElementImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        AbstractUIElement_ptr _this()
+        {   return AbstractUIElement_ptr(this);}
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRef > > m_source;
+        // Attributes
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList<
-                            ::kdm::ui::AbstractUIRelationship > > m_UIRelation;
+        // References
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement > > m_implementation;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >> m_source;
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::action::ActionElement > > m_abstraction;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::ui::AbstractUIRelationship_ptr >> m_UIRelation;
 
-        };
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >> m_implementation;
 
-    } // ui
-} // kdm
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >> m_abstraction;
+
+    };
+
+}
+ // ui
+}// kdm
 
 #endif // KDM_UI_ABSTRACTUIELEMENT_HPP
 

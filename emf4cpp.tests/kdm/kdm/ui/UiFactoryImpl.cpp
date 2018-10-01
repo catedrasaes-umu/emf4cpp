@@ -2,6 +2,7 @@
 /*
  * kdm/ui/UiFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -46,7 +47,6 @@ using namespace ::kdm::ui;
 
 UiFactory::UiFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr UiFactory::create(::ecore::EClass_ptr _eClass)
@@ -119,78 +119,78 @@ UiFactory::UiFactory()
 
 AbstractUIElement_ptr UiFactory::createAbstractUIElement()
 {
-    return new AbstractUIElement();
+    return ::ecore::Ptr < AbstractUIElement > (new AbstractUIElement);
 }
 UIResource_ptr UiFactory::createUIResource()
 {
-    return new UIResource();
+    return ::ecore::Ptr < UIResource > (new UIResource);
 }
 UIDisplay_ptr UiFactory::createUIDisplay()
 {
-    return new UIDisplay();
+    return ::ecore::Ptr < UIDisplay > (new UIDisplay);
 }
 Screen_ptr UiFactory::createScreen()
 {
-    return new Screen();
+    return ::ecore::Ptr < Screen > (new Screen);
 }
 Report_ptr UiFactory::createReport()
 {
-    return new Report();
+    return ::ecore::Ptr < Report > (new Report);
 }
 UIModel_ptr UiFactory::createUIModel()
 {
-    return new UIModel();
+    return ::ecore::Ptr < UIModel > (new UIModel);
 }
 AbstractUIRelationship_ptr UiFactory::createAbstractUIRelationship()
 {
-    return new AbstractUIRelationship();
+    return ::ecore::Ptr < AbstractUIRelationship > (new AbstractUIRelationship);
 }
 UILayout_ptr UiFactory::createUILayout()
 {
-    return new UILayout();
+    return ::ecore::Ptr < UILayout > (new UILayout);
 }
 UIField_ptr UiFactory::createUIField()
 {
-    return new UIField();
+    return ::ecore::Ptr < UIField > (new UIField);
 }
 DisplaysImage_ptr UiFactory::createDisplaysImage()
 {
-    return new DisplaysImage();
+    return ::ecore::Ptr < DisplaysImage > (new DisplaysImage);
 }
 Displays_ptr UiFactory::createDisplays()
 {
-    return new Displays();
+    return ::ecore::Ptr < Displays > (new Displays);
 }
 UIFlow_ptr UiFactory::createUIFlow()
 {
-    return new UIFlow();
+    return ::ecore::Ptr < UIFlow > (new UIFlow);
 }
 UIElement_ptr UiFactory::createUIElement()
 {
-    return new UIElement();
+    return ::ecore::Ptr < UIElement > (new UIElement);
 }
 UIRelationship_ptr UiFactory::createUIRelationship()
 {
-    return new UIRelationship();
+    return ::ecore::Ptr < UIRelationship > (new UIRelationship);
 }
 UIAction_ptr UiFactory::createUIAction()
 {
-    return new UIAction();
+    return ::ecore::Ptr < UIAction > (new UIAction);
 }
 UIEvent_ptr UiFactory::createUIEvent()
 {
-    return new UIEvent();
+    return ::ecore::Ptr < UIEvent > (new UIEvent);
 }
 ReadsUI_ptr UiFactory::createReadsUI()
 {
-    return new ReadsUI();
+    return ::ecore::Ptr < ReadsUI > (new ReadsUI);
 }
 WritesUI_ptr UiFactory::createWritesUI()
 {
-    return new WritesUI();
+    return ::ecore::Ptr < WritesUI > (new WritesUI);
 }
 ManagesUI_ptr UiFactory::createManagesUI()
 {
-    return new ManagesUI();
+    return ::ecore::Ptr < ManagesUI > (new ManagesUI);
 }
 

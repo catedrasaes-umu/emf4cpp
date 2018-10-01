@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/IntegerLiteralImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,19 +29,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::expression;
-
 /*PROTECTED REGION ID(IntegerLiteralImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::expression;
 
 void IntegerLiteral::_initialize()
 {
     // Supertypes
     ::xpand3::expression::Literal::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(IntegerLiteralImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -81,7 +82,8 @@ void IntegerLiteral::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_literalValue);
+        if (m_literalValue)
+            _any = ::ecore::as < ::ecore::EObject > (m_literalValue);
     }
         return _any;
 
@@ -96,26 +98,34 @@ void IntegerLiteral::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
@@ -123,7 +133,7 @@ void IntegerLiteral::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::Literal::setLiteralValue(_t1);
     }
         return;
@@ -148,7 +158,7 @@ void IntegerLiteral::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
-        return m_literalValue;
+        return (bool) m_literalValue;
 
     }
     throw "Error";
@@ -166,7 +176,39 @@ void IntegerLiteral::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr IntegerLiteral::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getIntegerLiteral();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getIntegerLiteral();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void IntegerLiteral::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void IntegerLiteral::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

@@ -2,6 +2,7 @@
 /*
  * ecore/EEnumLiteral.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,16 +31,21 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EEnumLiteral.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EEnumLiteral::EEnumLiteral() :
-    m_eEnum(0)
+        m_eEnum(0)
 {
 
     /*PROTECTED REGION ID(EEnumLiteralImpl__EEnumLiteralImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -50,11 +56,6 @@ EEnumLiteral::EEnumLiteral() :
 EEnumLiteral::~EEnumLiteral()
 {
 }
-
-/*PROTECTED REGION ID(EEnumLiteral.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
 
 // Attributes
 
@@ -74,8 +75,8 @@ void EEnumLiteral::setValue(::ecore::EInt _value)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__value(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__value(),
                 _old_value,
                 m_value
         );
@@ -100,8 +101,8 @@ void EEnumLiteral::setInstance(::ecore::EEnumerator _instance)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__instance(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__instance(),
                 _old_instance,
                 m_instance
         );
@@ -126,8 +127,8 @@ void EEnumLiteral::setLiteral(::ecore::EString const& _literal)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__literal(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__literal(),
                 _old_literal,
                 m_literal
         );
@@ -137,15 +138,22 @@ void EEnumLiteral::setLiteral(::ecore::EString const& _literal)
 }
 
 // References
-::ecore::EEnum_ptr EEnumLiteral::getEEnum()
+
+::ecore::EEnum_ptr EEnumLiteral::getEEnum() const
 {
     return m_eEnum;
 }
 
-void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)
+::ecore::EEnum_ptr EEnumLiteral::basicgetEEnum()
 {
-    ::ecore::EEnum_ptr _old_eEnum = m_eEnum;
+    return m_eEnum;
+}
 
+void EEnumLiteral::basicsetEEnum(::ecore::EEnum_ptr _eEnum)
+{
+#ifdef ECORECPP_NOTIFICATION_API
+    ::ecore::EEnum_ptr _old_eEnum = m_eEnum;
+#endif
     m_eEnum = _eEnum;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -153,14 +161,31 @@ void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEEnumLiteral__eEnum(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEEnumLiteral__eEnum(),
                 _old_eEnum,
                 m_eEnum
         );
         eNotify(&notification);
     }
 #endif
+}
 
+void EEnumLiteral::setEEnum(::ecore::EEnum_ptr _eEnum)
+{
+    if (_eEnum != m_eEnum)
+    {
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
+        if (m_eEnum != nullptr)
+        {
+            m_eEnum->_inverseRemove(::ecore::EcorePackage::EENUM__ELITERALS,
+                    _this);
+        }
+        if (_eEnum != nullptr)
+        {
+            _eEnum->_inverseAdd(::ecore::EcorePackage::EENUM__ELITERALS, _this);
+        }
+        basicsetEEnum(_eEnum);
+    }
 }
 

@@ -57,12 +57,54 @@ cached String getPackagePrefix(EPackage this) :
 	getPackagePrefix("/")
 ;
 
+cached String getItemDispatcherPrefix(EPackage this, String separator) :
+	getFQN(separator) + separator + name.toFirstUpper() + "ItemDispatcher"
+;
+
+cached String getItemDispatcherPrefix(EPackage this) :
+	getItemDispatcherPrefix("/")
+;
+
+cached String getItemProviderPrefix(EPackage this, String separator) :
+	getFQN(separator) + separator + name.toFirstUpper() + "ItemProvider"
+;
+
+cached String getItemProviderPrefix(EPackage this) :
+	getItemProviderPrefix("/")
+;
+
 cached String getFactoryPrefix(EPackage this, String separator) : 
 	getFQN(separator) + separator + name.toFirstUpper() + "Factory"
 ;
 
 cached String getFactoryPrefix(EPackage this) : 
 	getFactoryPrefix("/")
+;
+
+EPackage getTopLevelPackage(EPackage this) :
+	if this.ESuperPackage == null then
+		this
+	else
+		this.ESuperPackage.getTopLevelPackage()
+;
+
+cached Boolean createQt5Editor() :
+	GLOBALVAR createqt5editor
+;
+
+cached String getDllExtensionPrefix(EPackage this, String separator) : 
+	if createQt5Editor() then
+		getTopLevelPackage().getFQN(separator) + separator + "dll" + getTopLevelPackage().name.toFirstUpper() + "Editor"
+	else
+		getTopLevelPackage().getFQN(separator) + separator + "dll" + getTopLevelPackage().name.toFirstUpper()
+;
+
+cached String getDllExtensionPrefix(EPackage this) : 
+	getDllExtensionPrefix("/")
+;
+
+cached String getDllExtensionInclude(EPackage this) : 
+	"dll" + getTopLevelPackage().name.toFirstUpper() + ".hpp"
 ;
 
 String getPackageGetAttribute(EPackage this, EClassifier class) :
@@ -76,7 +118,7 @@ String getPackageAttribute(EPackage this, EClassifier class):
 	else
 		let pkg = class.EPackage :
 		let prefix = "::" + pkg.getFQN()+ "::" + pkg.name.toFirstUpper() + "Package":
-		"dynamic_cast< " + prefix + "* >(" + prefix + "::_instance())->" + getPackageGetAttribute(class) +"()"
+		"dynamic_cast< " + prefix + "* >(" + prefix + "::_instance().get())->" + getPackageGetAttribute(class) +"()"
 ;
 
 cached String getPackageName(EPackage this) :
@@ -89,6 +131,13 @@ cached String getFactoryName(EPackage this) :
 
 cached String getHeaderDef(EPackage this) :
 	getFQN("_").toUpperCase()
+;
+
+cached String getHeaderDefDLL(EPackage this) :
+	if createQt5Editor() then
+		getTopLevelPackage().name.toUpperCase() + "EDITOR"
+	else
+		getFQN("_").toUpperCase()
 ;
 
 cached String getHeaderDef(EClassifier this) :

@@ -2,6 +2,7 @@
 /*
  * serializer/serializer.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,7 +37,8 @@ using namespace ::xercesc;
 #define X(str) externalstr(str).unicode()
 
 serializer::serializer(const std::string& _file) :
-    m_file(_file), m_doc (0), m_level(0)
+    m_file(_file), m_doc (0), m_level(0),
+	m_usedPackages()
 {
     // TODO: every time?
     XMLPlatformUtils::Initialize();
@@ -51,7 +53,7 @@ serializer::~serializer()
 }
 
 typedef std::basic_string<XMLCh> XercesString;
-inline XercesString wstringToXerces(const ::ecorecpp::mapping::type_traits::string_t& str)
+inline XercesString wstringToXerces(const ::ecorecpp::mapping::type_definitions::string_t& str)
 {
     return XercesString(str.begin( ), str.end( ));
 }
@@ -64,8 +66,10 @@ void serializer::create_node(DOMElement * parent, EObject_ptr parent_obj,
     EClass_ptr child_cl = child_obj->eClass();
 
     // May be a subtype
-    if (child_cl != ef->getEType())
+    if (child_cl != ef->getEType()) {
         child->setAttribute(X("xsi:type"), W(get_type(child_obj)));
+		m_usedPackages.push_back(child_cl->getEPackage());
+	}
 
     parent->appendChild(child);
 
@@ -77,7 +81,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
     ++m_level;
 
 #ifdef DEBUG
-    ::ecorecpp::mapping::type_traits::string_t indent(m_level, '\t');
+    ::ecorecpp::mapping::type_definitions::string_t indent(m_level, '\t');
 #endif
 
     EClass_ptr cl = obj->eClass();
@@ -95,7 +99,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
 
             if (!current_at->isTransient() && obj->eIsSet(current_at))
             {
-                EDataType_ptr atc = at_classifier->as< EDataType > ();
+                EDataType_ptr atc = as< EDataType >(at_classifier);
                 if (atc)
                 {
                     EFactory_ptr fac =
@@ -104,7 +108,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
 
                     if (current_at->getUpperBound() == 1)
                     {
-                        ::ecorecpp::mapping::type_traits::string_t value = fac->convertToString(atc, any);
+                        ::ecorecpp::mapping::type_definitions::string_t value = fac->convertToString(atc, any);
 
                         DEBUG_MSG(cout, indent << current_at->getName() << " "
                                 << value);
@@ -123,7 +127,7 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
                                 std::vector< boost::any > >(any);
                         for (size_t k = 0; k < anys.size(); k++)
                         {
-                            ::ecorecpp::mapping::type_traits::string_t value = fac->convertToString(
+                            ::ecorecpp::mapping::type_definitions::string_t value = fac->convertToString(
                                     atc, anys[k]);
 
                             DEBUG_MSG(cout, indent << current_at->getName()
@@ -188,13 +192,13 @@ void serializer::serialize_node(DOMElement* node, EObject_ptr obj)
                 else
                 {
                     // TODO: create reference
-                    ::ecorecpp::mapping::type_traits::stringstream_t value;
+                    ::ecorecpp::mapping::type_definitions::stringstream_t value;
                     DEBUG_MSG(cout, indent << current_ref->getName());
 
                     if (current_ref->getUpperBound() != 1)
                     {
-                        mapping::EList_ptr children = boost::any_cast<
-                                mapping::EList_ptr >(any);
+                        mapping::EList<::ecore::EObject>::ptr_type children = boost::any_cast<
+                                mapping::EList<::ecore::EObject>::ptr_type >(any);
                         for (size_t j = 0; j < children->size(); j++)
                         {
                             value << get_reference(obj, (*children)[j]);
@@ -235,7 +239,7 @@ void serializer::serialize(EObject_ptr obj)
         EClass_ptr cl = obj->eClass();
         EPackage_ptr pkg = cl->getEPackage();
 
-        ::ecorecpp::mapping::type_traits::string_t const& ns_uri = pkg->getNsURI();
+        ::ecorecpp::mapping::type_definitions::string_t const& ns_uri = pkg->getNsURI();
 
         m_doc = m_impl->createDocument(
                 (ns_uri.empty()) ? X("NULL") : W(ns_uri), // root element namespace URI.
@@ -244,16 +248,34 @@ void serializer::serialize(EObject_ptr obj)
 
         m_root = m_doc->getDocumentElement();
 
-        // common attributes
+        // common attributes, following standard EMF order
+        // xmi:version="2.0"
+        m_root->setAttribute(X("xmi:version"), X("2.0"));
         // xmlns:xmi="http://www.omg.org/XMI"
         m_root->setAttribute(X("xmlns:xmi"), X("http://www.omg.org/XMI"));
         // xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         m_root->setAttribute(X("xmlns:xsi"),
                 X("http://www.w3.org/2001/XMLSchema-instance"));
-        // xmi:version="2.0"
-        m_root->setAttribute(X("xmi:version"), X("2.0"));
 
         serialize_node(m_root, obj);
+
+		// sort and unify according to EPackage name
+		std::sort(m_usedPackages.begin(), m_usedPackages.end(),
+				  [](const EPackage_ptr& lhs, const EPackage_ptr& rhs) -> bool {
+					  return lhs->getName() < rhs->getName(); });
+		m_usedPackages.erase(std::unique(m_usedPackages.begin(), m_usedPackages.end()),
+							 m_usedPackages.end());
+		m_used_packages.remove(pkg);
+
+		for ( auto pkg : m_usedPackages ) {
+
+			::ecorecpp::mapping::type_definitions::string_t const& ns_uri = pkg->getNsURI();
+
+			::ecorecpp::mapping::type_definitions::stringstream_t pkg_namespace;
+			pkg_namespace << "xmlns:" << pkg->getName();
+
+			m_root->setAttribute(W(pkg_namespace.str()), W(ns_uri));
+		}
 
         // write
         // TODO: outta here
@@ -285,12 +307,12 @@ void serializer::serialize(EObject_ptr obj)
         throw "Error";
 }
 
-::ecorecpp::mapping::type_traits::string_t serializer::get_type(EObject_ptr obj) const
+::ecorecpp::mapping::type_definitions::string_t serializer::get_type(EObject_ptr obj) const
 {
     EClass_ptr cl = obj->eClass();
     EPackage_ptr pkg = cl->getEPackage();
 
-    ::ecorecpp::mapping::type_traits::stringstream_t ss;
+    ::ecorecpp::mapping::type_definitions::stringstream_t ss;
     ss << pkg->getName() << ":" << cl->getName();
 
     return ss.str();
@@ -298,9 +320,9 @@ void serializer::serialize(EObject_ptr obj)
 
 #include <list>
 
-::ecorecpp::mapping::type_traits::string_t serializer::get_reference(EObject_ptr from, EObject_ptr to) const
+::ecorecpp::mapping::type_definitions::string_t serializer::get_reference(EObject_ptr from, EObject_ptr to) const
 {
-    ::ecorecpp::mapping::type_traits::stringstream_t value;
+    ::ecorecpp::mapping::type_definitions::stringstream_t value;
 
     std::list< EObject_ptr > to_antecessors;
     EObject_ptr antecessor = to;
@@ -324,7 +346,7 @@ void serializer::serialize(EObject_ptr obj)
         while (to_antecessors.size())
         {
             value << "/"
-                    << to_antecessors.back()->as< ENamedElement > ()->getName();
+                    << as< ENamedElement >(to_antecessors.back())->getName();
             to_antecessors.pop_back();
         }
     }

@@ -2,6 +2,7 @@
 /*
  * myDsl/MyDslFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -33,7 +34,6 @@ using namespace ::myDsl;
 
 MyDslFactory::MyDslFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr MyDslFactory::create(::ecore::EClass_ptr _eClass)
@@ -81,26 +81,26 @@ MyDslFactory::MyDslFactory()
 
 Model_ptr MyDslFactory::createModel()
 {
-    return new Model();
+    return ::ecore::Ptr < Model > (new Model);
 }
 Import_ptr MyDslFactory::createImport()
 {
-    return new Import();
+    return ::ecore::Ptr < Import > (new Import);
 }
 Type_ptr MyDslFactory::createType()
 {
-    return new Type();
+    return ::ecore::Ptr < Type > (new Type);
 }
 SimpleType_ptr MyDslFactory::createSimpleType()
 {
-    return new SimpleType();
+    return ::ecore::Ptr < SimpleType > (new SimpleType);
 }
 Entity_ptr MyDslFactory::createEntity()
 {
-    return new Entity();
+    return ::ecore::Ptr < Entity > (new Entity);
 }
 Property_ptr MyDslFactory::createProperty()
 {
-    return new Property();
+    return ::ecore::Ptr < Property > (new Property);
 }
 

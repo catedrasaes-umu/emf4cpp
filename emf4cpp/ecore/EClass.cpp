@@ -2,6 +2,7 @@
 /*
  * ecore/EClass.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,56 +38,89 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EClass.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EClass::EClass() :
-    m_eIDAttribute(0)
+        m_eIDAttribute(0)
 {
 
     m_eSuperTypes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClass, -1,
-                    false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClass_ptr,
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eSuperTypes() :
+                            ::ecore::EReference_ptr()));
     m_eOperations.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EOperation,
-                    -1, true, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EOperation_ptr, -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eOperations() :
+                            ::ecore::EReference_ptr(),
+                    ::ecore::EcorePackage::EOPERATION__ECONTAININGCLASS));
     m_eAllAttributes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAttribute,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EAttribute_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAllAttributes() :
+                            ::ecore::EReference_ptr()));
     m_eAllReferences.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EReference,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EReference_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAllReferences() :
+                            ::ecore::EReference_ptr()));
     m_eReferences.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EReference,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EReference_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eReferences() :
+                            ::ecore::EReference_ptr()));
     m_eAttributes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAttribute,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EAttribute_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAttributes() :
+                            ::ecore::EReference_ptr()));
     m_eAllContainments.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EReference,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EReference_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAllContainments() :
+                            ::ecore::EReference_ptr()));
     m_eAllOperations.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EOperation,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EOperation_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAllOperations() :
+                            ::ecore::EReference_ptr()));
     m_eAllStructuralFeatures.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::EStructuralFeature, -1, false, false >(this, NULL));
+                    ::ecore::EStructuralFeature_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAllStructuralFeatures() :
+                            ::ecore::EReference_ptr()));
     m_eAllSuperTypes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClass, -1,
-                    false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EClass_ptr,
+                    -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAllSuperTypes() :
+                            ::ecore::EReference_ptr()));
     m_eStructuralFeatures.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::ecore::EStructuralFeature, -1, true, true >(this, NULL));
+                    ::ecore::EStructuralFeature_ptr, -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eStructuralFeatures() :
+                            ::ecore::EReference_ptr(),
+                    ::ecore::EcorePackage::ESTRUCTURALFEATURE__ECONTAININGCLASS));
     m_eGenericSuperTypes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EGenericType_ptr, -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eGenericSuperTypes() :
+                            ::ecore::EReference_ptr()));
     m_eAllGenericSuperTypes.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EGenericType_ptr, -1, false, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEClass__eAllGenericSuperTypes() :
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(EClassImpl__EClassImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -97,11 +131,6 @@ EClass::EClass() :
 EClass::~EClass()
 {
 }
-
-/*PROTECTED REGION ID(EClass.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
 
 // Attributes
 
@@ -121,8 +150,8 @@ void EClass::setAbstract(::ecore::EBoolean _abstract)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClass__abstract(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClass__abstract(),
                 _old_abstract,
                 m_abstract
         );
@@ -147,8 +176,8 @@ void EClass::setInterface(::ecore::EBoolean _interface)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClass__interface(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClass__interface(),
                 _old_interface,
                 m_interface
         );
@@ -158,65 +187,117 @@ void EClass::setInterface(::ecore::EBoolean _interface)
 }
 
 // References
-::ecorecpp::mapping::EList< ::ecore::EClass >& EClass::getESuperTypes()
+
+const ::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& EClass::getESuperTypes() const
 {
     return *m_eSuperTypes;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EOperation >& EClass::getEOperations()
+::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& EClass::getESuperTypes()
+{
+    return *m_eSuperTypes;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& EClass::getEOperations() const
 {
     return *m_eOperations;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EAttribute >& EClass::getEAllAttributes()
+::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& EClass::getEOperations()
+{
+    return *m_eOperations;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& EClass::getEAllAttributes() const
 {
     return *m_eAllAttributes;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEAllReferences()
+::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& EClass::getEAllAttributes()
+{
+    return *m_eAllAttributes;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& EClass::getEAllReferences() const
 {
     return *m_eAllReferences;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEReferences()
+::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& EClass::getEAllReferences()
+{
+    return *m_eAllReferences;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& EClass::getEReferences() const
 {
     return *m_eReferences;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EAttribute >& EClass::getEAttributes()
+::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& EClass::getEReferences()
+{
+    return *m_eReferences;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& EClass::getEAttributes() const
 {
     return *m_eAttributes;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EReference >& EClass::getEAllContainments()
+::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& EClass::getEAttributes()
+{
+    return *m_eAttributes;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& EClass::getEAllContainments() const
 {
     return *m_eAllContainments;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EOperation >& EClass::getEAllOperations()
+::ecorecpp::mapping::EList< ::ecore::EReference_ptr >& EClass::getEAllContainments()
+{
+    return *m_eAllContainments;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& EClass::getEAllOperations() const
 {
     return *m_eAllOperations;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& EClass::getEAllStructuralFeatures()
+::ecorecpp::mapping::EList< ::ecore::EOperation_ptr >& EClass::getEAllOperations()
+{
+    return *m_eAllOperations;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& EClass::getEAllStructuralFeatures() const
 {
     return *m_eAllStructuralFeatures;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EClass >& EClass::getEAllSuperTypes()
+::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& EClass::getEAllStructuralFeatures()
+{
+    return *m_eAllStructuralFeatures;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& EClass::getEAllSuperTypes() const
 {
     return *m_eAllSuperTypes;
 }
 
-::ecore::EAttribute_ptr EClass::getEIDAttribute()
+::ecorecpp::mapping::EList< ::ecore::EClass_ptr >& EClass::getEAllSuperTypes()
+{
+    return *m_eAllSuperTypes;
+}
+
+::ecore::EAttribute_ptr EClass::getEIDAttribute() const
 {
     return m_eIDAttribute;
 }
 
 void EClass::setEIDAttribute(::ecore::EAttribute_ptr _eIDAttribute)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EAttribute_ptr _old_eIDAttribute = m_eIDAttribute;
-
+#endif
     m_eIDAttribute = _eIDAttribute;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -224,28 +305,42 @@ void EClass::setEIDAttribute(::ecore::EAttribute_ptr _eIDAttribute)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEClass__eIDAttribute(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEClass__eIDAttribute(),
                 _old_eIDAttribute,
                 m_eIDAttribute
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::ecore::EStructuralFeature >& EClass::getEStructuralFeatures()
+const ::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& EClass::getEStructuralFeatures() const
 {
     return *m_eStructuralFeatures;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EGenericType >& EClass::getEGenericSuperTypes()
+::ecorecpp::mapping::EList< ::ecore::EStructuralFeature_ptr >& EClass::getEStructuralFeatures()
+{
+    return *m_eStructuralFeatures;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EClass::getEGenericSuperTypes() const
 {
     return *m_eGenericSuperTypes;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EGenericType >& EClass::getEAllGenericSuperTypes()
+::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EClass::getEGenericSuperTypes()
+{
+    return *m_eGenericSuperTypes;
+}
+
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EClass::getEAllGenericSuperTypes() const
+{
+    return *m_eAllGenericSuperTypes;
+}
+
+::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EClass::getEAllGenericSuperTypes()
 {
     return *m_eAllGenericSuperTypes;
 }

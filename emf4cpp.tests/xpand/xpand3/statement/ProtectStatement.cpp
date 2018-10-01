@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/ProtectStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ProtectStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -51,24 +57,20 @@ ProtectStatement::~ProtectStatement()
 {
     if (m_commentStart)
     {
-        delete m_commentStart;
+        m_commentStart.reset();
     }
     if (m_commentEnd)
     {
-        delete m_commentEnd;
+        m_commentEnd.reset();
     }
     if (m_id)
     {
-        delete m_id;
+        m_id.reset();
     }
 }
 
-/*PROTECTED REGION ID(ProtectStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean ProtectStatement::isDisable() const
 {
     return m_disable;
@@ -85,8 +87,8 @@ void ProtectStatement::setDisable(::ecore::EBoolean _disable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__disable(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__disable(),
                 _old_disable,
                 m_disable
         );
@@ -96,7 +98,8 @@ void ProtectStatement::setDisable(::ecore::EBoolean _disable)
 }
 
 // References
-::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentStart()
+
+::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentStart() const
 {
     return m_commentStart;
 }
@@ -104,9 +107,16 @@ void ProtectStatement::setDisable(::ecore::EBoolean _disable)
 void ProtectStatement::setCommentStart(
         ::xpand3::expression::AbstractExpression_ptr _commentStart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_commentStart =
-            m_commentStart;
+    if (m_commentStart)
+        m_commentStart->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
+    if (_commentStart)
+        _commentStart->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_commentStart = m_commentStart;
+#endif
     m_commentStart = _commentStart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -114,19 +124,17 @@ void ProtectStatement::setCommentStart(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentStart(),
                 _old_commentStart,
                 m_commentStart
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_commentStart;
 }
 
-::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentEnd()
+::xpand3::expression::AbstractExpression_ptr ProtectStatement::getCommentEnd() const
 {
     return m_commentEnd;
 }
@@ -134,8 +142,16 @@ void ProtectStatement::setCommentStart(
 void ProtectStatement::setCommentEnd(
         ::xpand3::expression::AbstractExpression_ptr _commentEnd)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_commentEnd = m_commentEnd;
+    if (m_commentEnd)
+        m_commentEnd->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
+    if (_commentEnd)
+        _commentEnd->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_commentEnd = m_commentEnd;
+#endif
     m_commentEnd = _commentEnd;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -143,27 +159,33 @@ void ProtectStatement::setCommentEnd(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__commentEnd(),
                 _old_commentEnd,
                 m_commentEnd
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_commentEnd;
 }
 
-::xpand3::expression::AbstractExpression_ptr ProtectStatement::getId()
+::xpand3::expression::AbstractExpression_ptr ProtectStatement::getId() const
 {
     return m_id;
 }
 
 void ProtectStatement::setId(::xpand3::expression::AbstractExpression_ptr _id)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_id = m_id;
+    if (m_id)
+        m_id->_setEContainer(ProtectStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
+    if (_id)
+        _id->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_id = m_id;
+#endif
     m_id = _id;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -171,15 +193,13 @@ void ProtectStatement::setId(::xpand3::expression::AbstractExpression_ptr _id)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getProtectStatement__id(),
                 _old_id,
                 m_id
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_id;
 }
 

@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildResource.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef KDM_BUILD_BUILDRESOURCE_HPP
 #define KDM_BUILD_BUILDRESOURCE_HPP
 
-#include <kdm/build_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/build_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/build/AbstractBuildElement.hpp>
+
+#include "BuildPackage.hpp"
 
 /*PROTECTED REGION ID(BuildResource_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -37,65 +42,71 @@ namespace kdm
     namespace build
     {
 
-        class BuildResource: public virtual ::kdm::build::AbstractBuildElement
-        {
-        public:
-            BuildResource();
+    class EXPORT_KDM_DLL BuildResource : public virtual ::kdm::build::AbstractBuildElement
+    {
+    public:
+        BuildResource();
 
-            virtual ~BuildResource();
+        virtual ~BuildResource();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& getImplementation();
+        // References
+        virtual const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& getImplementation ();
 
-            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getGroupedBuild();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getGroupedBuild () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getGroupedBuild ();
 
-            ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement >& getBuildElement();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getBuildElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >& getBuildElement ();
 
-            /*PROTECTED REGION ID(BuildResource) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = BuildPackage::BUILDRESOURCE;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(BuildResource) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(BuildResourceImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(BuildResourceImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        BuildResource_ptr _this()
+        {   return BuildResource_ptr(this);}
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity > > m_implementation;
+        // Attributes
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList<
-                            ::kdm::build::AbstractBuildElement > > m_groupedBuild;
+        // References
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList<
-                            ::kdm::build::AbstractBuildElement > > m_buildElement;
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >> m_implementation;
 
-        };
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >> m_groupedBuild;
 
-    } // build
-} // kdm
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildElement_ptr >> m_buildElement;
+
+    };
+
+}
+ // build
+}// kdm
 
 #endif // KDM_BUILD_BUILDRESOURCE_HPP
 

@@ -2,6 +2,7 @@
 /*
  * CST/CSTFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,10 +24,12 @@
 #include <ecore/EFactory.hpp>
 #include <CST.hpp>
 
+#include <CST/dllCST.hpp>
+
 namespace CST
 {
 
-    class CSTFactory: public virtual ::ecore::EFactory
+    class EXPORT_CST_DLL CSTFactory : public virtual ::ecore::EFactory
     {
     public:
 
@@ -37,21 +40,56 @@ namespace CST
         virtual Node_ptr createNode();
         virtual Leaf_ptr createLeaf();
 
-        virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-        virtual ::ecore::EJavaObject createFromString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EString const& _literalValue);
-        virtual ::ecore::EString convertToString(
-                ::ecore::EDataType_ptr _eDataType,
-                ::ecore::EJavaObject const& _instanceValue);
+        virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+        virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+        virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
     protected:
 
-        static std::auto_ptr< CSTFactory > s_instance;
+        static ::ecore::Ptr< CSTFactory > s_holder;
 
         CSTFactory();
 
     };
+
+    /** An object creation helper
+     *
+     * Usage (add namespaces as required):
+     *   auto p = create<MyClass>();
+     *
+     */
+    template< class T > inline ::ecore::Ptr< T > create()
+    {
+        return ::ecore::Ptr< T >();
+    }
+
+    template< > inline Tree_ptr create< Tree >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
+        return packageFactory->createTree();
+    }
+
+    template< > inline Element_ptr create< Element >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
+        return packageFactory->createElement();
+    }
+
+    template< > inline Node_ptr create< Node >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
+        return packageFactory->createNode();
+    }
+
+    template< > inline Leaf_ptr create< Leaf >()
+    {
+        auto eFactory = CSTPackage::_instance()->getEFactoryInstance();
+        auto packageFactory = dynamic_cast< CSTFactory* >(eFactory.get());
+        return packageFactory->createLeaf();
+    }
 
 } // CST
 

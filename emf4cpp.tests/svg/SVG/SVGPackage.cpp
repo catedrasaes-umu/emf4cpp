@@ -2,6 +2,7 @@
 /*
  * SVG/SVGPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::SVG;
 
-std::auto_ptr< ::SVG::SVGPackage > SVGPackage::s_instance;
+::ecore::Ptr< ::SVG::SVGPackage > SVGPackage::s_instance;
 
 ::SVG::SVGPackage_ptr SVGPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new SVGPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< SVGPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < SVGPackage > (new SVGPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::SVG::SVGPackage_ptr SVGPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

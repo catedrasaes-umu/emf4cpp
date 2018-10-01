@@ -2,6 +2,7 @@
 /*
  * kdm/action/ActionPackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -55,279 +56,401 @@ using namespace ::kdm::action;
 ActionPackage::ActionPackage()
 {
 
-    s_instance.reset(this);
+    // Feature definitions of ActionElement
+    m_ActionElement__kind = ::ecore::Ptr < ::ecore::EAttribute
+            > (new ::ecore::EAttribute);
+    m_ActionElement__codeElement = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ActionElement__actionRelation = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
 
+    // Feature definitions of AbstractActionRelationship
+
+    // Feature definitions of ControlFlow
+    m_ControlFlow__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ControlFlow__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Calls
+    m_Calls__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Calls__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Creates
+    m_Creates__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Creates__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Reads
+    m_Reads__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Reads__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Writes
+    m_Writes__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Writes__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of CompliesTo
+    m_CompliesTo__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_CompliesTo__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Flow
+
+    // Feature definitions of TrueFlow
+
+    // Feature definitions of FalseFlow
+
+    // Feature definitions of GuardedFlow
+
+    // Feature definitions of UsesType
+    m_UsesType__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_UsesType__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Addresses
+    m_Addresses__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Addresses__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of ActionRelationship
+    m_ActionRelationship__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ActionRelationship__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Throws
+    m_Throws__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Throws__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Dispatches
+    m_Dispatches__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Dispatches__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of EntryFlow
+    m_EntryFlow__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_EntryFlow__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of BlockUnit
+
+    // Feature definitions of ExceptionUnit
+
+    // Feature definitions of TryUnit
+
+    // Feature definitions of FinallyUnit
+
+    // Feature definitions of CatchUnit
+
+    // Feature definitions of ExitFlow
+    m_ExitFlow__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ExitFlow__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of ExceptionFlow
+    m_ExceptionFlow__to = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ExceptionFlow__from = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+}
+
+void ActionPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = ActionFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // ActionElement
-    m_ActionElementEClass = new ::ecore::EClass();
+    m_ActionElementEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ActionElementEClass->setClassifierID(ACTIONELEMENT);
-    m_ActionElementEClass->setEPackage(this);
+    m_ActionElementEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ActionElementEClass);
-    m_ActionElement__kind = new ::ecore::EAttribute();
+    // m_ActionElement__kind has already been allocated above
     m_ActionElement__kind->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONELEMENT__KIND);
     m_ActionElementEClass->getEStructuralFeatures().push_back(
             m_ActionElement__kind);
-    m_ActionElement__codeElement = new ::ecore::EReference();
+    // m_ActionElement__codeElement has already been allocated above
     m_ActionElement__codeElement->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONELEMENT__CODEELEMENT);
     m_ActionElementEClass->getEStructuralFeatures().push_back(
             m_ActionElement__codeElement);
-    m_ActionElement__actionRelation = new ::ecore::EReference();
+    // m_ActionElement__actionRelation has already been allocated above
     m_ActionElement__actionRelation->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONELEMENT__ACTIONRELATION);
     m_ActionElementEClass->getEStructuralFeatures().push_back(
             m_ActionElement__actionRelation);
 
     // AbstractActionRelationship
-    m_AbstractActionRelationshipEClass = new ::ecore::EClass();
+    m_AbstractActionRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractActionRelationshipEClass->setClassifierID(
             ABSTRACTACTIONRELATIONSHIP);
-    m_AbstractActionRelationshipEClass->setEPackage(this);
+    m_AbstractActionRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractActionRelationshipEClass);
 
     // ControlFlow
-    m_ControlFlowEClass = new ::ecore::EClass();
+    m_ControlFlowEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ControlFlowEClass->setClassifierID(CONTROLFLOW);
-    m_ControlFlowEClass->setEPackage(this);
+    m_ControlFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ControlFlowEClass);
-    m_ControlFlow__to = new ::ecore::EReference();
+    // m_ControlFlow__to has already been allocated above
     m_ControlFlow__to->setFeatureID(
             ::kdm::action::ActionPackage::CONTROLFLOW__TO);
     m_ControlFlowEClass->getEStructuralFeatures().push_back(m_ControlFlow__to);
-    m_ControlFlow__from = new ::ecore::EReference();
+    // m_ControlFlow__from has already been allocated above
     m_ControlFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::CONTROLFLOW__FROM);
     m_ControlFlowEClass->getEStructuralFeatures().push_back(
             m_ControlFlow__from);
 
     // Calls
-    m_CallsEClass = new ::ecore::EClass();
+    m_CallsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CallsEClass->setClassifierID(CALLS);
-    m_CallsEClass->setEPackage(this);
+    m_CallsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CallsEClass);
-    m_Calls__to = new ::ecore::EReference();
+    // m_Calls__to has already been allocated above
     m_Calls__to->setFeatureID(::kdm::action::ActionPackage::CALLS__TO);
     m_CallsEClass->getEStructuralFeatures().push_back(m_Calls__to);
-    m_Calls__from = new ::ecore::EReference();
+    // m_Calls__from has already been allocated above
     m_Calls__from->setFeatureID(::kdm::action::ActionPackage::CALLS__FROM);
     m_CallsEClass->getEStructuralFeatures().push_back(m_Calls__from);
 
     // Creates
-    m_CreatesEClass = new ::ecore::EClass();
+    m_CreatesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CreatesEClass->setClassifierID(CREATES);
-    m_CreatesEClass->setEPackage(this);
+    m_CreatesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CreatesEClass);
-    m_Creates__to = new ::ecore::EReference();
+    // m_Creates__to has already been allocated above
     m_Creates__to->setFeatureID(::kdm::action::ActionPackage::CREATES__TO);
     m_CreatesEClass->getEStructuralFeatures().push_back(m_Creates__to);
-    m_Creates__from = new ::ecore::EReference();
+    // m_Creates__from has already been allocated above
     m_Creates__from->setFeatureID(::kdm::action::ActionPackage::CREATES__FROM);
     m_CreatesEClass->getEStructuralFeatures().push_back(m_Creates__from);
 
     // Reads
-    m_ReadsEClass = new ::ecore::EClass();
+    m_ReadsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ReadsEClass->setClassifierID(READS);
-    m_ReadsEClass->setEPackage(this);
+    m_ReadsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ReadsEClass);
-    m_Reads__to = new ::ecore::EReference();
+    // m_Reads__to has already been allocated above
     m_Reads__to->setFeatureID(::kdm::action::ActionPackage::READS__TO);
     m_ReadsEClass->getEStructuralFeatures().push_back(m_Reads__to);
-    m_Reads__from = new ::ecore::EReference();
+    // m_Reads__from has already been allocated above
     m_Reads__from->setFeatureID(::kdm::action::ActionPackage::READS__FROM);
     m_ReadsEClass->getEStructuralFeatures().push_back(m_Reads__from);
 
     // Writes
-    m_WritesEClass = new ::ecore::EClass();
+    m_WritesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_WritesEClass->setClassifierID(WRITES);
-    m_WritesEClass->setEPackage(this);
+    m_WritesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_WritesEClass);
-    m_Writes__to = new ::ecore::EReference();
+    // m_Writes__to has already been allocated above
     m_Writes__to->setFeatureID(::kdm::action::ActionPackage::WRITES__TO);
     m_WritesEClass->getEStructuralFeatures().push_back(m_Writes__to);
-    m_Writes__from = new ::ecore::EReference();
+    // m_Writes__from has already been allocated above
     m_Writes__from->setFeatureID(::kdm::action::ActionPackage::WRITES__FROM);
     m_WritesEClass->getEStructuralFeatures().push_back(m_Writes__from);
 
     // CompliesTo
-    m_CompliesToEClass = new ::ecore::EClass();
+    m_CompliesToEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CompliesToEClass->setClassifierID(COMPLIESTO);
-    m_CompliesToEClass->setEPackage(this);
+    m_CompliesToEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CompliesToEClass);
-    m_CompliesTo__to = new ::ecore::EReference();
+    // m_CompliesTo__to has already been allocated above
     m_CompliesTo__to->setFeatureID(
             ::kdm::action::ActionPackage::COMPLIESTO__TO);
     m_CompliesToEClass->getEStructuralFeatures().push_back(m_CompliesTo__to);
-    m_CompliesTo__from = new ::ecore::EReference();
+    // m_CompliesTo__from has already been allocated above
     m_CompliesTo__from->setFeatureID(
             ::kdm::action::ActionPackage::COMPLIESTO__FROM);
     m_CompliesToEClass->getEStructuralFeatures().push_back(m_CompliesTo__from);
 
     // Flow
-    m_FlowEClass = new ::ecore::EClass();
+    m_FlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FlowEClass->setClassifierID(FLOW);
-    m_FlowEClass->setEPackage(this);
+    m_FlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FlowEClass);
 
     // TrueFlow
-    m_TrueFlowEClass = new ::ecore::EClass();
+    m_TrueFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TrueFlowEClass->setClassifierID(TRUEFLOW);
-    m_TrueFlowEClass->setEPackage(this);
+    m_TrueFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TrueFlowEClass);
 
     // FalseFlow
-    m_FalseFlowEClass = new ::ecore::EClass();
+    m_FalseFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_FalseFlowEClass->setClassifierID(FALSEFLOW);
-    m_FalseFlowEClass->setEPackage(this);
+    m_FalseFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FalseFlowEClass);
 
     // GuardedFlow
-    m_GuardedFlowEClass = new ::ecore::EClass();
+    m_GuardedFlowEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_GuardedFlowEClass->setClassifierID(GUARDEDFLOW);
-    m_GuardedFlowEClass->setEPackage(this);
+    m_GuardedFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GuardedFlowEClass);
 
     // UsesType
-    m_UsesTypeEClass = new ::ecore::EClass();
+    m_UsesTypeEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_UsesTypeEClass->setClassifierID(USESTYPE);
-    m_UsesTypeEClass->setEPackage(this);
+    m_UsesTypeEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UsesTypeEClass);
-    m_UsesType__to = new ::ecore::EReference();
+    // m_UsesType__to has already been allocated above
     m_UsesType__to->setFeatureID(::kdm::action::ActionPackage::USESTYPE__TO);
     m_UsesTypeEClass->getEStructuralFeatures().push_back(m_UsesType__to);
-    m_UsesType__from = new ::ecore::EReference();
+    // m_UsesType__from has already been allocated above
     m_UsesType__from->setFeatureID(
             ::kdm::action::ActionPackage::USESTYPE__FROM);
     m_UsesTypeEClass->getEStructuralFeatures().push_back(m_UsesType__from);
 
     // Addresses
-    m_AddressesEClass = new ::ecore::EClass();
+    m_AddressesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_AddressesEClass->setClassifierID(ADDRESSES);
-    m_AddressesEClass->setEPackage(this);
+    m_AddressesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AddressesEClass);
-    m_Addresses__to = new ::ecore::EReference();
+    // m_Addresses__to has already been allocated above
     m_Addresses__to->setFeatureID(::kdm::action::ActionPackage::ADDRESSES__TO);
     m_AddressesEClass->getEStructuralFeatures().push_back(m_Addresses__to);
-    m_Addresses__from = new ::ecore::EReference();
+    // m_Addresses__from has already been allocated above
     m_Addresses__from->setFeatureID(
             ::kdm::action::ActionPackage::ADDRESSES__FROM);
     m_AddressesEClass->getEStructuralFeatures().push_back(m_Addresses__from);
 
     // ActionRelationship
-    m_ActionRelationshipEClass = new ::ecore::EClass();
+    m_ActionRelationshipEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ActionRelationshipEClass->setClassifierID(ACTIONRELATIONSHIP);
-    m_ActionRelationshipEClass->setEPackage(this);
+    m_ActionRelationshipEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ActionRelationshipEClass);
-    m_ActionRelationship__to = new ::ecore::EReference();
+    // m_ActionRelationship__to has already been allocated above
     m_ActionRelationship__to->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONRELATIONSHIP__TO);
     m_ActionRelationshipEClass->getEStructuralFeatures().push_back(
             m_ActionRelationship__to);
-    m_ActionRelationship__from = new ::ecore::EReference();
+    // m_ActionRelationship__from has already been allocated above
     m_ActionRelationship__from->setFeatureID(
             ::kdm::action::ActionPackage::ACTIONRELATIONSHIP__FROM);
     m_ActionRelationshipEClass->getEStructuralFeatures().push_back(
             m_ActionRelationship__from);
 
     // Throws
-    m_ThrowsEClass = new ::ecore::EClass();
+    m_ThrowsEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ThrowsEClass->setClassifierID(THROWS);
-    m_ThrowsEClass->setEPackage(this);
+    m_ThrowsEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ThrowsEClass);
-    m_Throws__to = new ::ecore::EReference();
+    // m_Throws__to has already been allocated above
     m_Throws__to->setFeatureID(::kdm::action::ActionPackage::THROWS__TO);
     m_ThrowsEClass->getEStructuralFeatures().push_back(m_Throws__to);
-    m_Throws__from = new ::ecore::EReference();
+    // m_Throws__from has already been allocated above
     m_Throws__from->setFeatureID(::kdm::action::ActionPackage::THROWS__FROM);
     m_ThrowsEClass->getEStructuralFeatures().push_back(m_Throws__from);
 
     // Dispatches
-    m_DispatchesEClass = new ::ecore::EClass();
+    m_DispatchesEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_DispatchesEClass->setClassifierID(DISPATCHES);
-    m_DispatchesEClass->setEPackage(this);
+    m_DispatchesEClass->setEPackage(_this());
     getEClassifiers().push_back(m_DispatchesEClass);
-    m_Dispatches__to = new ::ecore::EReference();
+    // m_Dispatches__to has already been allocated above
     m_Dispatches__to->setFeatureID(
             ::kdm::action::ActionPackage::DISPATCHES__TO);
     m_DispatchesEClass->getEStructuralFeatures().push_back(m_Dispatches__to);
-    m_Dispatches__from = new ::ecore::EReference();
+    // m_Dispatches__from has already been allocated above
     m_Dispatches__from->setFeatureID(
             ::kdm::action::ActionPackage::DISPATCHES__FROM);
     m_DispatchesEClass->getEStructuralFeatures().push_back(m_Dispatches__from);
 
     // EntryFlow
-    m_EntryFlowEClass = new ::ecore::EClass();
+    m_EntryFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_EntryFlowEClass->setClassifierID(ENTRYFLOW);
-    m_EntryFlowEClass->setEPackage(this);
+    m_EntryFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_EntryFlowEClass);
-    m_EntryFlow__to = new ::ecore::EReference();
+    // m_EntryFlow__to has already been allocated above
     m_EntryFlow__to->setFeatureID(::kdm::action::ActionPackage::ENTRYFLOW__TO);
     m_EntryFlowEClass->getEStructuralFeatures().push_back(m_EntryFlow__to);
-    m_EntryFlow__from = new ::ecore::EReference();
+    // m_EntryFlow__from has already been allocated above
     m_EntryFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::ENTRYFLOW__FROM);
     m_EntryFlowEClass->getEStructuralFeatures().push_back(m_EntryFlow__from);
 
     // BlockUnit
-    m_BlockUnitEClass = new ::ecore::EClass();
+    m_BlockUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_BlockUnitEClass->setClassifierID(BLOCKUNIT);
-    m_BlockUnitEClass->setEPackage(this);
+    m_BlockUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BlockUnitEClass);
 
     // ExceptionUnit
-    m_ExceptionUnitEClass = new ::ecore::EClass();
+    m_ExceptionUnitEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ExceptionUnitEClass->setClassifierID(EXCEPTIONUNIT);
-    m_ExceptionUnitEClass->setEPackage(this);
+    m_ExceptionUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExceptionUnitEClass);
 
     // TryUnit
-    m_TryUnitEClass = new ::ecore::EClass();
+    m_TryUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_TryUnitEClass->setClassifierID(TRYUNIT);
-    m_TryUnitEClass->setEPackage(this);
+    m_TryUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TryUnitEClass);
 
     // FinallyUnit
-    m_FinallyUnitEClass = new ::ecore::EClass();
+    m_FinallyUnitEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_FinallyUnitEClass->setClassifierID(FINALLYUNIT);
-    m_FinallyUnitEClass->setEPackage(this);
+    m_FinallyUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FinallyUnitEClass);
 
     // CatchUnit
-    m_CatchUnitEClass = new ::ecore::EClass();
+    m_CatchUnitEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CatchUnitEClass->setClassifierID(CATCHUNIT);
-    m_CatchUnitEClass->setEPackage(this);
+    m_CatchUnitEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CatchUnitEClass);
 
     // ExitFlow
-    m_ExitFlowEClass = new ::ecore::EClass();
+    m_ExitFlowEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_ExitFlowEClass->setClassifierID(EXITFLOW);
-    m_ExitFlowEClass->setEPackage(this);
+    m_ExitFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExitFlowEClass);
-    m_ExitFlow__to = new ::ecore::EReference();
+    // m_ExitFlow__to has already been allocated above
     m_ExitFlow__to->setFeatureID(::kdm::action::ActionPackage::EXITFLOW__TO);
     m_ExitFlowEClass->getEStructuralFeatures().push_back(m_ExitFlow__to);
-    m_ExitFlow__from = new ::ecore::EReference();
+    // m_ExitFlow__from has already been allocated above
     m_ExitFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::EXITFLOW__FROM);
     m_ExitFlowEClass->getEStructuralFeatures().push_back(m_ExitFlow__from);
 
     // ExceptionFlow
-    m_ExceptionFlowEClass = new ::ecore::EClass();
+    m_ExceptionFlowEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ExceptionFlowEClass->setClassifierID(EXCEPTIONFLOW);
-    m_ExceptionFlowEClass->setEPackage(this);
+    m_ExceptionFlowEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ExceptionFlowEClass);
-    m_ExceptionFlow__to = new ::ecore::EReference();
+    // m_ExceptionFlow__to has already been allocated above
     m_ExceptionFlow__to->setFeatureID(
             ::kdm::action::ActionPackage::EXCEPTIONFLOW__TO);
     m_ExceptionFlowEClass->getEStructuralFeatures().push_back(
             m_ExceptionFlow__to);
-    m_ExceptionFlow__from = new ::ecore::EReference();
+    // m_ExceptionFlow__from has already been allocated above
     m_ExceptionFlow__from->setFeatureID(
             ::kdm::action::ActionPackage::EXCEPTIONFLOW__FROM);
     m_ExceptionFlowEClass->getEStructuralFeatures().push_back(
@@ -346,9 +469,9 @@ ActionPackage::ActionPackage()
 
     // Add supertypes to classes
     m_ActionElementEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getAbstractCodeElement());
     m_AbstractActionRelationshipEClass->getESuperTypes().push_back(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMRelationship());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMRelationship());
     m_ControlFlowEClass->getESuperTypes().push_back(
             m_AbstractActionRelationshipEClass);
     m_CallsEClass->getESuperTypes().push_back(
@@ -394,7 +517,7 @@ ActionPackage::ActionPackage()
     m_ActionElementEClass->setAbstract(false);
     m_ActionElementEClass->setInterface(false);
     m_ActionElement__kind->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getString());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getString());
     m_ActionElement__kind->setName("kind");
     m_ActionElement__kind->setDefaultValueLiteral("");
     m_ActionElement__kind->setLowerBound(0);
@@ -408,7 +531,7 @@ ActionPackage::ActionPackage()
     m_ActionElement__kind->setDerived(false);
     m_ActionElement__kind->setOrdered(false);
     m_ActionElement__codeElement->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getAbstractCodeElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getAbstractCodeElement());
     m_ActionElement__codeElement->setName("codeElement");
     m_ActionElement__codeElement->setDefaultValueLiteral("");
     m_ActionElement__codeElement->setLowerBound(0);
@@ -474,7 +597,7 @@ ActionPackage::ActionPackage()
     m_CallsEClass->setAbstract(false);
     m_CallsEClass->setInterface(false);
     m_Calls__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getControlElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getControlElement());
     m_Calls__to->setName("to");
     m_Calls__to->setDefaultValueLiteral("");
     m_Calls__to->setLowerBound(1);
@@ -505,7 +628,7 @@ ActionPackage::ActionPackage()
     m_CreatesEClass->setAbstract(false);
     m_CreatesEClass->setInterface(false);
     m_Creates__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDatatype());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getDatatype());
     m_Creates__to->setName("to");
     m_Creates__to->setDefaultValueLiteral("");
     m_Creates__to->setLowerBound(1);
@@ -536,7 +659,7 @@ ActionPackage::ActionPackage()
     m_ReadsEClass->setAbstract(false);
     m_ReadsEClass->setInterface(false);
     m_Reads__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getDataElement());
     m_Reads__to->setName("to");
     m_Reads__to->setDefaultValueLiteral("");
     m_Reads__to->setLowerBound(1);
@@ -567,7 +690,7 @@ ActionPackage::ActionPackage()
     m_WritesEClass->setAbstract(false);
     m_WritesEClass->setInterface(false);
     m_Writes__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getDataElement());
     m_Writes__to->setName("to");
     m_Writes__to->setDefaultValueLiteral("");
     m_Writes__to->setLowerBound(1);
@@ -598,7 +721,7 @@ ActionPackage::ActionPackage()
     m_CompliesToEClass->setAbstract(false);
     m_CompliesToEClass->setInterface(false);
     m_CompliesTo__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getCodeItem());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getCodeItem());
     m_CompliesTo__to->setName("to");
     m_CompliesTo__to->setDefaultValueLiteral("");
     m_CompliesTo__to->setLowerBound(1);
@@ -645,7 +768,7 @@ ActionPackage::ActionPackage()
     m_UsesTypeEClass->setAbstract(false);
     m_UsesTypeEClass->setInterface(false);
     m_UsesType__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDatatype());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getDatatype());
     m_UsesType__to->setName("to");
     m_UsesType__to->setDefaultValueLiteral("");
     m_UsesType__to->setLowerBound(1);
@@ -676,7 +799,7 @@ ActionPackage::ActionPackage()
     m_AddressesEClass->setAbstract(false);
     m_AddressesEClass->setInterface(false);
     m_Addresses__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getComputationalObject());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getComputationalObject());
     m_Addresses__to->setName("to");
     m_Addresses__to->setDefaultValueLiteral("");
     m_Addresses__to->setLowerBound(1);
@@ -707,7 +830,7 @@ ActionPackage::ActionPackage()
     m_ActionRelationshipEClass->setAbstract(false);
     m_ActionRelationshipEClass->setInterface(false);
     m_ActionRelationship__to->setEType(
-            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance())->getKDMEntity());
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getKDMEntity());
     m_ActionRelationship__to->setName("to");
     m_ActionRelationship__to->setDefaultValueLiteral("");
     m_ActionRelationship__to->setLowerBound(1);
@@ -738,7 +861,7 @@ ActionPackage::ActionPackage()
     m_ThrowsEClass->setAbstract(false);
     m_ThrowsEClass->setInterface(false);
     m_Throws__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getDataElement());
     m_Throws__to->setName("to");
     m_Throws__to->setDefaultValueLiteral("");
     m_Throws__to->setLowerBound(1);
@@ -769,7 +892,7 @@ ActionPackage::ActionPackage()
     m_DispatchesEClass->setAbstract(false);
     m_DispatchesEClass->setInterface(false);
     m_Dispatches__to->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getDataElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getDataElement());
     m_Dispatches__to->setName("to");
     m_Dispatches__to->setDefaultValueLiteral("");
     m_Dispatches__to->setLowerBound(1);
@@ -813,7 +936,7 @@ ActionPackage::ActionPackage()
     m_EntryFlow__to->setDerived(false);
     m_EntryFlow__to->setOrdered(false);
     m_EntryFlow__from->setEType(
-            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance())->getControlElement());
+            dynamic_cast< ::kdm::code::CodePackage* >(::kdm::code::CodePackage::_instance().get())->getControlElement());
     m_EntryFlow__from->setName("from");
     m_EntryFlow__from->setDefaultValueLiteral("");
     m_EntryFlow__from->setLowerBound(1);

@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::kdm::source;
 
-std::auto_ptr< ::kdm::source::SourceFactory > SourceFactory::s_instance;
+::ecore::Ptr< ::kdm::source::SourceFactory > SourceFactory::s_holder;
 
 ::kdm::source::SourceFactory_ptr SourceFactory::_instance()
 {
-    if (!s_instance.get())
-        new SourceFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < SourceFactory > (new SourceFactory());
+
+    return s_holder;
 }
 

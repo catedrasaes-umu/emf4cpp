@@ -2,6 +2,7 @@
 /*
  * tree/NonTerminal.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef TREE_NONTERMINAL_HPP
 #define TREE_NONTERMINAL_HPP
 
-#include <tree_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <tree/dllTree.hpp>
+#include <tree_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <tree/TreeNode.hpp>
+
+#include "TreePackage.hpp"
 
 /*PROTECTED REGION ID(NonTerminal_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,52 +39,60 @@
 namespace tree
 {
 
-    class NonTerminal: public virtual ::tree::TreeNode
-    {
-    public:
-        NonTerminal();
+class EXPORT_TREE_DLL NonTerminal : public virtual ::tree::TreeNode
+{
+public:
+    NonTerminal();
 
-        virtual ~NonTerminal();
+    virtual ~NonTerminal();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecorecpp::mapping::EList< ::tree::TreeNode >& getChildren();
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::tree::TreeNode_ptr >& getChildren () const;
+    virtual ::ecorecpp::mapping::EList< ::tree::TreeNode_ptr >& getChildren ();
 
-        /*PROTECTED REGION ID(NonTerminal) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = TreePackage::NONTERMINAL;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(NonTerminal) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(NonTerminalImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(NonTerminalImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    NonTerminal_ptr _this()
+    {   return NonTerminal_ptr(this);}
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::tree::TreeNode > > m_children;
+    // Attributes
 
-    };
+    // References
 
-} // tree
+    std::shared_ptr<::ecorecpp::mapping::EList< ::tree::TreeNode_ptr >> m_children;
+
+};
+
+}
+ // tree
 
 #endif // TREE_NONTERMINAL_HPP
 

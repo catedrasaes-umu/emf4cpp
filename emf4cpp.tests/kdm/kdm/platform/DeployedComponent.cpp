@@ -2,6 +2,7 @@
 /*
  * kdm/platform/DeployedComponent.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,6 +42,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DeployedComponent.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::platform;
 
 // Default constructor
@@ -48,8 +54,9 @@ DeployedComponent::DeployedComponent()
 {
 
     m_groupedCode.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Module,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::Module_ptr, -1, false, false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getDeployedComponent__groupedCode()));
 
     /*PROTECTED REGION ID(DeployedComponentImpl__DeployedComponentImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,14 +72,16 @@ DeployedComponent::~DeployedComponent()
 {
 }
 
-/*PROTECTED REGION ID(DeployedComponent.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::code::Module >& DeployedComponent::getGroupedCode()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::Module_ptr >& DeployedComponent::getGroupedCode() const
+{
+    return *m_groupedCode;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::Module_ptr >& DeployedComponent::getGroupedCode()
 {
     return *m_groupedCode;
 }

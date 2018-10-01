@@ -2,6 +2,7 @@
 /*
  * myDsl_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,39 +42,35 @@ namespace myDsl
 
 // Model
     class Model;
-    typedef Model* Model_ptr;
+    using Model_ptr = ::ecore::Ptr<Model>;
 
 // Import
     class Import;
-    typedef Import* Import_ptr;
+    using Import_ptr = ::ecore::Ptr<Import>;
 
 // Type
     class Type;
-    typedef Type* Type_ptr;
+    using Type_ptr = ::ecore::Ptr<Type>;
 
 // SimpleType
     class SimpleType;
-    typedef SimpleType* SimpleType_ptr;
+    using SimpleType_ptr = ::ecore::Ptr<SimpleType>;
 
 // Entity
     class Entity;
-    typedef Entity* Entity_ptr;
+    using Entity_ptr = ::ecore::Ptr<Entity>;
 
 // Property
     class Property;
-    typedef Property* Property_ptr;
+    using Property_ptr = ::ecore::Ptr<Property>;
+
+// EEnum
 
 // Package & Factory
     class MyDslFactory;
-    typedef MyDslFactory * MyDslFactory_ptr;
+    using MyDslFactory_ptr = ::ecore::Ptr<MyDslFactory>;
     class MyDslPackage;
-    typedef MyDslPackage * MyDslPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using MyDslPackage_ptr = ::ecore::Ptr<MyDslPackage>;
 
 } // myDsl
 

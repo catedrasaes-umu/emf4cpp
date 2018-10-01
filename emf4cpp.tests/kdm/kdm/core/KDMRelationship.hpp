@@ -2,6 +2,7 @@
 /*
  * kdm/core/KDMRelationship.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef KDM_CORE_KDMRELATIONSHIP_HPP
 #define KDM_CORE_KDMRELATIONSHIP_HPP
 
-#include <kdm/core_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/core_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core/ModelElement.hpp>
+
+#include "CorePackage.hpp"
 
 /*PROTECTED REGION ID(KDMRelationship_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -36,53 +41,61 @@ namespace kdm
     namespace core
     {
 
-        class KDMRelationship: public virtual ::kdm::core::ModelElement
-        {
-        public:
-            KDMRelationship();
+    class EXPORT_KDM_DLL KDMRelationship : public virtual ::kdm::core::ModelElement
+    {
+    public:
+        KDMRelationship();
 
-            virtual ~KDMRelationship();
+        virtual ~KDMRelationship();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            virtual ::kdm::core::KDMEntity_ptr getTo();
+        virtual ::kdm::core::KDMEntity_ptr getTo ();
 
-            virtual ::kdm::core::KDMEntity_ptr getFrom();
+        virtual ::kdm::core::KDMEntity_ptr getFrom ();
 
-            // Attributes
+        // Attributes
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(KDMRelationship) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CorePackage::KDMRELATIONSHIP;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(KDMRelationship) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(KDMRelationshipImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(KDMRelationshipImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        KDMRelationship_ptr _this()
+        {   return KDMRelationship_ptr(this);}
 
-        };
+        // Attributes
 
-    } // core
-} // kdm
+        // References
+
+    };
+
+}
+ // core
+}// kdm
 
 #endif // KDM_CORE_KDMRELATIONSHIP_HPP
 

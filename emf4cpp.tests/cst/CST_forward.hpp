@@ -2,6 +2,7 @@
 /*
  * CST_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,31 +42,27 @@ namespace CST
 
 // Tree
     class Tree;
-    typedef Tree* Tree_ptr;
+    using Tree_ptr = ::ecore::Ptr<Tree>;
 
 // Element
     class Element;
-    typedef Element* Element_ptr;
+    using Element_ptr = ::ecore::Ptr<Element>;
 
 // Node
     class Node;
-    typedef Node* Node_ptr;
+    using Node_ptr = ::ecore::Ptr<Node>;
 
 // Leaf
     class Leaf;
-    typedef Leaf* Leaf_ptr;
+    using Leaf_ptr = ::ecore::Ptr<Leaf>;
+
+// EEnum
 
 // Package & Factory
     class CSTFactory;
-    typedef CSTFactory * CSTFactory_ptr;
+    using CSTFactory_ptr = ::ecore::Ptr<CSTFactory>;
     class CSTPackage;
-    typedef CSTPackage * CSTPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using CSTPackage_ptr = ::ecore::Ptr<CSTPackage>;
 
 } // CST
 

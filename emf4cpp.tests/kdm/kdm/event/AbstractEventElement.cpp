@@ -2,6 +2,7 @@
 /*
  * kdm/event/AbstractEventElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractEventElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::event;
 
 // Default constructor
@@ -47,19 +53,22 @@ AbstractEventElement::AbstractEventElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__source()));
     m_eventRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::event::AbstractEventRelationship, -1, true, false >(
-                    this, NULL));
+                    ::kdm::event::AbstractEventRelationship_ptr, -1, true, false >(
+                    this,
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__eventRelation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__abstraction()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::code::AbstractCodeElement_ptr, -1, false, false >(
+                    this,
+                    ::kdm::event::EventPackage::_instance()->getAbstractEventElement__implementation()));
 
     /*PROTECTED REGION ID(AbstractEventElementImpl__AbstractEventElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -75,29 +84,46 @@ AbstractEventElement::~AbstractEventElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractEventElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractEventElement::getSource()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractEventElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship >& AbstractEventElement::getEventRelation()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractEventElement::getSource()
+{
+    return *m_source;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship_ptr >& AbstractEventElement::getEventRelation() const
 {
     return *m_eventRelation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractEventElement::getAbstraction()
+::ecorecpp::mapping::EList< ::kdm::event::AbstractEventRelationship_ptr >& AbstractEventElement::getEventRelation()
+{
+    return *m_eventRelation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractEventElement::getAbstraction() const
 {
     return *m_abstraction;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractEventElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractEventElement::getAbstraction()
+{
+    return *m_abstraction;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractEventElement::getImplementation() const
+{
+    return *m_implementation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractEventElement::getImplementation()
 {
     return *m_implementation;
 }

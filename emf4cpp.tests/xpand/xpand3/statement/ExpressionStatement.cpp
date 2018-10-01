@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/ExpressionStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ExpressionStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -50,18 +56,15 @@ ExpressionStatement::~ExpressionStatement()
 {
     if (m_expression)
     {
-        delete m_expression;
+        m_expression.reset();
     }
 }
 
-/*PROTECTED REGION ID(ExpressionStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr ExpressionStatement::getExpression()
+
+::xpand3::expression::AbstractExpression_ptr ExpressionStatement::getExpression() const
 {
     return m_expression;
 }
@@ -69,8 +72,16 @@ ExpressionStatement::~ExpressionStatement()
 void ExpressionStatement::setExpression(
         ::xpand3::expression::AbstractExpression_ptr _expression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_expression = m_expression;
+    if (m_expression)
+        m_expression->_setEContainer(ExpressionStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
+    if (_expression)
+        _expression->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_expression = m_expression;
+#endif
     m_expression = _expression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,15 +89,13 @@ void ExpressionStatement::setExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpressionStatement__expression(),
                 _old_expression,
                 m_expression
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_expression;
 }
 

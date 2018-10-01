@@ -2,6 +2,7 @@
 /*
  * parser/unresolved_reference.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,16 +33,16 @@ namespace parser
 struct unresolved_reference_t
 {
 
-    inline unresolved_reference_t(::ecorecpp::mapping::type_traits::string_t const& x,
-                                  ::ecorecpp::mapping::type_traits::string_t const& r,
+    inline unresolved_reference_t(::ecorecpp::mapping::type_definitions::string_t const& x,
+                                  ::ecorecpp::mapping::type_definitions::string_t const& r,
                                   ::ecore::EObject_ptr eo,
                                   ::ecore::EClass_ptr ec) :
         xpath(x), ref_name(r), eobject(eo), eclass(ec)
     {
     }
 
-    ::ecorecpp::mapping::type_traits::string_t xpath;
-    ::ecorecpp::mapping::type_traits::string_t ref_name;
+    ::ecorecpp::mapping::type_definitions::string_t xpath;
+    ::ecorecpp::mapping::type_definitions::string_t ref_name;
     ::ecore::EObject_ptr eobject;
     ::ecore::EClass_ptr eclass;
 };

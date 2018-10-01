@@ -2,6 +2,7 @@
 /*
  * kdm/conceptual/ConceptualFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,7 +41,6 @@ using namespace ::kdm::conceptual;
 
 ConceptualFactory::ConceptualFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr ConceptualFactory::create(::ecore::EClass_ptr _eClass)
@@ -102,54 +102,56 @@ ConceptualFactory::ConceptualFactory()
 
 ConceptualModel_ptr ConceptualFactory::createConceptualModel()
 {
-    return new ConceptualModel();
+    return ::ecore::Ptr < ConceptualModel > (new ConceptualModel);
 }
 AbstractConceptualElement_ptr ConceptualFactory::createAbstractConceptualElement()
 {
-    return new AbstractConceptualElement();
+    return ::ecore::Ptr < AbstractConceptualElement
+            > (new AbstractConceptualElement);
 }
 TermUnit_ptr ConceptualFactory::createTermUnit()
 {
-    return new TermUnit();
+    return ::ecore::Ptr < TermUnit > (new TermUnit);
 }
 ConceptualContainer_ptr ConceptualFactory::createConceptualContainer()
 {
-    return new ConceptualContainer();
+    return ::ecore::Ptr < ConceptualContainer > (new ConceptualContainer);
 }
 FactUnit_ptr ConceptualFactory::createFactUnit()
 {
-    return new FactUnit();
+    return ::ecore::Ptr < FactUnit > (new FactUnit);
 }
 AbstractConceptualRelationship_ptr ConceptualFactory::createAbstractConceptualRelationship()
 {
-    return new AbstractConceptualRelationship();
+    return ::ecore::Ptr < AbstractConceptualRelationship
+            > (new AbstractConceptualRelationship);
 }
 ConceptualRelationship_ptr ConceptualFactory::createConceptualRelationship()
 {
-    return new ConceptualRelationship();
+    return ::ecore::Ptr < ConceptualRelationship > (new ConceptualRelationship);
 }
 BehaviorUnit_ptr ConceptualFactory::createBehaviorUnit()
 {
-    return new BehaviorUnit();
+    return ::ecore::Ptr < BehaviorUnit > (new BehaviorUnit);
 }
 RuleUnit_ptr ConceptualFactory::createRuleUnit()
 {
-    return new RuleUnit();
+    return ::ecore::Ptr < RuleUnit > (new RuleUnit);
 }
 ScenarioUnit_ptr ConceptualFactory::createScenarioUnit()
 {
-    return new ScenarioUnit();
+    return ::ecore::Ptr < ScenarioUnit > (new ScenarioUnit);
 }
 ConceptualFlow_ptr ConceptualFactory::createConceptualFlow()
 {
-    return new ConceptualFlow();
+    return ::ecore::Ptr < ConceptualFlow > (new ConceptualFlow);
 }
 ConceptualElement_ptr ConceptualFactory::createConceptualElement()
 {
-    return new ConceptualElement();
+    return ::ecore::Ptr < ConceptualElement > (new ConceptualElement);
 }
 ConceptualRole_ptr ConceptualFactory::createConceptualRole()
 {
-    return new ConceptualRole();
+    return ::ecore::Ptr < ConceptualRole > (new ConceptualRole);
 }
 

@@ -2,6 +2,7 @@
 /*
  * json/BooleanValue.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef JSON_BOOLEANVALUE_HPP
 #define JSON_BOOLEANVALUE_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <json/dllJson.hpp>
+#include <json_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <json/Value.hpp>
+
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(BooleanValue_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,52 +39,60 @@
 namespace json
 {
 
-    class BooleanValue: public virtual ::json::Value
-    {
-    public:
-        BooleanValue();
+class EXPORT_JSON_DLL BooleanValue : public virtual ::json::Value
+{
+public:
+    BooleanValue();
 
-        virtual ~BooleanValue();
+    virtual ~BooleanValue();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EBoolean isValue() const;
-        void setValue(::ecore::EBoolean _value);
+    // Attributes
+    virtual ::ecore::EBoolean isValue () const;
+    virtual void setValue (::ecore::EBoolean _value);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(BooleanValue) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::BOOLEANVALUE;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(BooleanValue) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(BooleanValueImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(BooleanValueImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::ecore::EBoolean m_value;
+protected:
+    BooleanValue_ptr _this()
+    {   return BooleanValue_ptr(this);}
 
-        // References
+    // Attributes
 
-    };
+    ::ecore::EBoolean m_value;
 
-} // json
+    // References
+
+};
+
+}
+ // json
 
 #endif // JSON_BOOLEANVALUE_HPP
 

@@ -2,6 +2,7 @@
 /*
  * kdm/ui_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,91 +44,87 @@ namespace kdm
 
 // AbstractUIElement
         class AbstractUIElement;
-        typedef AbstractUIElement* AbstractUIElement_ptr;
+        using AbstractUIElement_ptr = ::ecore::Ptr<AbstractUIElement>;
 
 // UIResource
         class UIResource;
-        typedef UIResource* UIResource_ptr;
+        using UIResource_ptr = ::ecore::Ptr<UIResource>;
 
 // UIDisplay
         class UIDisplay;
-        typedef UIDisplay* UIDisplay_ptr;
+        using UIDisplay_ptr = ::ecore::Ptr<UIDisplay>;
 
 // Screen
         class Screen;
-        typedef Screen* Screen_ptr;
+        using Screen_ptr = ::ecore::Ptr<Screen>;
 
 // Report
         class Report;
-        typedef Report* Report_ptr;
+        using Report_ptr = ::ecore::Ptr<Report>;
 
 // UIModel
         class UIModel;
-        typedef UIModel* UIModel_ptr;
+        using UIModel_ptr = ::ecore::Ptr<UIModel>;
 
 // AbstractUIRelationship
         class AbstractUIRelationship;
-        typedef AbstractUIRelationship* AbstractUIRelationship_ptr;
+        using AbstractUIRelationship_ptr = ::ecore::Ptr<AbstractUIRelationship>;
 
 // UILayout
         class UILayout;
-        typedef UILayout* UILayout_ptr;
+        using UILayout_ptr = ::ecore::Ptr<UILayout>;
 
 // UIField
         class UIField;
-        typedef UIField* UIField_ptr;
+        using UIField_ptr = ::ecore::Ptr<UIField>;
 
 // DisplaysImage
         class DisplaysImage;
-        typedef DisplaysImage* DisplaysImage_ptr;
+        using DisplaysImage_ptr = ::ecore::Ptr<DisplaysImage>;
 
 // Displays
         class Displays;
-        typedef Displays* Displays_ptr;
+        using Displays_ptr = ::ecore::Ptr<Displays>;
 
 // UIFlow
         class UIFlow;
-        typedef UIFlow* UIFlow_ptr;
+        using UIFlow_ptr = ::ecore::Ptr<UIFlow>;
 
 // UIElement
         class UIElement;
-        typedef UIElement* UIElement_ptr;
+        using UIElement_ptr = ::ecore::Ptr<UIElement>;
 
 // UIRelationship
         class UIRelationship;
-        typedef UIRelationship* UIRelationship_ptr;
+        using UIRelationship_ptr = ::ecore::Ptr<UIRelationship>;
 
 // UIAction
         class UIAction;
-        typedef UIAction* UIAction_ptr;
+        using UIAction_ptr = ::ecore::Ptr<UIAction>;
 
 // UIEvent
         class UIEvent;
-        typedef UIEvent* UIEvent_ptr;
+        using UIEvent_ptr = ::ecore::Ptr<UIEvent>;
 
 // ReadsUI
         class ReadsUI;
-        typedef ReadsUI* ReadsUI_ptr;
+        using ReadsUI_ptr = ::ecore::Ptr<ReadsUI>;
 
 // WritesUI
         class WritesUI;
-        typedef WritesUI* WritesUI_ptr;
+        using WritesUI_ptr = ::ecore::Ptr<WritesUI>;
 
 // ManagesUI
         class ManagesUI;
-        typedef ManagesUI* ManagesUI_ptr;
+        using ManagesUI_ptr = ::ecore::Ptr<ManagesUI>;
+
+// EEnum
 
 // Package & Factory
         class UiFactory;
-        typedef UiFactory * UiFactory_ptr;
+        using UiFactory_ptr = ::ecore::Ptr<UiFactory>;
         class UiPackage;
-        typedef UiPackage * UiPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using UiPackage_ptr = ::ecore::Ptr<UiPackage>;
 
     } // ui
 } // kdm

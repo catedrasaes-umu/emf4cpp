@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/TextStatementImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,19 +28,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::statement;
-
 /*PROTECTED REGION ID(TextStatementImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::statement;
 
 void TextStatement::_initialize()
 {
     // Supertypes
     ::xpand3::statement::AbstractStatement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TextStatementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -102,38 +103,50 @@ void TextStatement::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__VALUE:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::statement::TextStatement::setValue(_t0);
     }
         return;
     case ::xpand3::statement::StatementPackage::TEXTSTATEMENT__DELETELINE:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_deleteLine);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::statement::TextStatement::setDeleteLine(_t0);
     }
         return;
 
@@ -179,7 +192,31 @@ void TextStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr TextStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::statement::StatementPackage_ptr >(::xpand3::statement::StatementPackage::_instance())->getTextStatement();
+            dynamic_cast< ::xpand3::statement::StatementPackage* >(::xpand3::statement::StatementPackage::_instance().get())->getTextStatement();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void TextStatement::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void TextStatement::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

@@ -2,6 +2,7 @@
 /*
  * tree/TreeFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::tree;
 
-std::auto_ptr< ::tree::TreeFactory > TreeFactory::s_instance;
+::ecore::Ptr< ::tree::TreeFactory > TreeFactory::s_holder;
 
 ::tree::TreeFactory_ptr TreeFactory::_instance()
 {
-    if (!s_instance.get())
-        new TreeFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < TreeFactory > (new TreeFactory());
+
+    return s_holder;
 }
 

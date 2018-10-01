@@ -1,0 +1,238 @@
+«REM»
+ItemProvider.xpt
+Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON GmbH 2016 <matthias.doerfel@inchron.com>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Classes»
+«EXTENSION template::Operations»
+«EXTENSION template::Attributes»
+«EXTENSION template::References»
+«EXTENSION template::Types»
+«EXTENSION template::Mapping»
+«EXTENSION template::Packages»
+
+«DEFINE hppcpp FOR EPackage»
+«FILE getItemProviderPrefix()+".hpp"-»
+«IF (boolean) GLOBALVAR internalLicense-»
+«EXPAND template::License::License FOR getItemProviderPrefix()+".hpp"-»
+«ELSE-»
+«EXPAND template::EndUserLicense::License FOR getItemProviderPrefix()+".hpp"-»
+«ENDIF-»
+#ifndef «getHeaderDef()»_ITEMPROVIDER_HPP
+#define «getHeaderDef()»_ITEMPROVIDER_HPP
+
+#include <ecore_forward.hpp>
+#include <ecorecpp/ItemProvider.hpp>
+
+#include <«this.getDllExtensionPrefix()».hpp>
+
+«EXPAND namespaces_begin FOR this-»
+
+class EXPORT_«getHeaderDefDLL()»_DLL
+«this.name.toFirstUpper()»ItemProvider : public ::ecorecpp::ItemProvider
+{
+public:
+    «this.name.toFirstUpper()»ItemProvider();
+    ~«this.name.toFirstUpper()»ItemProvider();
+    
+	std::string _getText(const ::ecore::EObject_ptr) const override;
+	std::string _getText(const ::ecore::EClass_ptr) const override;
+	std::string _getText(const ::ecore::EAttribute_ptr) const override;
+	std::string _getText(const ::ecore::EReference_ptr) const override;
+	std::string _getText(const ::ecore::EStructuralFeature_ptr) const override;
+#ifdef QT5_SUPPORT
+	const QPixmap& _getImage(const ::ecore::EObject_ptr) const override;
+	const QPixmap& _getImage(const ::ecore::EClass_ptr) const override;
+#endif // QT5_SUPPORT
+
+};
+
+«EXPAND template::EClassHPP::namespaces_end FOR this»
+
+#endif // «getHeaderDef()»_ITEMPROVIDER_HPP
+«ENDFILE»
+
+«FILE getItemProviderPrefix()+".cpp"-»
+«IF (boolean) GLOBALVAR internalLicense»
+«EXPAND template::License::License FOR getItemProviderPrefix()+".cpp"-»
+«ELSE»
+«EXPAND template::EndUserLicense::License FOR getItemProviderPrefix()+".cpp"-»
+«ENDIF»
+#include "«name.toFirstUpper()»ItemProvider.hpp"
+
+#include <ecore/EAttribute.hpp>
+#include <ecore/EClass.hpp>
+#include <ecore/EObject.hpp>
+#include <ecore/EReference.hpp>
+#include <«getPackagePrefix()».hpp>
+
+#ifdef QT5_SUPPORT
+#include <QtGui/QPixmap>
+#endif
+
+«PROTECT CSTART '/*' CEND '*/' ID this.name.toFirstUpper()+"ItemProvider_includes" DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+«ENDPROTECT»
+
+«EXPAND template::EClassHPP::namespaces_begin FOR this»
+
+«this.name.toFirstUpper()»ItemProvider::«this.name.toFirstUpper()»ItemProvider() = default;
+
+«this.name.toFirstUpper()»ItemProvider::~«this.name.toFirstUpper()»ItemProvider() = default;
+
+/** Return a string, which depends on the classifier id of the object. */
+std::string «this.name.toFirstUpper()»ItemProvider::_getText(const ::ecore::EObject_ptr obj) const {
+	switch (obj->eClass()->getClassifierID()) {
+«FOREACH EClassifiers.sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS class ITERATOR it-»
+    case «name.toFirstUpper() + "Package::" + class.name.toUpperCase()»: {
+    	std::string text = "«class.name.toFirstUpper()»";
+    	«PROTECT CSTART '/*' CEND '*/' ID this.name.toFirstUpper()+"ItemProvider_getTextEObject_"+class.name.toFirstUpper() DISABLE»
+    	// Please, enable the protected region if you add manually written code.
+    	// To do this, add the keyword ENABLED before START.
+    	«ENDPROTECT»
+    	return text;
+    	} break;
+«ENDFOREACH-»
+	default:
+		return "";
+		break;
+	}
+}
+
+/** Return a string, which depends on the classifier id of the object.
+ *
+ * The code is duplicated by intention to have different strings for classes and instances of classes. */
+std::string «this.name.toFirstUpper()»ItemProvider::_getText(const ::ecore::EClass_ptr cl) const {
+	switch (cl->getClassifierID()) {
+«FOREACH EClassifiers.sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS class ITERATOR it-»
+    case «name.toFirstUpper() + "Package::" + class.name.toUpperCase()»: {
+    	std::string text = "«class.name.toFirstUpper()»";
+    	«PROTECT CSTART '/*' CEND '*/' ID this.name.toFirstUpper()+"ItemProvider_getTextEClass_"+class.name.toFirstUpper() DISABLE»
+    	// Please, enable the protected region if you add manually written code.
+    	// To do this, add the keyword ENABLED before START.
+    	«ENDPROTECT»
+    	return text;
+    	} break;
+«ENDFOREACH-»
+	default:
+		return "";
+		break;
+	}
+}
+
+/** Simply forwards to _getText(EStructuralFeature_ptr) */
+std::string «this.name.toFirstUpper()»ItemProvider::_getText(const ::ecore::EAttribute_ptr obj) const {
+    	«PROTECT CSTART '/*' CEND '*/' ID this.name.toFirstUpper()+"ItemProvider_getTextEAttribute" DISABLE»
+	::ecore::EStructuralFeature_ptr ef = obj;
+	return _getText(ef);
+    	«ENDPROTECT»
+}
+
+/** Simply forwards to _getText(EStructuralFeature_ptr) */
+std::string «this.name.toFirstUpper()»ItemProvider::_getText(const ::ecore::EReference_ptr obj) const {
+    	«PROTECT CSTART '/*' CEND '*/' ID this.name.toFirstUpper()+"ItemProvider_getTextEReference" DISABLE»
+	::ecore::EStructuralFeature_ptr ef = obj;
+	return _getText(ef);
+    	«ENDPROTECT»
+}
+
+std::string «this.name.toFirstUpper()»ItemProvider::_getText(const ::ecore::EStructuralFeature_ptr obj) const {
+	switch (obj->getFeatureID()) {
+«FOREACH this.getFeatures().sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS ef ITERATOR it-»
+	case «name.toFirstUpper() + "Package::" + ef.getFeatureIDFQN()»: {
+    	std::string text = "«ef.name.toFirstUpper()»";
+    	«PROTECT CSTART '/*' CEND '*/' ID this.name.toFirstUpper()+"ItemProvider_getTextEStructuralFeature_"+ef.getFeatureIDFQN() DISABLE»
+    	// Please, enable the protected region if you add manually written code.
+    	// To do this, add the keyword ENABLED before START.
+    	«ENDPROTECT»
+    	return text;
+    	} break;
+«ENDFOREACH-»
+	default:
+		return "";
+		break;
+	}
+}
+
+
+#ifdef QT5_SUPPORT
+
+/** Return a pixmap, which depends on the classifier id of the object.
+ *
+ * This method will usually return the same as the _getImage(EClass) variant but is
+ * provided to facilitate
+ * a) different icons for classes and instances of classes and
+ * b) icon variants depending on state of the given instance. */
+const QPixmap& «this.name.toFirstUpper()»ItemProvider::_getImage(const ::ecore::EObject_ptr obj) const {
+	switch (obj->eClass()->getClassifierID()) {
+«FOREACH EClassifiers.sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS class ITERATOR it-»
+    case «name.toFirstUpper() + "Package::" + class.name.toUpperCase()»: {
+    	static QPixmap s_pixmap(":/«class.getFQN('/').toLowerCase()».png");
+    	return s_pixmap;
+    	} break;
+«ENDFOREACH-»
+	default: {
+		static QPixmap s_default;
+		return s_default;
+		} break;
+	}
+}
+
+/** Return a pixmap, which depends on the classifier id of the EClass.
+ *
+ * The code is duplicated by intention to have different strings for classes and instances of classes. */
+const QPixmap& «this.name.toFirstUpper()»ItemProvider::_getImage(const ::ecore::EClass_ptr cl) const {
+	switch (cl->getClassifierID()) {
+«FOREACH EClassifiers.sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS class ITERATOR it-»
+    case «name.toFirstUpper() + "Package::" + class.name.toUpperCase()»: {
+    	static QPixmap s_pixmap(":/«class.getFQN('/').toLowerCase()».png");
+    	return s_pixmap;
+    	} break;
+«ENDFOREACH-»
+	default: {
+		static QPixmap s_default;
+		return s_default;
+		} break;
+	}
+}
+
+#endif
+«EXPAND template::EClassHPP::namespaces_end FOR this»
+
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE namespaces_begin FOR EPackage-»
+«IF this != null-»
+«EXPAND namespaces_begin FOR ESuperPackage-»
+namespace «name»
+{
+«ENDIF-»
+«ENDDEFINE»
+
+
+
+«DEFINE namespaces_end FOR EPackage-»
+«IF this != null-»
+} // «name»
+«EXPAND namespaces_end FOR ESuperPackage-»
+«ENDIF-»
+«ENDDEFINE»

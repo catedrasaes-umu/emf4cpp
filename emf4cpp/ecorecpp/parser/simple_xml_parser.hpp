@@ -2,6 +2,7 @@
 /*
  * parser/simple_xml_parser.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,7 +36,7 @@ using namespace parser;
 namespace xml_parser
 {
 
-typedef std::pair< const type_traits::char_t*, size_t > match_pair;
+typedef std::pair< const type_definitions::char_t*, size_t > match_pair;
 typedef std::deque< std::pair< match_pair, match_pair > > attr_list_t;
 
 // struct Handler
@@ -115,7 +116,7 @@ struct space // hand made supposed to be fast.
         if (EXPECT_FALSE (state.at_end()))
             return false;
 
-        type_traits::char_t c = state.char_at_pos();
+        type_definitions::char_t c = state.char_at_pos();
 
         // Try to speed up this check by the assumption that spaces
         // are less common than normal characters
@@ -140,7 +141,10 @@ struct spaces_: plus_< space >
 
 struct string_:
         semantic_rule<string_,
-                      seq_< char_<'"'> , star_< notchar_<'"'> >, char_<'"'> > >
+                      or_<
+					  seq_< char_<'"'> , star_< notchar_<'"'> >, char_<'"'> >,
+                      seq_< char_<'\''> , star_< notchar_<'\''> >, char_<'\''> >
+					  > >
 {
     // Semantic rule
     template< typename S >

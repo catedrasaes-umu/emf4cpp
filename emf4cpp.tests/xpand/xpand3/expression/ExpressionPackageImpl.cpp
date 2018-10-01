@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ExpressionPackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,295 +41,423 @@ using namespace ::xpand3::expression;
 ExpressionPackage::ExpressionPackage()
 {
 
-    s_instance.reset(this);
+    // Feature definitions of AbstractExpression
 
+    // Feature definitions of BooleanOperation
+
+    // Feature definitions of Cast
+    m_Cast__type = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Cast__target = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of ChainExpression
+    m_ChainExpression__first = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_ChainExpression__next = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of ConstructorCallExpression
+    m_ConstructorCallExpression__type = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of FeatureCall
+    m_FeatureCall__target = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_FeatureCall__name = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of CollectionExpression
+    m_CollectionExpression__closure = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_CollectionExpression__eleName = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of OperationCall
+    m_OperationCall__params = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of TypeSelectExpression
+    m_TypeSelectExpression__typeLiteral = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of GlobalVarExpression
+    m_GlobalVarExpression__globalVarName = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of IfExpression
+    m_IfExpression__condition = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_IfExpression__thenPart = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_IfExpression__elsePart = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of LetExpression
+    m_LetExpression__varExpression = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_LetExpression__targetExpression = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_LetExpression__varName = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of ListLiteral
+    m_ListLiteral__elements = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Literal
+    m_Literal__literalValue = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of BooleanLiteral
+
+    // Feature definitions of IntegerLiteral
+
+    // Feature definitions of NullLiteral
+
+    // Feature definitions of RealLiteral
+
+    // Feature definitions of StringLiteral
+
+    // Feature definitions of SwitchExpression
+    m_SwitchExpression__switchExpr = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_SwitchExpression__defaultExpr = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_SwitchExpression__cases = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of Case
+    m_Case__condition = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_Case__thenPart = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of BinaryOperation
+    m_BinaryOperation__left = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_BinaryOperation__right = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_BinaryOperation__operator = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+    // Feature definitions of UnaryOperation
+    m_UnaryOperation__operator = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+    m_UnaryOperation__operand = ::ecore::Ptr < ::ecore::EReference
+            > (new ::ecore::EReference);
+
+}
+
+void ExpressionPackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = ExpressionFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 
     // AbstractExpression
-    m_AbstractExpressionEClass = new ::ecore::EClass();
+    m_AbstractExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_AbstractExpressionEClass->setClassifierID(ABSTRACTEXPRESSION);
-    m_AbstractExpressionEClass->setEPackage(this);
+    m_AbstractExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_AbstractExpressionEClass);
 
     // BooleanOperation
-    m_BooleanOperationEClass = new ::ecore::EClass();
+    m_BooleanOperationEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BooleanOperationEClass->setClassifierID(BOOLEANOPERATION);
-    m_BooleanOperationEClass->setEPackage(this);
+    m_BooleanOperationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanOperationEClass);
 
     // Cast
-    m_CastEClass = new ::ecore::EClass();
+    m_CastEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CastEClass->setClassifierID(CAST);
-    m_CastEClass->setEPackage(this);
+    m_CastEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CastEClass);
-    m_Cast__type = new ::ecore::EReference();
+    // m_Cast__type has already been allocated above
     m_Cast__type->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CAST__TYPE);
     m_CastEClass->getEStructuralFeatures().push_back(m_Cast__type);
-    m_Cast__target = new ::ecore::EReference();
+    // m_Cast__target has already been allocated above
     m_Cast__target->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CAST__TARGET);
     m_CastEClass->getEStructuralFeatures().push_back(m_Cast__target);
 
     // ChainExpression
-    m_ChainExpressionEClass = new ::ecore::EClass();
+    m_ChainExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ChainExpressionEClass->setClassifierID(CHAINEXPRESSION);
-    m_ChainExpressionEClass->setEPackage(this);
+    m_ChainExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ChainExpressionEClass);
-    m_ChainExpression__first = new ::ecore::EReference();
+    // m_ChainExpression__first has already been allocated above
     m_ChainExpression__first->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__FIRST);
     m_ChainExpressionEClass->getEStructuralFeatures().push_back(
             m_ChainExpression__first);
-    m_ChainExpression__next = new ::ecore::EReference();
+    // m_ChainExpression__next has already been allocated above
     m_ChainExpression__next->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CHAINEXPRESSION__NEXT);
     m_ChainExpressionEClass->getEStructuralFeatures().push_back(
             m_ChainExpression__next);
 
     // ConstructorCallExpression
-    m_ConstructorCallExpressionEClass = new ::ecore::EClass();
+    m_ConstructorCallExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ConstructorCallExpressionEClass->setClassifierID(
             CONSTRUCTORCALLEXPRESSION);
-    m_ConstructorCallExpressionEClass->setEPackage(this);
+    m_ConstructorCallExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ConstructorCallExpressionEClass);
-    m_ConstructorCallExpression__type = new ::ecore::EReference();
+    // m_ConstructorCallExpression__type has already been allocated above
     m_ConstructorCallExpression__type->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CONSTRUCTORCALLEXPRESSION__TYPE);
     m_ConstructorCallExpressionEClass->getEStructuralFeatures().push_back(
             m_ConstructorCallExpression__type);
 
     // FeatureCall
-    m_FeatureCallEClass = new ::ecore::EClass();
+    m_FeatureCallEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_FeatureCallEClass->setClassifierID(FEATURECALL);
-    m_FeatureCallEClass->setEPackage(this);
+    m_FeatureCallEClass->setEPackage(_this());
     getEClassifiers().push_back(m_FeatureCallEClass);
-    m_FeatureCall__target = new ::ecore::EReference();
+    // m_FeatureCall__target has already been allocated above
     m_FeatureCall__target->setFeatureID(
             ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET);
     m_FeatureCallEClass->getEStructuralFeatures().push_back(
             m_FeatureCall__target);
-    m_FeatureCall__name = new ::ecore::EReference();
+    // m_FeatureCall__name has already been allocated above
     m_FeatureCall__name->setFeatureID(
             ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME);
     m_FeatureCallEClass->getEStructuralFeatures().push_back(
             m_FeatureCall__name);
 
     // CollectionExpression
-    m_CollectionExpressionEClass = new ::ecore::EClass();
+    m_CollectionExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_CollectionExpressionEClass->setClassifierID(COLLECTIONEXPRESSION);
-    m_CollectionExpressionEClass->setEPackage(this);
+    m_CollectionExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CollectionExpressionEClass);
-    m_CollectionExpression__closure = new ::ecore::EReference();
+    // m_CollectionExpression__closure has already been allocated above
     m_CollectionExpression__closure->setFeatureID(
             ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE);
     m_CollectionExpressionEClass->getEStructuralFeatures().push_back(
             m_CollectionExpression__closure);
-    m_CollectionExpression__eleName = new ::ecore::EReference();
+    // m_CollectionExpression__eleName has already been allocated above
     m_CollectionExpression__eleName->setFeatureID(
             ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME);
     m_CollectionExpressionEClass->getEStructuralFeatures().push_back(
             m_CollectionExpression__eleName);
 
     // OperationCall
-    m_OperationCallEClass = new ::ecore::EClass();
+    m_OperationCallEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_OperationCallEClass->setClassifierID(OPERATIONCALL);
-    m_OperationCallEClass->setEPackage(this);
+    m_OperationCallEClass->setEPackage(_this());
     getEClassifiers().push_back(m_OperationCallEClass);
-    m_OperationCall__params = new ::ecore::EReference();
+    // m_OperationCall__params has already been allocated above
     m_OperationCall__params->setFeatureID(
             ::xpand3::expression::ExpressionPackage::OPERATIONCALL__PARAMS);
     m_OperationCallEClass->getEStructuralFeatures().push_back(
             m_OperationCall__params);
 
     // TypeSelectExpression
-    m_TypeSelectExpressionEClass = new ::ecore::EClass();
+    m_TypeSelectExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_TypeSelectExpressionEClass->setClassifierID(TYPESELECTEXPRESSION);
-    m_TypeSelectExpressionEClass->setEPackage(this);
+    m_TypeSelectExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_TypeSelectExpressionEClass);
-    m_TypeSelectExpression__typeLiteral = new ::ecore::EReference();
+    // m_TypeSelectExpression__typeLiteral has already been allocated above
     m_TypeSelectExpression__typeLiteral->setFeatureID(
             ::xpand3::expression::ExpressionPackage::TYPESELECTEXPRESSION__TYPELITERAL);
     m_TypeSelectExpressionEClass->getEStructuralFeatures().push_back(
             m_TypeSelectExpression__typeLiteral);
 
     // GlobalVarExpression
-    m_GlobalVarExpressionEClass = new ::ecore::EClass();
+    m_GlobalVarExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_GlobalVarExpressionEClass->setClassifierID(GLOBALVAREXPRESSION);
-    m_GlobalVarExpressionEClass->setEPackage(this);
+    m_GlobalVarExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_GlobalVarExpressionEClass);
-    m_GlobalVarExpression__globalVarName = new ::ecore::EReference();
+    // m_GlobalVarExpression__globalVarName has already been allocated above
     m_GlobalVarExpression__globalVarName->setFeatureID(
             ::xpand3::expression::ExpressionPackage::GLOBALVAREXPRESSION__GLOBALVARNAME);
     m_GlobalVarExpressionEClass->getEStructuralFeatures().push_back(
             m_GlobalVarExpression__globalVarName);
 
     // IfExpression
-    m_IfExpressionEClass = new ::ecore::EClass();
+    m_IfExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IfExpressionEClass->setClassifierID(IFEXPRESSION);
-    m_IfExpressionEClass->setEPackage(this);
+    m_IfExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IfExpressionEClass);
-    m_IfExpression__condition = new ::ecore::EReference();
+    // m_IfExpression__condition has already been allocated above
     m_IfExpression__condition->setFeatureID(
             ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION);
     m_IfExpressionEClass->getEStructuralFeatures().push_back(
             m_IfExpression__condition);
-    m_IfExpression__thenPart = new ::ecore::EReference();
+    // m_IfExpression__thenPart has already been allocated above
     m_IfExpression__thenPart->setFeatureID(
             ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART);
     m_IfExpressionEClass->getEStructuralFeatures().push_back(
             m_IfExpression__thenPart);
-    m_IfExpression__elsePart = new ::ecore::EReference();
+    // m_IfExpression__elsePart has already been allocated above
     m_IfExpression__elsePart->setFeatureID(
             ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART);
     m_IfExpressionEClass->getEStructuralFeatures().push_back(
             m_IfExpression__elsePart);
 
     // LetExpression
-    m_LetExpressionEClass = new ::ecore::EClass();
+    m_LetExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_LetExpressionEClass->setClassifierID(LETEXPRESSION);
-    m_LetExpressionEClass->setEPackage(this);
+    m_LetExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LetExpressionEClass);
-    m_LetExpression__varExpression = new ::ecore::EReference();
+    // m_LetExpression__varExpression has already been allocated above
     m_LetExpression__varExpression->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VAREXPRESSION);
     m_LetExpressionEClass->getEStructuralFeatures().push_back(
             m_LetExpression__varExpression);
-    m_LetExpression__targetExpression = new ::ecore::EReference();
+    // m_LetExpression__targetExpression has already been allocated above
     m_LetExpression__targetExpression->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LETEXPRESSION__TARGETEXPRESSION);
     m_LetExpressionEClass->getEStructuralFeatures().push_back(
             m_LetExpression__targetExpression);
-    m_LetExpression__varName = new ::ecore::EReference();
+    // m_LetExpression__varName has already been allocated above
     m_LetExpression__varName->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LETEXPRESSION__VARNAME);
     m_LetExpressionEClass->getEStructuralFeatures().push_back(
             m_LetExpression__varName);
 
     // ListLiteral
-    m_ListLiteralEClass = new ::ecore::EClass();
+    m_ListLiteralEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_ListLiteralEClass->setClassifierID(LISTLITERAL);
-    m_ListLiteralEClass->setEPackage(this);
+    m_ListLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_ListLiteralEClass);
-    m_ListLiteral__elements = new ::ecore::EReference();
+    // m_ListLiteral__elements has already been allocated above
     m_ListLiteral__elements->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LISTLITERAL__ELEMENTS);
     m_ListLiteralEClass->getEStructuralFeatures().push_back(
             m_ListLiteral__elements);
 
     // Literal
-    m_LiteralEClass = new ::ecore::EClass();
+    m_LiteralEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_LiteralEClass->setClassifierID(LITERAL);
-    m_LiteralEClass->setEPackage(this);
+    m_LiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_LiteralEClass);
-    m_Literal__literalValue = new ::ecore::EReference();
+    // m_Literal__literalValue has already been allocated above
     m_Literal__literalValue->setFeatureID(
             ::xpand3::expression::ExpressionPackage::LITERAL__LITERALVALUE);
     m_LiteralEClass->getEStructuralFeatures().push_back(
             m_Literal__literalValue);
 
     // BooleanLiteral
-    m_BooleanLiteralEClass = new ::ecore::EClass();
+    m_BooleanLiteralEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BooleanLiteralEClass->setClassifierID(BOOLEANLITERAL);
-    m_BooleanLiteralEClass->setEPackage(this);
+    m_BooleanLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BooleanLiteralEClass);
 
     // IntegerLiteral
-    m_IntegerLiteralEClass = new ::ecore::EClass();
+    m_IntegerLiteralEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_IntegerLiteralEClass->setClassifierID(INTEGERLITERAL);
-    m_IntegerLiteralEClass->setEPackage(this);
+    m_IntegerLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_IntegerLiteralEClass);
 
     // NullLiteral
-    m_NullLiteralEClass = new ::ecore::EClass();
+    m_NullLiteralEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_NullLiteralEClass->setClassifierID(NULLLITERAL);
-    m_NullLiteralEClass->setEPackage(this);
+    m_NullLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_NullLiteralEClass);
 
     // RealLiteral
-    m_RealLiteralEClass = new ::ecore::EClass();
+    m_RealLiteralEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_RealLiteralEClass->setClassifierID(REALLITERAL);
-    m_RealLiteralEClass->setEPackage(this);
+    m_RealLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_RealLiteralEClass);
 
     // StringLiteral
-    m_StringLiteralEClass = new ::ecore::EClass();
+    m_StringLiteralEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_StringLiteralEClass->setClassifierID(STRINGLITERAL);
-    m_StringLiteralEClass->setEPackage(this);
+    m_StringLiteralEClass->setEPackage(_this());
     getEClassifiers().push_back(m_StringLiteralEClass);
 
     // SwitchExpression
-    m_SwitchExpressionEClass = new ::ecore::EClass();
+    m_SwitchExpressionEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_SwitchExpressionEClass->setClassifierID(SWITCHEXPRESSION);
-    m_SwitchExpressionEClass->setEPackage(this);
+    m_SwitchExpressionEClass->setEPackage(_this());
     getEClassifiers().push_back(m_SwitchExpressionEClass);
-    m_SwitchExpression__switchExpr = new ::ecore::EReference();
+    // m_SwitchExpression__switchExpr has already been allocated above
     m_SwitchExpression__switchExpr->setFeatureID(
             ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__SWITCHEXPR);
     m_SwitchExpressionEClass->getEStructuralFeatures().push_back(
             m_SwitchExpression__switchExpr);
-    m_SwitchExpression__defaultExpr = new ::ecore::EReference();
+    // m_SwitchExpression__defaultExpr has already been allocated above
     m_SwitchExpression__defaultExpr->setFeatureID(
             ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__DEFAULTEXPR);
     m_SwitchExpressionEClass->getEStructuralFeatures().push_back(
             m_SwitchExpression__defaultExpr);
-    m_SwitchExpression__cases = new ::ecore::EReference();
+    // m_SwitchExpression__cases has already been allocated above
     m_SwitchExpression__cases->setFeatureID(
             ::xpand3::expression::ExpressionPackage::SWITCHEXPRESSION__CASES);
     m_SwitchExpressionEClass->getEStructuralFeatures().push_back(
             m_SwitchExpression__cases);
 
     // Case
-    m_CaseEClass = new ::ecore::EClass();
+    m_CaseEClass = ::ecore::Ptr < ::ecore::EClass > (new ::ecore::EClass);
     m_CaseEClass->setClassifierID(CASE);
-    m_CaseEClass->setEPackage(this);
+    m_CaseEClass->setEPackage(_this());
     getEClassifiers().push_back(m_CaseEClass);
-    m_Case__condition = new ::ecore::EReference();
+    // m_Case__condition has already been allocated above
     m_Case__condition->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CASE__CONDITION);
     m_CaseEClass->getEStructuralFeatures().push_back(m_Case__condition);
-    m_Case__thenPart = new ::ecore::EReference();
+    // m_Case__thenPart has already been allocated above
     m_Case__thenPart->setFeatureID(
             ::xpand3::expression::ExpressionPackage::CASE__THENPART);
     m_CaseEClass->getEStructuralFeatures().push_back(m_Case__thenPart);
 
     // BinaryOperation
-    m_BinaryOperationEClass = new ::ecore::EClass();
+    m_BinaryOperationEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_BinaryOperationEClass->setClassifierID(BINARYOPERATION);
-    m_BinaryOperationEClass->setEPackage(this);
+    m_BinaryOperationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_BinaryOperationEClass);
-    m_BinaryOperation__left = new ::ecore::EReference();
+    // m_BinaryOperation__left has already been allocated above
     m_BinaryOperation__left->setFeatureID(
             ::xpand3::expression::ExpressionPackage::BINARYOPERATION__LEFT);
     m_BinaryOperationEClass->getEStructuralFeatures().push_back(
             m_BinaryOperation__left);
-    m_BinaryOperation__right = new ::ecore::EReference();
+    // m_BinaryOperation__right has already been allocated above
     m_BinaryOperation__right->setFeatureID(
             ::xpand3::expression::ExpressionPackage::BINARYOPERATION__RIGHT);
     m_BinaryOperationEClass->getEStructuralFeatures().push_back(
             m_BinaryOperation__right);
-    m_BinaryOperation__operator = new ::ecore::EReference();
+    // m_BinaryOperation__operator has already been allocated above
     m_BinaryOperation__operator->setFeatureID(
             ::xpand3::expression::ExpressionPackage::BINARYOPERATION__OPERATOR);
     m_BinaryOperationEClass->getEStructuralFeatures().push_back(
             m_BinaryOperation__operator);
 
     // UnaryOperation
-    m_UnaryOperationEClass = new ::ecore::EClass();
+    m_UnaryOperationEClass = ::ecore::Ptr < ::ecore::EClass
+            > (new ::ecore::EClass);
     m_UnaryOperationEClass->setClassifierID(UNARYOPERATION);
-    m_UnaryOperationEClass->setEPackage(this);
+    m_UnaryOperationEClass->setEPackage(_this());
     getEClassifiers().push_back(m_UnaryOperationEClass);
-    m_UnaryOperation__operator = new ::ecore::EReference();
+    // m_UnaryOperation__operator has already been allocated above
     m_UnaryOperation__operator->setFeatureID(
             ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERATOR);
     m_UnaryOperationEClass->getEStructuralFeatures().push_back(
             m_UnaryOperation__operator);
-    m_UnaryOperation__operand = new ::ecore::EReference();
+    // m_UnaryOperation__operand has already been allocated above
     m_UnaryOperation__operand->setFeatureID(
             ::xpand3::expression::ExpressionPackage::UNARYOPERATION__OPERAND);
     m_UnaryOperationEClass->getEStructuralFeatures().push_back(
@@ -347,7 +476,7 @@ ExpressionPackage::ExpressionPackage()
 
     // Add supertypes to classes
     m_AbstractExpressionEClass->getESuperTypes().push_back(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getSyntaxElement());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getSyntaxElement());
     m_BooleanOperationEClass->getESuperTypes().push_back(
             m_BinaryOperationEClass);
     m_CastEClass->getESuperTypes().push_back(m_AbstractExpressionEClass);
@@ -377,7 +506,7 @@ ExpressionPackage::ExpressionPackage()
     m_SwitchExpressionEClass->getESuperTypes().push_back(
             m_AbstractExpressionEClass);
     m_CaseEClass->getESuperTypes().push_back(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getSyntaxElement());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getSyntaxElement());
     m_BinaryOperationEClass->getESuperTypes().push_back(
             m_AbstractExpressionEClass);
     m_UnaryOperationEClass->getESuperTypes().push_back(
@@ -398,7 +527,7 @@ ExpressionPackage::ExpressionPackage()
     m_CastEClass->setAbstract(false);
     m_CastEClass->setInterface(false);
     m_Cast__type->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_Cast__type->setName("type");
     m_Cast__type->setDefaultValueLiteral("");
     m_Cast__type->setLowerBound(0);
@@ -459,7 +588,7 @@ ExpressionPackage::ExpressionPackage()
     m_ConstructorCallExpressionEClass->setAbstract(false);
     m_ConstructorCallExpressionEClass->setInterface(false);
     m_ConstructorCallExpression__type->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_ConstructorCallExpression__type->setName("type");
     m_ConstructorCallExpression__type->setDefaultValueLiteral("");
     m_ConstructorCallExpression__type->setLowerBound(0);
@@ -490,7 +619,7 @@ ExpressionPackage::ExpressionPackage()
     m_FeatureCall__target->setDerived(false);
     m_FeatureCall__target->setOrdered(true);
     m_FeatureCall__name->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_FeatureCall__name->setName("name");
     m_FeatureCall__name->setDefaultValueLiteral("");
     m_FeatureCall__name->setLowerBound(0);
@@ -521,7 +650,7 @@ ExpressionPackage::ExpressionPackage()
     m_CollectionExpression__closure->setDerived(false);
     m_CollectionExpression__closure->setOrdered(true);
     m_CollectionExpression__eleName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_CollectionExpression__eleName->setName("eleName");
     m_CollectionExpression__eleName->setDefaultValueLiteral("");
     m_CollectionExpression__eleName->setLowerBound(0);
@@ -556,7 +685,7 @@ ExpressionPackage::ExpressionPackage()
     m_TypeSelectExpressionEClass->setAbstract(false);
     m_TypeSelectExpressionEClass->setInterface(false);
     m_TypeSelectExpression__typeLiteral->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_TypeSelectExpression__typeLiteral->setName("typeLiteral");
     m_TypeSelectExpression__typeLiteral->setDefaultValueLiteral("");
     m_TypeSelectExpression__typeLiteral->setLowerBound(0);
@@ -574,7 +703,7 @@ ExpressionPackage::ExpressionPackage()
     m_GlobalVarExpressionEClass->setAbstract(false);
     m_GlobalVarExpressionEClass->setInterface(false);
     m_GlobalVarExpression__globalVarName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_GlobalVarExpression__globalVarName->setName("globalVarName");
     m_GlobalVarExpression__globalVarName->setDefaultValueLiteral("");
     m_GlobalVarExpression__globalVarName->setLowerBound(0);
@@ -661,7 +790,7 @@ ExpressionPackage::ExpressionPackage()
     m_LetExpression__targetExpression->setDerived(false);
     m_LetExpression__targetExpression->setOrdered(true);
     m_LetExpression__varName->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_LetExpression__varName->setName("varName");
     m_LetExpression__varName->setDefaultValueLiteral("");
     m_LetExpression__varName->setLowerBound(0);
@@ -696,7 +825,7 @@ ExpressionPackage::ExpressionPackage()
     m_LiteralEClass->setAbstract(true);
     m_LiteralEClass->setInterface(false);
     m_Literal__literalValue->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_Literal__literalValue->setName("literalValue");
     m_Literal__literalValue->setDefaultValueLiteral("");
     m_Literal__literalValue->setLowerBound(0);
@@ -833,7 +962,7 @@ ExpressionPackage::ExpressionPackage()
     m_BinaryOperation__right->setDerived(false);
     m_BinaryOperation__right->setOrdered(true);
     m_BinaryOperation__operator->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_BinaryOperation__operator->setName("operator");
     m_BinaryOperation__operator->setDefaultValueLiteral("");
     m_BinaryOperation__operator->setLowerBound(0);
@@ -851,7 +980,7 @@ ExpressionPackage::ExpressionPackage()
     m_UnaryOperationEClass->setAbstract(false);
     m_UnaryOperationEClass->setInterface(false);
     m_UnaryOperation__operator->setEType(
-            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance())->getIdentifier());
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getIdentifier());
     m_UnaryOperation__operator->setName("operator");
     m_UnaryOperation__operator->setDefaultValueLiteral("");
     m_UnaryOperation__operator->setLowerBound(0);

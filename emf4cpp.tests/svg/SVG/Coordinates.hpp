@@ -2,6 +2,7 @@
 /*
  * SVG/Coordinates.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,15 @@
 #ifndef SVG_COORDINATES_HPP
 #define SVG_COORDINATES_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
+
+#include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Coordinates_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -35,58 +39,65 @@
 namespace SVG
 {
 
-    class Coordinates: public virtual ::ecore::EObject
+class EXPORT_SVG_DLL Coordinates : public virtual ::ecore::EObject
+{
+public:
+    Coordinates();
 
-    {
-    public:
-        Coordinates();
+    virtual ~Coordinates();
 
-        virtual ~Coordinates();
+    virtual void _initialize();
 
-        virtual void _initialize();
+    // Operations
 
-        // Operations
+    // Attributes
+    virtual ::PrimitiveTypes::Double getX () const;
+    virtual void setX (::PrimitiveTypes::Double _x);
 
-        // Attributes
-        ::PrimitiveTypes::Double getX() const;
-        void setX(::PrimitiveTypes::Double _x);
+    virtual ::PrimitiveTypes::Double getY () const;
+    virtual void setY (::PrimitiveTypes::Double _y);
 
-        ::PrimitiveTypes::Double getY() const;
-        void setY(::PrimitiveTypes::Double _y);
+    // References
 
-        // References
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::COORDINATES;
 
-        /*PROTECTED REGION ID(Coordinates) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Coordinates) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(CoordinatesImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(CoordinatesImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    Coordinates_ptr _this()
+    {   return Coordinates_ptr(this);}
 
-        ::PrimitiveTypes::Double m_x;
+    // Attributes
 
-        ::PrimitiveTypes::Double m_y;
+    ::PrimitiveTypes::Double m_x;
 
-        // References
+    ::PrimitiveTypes::Double m_y;
 
-    };
+    // References
 
-} // SVG
+};
+
+}
+ // SVG
 
 #endif // SVG_COORDINATES_HPP
 

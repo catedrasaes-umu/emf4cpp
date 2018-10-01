@@ -2,6 +2,7 @@
 /*
  * xpand3/SyntaxElement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,15 @@
 #ifndef XPAND3_SYNTAXELEMENT_HPP
 #define XPAND3_SYNTAXELEMENT_HPP
 
-#include <xpand3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "Xpand3Package.hpp"
 
 /*PROTECTED REGION ID(SyntaxElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -35,68 +39,75 @@
 namespace xpand3
 {
 
-    class SyntaxElement: public virtual ::ecore::EObject
+class EXPORT_XPAND3_DLL SyntaxElement : public virtual ::ecore::EObject
+{
+public:
+    SyntaxElement();
 
-    {
-    public:
-        SyntaxElement();
+    virtual ~SyntaxElement();
 
-        virtual ~SyntaxElement();
+    virtual void _initialize();
 
-        virtual void _initialize();
+    // Operations
 
-        // Operations
+    // Attributes
+    virtual ::ecore::EInt getLine () const;
+    virtual void setLine (::ecore::EInt _line);
 
-        // Attributes
-        ::ecore::EInt getLine() const;
-        void setLine(::ecore::EInt _line);
+    virtual ::ecore::EInt getStart () const;
+    virtual void setStart (::ecore::EInt _start);
 
-        ::ecore::EInt getStart() const;
-        void setStart(::ecore::EInt _start);
+    virtual ::ecore::EInt getEnd () const;
+    virtual void setEnd (::ecore::EInt _end);
 
-        ::ecore::EInt getEnd() const;
-        void setEnd(::ecore::EInt _end);
+    virtual ::ecore::EString const& getFileName () const;
+    virtual void setFileName (::ecore::EString const& _fileName);
 
-        ::ecore::EString const& getFileName() const;
-        void setFileName(::ecore::EString const& _fileName);
+    // References
 
-        // References
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = Xpand3Package::SYNTAXELEMENT;
 
-        /*PROTECTED REGION ID(SyntaxElement) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(SyntaxElement) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(SyntaxElementImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(SyntaxElementImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    SyntaxElement_ptr _this()
+    {   return SyntaxElement_ptr(this);}
 
-        ::ecore::EInt m_line;
+    // Attributes
 
-        ::ecore::EInt m_start;
+    ::ecore::EInt m_line;
 
-        ::ecore::EInt m_end;
+    ::ecore::EInt m_start;
 
-        ::ecore::EString m_fileName;
+    ::ecore::EInt m_end;
 
-        // References
+    ::ecore::EString m_fileName;
 
-    };
+    // References
 
-} // xpand3
+};
+
+}
+ // xpand3
 
 #endif // XPAND3_SYNTAXELEMENT_HPP
 

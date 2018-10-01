@@ -2,6 +2,7 @@
 /*
  * kdm/structure/AbstractStructureElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractStructureElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::structure;
 
 // Default constructor
@@ -45,19 +51,23 @@ AbstractStructureElement::AbstractStructureElement()
 
     m_aggregated.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::core::AggregatedRelationship, -1, true, false >(this,
-                    NULL));
+                    ::kdm::core::AggregatedRelationship_ptr, -1, true, false >(
+                    this,
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__aggregated()));
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::core::KDMEntity,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::core::KDMEntity_ptr, -1, false, false >(this,
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__implementation()));
     m_structureElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::structure::AbstractStructureElement, -1, true, false >(
-                    this, NULL));
+                    ::kdm::structure::AbstractStructureElement_ptr, -1, true,
+                    false >(this,
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureElement()));
     m_structureRelationship.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::structure::AbstractStructureRelationship, -1, true,
-                    false >(this, NULL));
+                    ::kdm::structure::AbstractStructureRelationship_ptr, -1,
+                    true, false >(this,
+                    ::kdm::structure::StructurePackage::_instance()->getAbstractStructureElement__structureRelationship()));
 
     /*PROTECTED REGION ID(AbstractStructureElementImpl__AbstractStructureElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -73,29 +83,47 @@ AbstractStructureElement::~AbstractStructureElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractStructureElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship >& AbstractStructureElement::getAggregated()
+
+const ::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship_ptr >& AbstractStructureElement::getAggregated() const
 {
     return *m_aggregated;
 }
 
-::ecorecpp::mapping::EList< ::kdm::core::KDMEntity >& AbstractStructureElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::core::AggregatedRelationship_ptr >& AbstractStructureElement::getAggregated()
+{
+    return *m_aggregated;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractStructureElement::getImplementation() const
 {
     return *m_implementation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement >& AbstractStructureElement::getStructureElement()
+::ecorecpp::mapping::EList< ::kdm::core::KDMEntity_ptr >& AbstractStructureElement::getImplementation()
+{
+    return *m_implementation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& AbstractStructureElement::getStructureElement() const
 {
     return *m_structureElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship >& AbstractStructureElement::getStructureRelationship()
+::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureElement_ptr >& AbstractStructureElement::getStructureElement()
+{
+    return *m_structureElement;
+}
+
+const ::ecorecpp::mapping::EList<
+        ::kdm::structure::AbstractStructureRelationship_ptr >& AbstractStructureElement::getStructureRelationship() const
+{
+    return *m_structureRelationship;
+}
+
+::ecorecpp::mapping::EList< ::kdm::structure::AbstractStructureRelationship_ptr >& AbstractStructureElement::getStructureRelationship()
 {
     return *m_structureRelationship;
 }

@@ -2,6 +2,7 @@
 /*
  * SVG/Tref.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef SVG_TREF_HPP
 #define SVG_TREF_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/TextElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(Tref_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,52 +39,60 @@
 namespace SVG
 {
 
-    class Tref: public virtual ::SVG::TextElement
-    {
-    public:
-        Tref();
+class EXPORT_SVG_DLL Tref : public virtual ::SVG::TextElement
+{
+public:
+    Tref();
 
-        virtual ~Tref();
+    virtual ~Tref();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::SVG::TextElement_ptr getXlinkHref();
-        void setXlinkHref(::SVG::TextElement_ptr _xlinkHref);
+    // References
+    virtual ::SVG::TextElement_ptr getXlinkHref () const;
+    virtual void setXlinkHref (::SVG::TextElement_ptr _xlinkHref);
 
-        /*PROTECTED REGION ID(Tref) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::TREF;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Tref) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(TrefImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(TrefImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+protected:
+    Tref_ptr _this()
+    {   return Tref_ptr(this);}
 
-        ::SVG::TextElement_ptr m_xlinkHref;
+    // Attributes
 
-    };
+    // References
 
-} // SVG
+    ::SVG::TextElement_ptr m_xlinkHref;
+
+};
+
+}
+ // SVG
 
 #endif // SVG_TREF_HPP
 

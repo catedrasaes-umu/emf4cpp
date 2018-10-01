@@ -2,6 +2,7 @@
 /*
  * kdm/data/SimpleContentType.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SimpleContentType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -48,8 +54,9 @@ SimpleContentType::SimpleContentType()
 
     m_type.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::data::ComplexContentType, -1, false, false >(this,
-                    NULL));
+                    ::kdm::data::ComplexContentType_ptr, -1, false, false >(
+                    this,
+                    ::kdm::data::DataPackage::_instance()->getSimpleContentType__type()));
 
     /*PROTECTED REGION ID(SimpleContentTypeImpl__SimpleContentTypeImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,12 +72,8 @@ SimpleContentType::~SimpleContentType()
 {
 }
 
-/*PROTECTED REGION ID(SimpleContentType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String SimpleContentType::getKind() const
 {
     return m_kind;
@@ -87,8 +90,8 @@ void SimpleContentType::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getSimpleContentType__kind(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getSimpleContentType__kind(),
                 _old_kind,
                 m_kind
         );
@@ -98,7 +101,13 @@ void SimpleContentType::setKind(::kdm::core::String _kind)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType >& SimpleContentType::getType()
+
+const ::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType_ptr >& SimpleContentType::getType() const
+{
+    return *m_type;
+}
+
+::ecorecpp::mapping::EList< ::kdm::data::ComplexContentType_ptr >& SimpleContentType::getType()
 {
     return *m_type;
 }

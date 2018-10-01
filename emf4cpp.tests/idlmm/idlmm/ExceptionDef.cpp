@@ -2,6 +2,7 @@
 /*
  * idlmm/ExceptionDef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ExceptionDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -37,8 +43,9 @@ ExceptionDef::ExceptionDef()
 {
 
     m_members.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Field_ptr, -1,
+                    true, false >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getExceptionDef__members()));
 
     /*PROTECTED REGION ID(ExceptionDefImpl__ExceptionDefImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -54,12 +61,8 @@ ExceptionDef::~ExceptionDef()
 {
 }
 
-/*PROTECTED REGION ID(ExceptionDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::idlmm::ETypeCode ExceptionDef::getTypeCode() const
 {
     return m_typeCode;
@@ -76,8 +79,8 @@ void ExceptionDef::setTypeCode(::idlmm::ETypeCode _typeCode)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getExceptionDef__typeCode(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getExceptionDef__typeCode(),
                 _old_typeCode,
                 m_typeCode
         );
@@ -87,7 +90,13 @@ void ExceptionDef::setTypeCode(::idlmm::ETypeCode _typeCode)
 }
 
 // References
-::ecorecpp::mapping::EList< ::idlmm::Field >& ExceptionDef::getMembers()
+
+const ::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& ExceptionDef::getMembers() const
+{
+    return *m_members;
+}
+
+::ecorecpp::mapping::EList< ::idlmm::Field_ptr >& ExceptionDef::getMembers()
 {
     return *m_members;
 }

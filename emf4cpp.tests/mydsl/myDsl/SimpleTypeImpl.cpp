@@ -2,6 +2,7 @@
 /*
  * myDsl/SimpleTypeImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,19 +28,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::myDsl;
-
 /*PROTECTED REGION ID(SimpleTypeImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::myDsl;
 
 void SimpleType::_initialize()
 {
     // Supertypes
     ::myDsl::Type::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(SimpleTypeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -74,8 +75,10 @@ void SimpleType::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::TYPE__NAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::myDsl::Type::setName(_t0);
     }
         return;
 
@@ -107,7 +110,31 @@ void SimpleType::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr SimpleType::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getSimpleType();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getSimpleType();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void SimpleType::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void SimpleType::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

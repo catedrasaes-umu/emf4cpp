@@ -2,6 +2,7 @@
 /*
  * xpand3/Identifier.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef XPAND3_IDENTIFIER_HPP
 #define XPAND3_IDENTIFIER_HPP
 
-#include <xpand3_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/SyntaxElement.hpp>
+
+#include "Xpand3Package.hpp"
 
 /*PROTECTED REGION ID(Identifier_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,52 +39,60 @@
 namespace xpand3
 {
 
-    class Identifier: public virtual ::xpand3::SyntaxElement
-    {
-    public:
-        Identifier();
+class EXPORT_XPAND3_DLL Identifier : public virtual ::xpand3::SyntaxElement
+{
+public:
+    Identifier();
 
-        virtual ~Identifier();
+    virtual ~Identifier();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::ecore::EString const& getValue() const;
-        void setValue(::ecore::EString const& _value);
+    // Attributes
+    virtual ::ecore::EString const& getValue () const;
+    virtual void setValue (::ecore::EString const& _value);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(Identifier) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = Xpand3Package::IDENTIFIER;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(Identifier) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(IdentifierImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(IdentifierImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::ecore::EString m_value;
+protected:
+    Identifier_ptr _this()
+    {   return Identifier_ptr(this);}
 
-        // References
+    // Attributes
 
-    };
+    ::ecore::EString m_value;
 
-} // xpand3
+    // References
+
+};
+
+}
+ // xpand3
 
 #endif // XPAND3_IDENTIFIER_HPP
 

@@ -2,6 +2,7 @@
 /*
  * ecore/EOperation.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,8 +21,10 @@
 #ifndef ECORE_EOPERATION_HPP
 #define ECORE_EOPERATION_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/ETypedElement.hpp>
 
@@ -33,79 +36,82 @@
 namespace ecore
 {
 
-    class EOperation: public virtual ::ecore::ETypedElement
-    {
-    public:
-        EOperation();
+class EXPORT_ECORE_DLL EOperation : public virtual ::ecore::ETypedElement
+{
+public:
+    EOperation();
 
-        virtual ~EOperation();
+    virtual ~EOperation();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        virtual ::ecore::EInt getOperationID();
+    virtual ::ecore::EInt getOperationID ();
 
-        virtual ::ecore::EBoolean isOverrideOf(
-                ::ecore::EOperation_ptr _someOperation);
+    virtual ::ecore::EBoolean isOverrideOf ( ::ecore::EOperation_ptr _someOperation);
 
-        // Attributes
+    // Attributes
 
-        // References
-        ::ecore::EClass_ptr getEContainingClass();
-        void setEContainingClass(::ecore::EClass_ptr _eContainingClass);
+    // References
+    virtual ::ecore::EClass_ptr getEContainingClass () const;
+    virtual void setEContainingClass (::ecore::EClass_ptr _eContainingClass);
+    virtual ::ecore::EClass_ptr basicgetEContainingClass ();
+    virtual void basicsetEContainingClass (::ecore::EClass_ptr _eContainingClass);
 
-        ::ecorecpp::mapping::EList< ::ecore::ETypeParameter >
-                & getETypeParameters();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& getETypeParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >& getETypeParameters ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EParameter >& getEParameters();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >& getEParameters () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >& getEParameters ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EClassifier >& getEExceptions();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& getEExceptions () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >& getEExceptions ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EGenericType >
-                & getEGenericExceptions();
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEGenericExceptions () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& getEGenericExceptions ();
 
-        /*PROTECTED REGION ID(EOperation) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EOperation) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(EOperationImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(EOperationImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    EOperation_ptr _this()
+    {   return EOperation_ptr(this);}
 
+    // Attributes
 
-        // References
+    // References
 
-        ::ecore::EClass_ptr m_eContainingClass;
+    ::ecore::EClass_ptr m_eContainingClass;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::ETypeParameter > > m_eTypeParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::ETypeParameter_ptr >> m_eTypeParameters;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EParameter > > m_eParameters;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EParameter_ptr >> m_eParameters;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EClassifier > > m_eExceptions;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EClassifier_ptr >> m_eExceptions;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EGenericType > > m_eGenericExceptions;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >> m_eGenericExceptions;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EOPERATION_HPP
+

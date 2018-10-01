@@ -2,6 +2,7 @@
 /*
  * PrimitiveTypes_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -59,17 +60,13 @@ namespace PrimitiveTypes
 
 // EClass
 
+// EEnum
+
 // Package & Factory
     class PrimitiveTypesFactory;
-    typedef PrimitiveTypesFactory * PrimitiveTypesFactory_ptr;
+    using PrimitiveTypesFactory_ptr = ::ecore::Ptr<PrimitiveTypesFactory>;
     class PrimitiveTypesPackage;
-    typedef PrimitiveTypesPackage * PrimitiveTypesPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using PrimitiveTypesPackage_ptr = ::ecore::Ptr<PrimitiveTypesPackage>;
 
 } // PrimitiveTypes
 

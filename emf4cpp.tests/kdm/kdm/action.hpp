@@ -2,6 +2,7 @@
 /*
  * kdm/action.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,6 +22,7 @@
 #define KDM_ACTION_HPP
 
 #include "action_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage

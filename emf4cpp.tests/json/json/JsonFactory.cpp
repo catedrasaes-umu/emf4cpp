@@ -2,6 +2,7 @@
 /*
  * json/JsonFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::json;
 
-std::auto_ptr< ::json::JsonFactory > JsonFactory::s_instance;
+::ecore::Ptr< ::json::JsonFactory > JsonFactory::s_holder;
 
 ::json::JsonFactory_ptr JsonFactory::_instance()
 {
-    if (!s_instance.get())
-        new JsonFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < JsonFactory > (new JsonFactory());
+
+    return s_holder;
 }
 

@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ExpressionPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,27 @@
 
 using namespace ::xpand3::expression;
 
-std::auto_ptr< ::xpand3::expression::ExpressionPackage > ExpressionPackage::s_instance;
+::ecore::Ptr< ::xpand3::expression::ExpressionPackage > ExpressionPackage::s_instance;
 
 ::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new ExpressionPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< ExpressionPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < ExpressionPackage
+                > (new ExpressionPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::xpand3::expression::ExpressionPackage_ptr ExpressionPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

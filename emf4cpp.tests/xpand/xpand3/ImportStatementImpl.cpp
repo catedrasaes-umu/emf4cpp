@@ -2,6 +2,7 @@
 /*
  * xpand3/ImportStatementImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,24 +29,22 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3;
-
 /*PROTECTED REGION ID(ImportStatementImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3;
 
 void ImportStatement::_initialize()
 {
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
     if (m_importedId)
     {
         m_importedId->_initialize();
-        m_importedId->_setEContainer(this,
-                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
     }
 
     /*PROTECTED REGION ID(ImportStatementImpl__initialize) START*/
@@ -87,7 +86,8 @@ void ImportStatement::_initialize()
         return _any;
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__IMPORTEDID:
     {
-        _any = static_cast< ::ecore::EObject* >(m_importedId);
+        if (m_importedId)
+            _any = ::ecore::as < ::ecore::EObject > (m_importedId);
     }
         return _any;
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__EXPORTED:
@@ -108,26 +108,34 @@ void ImportStatement::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__IMPORTEDID:
@@ -135,14 +143,16 @@ void ImportStatement::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::ImportStatement::setImportedId(_t1);
     }
         return;
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__EXPORTED:
     {
+        ::ecore::EBoolean _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
-                > ::fromAny(_newValue, m_exported);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::ImportStatement::setExported(_t0);
     }
         return;
 
@@ -166,7 +176,7 @@ void ImportStatement::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__IMPORTEDID:
-        return m_importedId;
+        return (bool) m_importedId;
     case ::xpand3::Xpand3Package::IMPORTSTATEMENT__EXPORTED:
         return ::ecorecpp::mapping::set_traits < ::ecore::EBoolean
                 > ::is_set(m_exported);
@@ -187,7 +197,39 @@ void ImportStatement::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ImportStatement::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::Xpand3Package_ptr >(::xpand3::Xpand3Package::_instance())->getImportStatement();
+            dynamic_cast< ::xpand3::Xpand3Package* >(::xpand3::Xpand3Package::_instance().get())->getImportStatement();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void ImportStatement::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::Xpand3Package::IMPORTSTATEMENT__IMPORTEDID:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void ImportStatement::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::Xpand3Package::IMPORTSTATEMENT__IMPORTEDID:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

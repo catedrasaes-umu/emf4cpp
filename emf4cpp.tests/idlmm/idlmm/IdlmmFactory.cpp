@@ -2,6 +2,7 @@
 /*
  * idlmm/IdlmmFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::idlmm;
 
-std::auto_ptr< ::idlmm::IdlmmFactory > IdlmmFactory::s_instance;
+::ecore::Ptr< ::idlmm::IdlmmFactory > IdlmmFactory::s_holder;
 
 ::idlmm::IdlmmFactory_ptr IdlmmFactory::_instance()
 {
-    if (!s_instance.get())
-        new IdlmmFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < IdlmmFactory > (new IdlmmFactory());
+
+    return s_holder;
 }
 

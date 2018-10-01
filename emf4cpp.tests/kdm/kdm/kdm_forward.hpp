@@ -2,6 +2,7 @@
 /*
  * kdm/kdm_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,63 +44,59 @@ namespace kdm
 
 // KDMFramework
         class KDMFramework;
-        typedef KDMFramework* KDMFramework_ptr;
+        using KDMFramework_ptr = ::ecore::Ptr<KDMFramework>;
 
 // KDMModel
         class KDMModel;
-        typedef KDMModel* KDMModel_ptr;
+        using KDMModel_ptr = ::ecore::Ptr<KDMModel>;
 
 // Audit
         class Audit;
-        typedef Audit* Audit_ptr;
+        using Audit_ptr = ::ecore::Ptr<Audit>;
 
 // Segment
         class Segment;
-        typedef Segment* Segment_ptr;
+        using Segment_ptr = ::ecore::Ptr<Segment>;
 
 // Attribute
         class Attribute;
-        typedef Attribute* Attribute_ptr;
+        using Attribute_ptr = ::ecore::Ptr<Attribute>;
 
 // Annotation
         class Annotation;
-        typedef Annotation* Annotation_ptr;
+        using Annotation_ptr = ::ecore::Ptr<Annotation>;
 
 // TagDefinition
         class TagDefinition;
-        typedef TagDefinition* TagDefinition_ptr;
+        using TagDefinition_ptr = ::ecore::Ptr<TagDefinition>;
 
 // ExtendedValue
         class ExtendedValue;
-        typedef ExtendedValue* ExtendedValue_ptr;
+        using ExtendedValue_ptr = ::ecore::Ptr<ExtendedValue>;
 
 // Stereotype
         class Stereotype;
-        typedef Stereotype* Stereotype_ptr;
+        using Stereotype_ptr = ::ecore::Ptr<Stereotype>;
 
 // ExtensionFamily
         class ExtensionFamily;
-        typedef ExtensionFamily* ExtensionFamily_ptr;
+        using ExtensionFamily_ptr = ::ecore::Ptr<ExtensionFamily>;
 
 // TaggedRef
         class TaggedRef;
-        typedef TaggedRef* TaggedRef_ptr;
+        using TaggedRef_ptr = ::ecore::Ptr<TaggedRef>;
 
 // TaggedValue
         class TaggedValue;
-        typedef TaggedValue* TaggedValue_ptr;
+        using TaggedValue_ptr = ::ecore::Ptr<TaggedValue>;
+
+// EEnum
 
 // Package & Factory
         class KdmFactory;
-        typedef KdmFactory * KdmFactory_ptr;
+        using KdmFactory_ptr = ::ecore::Ptr<KdmFactory>;
         class KdmPackage;
-        typedef KdmPackage * KdmPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using KdmPackage_ptr = ::ecore::Ptr<KdmPackage>;
 
     } // kdm
 } // kdm

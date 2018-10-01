@@ -2,6 +2,7 @@
 /*
  * ecore/EcoreFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::ecore;
 
-std::auto_ptr< ::ecore::EcoreFactory > EcoreFactory::s_instance;
+::ecore::Ptr< ::ecore::EcoreFactory > EcoreFactory::s_holder;
 
 ::ecore::EcoreFactory_ptr EcoreFactory::_instance()
 {
-    if (!s_instance.get())
-        new EcoreFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < EcoreFactory > (new EcoreFactory());
+
+    return s_holder;
 }
 

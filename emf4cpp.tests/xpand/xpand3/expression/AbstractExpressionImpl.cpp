@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/AbstractExpressionImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,19 +28,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::expression;
-
 /*PROTECTED REGION ID(AbstractExpressionImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::expression;
 
 void AbstractExpression::_initialize()
 {
     // Supertypes
     ::xpand3::SyntaxElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AbstractExpressionImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -90,26 +91,34 @@ void AbstractExpression::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
 
@@ -149,7 +158,31 @@ void AbstractExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr AbstractExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getAbstractExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getAbstractExpression();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void AbstractExpression::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void AbstractExpression::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

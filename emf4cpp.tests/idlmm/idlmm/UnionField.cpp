@@ -2,6 +2,7 @@
 /*
  * idlmm/UnionField.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(UnionField.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -50,12 +56,8 @@ UnionField::~UnionField()
 {
 }
 
-/*PROTECTED REGION ID(UnionField.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& UnionField::getIdentifier() const
 {
     return m_identifier;
@@ -72,8 +74,8 @@ void UnionField::setIdentifier(::ecore::EString const& _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getUnionField__identifier(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getUnionField__identifier(),
                 _old_identifier,
                 m_identifier
         );
@@ -98,8 +100,8 @@ void UnionField::setLabel(std::vector< ::idlmm::EAny > _label)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getUnionField__label(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getUnionField__label(),
                 _old_label,
                 m_label
         );
@@ -117,7 +119,7 @@ void UnionField::setLabelAt(size_t _position,
         ::idlmm::EAny const& _new_element_in_label)
 {
     if (_position >= m_label.size())
-        m_label.resize(_position + 1, 0);
+        m_label.resize(_position + 1, ::idlmm::EAny());
 
     m_label[_position] = _new_element_in_label;
 }

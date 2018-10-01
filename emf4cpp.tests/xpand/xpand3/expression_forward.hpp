@@ -2,6 +2,7 @@
 /*
  * xpand3/expression_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,107 +44,103 @@ namespace xpand3
 
 // AbstractExpression
         class AbstractExpression;
-        typedef AbstractExpression* AbstractExpression_ptr;
+        using AbstractExpression_ptr = ::ecore::Ptr<AbstractExpression>;
 
 // BooleanOperation
         class BooleanOperation;
-        typedef BooleanOperation* BooleanOperation_ptr;
+        using BooleanOperation_ptr = ::ecore::Ptr<BooleanOperation>;
 
 // Cast
         class Cast;
-        typedef Cast* Cast_ptr;
+        using Cast_ptr = ::ecore::Ptr<Cast>;
 
 // ChainExpression
         class ChainExpression;
-        typedef ChainExpression* ChainExpression_ptr;
+        using ChainExpression_ptr = ::ecore::Ptr<ChainExpression>;
 
 // ConstructorCallExpression
         class ConstructorCallExpression;
-        typedef ConstructorCallExpression* ConstructorCallExpression_ptr;
+        using ConstructorCallExpression_ptr = ::ecore::Ptr<ConstructorCallExpression>;
 
 // FeatureCall
         class FeatureCall;
-        typedef FeatureCall* FeatureCall_ptr;
+        using FeatureCall_ptr = ::ecore::Ptr<FeatureCall>;
 
 // CollectionExpression
         class CollectionExpression;
-        typedef CollectionExpression* CollectionExpression_ptr;
+        using CollectionExpression_ptr = ::ecore::Ptr<CollectionExpression>;
 
 // OperationCall
         class OperationCall;
-        typedef OperationCall* OperationCall_ptr;
+        using OperationCall_ptr = ::ecore::Ptr<OperationCall>;
 
 // TypeSelectExpression
         class TypeSelectExpression;
-        typedef TypeSelectExpression* TypeSelectExpression_ptr;
+        using TypeSelectExpression_ptr = ::ecore::Ptr<TypeSelectExpression>;
 
 // GlobalVarExpression
         class GlobalVarExpression;
-        typedef GlobalVarExpression* GlobalVarExpression_ptr;
+        using GlobalVarExpression_ptr = ::ecore::Ptr<GlobalVarExpression>;
 
 // IfExpression
         class IfExpression;
-        typedef IfExpression* IfExpression_ptr;
+        using IfExpression_ptr = ::ecore::Ptr<IfExpression>;
 
 // LetExpression
         class LetExpression;
-        typedef LetExpression* LetExpression_ptr;
+        using LetExpression_ptr = ::ecore::Ptr<LetExpression>;
 
 // ListLiteral
         class ListLiteral;
-        typedef ListLiteral* ListLiteral_ptr;
+        using ListLiteral_ptr = ::ecore::Ptr<ListLiteral>;
 
 // Literal
         class Literal;
-        typedef Literal* Literal_ptr;
+        using Literal_ptr = ::ecore::Ptr<Literal>;
 
 // BooleanLiteral
         class BooleanLiteral;
-        typedef BooleanLiteral* BooleanLiteral_ptr;
+        using BooleanLiteral_ptr = ::ecore::Ptr<BooleanLiteral>;
 
 // IntegerLiteral
         class IntegerLiteral;
-        typedef IntegerLiteral* IntegerLiteral_ptr;
+        using IntegerLiteral_ptr = ::ecore::Ptr<IntegerLiteral>;
 
 // NullLiteral
         class NullLiteral;
-        typedef NullLiteral* NullLiteral_ptr;
+        using NullLiteral_ptr = ::ecore::Ptr<NullLiteral>;
 
 // RealLiteral
         class RealLiteral;
-        typedef RealLiteral* RealLiteral_ptr;
+        using RealLiteral_ptr = ::ecore::Ptr<RealLiteral>;
 
 // StringLiteral
         class StringLiteral;
-        typedef StringLiteral* StringLiteral_ptr;
+        using StringLiteral_ptr = ::ecore::Ptr<StringLiteral>;
 
 // SwitchExpression
         class SwitchExpression;
-        typedef SwitchExpression* SwitchExpression_ptr;
+        using SwitchExpression_ptr = ::ecore::Ptr<SwitchExpression>;
 
 // Case
         class Case;
-        typedef Case* Case_ptr;
+        using Case_ptr = ::ecore::Ptr<Case>;
 
 // BinaryOperation
         class BinaryOperation;
-        typedef BinaryOperation* BinaryOperation_ptr;
+        using BinaryOperation_ptr = ::ecore::Ptr<BinaryOperation>;
 
 // UnaryOperation
         class UnaryOperation;
-        typedef UnaryOperation* UnaryOperation_ptr;
+        using UnaryOperation_ptr = ::ecore::Ptr<UnaryOperation>;
+
+// EEnum
 
 // Package & Factory
         class ExpressionFactory;
-        typedef ExpressionFactory * ExpressionFactory_ptr;
+        using ExpressionFactory_ptr = ::ecore::Ptr<ExpressionFactory>;
         class ExpressionPackage;
-        typedef ExpressionPackage * ExpressionPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using ExpressionPackage_ptr = ::ecore::Ptr<ExpressionPackage>;
 
     } // expression
 } // xpand3

@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceRef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SourceRef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::source;
 
 // Default constructor
@@ -39,7 +45,8 @@ SourceRef::SourceRef()
 
     m_region.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRegion, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRegion_ptr, -1, true, false >(this,
+                    ::kdm::source::SourcePackage::_instance()->getSourceRef__region()));
 
     /*PROTECTED REGION ID(SourceRefImpl__SourceRefImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -55,12 +62,8 @@ SourceRef::~SourceRef()
 {
 }
 
-/*PROTECTED REGION ID(SourceRef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String SourceRef::getLanguage() const
 {
     return m_language;
@@ -77,8 +80,8 @@ void SourceRef::setLanguage(::kdm::core::String _language)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRef__language(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRef__language(),
                 _old_language,
                 m_language
         );
@@ -103,8 +106,8 @@ void SourceRef::setSnippet(::kdm::core::String _snippet)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRef__snippet(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRef__snippet(),
                 _old_snippet,
                 m_snippet
         );
@@ -114,7 +117,13 @@ void SourceRef::setSnippet(::kdm::core::String _snippet)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& SourceRef::getRegion()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& SourceRef::getRegion() const
+{
+    return *m_region;
+}
+
+::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& SourceRef::getRegion()
 {
     return *m_region;
 }

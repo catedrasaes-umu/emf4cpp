@@ -2,6 +2,7 @@
 /*
  * idlmm/Container.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Container.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -36,8 +42,10 @@ Container::Container()
 {
 
     m_contains.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained, -1,
-                    true, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::idlmm::Contained_ptr,
+                    -1, true, true >(this,
+                    ::idlmm::IdlmmPackage::_instance()->getContainer__contains(),
+                    ::idlmm::IdlmmPackage::CONTAINED__DEFINEDIN));
 
     /*PROTECTED REGION ID(ContainerImpl__ContainerImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,14 +61,16 @@ Container::~Container()
 {
 }
 
-/*PROTECTED REGION ID(Container.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::idlmm::Contained >& Container::getContains()
+
+const ::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& Container::getContains() const
+{
+    return *m_contains;
+}
+
+::ecorecpp::mapping::EList< ::idlmm::Contained_ptr >& Container::getContains()
 {
     return *m_contains;
 }

@@ -20,7 +20,6 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <boost/lexical_cast.hpp>
 #include "parser.hpp"
 #include "generator.hpp"
 
@@ -55,7 +54,7 @@ eval (const node *n)
 {
     // if this node is a number, this is the value
     if (n->get_type_info() == typeid(expr_grammar::number_))
-        return boost::lexical_cast<int>(std::string (n->p.first, n->p.second));
+        return std::stoi(std::string (n->p.first, n->p.second));
     else  if (n->get_type_info() == typeid(expr_grammar::mult_op_))
     {
         int retval = 0;
@@ -64,8 +63,7 @@ eval (const node *n)
         // The first child is a number. The second, if it exists,
         // may be either a mult_op or a right_expr
         node::child_list_t::const_iterator it = n->children.begin();
-        retval = boost::lexical_cast<int>(std::string ((*it)->p.first,
-                                                       (*it)->p.second));
+        retval = std::stoi(std::string ((*it)->p.first, (*it)->p.second));
 
         ++it;
         for (; it != n->children.end(); ++it)

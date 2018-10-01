@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/Segment.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Segment.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -43,11 +49,13 @@ Segment::Segment()
 {
 
     m_segment.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Segment,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Segment_ptr, -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getSegment__segment()));
     m_model.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::KDMModel,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::KDMModel_ptr, -1, true, false >(this,
+                    ::kdm::kdm::KdmPackage::_instance()->getSegment__model()));
 
     /*PROTECTED REGION ID(SegmentImpl__SegmentImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -63,19 +71,26 @@ Segment::~Segment()
 {
 }
 
-/*PROTECTED REGION ID(Segment.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::kdm::Segment >& Segment::getSegment()
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Segment_ptr >& Segment::getSegment() const
 {
     return *m_segment;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel >& Segment::getModel()
+::ecorecpp::mapping::EList< ::kdm::kdm::Segment_ptr >& Segment::getSegment()
+{
+    return *m_segment;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel_ptr >& Segment::getModel() const
+{
+    return *m_model;
+}
+
+::ecorecpp::mapping::EList< ::kdm::kdm::KDMModel_ptr >& Segment::getModel()
 {
     return *m_model;
 }

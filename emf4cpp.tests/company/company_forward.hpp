@@ -2,6 +2,7 @@
 /*
  * company_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,27 +42,27 @@ namespace company
 
 // Employee
     class Employee;
-    typedef Employee* Employee_ptr;
+    using Employee_ptr = ::ecore::Ptr<Employee>;
 
 // Department
     class Department;
-    typedef Department* Department_ptr;
+    using Department_ptr = ::ecore::Ptr<Department>;
 
 // Company
     class Company;
-    typedef Company* Company_ptr;
+    using Company_ptr = ::ecore::Ptr<Company>;
+
+// PhonebookEntry
+    class PhonebookEntry;
+    using PhonebookEntry_ptr = ::ecore::Ptr<PhonebookEntry>;
+
+// EEnum
 
 // Package & Factory
     class CompanyFactory;
-    typedef CompanyFactory * CompanyFactory_ptr;
+    using CompanyFactory_ptr = ::ecore::Ptr<CompanyFactory>;
     class CompanyPackage;
-    typedef CompanyPackage * CompanyPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using CompanyPackage_ptr = ::ecore::Ptr<CompanyPackage>;
 
 } // company
 

@@ -2,6 +2,7 @@
 /*
  * company/Company.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Company.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::company;
 
 // Default constructor
@@ -35,8 +41,9 @@ Company::Company()
 {
 
     m_departments.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::company::Department,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::company::Department_ptr, -1, true, false >(this,
+                    ::company::CompanyPackage::_instance()->getCompany__departments()));
 
     /*PROTECTED REGION ID(CompanyImpl__CompanyImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -52,12 +59,8 @@ Company::~Company()
 {
 }
 
-/*PROTECTED REGION ID(Company.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& Company::getName() const
 {
     return m_name;
@@ -74,8 +77,8 @@ void Company::setName(::ecore::EString const& _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::company::CompanyPackage::_instance()->getCompany__name(),
+                _this(),
+                ::company::CompanyPackage::_instance()->getCompany__name(),
                 _old_name,
                 m_name
         );
@@ -85,7 +88,13 @@ void Company::setName(::ecore::EString const& _name)
 }
 
 // References
-::ecorecpp::mapping::EList< ::company::Department >& Company::getDepartments()
+
+const ::ecorecpp::mapping::EList< ::company::Department_ptr >& Company::getDepartments() const
+{
+    return *m_departments;
+}
+
+::ecorecpp::mapping::EList< ::company::Department_ptr >& Company::getDepartments()
 {
     return *m_departments;
 }

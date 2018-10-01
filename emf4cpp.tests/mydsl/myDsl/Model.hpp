@@ -2,6 +2,7 @@
 /*
  * myDsl/Model.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,10 +21,13 @@
 #ifndef MYDSL_MODEL_HPP
 #define MYDSL_MODEL_HPP
 
-#include <myDsl_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
-
 #include <ecore/EObject.hpp>
+
+#include <myDsl/dllMyDsl.hpp>
+#include <myDsl_forward.hpp>
+
+#include "MyDslPackage.hpp"
 
 /*PROTECTED REGION ID(Model_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -33,58 +37,65 @@
 namespace myDsl
 {
 
-    class Model: public virtual ::ecore::EObject
+class EXPORT_MYDSL_DLL Model : public virtual ::ecore::EObject
+{
+public:
+    Model();
 
-    {
-    public:
-        Model();
+    virtual ~Model();
 
-        virtual ~Model();
+    virtual void _initialize();
 
-        virtual void _initialize();
+    // Operations
 
-        // Operations
+    // Attributes
 
-        // Attributes
+    // References
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& getImports () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Import_ptr >& getImports ();
 
-        // References
-        ::ecorecpp::mapping::EList< ::myDsl::Import >& getImports();
+    virtual const ::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& getElements () const;
+    virtual ::ecorecpp::mapping::EList< ::myDsl::Type_ptr >& getElements ();
 
-        ::ecorecpp::mapping::EList< ::myDsl::Type >& getElements();
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = MyDslPackage::MODEL;
 
-        /*PROTECTED REGION ID(Model) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(Model) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(ModelImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(ModelImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    Model_ptr _this()
+    {   return Model_ptr(this);}
 
-        // References
+    // Attributes
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::myDsl::Import > > m_imports;
+    // References
 
-        ::ecorecpp::mapping::out_ptr<
-                ::ecorecpp::mapping::EList< ::myDsl::Type > > m_elements;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Import_ptr >> m_imports;
 
-    };
+    std::shared_ptr<::ecorecpp::mapping::EList< ::myDsl::Type_ptr >> m_elements;
 
-} // myDsl
+};
+
+}
+ // myDsl
 
 #endif // MYDSL_MODEL_HPP
 

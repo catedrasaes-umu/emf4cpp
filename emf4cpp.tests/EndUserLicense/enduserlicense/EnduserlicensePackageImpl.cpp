@@ -2,6 +2,7 @@
 /*
  * enduserlicense/EnduserlicensePackageImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,12 +38,14 @@ using namespace ::enduserlicense;
 EnduserlicensePackage::EnduserlicensePackage()
 {
 
-    s_instance.reset(this);
+}
 
+void EnduserlicensePackage::_initPackage()
+{
     // Factory
     ::ecore::EFactory_ptr _fa = EnduserlicenseFactory::_instance();
     setEFactoryInstance(_fa);
-    _fa->setEPackage(this);
+    _fa->setEPackage(_this());
 
     // Create classes and their features
 

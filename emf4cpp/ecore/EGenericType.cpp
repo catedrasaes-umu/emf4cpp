@@ -2,6 +2,7 @@
 /*
  * ecore/EGenericType.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,21 +31,28 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EGenericType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EGenericType::EGenericType() :
-    m_eUpperBound(0), m_eRawType(0), m_eLowerBound(0), m_eTypeParameter(0),
-            m_eClassifier(0)
+        m_eUpperBound(0), m_eRawType(0), m_eLowerBound(0), m_eTypeParameter(0), m_eClassifier(
+                0)
 {
 
     m_eTypeArguments.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EGenericType_ptr, -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEGenericType__eTypeArguments() :
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(EGenericTypeImpl__EGenericTypeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -56,31 +64,35 @@ EGenericType::~EGenericType()
 {
     if (m_eUpperBound)
     {
-        delete m_eUpperBound;
+        m_eUpperBound.reset();
     }
     if (m_eLowerBound)
     {
-        delete m_eLowerBound;
+        m_eLowerBound.reset();
     }
 }
-
-/*PROTECTED REGION ID(EGenericType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
 
 // Attributes
 
 // References
-::ecore::EGenericType_ptr EGenericType::getEUpperBound()
+
+::ecore::EGenericType_ptr EGenericType::getEUpperBound() const
 {
     return m_eUpperBound;
 }
 
 void EGenericType::setEUpperBound(::ecore::EGenericType_ptr _eUpperBound)
 {
-    ::ecore::EGenericType_ptr _old_eUpperBound = m_eUpperBound;
+    if (m_eUpperBound)
+        m_eUpperBound->_setEContainer(EGenericType_ptr(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
+    if (_eUpperBound)
+        _eUpperBound->_setEContainer(_this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::ecore::EGenericType_ptr _old_eUpperBound = m_eUpperBound;
+#endif
     m_eUpperBound = _eUpperBound;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -88,32 +100,36 @@ void EGenericType::setEUpperBound(::ecore::EGenericType_ptr _eUpperBound)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eUpperBound(),
                 _old_eUpperBound,
                 m_eUpperBound
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_eUpperBound;
 }
 
-::ecorecpp::mapping::EList< ::ecore::EGenericType >& EGenericType::getETypeArguments()
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EGenericType::getETypeArguments() const
 {
     return *m_eTypeArguments;
 }
 
-::ecore::EClassifier_ptr EGenericType::getERawType()
+::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& EGenericType::getETypeArguments()
+{
+    return *m_eTypeArguments;
+}
+
+::ecore::EClassifier_ptr EGenericType::getERawType() const
 {
     return m_eRawType;
 }
 
 void EGenericType::setERawType(::ecore::EClassifier_ptr _eRawType)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EClassifier_ptr _old_eRawType = m_eRawType;
-
+#endif
     m_eRawType = _eRawType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -121,26 +137,33 @@ void EGenericType::setERawType(::ecore::EClassifier_ptr _eRawType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eRawType(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eRawType(),
                 _old_eRawType,
                 m_eRawType
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecore::EGenericType_ptr EGenericType::getELowerBound()
+::ecore::EGenericType_ptr EGenericType::getELowerBound() const
 {
     return m_eLowerBound;
 }
 
 void EGenericType::setELowerBound(::ecore::EGenericType_ptr _eLowerBound)
 {
-    ::ecore::EGenericType_ptr _old_eLowerBound = m_eLowerBound;
+    if (m_eLowerBound)
+        m_eLowerBound->_setEContainer(EGenericType_ptr(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
+    if (_eLowerBound)
+        _eLowerBound->_setEContainer(_this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::ecore::EGenericType_ptr _old_eLowerBound = m_eLowerBound;
+#endif
     m_eLowerBound = _eLowerBound;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -148,19 +171,17 @@ void EGenericType::setELowerBound(::ecore::EGenericType_ptr _eLowerBound)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eLowerBound(),
                 _old_eLowerBound,
                 m_eLowerBound
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_eLowerBound;
 }
 
-::ecore::ETypeParameter_ptr EGenericType::getETypeParameter()
+::ecore::ETypeParameter_ptr EGenericType::getETypeParameter() const
 {
     return m_eTypeParameter;
 }
@@ -168,8 +189,9 @@ void EGenericType::setELowerBound(::ecore::EGenericType_ptr _eLowerBound)
 void EGenericType::setETypeParameter(
         ::ecore::ETypeParameter_ptr _eTypeParameter)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::ETypeParameter_ptr _old_eTypeParameter = m_eTypeParameter;
-
+#endif
     m_eTypeParameter = _eTypeParameter;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -177,26 +199,26 @@ void EGenericType::setETypeParameter(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eTypeParameter(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eTypeParameter(),
                 _old_eTypeParameter,
                 m_eTypeParameter
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecore::EClassifier_ptr EGenericType::getEClassifier()
+::ecore::EClassifier_ptr EGenericType::getEClassifier() const
 {
     return m_eClassifier;
 }
 
 void EGenericType::setEClassifier(::ecore::EClassifier_ptr _eClassifier)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EClassifier_ptr _old_eClassifier = m_eClassifier;
-
+#endif
     m_eClassifier = _eClassifier;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -204,14 +226,13 @@ void EGenericType::setEClassifier(::ecore::EClassifier_ptr _eClassifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEGenericType__eClassifier(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEGenericType__eClassifier(),
                 _old_eClassifier,
                 m_eClassifier
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

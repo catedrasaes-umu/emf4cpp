@@ -2,6 +2,7 @@
 /*
  * myDsl/ImportImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -26,18 +27,18 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::myDsl;
-
 /*PROTECTED REGION ID(ImportImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::myDsl;
+
 void Import::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ImportImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -72,8 +73,10 @@ void Import::eSet(::ecore::EInt _featureID,
     {
     case ::myDsl::MyDslPackage::IMPORT__IMPORTURI:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_importURI);
+                > ::fromAny(_newValue, _t0);
+        ::myDsl::Import::setImportURI(_t0);
     }
         return;
 
@@ -105,7 +108,31 @@ void Import::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Import::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::myDsl::MyDslPackage_ptr >(::myDsl::MyDslPackage::_instance())->getImport();
+            dynamic_cast< ::myDsl::MyDslPackage* >(::myDsl::MyDslPackage::_instance().get())->getImport();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Import::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Import::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

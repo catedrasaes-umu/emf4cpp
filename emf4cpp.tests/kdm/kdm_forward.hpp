@@ -2,6 +2,7 @@
 /*
  * kdm_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -51,17 +52,13 @@ namespace kdm
 
 // EClass
 
+// EEnum
+
 // Package & Factory
     class KdmFactory;
-    typedef KdmFactory * KdmFactory_ptr;
+    using KdmFactory_ptr = ::ecore::Ptr<KdmFactory>;
     class KdmPackage;
-    typedef KdmPackage * KdmPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using KdmPackage_ptr = ::ecore::Ptr<KdmPackage>;
 
 } // kdm
 

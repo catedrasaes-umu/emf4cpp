@@ -2,6 +2,7 @@
 /*
  * kdm/ui/UiPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::kdm::ui;
 
-std::auto_ptr< ::kdm::ui::UiPackage > UiPackage::s_instance;
+::ecore::Ptr< ::kdm::ui::UiPackage > UiPackage::s_instance;
 
 ::kdm::ui::UiPackage_ptr UiPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new UiPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< UiPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < UiPackage > (new UiPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::kdm::ui::UiPackage_ptr UiPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

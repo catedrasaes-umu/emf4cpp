@@ -2,6 +2,7 @@
 /*
  * SVG/ReferencedFileImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,18 +28,18 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::SVG;
-
 /*PROTECTED REGION ID(ReferencedFileImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::SVG;
+
 void ReferencedFile::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ReferencedFileImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -57,7 +58,7 @@ void ReferencedFile::_initialize()
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        _any = m_referer->asEListOf< ::ecore::EObject >();
+        _any = m_referer->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
@@ -78,16 +79,19 @@ void ReferencedFile::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::SVG::ReferencedFile::getReferer().clear();
         ::SVG::ReferencedFile::getReferer().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::REFERENCEDFILE__NAME:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::ReferencedFile::setName(_t0);
     }
         return;
 
@@ -121,7 +125,57 @@ void ReferencedFile::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr ReferencedFile::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getReferencedFile();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getReferencedFile();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void ReferencedFile::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image_ptr, -1,
+                        false, true >&) ::SVG::ReferencedFile::getReferer();
+        container.basicAdd(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void ReferencedFile::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::REFERENCEDFILE__REFERER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Image_ptr _t1 = dynamic_cast< ::SVG::Image* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image_ptr, -1,
+                        false, true >&) ::SVG::ReferencedFile::getReferer();
+        container.basicRemove(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

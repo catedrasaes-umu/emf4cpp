@@ -2,6 +2,7 @@
 /*
  * parser/reference_parser.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,14 +32,14 @@ namespace ref_parser
 {
 using namespace parser;
 
-typedef std::pair< const ::ecorecpp::mapping::type_traits::char_t*, size_t > match_pair;
+typedef std::pair< const ::ecorecpp::mapping::type_definitions::char_t*, size_t > match_pair;
 
 struct path_item
 {
-    ::ecorecpp::mapping::type_traits::string_t m_id;
+    ::ecorecpp::mapping::type_definitions::string_t m_id;
     int m_index;
 
-    inline path_item(const ::ecorecpp::mapping::type_traits::string_t& id,
+    inline path_item(const ::ecorecpp::mapping::type_definitions::string_t& id,
                      int index)
         : m_id(id), m_index(index)
     {
@@ -49,7 +50,7 @@ struct path_item
         return m_index != -1;
     }
 
-    inline ::ecorecpp::mapping::type_traits::string_t& get_id()
+    inline ::ecorecpp::mapping::type_definitions::string_t& get_id()
     {
         return m_id;
     }
@@ -64,9 +65,9 @@ typedef std::vector< path_item > path_t;
 
 struct processed_reference_t
 {
-    ::ecorecpp::mapping::type_traits::string_t m_package;
-    ::ecorecpp::mapping::type_traits::string_t m_type;
-    ::ecorecpp::mapping::type_traits::string_t m_uri;
+    ::ecorecpp::mapping::type_definitions::string_t m_package;
+    ::ecorecpp::mapping::type_definitions::string_t m_type;
+    ::ecorecpp::mapping::type_definitions::string_t m_uri;
     path_t m_path;
 
     inline path_t& get_path()
@@ -74,17 +75,17 @@ struct processed_reference_t
         return m_path;
     }
 
-    inline ::ecorecpp::mapping::type_traits::string_t& get_uri()
+    inline ::ecorecpp::mapping::type_definitions::string_t& get_uri()
     {
         return m_uri;
     }
 
-    inline ::ecorecpp::mapping::type_traits::string_t& get_type()
+    inline ::ecorecpp::mapping::type_definitions::string_t& get_type()
     {
         return m_type;
     }
 
-    inline ::ecorecpp::mapping::type_traits::string_t& get_package()
+    inline ::ecorecpp::mapping::type_definitions::string_t& get_package()
     {
         return m_package;
     }
@@ -107,12 +108,12 @@ struct SemanticState
         m_current_id.clear();
     }
 
-    inline void new_uri(const ::ecorecpp::mapping::type_traits::string_t & _uri)
+    inline void new_uri(const ::ecorecpp::mapping::type_definitions::string_t & _uri)
     {
         m_current.m_uri = _uri;
     }
 
-    inline void new_id(const ::ecorecpp::mapping::type_traits::string_t & _id)
+    inline void new_id(const ::ecorecpp::mapping::type_definitions::string_t & _id)
     {
         m_current_id.push_back(_id);
     }
@@ -135,7 +136,7 @@ struct SemanticState
         m_current = processed_reference_t();
     }
 
-    std::vector< ::ecorecpp::mapping::type_traits::string_t > m_current_id;
+    std::vector< ::ecorecpp::mapping::type_definitions::string_t > m_current_id;
     int m_current_index;
 
     processed_reference_t m_current;
@@ -184,7 +185,7 @@ struct id_: semantic_rule< id_,
     template< typename S >
     static inline void process_match(S& state, match_pair const& s)
     {
-        ::ecorecpp::mapping::type_traits::string_t _item(s.first, s.second);
+        ::ecorecpp::mapping::type_definitions::string_t _item(s.first, s.second);
         state.semantic_state().new_id(_item);
     }
 };
@@ -195,8 +196,8 @@ struct index_ : semantic_rule< index_, number_ >
     template< typename S >
     static inline void process_match(S& state, match_pair const& s)
     {
-        ::ecorecpp::mapping::type_traits::string_t _item(s.first, s.second);
-        ::ecorecpp::mapping::type_traits::stringstream_t _ss(_item);
+        ::ecorecpp::mapping::type_definitions::string_t _item(s.first, s.second);
+        ::ecorecpp::mapping::type_definitions::stringstream_t _ss(_item);
         int _index;
         _ss >> _index;
         state.semantic_state().new_index(_index);
@@ -207,10 +208,9 @@ struct path_item:
     semantic_rule< path_item,
                    seq_<
                        char_< '/' >,
-                       or_ <
-                           id_,
-                           seq_< char_< '@' >, id_, char_<'.'>, index_ >
-                           >
+					   star_< char_< '@' > >,
+					   id_,
+                       star_< seq_< char_<'.'>, index_ > >
                        >
                    >
 {
@@ -251,7 +251,7 @@ struct uri_: semantic_rule< uri_,
     template< typename S >
     static inline void process_match(S& state, match_pair const& s)
     {
-        ::ecorecpp::mapping::type_traits::string_t _uri(s.first, s.second);
+        ::ecorecpp::mapping::type_definitions::string_t _uri(s.first, s.second);
         state.semantic_state().new_uri(_uri);
     }
 };

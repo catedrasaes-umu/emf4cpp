@@ -2,6 +2,7 @@
 /*
  * SVG/Text.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Text.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -56,12 +62,8 @@ Text::~Text()
 {
 }
 
-/*PROTECTED REGION ID(Text.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::String Text::getLengthAdjust() const
 {
     return m_lengthAdjust;
@@ -78,8 +80,8 @@ void Text::setLengthAdjust(::PrimitiveTypes::String _lengthAdjust)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getText__lengthAdjust(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getText__lengthAdjust(),
                 _old_lengthAdjust,
                 m_lengthAdjust
         );
@@ -104,8 +106,8 @@ void Text::setContent(::PrimitiveTypes::String _content)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getText__content(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getText__content(),
                 _old_content,
                 m_content
         );

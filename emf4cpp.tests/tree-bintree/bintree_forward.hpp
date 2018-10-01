@@ -2,6 +2,7 @@
 /*
  * bintree_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,19 +42,15 @@ namespace bintree
 
 // BinTreeNode
     class BinTreeNode;
-    typedef BinTreeNode* BinTreeNode_ptr;
+    using BinTreeNode_ptr = ::ecore::Ptr<BinTreeNode>;
+
+// EEnum
 
 // Package & Factory
     class BintreeFactory;
-    typedef BintreeFactory * BintreeFactory_ptr;
+    using BintreeFactory_ptr = ::ecore::Ptr<BintreeFactory>;
     class BintreePackage;
-    typedef BintreePackage * BintreePackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using BintreePackage_ptr = ::ecore::Ptr<BintreePackage>;
 
 } // bintree
 

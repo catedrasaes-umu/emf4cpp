@@ -2,6 +2,7 @@
 /*
  * kdm/code/CallableUnit.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,14 +21,19 @@
 #ifndef KDM_CODE_CALLABLEUNIT_HPP
 #define KDM_CODE_CALLABLEUNIT_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/code/ControlElement.hpp>
+#include <kdm/code/CallableKind.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(CallableUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -39,53 +45,61 @@ namespace kdm
     namespace code
     {
 
-        class CallableUnit: public virtual ::kdm::code::ControlElement
-        {
-        public:
-            CallableUnit();
+    class EXPORT_KDM_DLL CallableUnit : public virtual ::kdm::code::ControlElement
+    {
+    public:
+        CallableUnit();
 
-            virtual ~CallableUnit();
+        virtual ~CallableUnit();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::code::CallableKind getKind() const;
-            void setKind(::kdm::code::CallableKind _kind);
+        // Attributes
+        virtual ::kdm::code::CallableKind getKind () const;
+        virtual void setKind (::kdm::code::CallableKind _kind);
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(CallableUnit) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::CALLABLEUNIT;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(CallableUnit) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(CallableUnitImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(CallableUnitImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::kdm::code::CallableKind m_kind;
+    protected:
+        CallableUnit_ptr _this()
+        {   return CallableUnit_ptr(this);}
 
-            // References
+        // Attributes
 
-        };
+        ::kdm::code::CallableKind m_kind;
 
-    } // code
-} // kdm
+        // References
+
+    };
+
+}
+ // code
+}// kdm
 
 #endif // KDM_CODE_CALLABLEUNIT_HPP
 

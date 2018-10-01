@@ -2,6 +2,7 @@
 /*
  * SVG/SVGFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -65,7 +66,6 @@ using namespace ::SVG;
 
 SVGFactory::SVGFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr SVGFactory::create(::ecore::EClass_ptr _eClass)
@@ -176,154 +176,154 @@ SVGFactory::SVGFactory()
 
 Element_ptr SVGFactory::createElement()
 {
-    return new Element();
+    return ::ecore::Ptr < Element > (new Element);
 }
 StructuralElement_ptr SVGFactory::createStructuralElement()
 {
-    return new StructuralElement();
+    return ::ecore::Ptr < StructuralElement > (new StructuralElement);
 }
 Image_ptr SVGFactory::createImage()
 {
-    return new Image();
+    return ::ecore::Ptr < Image > (new Image);
 }
 Svg_ptr SVGFactory::createSvg()
 {
-    return new Svg();
+    return ::ecore::Ptr < Svg > (new Svg);
 }
 GroupingElement_ptr SVGFactory::createGroupingElement()
 {
-    return new GroupingElement();
+    return ::ecore::Ptr < GroupingElement > (new GroupingElement);
 }
 G_ptr SVGFactory::createG()
 {
-    return new G();
+    return ::ecore::Ptr < G > (new G);
 }
 Defs_ptr SVGFactory::createDefs()
 {
-    return new Defs();
+    return ::ecore::Ptr < Defs > (new Defs);
 }
 Symbol_ptr SVGFactory::createSymbol()
 {
-    return new Symbol();
+    return ::ecore::Ptr < Symbol > (new Symbol);
 }
 Use_ptr SVGFactory::createUse()
 {
-    return new Use();
+    return ::ecore::Ptr < Use > (new Use);
 }
 GraphicalElement_ptr SVGFactory::createGraphicalElement()
 {
-    return new GraphicalElement();
+    return ::ecore::Ptr < GraphicalElement > (new GraphicalElement);
 }
 Shape_ptr SVGFactory::createShape()
 {
-    return new Shape();
+    return ::ecore::Ptr < Shape > (new Shape);
 }
 TextElement_ptr SVGFactory::createTextElement()
 {
-    return new TextElement();
+    return ::ecore::Ptr < TextElement > (new TextElement);
 }
 Rect_ptr SVGFactory::createRect()
 {
-    return new Rect();
+    return ::ecore::Ptr < Rect > (new Rect);
 }
 Circle_ptr SVGFactory::createCircle()
 {
-    return new Circle();
+    return ::ecore::Ptr < Circle > (new Circle);
 }
 Ellipse_ptr SVGFactory::createEllipse()
 {
-    return new Ellipse();
+    return ::ecore::Ptr < Ellipse > (new Ellipse);
 }
 Line_ptr SVGFactory::createLine()
 {
-    return new Line();
+    return ::ecore::Ptr < Line > (new Line);
 }
 Polyline_ptr SVGFactory::createPolyline()
 {
-    return new Polyline();
+    return ::ecore::Ptr < Polyline > (new Polyline);
 }
 Polygon_ptr SVGFactory::createPolygon()
 {
-    return new Polygon();
+    return ::ecore::Ptr < Polygon > (new Polygon);
 }
 Path_ptr SVGFactory::createPath()
 {
-    return new Path();
+    return ::ecore::Ptr < Path > (new Path);
 }
 Point_ptr SVGFactory::createPoint()
 {
-    return new Point();
+    return ::ecore::Ptr < Point > (new Point);
 }
 Marker_ptr SVGFactory::createMarker()
 {
-    return new Marker();
+    return ::ecore::Ptr < Marker > (new Marker);
 }
 Text_ptr SVGFactory::createText()
 {
-    return new Text();
+    return ::ecore::Ptr < Text > (new Text);
 }
 Tspan_ptr SVGFactory::createTspan()
 {
-    return new Tspan();
+    return ::ecore::Ptr < Tspan > (new Tspan);
 }
 Tref_ptr SVGFactory::createTref()
 {
-    return new Tref();
+    return ::ecore::Ptr < Tref > (new Tref);
 }
 Attribute_ptr SVGFactory::createAttribute()
 {
-    return new Attribute();
+    return ::ecore::Ptr < Attribute > (new Attribute);
 }
 Transform_ptr SVGFactory::createTransform()
 {
-    return new Transform();
+    return ::ecore::Ptr < Transform > (new Transform);
 }
 Scale_ptr SVGFactory::createScale()
 {
-    return new Scale();
+    return ::ecore::Ptr < Scale > (new Scale);
 }
 Translate_ptr SVGFactory::createTranslate()
 {
-    return new Translate();
+    return ::ecore::Ptr < Translate > (new Translate);
 }
 Rotate_ptr SVGFactory::createRotate()
 {
-    return new Rotate();
+    return ::ecore::Ptr < Rotate > (new Rotate);
 }
 Visibility_ptr SVGFactory::createVisibility()
 {
-    return new Visibility();
+    return ::ecore::Ptr < Visibility > (new Visibility);
 }
 FontWeight_ptr SVGFactory::createFontWeight()
 {
-    return new FontWeight();
+    return ::ecore::Ptr < FontWeight > (new FontWeight);
 }
 FontStyle_ptr SVGFactory::createFontStyle()
 {
-    return new FontStyle();
+    return ::ecore::Ptr < FontStyle > (new FontStyle);
 }
 Dimension_ptr SVGFactory::createDimension()
 {
-    return new Dimension();
+    return ::ecore::Ptr < Dimension > (new Dimension);
 }
 Coordinates_ptr SVGFactory::createCoordinates()
 {
-    return new Coordinates();
+    return ::ecore::Ptr < Coordinates > (new Coordinates);
 }
 RelativeCoord_ptr SVGFactory::createRelativeCoord()
 {
-    return new RelativeCoord();
+    return ::ecore::Ptr < RelativeCoord > (new RelativeCoord);
 }
 AbsoluteCoord_ptr SVGFactory::createAbsoluteCoord()
 {
-    return new AbsoluteCoord();
+    return ::ecore::Ptr < AbsoluteCoord > (new AbsoluteCoord);
 }
 ReferencedFile_ptr SVGFactory::createReferencedFile()
 {
-    return new ReferencedFile();
+    return ::ecore::Ptr < ReferencedFile > (new ReferencedFile);
 }
 SvgFile_ptr SVGFactory::createSvgFile()
 {
-    return new SvgFile();
+    return ::ecore::Ptr < SvgFile > (new SvgFile);
 }
 

@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/LetStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(LetStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -52,30 +58,35 @@ LetStatement::~LetStatement()
 {
     if (m_varName)
     {
-        delete m_varName;
+        m_varName.reset();
     }
     if (m_varValue)
     {
-        delete m_varValue;
+        m_varValue.reset();
     }
 }
 
-/*PROTECTED REGION ID(LetStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::Identifier_ptr LetStatement::getVarName()
+
+::xpand3::Identifier_ptr LetStatement::getVarName() const
 {
     return m_varName;
 }
 
 void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
 {
-    ::xpand3::Identifier_ptr _old_varName = m_varName;
+    if (m_varName)
+        m_varName->_setEContainer(LetStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
+    if (_varName)
+        _varName->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_varName = m_varName;
+#endif
     m_varName = _varName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -83,19 +94,17 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varName(),
                 _old_varName,
                 m_varName
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_varName;
 }
 
-::xpand3::expression::AbstractExpression_ptr LetStatement::getVarValue()
+::xpand3::expression::AbstractExpression_ptr LetStatement::getVarValue() const
 {
     return m_varValue;
 }
@@ -103,8 +112,16 @@ void LetStatement::setVarName(::xpand3::Identifier_ptr _varName)
 void LetStatement::setVarValue(
         ::xpand3::expression::AbstractExpression_ptr _varValue)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_varValue = m_varValue;
+    if (m_varValue)
+        m_varValue->_setEContainer(LetStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
+    if (_varValue)
+        _varValue->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_varValue = m_varValue;
+#endif
     m_varValue = _varValue;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -112,15 +129,13 @@ void LetStatement::setVarValue(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getLetStatement__varValue(),
                 _old_varValue,
                 m_varValue
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_varValue;
 }
 

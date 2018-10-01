@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 FILES="./tree-bintree/Tree.ecore
 ./tree-bintree/BinTree.ecore
@@ -11,14 +11,20 @@ FILES="./tree-bintree/Tree.ecore
 ./xpand/xpand3.ecore
 ./idlmm/IDLMM.ecore
 ./json/json.ecore
+./enumeration/enumeration.ecore
+./eopposite/eopposite.ecore
+./resource/ResourceTests.ecore
+./subpackage/subpackage.ecore
+./treeiterator/treeiterator.ecore
+./edate/edate.ecore
 "
 
-EMF4CPP=../../emf4cpp
-EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_1.1.0.jar
+EMF4CPP=../../builds/emf4cpp-generator-2.0.0
+EMF4CPPJAR=`pwd`/../org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_2.0.0.jar
 GENERATOR="java -jar $EMF4CPPJAR"
 
 
-function testLicenseText ()
+testLicenseText ()
 {
 	DIR=`dirname $1`
 	FILES="$DIR/CMakeLists.txt $DIR/*.hpp $DIR/*.cpp"
@@ -34,7 +40,7 @@ function testLicenseText ()
 	rm -f $FILES
 
 	(cd $DIR ; $GENERATOR --internal -o . -e $EMF4CPP `basename $1`)
-	grep -L "Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>" $FILES
+	grep -L "SAES-UMU 2010 <andres.senac@um.es>" $FILES
 	if [ $? -ne 0 ] ; then
 	    echo "License text failed: No internal copyright when called w/ -i"
 	    return 2
@@ -49,7 +55,7 @@ if test -n "$1" ; then
 	if test "$1" == "EndUserLicense/enduserlicense.ecore" ; then
 		testLicenseText "EndUserLicense/enduserlicense.ecore"
 	else
-		(cd `dirname $1` ; $GENERATOR -o . -e $EMF4CPP `basename $1`)
+		(cd `dirname $1` ; $GENERATOR --internal -o . -e $EMF4CPP `basename $1`)
 	fi
 else
   	for i in $FILES; do
@@ -59,7 +65,7 @@ else
 
 		echo "Updating $i"
 
-	        (cd $DIRNAME && $GENERATOR --internal -o . -e $EMF4CPP $BASENAME)
+	        (cd $DIRNAME && $GENERATOR --clear --internal -o . -e $EMF4CPP $BASENAME)
 
 		echo "Done!"
 	done

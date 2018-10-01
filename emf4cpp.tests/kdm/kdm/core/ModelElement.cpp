@@ -2,6 +2,7 @@
 /*
  * kdm/core/ModelElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ModelElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::core;
 
 // Default constructor
@@ -39,11 +45,13 @@ ModelElement::ModelElement()
 {
 
     m_stereotype.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Stereotype,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Stereotype_ptr, -1, false, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getModelElement__stereotype()));
     m_taggedValue.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::kdm::ExtendedValue, -1, true, false >(this, NULL));
+                    ::kdm::kdm::ExtendedValue_ptr, -1, true, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getModelElement__taggedValue()));
 
     /*PROTECTED REGION ID(ModelElementImpl__ModelElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -59,19 +67,26 @@ ModelElement::~ModelElement()
 {
 }
 
-/*PROTECTED REGION ID(ModelElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& ModelElement::getStereotype()
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ModelElement::getStereotype() const
 {
     return *m_stereotype;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& ModelElement::getTaggedValue()
+::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& ModelElement::getStereotype()
+{
+    return *m_stereotype;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& ModelElement::getTaggedValue() const
+{
+    return *m_taggedValue;
+}
+
+::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& ModelElement::getTaggedValue()
 {
     return *m_taggedValue;
 }

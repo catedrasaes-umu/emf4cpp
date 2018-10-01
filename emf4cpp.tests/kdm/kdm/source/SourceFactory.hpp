@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,12 +24,14 @@
 #include <ecore/EFactory.hpp>
 #include <kdm/source.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 namespace kdm
 {
     namespace source
     {
 
-        class SourceFactory: public virtual ::ecore::EFactory
+        class EXPORT_KDM_DLL SourceFactory : public virtual ::ecore::EFactory
         {
         public:
 
@@ -53,21 +56,157 @@ namespace kdm
             virtual InventoryElement_ptr createInventoryElement();
             virtual InventoryRelationship_ptr createInventoryRelationship();
 
-            virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-            virtual ::ecore::EJavaObject createFromString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EString const& _literalValue);
-            virtual ::ecore::EString convertToString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EJavaObject const& _instanceValue);
+            virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+            virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+            virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
         protected:
 
-            static std::auto_ptr< SourceFactory > s_instance;
+            static ::ecore::Ptr< SourceFactory > s_holder;
 
             SourceFactory();
 
         };
+
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline ::ecore::Ptr< T > create()
+        {
+            return ::ecore::Ptr< T >();
+        }
+
+        template< > inline SourceRef_ptr create< SourceRef >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createSourceRef();
+        }
+
+        template< > inline SourceRegion_ptr create< SourceRegion >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createSourceRegion();
+        }
+
+        template< > inline InventoryModel_ptr create< InventoryModel >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createInventoryModel();
+        }
+
+        template< > inline AbstractInventoryElement_ptr create<
+                AbstractInventoryElement >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createAbstractInventoryElement();
+        }
+
+        template< > inline InventoryItem_ptr create< InventoryItem >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createInventoryItem();
+        }
+
+        template< > inline SourceFile_ptr create< SourceFile >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createSourceFile();
+        }
+
+        template< > inline Image_ptr create< Image >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createImage();
+        }
+
+        template< > inline ResourceDescription_ptr create< ResourceDescription >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createResourceDescription();
+        }
+
+        template< > inline Configuration_ptr create< Configuration >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createConfiguration();
+        }
+
+        template< > inline InventoryContainer_ptr create< InventoryContainer >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createInventoryContainer();
+        }
+
+        template< > inline Directory_ptr create< Directory >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createDirectory();
+        }
+
+        template< > inline Project_ptr create< Project >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createProject();
+        }
+
+        template< > inline AbstractInventoryRelationship_ptr create<
+                AbstractInventoryRelationship >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createAbstractInventoryRelationship();
+        }
+
+        template< > inline BinaryFile_ptr create< BinaryFile >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createBinaryFile();
+        }
+
+        template< > inline ExecutableFile_ptr create< ExecutableFile >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createExecutableFile();
+        }
+
+        template< > inline DependsOn_ptr create< DependsOn >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createDependsOn();
+        }
+
+        template< > inline InventoryElement_ptr create< InventoryElement >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createInventoryElement();
+        }
+
+        template< > inline InventoryRelationship_ptr create<
+                InventoryRelationship >()
+        {
+            auto eFactory = SourcePackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< SourceFactory* >(eFactory.get());
+            return packageFactory->createInventoryRelationship();
+        }
 
     } // source
 } // kdm

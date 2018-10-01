@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/DeclarationPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,27 @@
 
 using namespace ::xpand3::declaration;
 
-std::auto_ptr< ::xpand3::declaration::DeclarationPackage > DeclarationPackage::s_instance;
+::ecore::Ptr< ::xpand3::declaration::DeclarationPackage > DeclarationPackage::s_instance;
 
 ::xpand3::declaration::DeclarationPackage_ptr DeclarationPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new DeclarationPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< DeclarationPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < DeclarationPackage
+                > (new DeclarationPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::xpand3::declaration::DeclarationPackage_ptr DeclarationPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

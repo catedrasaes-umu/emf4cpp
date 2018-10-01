@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/Case.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Case.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -50,30 +56,35 @@ Case::~Case()
 {
     if (m_condition)
     {
-        delete m_condition;
+        m_condition.reset();
     }
     if (m_thenPart)
     {
-        delete m_thenPart;
+        m_thenPart.reset();
     }
 }
 
-/*PROTECTED REGION ID(Case.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr Case::getCondition()
+
+::xpand3::expression::AbstractExpression_ptr Case::getCondition() const
 {
     return m_condition;
 }
 
 void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+    if (m_condition)
+        m_condition->_setEContainer(Case_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
+    if (_condition)
+        _condition->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+#endif
     m_condition = _condition;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -81,27 +92,33 @@ void Case::setCondition(::xpand3::expression::AbstractExpression_ptr _condition)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__condition(),
                 _old_condition,
                 m_condition
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_condition;
 }
 
-::xpand3::expression::AbstractExpression_ptr Case::getThenPart()
+::xpand3::expression::AbstractExpression_ptr Case::getThenPart() const
 {
     return m_thenPart;
 }
 
 void Case::setThenPart(::xpand3::expression::AbstractExpression_ptr _thenPart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+    if (m_thenPart)
+        m_thenPart->_setEContainer(Case_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
+    if (_thenPart)
+        _thenPart->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+#endif
     m_thenPart = _thenPart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -109,15 +126,13 @@ void Case::setThenPart(::xpand3::expression::AbstractExpression_ptr _thenPart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getCase__thenPart(),
                 _old_thenPart,
                 m_thenPart
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_thenPart;
 }
 

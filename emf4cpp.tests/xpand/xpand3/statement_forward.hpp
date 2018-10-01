@@ -2,6 +2,7 @@
 /*
  * xpand3/statement_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,59 +44,55 @@ namespace xpand3
 
 // AbstractStatement
         class AbstractStatement;
-        typedef AbstractStatement* AbstractStatement_ptr;
+        using AbstractStatement_ptr = ::ecore::Ptr<AbstractStatement>;
 
 // ExpandStatement
         class ExpandStatement;
-        typedef ExpandStatement* ExpandStatement_ptr;
+        using ExpandStatement_ptr = ::ecore::Ptr<ExpandStatement>;
 
 // ExpressionStatement
         class ExpressionStatement;
-        typedef ExpressionStatement* ExpressionStatement_ptr;
+        using ExpressionStatement_ptr = ::ecore::Ptr<ExpressionStatement>;
 
 // ErrorStatement
         class ErrorStatement;
-        typedef ErrorStatement* ErrorStatement_ptr;
+        using ErrorStatement_ptr = ::ecore::Ptr<ErrorStatement>;
 
 // AbstractStatementWithBody
         class AbstractStatementWithBody;
-        typedef AbstractStatementWithBody* AbstractStatementWithBody_ptr;
+        using AbstractStatementWithBody_ptr = ::ecore::Ptr<AbstractStatementWithBody>;
 
 // FileStatement
         class FileStatement;
-        typedef FileStatement* FileStatement_ptr;
+        using FileStatement_ptr = ::ecore::Ptr<FileStatement>;
 
 // ForEachStatement
         class ForEachStatement;
-        typedef ForEachStatement* ForEachStatement_ptr;
+        using ForEachStatement_ptr = ::ecore::Ptr<ForEachStatement>;
 
 // IfStatement
         class IfStatement;
-        typedef IfStatement* IfStatement_ptr;
+        using IfStatement_ptr = ::ecore::Ptr<IfStatement>;
 
 // LetStatement
         class LetStatement;
-        typedef LetStatement* LetStatement_ptr;
+        using LetStatement_ptr = ::ecore::Ptr<LetStatement>;
 
 // ProtectStatement
         class ProtectStatement;
-        typedef ProtectStatement* ProtectStatement_ptr;
+        using ProtectStatement_ptr = ::ecore::Ptr<ProtectStatement>;
 
 // TextStatement
         class TextStatement;
-        typedef TextStatement* TextStatement_ptr;
+        using TextStatement_ptr = ::ecore::Ptr<TextStatement>;
+
+// EEnum
 
 // Package & Factory
         class StatementFactory;
-        typedef StatementFactory * StatementFactory_ptr;
+        using StatementFactory_ptr = ::ecore::Ptr<StatementFactory>;
         class StatementPackage;
-        typedef StatementPackage * StatementPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using StatementPackage_ptr = ::ecore::Ptr<StatementPackage>;
 
     } // statement
 } // xpand3

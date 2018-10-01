@@ -2,6 +2,7 @@
 /*
  * kdm/code/DataElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DataElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -48,8 +54,9 @@ DataElement::DataElement() :
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::Datatype,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::Datatype_ptr, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getDataElement__codeElement()));
 
     /*PROTECTED REGION ID(DataElementImpl__DataElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,12 +72,8 @@ DataElement::~DataElement()
 {
 }
 
-/*PROTECTED REGION ID(DataElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String DataElement::getExt() const
 {
     return m_ext;
@@ -87,8 +90,8 @@ void DataElement::setExt(::kdm::core::String _ext)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDataElement__ext(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDataElement__ext(),
                 _old_ext,
                 m_ext
         );
@@ -113,8 +116,8 @@ void DataElement::setSize(::kdm::core::Integer _size)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDataElement__size(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDataElement__size(),
                 _old_size,
                 m_size
         );
@@ -124,15 +127,17 @@ void DataElement::setSize(::kdm::core::Integer _size)
 }
 
 // References
-::kdm::code::Datatype_ptr DataElement::getType()
+
+::kdm::code::Datatype_ptr DataElement::getType() const
 {
     return m_type;
 }
 
 void DataElement::setType(::kdm::code::Datatype_ptr _type)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::Datatype_ptr _old_type = m_type;
-
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -140,18 +145,22 @@ void DataElement::setType(::kdm::code::Datatype_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getDataElement__type(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getDataElement__type(),
                 _old_type,
                 m_type
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::Datatype >& DataElement::getCodeElement()
+const ::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >& DataElement::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::Datatype_ptr >& DataElement::getCodeElement()
 {
     return *m_codeElement;
 }

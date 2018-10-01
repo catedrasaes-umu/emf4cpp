@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/AttributeImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,19 +30,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::kdm::kdm;
-
 /*PROTECTED REGION ID(AttributeImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::kdm::kdm;
 
 void Attribute::_initialize()
 {
     // Supertypes
     ::kdm::core::Element::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(AttributeImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -60,12 +61,12 @@ void Attribute::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject >();
+        _any = m_attribute->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject >();
+        _any = m_annotation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__TAG:
@@ -92,30 +93,36 @@ void Attribute::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__TAG:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_tag);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Attribute::setTag(_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::ATTRIBUTE__VALUE:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_value);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::Attribute::setValue(_t0);
     }
         return;
 
@@ -154,7 +161,47 @@ void Attribute::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Attribute::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getAttribute();
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getAttribute();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Attribute::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Attribute::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

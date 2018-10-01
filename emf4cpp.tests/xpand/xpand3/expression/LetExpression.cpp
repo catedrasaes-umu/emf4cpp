@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/LetExpression.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(LetExpression.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -50,26 +56,23 @@ LetExpression::~LetExpression()
 {
     if (m_varExpression)
     {
-        delete m_varExpression;
+        m_varExpression.reset();
     }
     if (m_targetExpression)
     {
-        delete m_targetExpression;
+        m_targetExpression.reset();
     }
     if (m_varName)
     {
-        delete m_varName;
+        m_varName.reset();
     }
 }
 
-/*PROTECTED REGION ID(LetExpression.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr LetExpression::getVarExpression()
+
+::xpand3::expression::AbstractExpression_ptr LetExpression::getVarExpression() const
 {
     return m_varExpression;
 }
@@ -77,9 +80,16 @@ LetExpression::~LetExpression()
 void LetExpression::setVarExpression(
         ::xpand3::expression::AbstractExpression_ptr _varExpression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_varExpression =
-            m_varExpression;
+    if (m_varExpression)
+        m_varExpression->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
+    if (_varExpression)
+        _varExpression->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_varExpression = m_varExpression;
+#endif
     m_varExpression = _varExpression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -87,19 +97,17 @@ void LetExpression::setVarExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varExpression(),
                 _old_varExpression,
                 m_varExpression
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_varExpression;
 }
 
-::xpand3::expression::AbstractExpression_ptr LetExpression::getTargetExpression()
+::xpand3::expression::AbstractExpression_ptr LetExpression::getTargetExpression() const
 {
     return m_targetExpression;
 }
@@ -107,9 +115,16 @@ void LetExpression::setVarExpression(
 void LetExpression::setTargetExpression(
         ::xpand3::expression::AbstractExpression_ptr _targetExpression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_targetExpression =
-            m_targetExpression;
+    if (m_targetExpression)
+        m_targetExpression->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
+    if (_targetExpression)
+        _targetExpression->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_targetExpression = m_targetExpression;
+#endif
     m_targetExpression = _targetExpression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -117,27 +132,33 @@ void LetExpression::setTargetExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__targetExpression(),
                 _old_targetExpression,
                 m_targetExpression
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_targetExpression;
 }
 
-::xpand3::Identifier_ptr LetExpression::getVarName()
+::xpand3::Identifier_ptr LetExpression::getVarName() const
 {
     return m_varName;
 }
 
 void LetExpression::setVarName(::xpand3::Identifier_ptr _varName)
 {
-    ::xpand3::Identifier_ptr _old_varName = m_varName;
+    if (m_varName)
+        m_varName->_setEContainer(LetExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
+    if (_varName)
+        _varName->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_varName = m_varName;
+#endif
     m_varName = _varName;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -145,15 +166,13 @@ void LetExpression::setVarName(::xpand3::Identifier_ptr _varName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getLetExpression__varName(),
                 _old_varName,
                 m_varName
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_varName;
 }
 

@@ -2,6 +2,7 @@
 /*
  * kdm/core/ElementImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,29 +29,25 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::kdm::core;
-
 /*PROTECTED REGION ID(ElementImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::kdm::core;
+
 void Element::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_attribute->size(); i++)
     {
         (*m_attribute)[i]->_initialize();
-        (*m_attribute)[i]->_setEContainer(this,
-                ::kdm::core::CorePackage::_instance()->getElement__attribute());
     }
     for (size_t i = 0; i < m_annotation->size(); i++)
     {
         (*m_annotation)[i]->_initialize();
-        (*m_annotation)[i]->_setEContainer(this,
-                ::kdm::core::CorePackage::_instance()->getElement__annotation());
     }
 
     /*PROTECTED REGION ID(ElementImpl__initialize) START*/
@@ -70,12 +67,12 @@ void Element::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject >();
+        _any = m_attribute->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject >();
+        _any = m_annotation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -90,16 +87,18 @@ void Element::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
@@ -134,7 +133,47 @@ void Element::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Element::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::kdm::core::CorePackage_ptr >(::kdm::core::CorePackage::_instance())->getElement();
+            dynamic_cast< ::kdm::core::CorePackage* >(::kdm::core::CorePackage::_instance().get())->getElement();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Element::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Element::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

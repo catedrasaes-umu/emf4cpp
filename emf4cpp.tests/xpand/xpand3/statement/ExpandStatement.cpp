@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/ExpandStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ExpandStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -39,8 +45,9 @@ ExpandStatement::ExpandStatement() :
 
     m_parameters.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::expression::AbstractExpression, -1, true, false >(
-                    this, NULL));
+                    ::xpand3::expression::AbstractExpression_ptr, -1, true,
+                    false >(this,
+                    ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__parameters()));
 
     /*PROTECTED REGION ID(ExpandStatementImpl__ExpandStatementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,24 +63,20 @@ ExpandStatement::~ExpandStatement()
 {
     if (m_separator)
     {
-        delete m_separator;
+        m_separator.reset();
     }
     if (m_target)
     {
-        delete m_target;
+        m_target.reset();
     }
     if (m_definition)
     {
-        delete m_definition;
+        m_definition.reset();
     }
 }
 
-/*PROTECTED REGION ID(ExpandStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean ExpandStatement::isForeach() const
 {
     return m_foreach;
@@ -90,8 +93,8 @@ void ExpandStatement::setForeach(::ecore::EBoolean _foreach)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__foreach(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__foreach(),
                 _old_foreach,
                 m_foreach
         );
@@ -101,12 +104,18 @@ void ExpandStatement::setForeach(::ecore::EBoolean _foreach)
 }
 
 // References
-::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression >& ExpandStatement::getParameters()
+
+const ::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& ExpandStatement::getParameters() const
 {
     return *m_parameters;
 }
 
-::xpand3::expression::AbstractExpression_ptr ExpandStatement::getSeparator()
+::ecorecpp::mapping::EList< ::xpand3::expression::AbstractExpression_ptr >& ExpandStatement::getParameters()
+{
+    return *m_parameters;
+}
+
+::xpand3::expression::AbstractExpression_ptr ExpandStatement::getSeparator() const
 {
     return m_separator;
 }
@@ -114,8 +123,16 @@ void ExpandStatement::setForeach(::ecore::EBoolean _foreach)
 void ExpandStatement::setSeparator(
         ::xpand3::expression::AbstractExpression_ptr _separator)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_separator = m_separator;
+    if (m_separator)
+        m_separator->_setEContainer(ExpandStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator());
+    if (_separator)
+        _separator->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_separator = m_separator;
+#endif
     m_separator = _separator;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -123,19 +140,17 @@ void ExpandStatement::setSeparator(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__separator(),
                 _old_separator,
                 m_separator
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_separator;
 }
 
-::xpand3::expression::AbstractExpression_ptr ExpandStatement::getTarget()
+::xpand3::expression::AbstractExpression_ptr ExpandStatement::getTarget() const
 {
     return m_target;
 }
@@ -143,8 +158,16 @@ void ExpandStatement::setSeparator(
 void ExpandStatement::setTarget(
         ::xpand3::expression::AbstractExpression_ptr _target)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+    if (m_target)
+        m_target->_setEContainer(ExpandStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target());
+    if (_target)
+        _target->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+#endif
     m_target = _target;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -152,27 +175,33 @@ void ExpandStatement::setTarget(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__target(),
                 _old_target,
                 m_target
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_target;
 }
 
-::xpand3::Identifier_ptr ExpandStatement::getDefinition()
+::xpand3::Identifier_ptr ExpandStatement::getDefinition() const
 {
     return m_definition;
 }
 
 void ExpandStatement::setDefinition(::xpand3::Identifier_ptr _definition)
 {
-    ::xpand3::Identifier_ptr _old_definition = m_definition;
+    if (m_definition)
+        m_definition->_setEContainer(ExpandStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__definition());
+    if (_definition)
+        _definition->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__definition());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_definition = m_definition;
+#endif
     m_definition = _definition;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -180,15 +209,13 @@ void ExpandStatement::setDefinition(::xpand3::Identifier_ptr _definition)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__definition(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getExpandStatement__definition(),
                 _old_definition,
                 m_definition
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_definition;
 }
 

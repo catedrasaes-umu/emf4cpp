@@ -2,6 +2,7 @@
 /*
  * kdm/platform/AbstractPlatformElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,6 +40,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractPlatformElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::platform;
 
 // Default constructor
@@ -47,19 +53,22 @@ AbstractPlatformElement::AbstractPlatformElement()
 
     m_source.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::source::SourceRef, -1, true, false >(this, NULL));
+                    ::kdm::source::SourceRef_ptr, -1, true, false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__source()));
     m_relation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::platform::AbstractPlatformRelationship, -1, true,
-                    false >(this, NULL));
+                    ::kdm::platform::AbstractPlatformRelationship_ptr, -1, true,
+                    false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__relation()));
     m_abstraction.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::ActionElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::action::ActionElement_ptr, -1, true, false >(this,
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__abstraction()));
     m_implementation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, false, false >(this,
-                    NULL));
+                    ::kdm::code::AbstractCodeElement_ptr, -1, false, false >(
+                    this,
+                    ::kdm::platform::PlatformPackage::_instance()->getAbstractPlatformElement__implementation()));
 
     /*PROTECTED REGION ID(AbstractPlatformElementImpl__AbstractPlatformElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -75,29 +84,47 @@ AbstractPlatformElement::~AbstractPlatformElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractPlatformElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::source::SourceRef >& AbstractPlatformElement::getSource()
+
+const ::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractPlatformElement::getSource() const
 {
     return *m_source;
 }
 
-::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformRelationship >& AbstractPlatformElement::getRelation()
+::ecorecpp::mapping::EList< ::kdm::source::SourceRef_ptr >& AbstractPlatformElement::getSource()
+{
+    return *m_source;
+}
+
+const ::ecorecpp::mapping::EList<
+        ::kdm::platform::AbstractPlatformRelationship_ptr >& AbstractPlatformElement::getRelation() const
 {
     return *m_relation;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::ActionElement >& AbstractPlatformElement::getAbstraction()
+::ecorecpp::mapping::EList< ::kdm::platform::AbstractPlatformRelationship_ptr >& AbstractPlatformElement::getRelation()
+{
+    return *m_relation;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractPlatformElement::getAbstraction() const
 {
     return *m_abstraction;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& AbstractPlatformElement::getImplementation()
+::ecorecpp::mapping::EList< ::kdm::action::ActionElement_ptr >& AbstractPlatformElement::getAbstraction()
+{
+    return *m_abstraction;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractPlatformElement::getImplementation() const
+{
+    return *m_implementation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& AbstractPlatformElement::getImplementation()
 {
     return *m_implementation;
 }

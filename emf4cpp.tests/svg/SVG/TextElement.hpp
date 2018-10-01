@@ -2,6 +2,7 @@
 /*
  * SVG/TextElement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef SVG_TEXTELEMENT_HPP
 #define SVG_TEXTELEMENT_HPP
 
-#include <SVG_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <SVG/dllSVG.hpp>
+#include <SVG_forward.hpp>
 
 #include <PrimitiveTypes_forward.hpp>
 #include <SVG/GraphicalElement.hpp>
+
+#include "SVGPackage.hpp"
 
 /*PROTECTED REGION ID(TextElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -34,62 +39,70 @@
 namespace SVG
 {
 
-    class TextElement: public virtual ::SVG::GraphicalElement
-    {
-    public:
-        TextElement();
+class EXPORT_SVG_DLL TextElement : public virtual ::SVG::GraphicalElement
+{
+public:
+    TextElement();
 
-        virtual ~TextElement();
+    virtual ~TextElement();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
-        // Attributes
-        ::PrimitiveTypes::Double getRotate() const;
-        void setRotate(::PrimitiveTypes::Double _rotate);
+    // Attributes
+    virtual ::PrimitiveTypes::Double getRotate () const;
+    virtual void setRotate (::PrimitiveTypes::Double _rotate);
 
-        ::PrimitiveTypes::String getTextLength() const;
-        void setTextLength(::PrimitiveTypes::String _textLength);
+    virtual ::PrimitiveTypes::String getTextLength () const;
+    virtual void setTextLength (::PrimitiveTypes::String _textLength);
 
-        ::PrimitiveTypes::String getFontSize() const;
-        void setFontSize(::PrimitiveTypes::String _fontSize);
+    virtual ::PrimitiveTypes::String getFontSize () const;
+    virtual void setFontSize (::PrimitiveTypes::String _fontSize);
 
-        // References
+    // References
 
-        /*PROTECTED REGION ID(TextElement) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = SVGPackage::TEXTELEMENT;
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(TextElement) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(TextElementImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-    protected:
-        // Attributes
+    /*PROTECTED REGION ID(TextElementImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        ::PrimitiveTypes::Double m_rotate;
+protected:
+    TextElement_ptr _this()
+    {   return TextElement_ptr(this);}
 
-        ::PrimitiveTypes::String m_textLength;
+    // Attributes
 
-        ::PrimitiveTypes::String m_fontSize;
+    ::PrimitiveTypes::Double m_rotate;
 
-        // References
+    ::PrimitiveTypes::String m_textLength;
 
-    };
+    ::PrimitiveTypes::String m_fontSize;
 
-} // SVG
+    // References
+
+};
+
+}
+ // SVG
 
 #endif // SVG_TEXTELEMENT_HPP
 

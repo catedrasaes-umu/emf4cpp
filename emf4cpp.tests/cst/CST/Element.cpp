@@ -2,6 +2,7 @@
 /*
  * CST/Element.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,6 +28,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Element.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::CST;
 
 // Default constructor
@@ -47,12 +53,8 @@ Element::~Element()
 {
 }
 
-/*PROTECTED REGION ID(Element.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& Element::getKind() const
 {
     return m_kind;
@@ -69,8 +71,8 @@ void Element::setKind(::ecore::EString const& _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::CST::CSTPackage::_instance()->getElement__kind(),
+                _this(),
+                ::CST::CSTPackage::_instance()->getElement__kind(),
                 _old_kind,
                 m_kind
         );

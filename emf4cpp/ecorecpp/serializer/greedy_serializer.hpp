@@ -2,6 +2,7 @@
 /*
  * serializer/greedy_serializer.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -26,14 +27,16 @@
 #include <cassert>
 
 #include "../mapping.hpp"
+#include "../util/escape_html.hpp"
 
 namespace ecorecpp
 {
 namespace serializer
 {
 
-using ::ecorecpp::mapping::type_traits::string_t;
-using ::ecorecpp::mapping::type_traits::char_t;
+using ::ecorecpp::mapping::type_definitions::string_t;
+using ::ecorecpp::mapping::type_definitions::char_t;
+using ::ecorecpp::util::escape_html;
 
 static const char_t *_indent_precalc[] = {
     "",
@@ -60,7 +63,14 @@ struct greedy_serializer
 private:
     std::ostream& out;
     unsigned int level;
-    std::list< bool > has_value;
+	enum class ClosingState { Open, Closed };
+	enum class NewLineRequired { NoLineBreak, LineBreak };
+	struct TagManagement {
+		TagManagement(ClosingState c, NewLineRequired n) : closing(c), newLine(n) { }
+		ClosingState closing;
+		NewLineRequired newLine;
+	};
+    std::list< TagManagement > has_value;
     bool indent;
 
     inline void _indent()
@@ -78,47 +88,73 @@ public:
                 << "standalone=\"no\" ?>\n";
     }
 
-    inline void open_object(const string_t& _name)
+    inline void open_object(const string_t& _name, bool silent = false)
     {
-        if(has_value.size() && !has_value.back())
+        if (has_value.size() && has_value.back().closing == ClosingState::Open)
         {
-            has_value.back() = true;
+            has_value.back().closing = ClosingState::Closed;
+			has_value.back().newLine = NewLineRequired::LineBreak;
             out << ">\n";
         }
 
-        has_value.push_back(false);
+        has_value.push_back(TagManagement(ClosingState::Open, NewLineRequired::NoLineBreak));
 
         if (indent)
             _indent();
 
         ++level;
-        out << "<" << _name;
+		if(!silent)
+			out << "<" << _name;
     }
 
-    inline void close_object(const string_t& _name)
+    inline void close_object(const string_t& _name, bool silent = false)
     {
-        if (!has_value.back())
-            out << "/>\n";
-        else
-            out << "</" << _name << ">\n";
+        --level;
+
+		if (!silent) {
+			if (has_value.back().closing == ClosingState::Open)
+				out << "/>\n";
+			else
+			{
+				if (indent && has_value.back().newLine == NewLineRequired::LineBreak)
+					_indent();
+
+				out << "</" << _name << ">\n";
+			}
+		}
 
         has_value.pop_back();
-        --level;
     }
 
     inline void add_attribute(const string_t& _name, const string_t& _value)
     {
-        out << " " << _name << "=\"" << _value << "\"";
+		std::string safe_value(_value);
+		escape_html(safe_value);
+        out << " " << _name << "=\"" << safe_value << "\"";
     }
 
     inline void add_value(const string_t& _value)
     {
         assert(has_value.size());
-        assert(!has_value.back());
+        assert(has_value.back().closing == ClosingState::Open);
 
-        has_value.back() = true;
-        out << ">" << _value;
+        has_value.back().closing = ClosingState::Closed;
+        has_value.back().newLine = NewLineRequired::NoLineBreak;
+
+		std::string safe_value(_value);
+		escape_html(safe_value);
+		out << ">" << safe_value;
     }
+
+    inline void append(const string_t& _value)
+    {
+        assert(has_value.size());
+        has_value.back().closing = ClosingState::Closed;
+		out << _value;
+    }
+
+	inline void setIndent(bool ind) { indent = ind; }
+	inline bool getIndent() const { return indent; }
 };
 
 } // serializer

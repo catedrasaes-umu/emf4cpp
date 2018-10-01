@@ -21,6 +21,7 @@ Workflow {
 		outlet = {
 			path = targetDir
 			postprocessor = org.csu.cpp.output.CppBeautifier {}
+			vetoStrategy = org.eclipse.xpand2.output.NoChangesVetoStrategy {}
 		}
 		outlet = {
 			name = "NOOVERWRITE"

@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/DeclarationFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,7 +38,6 @@ using namespace ::xpand3::declaration;
 
 DeclarationFactory::DeclarationFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr DeclarationFactory::create(::ecore::EClass_ptr _eClass)
@@ -93,42 +93,43 @@ DeclarationFactory::DeclarationFactory()
 
 AbstractDeclaration_ptr DeclarationFactory::createAbstractDeclaration()
 {
-    return new AbstractDeclaration();
+    return ::ecore::Ptr < AbstractDeclaration > (new AbstractDeclaration);
 }
 AbstractNamedDeclaration_ptr DeclarationFactory::createAbstractNamedDeclaration()
 {
-    return new AbstractNamedDeclaration();
+    return ::ecore::Ptr < AbstractNamedDeclaration
+            > (new AbstractNamedDeclaration);
 }
 Definition_ptr DeclarationFactory::createDefinition()
 {
-    return new Definition();
+    return ::ecore::Ptr < Definition > (new Definition);
 }
 Extension_ptr DeclarationFactory::createExtension()
 {
-    return new Extension();
+    return ::ecore::Ptr < Extension > (new Extension);
 }
 AbstractAspect_ptr DeclarationFactory::createAbstractAspect()
 {
-    return new AbstractAspect();
+    return ::ecore::Ptr < AbstractAspect > (new AbstractAspect);
 }
 ExtensionAspect_ptr DeclarationFactory::createExtensionAspect()
 {
-    return new ExtensionAspect();
+    return ::ecore::Ptr < ExtensionAspect > (new ExtensionAspect);
 }
 DefinitionAspect_ptr DeclarationFactory::createDefinitionAspect()
 {
-    return new DefinitionAspect();
+    return ::ecore::Ptr < DefinitionAspect > (new DefinitionAspect);
 }
 Check_ptr DeclarationFactory::createCheck()
 {
-    return new Check();
+    return ::ecore::Ptr < Check > (new Check);
 }
 CreateExtension_ptr DeclarationFactory::createCreateExtension()
 {
-    return new CreateExtension();
+    return ::ecore::Ptr < CreateExtension > (new CreateExtension);
 }
 JavaExtension_ptr DeclarationFactory::createJavaExtension()
 {
-    return new JavaExtension();
+    return ::ecore::Ptr < JavaExtension > (new JavaExtension);
 }
 

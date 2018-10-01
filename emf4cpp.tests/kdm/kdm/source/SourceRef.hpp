@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceRef.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef KDM_SOURCE_SOURCEREF_HPP
 #define KDM_SOURCE_SOURCEREF_HPP
 
-#include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/source_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/core/Element.hpp>
+
+#include "SourcePackage.hpp"
 
 /*PROTECTED REGION ID(SourceRef_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -37,62 +42,70 @@ namespace kdm
     namespace source
     {
 
-        class SourceRef: public virtual ::kdm::core::Element
-        {
-        public:
-            SourceRef();
+    class EXPORT_KDM_DLL SourceRef : public virtual ::kdm::core::Element
+    {
+    public:
+        SourceRef();
 
-            virtual ~SourceRef();
+        virtual ~SourceRef();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::core::String getLanguage() const;
-            void setLanguage(::kdm::core::String _language);
+        // Attributes
+        virtual ::kdm::core::String getLanguage () const;
+        virtual void setLanguage (::kdm::core::String _language);
 
-            ::kdm::core::String getSnippet() const;
-            void setSnippet(::kdm::core::String _snippet);
+        virtual ::kdm::core::String getSnippet () const;
+        virtual void setSnippet (::kdm::core::String _snippet);
 
-            // References
-            ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion >& getRegion();
+        // References
+        virtual const ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& getRegion () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >& getRegion ();
 
-            /*PROTECTED REGION ID(SourceRef) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = SourcePackage::SOURCEREF;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(SourceRef) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(SourceRefImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(SourceRefImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::kdm::core::String m_language;
+    protected:
+        SourceRef_ptr _this()
+        {   return SourceRef_ptr(this);}
 
-            ::kdm::core::String m_snippet;
+        // Attributes
 
-            // References
+        ::kdm::core::String m_language;
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::source::SourceRegion > > m_region;
+        ::kdm::core::String m_snippet;
 
-        };
+        // References
 
-    } // source
-} // kdm
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::source::SourceRegion_ptr >> m_region;
+
+    };
+
+}
+ // source
+}// kdm
 
 #endif // KDM_SOURCE_SOURCEREF_HPP
 

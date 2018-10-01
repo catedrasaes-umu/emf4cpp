@@ -2,6 +2,7 @@
 /*
  * xpand3/Xpand3Package.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::xpand3;
 
-std::auto_ptr< ::xpand3::Xpand3Package > Xpand3Package::s_instance;
+::ecore::Ptr< ::xpand3::Xpand3Package > Xpand3Package::s_instance;
 
 ::xpand3::Xpand3Package_ptr Xpand3Package::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new Xpand3Package();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< Xpand3Package >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < Xpand3Package > (new Xpand3Package());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::xpand3::Xpand3Package_ptr Xpand3Package::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

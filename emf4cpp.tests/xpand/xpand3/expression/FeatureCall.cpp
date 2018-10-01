@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/FeatureCall.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(FeatureCall.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -50,22 +56,19 @@ FeatureCall::~FeatureCall()
 {
     if (m_target)
     {
-        delete m_target;
+        m_target.reset();
     }
     if (m_name)
     {
-        delete m_name;
+        m_name.reset();
     }
 }
 
-/*PROTECTED REGION ID(FeatureCall.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr FeatureCall::getTarget()
+
+::xpand3::expression::AbstractExpression_ptr FeatureCall::getTarget() const
 {
     return m_target;
 }
@@ -73,8 +76,16 @@ FeatureCall::~FeatureCall()
 void FeatureCall::setTarget(
         ::xpand3::expression::AbstractExpression_ptr _target)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+    if (m_target)
+        m_target->_setEContainer(FeatureCall_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
+    if (_target)
+        _target->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_target = m_target;
+#endif
     m_target = _target;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -82,27 +93,33 @@ void FeatureCall::setTarget(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__target(),
                 _old_target,
                 m_target
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_target;
 }
 
-::xpand3::Identifier_ptr FeatureCall::getName()
+::xpand3::Identifier_ptr FeatureCall::getName() const
 {
     return m_name;
 }
 
 void FeatureCall::setName(::xpand3::Identifier_ptr _name)
 {
-    ::xpand3::Identifier_ptr _old_name = m_name;
+    if (m_name)
+        m_name->_setEContainer(FeatureCall_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
+    if (_name)
+        _name->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_name = m_name;
+#endif
     m_name = _name;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -110,15 +127,13 @@ void FeatureCall::setName(::xpand3::Identifier_ptr _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getFeatureCall__name(),
                 _old_name,
                 m_name
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_name;
 }
 

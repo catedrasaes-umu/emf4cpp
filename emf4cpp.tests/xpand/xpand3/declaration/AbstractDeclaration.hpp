@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/AbstractDeclaration.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,13 +21,17 @@
 #ifndef XPAND3_DECLARATION_ABSTRACTDECLARATION_HPP
 #define XPAND3_DECLARATION_ABSTRACTDECLARATION_HPP
 
-#include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/SyntaxElement.hpp>
+
+#include "DeclarationPackage.hpp"
 
 /*PROTECTED REGION ID(AbstractDeclaration_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -38,67 +43,75 @@ namespace xpand3
     namespace declaration
     {
 
-        class AbstractDeclaration: public virtual ::xpand3::SyntaxElement
-        {
-        public:
-            AbstractDeclaration();
+    class EXPORT_XPAND3_DLL AbstractDeclaration : public virtual ::xpand3::SyntaxElement
+    {
+    public:
+        AbstractDeclaration();
 
-            virtual ~AbstractDeclaration();
+        virtual ~AbstractDeclaration();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::ecore::EBoolean isIsPrivate() const;
-            void setIsPrivate(::ecore::EBoolean _isPrivate);
+        // Attributes
+        virtual ::ecore::EBoolean isIsPrivate () const;
+        virtual void setIsPrivate (::ecore::EBoolean _isPrivate);
 
-            // References
-            ::xpand3::File_ptr getOwner();
-            void setOwner(::xpand3::File_ptr _owner);
+        // References
+        virtual ::xpand3::File_ptr getOwner () const;
+        virtual void setOwner (::xpand3::File_ptr _owner);
 
-            ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& getParams();
+        virtual const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& getParams () const;
+        virtual ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& getParams ();
 
-            ::xpand3::expression::AbstractExpression_ptr getGuard();
-            void setGuard(::xpand3::expression::AbstractExpression_ptr _guard);
+        virtual ::xpand3::expression::AbstractExpression_ptr getGuard () const;
+        virtual void setGuard (::xpand3::expression::AbstractExpression_ptr _guard);
 
-            /*PROTECTED REGION ID(AbstractDeclaration) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DeclarationPackage::ABSTRACTDECLARATION;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(AbstractDeclaration) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(AbstractDeclarationImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(AbstractDeclarationImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::ecore::EBoolean m_isPrivate;
+    protected:
+        AbstractDeclaration_ptr _this()
+        {   return AbstractDeclaration_ptr(this);}
 
-            // References
+        // Attributes
 
-            ::xpand3::File_ptr m_owner;
+        ::ecore::EBoolean m_isPrivate;
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter > > m_params;
+        // References
 
-            ::xpand3::expression::AbstractExpression_ptr m_guard;
+        ::xpand3::File_ptr m_owner;
 
-        };
+        std::shared_ptr<::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >> m_params;
 
-    } // declaration
-} // xpand3
+        ::xpand3::expression::AbstractExpression_ptr m_guard;
+
+    };
+
+}
+ // declaration
+}// xpand3
 
 #endif // XPAND3_DECLARATION_ABSTRACTDECLARATION_HPP
 

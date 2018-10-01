@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/ExpressionFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -50,7 +51,6 @@ using namespace ::xpand3::expression;
 
 ExpressionFactory::ExpressionFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr ExpressionFactory::create(::ecore::EClass_ptr _eClass)
@@ -132,94 +132,95 @@ ExpressionFactory::ExpressionFactory()
 
 AbstractExpression_ptr ExpressionFactory::createAbstractExpression()
 {
-    return new AbstractExpression();
+    return ::ecore::Ptr < AbstractExpression > (new AbstractExpression);
 }
 BooleanOperation_ptr ExpressionFactory::createBooleanOperation()
 {
-    return new BooleanOperation();
+    return ::ecore::Ptr < BooleanOperation > (new BooleanOperation);
 }
 Cast_ptr ExpressionFactory::createCast()
 {
-    return new Cast();
+    return ::ecore::Ptr < Cast > (new Cast);
 }
 ChainExpression_ptr ExpressionFactory::createChainExpression()
 {
-    return new ChainExpression();
+    return ::ecore::Ptr < ChainExpression > (new ChainExpression);
 }
 ConstructorCallExpression_ptr ExpressionFactory::createConstructorCallExpression()
 {
-    return new ConstructorCallExpression();
+    return ::ecore::Ptr < ConstructorCallExpression
+            > (new ConstructorCallExpression);
 }
 FeatureCall_ptr ExpressionFactory::createFeatureCall()
 {
-    return new FeatureCall();
+    return ::ecore::Ptr < FeatureCall > (new FeatureCall);
 }
 CollectionExpression_ptr ExpressionFactory::createCollectionExpression()
 {
-    return new CollectionExpression();
+    return ::ecore::Ptr < CollectionExpression > (new CollectionExpression);
 }
 OperationCall_ptr ExpressionFactory::createOperationCall()
 {
-    return new OperationCall();
+    return ::ecore::Ptr < OperationCall > (new OperationCall);
 }
 TypeSelectExpression_ptr ExpressionFactory::createTypeSelectExpression()
 {
-    return new TypeSelectExpression();
+    return ::ecore::Ptr < TypeSelectExpression > (new TypeSelectExpression);
 }
 GlobalVarExpression_ptr ExpressionFactory::createGlobalVarExpression()
 {
-    return new GlobalVarExpression();
+    return ::ecore::Ptr < GlobalVarExpression > (new GlobalVarExpression);
 }
 IfExpression_ptr ExpressionFactory::createIfExpression()
 {
-    return new IfExpression();
+    return ::ecore::Ptr < IfExpression > (new IfExpression);
 }
 LetExpression_ptr ExpressionFactory::createLetExpression()
 {
-    return new LetExpression();
+    return ::ecore::Ptr < LetExpression > (new LetExpression);
 }
 ListLiteral_ptr ExpressionFactory::createListLiteral()
 {
-    return new ListLiteral();
+    return ::ecore::Ptr < ListLiteral > (new ListLiteral);
 }
 Literal_ptr ExpressionFactory::createLiteral()
 {
-    return new Literal();
+    return ::ecore::Ptr < Literal > (new Literal);
 }
 BooleanLiteral_ptr ExpressionFactory::createBooleanLiteral()
 {
-    return new BooleanLiteral();
+    return ::ecore::Ptr < BooleanLiteral > (new BooleanLiteral);
 }
 IntegerLiteral_ptr ExpressionFactory::createIntegerLiteral()
 {
-    return new IntegerLiteral();
+    return ::ecore::Ptr < IntegerLiteral > (new IntegerLiteral);
 }
 NullLiteral_ptr ExpressionFactory::createNullLiteral()
 {
-    return new NullLiteral();
+    return ::ecore::Ptr < NullLiteral > (new NullLiteral);
 }
 RealLiteral_ptr ExpressionFactory::createRealLiteral()
 {
-    return new RealLiteral();
+    return ::ecore::Ptr < RealLiteral > (new RealLiteral);
 }
 StringLiteral_ptr ExpressionFactory::createStringLiteral()
 {
-    return new StringLiteral();
+    return ::ecore::Ptr < StringLiteral > (new StringLiteral);
 }
 SwitchExpression_ptr ExpressionFactory::createSwitchExpression()
 {
-    return new SwitchExpression();
+    return ::ecore::Ptr < SwitchExpression > (new SwitchExpression);
 }
 Case_ptr ExpressionFactory::createCase()
 {
-    return new Case();
+    return ::ecore::Ptr < Case > (new Case);
 }
 BinaryOperation_ptr ExpressionFactory::createBinaryOperation()
 {
-    return new BinaryOperation();
+    return ::ecore::Ptr < BinaryOperation > (new BinaryOperation);
 }
 UnaryOperation_ptr ExpressionFactory::createUnaryOperation()
 {
-    return new UnaryOperation();
+    return ::ecore::Ptr < UnaryOperation > (new UnaryOperation);
 }
 

@@ -13,7 +13,7 @@ PyEObject::PyEObject(ecore::EObject_ptr obj, bool release) :
 PyEObject::~PyEObject()
 {
     if (m_release)
-        delete m_obj;
+        m_obj.reset();
 }
 
 Py::Object PyEObject::getattr(const char *name)
@@ -47,7 +47,7 @@ Py::Object PyEObject::getattr(const char *name)
 inline Py::Object PyEObject::set(const char* name, const Py::Tuple &rargs)
 {
     EStructuralFeature_ptr sf = m_class->getEStructuralFeature(name);
-    EAttribute_ptr at = sf->as< EAttribute > ();
+    EAttribute_ptr at = ::ecore::as< EAttribute >(sf);
 
     if (at)
     {
@@ -60,7 +60,7 @@ inline Py::Object PyEObject::set(const char* name, const Py::Tuple &rargs)
     }
     else
     {
-        // EReference_ptr ref = sf->as< EReference > ();
+        // EReference_ptr ref = ::ecore::as< EReference >(sf);
 
         for (size_t i = 0; i < rargs.length(); i++)
         {
@@ -81,14 +81,14 @@ inline Py::Object PyEObject::get(const char* name, const Py::Tuple &rargs)
     ecorecpp::mapping::any any = m_obj->eGet(sf);
 
     // TODO: extender para el resto de tipos
-    EAttribute_ptr at = sf->as< EAttribute > ();
+    EAttribute_ptr at = ::ecore::as< EAttribute >(sf);
     if (at)
     {
         return Py::String(*ecorecpp::mapping::any::any_cast< const std::string * >(any));
     }
     else
     {
-        EReference_ptr ref = sf->as< EReference > ();
+        EReference_ptr ref = ::ecore::as< EReference >(sf);
 
         if (ref->getUpperBound() == 1)
         {

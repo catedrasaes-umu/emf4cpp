@@ -2,6 +2,7 @@
 /*
  * CST/CSTPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::CST;
 
-std::auto_ptr< ::CST::CSTPackage > CSTPackage::s_instance;
+::ecore::Ptr< ::CST::CSTPackage > CSTPackage::s_instance;
 
 ::CST::CSTPackage_ptr CSTPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new CSTPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< CSTPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < CSTPackage > (new CSTPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::CST::CSTPackage_ptr CSTPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

@@ -2,6 +2,7 @@
 /*
  * kdm/data/DataFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -72,7 +73,6 @@ using namespace ::kdm::data;
 
 DataFactory::DataFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr DataFactory::create(::ecore::EClass_ptr _eClass)
@@ -197,182 +197,183 @@ DataFactory::DataFactory()
 
 DataModel_ptr DataFactory::createDataModel()
 {
-    return new DataModel();
+    return ::ecore::Ptr < DataModel > (new DataModel);
 }
 AbstractDataElement_ptr DataFactory::createAbstractDataElement()
 {
-    return new AbstractDataElement();
+    return ::ecore::Ptr < AbstractDataElement > (new AbstractDataElement);
 }
 DataResource_ptr DataFactory::createDataResource()
 {
-    return new DataResource();
+    return ::ecore::Ptr < DataResource > (new DataResource);
 }
 IndexElement_ptr DataFactory::createIndexElement()
 {
-    return new IndexElement();
+    return ::ecore::Ptr < IndexElement > (new IndexElement);
 }
 UniqueKey_ptr DataFactory::createUniqueKey()
 {
-    return new UniqueKey();
+    return ::ecore::Ptr < UniqueKey > (new UniqueKey);
 }
 Index_ptr DataFactory::createIndex()
 {
-    return new Index();
+    return ::ecore::Ptr < Index > (new Index);
 }
 AbstractDataRelationship_ptr DataFactory::createAbstractDataRelationship()
 {
-    return new AbstractDataRelationship();
+    return ::ecore::Ptr < AbstractDataRelationship
+            > (new AbstractDataRelationship);
 }
 KeyRelation_ptr DataFactory::createKeyRelation()
 {
-    return new KeyRelation();
+    return ::ecore::Ptr < KeyRelation > (new KeyRelation);
 }
 ReferenceKey_ptr DataFactory::createReferenceKey()
 {
-    return new ReferenceKey();
+    return ::ecore::Ptr < ReferenceKey > (new ReferenceKey);
 }
 DataContainer_ptr DataFactory::createDataContainer()
 {
-    return new DataContainer();
+    return ::ecore::Ptr < DataContainer > (new DataContainer);
 }
 Catalog_ptr DataFactory::createCatalog()
 {
-    return new Catalog();
+    return ::ecore::Ptr < Catalog > (new Catalog);
 }
 RelationalSchema_ptr DataFactory::createRelationalSchema()
 {
-    return new RelationalSchema();
+    return ::ecore::Ptr < RelationalSchema > (new RelationalSchema);
 }
 ColumnSet_ptr DataFactory::createColumnSet()
 {
-    return new ColumnSet();
+    return ::ecore::Ptr < ColumnSet > (new ColumnSet);
 }
 RelationalTable_ptr DataFactory::createRelationalTable()
 {
-    return new RelationalTable();
+    return ::ecore::Ptr < RelationalTable > (new RelationalTable);
 }
 RelationalView_ptr DataFactory::createRelationalView()
 {
-    return new RelationalView();
+    return ::ecore::Ptr < RelationalView > (new RelationalView);
 }
 RecordFile_ptr DataFactory::createRecordFile()
 {
-    return new RecordFile();
+    return ::ecore::Ptr < RecordFile > (new RecordFile);
 }
 DataEvent_ptr DataFactory::createDataEvent()
 {
-    return new DataEvent();
+    return ::ecore::Ptr < DataEvent > (new DataEvent);
 }
 XMLSchema_ptr DataFactory::createXMLSchema()
 {
-    return new XMLSchema();
+    return ::ecore::Ptr < XMLSchema > (new XMLSchema);
 }
 AbstractContentElement_ptr DataFactory::createAbstractContentElement()
 {
-    return new AbstractContentElement();
+    return ::ecore::Ptr < AbstractContentElement > (new AbstractContentElement);
 }
 ComplexContentType_ptr DataFactory::createComplexContentType()
 {
-    return new ComplexContentType();
+    return ::ecore::Ptr < ComplexContentType > (new ComplexContentType);
 }
 AllContent_ptr DataFactory::createAllContent()
 {
-    return new AllContent();
+    return ::ecore::Ptr < AllContent > (new AllContent);
 }
 SeqContent_ptr DataFactory::createSeqContent()
 {
-    return new SeqContent();
+    return ::ecore::Ptr < SeqContent > (new SeqContent);
 }
 ChoiceContent_ptr DataFactory::createChoiceContent()
 {
-    return new ChoiceContent();
+    return ::ecore::Ptr < ChoiceContent > (new ChoiceContent);
 }
 ContentItem_ptr DataFactory::createContentItem()
 {
-    return new ContentItem();
+    return ::ecore::Ptr < ContentItem > (new ContentItem);
 }
 GroupContent_ptr DataFactory::createGroupContent()
 {
-    return new GroupContent();
+    return ::ecore::Ptr < GroupContent > (new GroupContent);
 }
 ContentRestriction_ptr DataFactory::createContentRestriction()
 {
-    return new ContentRestriction();
+    return ::ecore::Ptr < ContentRestriction > (new ContentRestriction);
 }
 SimpleContentType_ptr DataFactory::createSimpleContentType()
 {
-    return new SimpleContentType();
+    return ::ecore::Ptr < SimpleContentType > (new SimpleContentType);
 }
 ExtendedDataElement_ptr DataFactory::createExtendedDataElement()
 {
-    return new ExtendedDataElement();
+    return ::ecore::Ptr < ExtendedDataElement > (new ExtendedDataElement);
 }
 DataRelationship_ptr DataFactory::createDataRelationship()
 {
-    return new DataRelationship();
+    return ::ecore::Ptr < DataRelationship > (new DataRelationship);
 }
 MixedContent_ptr DataFactory::createMixedContent()
 {
-    return new MixedContent();
+    return ::ecore::Ptr < MixedContent > (new MixedContent);
 }
 ContentReference_ptr DataFactory::createContentReference()
 {
-    return new ContentReference();
+    return ::ecore::Ptr < ContentReference > (new ContentReference);
 }
 DataAction_ptr DataFactory::createDataAction()
 {
-    return new DataAction();
+    return ::ecore::Ptr < DataAction > (new DataAction);
 }
 ReadsColumnSet_ptr DataFactory::createReadsColumnSet()
 {
-    return new ReadsColumnSet();
+    return ::ecore::Ptr < ReadsColumnSet > (new ReadsColumnSet);
 }
 ContentAttribute_ptr DataFactory::createContentAttribute()
 {
-    return new ContentAttribute();
+    return ::ecore::Ptr < ContentAttribute > (new ContentAttribute);
 }
 TypedBy_ptr DataFactory::createTypedBy()
 {
-    return new TypedBy();
+    return ::ecore::Ptr < TypedBy > (new TypedBy);
 }
 ReferenceTo_ptr DataFactory::createReferenceTo()
 {
-    return new ReferenceTo();
+    return ::ecore::Ptr < ReferenceTo > (new ReferenceTo);
 }
 RestrictionOf_ptr DataFactory::createRestrictionOf()
 {
-    return new RestrictionOf();
+    return ::ecore::Ptr < RestrictionOf > (new RestrictionOf);
 }
 ExtensionTo_ptr DataFactory::createExtensionTo()
 {
-    return new ExtensionTo();
+    return ::ecore::Ptr < ExtensionTo > (new ExtensionTo);
 }
 DatatypeOf_ptr DataFactory::createDatatypeOf()
 {
-    return new DatatypeOf();
+    return ::ecore::Ptr < DatatypeOf > (new DatatypeOf);
 }
 HasContent_ptr DataFactory::createHasContent()
 {
-    return new HasContent();
+    return ::ecore::Ptr < HasContent > (new HasContent);
 }
 WritesColumnSet_ptr DataFactory::createWritesColumnSet()
 {
-    return new WritesColumnSet();
+    return ::ecore::Ptr < WritesColumnSet > (new WritesColumnSet);
 }
 ProducesDataEvent_ptr DataFactory::createProducesDataEvent()
 {
-    return new ProducesDataEvent();
+    return ::ecore::Ptr < ProducesDataEvent > (new ProducesDataEvent);
 }
 DataSegment_ptr DataFactory::createDataSegment()
 {
-    return new DataSegment();
+    return ::ecore::Ptr < DataSegment > (new DataSegment);
 }
 ContentElement_ptr DataFactory::createContentElement()
 {
-    return new ContentElement();
+    return ::ecore::Ptr < ContentElement > (new ContentElement);
 }
 ManagesData_ptr DataFactory::createManagesData()
 {
-    return new ManagesData();
+    return ::ecore::Ptr < ManagesData > (new ManagesData);
 }
 

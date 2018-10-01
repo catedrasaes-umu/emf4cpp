@@ -2,6 +2,7 @@
 /*
  * kdm/data_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,195 +44,191 @@ namespace kdm
 
 // DataModel
         class DataModel;
-        typedef DataModel* DataModel_ptr;
+        using DataModel_ptr = ::ecore::Ptr<DataModel>;
 
 // AbstractDataElement
         class AbstractDataElement;
-        typedef AbstractDataElement* AbstractDataElement_ptr;
+        using AbstractDataElement_ptr = ::ecore::Ptr<AbstractDataElement>;
 
 // DataResource
         class DataResource;
-        typedef DataResource* DataResource_ptr;
+        using DataResource_ptr = ::ecore::Ptr<DataResource>;
 
 // IndexElement
         class IndexElement;
-        typedef IndexElement* IndexElement_ptr;
+        using IndexElement_ptr = ::ecore::Ptr<IndexElement>;
 
 // UniqueKey
         class UniqueKey;
-        typedef UniqueKey* UniqueKey_ptr;
+        using UniqueKey_ptr = ::ecore::Ptr<UniqueKey>;
 
 // Index
         class Index;
-        typedef Index* Index_ptr;
+        using Index_ptr = ::ecore::Ptr<Index>;
 
 // AbstractDataRelationship
         class AbstractDataRelationship;
-        typedef AbstractDataRelationship* AbstractDataRelationship_ptr;
+        using AbstractDataRelationship_ptr = ::ecore::Ptr<AbstractDataRelationship>;
 
 // KeyRelation
         class KeyRelation;
-        typedef KeyRelation* KeyRelation_ptr;
+        using KeyRelation_ptr = ::ecore::Ptr<KeyRelation>;
 
 // ReferenceKey
         class ReferenceKey;
-        typedef ReferenceKey* ReferenceKey_ptr;
+        using ReferenceKey_ptr = ::ecore::Ptr<ReferenceKey>;
 
 // DataContainer
         class DataContainer;
-        typedef DataContainer* DataContainer_ptr;
+        using DataContainer_ptr = ::ecore::Ptr<DataContainer>;
 
 // Catalog
         class Catalog;
-        typedef Catalog* Catalog_ptr;
+        using Catalog_ptr = ::ecore::Ptr<Catalog>;
 
 // RelationalSchema
         class RelationalSchema;
-        typedef RelationalSchema* RelationalSchema_ptr;
+        using RelationalSchema_ptr = ::ecore::Ptr<RelationalSchema>;
 
 // ColumnSet
         class ColumnSet;
-        typedef ColumnSet* ColumnSet_ptr;
+        using ColumnSet_ptr = ::ecore::Ptr<ColumnSet>;
 
 // RelationalTable
         class RelationalTable;
-        typedef RelationalTable* RelationalTable_ptr;
+        using RelationalTable_ptr = ::ecore::Ptr<RelationalTable>;
 
 // RelationalView
         class RelationalView;
-        typedef RelationalView* RelationalView_ptr;
+        using RelationalView_ptr = ::ecore::Ptr<RelationalView>;
 
 // RecordFile
         class RecordFile;
-        typedef RecordFile* RecordFile_ptr;
+        using RecordFile_ptr = ::ecore::Ptr<RecordFile>;
 
 // DataEvent
         class DataEvent;
-        typedef DataEvent* DataEvent_ptr;
+        using DataEvent_ptr = ::ecore::Ptr<DataEvent>;
 
 // XMLSchema
         class XMLSchema;
-        typedef XMLSchema* XMLSchema_ptr;
+        using XMLSchema_ptr = ::ecore::Ptr<XMLSchema>;
 
 // AbstractContentElement
         class AbstractContentElement;
-        typedef AbstractContentElement* AbstractContentElement_ptr;
+        using AbstractContentElement_ptr = ::ecore::Ptr<AbstractContentElement>;
 
 // ComplexContentType
         class ComplexContentType;
-        typedef ComplexContentType* ComplexContentType_ptr;
+        using ComplexContentType_ptr = ::ecore::Ptr<ComplexContentType>;
 
 // AllContent
         class AllContent;
-        typedef AllContent* AllContent_ptr;
+        using AllContent_ptr = ::ecore::Ptr<AllContent>;
 
 // SeqContent
         class SeqContent;
-        typedef SeqContent* SeqContent_ptr;
+        using SeqContent_ptr = ::ecore::Ptr<SeqContent>;
 
 // ChoiceContent
         class ChoiceContent;
-        typedef ChoiceContent* ChoiceContent_ptr;
+        using ChoiceContent_ptr = ::ecore::Ptr<ChoiceContent>;
 
 // ContentItem
         class ContentItem;
-        typedef ContentItem* ContentItem_ptr;
+        using ContentItem_ptr = ::ecore::Ptr<ContentItem>;
 
 // GroupContent
         class GroupContent;
-        typedef GroupContent* GroupContent_ptr;
+        using GroupContent_ptr = ::ecore::Ptr<GroupContent>;
 
 // ContentRestriction
         class ContentRestriction;
-        typedef ContentRestriction* ContentRestriction_ptr;
+        using ContentRestriction_ptr = ::ecore::Ptr<ContentRestriction>;
 
 // SimpleContentType
         class SimpleContentType;
-        typedef SimpleContentType* SimpleContentType_ptr;
+        using SimpleContentType_ptr = ::ecore::Ptr<SimpleContentType>;
 
 // ExtendedDataElement
         class ExtendedDataElement;
-        typedef ExtendedDataElement* ExtendedDataElement_ptr;
+        using ExtendedDataElement_ptr = ::ecore::Ptr<ExtendedDataElement>;
 
 // DataRelationship
         class DataRelationship;
-        typedef DataRelationship* DataRelationship_ptr;
+        using DataRelationship_ptr = ::ecore::Ptr<DataRelationship>;
 
 // MixedContent
         class MixedContent;
-        typedef MixedContent* MixedContent_ptr;
+        using MixedContent_ptr = ::ecore::Ptr<MixedContent>;
 
 // ContentReference
         class ContentReference;
-        typedef ContentReference* ContentReference_ptr;
+        using ContentReference_ptr = ::ecore::Ptr<ContentReference>;
 
 // DataAction
         class DataAction;
-        typedef DataAction* DataAction_ptr;
+        using DataAction_ptr = ::ecore::Ptr<DataAction>;
 
 // ReadsColumnSet
         class ReadsColumnSet;
-        typedef ReadsColumnSet* ReadsColumnSet_ptr;
+        using ReadsColumnSet_ptr = ::ecore::Ptr<ReadsColumnSet>;
 
 // ContentAttribute
         class ContentAttribute;
-        typedef ContentAttribute* ContentAttribute_ptr;
+        using ContentAttribute_ptr = ::ecore::Ptr<ContentAttribute>;
 
 // TypedBy
         class TypedBy;
-        typedef TypedBy* TypedBy_ptr;
+        using TypedBy_ptr = ::ecore::Ptr<TypedBy>;
 
 // ReferenceTo
         class ReferenceTo;
-        typedef ReferenceTo* ReferenceTo_ptr;
+        using ReferenceTo_ptr = ::ecore::Ptr<ReferenceTo>;
 
 // RestrictionOf
         class RestrictionOf;
-        typedef RestrictionOf* RestrictionOf_ptr;
+        using RestrictionOf_ptr = ::ecore::Ptr<RestrictionOf>;
 
 // ExtensionTo
         class ExtensionTo;
-        typedef ExtensionTo* ExtensionTo_ptr;
+        using ExtensionTo_ptr = ::ecore::Ptr<ExtensionTo>;
 
 // DatatypeOf
         class DatatypeOf;
-        typedef DatatypeOf* DatatypeOf_ptr;
+        using DatatypeOf_ptr = ::ecore::Ptr<DatatypeOf>;
 
 // HasContent
         class HasContent;
-        typedef HasContent* HasContent_ptr;
+        using HasContent_ptr = ::ecore::Ptr<HasContent>;
 
 // WritesColumnSet
         class WritesColumnSet;
-        typedef WritesColumnSet* WritesColumnSet_ptr;
+        using WritesColumnSet_ptr = ::ecore::Ptr<WritesColumnSet>;
 
 // ProducesDataEvent
         class ProducesDataEvent;
-        typedef ProducesDataEvent* ProducesDataEvent_ptr;
+        using ProducesDataEvent_ptr = ::ecore::Ptr<ProducesDataEvent>;
 
 // DataSegment
         class DataSegment;
-        typedef DataSegment* DataSegment_ptr;
+        using DataSegment_ptr = ::ecore::Ptr<DataSegment>;
 
 // ContentElement
         class ContentElement;
-        typedef ContentElement* ContentElement_ptr;
+        using ContentElement_ptr = ::ecore::Ptr<ContentElement>;
 
 // ManagesData
         class ManagesData;
-        typedef ManagesData* ManagesData_ptr;
+        using ManagesData_ptr = ::ecore::Ptr<ManagesData>;
+
+// EEnum
 
 // Package & Factory
         class DataFactory;
-        typedef DataFactory * DataFactory_ptr;
+        using DataFactory_ptr = ::ecore::Ptr<DataFactory>;
         class DataPackage;
-        typedef DataPackage * DataPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using DataPackage_ptr = ::ecore::Ptr<DataPackage>;
 
     } // data
 } // kdm

@@ -2,6 +2,7 @@
 /*
  * SVG/VisibilityImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,19 +29,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::SVG;
-
 /*PROTECTED REGION ID(VisibilityImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::SVG;
 
 void Visibility::_initialize()
 {
     // Supertypes
     ::SVG::Attribute::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(VisibilityImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -59,7 +60,7 @@ void Visibility::_initialize()
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        _any = m_attOwner->asEListOf< ::ecore::EObject >();
+        _any = m_attOwner->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::SVG::SVGPackage::VISIBILITY__VISIBLE:
@@ -80,16 +81,19 @@ void Visibility::eSet(::ecore::EInt _featureID,
     {
     case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::SVG::Attribute::getAttOwner().clear();
         ::SVG::Attribute::getAttOwner().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::VISIBILITY__VISIBLE:
     {
+        ::PrimitiveTypes::Boolean _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Boolean
-                > ::fromAny(_newValue, m_visible);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Visibility::setVisible(_t0);
     }
         return;
 
@@ -123,7 +127,57 @@ void Visibility::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Visibility::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getVisibility();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getVisibility();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Visibility::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr,
+                        -1, false, true >&) ::SVG::Attribute::getAttOwner();
+        container.basicAdd(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Visibility::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ATTRIBUTE__ATTOWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Element_ptr _t1 = dynamic_cast< ::SVG::Element* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr,
+                        -1, false, true >&) ::SVG::Attribute::getAttOwner();
+        container.basicRemove(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

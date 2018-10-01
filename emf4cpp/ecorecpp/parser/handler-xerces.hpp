@@ -2,6 +2,7 @@
 /*
  * parser/handler-xerces.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  * 
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -55,21 +56,21 @@ public:
 protected:
 
     std::list< ::ecore::EObject_ptr > m_objects;
-    std::list< ::ecorecpp::mapping::type_traits::string_t > m_stack;
+    std::list< ::ecorecpp::mapping::type_definitions::string_t > m_stack;
 
     ::ecore::EPackage_ptr m_current_metamodel;
-    ::ecorecpp::mapping::type_traits::string_t m_current_namespace;
+    ::ecorecpp::mapping::type_definitions::string_t m_current_namespace;
 
     std::list< unresolved_reference_t > m_unresolved_references;
 
     int m_level;
 
     bool m_expected_literal;
-    ::ecorecpp::mapping::type_traits::string_t m_expected_literal_name;
+    ::ecorecpp::mapping::type_definitions::string_t m_expected_literal_name;
 
 private:
 
-    inline bool isAtCurrentNamespace(const ::ecorecpp::mapping::type_traits::string_t& _name);
+    inline bool isAtCurrentNamespace(const ::ecorecpp::mapping::type_definitions::string_t& _name);
 };
 
 } // parser

@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/CollectionExpressionImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,30 +30,26 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::expression;
-
 /*PROTECTED REGION ID(CollectionExpressionImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::expression;
 
 void CollectionExpression::_initialize()
 {
     // Supertypes
     ::xpand3::expression::FeatureCall::_initialize();
 
-    // Rerefences
+    // References
     if (m_closure)
     {
         m_closure->_initialize();
-        m_closure->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__closure());
     }
     if (m_eleName)
     {
         m_eleName->_initialize();
-        m_eleName->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getCollectionExpression__eleName());
     }
 
     /*PROTECTED REGION ID(CollectionExpressionImpl__initialize) START*/
@@ -94,22 +91,26 @@ void CollectionExpression::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
     {
-        _any = static_cast< ::ecore::EObject* >(m_target);
+        if (m_target)
+            _any = ::ecore::as < ::ecore::EObject > (m_target);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_name);
+        if (m_name)
+            _any = ::ecore::as < ::ecore::EObject > (m_name);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_closure);
+        if (m_closure)
+            _any = ::ecore::as < ::ecore::EObject > (m_closure);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME:
     {
-        _any = static_cast< ::ecore::EObject* >(m_eleName);
+        if (m_eleName)
+            _any = ::ecore::as < ::ecore::EObject > (m_eleName);
     }
         return _any;
 
@@ -124,26 +125,34 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
@@ -151,7 +160,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::FeatureCall::setTarget(_t1);
     }
         return;
@@ -160,7 +169,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::FeatureCall::setName(_t1);
     }
         return;
@@ -169,7 +178,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::CollectionExpression::setClosure(_t1);
     }
         return;
@@ -178,7 +187,7 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::Identifier_ptr _t1 =
-                dynamic_cast< ::xpand3::Identifier_ptr >(_t0);
+                dynamic_cast< ::xpand3::Identifier* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::Identifier >(_t0);*/
         ::xpand3::expression::CollectionExpression::setEleName(_t1);
     }
         return;
@@ -203,13 +212,13 @@ void CollectionExpression::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
-        return m_target;
+        return (bool) m_target;
     case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
-        return m_name;
+        return (bool) m_name;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE:
-        return m_closure;
+        return (bool) m_closure;
     case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME:
-        return m_eleName;
+        return (bool) m_eleName;
 
     }
     throw "Error";
@@ -227,7 +236,63 @@ void CollectionExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr CollectionExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getCollectionExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getCollectionExpression();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void CollectionExpression::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void CollectionExpression::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::FEATURECALL__TARGET:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::FEATURECALL__NAME:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__CLOSURE:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::COLLECTIONEXPRESSION__ELENAME:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

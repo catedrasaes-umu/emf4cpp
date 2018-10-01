@@ -2,6 +2,7 @@
 /*
  * SVG/Polygon.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -37,6 +38,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Polygon.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -44,8 +50,9 @@ Polygon::Polygon()
 {
 
     m_waypoints.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point, -1,
-                    false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Point_ptr, -1,
+                    false, false >(this,
+                    ::SVG::SVGPackage::_instance()->getPolygon__waypoints()));
 
     /*PROTECTED REGION ID(PolygonImpl__PolygonImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,12 +68,8 @@ Polygon::~Polygon()
 {
 }
 
-/*PROTECTED REGION ID(Polygon.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::String Polygon::getMarkerEnd() const
 {
     return m_markerEnd;
@@ -83,8 +86,8 @@ void Polygon::setMarkerEnd(::PrimitiveTypes::String _markerEnd)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolygon__markerEnd(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolygon__markerEnd(),
                 _old_markerEnd,
                 m_markerEnd
         );
@@ -109,8 +112,8 @@ void Polygon::setMarkerStart(::PrimitiveTypes::String _markerStart)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getPolygon__markerStart(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getPolygon__markerStart(),
                 _old_markerStart,
                 m_markerStart
         );
@@ -120,7 +123,13 @@ void Polygon::setMarkerStart(::PrimitiveTypes::String _markerStart)
 }
 
 // References
-::ecorecpp::mapping::EList< ::SVG::Point >& Polygon::getWaypoints()
+
+const ::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polygon::getWaypoints() const
+{
+    return *m_waypoints;
+}
+
+::ecorecpp::mapping::EList< ::SVG::Point_ptr >& Polygon::getWaypoints()
 {
     return *m_waypoints;
 }

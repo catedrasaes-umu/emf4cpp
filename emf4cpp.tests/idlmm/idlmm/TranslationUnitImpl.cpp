@@ -2,6 +2,7 @@
 /*
  * idlmm/TranslationUnitImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,29 +29,25 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::idlmm;
-
 /*PROTECTED REGION ID(TranslationUnitImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::idlmm;
+
 void TranslationUnit::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_contains->size(); i++)
     {
         (*m_contains)[i]->_initialize();
-        (*m_contains)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__contains());
     }
     for (size_t i = 0; i < m_includes->size(); i++)
     {
         (*m_includes)[i]->_initialize();
-        (*m_includes)[i]->_setEContainer(this,
-                ::idlmm::IdlmmPackage::_instance()->getTranslationUnit__includes());
     }
 
     /*PROTECTED REGION ID(TranslationUnitImpl__initialize) START*/
@@ -70,7 +67,7 @@ void TranslationUnit::_initialize()
     {
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
     {
-        _any = m_contains->asEListOf< ::ecore::EObject >();
+        _any = m_contains->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__IDENTIFIER:
@@ -81,7 +78,7 @@ void TranslationUnit::_initialize()
         return _any;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
     {
-        _any = m_includes->asEListOf< ::ecore::EObject >();
+        _any = m_includes->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -96,22 +93,26 @@ void TranslationUnit::eSet(::ecore::EInt _featureID,
     {
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::idlmm::TranslationUnit::getContains().clear();
         ::idlmm::TranslationUnit::getContains().insert_all(*_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__IDENTIFIER:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::idlmm::TranslationUnit::setIdentifier(_t0);
     }
         return;
     case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::idlmm::TranslationUnit::getIncludes().clear();
         ::idlmm::TranslationUnit::getIncludes().insert_all(*_t0);
     }
@@ -149,7 +150,47 @@ void TranslationUnit::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr TranslationUnit::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::idlmm::IdlmmPackage_ptr >(::idlmm::IdlmmPackage::_instance())->getTranslationUnit();
+            dynamic_cast< ::idlmm::IdlmmPackage* >(::idlmm::IdlmmPackage::_instance().get())->getTranslationUnit();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void TranslationUnit::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void TranslationUnit::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__CONTAINS:
+    {
+    }
+        return;
+    case ::idlmm::IdlmmPackage::TRANSLATIONUNIT__INCLUDES:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

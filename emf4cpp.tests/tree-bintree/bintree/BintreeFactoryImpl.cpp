@@ -2,6 +2,7 @@
 /*
  * bintree/BintreeFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,7 +29,6 @@ using namespace ::bintree;
 
 BintreeFactory::BintreeFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr BintreeFactory::create(::ecore::EClass_ptr _eClass)
@@ -66,6 +66,6 @@ BintreeFactory::BintreeFactory()
 
 BinTreeNode_ptr BintreeFactory::createBinTreeNode()
 {
-    return new BinTreeNode();
+    return ::ecore::Ptr < BinTreeNode > (new BinTreeNode);
 }
 

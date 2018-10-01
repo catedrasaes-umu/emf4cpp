@@ -2,6 +2,7 @@
 /*
  * tree/TreePackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::tree;
 
-std::auto_ptr< ::tree::TreePackage > TreePackage::s_instance;
+::ecore::Ptr< ::tree::TreePackage > TreePackage::s_instance;
 
 ::tree::TreePackage_ptr TreePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new TreePackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< TreePackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < TreePackage > (new TreePackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::tree::TreePackage_ptr TreePackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

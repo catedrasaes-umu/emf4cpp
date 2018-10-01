@@ -2,6 +2,7 @@
 /*
  * idlmm/Contained.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Contained.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -49,12 +55,8 @@ Contained::~Contained()
 {
 }
 
-/*PROTECTED REGION ID(Contained.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EString const& Contained::getIdentifier() const
 {
     return m_identifier;
@@ -71,8 +73,8 @@ void Contained::setIdentifier(::ecore::EString const& _identifier)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getContained__identifier(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getContained__identifier(),
                 _old_identifier,
                 m_identifier
         );
@@ -97,8 +99,8 @@ void Contained::setRepositoryId(::ecore::EString const& _repositoryId)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getContained__repositoryId(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getContained__repositoryId(),
                 _old_repositoryId,
                 m_repositoryId
         );
@@ -123,8 +125,8 @@ void Contained::setVersion(::ecore::EString const& _version)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getContained__version(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getContained__version(),
                 _old_version,
                 m_version
         );
@@ -149,8 +151,8 @@ void Contained::setAbsoluteName(::ecore::EString const& _absoluteName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getContained__absoluteName(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getContained__absoluteName(),
                 _old_absoluteName,
                 m_absoluteName
         );
@@ -160,15 +162,22 @@ void Contained::setAbsoluteName(::ecore::EString const& _absoluteName)
 }
 
 // References
-::idlmm::Container_ptr Contained::getDefinedIn()
+
+::idlmm::Container_ptr Contained::getDefinedIn() const
 {
     return m_definedIn;
 }
 
-void Contained::setDefinedIn(::idlmm::Container_ptr _definedIn)
+::idlmm::Container_ptr Contained::basicgetDefinedIn()
 {
-    ::idlmm::Container_ptr _old_definedIn = m_definedIn;
+    return m_definedIn;
+}
 
+void Contained::basicsetDefinedIn(::idlmm::Container_ptr _definedIn)
+{
+#ifdef ECORECPP_NOTIFICATION_API
+    ::idlmm::Container_ptr _old_definedIn = m_definedIn;
+#endif
     m_definedIn = _definedIn;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -176,14 +185,32 @@ void Contained::setDefinedIn(::idlmm::Container_ptr _definedIn)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getContained__definedIn(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getContained__definedIn(),
                 _old_definedIn,
                 m_definedIn
         );
         eNotify(&notification);
     }
 #endif
+}
 
+void Contained::setDefinedIn(::idlmm::Container_ptr _definedIn)
+{
+    if (_definedIn != m_definedIn)
+    {
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
+        if (m_definedIn != nullptr)
+        {
+            m_definedIn->_inverseRemove(
+                    ::idlmm::IdlmmPackage::CONTAINER__CONTAINS, _this);
+        }
+        if (_definedIn != nullptr)
+        {
+            _definedIn->_inverseAdd(::idlmm::IdlmmPackage::CONTAINER__CONTAINS,
+                    _this);
+        }
+        basicsetDefinedIn(_definedIn);
+    }
 }
 

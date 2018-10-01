@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/ExtensionAspect.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ExtensionAspect.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -53,18 +59,15 @@ ExtensionAspect::~ExtensionAspect()
 {
     if (m_expression)
     {
-        delete m_expression;
+        m_expression.reset();
     }
 }
 
-/*PROTECTED REGION ID(ExtensionAspect.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr ExtensionAspect::getExpression()
+
+::xpand3::expression::AbstractExpression_ptr ExtensionAspect::getExpression() const
 {
     return m_expression;
 }
@@ -72,8 +75,16 @@ ExtensionAspect::~ExtensionAspect()
 void ExtensionAspect::setExpression(
         ::xpand3::expression::AbstractExpression_ptr _expression)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_expression = m_expression;
+    if (m_expression)
+        m_expression->_setEContainer(ExtensionAspect_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression());
+    if (_expression)
+        _expression->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_expression = m_expression;
+#endif
     m_expression = _expression;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -81,15 +92,13 @@ void ExtensionAspect::setExpression(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getExtensionAspect__expression(),
                 _old_expression,
                 m_expression
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_expression;
 }
 

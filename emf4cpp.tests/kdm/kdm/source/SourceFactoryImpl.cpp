@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -45,7 +46,6 @@ using namespace ::kdm::source;
 
 SourceFactory::SourceFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr SourceFactory::create(::ecore::EClass_ptr _eClass)
@@ -117,74 +117,76 @@ SourceFactory::SourceFactory()
 
 SourceRef_ptr SourceFactory::createSourceRef()
 {
-    return new SourceRef();
+    return ::ecore::Ptr < SourceRef > (new SourceRef);
 }
 SourceRegion_ptr SourceFactory::createSourceRegion()
 {
-    return new SourceRegion();
+    return ::ecore::Ptr < SourceRegion > (new SourceRegion);
 }
 InventoryModel_ptr SourceFactory::createInventoryModel()
 {
-    return new InventoryModel();
+    return ::ecore::Ptr < InventoryModel > (new InventoryModel);
 }
 AbstractInventoryElement_ptr SourceFactory::createAbstractInventoryElement()
 {
-    return new AbstractInventoryElement();
+    return ::ecore::Ptr < AbstractInventoryElement
+            > (new AbstractInventoryElement);
 }
 InventoryItem_ptr SourceFactory::createInventoryItem()
 {
-    return new InventoryItem();
+    return ::ecore::Ptr < InventoryItem > (new InventoryItem);
 }
 SourceFile_ptr SourceFactory::createSourceFile()
 {
-    return new SourceFile();
+    return ::ecore::Ptr < SourceFile > (new SourceFile);
 }
 Image_ptr SourceFactory::createImage()
 {
-    return new Image();
+    return ::ecore::Ptr < Image > (new Image);
 }
 ResourceDescription_ptr SourceFactory::createResourceDescription()
 {
-    return new ResourceDescription();
+    return ::ecore::Ptr < ResourceDescription > (new ResourceDescription);
 }
 Configuration_ptr SourceFactory::createConfiguration()
 {
-    return new Configuration();
+    return ::ecore::Ptr < Configuration > (new Configuration);
 }
 InventoryContainer_ptr SourceFactory::createInventoryContainer()
 {
-    return new InventoryContainer();
+    return ::ecore::Ptr < InventoryContainer > (new InventoryContainer);
 }
 Directory_ptr SourceFactory::createDirectory()
 {
-    return new Directory();
+    return ::ecore::Ptr < Directory > (new Directory);
 }
 Project_ptr SourceFactory::createProject()
 {
-    return new Project();
+    return ::ecore::Ptr < Project > (new Project);
 }
 AbstractInventoryRelationship_ptr SourceFactory::createAbstractInventoryRelationship()
 {
-    return new AbstractInventoryRelationship();
+    return ::ecore::Ptr < AbstractInventoryRelationship
+            > (new AbstractInventoryRelationship);
 }
 BinaryFile_ptr SourceFactory::createBinaryFile()
 {
-    return new BinaryFile();
+    return ::ecore::Ptr < BinaryFile > (new BinaryFile);
 }
 ExecutableFile_ptr SourceFactory::createExecutableFile()
 {
-    return new ExecutableFile();
+    return ::ecore::Ptr < ExecutableFile > (new ExecutableFile);
 }
 DependsOn_ptr SourceFactory::createDependsOn()
 {
-    return new DependsOn();
+    return ::ecore::Ptr < DependsOn > (new DependsOn);
 }
 InventoryElement_ptr SourceFactory::createInventoryElement()
 {
-    return new InventoryElement();
+    return ::ecore::Ptr < InventoryElement > (new InventoryElement);
 }
 InventoryRelationship_ptr SourceFactory::createInventoryRelationship()
 {
-    return new InventoryRelationship();
+    return ::ecore::Ptr < InventoryRelationship > (new InventoryRelationship);
 }
 

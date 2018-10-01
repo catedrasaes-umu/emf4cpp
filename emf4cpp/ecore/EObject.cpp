@@ -2,6 +2,7 @@
 /*
  * ecore/EObject.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,15 +33,41 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EObject.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EObject::EObject()
 {
+    m_refCount = 0u;
 
     /*PROTECTED REGION ID(EObjectImpl__EObjectImpl) ENABLED START*/
-    m_eContainer = 0;
-    m_eContainingFeature = 0;
+    m_eContainer = nullptr;
+    m_eContainingFeature = nullptr;
+    m_eResource = nullptr;
+
+    m_eAdapters.reset(
+            new ::ecorecpp::mapping::EListImpl< ::ecorecpp::notify::Adapter_ptr >());
+    /*PROTECTED REGION END*/
+
+#ifdef ECORECPP_NOTIFICATION_API
+    m_eDeliver = false;
+#endif
+}
+
+// Copy constructor only for EObject, needed to properly initialize reference counting
+EObject::EObject(const EObject&)
+{
+    m_refCount = 0u;
+
+    /*PROTECTED REGION ID(EObjectImpl__EObjectImplConst) ENABLED START*/
+    m_eContainer = nullptr;
+    m_eContainingFeature = nullptr;
+    m_eResource = nullptr;
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -51,11 +78,6 @@ EObject::EObject()
 EObject::~EObject()
 {
 }
-
-/*PROTECTED REGION ID(EObject.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
 
 // Attributes
 

@@ -2,6 +2,7 @@
 /*
  * xpand3/SyntaxElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,6 +28,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SyntaxElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3;
 
 // Default constructor
@@ -47,12 +53,8 @@ SyntaxElement::~SyntaxElement()
 {
 }
 
-/*PROTECTED REGION ID(SyntaxElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EInt SyntaxElement::getLine() const
 {
     return m_line;
@@ -69,8 +71,8 @@ void SyntaxElement::setLine(::ecore::EInt _line)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__line(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__line(),
                 _old_line,
                 m_line
         );
@@ -95,8 +97,8 @@ void SyntaxElement::setStart(::ecore::EInt _start)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__start(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__start(),
                 _old_start,
                 m_start
         );
@@ -121,8 +123,8 @@ void SyntaxElement::setEnd(::ecore::EInt _end)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__end(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__end(),
                 _old_end,
                 m_end
         );
@@ -147,8 +149,8 @@ void SyntaxElement::setFileName(::ecore::EString const& _fileName)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getSyntaxElement__fileName(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getSyntaxElement__fileName(),
                 _old_fileName,
                 m_fileName
         );

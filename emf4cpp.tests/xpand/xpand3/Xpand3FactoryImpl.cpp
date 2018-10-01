@@ -2,6 +2,7 @@
 /*
  * xpand3/Xpand3FactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,7 +33,6 @@ using namespace ::xpand3;
 
 Xpand3Factory::Xpand3Factory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr Xpand3Factory::create(::ecore::EClass_ptr _eClass)
@@ -78,22 +78,22 @@ Xpand3Factory::Xpand3Factory()
 
 SyntaxElement_ptr Xpand3Factory::createSyntaxElement()
 {
-    return new SyntaxElement();
+    return ::ecore::Ptr < SyntaxElement > (new SyntaxElement);
 }
 File_ptr Xpand3Factory::createFile()
 {
-    return new File();
+    return ::ecore::Ptr < File > (new File);
 }
 ImportStatement_ptr Xpand3Factory::createImportStatement()
 {
-    return new ImportStatement();
+    return ::ecore::Ptr < ImportStatement > (new ImportStatement);
 }
 Identifier_ptr Xpand3Factory::createIdentifier()
 {
-    return new Identifier();
+    return ::ecore::Ptr < Identifier > (new Identifier);
 }
 DeclaredParameter_ptr Xpand3Factory::createDeclaredParameter()
 {
-    return new DeclaredParameter();
+    return ::ecore::Ptr < DeclaredParameter > (new DeclaredParameter);
 }
 

@@ -2,6 +2,7 @@
 /*
  * ecore/ENamedElement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,8 +21,10 @@
 #ifndef ECORE_ENAMEDELEMENT_HPP
 #define ECORE_ENAMEDELEMENT_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/EModelElement.hpp>
 
@@ -33,53 +36,56 @@
 namespace ecore
 {
 
-    class ENamedElement: public virtual ::ecore::EModelElement
-    {
-    public:
-        ENamedElement();
+class EXPORT_ECORE_DLL ENamedElement : public virtual ::ecore::EModelElement
+{
+public:
+    ENamedElement();
 
-        virtual ~ENamedElement();
+    virtual ~ENamedElement();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
+    // Attributes
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
-        // Attributes
-        ::ecore::EString const& getName() const;
-        void setName(::ecore::EString const& _name);
+    // References
 
-        // References
+    /*PROTECTED REGION ID(ENamedElement) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(ENamedElement) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(ENamedElementImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+protected:
+    ENamedElement_ptr _this()
+    {   return ENamedElement_ptr(this);}
 
-        /*PROTECTED REGION ID(ENamedElementImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // Attributes
 
-    protected:
-        // Attributes
+    ::ecore::EString m_name;
 
-        ::ecore::EString m_name;
+    // References
 
-        // References
+};
 
-    };
-
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_ENAMEDELEMENT_HPP
+

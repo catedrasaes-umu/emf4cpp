@@ -2,6 +2,7 @@
 /*
  * company/CompanyFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -22,6 +23,7 @@
 #include <company/Employee.hpp>
 #include <company/Department.hpp>
 #include <company/Company.hpp>
+#include <company/PhonebookEntry.hpp>
 
 #include <ecore.hpp>
 #include <ecorecpp/mapping.hpp>
@@ -30,7 +32,6 @@ using namespace ::company;
 
 CompanyFactory::CompanyFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CompanyFactory::create(::ecore::EClass_ptr _eClass)
@@ -43,6 +44,8 @@ CompanyFactory::CompanyFactory()
         return createDepartment();
     case CompanyPackage::COMPANY:
         return createCompany();
+    case CompanyPackage::PHONEBOOKENTRY:
+        return createPhonebookEntry();
     default:
         throw "IllegalArgumentException";
     }
@@ -72,14 +75,18 @@ CompanyFactory::CompanyFactory()
 
 Employee_ptr CompanyFactory::createEmployee()
 {
-    return new Employee();
+    return ::ecore::Ptr < Employee > (new Employee);
 }
 Department_ptr CompanyFactory::createDepartment()
 {
-    return new Department();
+    return ::ecore::Ptr < Department > (new Department);
 }
 Company_ptr CompanyFactory::createCompany()
 {
-    return new Company();
+    return ::ecore::Ptr < Company > (new Company);
+}
+PhonebookEntry_ptr CompanyFactory::createPhonebookEntry()
+{
+    return ::ecore::Ptr < PhonebookEntry > (new PhonebookEntry);
 }
 

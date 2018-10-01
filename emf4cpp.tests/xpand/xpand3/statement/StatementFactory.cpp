@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/StatementFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::xpand3::statement;
 
-std::auto_ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_instance;
+::ecore::Ptr< ::xpand3::statement::StatementFactory > StatementFactory::s_holder;
 
 ::xpand3::statement::StatementFactory_ptr StatementFactory::_instance()
 {
-    if (!s_instance.get())
-        new StatementFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < StatementFactory > (new StatementFactory());
+
+    return s_holder;
 }
 

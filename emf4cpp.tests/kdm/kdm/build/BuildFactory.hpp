@@ -2,6 +2,7 @@
 /*
  * kdm/build/BuildFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,12 +24,14 @@
 #include <ecore/EFactory.hpp>
 #include <kdm/build.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 namespace kdm
 {
     namespace build
     {
 
-        class BuildFactory: public virtual ::ecore::EFactory
+        class EXPORT_KDM_DLL BuildFactory : public virtual ::ecore::EFactory
         {
         public:
 
@@ -55,21 +58,169 @@ namespace kdm
             virtual BuildProduct_ptr createBuildProduct();
             virtual DescribedBy_ptr createDescribedBy();
 
-            virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-            virtual ::ecore::EJavaObject createFromString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EString const& _literalValue);
-            virtual ::ecore::EString convertToString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EJavaObject const& _instanceValue);
+            virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+            virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+            virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
         protected:
 
-            static std::auto_ptr< BuildFactory > s_instance;
+            static ::ecore::Ptr< BuildFactory > s_holder;
 
             BuildFactory();
 
         };
+
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline ::ecore::Ptr< T > create()
+        {
+            return ::ecore::Ptr< T >();
+        }
+
+        template< > inline AbstractBuildElement_ptr create< AbstractBuildElement >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createAbstractBuildElement();
+        }
+
+        template< > inline BuildResource_ptr create< BuildResource >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildResource();
+        }
+
+        template< > inline BuildDescription_ptr create< BuildDescription >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildDescription();
+        }
+
+        template< > inline SymbolicLink_ptr create< SymbolicLink >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createSymbolicLink();
+        }
+
+        template< > inline AbstractBuildRelationship_ptr create<
+                AbstractBuildRelationship >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createAbstractBuildRelationship();
+        }
+
+        template< > inline LinksTo_ptr create< LinksTo >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createLinksTo();
+        }
+
+        template< > inline Consumes_ptr create< Consumes >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createConsumes();
+        }
+
+        template< > inline BuildModel_ptr create< BuildModel >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildModel();
+        }
+
+        template< > inline BuildComponent_ptr create< BuildComponent >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildComponent();
+        }
+
+        template< > inline Supplier_ptr create< Supplier >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createSupplier();
+        }
+
+        template< > inline Tool_ptr create< Tool >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createTool();
+        }
+
+        template< > inline BuildElement_ptr create< BuildElement >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildElement();
+        }
+
+        template< > inline BuildRelationship_ptr create< BuildRelationship >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildRelationship();
+        }
+
+        template< > inline SuppliedBy_ptr create< SuppliedBy >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createSuppliedBy();
+        }
+
+        template< > inline Library_ptr create< Library >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createLibrary();
+        }
+
+        template< > inline BuildStep_ptr create< BuildStep >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildStep();
+        }
+
+        template< > inline Produces_ptr create< Produces >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createProduces();
+        }
+
+        template< > inline SupportedBy_ptr create< SupportedBy >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createSupportedBy();
+        }
+
+        template< > inline BuildProduct_ptr create< BuildProduct >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createBuildProduct();
+        }
+
+        template< > inline DescribedBy_ptr create< DescribedBy >()
+        {
+            auto eFactory = BuildPackage::_instance()->getEFactoryInstance();
+            auto packageFactory = dynamic_cast< BuildFactory* >(eFactory.get());
+            return packageFactory->createDescribedBy();
+        }
 
     } // build
 } // kdm

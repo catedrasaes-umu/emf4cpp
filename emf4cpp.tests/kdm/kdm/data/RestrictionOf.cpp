@@ -2,6 +2,7 @@
 /*
  * kdm/data/RestrictionOf.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -34,6 +35,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(RestrictionOf.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -55,22 +61,20 @@ RestrictionOf::~RestrictionOf()
 {
 }
 
-/*PROTECTED REGION ID(RestrictionOf.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::data::ComplexContentType_ptr RestrictionOf::getTo()
+
+::kdm::data::ComplexContentType_ptr RestrictionOf::getTo() const
 {
     return m_to;
 }
 
 void RestrictionOf::setTo(::kdm::data::ComplexContentType_ptr _to)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::ComplexContentType_ptr _old_to = m_to;
-
+#endif
     m_to = _to;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,26 +82,26 @@ void RestrictionOf::setTo(::kdm::data::ComplexContentType_ptr _to)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getRestrictionOf__to(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getRestrictionOf__to(),
                 _old_to,
                 m_to
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::kdm::data::ComplexContentType_ptr RestrictionOf::getFrom()
+::kdm::data::ComplexContentType_ptr RestrictionOf::getFrom() const
 {
     return m_from;
 }
 
 void RestrictionOf::setFrom(::kdm::data::ComplexContentType_ptr _from)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::data::ComplexContentType_ptr _old_from = m_from;
-
+#endif
     m_from = _from;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -105,14 +109,13 @@ void RestrictionOf::setFrom(::kdm::data::ComplexContentType_ptr _from)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::data::DataPackage::_instance()->getRestrictionOf__from(),
+                _this(),
+                ::kdm::data::DataPackage::_instance()->getRestrictionOf__from(),
                 _old_from,
                 m_from
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

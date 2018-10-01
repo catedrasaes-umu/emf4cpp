@@ -2,6 +2,7 @@
 /*
  * kdm/core/ModelElement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,11 +21,15 @@
 #ifndef KDM_CORE_MODELELEMENT_HPP
 #define KDM_CORE_MODELELEMENT_HPP
 
-#include <kdm/core_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/core_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core/Element.hpp>
+
+#include "CorePackage.hpp"
 
 /*PROTECTED REGION ID(ModelElement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -36,58 +41,66 @@ namespace kdm
     namespace core
     {
 
-        class ModelElement: public virtual ::kdm::core::Element
-        {
-        public:
-            ModelElement();
+    class EXPORT_KDM_DLL ModelElement : public virtual ::kdm::core::Element
+    {
+    public:
+        ModelElement();
 
-            virtual ~ModelElement();
+        virtual ~ModelElement();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype >& getStereotype();
+        // References
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& getStereotype () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >& getStereotype ();
 
-            ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue >& getTaggedValue();
+        virtual const ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& getTaggedValue () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >& getTaggedValue ();
 
-            /*PROTECTED REGION ID(ModelElement) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CorePackage::MODELELEMENT;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(ModelElement) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(ModelElementImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(ModelElementImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        ModelElement_ptr _this()
+        {   return ModelElement_ptr(this);}
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype > > m_stereotype;
+        // Attributes
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue > > m_taggedValue;
+        // References
 
-        };
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::Stereotype_ptr >> m_stereotype;
 
-    } // core
-} // kdm
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::kdm::ExtendedValue_ptr >> m_taggedValue;
+
+    };
+
+}
+ // core
+}// kdm
 
 #endif // KDM_CORE_MODELELEMENT_HPP
 

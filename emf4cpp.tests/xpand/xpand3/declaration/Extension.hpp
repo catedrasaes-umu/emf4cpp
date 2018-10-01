@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/Extension.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,13 +21,17 @@
 #ifndef XPAND3_DECLARATION_EXTENSION_HPP
 #define XPAND3_DECLARATION_EXTENSION_HPP
 
-#include <xpand3/declaration_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3/declaration_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3/declaration/AbstractNamedDeclaration.hpp>
+
+#include "DeclarationPackage.hpp"
 
 /*PROTECTED REGION ID(Extension_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -38,62 +43,70 @@ namespace xpand3
     namespace declaration
     {
 
-        class Extension: public virtual ::xpand3::declaration::AbstractNamedDeclaration
-        {
-        public:
-            Extension();
+    class EXPORT_XPAND3_DLL Extension : public virtual ::xpand3::declaration::AbstractNamedDeclaration
+    {
+    public:
+        Extension();
 
-            virtual ~Extension();
+        virtual ~Extension();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::ecore::EBoolean isCached() const;
-            void setCached(::ecore::EBoolean _cached);
+        // Attributes
+        virtual ::ecore::EBoolean isCached () const;
+        virtual void setCached (::ecore::EBoolean _cached);
 
-            // References
-            ::xpand3::expression::AbstractExpression_ptr getBody();
-            void setBody(::xpand3::expression::AbstractExpression_ptr _body);
+        // References
+        virtual ::xpand3::expression::AbstractExpression_ptr getBody () const;
+        virtual void setBody (::xpand3::expression::AbstractExpression_ptr _body);
 
-            ::xpand3::Identifier_ptr getReturnType();
-            void setReturnType(::xpand3::Identifier_ptr _returnType);
+        virtual ::xpand3::Identifier_ptr getReturnType () const;
+        virtual void setReturnType (::xpand3::Identifier_ptr _returnType);
 
-            /*PROTECTED REGION ID(Extension) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = DeclarationPackage::EXTENSION;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(Extension) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(ExtensionImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(ExtensionImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::ecore::EBoolean m_cached;
+    protected:
+        Extension_ptr _this()
+        {   return Extension_ptr(this);}
 
-            // References
+        // Attributes
 
-            ::xpand3::expression::AbstractExpression_ptr m_body;
+        ::ecore::EBoolean m_cached;
 
-            ::xpand3::Identifier_ptr m_returnType;
+        // References
 
-        };
+        ::xpand3::expression::AbstractExpression_ptr m_body;
 
-    } // declaration
-} // xpand3
+        ::xpand3::Identifier_ptr m_returnType;
+
+    };
+
+}
+ // declaration
+}// xpand3
 
 #endif // XPAND3_DECLARATION_EXTENSION_HPP
 

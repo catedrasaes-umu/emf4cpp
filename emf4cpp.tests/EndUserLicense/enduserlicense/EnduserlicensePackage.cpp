@@ -2,6 +2,7 @@
 /*
  * enduserlicense/EnduserlicensePackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,27 @@
 
 using namespace ::enduserlicense;
 
-std::auto_ptr< ::enduserlicense::EnduserlicensePackage > EnduserlicensePackage::s_instance;
+::ecore::Ptr< ::enduserlicense::EnduserlicensePackage > EnduserlicensePackage::s_instance;
 
 ::enduserlicense::EnduserlicensePackage_ptr EnduserlicensePackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new EnduserlicensePackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< EnduserlicensePackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < EnduserlicensePackage
+                > (new EnduserlicensePackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::enduserlicense::EnduserlicensePackage_ptr EnduserlicensePackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

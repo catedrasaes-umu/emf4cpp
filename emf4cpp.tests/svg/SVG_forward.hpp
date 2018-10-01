@@ -2,6 +2,7 @@
 /*
  * SVG_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,167 +42,163 @@ namespace SVG
 
 // Element
     class Element;
-    typedef Element* Element_ptr;
+    using Element_ptr = ::ecore::Ptr<Element>;
 
 // StructuralElement
     class StructuralElement;
-    typedef StructuralElement* StructuralElement_ptr;
+    using StructuralElement_ptr = ::ecore::Ptr<StructuralElement>;
 
 // Image
     class Image;
-    typedef Image* Image_ptr;
+    using Image_ptr = ::ecore::Ptr<Image>;
 
 // Svg
     class Svg;
-    typedef Svg* Svg_ptr;
+    using Svg_ptr = ::ecore::Ptr<Svg>;
 
 // GroupingElement
     class GroupingElement;
-    typedef GroupingElement* GroupingElement_ptr;
+    using GroupingElement_ptr = ::ecore::Ptr<GroupingElement>;
 
 // G
     class G;
-    typedef G* G_ptr;
+    using G_ptr = ::ecore::Ptr<G>;
 
 // Defs
     class Defs;
-    typedef Defs* Defs_ptr;
+    using Defs_ptr = ::ecore::Ptr<Defs>;
 
 // Symbol
     class Symbol;
-    typedef Symbol* Symbol_ptr;
+    using Symbol_ptr = ::ecore::Ptr<Symbol>;
 
 // Use
     class Use;
-    typedef Use* Use_ptr;
+    using Use_ptr = ::ecore::Ptr<Use>;
 
 // GraphicalElement
     class GraphicalElement;
-    typedef GraphicalElement* GraphicalElement_ptr;
+    using GraphicalElement_ptr = ::ecore::Ptr<GraphicalElement>;
 
 // Shape
     class Shape;
-    typedef Shape* Shape_ptr;
+    using Shape_ptr = ::ecore::Ptr<Shape>;
 
 // TextElement
     class TextElement;
-    typedef TextElement* TextElement_ptr;
+    using TextElement_ptr = ::ecore::Ptr<TextElement>;
 
 // Rect
     class Rect;
-    typedef Rect* Rect_ptr;
+    using Rect_ptr = ::ecore::Ptr<Rect>;
 
 // Circle
     class Circle;
-    typedef Circle* Circle_ptr;
+    using Circle_ptr = ::ecore::Ptr<Circle>;
 
 // Ellipse
     class Ellipse;
-    typedef Ellipse* Ellipse_ptr;
+    using Ellipse_ptr = ::ecore::Ptr<Ellipse>;
 
 // Line
     class Line;
-    typedef Line* Line_ptr;
+    using Line_ptr = ::ecore::Ptr<Line>;
 
 // Polyline
     class Polyline;
-    typedef Polyline* Polyline_ptr;
+    using Polyline_ptr = ::ecore::Ptr<Polyline>;
 
 // Polygon
     class Polygon;
-    typedef Polygon* Polygon_ptr;
+    using Polygon_ptr = ::ecore::Ptr<Polygon>;
 
 // Path
     class Path;
-    typedef Path* Path_ptr;
+    using Path_ptr = ::ecore::Ptr<Path>;
 
 // Point
     class Point;
-    typedef Point* Point_ptr;
+    using Point_ptr = ::ecore::Ptr<Point>;
 
 // Marker
     class Marker;
-    typedef Marker* Marker_ptr;
+    using Marker_ptr = ::ecore::Ptr<Marker>;
 
 // Text
     class Text;
-    typedef Text* Text_ptr;
+    using Text_ptr = ::ecore::Ptr<Text>;
 
 // Tspan
     class Tspan;
-    typedef Tspan* Tspan_ptr;
+    using Tspan_ptr = ::ecore::Ptr<Tspan>;
 
 // Tref
     class Tref;
-    typedef Tref* Tref_ptr;
+    using Tref_ptr = ::ecore::Ptr<Tref>;
 
 // Attribute
     class Attribute;
-    typedef Attribute* Attribute_ptr;
+    using Attribute_ptr = ::ecore::Ptr<Attribute>;
 
 // Transform
     class Transform;
-    typedef Transform* Transform_ptr;
+    using Transform_ptr = ::ecore::Ptr<Transform>;
 
 // Scale
     class Scale;
-    typedef Scale* Scale_ptr;
+    using Scale_ptr = ::ecore::Ptr<Scale>;
 
 // Translate
     class Translate;
-    typedef Translate* Translate_ptr;
+    using Translate_ptr = ::ecore::Ptr<Translate>;
 
 // Rotate
     class Rotate;
-    typedef Rotate* Rotate_ptr;
+    using Rotate_ptr = ::ecore::Ptr<Rotate>;
 
 // Visibility
     class Visibility;
-    typedef Visibility* Visibility_ptr;
+    using Visibility_ptr = ::ecore::Ptr<Visibility>;
 
 // FontWeight
     class FontWeight;
-    typedef FontWeight* FontWeight_ptr;
+    using FontWeight_ptr = ::ecore::Ptr<FontWeight>;
 
 // FontStyle
     class FontStyle;
-    typedef FontStyle* FontStyle_ptr;
+    using FontStyle_ptr = ::ecore::Ptr<FontStyle>;
 
 // Dimension
     class Dimension;
-    typedef Dimension* Dimension_ptr;
+    using Dimension_ptr = ::ecore::Ptr<Dimension>;
 
 // Coordinates
     class Coordinates;
-    typedef Coordinates* Coordinates_ptr;
+    using Coordinates_ptr = ::ecore::Ptr<Coordinates>;
 
 // RelativeCoord
     class RelativeCoord;
-    typedef RelativeCoord* RelativeCoord_ptr;
+    using RelativeCoord_ptr = ::ecore::Ptr<RelativeCoord>;
 
 // AbsoluteCoord
     class AbsoluteCoord;
-    typedef AbsoluteCoord* AbsoluteCoord_ptr;
+    using AbsoluteCoord_ptr = ::ecore::Ptr<AbsoluteCoord>;
 
 // ReferencedFile
     class ReferencedFile;
-    typedef ReferencedFile* ReferencedFile_ptr;
+    using ReferencedFile_ptr = ::ecore::Ptr<ReferencedFile>;
 
 // SvgFile
     class SvgFile;
-    typedef SvgFile* SvgFile_ptr;
+    using SvgFile_ptr = ::ecore::Ptr<SvgFile>;
+
+// EEnum
 
 // Package & Factory
     class SVGFactory;
-    typedef SVGFactory * SVGFactory_ptr;
+    using SVGFactory_ptr = ::ecore::Ptr<SVGFactory>;
     class SVGPackage;
-    typedef SVGPackage * SVGPackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using SVGPackage_ptr = ::ecore::Ptr<SVGPackage>;
 
 } // SVG
 

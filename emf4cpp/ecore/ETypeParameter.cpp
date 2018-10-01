@@ -2,6 +2,7 @@
 /*
  * ecore/ETypeParameter.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,6 +31,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ETypeParameter.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -37,12 +43,14 @@ ETypeParameter::ETypeParameter()
 {
 
     m_eBounds.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EGenericType,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EGenericType_ptr, -1, true, false >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getETypeParameter__eBounds() :
+                            ::ecore::EReference_ptr()));
 
     /*PROTECTED REGION ID(ETypeParameterImpl__ETypeParameterImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -54,15 +62,16 @@ ETypeParameter::~ETypeParameter()
 {
 }
 
-/*PROTECTED REGION ID(ETypeParameter.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
 
 // References
-::ecorecpp::mapping::EList< ::ecore::EGenericType >& ETypeParameter::getEBounds()
+
+const ::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& ETypeParameter::getEBounds() const
+{
+    return *m_eBounds;
+}
+
+::ecorecpp::mapping::EList< ::ecore::EGenericType_ptr >& ETypeParameter::getEBounds()
 {
     return *m_eBounds;
 }

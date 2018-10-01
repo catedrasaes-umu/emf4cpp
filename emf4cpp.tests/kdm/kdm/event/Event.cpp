@@ -2,6 +2,7 @@
 /*
  * kdm/event/Event.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Event.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::event;
 
 // Default constructor
@@ -60,12 +66,8 @@ Event::~Event()
 {
 }
 
-/*PROTECTED REGION ID(Event.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String Event::getKind() const
 {
     return m_kind;
@@ -82,8 +84,8 @@ void Event::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::event::EventPackage::_instance()->getEvent__kind(),
+                _this(),
+                ::kdm::event::EventPackage::_instance()->getEvent__kind(),
                 _old_kind,
                 m_kind
         );

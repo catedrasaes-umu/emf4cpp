@@ -2,6 +2,7 @@
 /*
  * kdm/data/DataPackage.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,26 @@
 
 using namespace ::kdm::data;
 
-std::auto_ptr< ::kdm::data::DataPackage > DataPackage::s_instance;
+::ecore::Ptr< ::kdm::data::DataPackage > DataPackage::s_instance;
 
 ::kdm::data::DataPackage_ptr DataPackage::_instance()
 {
+    static bool duringConstruction = false;
     if (!s_instance.get())
-        new DataPackage();
-    return s_instance.get();
+    {
+        if (duringConstruction)
+            return ::ecore::Ptr< DataPackage >();
+        duringConstruction = true;
+        s_instance = ::ecore::Ptr < DataPackage > (new DataPackage());
+        s_instance->_initPackage();
+        duringConstruction = false;
+    }
+
+    return s_instance;
+}
+
+::kdm::data::DataPackage_ptr DataPackage::_getInstanceAndRemoveOwnership()
+{
+    return _instance();
 }
 

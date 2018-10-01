@@ -2,6 +2,7 @@
 /*
  * kdm/code/ArrayType.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,6 +42,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ArrayType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -62,16 +68,12 @@ ArrayType::~ArrayType()
 {
     if (m_indexUnit)
     {
-        delete m_indexUnit;
+        m_indexUnit.reset();
     }
 }
 
-/*PROTECTED REGION ID(ArrayType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::Integer ArrayType::getSize() const
 {
     return m_size;
@@ -88,8 +90,8 @@ void ArrayType::setSize(::kdm::core::Integer _size)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getArrayType__size(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__size(),
                 _old_size,
                 m_size
         );
@@ -99,15 +101,24 @@ void ArrayType::setSize(::kdm::core::Integer _size)
 }
 
 // References
-::kdm::code::IndexUnit_ptr ArrayType::getIndexUnit()
+
+::kdm::code::IndexUnit_ptr ArrayType::getIndexUnit() const
 {
     return m_indexUnit;
 }
 
 void ArrayType::setIndexUnit(::kdm::code::IndexUnit_ptr _indexUnit)
 {
-    ::kdm::code::IndexUnit_ptr _old_indexUnit = m_indexUnit;
+    if (m_indexUnit)
+        m_indexUnit->_setEContainer(ArrayType_ptr(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
+    if (_indexUnit)
+        _indexUnit->_setEContainer(_this(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::kdm::code::IndexUnit_ptr _old_indexUnit = m_indexUnit;
+#endif
     m_indexUnit = _indexUnit;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -115,15 +126,13 @@ void ArrayType::setIndexUnit(::kdm::code::IndexUnit_ptr _indexUnit)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getArrayType__indexUnit(),
                 _old_indexUnit,
                 m_indexUnit
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_indexUnit;
 }
 

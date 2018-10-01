@@ -2,6 +2,7 @@
 /*
  * parser/handler-xerces.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -42,14 +43,14 @@ handler::~handler()
 {
 }
 
-inline ::ecorecpp::mapping::type_traits::string_t xercesToWstring(const XercesString& str)
+inline ::ecorecpp::mapping::type_definitions::string_t xercesToWstring(const XercesString& str)
 {
-    return ::ecorecpp::mapping::type_traits::string_t(str.begin(), str.end());
+    return ::ecorecpp::mapping::type_definitions::string_t(str.begin(), str.end());
 }
 
-inline ::ecorecpp::mapping::type_traits::string_t xercesToWstring(const XMLCh * const chars)
+inline ::ecorecpp::mapping::type_definitions::string_t xercesToWstring(const XMLCh * const chars)
 {
-    return ::ecorecpp::mapping::type_traits::string_t(chars, chars + xercesc::XMLString::stringLen(chars));
+    return ::ecorecpp::mapping::type_definitions::string_t(chars, chars + xercesc::XMLString::stringLen(chars));
 }
 
 void handler::characters(const XMLCh * const chars, const XMLSize_t length)
@@ -60,13 +61,13 @@ void handler::characters(const XMLCh * const chars, const XMLSize_t length)
         {
             assert( m_level);
 
-            ::ecorecpp::mapping::type_traits::string_t _literal(xercesToWstring(chars));
+            ::ecorecpp::mapping::type_definitions::string_t _literal(xercesToWstring(chars));
 
             DEBUG_MSG(cout, "expected!! " << length << " " << _literal);
 
             EObject_ptr const& peobj = m_objects.back();
             EClass_ptr const peclass = peobj->eClass();
-            ::ecorecpp::mapping::type_traits::string_t const& _name = m_expected_literal_name;
+            ::ecorecpp::mapping::type_definitions::string_t const& _name = m_expected_literal_name;
 
             DEBUG_MSG(cout, _name);
 
@@ -90,8 +91,8 @@ void handler::characters(const XMLCh * const chars, const XMLSize_t length)
 void handler::startElement(const XMLCh * const name,
         xercesc::AttributeList& attributes)
 {
-    ::ecorecpp::mapping::type_traits::string_t * _type = 0;
-    ::ecorecpp::mapping::type_traits::string_t _name(xercesToWstring(name));
+    ::ecorecpp::mapping::type_definitions::string_t * _type = 0;
+    ::ecorecpp::mapping::type_definitions::string_t _name(xercesToWstring(name));
     static MetaModelRepository_ptr _mmr = MetaModelRepository::_instance();
 
     // Data
@@ -101,7 +102,7 @@ void handler::startElement(const XMLCh * const name,
     EClass_ptr eclass = 0;
     EObject_ptr eobj = 0;
     const XMLSize_t length = attributes.getLength();
-    std::vector< std::pair< ::ecorecpp::mapping::type_traits::string_t, ::ecorecpp::mapping::type_traits::string_t > > attr_list(length);
+    std::vector< std::pair< ::ecorecpp::mapping::type_definitions::string_t, ::ecorecpp::mapping::type_definitions::string_t > > attr_list(length);
 
     if (!m_level)
         _type = &_name;
@@ -123,8 +124,8 @@ void handler::startElement(const XMLCh * const name,
     if (_type)
     {
         size_t const double_dot = _type->find(L':', 0);
-        ::ecorecpp::mapping::type_traits::string_t _type_ns = _type->substr(0, double_dot);
-        ::ecorecpp::mapping::type_traits::string_t _type_name = _type->substr(double_dot + 1);
+        ::ecorecpp::mapping::type_definitions::string_t _type_ns = _type->substr(0, double_dot);
+        ::ecorecpp::mapping::type_definitions::string_t _type_name = _type->substr(double_dot + 1);
 
         epkg = _mmr->getByName(_type_ns);
 
@@ -162,13 +163,13 @@ void handler::startElement(const XMLCh * const name,
         {
             try
             {
-                ::ecorecpp::mapping::type_traits::string_t const& _aname =
+                ::ecorecpp::mapping::type_definitions::string_t const& _aname =
                     attr_list[i].first;
 
                 if (!isAtCurrentNamespace(_aname))
                     continue;
 
-                ::ecorecpp::mapping::type_traits::string_t const& _avalue =
+                ::ecorecpp::mapping::type_definitions::string_t const& _avalue =
                       attr_list[i].second;
 
                 DEBUG_MSG(cout, "    --- Attributes: (" << (i + 1) << "/"
@@ -271,8 +272,8 @@ void handler::resolveReferences()
     {
         unresolved_reference_t const& ref = m_unresolved_references.back();
 
-        ::ecorecpp::mapping::type_traits::string_t const& xpath = ref.xpath;
-        ::ecorecpp::mapping::type_traits::string_t const& name = ref.ref_name;
+        ::ecorecpp::mapping::type_definitions::string_t const& xpath = ref.xpath;
+        ::ecorecpp::mapping::type_definitions::string_t const& name = ref.ref_name;
         EObject_ptr const& eobj = ref.eobject;
         EClass_ptr const& eclass = ref.eclass;
 
@@ -289,7 +290,7 @@ void handler::resolveReferences()
 
             // Parse reference
             size_t size = xpath.size();
-            const ::ecorecpp::mapping::type_traits::char_t * s = xpath.c_str();
+            const ::ecorecpp::mapping::type_definitions::char_t * s = xpath.c_str();
 
             SemanticState ss;
             reference::State< SemanticState > st(ss, s, size);
@@ -317,7 +318,7 @@ void handler::resolveReferences()
                     EClass_ptr cl = instanceOf< EClass > (_current);
                     EPackage_ptr pkg = instanceOf< EPackage > (_current);
 
-                    ::ecorecpp::mapping::type_traits::string_t const& _current_id = _path[j].get_id();
+                    ::ecorecpp::mapping::type_definitions::string_t const& _current_id = _path[j].get_id();
 
                     if (pkg)
                     {
@@ -389,7 +390,7 @@ void handler::resolveReferences()
 
 }
 
-inline bool handler::isAtCurrentNamespace(const ::ecorecpp::mapping::type_traits::string_t& _name)
+inline bool handler::isAtCurrentNamespace(const ::ecorecpp::mapping::type_definitions::string_t& _name)
 {
-    return _name.find(':') == ::ecorecpp::mapping::type_traits::string_t::npos;
+    return _name.find(':') == ::ecorecpp::mapping::type_definitions::string_t::npos;
 }

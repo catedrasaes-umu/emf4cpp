@@ -47,6 +47,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <ecorecpp/notify.hpp>
 #endif
 
+«PROTECT CSTART '/*' CEND '*/' ID name+".cpp" DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+«ENDPROTECT»
+
 using namespace ::«EPackage.getFQN()»;
 
 // Default constructor
@@ -61,10 +66,19 @@ using namespace ::«EPackage.getFQN()»;
 «ENDLET-»
 «ENDLET-»
 {
+«IF "::"+this.getFQN() == "::ecore::EObject"-»
+    m_refCount = 0u;
+«ENDIF-»
 
-«FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+«IF (boolean) GLOBALVAR bootstrap»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+    «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParametersOptional()»));
+    «ENDFOREACH-»
+«ELSE»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
     «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParameters()»));
-«ENDFOREACH-»
+    «ENDFOREACH-»
+«ENDIF»
 
 «PROTECT CSTART '/*' CEND '*/' ID name+"Impl__"+name+"Impl" DISABLE»
 // Please, enable the protected region if you add manually written code.
@@ -76,22 +90,44 @@ using namespace ::«EPackage.getFQN()»;
 #endif
 }
 
+«IF "::"+this.getFQN() == "::ecore::EObject"-»
+// Copy constructor only for EObject, needed to properly initialize reference counting
+«name»::«name»(const «name»&)
+{
+    m_refCount = 0u;
+
+«IF (boolean) GLOBALVAR bootstrap»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+    «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParametersOptional()»));
+    «ENDFOREACH-»
+«ELSE»
+    «FOREACH EReferences.select(e|e.upperBound != 1) AS ref-»
+    «ref.getRefMemberName()».reset(new «ref.getListImpl()»(«ref.getListImplConstructorParameters()»));
+    «ENDFOREACH-»
+«ENDIF»
+
+«PROTECT CSTART '/*' CEND '*/' ID name+"Impl__"+name+"ImplConst" DISABLE»
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+«ENDPROTECT»
+
+#ifdef ECORECPP_NOTIFICATION_API
+    m_eDeliver = false;
+#endif
+}
+«ENDIF»
+
 «name»::~«name»()
 {
     «FOREACH this.EReferences.select(e|e.containment) AS ref-»
         «IF ref.upperBound == 1-»
     if («ref.getMemberName()»)
     {
-        delete «ref.getMemberName()»;
+        «ref.getMemberName()».reset();
     }
         «ENDIF-»
     «ENDFOREACH-»
 }
-
-«PROTECT CSTART '/*' CEND '*/' ID name+".cpp" DISABLE»
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-«ENDPROTECT»
 
 // Attributes
 «FOREACH this.EAttributes AS at»
@@ -111,8 +147,8 @@ using namespace ::«EPackage.getFQN()»;
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) «EPackage.getFeatureGetMemberCall(at)»,
+                _this(),
+                «EPackage.getFeatureGetMemberCall(at)»,
                 _old_«at.name»,
                 «at.getAttrMemberName()»
             );
@@ -135,7 +171,7 @@ using namespace ::«EPackage.getFQN()»;
         throw "Attribute counter out of bounds!";
     «ENDIF-»
     if ( _position >= «attrn».size() )
-        «attrn».resize(_position + 1, 0);
+        «attrn».resize(_position + 1, «at.getCPPTypeSignatureImpl()»());
 
     «attrn»[_position] = _new_element_in_«at.name»;
     «ENDLET-»
@@ -161,7 +197,8 @@ using namespace ::«EPackage.getFQN()»;
 
 // References
 «FOREACH this.EReferences AS ref-»
-«ref.getGetCPPSignature(name+"::")»
+	«REM»Always create a const getter«ENDREM»
+«ref.getGetCPPSignatureConst(name+"::")»
 {
     «IF !ref.isMultiple()-»
     return «ref.getRefMemberName()»;
@@ -170,11 +207,37 @@ using namespace ::«EPackage.getFQN()»;
     «ENDIF-»
 }
 
-    «IF !ref.isMultiple()-»
-«ref.getSetCPPSignature(name+"::")» 
+    «IF ref.isMultiple()-»
+		«REM»In case of a container emit another non-const version«ENDREM»
+«ref.getGetCPPSignature(name+"::")»
 {
-    «ref.getCPPTypeSignature()» _old_«ref.name» = «ref.getRefMemberName()»;
+    return *«ref.getRefMemberName()»;
+}
 
+    «ELSE-»
+	   «IF ref.EOpposite != null-»
+«ref.getGetCPPSignature(name+"::basic")»
+{
+    return «ref.getRefMemberName()»;
+}
+       «ENDIF-»
+
+       «IF ref.EOpposite != null-»
+«ref.getSetCPPSignature(name+"::basic")»
+       «ELSE-»
+«ref.getSetCPPSignature(name+"::")» 
+       «ENDIF-»
+{
+    «IF ref.containment-»
+        if («ref.getMemberName()»)
+            «ref.getMemberName()»->_setEContainer(«name»_ptr(), «EPackage.getFeatureGetMemberCall(ref)»);
+        if (_«ref.name»)
+            _«ref.name»->_setEContainer(_this(), «EPackage.getFeatureGetMemberCall(ref)»);
+    
+    «ENDIF-»
+#ifdef ECORECPP_NOTIFICATION_API
+    «ref.getPtr()» _old_«ref.name» = «ref.getRefMemberName()»;
+#endif
     «ref.getRefMemberName()» = _«ref.name»;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -182,19 +245,38 @@ using namespace ::«EPackage.getFQN()»;
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) «EPackage.getFeatureGetMemberCall(ref)»,
+                _this(),
+                «EPackage.getFeatureGetMemberCall(ref)»,
                 _old_«ref.name»,
                 «ref.getRefMemberName()»
             );
         eNotify(&notification);
     }
 #endif
-
-    «IF ref.containment-»
-    delete _old_«ref.name»;
-    «ENDIF-»
 }
+
+    «IF ref.EOpposite != null-»
+«ref.getSetCPPSignature(name+"::")»
+{
+	if (_«ref.name» != «ref.getRefMemberName()»)
+	{
+		::ecore::EJavaObject _this = ::ecore::EObject::_this();
+                if («ref.getRefMemberName()» != nullptr)
+		{
+		        «ref.getRefMemberName()»->_inverseRemove(
+			    «ref.EOpposite.EContainingClass.EPackage.getPackageFQN()»::«ref.EOpposite.getFeatureIDFQN()»,
+			    _this);
+		}
+		if (_«ref.name» != nullptr)
+		{
+		        _«ref.name»->_inverseAdd(
+			    «ref.EOpposite.EContainingClass.EPackage.getPackageFQN()»::«ref.EOpposite.getFeatureIDFQN()»,
+			    _this);
+		}
+		«ref.getSetCPPCall("basic")»(_«ref.name»);
+	}
+}
+       «ENDIF-»
 
     «ENDIF-»
 «ENDFOREACH-»

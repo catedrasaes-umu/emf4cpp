@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/KdmFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,7 +40,6 @@ using namespace ::kdm::kdm;
 
 KdmFactory::KdmFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr KdmFactory::create(::ecore::EClass_ptr _eClass)
@@ -98,50 +98,50 @@ KdmFactory::KdmFactory()
 
 KDMFramework_ptr KdmFactory::createKDMFramework()
 {
-    return new KDMFramework();
+    return ::ecore::Ptr < KDMFramework > (new KDMFramework);
 }
 KDMModel_ptr KdmFactory::createKDMModel()
 {
-    return new KDMModel();
+    return ::ecore::Ptr < KDMModel > (new KDMModel);
 }
 Audit_ptr KdmFactory::createAudit()
 {
-    return new Audit();
+    return ::ecore::Ptr < Audit > (new Audit);
 }
 Segment_ptr KdmFactory::createSegment()
 {
-    return new Segment();
+    return ::ecore::Ptr < Segment > (new Segment);
 }
 Attribute_ptr KdmFactory::createAttribute()
 {
-    return new Attribute();
+    return ::ecore::Ptr < Attribute > (new Attribute);
 }
 Annotation_ptr KdmFactory::createAnnotation()
 {
-    return new Annotation();
+    return ::ecore::Ptr < Annotation > (new Annotation);
 }
 TagDefinition_ptr KdmFactory::createTagDefinition()
 {
-    return new TagDefinition();
+    return ::ecore::Ptr < TagDefinition > (new TagDefinition);
 }
 ExtendedValue_ptr KdmFactory::createExtendedValue()
 {
-    return new ExtendedValue();
+    return ::ecore::Ptr < ExtendedValue > (new ExtendedValue);
 }
 Stereotype_ptr KdmFactory::createStereotype()
 {
-    return new Stereotype();
+    return ::ecore::Ptr < Stereotype > (new Stereotype);
 }
 ExtensionFamily_ptr KdmFactory::createExtensionFamily()
 {
-    return new ExtensionFamily();
+    return ::ecore::Ptr < ExtensionFamily > (new ExtensionFamily);
 }
 TaggedRef_ptr KdmFactory::createTaggedRef()
 {
-    return new TaggedRef();
+    return ::ecore::Ptr < TaggedRef > (new TaggedRef);
 }
 TaggedValue_ptr KdmFactory::createTaggedValue()
 {
-    return new TaggedValue();
+    return ::ecore::Ptr < TaggedValue > (new TaggedValue);
 }
 

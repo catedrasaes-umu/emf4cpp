@@ -2,6 +2,7 @@
 /*
  * kdm/data/IndexElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(IndexElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -47,8 +53,9 @@ IndexElement::IndexElement()
 {
 
     m_implementation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::ItemUnit,
-                    -1, false, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::ItemUnit_ptr, -1, false, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getIndexElement__implementation()));
 
     /*PROTECTED REGION ID(IndexElementImpl__IndexElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,14 +71,16 @@ IndexElement::~IndexElement()
 {
 }
 
-/*PROTECTED REGION ID(IndexElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& IndexElement::getImplementation()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& IndexElement::getImplementation() const
+{
+    return *m_implementation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& IndexElement::getImplementation()
 {
     return *m_implementation;
 }

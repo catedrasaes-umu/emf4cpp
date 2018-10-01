@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/ErrorStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ErrorStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -50,18 +56,15 @@ ErrorStatement::~ErrorStatement()
 {
     if (m_message)
     {
-        delete m_message;
+        m_message.reset();
     }
 }
 
-/*PROTECTED REGION ID(ErrorStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr ErrorStatement::getMessage()
+
+::xpand3::expression::AbstractExpression_ptr ErrorStatement::getMessage() const
 {
     return m_message;
 }
@@ -69,8 +72,16 @@ ErrorStatement::~ErrorStatement()
 void ErrorStatement::setMessage(
         ::xpand3::expression::AbstractExpression_ptr _message)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_message = m_message;
+    if (m_message)
+        m_message->_setEContainer(ErrorStatement_ptr(),
+                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
+    if (_message)
+        _message->_setEContainer(_this(),
+                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_message = m_message;
+#endif
     m_message = _message;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -78,15 +89,13 @@ void ErrorStatement::setMessage(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message(),
+                _this(),
+                ::xpand3::statement::StatementPackage::_instance()->getErrorStatement__message(),
                 _old_message,
                 m_message
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_message;
 }
 

@@ -2,6 +2,7 @@
 /*
  * kdm/build_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,95 +44,91 @@ namespace kdm
 
 // AbstractBuildElement
         class AbstractBuildElement;
-        typedef AbstractBuildElement* AbstractBuildElement_ptr;
+        using AbstractBuildElement_ptr = ::ecore::Ptr<AbstractBuildElement>;
 
 // BuildResource
         class BuildResource;
-        typedef BuildResource* BuildResource_ptr;
+        using BuildResource_ptr = ::ecore::Ptr<BuildResource>;
 
 // BuildDescription
         class BuildDescription;
-        typedef BuildDescription* BuildDescription_ptr;
+        using BuildDescription_ptr = ::ecore::Ptr<BuildDescription>;
 
 // SymbolicLink
         class SymbolicLink;
-        typedef SymbolicLink* SymbolicLink_ptr;
+        using SymbolicLink_ptr = ::ecore::Ptr<SymbolicLink>;
 
 // AbstractBuildRelationship
         class AbstractBuildRelationship;
-        typedef AbstractBuildRelationship* AbstractBuildRelationship_ptr;
+        using AbstractBuildRelationship_ptr = ::ecore::Ptr<AbstractBuildRelationship>;
 
 // LinksTo
         class LinksTo;
-        typedef LinksTo* LinksTo_ptr;
+        using LinksTo_ptr = ::ecore::Ptr<LinksTo>;
 
 // Consumes
         class Consumes;
-        typedef Consumes* Consumes_ptr;
+        using Consumes_ptr = ::ecore::Ptr<Consumes>;
 
 // BuildModel
         class BuildModel;
-        typedef BuildModel* BuildModel_ptr;
+        using BuildModel_ptr = ::ecore::Ptr<BuildModel>;
 
 // BuildComponent
         class BuildComponent;
-        typedef BuildComponent* BuildComponent_ptr;
+        using BuildComponent_ptr = ::ecore::Ptr<BuildComponent>;
 
 // Supplier
         class Supplier;
-        typedef Supplier* Supplier_ptr;
+        using Supplier_ptr = ::ecore::Ptr<Supplier>;
 
 // Tool
         class Tool;
-        typedef Tool* Tool_ptr;
+        using Tool_ptr = ::ecore::Ptr<Tool>;
 
 // BuildElement
         class BuildElement;
-        typedef BuildElement* BuildElement_ptr;
+        using BuildElement_ptr = ::ecore::Ptr<BuildElement>;
 
 // BuildRelationship
         class BuildRelationship;
-        typedef BuildRelationship* BuildRelationship_ptr;
+        using BuildRelationship_ptr = ::ecore::Ptr<BuildRelationship>;
 
 // SuppliedBy
         class SuppliedBy;
-        typedef SuppliedBy* SuppliedBy_ptr;
+        using SuppliedBy_ptr = ::ecore::Ptr<SuppliedBy>;
 
 // Library
         class Library;
-        typedef Library* Library_ptr;
+        using Library_ptr = ::ecore::Ptr<Library>;
 
 // BuildStep
         class BuildStep;
-        typedef BuildStep* BuildStep_ptr;
+        using BuildStep_ptr = ::ecore::Ptr<BuildStep>;
 
 // Produces
         class Produces;
-        typedef Produces* Produces_ptr;
+        using Produces_ptr = ::ecore::Ptr<Produces>;
 
 // SupportedBy
         class SupportedBy;
-        typedef SupportedBy* SupportedBy_ptr;
+        using SupportedBy_ptr = ::ecore::Ptr<SupportedBy>;
 
 // BuildProduct
         class BuildProduct;
-        typedef BuildProduct* BuildProduct_ptr;
+        using BuildProduct_ptr = ::ecore::Ptr<BuildProduct>;
 
 // DescribedBy
         class DescribedBy;
-        typedef DescribedBy* DescribedBy_ptr;
+        using DescribedBy_ptr = ::ecore::Ptr<DescribedBy>;
+
+// EEnum
 
 // Package & Factory
         class BuildFactory;
-        typedef BuildFactory * BuildFactory_ptr;
+        using BuildFactory_ptr = ::ecore::Ptr<BuildFactory>;
         class BuildPackage;
-        typedef BuildPackage * BuildPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using BuildPackage_ptr = ::ecore::Ptr<BuildPackage>;
 
     } // build
 } // kdm

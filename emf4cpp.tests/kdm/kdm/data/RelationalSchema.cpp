@@ -2,6 +2,7 @@
 /*
  * kdm/data/RelationalSchema.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,6 +42,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(RelationalSchema.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -48,8 +54,9 @@ RelationalSchema::RelationalSchema()
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::CodeItem_ptr, -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getRelationalSchema__codeElement()));
 
     /*PROTECTED REGION ID(RelationalSchemaImpl__RelationalSchemaImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,14 +72,16 @@ RelationalSchema::~RelationalSchema()
 {
 }
 
-/*PROTECTED REGION ID(RelationalSchema.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& RelationalSchema::getCodeElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& RelationalSchema::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& RelationalSchema::getCodeElement()
 {
     return *m_codeElement;
 }

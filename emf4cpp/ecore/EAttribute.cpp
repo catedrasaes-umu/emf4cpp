@@ -2,6 +2,7 @@
 /*
  * ecore/EAttribute.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -33,16 +34,21 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EAttribute.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EAttribute::EAttribute() :
-    m_eAttributeType(0)
+        m_eAttributeType(0)
 {
 
     /*PROTECTED REGION ID(EAttributeImpl__EAttributeImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -53,11 +59,6 @@ EAttribute::EAttribute() :
 EAttribute::~EAttribute()
 {
 }
-
-/*PROTECTED REGION ID(EAttribute.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
 
 // Attributes
 
@@ -77,8 +78,8 @@ void EAttribute::setID(::ecore::EBoolean _iD)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEAttribute__iD(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEAttribute__iD(),
                 _old_iD,
                 m_iD
         );
@@ -88,15 +89,17 @@ void EAttribute::setID(::ecore::EBoolean _iD)
 }
 
 // References
-::ecore::EDataType_ptr EAttribute::getEAttributeType()
+
+::ecore::EDataType_ptr EAttribute::getEAttributeType() const
 {
     return m_eAttributeType;
 }
 
 void EAttribute::setEAttributeType(::ecore::EDataType_ptr _eAttributeType)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EDataType_ptr _old_eAttributeType = m_eAttributeType;
-
+#endif
     m_eAttributeType = _eAttributeType;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -104,14 +107,13 @@ void EAttribute::setEAttributeType(::ecore::EDataType_ptr _eAttributeType)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEAttribute__eAttributeType(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEAttribute__eAttributeType(),
                 _old_eAttributeType,
                 m_eAttributeType
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

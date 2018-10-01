@@ -2,6 +2,7 @@
 /*
  * kdm/ui/ReadsUI.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef KDM_UI_READSUI_HPP
 #define KDM_UI_READSUI_HPP
 
-#include <kdm/ui_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/ui_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/action_forward.hpp>
 #include <kdm/action/AbstractActionRelationship.hpp>
+
+#include "UiPackage.hpp"
 
 /*PROTECTED REGION ID(ReadsUI_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -37,58 +42,66 @@ namespace kdm
     namespace ui
     {
 
-        class ReadsUI: public virtual ::kdm::action::AbstractActionRelationship
-        {
-        public:
-            ReadsUI();
+    class EXPORT_KDM_DLL ReadsUI : public virtual ::kdm::action::AbstractActionRelationship
+    {
+    public:
+        ReadsUI();
 
-            virtual ~ReadsUI();
+        virtual ~ReadsUI();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::kdm::ui::UIResource_ptr getTo();
-            void setTo(::kdm::ui::UIResource_ptr _to);
+        // References
+        virtual ::kdm::ui::UIResource_ptr getTo () const;
+        virtual void setTo (::kdm::ui::UIResource_ptr _to);
 
-            ::kdm::action::ActionElement_ptr getFrom();
-            void setFrom(::kdm::action::ActionElement_ptr _from);
+        virtual ::kdm::action::ActionElement_ptr getFrom () const;
+        virtual void setFrom (::kdm::action::ActionElement_ptr _from);
 
-            /*PROTECTED REGION ID(ReadsUI) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = UiPackage::READSUI;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(ReadsUI) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(ReadsUIImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(ReadsUIImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        ReadsUI_ptr _this()
+        {   return ReadsUI_ptr(this);}
 
-            ::kdm::ui::UIResource_ptr m_to;
+        // Attributes
 
-            ::kdm::action::ActionElement_ptr m_from;
+        // References
 
-        };
+        ::kdm::ui::UIResource_ptr m_to;
 
-    } // ui
-} // kdm
+        ::kdm::action::ActionElement_ptr m_from;
+
+    };
+
+}
+ // ui
+}// kdm
 
 #endif // KDM_UI_READSUI_HPP
 

@@ -2,6 +2,7 @@
 /*
  * xpand3/DeclaredParameter.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(DeclaredParameter.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3;
 
 // Default constructor
@@ -50,30 +56,35 @@ DeclaredParameter::~DeclaredParameter()
 {
     if (m_name)
     {
-        delete m_name;
+        m_name.reset();
     }
     if (m_type)
     {
-        delete m_type;
+        m_type.reset();
     }
 }
 
-/*PROTECTED REGION ID(DeclaredParameter.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::Identifier_ptr DeclaredParameter::getName()
+
+::xpand3::Identifier_ptr DeclaredParameter::getName() const
 {
     return m_name;
 }
 
 void DeclaredParameter::setName(::xpand3::Identifier_ptr _name)
 {
-    ::xpand3::Identifier_ptr _old_name = m_name;
+    if (m_name)
+        m_name->_setEContainer(DeclaredParameter_ptr(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
+    if (_name)
+        _name->_setEContainer(_this(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_name = m_name;
+#endif
     m_name = _name;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -81,27 +92,33 @@ void DeclaredParameter::setName(::xpand3::Identifier_ptr _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__name(),
                 _old_name,
                 m_name
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_name;
 }
 
-::xpand3::Identifier_ptr DeclaredParameter::getType()
+::xpand3::Identifier_ptr DeclaredParameter::getType() const
 {
     return m_type;
 }
 
 void DeclaredParameter::setType(::xpand3::Identifier_ptr _type)
 {
-    ::xpand3::Identifier_ptr _old_type = m_type;
+    if (m_type)
+        m_type->_setEContainer(DeclaredParameter_ptr(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type());
+    if (_type)
+        _type->_setEContainer(_this(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_type = m_type;
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -109,15 +126,13 @@ void DeclaredParameter::setType(::xpand3::Identifier_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getDeclaredParameter__type(),
                 _old_type,
                 m_type
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_type;
 }
 

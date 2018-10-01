@@ -2,6 +2,7 @@
 /*
  * kdm/platform_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,143 +44,139 @@ namespace kdm
 
 // AbstractPlatformElement
         class AbstractPlatformElement;
-        typedef AbstractPlatformElement* AbstractPlatformElement_ptr;
+        using AbstractPlatformElement_ptr = ::ecore::Ptr<AbstractPlatformElement>;
 
 // PlatformModel
         class PlatformModel;
-        typedef PlatformModel* PlatformModel_ptr;
+        using PlatformModel_ptr = ::ecore::Ptr<PlatformModel>;
 
 // AbstractPlatformRelationship
         class AbstractPlatformRelationship;
-        typedef AbstractPlatformRelationship* AbstractPlatformRelationship_ptr;
+        using AbstractPlatformRelationship_ptr = ::ecore::Ptr<AbstractPlatformRelationship>;
 
 // Requires
         class Requires;
-        typedef Requires* Requires_ptr;
+        using Requires_ptr = ::ecore::Ptr<Requires>;
 
 // ResourceType
         class ResourceType;
-        typedef ResourceType* ResourceType_ptr;
+        using ResourceType_ptr = ::ecore::Ptr<ResourceType>;
 
 // NamingResource
         class NamingResource;
-        typedef NamingResource* NamingResource_ptr;
+        using NamingResource_ptr = ::ecore::Ptr<NamingResource>;
 
 // MarshalledResource
         class MarshalledResource;
-        typedef MarshalledResource* MarshalledResource_ptr;
+        using MarshalledResource_ptr = ::ecore::Ptr<MarshalledResource>;
 
 // MessagingResource
         class MessagingResource;
-        typedef MessagingResource* MessagingResource_ptr;
+        using MessagingResource_ptr = ::ecore::Ptr<MessagingResource>;
 
 // FileResource
         class FileResource;
-        typedef FileResource* FileResource_ptr;
+        using FileResource_ptr = ::ecore::Ptr<FileResource>;
 
 // ExecutionResource
         class ExecutionResource;
-        typedef ExecutionResource* ExecutionResource_ptr;
+        using ExecutionResource_ptr = ::ecore::Ptr<ExecutionResource>;
 
 // PlatformAction
         class PlatformAction;
-        typedef PlatformAction* PlatformAction_ptr;
+        using PlatformAction_ptr = ::ecore::Ptr<PlatformAction>;
 
 // ExternalActor
         class ExternalActor;
-        typedef ExternalActor* ExternalActor_ptr;
+        using ExternalActor_ptr = ::ecore::Ptr<ExternalActor>;
 
 // DataManager
         class DataManager;
-        typedef DataManager* DataManager_ptr;
+        using DataManager_ptr = ::ecore::Ptr<DataManager>;
 
 // BindsTo
         class BindsTo;
-        typedef BindsTo* BindsTo_ptr;
+        using BindsTo_ptr = ::ecore::Ptr<BindsTo>;
 
 // PlatformElement
         class PlatformElement;
-        typedef PlatformElement* PlatformElement_ptr;
+        using PlatformElement_ptr = ::ecore::Ptr<PlatformElement>;
 
 // PlatformRelationship
         class PlatformRelationship;
-        typedef PlatformRelationship* PlatformRelationship_ptr;
+        using PlatformRelationship_ptr = ::ecore::Ptr<PlatformRelationship>;
 
 // PlatformEvent
         class PlatformEvent;
-        typedef PlatformEvent* PlatformEvent_ptr;
+        using PlatformEvent_ptr = ::ecore::Ptr<PlatformEvent>;
 
 // LockResource
         class LockResource;
-        typedef LockResource* LockResource_ptr;
+        using LockResource_ptr = ::ecore::Ptr<LockResource>;
 
 // DeployedSoftwareSystem
         class DeployedSoftwareSystem;
-        typedef DeployedSoftwareSystem* DeployedSoftwareSystem_ptr;
+        using DeployedSoftwareSystem_ptr = ::ecore::Ptr<DeployedSoftwareSystem>;
 
 // Machine
         class Machine;
-        typedef Machine* Machine_ptr;
+        using Machine_ptr = ::ecore::Ptr<Machine>;
 
 // DeployedComponent
         class DeployedComponent;
-        typedef DeployedComponent* DeployedComponent_ptr;
+        using DeployedComponent_ptr = ::ecore::Ptr<DeployedComponent>;
 
 // DeployedResource
         class DeployedResource;
-        typedef DeployedResource* DeployedResource_ptr;
+        using DeployedResource_ptr = ::ecore::Ptr<DeployedResource>;
 
 // Loads
         class Loads;
-        typedef Loads* Loads_ptr;
+        using Loads_ptr = ::ecore::Ptr<Loads>;
 
 // Spawns
         class Spawns;
-        typedef Spawns* Spawns_ptr;
+        using Spawns_ptr = ::ecore::Ptr<Spawns>;
 
 // RuntimeResource
         class RuntimeResource;
-        typedef RuntimeResource* RuntimeResource_ptr;
+        using RuntimeResource_ptr = ::ecore::Ptr<RuntimeResource>;
 
 // Thread
         class Thread;
-        typedef Thread* Thread_ptr;
+        using Thread_ptr = ::ecore::Ptr<Thread>;
 
 // Process
         class Process;
-        typedef Process* Process_ptr;
+        using Process_ptr = ::ecore::Ptr<Process>;
 
 // ReadsResource
         class ReadsResource;
-        typedef ReadsResource* ReadsResource_ptr;
+        using ReadsResource_ptr = ::ecore::Ptr<ReadsResource>;
 
 // WritesResource
         class WritesResource;
-        typedef WritesResource* WritesResource_ptr;
+        using WritesResource_ptr = ::ecore::Ptr<WritesResource>;
 
 // ManagesResource
         class ManagesResource;
-        typedef ManagesResource* ManagesResource_ptr;
+        using ManagesResource_ptr = ::ecore::Ptr<ManagesResource>;
 
 // DefinedBy
         class DefinedBy;
-        typedef DefinedBy* DefinedBy_ptr;
+        using DefinedBy_ptr = ::ecore::Ptr<DefinedBy>;
 
 // StreamResource
         class StreamResource;
-        typedef StreamResource* StreamResource_ptr;
+        using StreamResource_ptr = ::ecore::Ptr<StreamResource>;
+
+// EEnum
 
 // Package & Factory
         class PlatformFactory;
-        typedef PlatformFactory * PlatformFactory_ptr;
+        using PlatformFactory_ptr = ::ecore::Ptr<PlatformFactory>;
         class PlatformPackage;
-        typedef PlatformPackage * PlatformPackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using PlatformPackage_ptr = ::ecore::Ptr<PlatformPackage>;
 
     } // platform
 } // kdm

@@ -2,6 +2,7 @@
 /*
  * kdm/event/EventResource.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EventResource.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::event;
 
 // Default constructor
@@ -48,8 +54,9 @@ EventResource::EventResource()
 
     m_eventElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::event::AbstractEventElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::event::AbstractEventElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::event::EventPackage::_instance()->getEventResource__eventElement()));
 
     /*PROTECTED REGION ID(EventResourceImpl__EventResourceImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,14 +72,16 @@ EventResource::~EventResource()
 {
 }
 
-/*PROTECTED REGION ID(EventResource.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement >& EventResource::getEventElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement_ptr >& EventResource::getEventElement() const
+{
+    return *m_eventElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::event::AbstractEventElement_ptr >& EventResource::getEventElement()
 {
     return *m_eventElement;
 }

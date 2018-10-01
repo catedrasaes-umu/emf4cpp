@@ -2,6 +2,7 @@
 /*
  * xpand3/ImportStatement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ImportStatement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3;
 
 // Default constructor
@@ -50,16 +56,12 @@ ImportStatement::~ImportStatement()
 {
     if (m_importedId)
     {
-        delete m_importedId;
+        m_importedId.reset();
     }
 }
 
-/*PROTECTED REGION ID(ImportStatement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean ImportStatement::isExported() const
 {
     return m_exported;
@@ -76,8 +78,8 @@ void ImportStatement::setExported(::ecore::EBoolean _exported)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getImportStatement__exported(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__exported(),
                 _old_exported,
                 m_exported
         );
@@ -87,15 +89,24 @@ void ImportStatement::setExported(::ecore::EBoolean _exported)
 }
 
 // References
-::xpand3::Identifier_ptr ImportStatement::getImportedId()
+
+::xpand3::Identifier_ptr ImportStatement::getImportedId() const
 {
     return m_importedId;
 }
 
 void ImportStatement::setImportedId(::xpand3::Identifier_ptr _importedId)
 {
-    ::xpand3::Identifier_ptr _old_importedId = m_importedId;
+    if (m_importedId)
+        m_importedId->_setEContainer(ImportStatement_ptr(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
+    if (_importedId)
+        _importedId->_setEContainer(_this(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_importedId = m_importedId;
+#endif
     m_importedId = _importedId;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -103,15 +114,13 @@ void ImportStatement::setImportedId(::xpand3::Identifier_ptr _importedId)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId(),
+                _this(),
+                ::xpand3::Xpand3Package::_instance()->getImportStatement__importedId(),
                 _old_importedId,
                 m_importedId
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_importedId;
 }
 

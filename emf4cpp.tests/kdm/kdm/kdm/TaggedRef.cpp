@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/TaggedRef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(TaggedRef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::kdm;
 
 // Default constructor
@@ -53,22 +59,20 @@ TaggedRef::~TaggedRef()
 {
 }
 
-/*PROTECTED REGION ID(TaggedRef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::core::ModelElement_ptr TaggedRef::getReference()
+
+::kdm::core::ModelElement_ptr TaggedRef::getReference() const
 {
     return m_reference;
 }
 
 void TaggedRef::setReference(::kdm::core::ModelElement_ptr _reference)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::core::ModelElement_ptr _old_reference = m_reference;
-
+#endif
     m_reference = _reference;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -76,14 +80,13 @@ void TaggedRef::setReference(::kdm::core::ModelElement_ptr _reference)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::kdm::KdmPackage::_instance()->getTaggedRef__reference(),
+                _this(),
+                ::kdm::kdm::KdmPackage::_instance()->getTaggedRef__reference(),
                 _old_reference,
                 m_reference
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

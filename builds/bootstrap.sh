@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 EMF4CPPDIR=../..
 
@@ -10,9 +10,24 @@ create_cfg ()
     (cd ${CFG} && cmake $@ ${EMF4CPPDIR})
 }
 
-# release
-create_cfg "release" -DCMAKE_BUILD_TYPE=Release
+create_win_cfg ()
+{
+    CFG=$1
+    shift
+    mkdir -p ${CFG}
+    (cd ${CFG} && cmake -G "MSYS Makefiles" $@ ${EMF4CPPDIR})
+}
 
-# debug
-create_cfg "debug" -DCMAKE_BUILD_TYPE=Debug
+if [[ "$OSTYPE" == "msys" ]]; then
+	# release
+	create_win_cfg "release" -DCMAKE_BUILD_TYPE=Release
 
+	# debug
+	create_win_cfg "debug" -DCMAKE_BUILD_TYPE=Debug
+else
+	# release
+	create_cfg "release" -DCMAKE_BUILD_TYPE=Release
+
+	# debug
+	create_cfg "debug" -DCMAKE_BUILD_TYPE=Debug
+fi

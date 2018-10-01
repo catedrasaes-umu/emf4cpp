@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/AbstractAspect.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractAspect.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -53,16 +59,12 @@ AbstractAspect::~AbstractAspect()
 {
     if (m_pointcut)
     {
-        delete m_pointcut;
+        m_pointcut.reset();
     }
 }
 
-/*PROTECTED REGION ID(AbstractAspect.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean AbstractAspect::isWildparams() const
 {
     return m_wildparams;
@@ -79,8 +81,8 @@ void AbstractAspect::setWildparams(::ecore::EBoolean _wildparams)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__wildparams(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__wildparams(),
                 _old_wildparams,
                 m_wildparams
         );
@@ -90,15 +92,24 @@ void AbstractAspect::setWildparams(::ecore::EBoolean _wildparams)
 }
 
 // References
-::xpand3::Identifier_ptr AbstractAspect::getPointcut()
+
+::xpand3::Identifier_ptr AbstractAspect::getPointcut() const
 {
     return m_pointcut;
 }
 
 void AbstractAspect::setPointcut(::xpand3::Identifier_ptr _pointcut)
 {
-    ::xpand3::Identifier_ptr _old_pointcut = m_pointcut;
+    if (m_pointcut)
+        m_pointcut->_setEContainer(AbstractAspect_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
+    if (_pointcut)
+        _pointcut->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_pointcut = m_pointcut;
+#endif
     m_pointcut = _pointcut;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -106,15 +117,13 @@ void AbstractAspect::setPointcut(::xpand3::Identifier_ptr _pointcut)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractAspect__pointcut(),
                 _old_pointcut,
                 m_pointcut
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_pointcut;
 }
 

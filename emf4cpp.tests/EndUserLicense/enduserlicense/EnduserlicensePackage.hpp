@@ -2,6 +2,7 @@
 /*
  * enduserlicense/EnduserlicensePackage.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -22,39 +23,45 @@
 
 #include <ecore/EPackage.hpp>
 #include <enduserlicense_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
+
+#include <enduserlicense/dllEnduserlicense.hpp>
 
 namespace enduserlicense
 {
 
-    class EnduserlicensePackage: public virtual ::ecore::EPackage
-    {
-    public:
+class EXPORT_ENDUSERLICENSE_DLL EnduserlicensePackage : public virtual ::ecore::EPackage
+{
+public:
 
-        static EnduserlicensePackage_ptr _instance();
+    static EnduserlicensePackage_ptr _instance();
+    static EnduserlicensePackage_ptr _getInstanceAndRemoveOwnership();
 
-        // IDs for classifiers
+    // IDs for classifiers
 
-        // EClassifiers methods
+    // EClassifiers methods
 
-        // EStructuralFeatures methods
+    // EStructuralFeatures methods
 
-    protected:
+protected:
 
-        static std::auto_ptr< EnduserlicensePackage > s_instance;
+    static ::ecore::Ptr< EnduserlicensePackage > s_instance;
 
-        EnduserlicensePackage();
+    EnduserlicensePackage();
+    void _initPackage();
 
-        // EClass instances 
+    // EClass instances 
 
-        // EEnuminstances 
+    // EEnuminstances 
 
-        // EDataType instances 
+    // EDataType instances 
 
-        // EStructuralFeatures instances
+    // EStructuralFeatures instances
 
-    };
+};
 
-} // enduserlicense
+}
+ // enduserlicense
 
 #endif // _ENDUSERLICENSEPACKAGE_HPP
 

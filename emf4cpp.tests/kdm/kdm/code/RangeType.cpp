@@ -2,6 +2,7 @@
 /*
  * kdm/code/RangeType.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(RangeType.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -60,12 +66,8 @@ RangeType::~RangeType()
 {
 }
 
-/*PROTECTED REGION ID(RangeType.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::Integer RangeType::getLower() const
 {
     return m_lower;
@@ -82,8 +84,8 @@ void RangeType::setLower(::kdm::core::Integer _lower)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getRangeType__lower(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getRangeType__lower(),
                 _old_lower,
                 m_lower
         );
@@ -108,8 +110,8 @@ void RangeType::setUpper(::kdm::core::Integer _upper)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getRangeType__upper(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getRangeType__upper(),
                 _old_upper,
                 m_upper
         );

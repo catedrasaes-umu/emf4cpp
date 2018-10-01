@@ -20,6 +20,8 @@
 #define ECORECPP_NOTIFY_HPP
 
 #include <ecore_forward.hpp>
+#include <ecore/EStructuralFeature.hpp>
+#include <ecore/EAttribute.hpp>
 
 #include "notify_forward.hpp"
 #include "notify/Adapter.hpp"

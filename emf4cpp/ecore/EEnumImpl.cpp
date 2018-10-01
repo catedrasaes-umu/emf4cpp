@@ -2,6 +2,7 @@
 /*
  * ecore/EEnumImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,24 +32,22 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EEnumImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::ecore;
 
 void EEnum::_initialize()
 {
     // Supertypes
     ::ecore::EDataType::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_eLiterals->size(); i++)
     {
         (*m_eLiterals)[i]->_initialize();
-        (*m_eLiterals)[i]->_setEContainer(this,
-                ::ecore::EcorePackage::_instance()->getEEnum__eLiterals());
     }
 
     /*PROTECTED REGION ID(EEnumImpl__initialize) START*/
@@ -62,9 +61,11 @@ void EEnum::_initialize()
 ::ecore::EEnumLiteral_ptr EEnum::getEEnumLiteral(::ecore::EString const& _name)
 {
     /*PROTECTED REGION ID(EEnumImpl_getEEnumLiteral_1) ENABLED START*/
-    for (size_t i = 0; i < m_eLiterals->size(); i++)
-        if ((*m_eLiterals)[i]->getName() == _name)
-            return (*m_eLiterals)[i];
+    for (const auto& literal : *m_eLiterals)
+    {
+        if (literal->getName() == _name)
+            return literal;
+    }
 
     throw "InvalidNameLiteral";
     /*PROTECTED REGION END*/
@@ -73,9 +74,13 @@ void EEnum::_initialize()
 ::ecore::EEnumLiteral_ptr EEnum::getEEnumLiteral(::ecore::EInt _value)
 {
     /*PROTECTED REGION ID(EEnumImpl_getEEnumLiteral_0) ENABLED START*/
-    if (_value > int(m_eLiterals->size()))
-        throw "InvalidValue";
-    return (*m_eLiterals)[_value];
+    for (const auto& literal : *m_eLiterals)
+    {
+        if (literal->getValue() == _value)
+            return literal;
+    }
+
+    throw "InvalidValue";
     /*PROTECTED REGION END*/
 }
 
@@ -83,11 +88,13 @@ void EEnum::_initialize()
         ::ecore::EString const& _literal)
 {
     /*PROTECTED REGION ID(EEnumImpl_getEEnumLiteralByLiteral) ENABLED START*/
-    for (size_t i = 0; i < m_eLiterals->size(); i++)
-        if ((*m_eLiterals)[i]->getLiteral() == _literal)
-            return (*m_eLiterals)[i];
+    for (const auto& literal : *m_eLiterals)
+    {
+        if (literal->getLiteral() == _literal)
+            return literal;
+    }
 
-    throw "InvalidLiteral";
+    throw std::logic_error(std::string("InvalidLiteral: ") + _literal);
     /*PROTECTED REGION END*/
 }
 
@@ -100,45 +107,47 @@ void EEnum::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject > ();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any, m_name);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_name);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCECLASSNAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_instanceClassName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_instanceClassName);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCETYPENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::toAny(_any,
-                m_instanceTypeName);
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::toAny(_any, m_instanceTypeName);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_ePackage);
+        if (m_ePackage)
+            _any = ::ecore::as < ::ecore::EObject > (m_ePackage);
     }
         return _any;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
     {
-        _any = m_eTypeParameters->asEListOf< ::ecore::EObject > ();
+        _any = m_eTypeParameters->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::EDATATYPE__SERIALIZABLE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::toAny(_any,
-                m_serializable);
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::toAny(_any, m_serializable);
     }
         return _any;
     case ::ecore::EcorePackage::EENUM__ELITERALS:
     {
-        _any = m_eLiterals->asEListOf< ::ecore::EObject > ();
+        _any = m_eLiterals->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
 
@@ -153,59 +162,68 @@ void EEnum::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_name);
+        ::ecore::EString _t0;
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, _t0);
+        ::ecore::ENamedElement::setName(_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCECLASSNAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_instanceClassName);
+        ::ecore::EString _t0;
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EClassifier::setInstanceClassName(_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCETYPENAME:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EString >::fromAny(_newValue,
-                m_instanceTypeName);
+        ::ecore::EString _t0;
+        ::ecorecpp::mapping::any_traits < ::ecore::EString
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EClassifier::setInstanceTypeName(_t0);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EPackage_ptr _t1 =
+                dynamic_cast< ::ecore::EPackage* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EPackage >(_t0);*/
         ::ecore::EClassifier::setEPackage(_t1);
     }
         return;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EClassifier::getETypeParameters().clear();
         ::ecore::EClassifier::getETypeParameters().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::EDATATYPE__SERIALIZABLE:
     {
-        ::ecorecpp::mapping::any_traits< ::ecore::EBoolean >::fromAny(
-                _newValue, m_serializable);
+        ::ecore::EBoolean _t0;
+        ::ecorecpp::mapping::any_traits < ::ecore::EBoolean
+                > ::fromAny(_newValue, _t0);
+        ::ecore::EDataType::setSerializable(_t0);
     }
         return;
     case ::ecore::EcorePackage::EENUM__ELITERALS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EEnum::getELiterals().clear();
         ::ecore::EEnum::getELiterals().insert_all(*_t0);
     }
@@ -222,19 +240,19 @@ void EEnum::eSet(::ecore::EInt _featureID,
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
         return m_eAnnotations && m_eAnnotations->size();
     case ::ecore::EcorePackage::ENAMEDELEMENT__NAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_name);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_name);
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCECLASSNAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_instanceClassName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_instanceClassName);
     case ::ecore::EcorePackage::ECLASSIFIER__DEFAULTVALUE:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EJavaObject >::is_set(
-                m_defaultValue);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EJavaObject
+                > ::is_set(m_defaultValue);
     case ::ecore::EcorePackage::ECLASSIFIER__INSTANCETYPENAME:
-        return ::ecorecpp::mapping::set_traits< ::ecore::EString >::is_set(
-                m_instanceTypeName);
+        return ::ecorecpp::mapping::set_traits < ::ecore::EString
+                > ::is_set(m_instanceTypeName);
     case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
-        return m_ePackage;
+        return (bool) m_ePackage;
     case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
         return m_eTypeParameters && m_eTypeParameters->size();
     case ::ecore::EcorePackage::EDATATYPE__SERIALIZABLE:
@@ -257,9 +275,119 @@ void EEnum::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EEnum::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEEnum();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEEnum();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EEnum::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EPackage_ptr _t1 =
+                dynamic_cast< ::ecore::EPackage* >(_t0.get());
+
+        // set reference
+        basicsetEPackage(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EENUM__ELITERALS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EEnumLiteral_ptr _t1 =
+                dynamic_cast< ::ecore::EEnumLiteral* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EEnumLiteral_ptr, -1, true, true >&) ::ecore::EEnum::getELiterals();
+        container.basicAdd(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EEnum::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__EPACKAGE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EPackage_ptr _t1 =
+                dynamic_cast< ::ecore::EPackage* >(_t0.get());
+
+        // set reference
+        if (basicgetEPackage() == _t1)
+            basicsetEPackage(nullptr);
+    }
+        return;
+    case ::ecore::EcorePackage::ECLASSIFIER__ETYPEPARAMETERS:
+    {
+    }
+        return;
+    case ::ecore::EcorePackage::EENUM__ELITERALS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EEnumLiteral_ptr _t1 =
+                dynamic_cast< ::ecore::EEnumLiteral* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EEnumLiteral_ptr, -1, true, true >&) ::ecore::EEnum::getELiterals();
+        container.basicRemove(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

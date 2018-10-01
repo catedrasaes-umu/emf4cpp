@@ -2,6 +2,7 @@
 /*
  * idlmm/PrimitiveDef.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(PrimitiveDef.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::idlmm;
 
 // Default constructor
@@ -48,12 +54,8 @@ PrimitiveDef::~PrimitiveDef()
 {
 }
 
-/*PROTECTED REGION ID(PrimitiveDef.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::idlmm::PrimitiveKind PrimitiveDef::getKind() const
 {
     return m_kind;
@@ -70,8 +72,8 @@ void PrimitiveDef::setKind(::idlmm::PrimitiveKind _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::idlmm::IdlmmPackage::_instance()->getPrimitiveDef__kind(),
+                _this(),
+                ::idlmm::IdlmmPackage::_instance()->getPrimitiveDef__kind(),
                 _old_kind,
                 m_kind
         );

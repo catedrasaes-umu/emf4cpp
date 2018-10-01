@@ -2,6 +2,7 @@
 /*
  * kdm/source_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -43,87 +44,83 @@ namespace kdm
 
 // SourceRef
         class SourceRef;
-        typedef SourceRef* SourceRef_ptr;
+        using SourceRef_ptr = ::ecore::Ptr<SourceRef>;
 
 // SourceRegion
         class SourceRegion;
-        typedef SourceRegion* SourceRegion_ptr;
+        using SourceRegion_ptr = ::ecore::Ptr<SourceRegion>;
 
 // InventoryModel
         class InventoryModel;
-        typedef InventoryModel* InventoryModel_ptr;
+        using InventoryModel_ptr = ::ecore::Ptr<InventoryModel>;
 
 // AbstractInventoryElement
         class AbstractInventoryElement;
-        typedef AbstractInventoryElement* AbstractInventoryElement_ptr;
+        using AbstractInventoryElement_ptr = ::ecore::Ptr<AbstractInventoryElement>;
 
 // InventoryItem
         class InventoryItem;
-        typedef InventoryItem* InventoryItem_ptr;
+        using InventoryItem_ptr = ::ecore::Ptr<InventoryItem>;
 
 // SourceFile
         class SourceFile;
-        typedef SourceFile* SourceFile_ptr;
+        using SourceFile_ptr = ::ecore::Ptr<SourceFile>;
 
 // Image
         class Image;
-        typedef Image* Image_ptr;
+        using Image_ptr = ::ecore::Ptr<Image>;
 
 // ResourceDescription
         class ResourceDescription;
-        typedef ResourceDescription* ResourceDescription_ptr;
+        using ResourceDescription_ptr = ::ecore::Ptr<ResourceDescription>;
 
 // Configuration
         class Configuration;
-        typedef Configuration* Configuration_ptr;
+        using Configuration_ptr = ::ecore::Ptr<Configuration>;
 
 // InventoryContainer
         class InventoryContainer;
-        typedef InventoryContainer* InventoryContainer_ptr;
+        using InventoryContainer_ptr = ::ecore::Ptr<InventoryContainer>;
 
 // Directory
         class Directory;
-        typedef Directory* Directory_ptr;
+        using Directory_ptr = ::ecore::Ptr<Directory>;
 
 // Project
         class Project;
-        typedef Project* Project_ptr;
+        using Project_ptr = ::ecore::Ptr<Project>;
 
 // AbstractInventoryRelationship
         class AbstractInventoryRelationship;
-        typedef AbstractInventoryRelationship* AbstractInventoryRelationship_ptr;
+        using AbstractInventoryRelationship_ptr = ::ecore::Ptr<AbstractInventoryRelationship>;
 
 // BinaryFile
         class BinaryFile;
-        typedef BinaryFile* BinaryFile_ptr;
+        using BinaryFile_ptr = ::ecore::Ptr<BinaryFile>;
 
 // ExecutableFile
         class ExecutableFile;
-        typedef ExecutableFile* ExecutableFile_ptr;
+        using ExecutableFile_ptr = ::ecore::Ptr<ExecutableFile>;
 
 // DependsOn
         class DependsOn;
-        typedef DependsOn* DependsOn_ptr;
+        using DependsOn_ptr = ::ecore::Ptr<DependsOn>;
 
 // InventoryElement
         class InventoryElement;
-        typedef InventoryElement* InventoryElement_ptr;
+        using InventoryElement_ptr = ::ecore::Ptr<InventoryElement>;
 
 // InventoryRelationship
         class InventoryRelationship;
-        typedef InventoryRelationship* InventoryRelationship_ptr;
+        using InventoryRelationship_ptr = ::ecore::Ptr<InventoryRelationship>;
+
+// EEnum
 
 // Package & Factory
         class SourceFactory;
-        typedef SourceFactory * SourceFactory_ptr;
+        using SourceFactory_ptr = ::ecore::Ptr<SourceFactory>;
         class SourcePackage;
-        typedef SourcePackage * SourcePackage_ptr;
-
-        template< typename T, typename S >
-        inline T* instanceOf(S* _s)
-        {
-            return dynamic_cast< T* >(_s);
-        }
+        using SourcePackage_ptr = ::ecore::Ptr<SourcePackage>;
 
     } // source
 } // kdm

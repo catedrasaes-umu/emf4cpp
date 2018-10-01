@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/IfExpressionImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -27,36 +28,30 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::xpand3::expression;
-
 /*PROTECTED REGION ID(IfExpressionImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::xpand3::expression;
 
 void IfExpression::_initialize()
 {
     // Supertypes
     ::xpand3::expression::AbstractExpression::_initialize();
 
-    // Rerefences
+    // References
     if (m_condition)
     {
         m_condition->_initialize();
-        m_condition->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
     }
     if (m_thenPart)
     {
         m_thenPart->_initialize();
-        m_thenPart->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
     }
     if (m_elsePart)
     {
         m_elsePart->_initialize();
-        m_elsePart->_setEContainer(this,
-                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
     }
 
     /*PROTECTED REGION ID(IfExpressionImpl__initialize) START*/
@@ -98,17 +93,20 @@ void IfExpression::_initialize()
         return _any;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_condition);
+        if (m_condition)
+            _any = ::ecore::as < ::ecore::EObject > (m_condition);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART:
     {
-        _any = static_cast< ::ecore::EObject* >(m_thenPart);
+        if (m_thenPart)
+            _any = ::ecore::as < ::ecore::EObject > (m_thenPart);
     }
         return _any;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART:
     {
-        _any = static_cast< ::ecore::EObject* >(m_elsePart);
+        if (m_elsePart)
+            _any = ::ecore::as < ::ecore::EObject > (m_elsePart);
     }
         return _any;
 
@@ -123,26 +121,34 @@ void IfExpression::eSet(::ecore::EInt _featureID,
     {
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__LINE:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_line);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setLine(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__START:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_start);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setStart(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__END:
     {
+        ::ecore::EInt _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EInt
-                > ::fromAny(_newValue, m_end);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setEnd(_t0);
     }
         return;
     case ::xpand3::Xpand3Package::SYNTAXELEMENT__FILENAME:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_fileName);
+                > ::fromAny(_newValue, _t0);
+        ::xpand3::SyntaxElement::setFileName(_t0);
     }
         return;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
@@ -150,7 +156,7 @@ void IfExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::IfExpression::setCondition(_t1);
     }
         return;
@@ -159,7 +165,7 @@ void IfExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::IfExpression::setThenPart(_t1);
     }
         return;
@@ -168,7 +174,7 @@ void IfExpression::eSet(::ecore::EInt _featureID,
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::xpand3::expression::AbstractExpression_ptr _t1 =
-                dynamic_cast< ::xpand3::expression::AbstractExpression_ptr >(_t0);
+                dynamic_cast< ::xpand3::expression::AbstractExpression* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::xpand3::expression::AbstractExpression >(_t0);*/
         ::xpand3::expression::IfExpression::setElsePart(_t1);
     }
         return;
@@ -193,11 +199,11 @@ void IfExpression::eSet(::ecore::EInt _featureID,
         return ::ecorecpp::mapping::set_traits < ::ecore::EString
                 > ::is_set(m_fileName);
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
-        return m_condition;
+        return (bool) m_condition;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART:
-        return m_thenPart;
+        return (bool) m_thenPart;
     case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART:
-        return m_elsePart;
+        return (bool) m_elsePart;
 
     }
     throw "Error";
@@ -215,7 +221,55 @@ void IfExpression::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr IfExpression::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::xpand3::expression::ExpressionPackage_ptr >(::xpand3::expression::ExpressionPackage::_instance())->getIfExpression();
+            dynamic_cast< ::xpand3::expression::ExpressionPackage* >(::xpand3::expression::ExpressionPackage::_instance().get())->getIfExpression();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void IfExpression::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void IfExpression::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__CONDITION:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__THENPART:
+    {
+    }
+        return;
+    case ::xpand3::expression::ExpressionPackage::IFEXPRESSION__ELSEPART:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

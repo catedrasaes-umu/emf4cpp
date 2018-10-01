@@ -2,6 +2,7 @@
 /*
  * ecore/EStringToStringMapEntry.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,10 +21,11 @@
 #ifndef ECORE_ESTRINGTOSTRINGMAPENTRY_HPP
 #define ECORE_ESTRINGTOSTRINGMAPENTRY_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
-
 #include <ecore/EObject.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 /*PROTECTED REGION ID(EStringToStringMapEntry_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -33,59 +35,61 @@
 namespace ecore
 {
 
-    class EStringToStringMapEntry: public virtual ::ecore::EObject
+class EXPORT_ECORE_DLL EStringToStringMapEntry : public virtual ::ecore::EObject
+{
+public:
+    EStringToStringMapEntry();
 
-    {
-    public:
-        EStringToStringMapEntry();
+    virtual ~EStringToStringMapEntry();
 
-        virtual ~EStringToStringMapEntry();
+    virtual void _initialize();
 
-        virtual void _initialize();
+    // Operations
 
-        // Operations
+    // Attributes
+    virtual ::ecore::EString const& getKey () const;
+    virtual void setKey (::ecore::EString const& _key);
 
+    virtual ::ecore::EString const& getValue () const;
+    virtual void setValue (::ecore::EString const& _value);
 
-        // Attributes
-        ::ecore::EString const& getKey() const;
-        void setKey(::ecore::EString const& _key);
+    // References
 
-        ::ecore::EString const& getValue() const;
-        void setValue(::ecore::EString const& _value);
+    /*PROTECTED REGION ID(EStringToStringMapEntry) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // References
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
+    /*PROTECTED REGION ID(EStringToStringMapEntryImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(EStringToStringMapEntry) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+protected:
+    EStringToStringMapEntry_ptr _this()
+    {   return EStringToStringMapEntry_ptr(this);}
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // Attributes
 
-        /*PROTECTED REGION ID(EStringToStringMapEntryImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    ::ecore::EString m_key;
 
-    protected:
-        // Attributes
+    ::ecore::EString m_value;
 
-        ::ecore::EString m_key;
+    // References
 
-        ::ecore::EString m_value;
+};
 
-        // References
-
-    };
-
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_ESTRINGTOSTRINGMAPENTRY_HPP
+

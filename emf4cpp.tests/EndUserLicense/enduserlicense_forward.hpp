@@ -2,6 +2,7 @@
 /*
  * enduserlicense_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -39,17 +40,13 @@ namespace enduserlicense
 
 // EClass
 
+// EEnum
+
 // Package & Factory
     class EnduserlicenseFactory;
-    typedef EnduserlicenseFactory * EnduserlicenseFactory_ptr;
+    using EnduserlicenseFactory_ptr = ::ecore::Ptr<EnduserlicenseFactory>;
     class EnduserlicensePackage;
-    typedef EnduserlicensePackage * EnduserlicensePackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using EnduserlicensePackage_ptr = ::ecore::Ptr<EnduserlicensePackage>;
 
 } // enduserlicense
 

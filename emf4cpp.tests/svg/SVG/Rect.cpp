@@ -2,6 +2,7 @@
 /*
  * SVG/Rect.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Rect.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -56,12 +62,8 @@ Rect::~Rect()
 {
 }
 
-/*PROTECTED REGION ID(Rect.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::Double Rect::getRx() const
 {
     return m_rx;
@@ -78,8 +80,8 @@ void Rect::setRx(::PrimitiveTypes::Double _rx)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRect__rx(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRect__rx(),
                 _old_rx,
                 m_rx
         );
@@ -104,8 +106,8 @@ void Rect::setRy(::PrimitiveTypes::Double _ry)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRect__ry(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRect__ry(),
                 _old_ry,
                 m_ry
         );

@@ -2,6 +2,7 @@
 /*
  * SVG/GraphicalElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(GraphicalElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -56,12 +62,8 @@ GraphicalElement::~GraphicalElement()
 {
 }
 
-/*PROTECTED REGION ID(GraphicalElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::String GraphicalElement::getStroke() const
 {
     return m_stroke;
@@ -78,8 +80,8 @@ void GraphicalElement::setStroke(::PrimitiveTypes::String _stroke)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getGraphicalElement__stroke(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getGraphicalElement__stroke(),
                 _old_stroke,
                 m_stroke
         );

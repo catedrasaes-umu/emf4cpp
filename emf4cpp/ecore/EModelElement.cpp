@@ -2,6 +2,7 @@
 /*
  * ecore/EModelElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EModelElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -35,12 +41,15 @@ EModelElement::EModelElement()
 {
 
     m_eAnnotations.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EAnnotation,
-                    -1, true, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EAnnotation_ptr, -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEModelElement__eAnnotations() :
+                            ::ecore::EReference_ptr(),
+                    ::ecore::EcorePackage::EANNOTATION__EMODELELEMENT));
 
     /*PROTECTED REGION ID(EModelElementImpl__EModelElementImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -52,15 +61,16 @@ EModelElement::~EModelElement()
 {
 }
 
-/*PROTECTED REGION ID(EModelElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
 
 // References
-::ecorecpp::mapping::EList< ::ecore::EAnnotation >& EModelElement::getEAnnotations()
+
+const ::ecorecpp::mapping::EList< ::ecore::EAnnotation_ptr >& EModelElement::getEAnnotations() const
+{
+    return *m_eAnnotations;
+}
+
+::ecorecpp::mapping::EList< ::ecore::EAnnotation_ptr >& EModelElement::getEAnnotations()
 {
     return *m_eAnnotations;
 }

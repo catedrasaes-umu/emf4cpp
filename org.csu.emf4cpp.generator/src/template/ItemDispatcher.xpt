@@ -1,0 +1,117 @@
+«REM»
+ItemDispatcher.xpt
+Copyright (C) INCHRON GmbH 2018 <matthias.doerfel@inchron.com>
+
+EMF4CPP is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+EMF4CPP is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+«ENDREM»
+
+«IMPORT org::eclipse::emf::ecore»
+
+«EXTENSION template::FQN»
+«EXTENSION template::Classes»
+«EXTENSION template::Operations»
+«EXTENSION template::Attributes»
+«EXTENSION template::References»
+«EXTENSION template::Types»
+«EXTENSION template::Mapping»
+
+«DEFINE hppcpp FOR EPackage»
+«FILE getItemDispatcherPrefix()+".hpp"-»
+«IF (boolean) GLOBALVAR internalLicense-»
+«EXPAND template::License::License FOR getItemDispatcherPrefix()+".hpp"-»
+«ELSE-»
+«EXPAND template::EndUserLicense::License FOR getItemDispatcherPrefix()+".hpp"-»
+«ENDIF-»
+#ifndef «getHeaderDef()»_ITEMDISPATCHER_HPP
+#define «getHeaderDef()»_ITEMDISPATCHER_HPP
+
+#include <ecore_forward.hpp>
+#include <ecore/EClass.hpp>
+
+#include <«getFQN("/")».hpp>
+#include <«this.getDllExtensionPrefix()».hpp>
+
+«EXPAND namespaces_begin FOR this-»
+
+template<class T>
+class EXPORT_«getHeaderDefDLL()»_DLL
+«this.name.toFirstUpper()»ItemDispatcher
+{
+public:
+    «this.name.toFirstUpper()»ItemDispatcher() = default;
+    ~«this.name.toFirstUpper()»ItemDispatcher() = default;
+
+    /** Clients need to overload and reimplement this work() method for every
+	 * class they want to handle. Note that in a class hierarchy classes may
+	 * be shadowed by derived classes. */
+    void work(::ecore::EObject*) { }
+
+	/** Entry function for the dispatch mechanism. */
+	void enter(const ::ecore::EObject_ptr& obj) {
+		enter(obj.get());
+	}
+
+	/** Entry function for the dispatch mechanism. */
+	void enter(::ecore::EObject* obj) {
+		auto eClass = obj->eClass();
+		if (eClass->getEPackage() != «name.toFirstUpper() + "Package::_instance()"») {
+			_this()->T::work(obj);
+			return;
+		}
+
+		switch (eClass->getClassifierID()) {
+«FOREACH EClassifiers.typeSelect(EClass).sortBy(e|e.name).sortBy(e|e.name.toUpperCase()) AS class ITERATOR it-»
+		case «name.toFirstUpper() + "Package::" + class.name.toUpperCase()»: {
+			auto derived = dynamic_cast< «class.name.toFirstUpper()»* >(obj);
+			_this()->T::work(derived);
+		} break;
+«ENDFOREACH-»
+		default:
+		{
+			_this()->T::work(obj);
+		}break;
+		}
+	}
+
+private:
+	/** Inline helper, should compile to simple offset adjustment. */
+	T* _this() { return static_cast<T*>(this); }
+
+	/** Inline helper, should compile to simple offset adjustment. */
+	const T* _this() const { return static_cast<const T*>(this); }
+};
+
+«EXPAND template::EClassHPP::namespaces_end FOR this»
+
+#endif // «getHeaderDef()»_ITEMDISPATCHER_HPP
+«ENDFILE»
+«ENDDEFINE»
+
+
+«DEFINE namespaces_begin FOR EPackage-»
+«IF this != null-»
+«EXPAND namespaces_begin FOR ESuperPackage-»
+namespace «name»
+{
+«ENDIF-»
+«ENDDEFINE»
+
+
+«DEFINE namespaces_end FOR EPackage-»
+«IF this != null-»
+} // «name»
+«EXPAND namespaces_end FOR ESuperPackage-»
+«ENDIF-»
+«ENDDEFINE»
+

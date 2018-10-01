@@ -2,6 +2,7 @@
 /*
  * json/NVPair.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,15 @@
 #ifndef JSON_NVPAIR_HPP
 #define JSON_NVPAIR_HPP
 
-#include <json_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+#include <ecore/EObject.hpp>
+
+#include <json/dllJson.hpp>
+#include <json_forward.hpp>
 
 #include <ecore_forward.hpp>
 
-#include <ecore/EObject.hpp>
+#include "JsonPackage.hpp"
 
 /*PROTECTED REGION ID(NVPair_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -35,57 +39,64 @@
 namespace json
 {
 
-    class NVPair: public virtual ::ecore::EObject
+class EXPORT_JSON_DLL NVPair : public virtual ::ecore::EObject
+{
+public:
+    NVPair();
 
-    {
-    public:
-        NVPair();
+    virtual ~NVPair();
 
-        virtual ~NVPair();
+    virtual void _initialize();
 
-        virtual void _initialize();
+    // Operations
 
-        // Operations
+    // Attributes
+    virtual ::ecore::EString const& getName () const;
+    virtual void setName (::ecore::EString const& _name);
 
-        // Attributes
-        ::ecore::EString const& getName() const;
-        void setName(::ecore::EString const& _name);
+    // References
+    virtual ::json::Value_ptr getValue () const;
+    virtual void setValue (::json::Value_ptr _value);
 
-        // References
-        ::json::Value_ptr getValue();
-        void setValue(::json::Value_ptr _value);
+    /* This is the same value as getClassifierId() returns, but as a static
+     * value it can be used in template expansions. */
+    static const int classifierId = JsonPackage::NVPAIR;
 
-        /*PROTECTED REGION ID(NVPair) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(NVPair) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        /*PROTECTED REGION ID(NVPairImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    /*PROTECTED REGION ID(NVPairImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-    protected:
-        // Attributes
+protected:
+    NVPair_ptr _this()
+    {   return NVPair_ptr(this);}
 
-        ::ecore::EString m_name;
+    // Attributes
 
-        // References
+    ::ecore::EString m_name;
 
-        ::json::Value_ptr m_value;
+    // References
 
-    };
+    ::json::Value_ptr m_value;
 
-} // json
+};
+
+}
+ // json
 
 #endif // JSON_NVPAIR_HPP
 

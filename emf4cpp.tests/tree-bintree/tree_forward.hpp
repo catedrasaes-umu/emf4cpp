@@ -2,6 +2,7 @@
 /*
  * tree_forward.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,27 +42,23 @@ namespace tree
 
 // TreeNode
     class TreeNode;
-    typedef TreeNode* TreeNode_ptr;
+    using TreeNode_ptr = ::ecore::Ptr<TreeNode>;
 
 // Leaf
     class Leaf;
-    typedef Leaf* Leaf_ptr;
+    using Leaf_ptr = ::ecore::Ptr<Leaf>;
 
 // NonTerminal
     class NonTerminal;
-    typedef NonTerminal* NonTerminal_ptr;
+    using NonTerminal_ptr = ::ecore::Ptr<NonTerminal>;
+
+// EEnum
 
 // Package & Factory
     class TreeFactory;
-    typedef TreeFactory * TreeFactory_ptr;
+    using TreeFactory_ptr = ::ecore::Ptr<TreeFactory>;
     class TreePackage;
-    typedef TreePackage * TreePackage_ptr;
-
-    template< typename T, typename S >
-    inline T* instanceOf(S* _s)
-    {
-        return dynamic_cast< T* >(_s);
-    }
+    using TreePackage_ptr = ::ecore::Ptr<TreePackage>;
 
 } // tree
 

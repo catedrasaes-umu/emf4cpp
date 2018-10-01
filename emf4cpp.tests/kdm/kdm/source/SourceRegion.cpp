@@ -2,6 +2,7 @@
 /*
  * kdm/source/SourceRegion.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SourceRegion.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::source;
 
 // Default constructor
@@ -52,12 +58,8 @@ SourceRegion::~SourceRegion()
 {
 }
 
-/*PROTECTED REGION ID(SourceRegion.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::Integer SourceRegion::getStartLine() const
 {
     return m_startLine;
@@ -74,8 +76,8 @@ void SourceRegion::setStartLine(::kdm::core::Integer _startLine)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRegion__startLine(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRegion__startLine(),
                 _old_startLine,
                 m_startLine
         );
@@ -100,8 +102,8 @@ void SourceRegion::setStartPosition(::kdm::core::Integer _startPosition)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRegion__startPosition(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRegion__startPosition(),
                 _old_startPosition,
                 m_startPosition
         );
@@ -126,8 +128,8 @@ void SourceRegion::setEndLine(::kdm::core::Integer _endLine)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRegion__endLine(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRegion__endLine(),
                 _old_endLine,
                 m_endLine
         );
@@ -152,8 +154,8 @@ void SourceRegion::setEndPosition(::kdm::core::Integer _endPosition)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRegion__endPosition(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRegion__endPosition(),
                 _old_endPosition,
                 m_endPosition
         );
@@ -178,8 +180,8 @@ void SourceRegion::setLanguage(::kdm::core::String _language)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRegion__language(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRegion__language(),
                 _old_language,
                 m_language
         );
@@ -204,8 +206,8 @@ void SourceRegion::setPath(::kdm::core::String _path)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRegion__path(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRegion__path(),
                 _old_path,
                 m_path
         );
@@ -215,15 +217,17 @@ void SourceRegion::setPath(::kdm::core::String _path)
 }
 
 // References
-::kdm::source::SourceFile_ptr SourceRegion::getFile()
+
+::kdm::source::SourceFile_ptr SourceRegion::getFile() const
 {
     return m_file;
 }
 
 void SourceRegion::setFile(::kdm::source::SourceFile_ptr _file)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::source::SourceFile_ptr _old_file = m_file;
-
+#endif
     m_file = _file;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -231,14 +235,13 @@ void SourceRegion::setFile(::kdm::source::SourceFile_ptr _file)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::source::SourcePackage::_instance()->getSourceRegion__file(),
+                _this(),
+                ::kdm::source::SourcePackage::_instance()->getSourceRegion__file(),
                 _old_file,
                 m_file
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

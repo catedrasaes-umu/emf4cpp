@@ -2,6 +2,7 @@
 /*
  * kdm/code/ClassUnit.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ClassUnit.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -47,8 +53,9 @@ ClassUnit::ClassUnit()
 {
 
     m_codeElement.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::CodeItem,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::CodeItem_ptr, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getClassUnit__codeElement()));
 
     /*PROTECTED REGION ID(ClassUnitImpl__ClassUnitImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -64,12 +71,8 @@ ClassUnit::~ClassUnit()
 {
 }
 
-/*PROTECTED REGION ID(ClassUnit.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::Boolean ClassUnit::getIsAbstract() const
 {
     return m_isAbstract;
@@ -86,8 +89,8 @@ void ClassUnit::setIsAbstract(::kdm::core::Boolean _isAbstract)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getClassUnit__isAbstract(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getClassUnit__isAbstract(),
                 _old_isAbstract,
                 m_isAbstract
         );
@@ -97,7 +100,13 @@ void ClassUnit::setIsAbstract(::kdm::core::Boolean _isAbstract)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& ClassUnit::getCodeElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& ClassUnit::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& ClassUnit::getCodeElement()
 {
     return *m_codeElement;
 }

@@ -2,6 +2,7 @@
 /*
  * kdm/build/AbstractBuildElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -36,6 +37,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractBuildElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::build;
 
 // Default constructor
@@ -44,8 +50,9 @@ AbstractBuildElement::AbstractBuildElement()
 
     m_buildRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::build::AbstractBuildRelationship, -1, true, false >(
-                    this, NULL));
+                    ::kdm::build::AbstractBuildRelationship_ptr, -1, true, false >(
+                    this,
+                    ::kdm::build::BuildPackage::_instance()->getAbstractBuildElement__buildRelation()));
 
     /*PROTECTED REGION ID(AbstractBuildElementImpl__AbstractBuildElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -61,14 +68,16 @@ AbstractBuildElement::~AbstractBuildElement()
 {
 }
 
-/*PROTECTED REGION ID(AbstractBuildElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship >& AbstractBuildElement::getBuildRelation()
+
+const ::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship_ptr >& AbstractBuildElement::getBuildRelation() const
+{
+    return *m_buildRelation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::build::AbstractBuildRelationship_ptr >& AbstractBuildElement::getBuildRelation()
 {
     return *m_buildRelation;
 }

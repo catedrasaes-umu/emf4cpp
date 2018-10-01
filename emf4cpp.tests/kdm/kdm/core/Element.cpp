@@ -2,6 +2,7 @@
 /*
  * kdm/core/Element.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Element.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::core;
 
 // Default constructor
@@ -36,11 +42,13 @@ Element::Element()
 {
 
     m_attribute.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Attribute,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Attribute_ptr, -1, true, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getElement__attribute()));
     m_annotation.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::kdm::Annotation,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::kdm::Annotation_ptr, -1, true, false >(this,
+                    ::kdm::core::CorePackage::_instance()->getElement__annotation()));
 
     /*PROTECTED REGION ID(ElementImpl__ElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,19 +64,26 @@ Element::~Element()
 {
 }
 
-/*PROTECTED REGION ID(Element.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::kdm::Attribute >& Element::getAttribute()
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Attribute_ptr >& Element::getAttribute() const
 {
     return *m_attribute;
 }
 
-::ecorecpp::mapping::EList< ::kdm::kdm::Annotation >& Element::getAnnotation()
+::ecorecpp::mapping::EList< ::kdm::kdm::Attribute_ptr >& Element::getAttribute()
+{
+    return *m_attribute;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::kdm::Annotation_ptr >& Element::getAnnotation() const
+{
+    return *m_annotation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::kdm::Annotation_ptr >& Element::getAnnotation()
 {
     return *m_annotation;
 }

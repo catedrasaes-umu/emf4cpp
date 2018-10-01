@@ -2,6 +2,7 @@
 /*
  * parser/simple_xml_parser.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -49,9 +50,9 @@ struct State
     typedef SemanticState SemType;
 
     // buffer
-    const type_traits::char_t* buf_;
+    const type_definitions::char_t* buf_;
     // actual pos
-    const type_traits::char_t* pos_;
+    const type_definitions::char_t* pos_;
     // buf_fer length
     size_t len_;
 
@@ -59,10 +60,10 @@ struct State
     SemanticState& ss_;
 
     // State stack, for backtracking
-    std::deque< const type_traits::char_t* > pos_stack_;
+    std::deque< const type_definitions::char_t* > pos_stack_;
 
     // ctor
-    State(SemanticState& ss, const type_traits::char_t* b, size_t l)
+    State(SemanticState& ss, const type_definitions::char_t* b, size_t l)
         : buf_(b), pos_(b), len_(l), ss_(ss)
     {
     }
@@ -78,7 +79,7 @@ struct State
         return static_cast< size_t > (pos_ - buf_) == len_;
     }
 
-    inline bool match_at_pos_advance(type_traits::char_t c)
+    inline bool match_at_pos_advance(type_definitions::char_t c)
     {
         if (!at_end() && (*pos_ == c))
         {
@@ -88,17 +89,17 @@ struct State
         return false;
     }
 
-    inline bool match_at_pos(type_traits::char_t c) const
+    inline bool match_at_pos(type_definitions::char_t c) const
     {
         return !at_end() && (*pos_ == c);
     }
 
-    inline type_traits::char_t char_at_pos() const
+    inline type_definitions::char_t char_at_pos() const
     {
         return *pos_;
     }
 
-    inline const type_traits::char_t* pos() const
+    inline const type_definitions::char_t* pos() const
     {
         return pos_;
     }
@@ -167,7 +168,7 @@ struct eoi_
     }
 };
 
-template< type_traits::char_t c >
+template< type_definitions::char_t c >
 struct char_
 {
     template< typename S >
@@ -180,7 +181,7 @@ struct char_
 // NOTE: I could have implemented this thing other way
 // but it would need a negative match with another Truth Environment
 // or something...
-template< type_traits::char_t c >
+template< type_definitions::char_t c >
 struct notchar_
 {
     template< typename S >
@@ -197,12 +198,12 @@ struct notchar_
     }
 };
 
-template< type_traits::char_t c0, type_traits::char_t c1,
-          type_traits::char_t c2 = 0, type_traits::char_t c3 = 0,
-          type_traits::char_t c4 = 0, type_traits::char_t c5 = 0,
-          type_traits::char_t c6 = 0, type_traits::char_t c7 = 0,
-          type_traits::char_t c8 = 0, type_traits::char_t c9 = 0,
-          type_traits::char_t c10 = 0>
+template< type_definitions::char_t c0, type_definitions::char_t c1,
+          type_definitions::char_t c2 = 0, type_definitions::char_t c3 = 0,
+          type_definitions::char_t c4 = 0, type_definitions::char_t c5 = 0,
+          type_definitions::char_t c6 = 0, type_definitions::char_t c7 = 0,
+          type_definitions::char_t c8 = 0, type_definitions::char_t c9 = 0,
+          type_definitions::char_t c10 = 0>
 struct notchar_inlist_
 {
     template< typename S >
@@ -211,7 +212,7 @@ struct notchar_inlist_
         if (EXPECT_FALSE (state.at_end()))
             return false;
 
-        type_traits::char_t c = state.char_at_pos();
+        type_definitions::char_t c = state.char_at_pos();
         if (c == c0 || c == c1 || c == c2 || c == c3 || c == c4 ||
             c == c5 || c == c6 || c == c7 || c == c8 || c == c9 ||
             c == c10)
@@ -224,7 +225,7 @@ struct notchar_inlist_
 
 
 // wcharacter range, not inclusive
-template< type_traits::char_t c1, type_traits::char_t c2 >
+template< type_definitions::char_t c1, type_definitions::char_t c2 >
 struct crange_
 {
     template< typename S >
@@ -233,7 +234,7 @@ struct crange_
         if (EXPECT_FALSE (state.at_end()))
             return false;
 
-        type_traits::char_t c = state.char_at_pos();
+        type_definitions::char_t c = state.char_at_pos();
         if (EXPECT_TRUE (c >= c1 && c < c2))
         {
             state.advance();
@@ -244,7 +245,7 @@ struct crange_
 };
 
 // wcharacter range, inclusive
-template< type_traits::char_t c1, type_traits::char_t c2 >
+template< type_definitions::char_t c1, type_definitions::char_t c2 >
 struct cirange_
 {
     template< typename S >
@@ -253,7 +254,7 @@ struct cirange_
         if (EXPECT_FALSE (state.at_end()))
             return false;
 
-        type_traits::char_t c = state.char_at_pos();
+        type_definitions::char_t c = state.char_at_pos();
         if (EXPECT_TRUE (c >= c1 && c <= c2))
         {
             state.advance();
@@ -285,7 +286,7 @@ struct semantic_rule
     template< typename S >
     static inline bool match(S & state)
     {
-        const type_traits::char_t* p = state.pos();
+        const type_definitions::char_t* p = state.pos();
 
         // Try the rule itself
         bool result;

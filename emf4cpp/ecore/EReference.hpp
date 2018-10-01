@@ -2,6 +2,7 @@
 /*
  * ecore/EReference.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,8 +21,10 @@
 #ifndef ECORE_EREFERENCE_HPP
 #define ECORE_EREFERENCE_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/EStructuralFeature.hpp>
 
@@ -33,76 +36,80 @@
 namespace ecore
 {
 
-    class EReference: public virtual ::ecore::EStructuralFeature
-    {
-    public:
-        EReference();
+class EXPORT_ECORE_DLL EReference : public virtual ::ecore::EStructuralFeature
+{
+public:
+    EReference();
 
-        virtual ~EReference();
+    virtual ~EReference();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
+    // Attributes
+    virtual ::ecore::EBoolean isContainment () const;
+    virtual void setContainment (::ecore::EBoolean _containment);
 
-        // Attributes
-        ::ecore::EBoolean isContainment() const;
-        void setContainment(::ecore::EBoolean _containment);
+    virtual ::ecore::EBoolean isContainer () const;
+    virtual void setContainer (::ecore::EBoolean _container);
 
-        ::ecore::EBoolean isContainer() const;
-        void setContainer(::ecore::EBoolean _container);
+    virtual ::ecore::EBoolean isResolveProxies () const;
+    virtual void setResolveProxies (::ecore::EBoolean _resolveProxies);
 
-        ::ecore::EBoolean isResolveProxies() const;
-        void setResolveProxies(::ecore::EBoolean _resolveProxies);
+    // References
+    virtual ::ecore::EReference_ptr getEOpposite () const;
+    virtual void setEOpposite (::ecore::EReference_ptr _eOpposite);
 
-        // References
-        ::ecore::EReference_ptr getEOpposite();
-        void setEOpposite(::ecore::EReference_ptr _eOpposite);
+    virtual ::ecore::EClass_ptr getEReferenceType () const;
+    virtual void setEReferenceType (::ecore::EClass_ptr _eReferenceType);
 
-        ::ecore::EClass_ptr getEReferenceType();
-        void setEReferenceType(::ecore::EClass_ptr _eReferenceType);
+    virtual const ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEKeys () const;
+    virtual ::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >& getEKeys ();
 
-        ::ecorecpp::mapping::EList< ::ecore::EAttribute >& getEKeys();
+    /*PROTECTED REGION ID(EReference) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(EReference) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(EReferenceImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(EReferenceImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+protected:
+    EReference_ptr _this()
+    {   return EReference_ptr(this);}
 
-    protected:
-        // Attributes
+    // Attributes
 
-        ::ecore::EBoolean m_containment;
+    ::ecore::EBoolean m_containment;
 
-        ::ecore::EBoolean m_container;
+    ::ecore::EBoolean m_container;
 
-        ::ecore::EBoolean m_resolveProxies;
+    ::ecore::EBoolean m_resolveProxies;
 
-        // References
+    // References
 
-        ::ecore::EReference_ptr m_eOpposite;
+    ::ecore::EReference_ptr m_eOpposite;
 
-        ::ecore::EClass_ptr m_eReferenceType;
+    ::ecore::EClass_ptr m_eReferenceType;
 
-        ::ecorecpp::mapping::out_ptr< ::ecorecpp::mapping::EList<
-                ::ecore::EAttribute > > m_eKeys;
+    std::shared_ptr<::ecorecpp::mapping::EList< ::ecore::EAttribute_ptr >> m_eKeys;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EREFERENCE_HPP
+

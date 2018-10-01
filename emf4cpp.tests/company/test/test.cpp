@@ -3,17 +3,18 @@
 #include <company.hpp>
 #include <fstream>
 #include <memory> // for std::auto_ptr
+#include <assert.h>
 
 using namespace company;
 using namespace ecore;
 
 int main(int argc, char* argv[])
 {
-    CompanyPackage_ptr companyPackage = CompanyPackage::_instance()->as< CompanyPackage >();
-    CompanyFactory_ptr companyFactory = CompanyFactory::_instance()->as< CompanyFactory >();
+    CompanyPackage_ptr companyPackage = CompanyPackage::_instance();
+    CompanyFactory_ptr companyFactory = CompanyFactory::_instance();
 
     {
-        std::auto_ptr<Company> umu ( companyFactory->createCompany());
+		boost::intrusive_ptr<Company> umu ( companyFactory->createCompany());
         umu->setName("UMU");
 
         Department_ptr catedraSAES = companyFactory->createDepartment();
@@ -21,11 +22,32 @@ int main(int argc, char* argv[])
 
         Employee_ptr asenac = companyFactory->createEmployee();
         asenac->setName("Andres Senac");
-        catedraSAES->getEmployees().push_back(asenac);
 
+		/* Check if a containment relation properly sets the eContainer() attribute. */
+        catedraSAES->getEmployees().push_back(asenac);
+		assert( asenac->eContainer() == catedraSAES );
+
+		catedraSAES->getEmployees().remove(asenac);
+		assert( asenac->eContainer() == nullptr );
+
+        catedraSAES->getEmployees().push_back(asenac);
+		assert( asenac->eContainer() == catedraSAES );
+		
         Employee_ptr dsevilla = companyFactory->createEmployee();
         dsevilla->setName("Diego Sevilla");
         catedraSAES->getEmployees().push_back(dsevilla);
+
+		/* Check if a containment relation properly sets the eContainer() attribute. */
+		assert( asenac->eContainer() == dsevilla->eContainer() );
+
+		/* Initially there is always no eContainer. */
+		PhonebookEntry_ptr phone = companyFactory->createPhonebookEntry();
+		assert( phone->eContainer() == nullptr );
+
+		/* Check if a containment relation properly sets the eContainer() attribute. */
+		asenac->setPhonebookEntry(phone);
+		assert( phone->eContainer() == asenac );
+
         catedraSAES->setManager(dsevilla);
 
         umu->getDepartments().push_back(catedraSAES);
@@ -45,7 +67,7 @@ int main(int argc, char* argv[])
     EObject_ptr eobj = _dser.load ("UMU.xmi");
 
     {
-        std::auto_ptr<Company> umu (eobj->as< Company >());
+		boost::intrusive_ptr<Company> umu (::ecore::as< Company >(eobj));
     }
 }
 

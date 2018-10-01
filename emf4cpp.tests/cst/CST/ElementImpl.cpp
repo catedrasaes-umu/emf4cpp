@@ -2,6 +2,7 @@
 /*
  * CST/ElementImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -26,18 +27,18 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::CST;
-
 /*PROTECTED REGION ID(ElementImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
 
+using namespace ::CST;
+
 void Element::_initialize()
 {
     // Supertypes
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(ElementImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -72,8 +73,10 @@ void Element::eSet(::ecore::EInt _featureID,
     {
     case ::CST::CSTPackage::ELEMENT__KIND:
     {
+        ::ecore::EString _t0;
         ::ecorecpp::mapping::any_traits < ::ecore::EString
-                > ::fromAny(_newValue, m_kind);
+                > ::fromAny(_newValue, _t0);
+        ::CST::Element::setKind(_t0);
     }
         return;
 
@@ -105,7 +108,31 @@ void Element::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Element::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::CST::CSTPackage_ptr >(::CST::CSTPackage::_instance())->getElement();
+            dynamic_cast< ::CST::CSTPackage* >(::CST::CSTPackage::_instance().get())->getElement();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Element::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Element::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

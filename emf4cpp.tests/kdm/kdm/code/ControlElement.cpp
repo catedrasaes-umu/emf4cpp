@@ -2,6 +2,7 @@
 /*
  * kdm/code/ControlElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -42,6 +43,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ControlElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::code;
 
 // Default constructor
@@ -51,11 +57,13 @@ ControlElement::ControlElement() :
 
     m_entryFlow.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::EntryFlow, -1, true, false >(this, NULL));
+                    ::kdm::action::EntryFlow_ptr, -1, true, false >(this,
+                    ::kdm::code::CodePackage::_instance()->getControlElement__entryFlow()));
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::code::AbstractCodeElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::code::CodePackage::_instance()->getControlElement__codeElement()));
 
     /*PROTECTED REGION ID(ControlElementImpl__ControlElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -71,22 +79,20 @@ ControlElement::~ControlElement()
 {
 }
 
-/*PROTECTED REGION ID(ControlElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::kdm::code::Datatype_ptr ControlElement::getType()
+
+::kdm::code::Datatype_ptr ControlElement::getType() const
 {
     return m_type;
 }
 
 void ControlElement::setType(::kdm::code::Datatype_ptr _type)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::kdm::code::Datatype_ptr _old_type = m_type;
-
+#endif
     m_type = _type;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -94,23 +100,32 @@ void ControlElement::setType(::kdm::code::Datatype_ptr _type)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::code::CodePackage::_instance()->getControlElement__type(),
+                _this(),
+                ::kdm::code::CodePackage::_instance()->getControlElement__type(),
                 _old_type,
                 m_type
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::EntryFlow >& ControlElement::getEntryFlow()
+const ::ecorecpp::mapping::EList< ::kdm::action::EntryFlow_ptr >& ControlElement::getEntryFlow() const
 {
     return *m_entryFlow;
 }
 
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ControlElement::getCodeElement()
+::ecorecpp::mapping::EList< ::kdm::action::EntryFlow_ptr >& ControlElement::getEntryFlow()
+{
+    return *m_entryFlow;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ControlElement::getCodeElement() const
+{
+    return *m_codeElement;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ControlElement::getCodeElement()
 {
     return *m_codeElement;
 }

@@ -2,6 +2,7 @@
 /*
  * xpand3/declaration/AbstractDeclaration.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractDeclaration.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::declaration;
 
 // Default constructor
@@ -40,7 +46,8 @@ AbstractDeclaration::AbstractDeclaration() :
 
     m_params.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::DeclaredParameter, -1, true, false >(this, NULL));
+                    ::xpand3::DeclaredParameter_ptr, -1, true, false >(this,
+                    ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__params()));
 
     /*PROTECTED REGION ID(AbstractDeclarationImpl__AbstractDeclarationImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,20 +63,16 @@ AbstractDeclaration::~AbstractDeclaration()
 {
     if (m_owner)
     {
-        delete m_owner;
+        m_owner.reset();
     }
     if (m_guard)
     {
-        delete m_guard;
+        m_guard.reset();
     }
 }
 
-/*PROTECTED REGION ID(AbstractDeclaration.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::ecore::EBoolean AbstractDeclaration::isIsPrivate() const
 {
     return m_isPrivate;
@@ -86,8 +89,8 @@ void AbstractDeclaration::setIsPrivate(::ecore::EBoolean _isPrivate)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__isPrivate(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__isPrivate(),
                 _old_isPrivate,
                 m_isPrivate
         );
@@ -97,15 +100,24 @@ void AbstractDeclaration::setIsPrivate(::ecore::EBoolean _isPrivate)
 }
 
 // References
-::xpand3::File_ptr AbstractDeclaration::getOwner()
+
+::xpand3::File_ptr AbstractDeclaration::getOwner() const
 {
     return m_owner;
 }
 
 void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
 {
-    ::xpand3::File_ptr _old_owner = m_owner;
+    if (m_owner)
+        m_owner->_setEContainer(AbstractDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
+    if (_owner)
+        _owner->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::File_ptr _old_owner = m_owner;
+#endif
     m_owner = _owner;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -113,24 +125,27 @@ void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__owner(),
                 _old_owner,
                 m_owner
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_owner;
 }
 
-::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter >& AbstractDeclaration::getParams()
+const ::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& AbstractDeclaration::getParams() const
 {
     return *m_params;
 }
 
-::xpand3::expression::AbstractExpression_ptr AbstractDeclaration::getGuard()
+::ecorecpp::mapping::EList< ::xpand3::DeclaredParameter_ptr >& AbstractDeclaration::getParams()
+{
+    return *m_params;
+}
+
+::xpand3::expression::AbstractExpression_ptr AbstractDeclaration::getGuard() const
 {
     return m_guard;
 }
@@ -138,8 +153,16 @@ void AbstractDeclaration::setOwner(::xpand3::File_ptr _owner)
 void AbstractDeclaration::setGuard(
         ::xpand3::expression::AbstractExpression_ptr _guard)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_guard = m_guard;
+    if (m_guard)
+        m_guard->_setEContainer(AbstractDeclaration_ptr(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
+    if (_guard)
+        _guard->_setEContainer(_this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_guard = m_guard;
+#endif
     m_guard = _guard;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -147,15 +170,13 @@ void AbstractDeclaration::setGuard(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard(),
+                _this(),
+                ::xpand3::declaration::DeclarationPackage::_instance()->getAbstractDeclaration__guard(),
                 _old_guard,
                 m_guard
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_guard;
 }
 

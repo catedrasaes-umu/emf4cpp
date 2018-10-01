@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/ForEachStatement.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,13 +21,17 @@
 #ifndef XPAND3_STATEMENT_FOREACHSTATEMENT_HPP
 #define XPAND3_STATEMENT_FOREACHSTATEMENT_HPP
 
-#include <xpand3/statement_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3/statement_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3/expression_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/statement/AbstractStatementWithBody.hpp>
+
+#include "StatementPackage.hpp"
 
 /*PROTECTED REGION ID(ForEachStatement_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -38,70 +43,76 @@ namespace xpand3
     namespace statement
     {
 
-        class ForEachStatement: public virtual ::xpand3::statement::AbstractStatementWithBody
-        {
-        public:
-            ForEachStatement();
+    class EXPORT_XPAND3_DLL ForEachStatement : public virtual ::xpand3::statement::AbstractStatementWithBody
+    {
+    public:
+        ForEachStatement();
 
-            virtual ~ForEachStatement();
+        virtual ~ForEachStatement();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::xpand3::expression::AbstractExpression_ptr getTarget();
-            void setTarget(
-                    ::xpand3::expression::AbstractExpression_ptr _target);
+        // References
+        virtual ::xpand3::expression::AbstractExpression_ptr getTarget () const;
+        virtual void setTarget (::xpand3::expression::AbstractExpression_ptr _target);
 
-            ::xpand3::expression::AbstractExpression_ptr getSeparator();
-            void setSeparator(
-                    ::xpand3::expression::AbstractExpression_ptr _separator);
+        virtual ::xpand3::expression::AbstractExpression_ptr getSeparator () const;
+        virtual void setSeparator (::xpand3::expression::AbstractExpression_ptr _separator);
 
-            ::xpand3::Identifier_ptr getVariable();
-            void setVariable(::xpand3::Identifier_ptr _variable);
+        virtual ::xpand3::Identifier_ptr getVariable () const;
+        virtual void setVariable (::xpand3::Identifier_ptr _variable);
 
-            ::xpand3::Identifier_ptr getIteratorName();
-            void setIteratorName(::xpand3::Identifier_ptr _iteratorName);
+        virtual ::xpand3::Identifier_ptr getIteratorName () const;
+        virtual void setIteratorName (::xpand3::Identifier_ptr _iteratorName);
 
-            /*PROTECTED REGION ID(ForEachStatement) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = StatementPackage::FOREACHSTATEMENT;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(ForEachStatement) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(ForEachStatementImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(ForEachStatementImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        ForEachStatement_ptr _this()
+        {   return ForEachStatement_ptr(this);}
 
-            ::xpand3::expression::AbstractExpression_ptr m_target;
+        // Attributes
 
-            ::xpand3::expression::AbstractExpression_ptr m_separator;
+        // References
 
-            ::xpand3::Identifier_ptr m_variable;
+        ::xpand3::expression::AbstractExpression_ptr m_target;
 
-            ::xpand3::Identifier_ptr m_iteratorName;
+        ::xpand3::expression::AbstractExpression_ptr m_separator;
 
-        };
+        ::xpand3::Identifier_ptr m_variable;
 
-    } // statement
-} // xpand3
+        ::xpand3::Identifier_ptr m_iteratorName;
+
+    };
+
+}
+ // statement
+}// xpand3
 
 #endif // XPAND3_STATEMENT_FOREACHSTATEMENT_HPP
 

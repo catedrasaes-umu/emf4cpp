@@ -2,6 +2,7 @@
 /*
  * ecore/EStructuralFeature.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,16 +33,21 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EStructuralFeature.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
 EStructuralFeature::EStructuralFeature() :
-    m_changeable(true), m_eContainingClass(0)
+        m_changeable(true), m_eContainingClass(0)
 {
 
     /*PROTECTED REGION ID(EStructuralFeatureImpl__EStructuralFeatureImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -52,11 +58,6 @@ EStructuralFeature::EStructuralFeature() :
 EStructuralFeature::~EStructuralFeature()
 {
 }
-
-/*PROTECTED REGION ID(EStructuralFeature.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
 
 // Attributes
 
@@ -76,8 +77,8 @@ void EStructuralFeature::setChangeable(::ecore::EBoolean _changeable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__changeable(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__changeable(),
                 _old_changeable,
                 m_changeable
         );
@@ -102,8 +103,8 @@ void EStructuralFeature::setVolatile(::ecore::EBoolean _volatile)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__volatile(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__volatile(),
                 _old_volatile,
                 m_volatile
         );
@@ -128,8 +129,8 @@ void EStructuralFeature::setTransient(::ecore::EBoolean _transient)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__transient(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__transient(),
                 _old_transient,
                 m_transient
         );
@@ -155,8 +156,8 @@ void EStructuralFeature::setDefaultValueLiteral(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValueLiteral(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValueLiteral(),
                 _old_defaultValueLiteral,
                 m_defaultValueLiteral
         );
@@ -182,8 +183,8 @@ void EStructuralFeature::setDefaultValue(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValue(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__defaultValue(),
                 _old_defaultValue,
                 m_defaultValue
         );
@@ -208,8 +209,8 @@ void EStructuralFeature::setUnsettable(::ecore::EBoolean _unsettable)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__unsettable(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__unsettable(),
                 _old_unsettable,
                 m_unsettable
         );
@@ -234,8 +235,8 @@ void EStructuralFeature::setDerived(::ecore::EBoolean _derived)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__derived(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__derived(),
                 _old_derived,
                 m_derived
         );
@@ -245,16 +246,23 @@ void EStructuralFeature::setDerived(::ecore::EBoolean _derived)
 }
 
 // References
-::ecore::EClass_ptr EStructuralFeature::getEContainingClass()
+
+::ecore::EClass_ptr EStructuralFeature::getEContainingClass() const
 {
     return m_eContainingClass;
 }
 
-void EStructuralFeature::setEContainingClass(
+::ecore::EClass_ptr EStructuralFeature::basicgetEContainingClass()
+{
+    return m_eContainingClass;
+}
+
+void EStructuralFeature::basicsetEContainingClass(
         ::ecore::EClass_ptr _eContainingClass)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::ecore::EClass_ptr _old_eContainingClass = m_eContainingClass;
-
+#endif
     m_eContainingClass = _eContainingClass;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -262,14 +270,33 @@ void EStructuralFeature::setEContainingClass(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::ecore::EcorePackage::_instance()->getEStructuralFeature__eContainingClass(),
+                _this(),
+                ::ecore::EcorePackage::_instance()->getEStructuralFeature__eContainingClass(),
                 _old_eContainingClass,
                 m_eContainingClass
         );
         eNotify(&notification);
     }
 #endif
+}
 
+void EStructuralFeature::setEContainingClass(
+        ::ecore::EClass_ptr _eContainingClass)
+{
+    if (_eContainingClass != m_eContainingClass)
+    {
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
+        if (m_eContainingClass != nullptr)
+        {
+            m_eContainingClass->_inverseRemove(
+                    ::ecore::EcorePackage::ECLASS__ESTRUCTURALFEATURES, _this);
+        }
+        if (_eContainingClass != nullptr)
+        {
+            _eContainingClass->_inverseAdd(
+                    ::ecore::EcorePackage::ECLASS__ESTRUCTURALFEATURES, _this);
+        }
+        basicsetEContainingClass(_eContainingClass);
+    }
 }
 

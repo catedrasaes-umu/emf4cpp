@@ -2,6 +2,7 @@
 /*
  * kdm/action/ActionElement.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -40,6 +41,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ActionElement.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::action;
 
 // Default constructor
@@ -48,12 +54,14 @@ ActionElement::ActionElement()
 
     m_codeElement.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::code::AbstractCodeElement, -1, true, false >(this,
-                    NULL));
+                    ::kdm::code::AbstractCodeElement_ptr, -1, true, false >(
+                    this,
+                    ::kdm::action::ActionPackage::_instance()->getActionElement__codeElement()));
     m_actionRelation.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::kdm::action::AbstractActionRelationship, -1, true, false >(
-                    this, NULL));
+                    ::kdm::action::AbstractActionRelationship_ptr, -1, true,
+                    false >(this,
+                    ::kdm::action::ActionPackage::_instance()->getActionElement__actionRelation()));
 
     /*PROTECTED REGION ID(ActionElementImpl__ActionElementImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -69,12 +77,8 @@ ActionElement::~ActionElement()
 {
 }
 
-/*PROTECTED REGION ID(ActionElement.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::kdm::core::String ActionElement::getKind() const
 {
     return m_kind;
@@ -91,8 +95,8 @@ void ActionElement::setKind(::kdm::core::String _kind)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::kdm::action::ActionPackage::_instance()->getActionElement__kind(),
+                _this(),
+                ::kdm::action::ActionPackage::_instance()->getActionElement__kind(),
                 _old_kind,
                 m_kind
         );
@@ -102,12 +106,23 @@ void ActionElement::setKind(::kdm::core::String _kind)
 }
 
 // References
-::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement >& ActionElement::getCodeElement()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ActionElement::getCodeElement() const
 {
     return *m_codeElement;
 }
 
-::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship >& ActionElement::getActionRelation()
+::ecorecpp::mapping::EList< ::kdm::code::AbstractCodeElement_ptr >& ActionElement::getCodeElement()
+{
+    return *m_codeElement;
+}
+
+const ::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship_ptr >& ActionElement::getActionRelation() const
+{
+    return *m_actionRelation;
+}
+
+::ecorecpp::mapping::EList< ::kdm::action::AbstractActionRelationship_ptr >& ActionElement::getActionRelation()
 {
     return *m_actionRelation;
 }

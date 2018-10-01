@@ -41,9 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using namespace ::«getFQN()»;
 
 «name.toFirstUpper()»Factory::«name.toFirstUpper()»Factory()
-{
-    s_instance.reset(this);
-}
+{}
 
 ::ecore::EObject_ptr «name.toFirstUpper()»Factory::create ( ::ecore::EClass_ptr _eClass)
 {
@@ -68,7 +66,7 @@ using namespace ::«getFQN()»;
         {
           ::ecore::EJavaObject _any;
              «name.toFirstUpper()»Package_ptr _epkg =
-                 dynamic_cast< ::«getFQN()»::«name.toFirstUpper()»Package_ptr >(getEPackage());
+                 dynamic_cast< ::«getFQN()»::«name.toFirstUpper()»Package* >(getEPackage().get());
             return _epkg->get«edt.name.toFirstUpper()»()->getEEnumLiteralByLiteral(_literalValue)->getValue();
         }
         «ELSE-»
@@ -90,7 +88,7 @@ using namespace ::«getFQN()»;
     case «name.toFirstUpper()»Package::«edt.name.toUpperCase()»:
          {
              «name.toFirstUpper()»Package_ptr _epkg =
-                 ::«getFQN()»::instanceOf< ::«getFQN()»::«name.toFirstUpper()»Package >(getEPackage());
+                 ::ecore::as< ::«getFQN()»::«name.toFirstUpper()»Package >(getEPackage());
             ::ecore::EInt _value = ::ecorecpp::mapping::any::any_cast< ::ecore::EInt > (_instanceValue);
             return _epkg->get«edt.name.toFirstUpper()»()->getEEnumLiteral(_value)->getName();
         }
@@ -107,7 +105,7 @@ using namespace ::«getFQN()»;
 «FOREACH EClassifiers.typeSelect(EClass) AS class-»
 «class.name»_ptr «name.toFirstUpper()»Factory::create«class.name»()
 {
-    return new «class.name»();
+    return ::ecore::Ptr<«class.name»>(new «class.name»);
 }
 «ENDFOREACH-»
 

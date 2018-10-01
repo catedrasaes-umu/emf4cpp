@@ -2,6 +2,7 @@
 /*
  * SVG/SvgFile.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -31,6 +32,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(SvgFile.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -39,8 +45,10 @@ SvgFile::SvgFile() :
 {
 
     m_elements.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element, -1,
-                    false, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Element_ptr, -1,
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getSvgFile__elements(),
+                    ::SVG::SVGPackage::ELEMENT__OWNER));
 
     /*PROTECTED REGION ID(SvgFileImpl__SvgFileImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -56,22 +64,25 @@ SvgFile::~SvgFile()
 {
 }
 
-/*PROTECTED REGION ID(SvgFile.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::SVG::Svg_ptr SvgFile::getTag()
+
+::SVG::Svg_ptr SvgFile::getTag() const
 {
     return m_tag;
 }
 
-void SvgFile::setTag(::SVG::Svg_ptr _tag)
+::SVG::Svg_ptr SvgFile::basicgetTag()
 {
-    ::SVG::Svg_ptr _old_tag = m_tag;
+    return m_tag;
+}
 
+void SvgFile::basicsetTag(::SVG::Svg_ptr _tag)
+{
+#ifdef ECORECPP_NOTIFICATION_API
+    ::SVG::Svg_ptr _old_tag = m_tag;
+#endif
     m_tag = _tag;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -79,18 +90,39 @@ void SvgFile::setTag(::SVG::Svg_ptr _tag)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getSvgFile__tag(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getSvgFile__tag(),
                 _old_tag,
                 m_tag
         );
         eNotify(&notification);
     }
 #endif
-
 }
 
-::ecorecpp::mapping::EList< ::SVG::Element >& SvgFile::getElements()
+void SvgFile::setTag(::SVG::Svg_ptr _tag)
+{
+    if (_tag != m_tag)
+    {
+        ::ecore::EJavaObject _this = ::ecore::EObject::_this();
+        if (m_tag != nullptr)
+        {
+            m_tag->_inverseRemove(::SVG::SVGPackage::SVG__OWNER_SVG, _this);
+        }
+        if (_tag != nullptr)
+        {
+            _tag->_inverseAdd(::SVG::SVGPackage::SVG__OWNER_SVG, _this);
+        }
+        basicsetTag(_tag);
+    }
+}
+
+const ::ecorecpp::mapping::EList< ::SVG::Element_ptr >& SvgFile::getElements() const
+{
+    return *m_elements;
+}
+
+::ecorecpp::mapping::EList< ::SVG::Element_ptr >& SvgFile::getElements()
 {
     return *m_elements;
 }

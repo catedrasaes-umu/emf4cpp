@@ -2,6 +2,7 @@
 /*
  * ecore/EEnum.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(EEnum.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::ecore;
 
 // Default constructor
@@ -39,12 +45,15 @@ EEnum::EEnum()
 {
 
     m_eLiterals.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::ecore::EEnumLiteral,
-                    -1, true, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::ecore::EEnumLiteral_ptr, -1, true, true >(this,
+                    ::ecore::EcorePackage::_instance() ? ::ecore::EcorePackage::_instance()->getEEnum__eLiterals() :
+                            ::ecore::EReference_ptr(),
+                    ::ecore::EcorePackage::EENUMLITERAL__EENUM));
 
     /*PROTECTED REGION ID(EEnumImpl__EEnumImpl) START*/
-    // Please, enable the protected region if you add manually written code.
-    // To do this, add the keyword ENABLED before START.
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
     /*PROTECTED REGION END*/
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -56,15 +65,16 @@ EEnum::~EEnum()
 {
 }
 
-/*PROTECTED REGION ID(EEnum.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
 
 // References
-::ecorecpp::mapping::EList< ::ecore::EEnumLiteral >& EEnum::getELiterals()
+
+const ::ecorecpp::mapping::EList< ::ecore::EEnumLiteral_ptr >& EEnum::getELiterals() const
+{
+    return *m_eLiterals;
+}
+
+::ecorecpp::mapping::EList< ::ecore::EEnumLiteral_ptr >& EEnum::getELiterals()
 {
     return *m_eLiterals;
 }

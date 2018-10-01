@@ -2,6 +2,7 @@
 /*
  * serializer/json_serializer.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,8 +33,8 @@ namespace ecorecpp
 namespace json
 {
 
-using ::ecorecpp::mapping::type_traits::string_t;
-using ::ecorecpp::mapping::type_traits::char_t;
+using ::ecorecpp::mapping::type_definitions::string_t;
+using ::ecorecpp::mapping::type_definitions::char_t;
 
 static const char_t *_indent_precalc[] = {
     "",

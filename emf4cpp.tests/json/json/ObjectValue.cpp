@@ -2,6 +2,7 @@
 /*
  * json/ObjectValue.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ObjectValue.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::json;
 
 // Default constructor
@@ -36,8 +42,9 @@ ObjectValue::ObjectValue()
 {
 
     m_members.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::json::NVPair, -1,
-                    true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::json::NVPair_ptr, -1,
+                    true, false >(this,
+                    ::json::JsonPackage::_instance()->getObjectValue__members()));
 
     /*PROTECTED REGION ID(ObjectValueImpl__ObjectValueImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,14 +60,16 @@ ObjectValue::~ObjectValue()
 {
 }
 
-/*PROTECTED REGION ID(ObjectValue.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::json::NVPair >& ObjectValue::getMembers()
+
+const ::ecorecpp::mapping::EList< ::json::NVPair_ptr >& ObjectValue::getMembers() const
+{
+    return *m_members;
+}
+
+::ecorecpp::mapping::EList< ::json::NVPair_ptr >& ObjectValue::getMembers()
 {
     return *m_members;
 }

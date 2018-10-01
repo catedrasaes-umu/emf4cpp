@@ -2,6 +2,7 @@
 /*
  * kdm/data/DataFactory.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -21,12 +22,13 @@
 
 using namespace ::kdm::data;
 
-std::auto_ptr< ::kdm::data::DataFactory > DataFactory::s_instance;
+::ecore::Ptr< ::kdm::data::DataFactory > DataFactory::s_holder;
 
 ::kdm::data::DataFactory_ptr DataFactory::_instance()
 {
-    if (!s_instance.get())
-        new DataFactory();
-    return s_instance.get();
+    if (!s_holder.get())
+        s_holder = ::ecore::Ptr < DataFactory > (new DataFactory());
+
+    return s_holder;
 }
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    name="enumeration"
+    nsURI="http://inchron.com/tests/enumeration"
+    nsPrefix="enumeration">
+  <eClassifiers
+      xsi:type="ecore:EClass"
+      name="Bird">
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="type"
+        eType="#//BirdType"
+        defaultValueLiteral="blackbird"/>
+    <eStructuralFeatures
+        xsi:type="ecore:EAttribute"
+        name="name"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Birdy"/>
+  </eClassifiers>
+  <eClassifiers
+      xsi:type="ecore:EEnum"
+      name="BirdType">
+    <eLiterals
+        name="unknown"
+        value="-1"
+        literal="unknown"/>
+    <eLiterals
+        name="blackbird"
+        literal="blackbird"/>
+    <eLiterals
+        name="thrush"
+        value="1"
+        literal="thrush"/>
+    <eLiterals
+        name="finch"
+        value="2"/>
+    <eLiterals
+        name="starling"
+        value="3"/>
+    <eLiterals
+        name="stork"
+        value="7"/>
+  </eClassifiers>
+</ecore:EPackage>

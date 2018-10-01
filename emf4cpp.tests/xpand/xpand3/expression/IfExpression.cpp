@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/IfExpression.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(IfExpression.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -49,26 +55,23 @@ IfExpression::~IfExpression()
 {
     if (m_condition)
     {
-        delete m_condition;
+        m_condition.reset();
     }
     if (m_thenPart)
     {
-        delete m_thenPart;
+        m_thenPart.reset();
     }
     if (m_elsePart)
     {
-        delete m_elsePart;
+        m_elsePart.reset();
     }
 }
 
-/*PROTECTED REGION ID(IfExpression.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::expression::AbstractExpression_ptr IfExpression::getCondition()
+
+::xpand3::expression::AbstractExpression_ptr IfExpression::getCondition() const
 {
     return m_condition;
 }
@@ -76,8 +79,16 @@ IfExpression::~IfExpression()
 void IfExpression::setCondition(
         ::xpand3::expression::AbstractExpression_ptr _condition)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+    if (m_condition)
+        m_condition->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
+    if (_condition)
+        _condition->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_condition = m_condition;
+#endif
     m_condition = _condition;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -85,19 +96,17 @@ void IfExpression::setCondition(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__condition(),
                 _old_condition,
                 m_condition
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_condition;
 }
 
-::xpand3::expression::AbstractExpression_ptr IfExpression::getThenPart()
+::xpand3::expression::AbstractExpression_ptr IfExpression::getThenPart() const
 {
     return m_thenPart;
 }
@@ -105,8 +114,16 @@ void IfExpression::setCondition(
 void IfExpression::setThenPart(
         ::xpand3::expression::AbstractExpression_ptr _thenPart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+    if (m_thenPart)
+        m_thenPart->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
+    if (_thenPart)
+        _thenPart->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_thenPart = m_thenPart;
+#endif
     m_thenPart = _thenPart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -114,19 +131,17 @@ void IfExpression::setThenPart(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__thenPart(),
                 _old_thenPart,
                 m_thenPart
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_thenPart;
 }
 
-::xpand3::expression::AbstractExpression_ptr IfExpression::getElsePart()
+::xpand3::expression::AbstractExpression_ptr IfExpression::getElsePart() const
 {
     return m_elsePart;
 }
@@ -134,8 +149,16 @@ void IfExpression::setThenPart(
 void IfExpression::setElsePart(
         ::xpand3::expression::AbstractExpression_ptr _elsePart)
 {
-    ::xpand3::expression::AbstractExpression_ptr _old_elsePart = m_elsePart;
+    if (m_elsePart)
+        m_elsePart->_setEContainer(IfExpression_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
+    if (_elsePart)
+        _elsePart->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::expression::AbstractExpression_ptr _old_elsePart = m_elsePart;
+#endif
     m_elsePart = _elsePart;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -143,15 +166,13 @@ void IfExpression::setElsePart(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getIfExpression__elsePart(),
                 _old_elsePart,
                 m_elsePart
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_elsePart;
 }
 

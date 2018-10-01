@@ -2,6 +2,7 @@
 /*
  * kdm/code/ClassUnit.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,13 +21,17 @@
 #ifndef KDM_CODE_CLASSUNIT_HPP
 #define KDM_CODE_CLASSUNIT_HPP
 
-#include <kdm/code_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/code_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source_forward.hpp>
 #include <kdm/code/Datatype.hpp>
+
+#include "CodePackage.hpp"
 
 /*PROTECTED REGION ID(ClassUnit_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -38,57 +43,65 @@ namespace kdm
     namespace code
     {
 
-        class ClassUnit: public virtual ::kdm::code::Datatype
-        {
-        public:
-            ClassUnit();
+    class EXPORT_KDM_DLL ClassUnit : public virtual ::kdm::code::Datatype
+    {
+    public:
+        ClassUnit();
 
-            virtual ~ClassUnit();
+        virtual ~ClassUnit();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::core::Boolean getIsAbstract() const;
-            void setIsAbstract(::kdm::core::Boolean _isAbstract);
+        // Attributes
+        virtual ::kdm::core::Boolean getIsAbstract () const;
+        virtual void setIsAbstract (::kdm::core::Boolean _isAbstract);
 
-            // References
-            ::ecorecpp::mapping::EList< ::kdm::code::CodeItem >& getCodeElement();
+        // References
+        virtual const ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& getCodeElement () const;
+        virtual ::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >& getCodeElement ();
 
-            /*PROTECTED REGION ID(ClassUnit) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = CodePackage::CLASSUNIT;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(ClassUnit) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(ClassUnitImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(ClassUnitImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::kdm::core::Boolean m_isAbstract;
+    protected:
+        ClassUnit_ptr _this()
+        {   return ClassUnit_ptr(this);}
 
-            // References
+        // Attributes
 
-            ::ecorecpp::mapping::out_ptr<
-                    ::ecorecpp::mapping::EList< ::kdm::code::CodeItem > > m_codeElement;
+        ::kdm::core::Boolean m_isAbstract;
 
-        };
+        // References
 
-    } // code
-} // kdm
+        std::shared_ptr<::ecorecpp::mapping::EList< ::kdm::code::CodeItem_ptr >> m_codeElement;
+
+    };
+
+}
+ // code
+}// kdm
 
 #endif // KDM_CODE_CLASSUNIT_HPP
 

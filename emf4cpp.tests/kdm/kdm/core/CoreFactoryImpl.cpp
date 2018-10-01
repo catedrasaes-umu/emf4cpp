@@ -2,6 +2,7 @@
 /*
  * kdm/core/CoreFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,7 +33,6 @@ using namespace ::kdm::core;
 
 CoreFactory::CoreFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr CoreFactory::create(::ecore::EClass_ptr _eClass)
@@ -95,22 +95,22 @@ CoreFactory::CoreFactory()
 
 Element_ptr CoreFactory::createElement()
 {
-    return new Element();
+    return ::ecore::Ptr < Element > (new Element);
 }
 ModelElement_ptr CoreFactory::createModelElement()
 {
-    return new ModelElement();
+    return ::ecore::Ptr < ModelElement > (new ModelElement);
 }
 KDMEntity_ptr CoreFactory::createKDMEntity()
 {
-    return new KDMEntity();
+    return ::ecore::Ptr < KDMEntity > (new KDMEntity);
 }
 KDMRelationship_ptr CoreFactory::createKDMRelationship()
 {
-    return new KDMRelationship();
+    return ::ecore::Ptr < KDMRelationship > (new KDMRelationship);
 }
 AggregatedRelationship_ptr CoreFactory::createAggregatedRelationship()
 {
-    return new AggregatedRelationship();
+    return ::ecore::Ptr < AggregatedRelationship > (new AggregatedRelationship);
 }
 

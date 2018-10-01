@@ -2,6 +2,7 @@
 /*
  * SVG/TrefImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,19 +36,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::SVG;
-
 /*PROTECTED REGION ID(TrefImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::SVG;
 
 void Tref::_initialize()
 {
     // Supertypes
     ::SVG::TextElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(TrefImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -66,32 +67,35 @@ void Tref::_initialize()
     {
     case ::SVG::SVGPackage::ELEMENT__OWNER:
     {
-        _any = m_owner->asEListOf< ::ecore::EObject >();
+        _any = m_owner->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__TARGET:
     {
-        _any = m_target->asEListOf< ::ecore::EObject >();
+        _any = m_target->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject >();
+        _any = m_attribute->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__POSITION:
     {
-        _any = static_cast< ::ecore::EObject* >(m_position);
+        if (m_position)
+            _any = ::ecore::as < ::ecore::EObject > (m_position);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__SIZE:
     {
-        _any = static_cast< ::ecore::EObject* >(m_size);
+        if (m_size)
+            _any = ::ecore::as < ::ecore::EObject > (m_size);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__ROOT:
     {
-        _any = static_cast< ::ecore::EObject* >(m_root);
+        if (m_root)
+            _any = ::ecore::as < ::ecore::EObject > (m_root);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__FILL:
@@ -108,7 +112,8 @@ void Tref::_initialize()
         return _any;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
     {
-        _any = static_cast< ::ecore::EObject* >(m_group);
+        if (m_group)
+            _any = ::ecore::as < ::ecore::EObject > (m_group);
     }
         return _any;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
@@ -119,7 +124,8 @@ void Tref::_initialize()
         return _any;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
     {
-        _any = static_cast< ::ecore::EObject* >(m_drawsMarker);
+        if (m_drawsMarker)
+            _any = ::ecore::as < ::ecore::EObject > (m_drawsMarker);
     }
         return _any;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
@@ -148,7 +154,8 @@ void Tref::_initialize()
         return _any;
     case ::SVG::SVGPackage::TREF__XLINKHREF:
     {
-        _any = static_cast< ::ecore::EObject* >(m_xlinkHref);
+        if (m_xlinkHref)
+            _any = ::ecore::as < ::ecore::EObject > (m_xlinkHref);
     }
         return _any;
 
@@ -162,24 +169,27 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
     case ::SVG::SVGPackage::ELEMENT__OWNER:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::SVG::Element::getOwner().clear();
         ::SVG::Element::getOwner().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__TARGET:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::SVG::Element::getTarget().clear();
         ::SVG::Element::getTarget().insert_all(*_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::SVG::Element::getAttribute().clear();
         ::SVG::Element::getAttribute().insert_all(*_t0);
     }
@@ -188,7 +198,8 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::SVG::Coordinates_ptr _t1 = dynamic_cast< ::SVG::Coordinates_ptr >(_t0);
+        ::SVG::Coordinates_ptr _t1 =
+                dynamic_cast< ::SVG::Coordinates* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::SVG::Coordinates >(_t0);*/
         ::SVG::Element::setPosition(_t1);
     }
         return;
@@ -196,7 +207,7 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::SVG::Dimension_ptr _t1 = dynamic_cast< ::SVG::Dimension_ptr >(_t0);
+        ::SVG::Dimension_ptr _t1 = dynamic_cast< ::SVG::Dimension* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::SVG::Dimension >(_t0);*/
         ::SVG::Element::setSize(_t1);
     }
         return;
@@ -204,20 +215,24 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg_ptr >(_t0);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::SVG::Svg >(_t0);*/
         ::SVG::Element::setRoot(_t1);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__FILL:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_fill);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setFill(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__VIEWBOX:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_viewBox);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setViewBox(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__GROUP:
@@ -225,53 +240,64 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
         ::SVG::GroupingElement_ptr _t1 =
-                dynamic_cast< ::SVG::GroupingElement_ptr >(_t0);
+                dynamic_cast< ::SVG::GroupingElement* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::SVG::GroupingElement >(_t0);*/
         ::SVG::Element::setGroup(_t1);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_identifier);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::Element::setIdentifier(_t0);
     }
         return;
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker_ptr >(_t0);
+        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::SVG::Marker >(_t0);*/
         ::SVG::Element::setDrawsMarker(_t1);
     }
         return;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_stroke);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::GraphicalElement::setStroke(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXTELEMENT__ROTATE:
     {
+        ::PrimitiveTypes::Double _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::Double
-                > ::fromAny(_newValue, m_rotate);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::TextElement::setRotate(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXTELEMENT__TEXTLENGTH:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_textLength);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::TextElement::setTextLength(_t0);
     }
         return;
     case ::SVG::SVGPackage::TEXTELEMENT__FONTSIZE:
     {
+        ::PrimitiveTypes::String _t0;
         ::ecorecpp::mapping::any_traits < ::PrimitiveTypes::String
-                > ::fromAny(_newValue, m_fontSize);
+                > ::fromAny(_newValue, _t0);
+        ::SVG::TextElement::setFontSize(_t0);
     }
         return;
     case ::SVG::SVGPackage::TREF__XLINKHREF:
     {
         ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
                 < ::ecore::EObject_ptr > (_newValue);
-        ::SVG::TextElement_ptr _t1 = dynamic_cast< ::SVG::TextElement_ptr >(_t0);
+        ::SVG::TextElement_ptr _t1 =
+                dynamic_cast< ::SVG::TextElement* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::SVG::TextElement >(_t0);*/
         ::SVG::Tref::setXlinkHref(_t1);
     }
         return;
@@ -291,11 +317,11 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
     case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
         return m_attribute && m_attribute->size();
     case ::SVG::SVGPackage::ELEMENT__POSITION:
-        return m_position;
+        return (bool) m_position;
     case ::SVG::SVGPackage::ELEMENT__SIZE:
-        return m_size;
+        return (bool) m_size;
     case ::SVG::SVGPackage::ELEMENT__ROOT:
-        return m_root;
+        return (bool) m_root;
     case ::SVG::SVGPackage::ELEMENT__FILL:
         return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
                 > ::is_set(m_fill);
@@ -303,12 +329,12 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
                 > ::is_set(m_viewBox);
     case ::SVG::SVGPackage::ELEMENT__GROUP:
-        return m_group;
+        return (bool) m_group;
     case ::SVG::SVGPackage::ELEMENT__IDENTIFIER:
         return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
                 > ::is_set(m_identifier);
     case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
-        return m_drawsMarker;
+        return (bool) m_drawsMarker;
     case ::SVG::SVGPackage::GRAPHICALELEMENT__STROKE:
         return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
                 > ::is_set(m_stroke);
@@ -322,7 +348,7 @@ void Tref::eSet(::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue)
         return ::ecorecpp::mapping::set_traits < ::PrimitiveTypes::String
                 > ::is_set(m_fontSize);
     case ::SVG::SVGPackage::TREF__XLINKHREF:
-        return m_xlinkHref;
+        return (bool) m_xlinkHref;
 
     }
     throw "Error";
@@ -340,7 +366,196 @@ void Tref::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr Tref::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::SVG::SVGPackage_ptr >(::SVG::SVGPackage::_instance())->getTref();
+            dynamic_cast< ::SVG::SVGPackage* >(::SVG::SVGPackage::_instance().get())->getTref();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void Tref::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ELEMENT__OWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::SvgFile_ptr _t1 = dynamic_cast< ::SVG::SvgFile* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile_ptr,
+                        -1, false, true >&) ::SVG::Element::getOwner();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__TARGET:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Use_ptr _t1 = dynamic_cast< ::SVG::Use* >(_t0.get());
+
+        // add to a list
+        auto& container = (::ecorecpp::mapping::ReferenceEListImpl<
+                ::SVG::Use_ptr, -1, false, true >&) ::SVG::Element::getTarget();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Attribute_ptr _t1 = dynamic_cast< ::SVG::Attribute* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute_ptr,
+                        -1, false, true >&) ::SVG::Element::getAttribute();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__POSITION:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__SIZE:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ROOT:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg* >(_t0.get());
+
+        // set reference
+        basicsetRoot(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__GROUP:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::GroupingElement_ptr _t1 =
+                dynamic_cast< ::SVG::GroupingElement* >(_t0.get());
+
+        // set reference
+        basicsetGroup(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker* >(_t0.get());
+
+        // set reference
+        basicsetDrawsMarker(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::TREF__XLINKHREF:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void Tref::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::SVG::SVGPackage::ELEMENT__OWNER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::SvgFile_ptr _t1 = dynamic_cast< ::SVG::SvgFile* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::SvgFile_ptr,
+                        -1, false, true >&) ::SVG::Element::getOwner();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__TARGET:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Use_ptr _t1 = dynamic_cast< ::SVG::Use* >(_t0.get());
+
+        // add to a list
+        auto& container = (::ecorecpp::mapping::ReferenceEListImpl<
+                ::SVG::Use_ptr, -1, false, true >&) ::SVG::Element::getTarget();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ATTRIBUTE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Attribute_ptr _t1 = dynamic_cast< ::SVG::Attribute* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Attribute_ptr,
+                        -1, false, true >&) ::SVG::Element::getAttribute();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__POSITION:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__SIZE:
+    {
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__ROOT:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Svg_ptr _t1 = dynamic_cast< ::SVG::Svg* >(_t0.get());
+
+        // set reference
+        if (basicgetRoot() == _t1)
+            basicsetRoot(nullptr);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__GROUP:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::GroupingElement_ptr _t1 =
+                dynamic_cast< ::SVG::GroupingElement* >(_t0.get());
+
+        // set reference
+        if (basicgetGroup() == _t1)
+            basicsetGroup(nullptr);
+    }
+        return;
+    case ::SVG::SVGPackage::ELEMENT__DRAWSMARKER:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::SVG::Marker_ptr _t1 = dynamic_cast< ::SVG::Marker* >(_t0.get());
+
+        // set reference
+        if (basicgetDrawsMarker() == _t1)
+            basicsetDrawsMarker(nullptr);
+    }
+        return;
+    case ::SVG::SVGPackage::TREF__XLINKHREF:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

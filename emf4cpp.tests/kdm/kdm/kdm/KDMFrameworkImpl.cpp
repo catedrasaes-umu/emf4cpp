@@ -2,6 +2,7 @@
 /*
  * kdm/kdm/KDMFrameworkImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -33,30 +34,26 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::kdm::kdm;
-
 /*PROTECTED REGION ID(KDMFrameworkImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::kdm::kdm;
 
 void KDMFramework::_initialize()
 {
     // Supertypes
     ::kdm::core::ModelElement::_initialize();
 
-    // Rerefences
+    // References
     for (size_t i = 0; i < m_audit->size(); i++)
     {
         (*m_audit)[i]->_initialize();
-        (*m_audit)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__audit());
     }
     for (size_t i = 0; i < m_extensionFamily->size(); i++)
     {
         (*m_extensionFamily)[i]->_initialize();
-        (*m_extensionFamily)[i]->_setEContainer(this,
-                ::kdm::kdm::KdmPackage::_instance()->getKDMFramework__extensionFamily());
     }
 
     /*PROTECTED REGION ID(KDMFrameworkImpl__initialize) START*/
@@ -76,32 +73,32 @@ void KDMFramework::_initialize()
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        _any = m_attribute->asEListOf< ::ecore::EObject >();
+        _any = m_attribute->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        _any = m_annotation->asEListOf< ::ecore::EObject >();
+        _any = m_annotation->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        _any = m_stereotype->asEListOf< ::ecore::EObject >();
+        _any = m_stereotype->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        _any = m_taggedValue->asEListOf< ::ecore::EObject >();
+        _any = m_taggedValue->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__AUDIT:
     {
-        _any = m_audit->asEListOf< ::ecore::EObject >();
+        _any = m_audit->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY:
     {
-        _any = m_extensionFamily->asEListOf< ::ecore::EObject >();
+        _any = m_extensionFamily->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__NAME:
@@ -122,56 +119,64 @@ void KDMFramework::eSet(::ecore::EInt _featureID,
     {
     case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAttribute().clear();
         ::kdm::core::Element::getAttribute().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::Element::getAnnotation().clear();
         ::kdm::core::Element::getAnnotation().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::ModelElement::getStereotype().clear();
         ::kdm::core::ModelElement::getStereotype().insert_all(*_t0);
     }
         return;
     case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::core::ModelElement::getTaggedValue().clear();
         ::kdm::core::ModelElement::getTaggedValue().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__AUDIT:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::kdm::KDMFramework::getAudit().clear();
         ::kdm::kdm::KDMFramework::getAudit().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 = ::ecorecpp::mapping::any::any_cast
-                < ::ecorecpp::mapping::EList_ptr > (_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::kdm::kdm::KDMFramework::getExtensionFamily().clear();
         ::kdm::kdm::KDMFramework::getExtensionFamily().insert_all(*_t0);
     }
         return;
     case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__NAME:
     {
+        ::kdm::core::String _t0;
         ::ecorecpp::mapping::any_traits < ::kdm::core::String
-                > ::fromAny(_newValue, m_name);
+                > ::fromAny(_newValue, _t0);
+        ::kdm::kdm::KDMFramework::setName(_t0);
     }
         return;
 
@@ -215,7 +220,79 @@ void KDMFramework::eUnset(::ecore::EInt _featureID)
 ::ecore::EClass_ptr KDMFramework::_eClass()
 {
     static ::ecore::EClass_ptr _eclass =
-            dynamic_cast< ::kdm::kdm::KdmPackage_ptr >(::kdm::kdm::KdmPackage::_instance())->getKDMFramework();
+            dynamic_cast< ::kdm::kdm::KdmPackage* >(::kdm::kdm::KdmPackage::_instance().get())->getKDMFramework();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void KDMFramework::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__AUDIT:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void KDMFramework::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::kdm::core::CorePackage::ELEMENT__ATTRIBUTE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::ELEMENT__ANNOTATION:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__STEREOTYPE:
+    {
+    }
+        return;
+    case ::kdm::core::CorePackage::MODELELEMENT__TAGGEDVALUE:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__AUDIT:
+    {
+    }
+        return;
+    case ::kdm::kdm::KdmPackage::KDMFRAMEWORK__EXTENSIONFAMILY:
+    {
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

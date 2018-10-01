@@ -2,6 +2,7 @@
 /*
  * ecore/EAttribute.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,8 +21,10 @@
 #ifndef ECORE_EATTRIBUTE_HPP
 #define ECORE_EATTRIBUTE_HPP
 
-#include <ecore_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <ecore/dllEcore.hpp>
+#include <ecore_forward.hpp>
 
 #include <ecore/EStructuralFeature.hpp>
 
@@ -33,56 +36,60 @@
 namespace ecore
 {
 
-    class EAttribute: public virtual ::ecore::EStructuralFeature
-    {
-    public:
-        EAttribute();
+class EXPORT_ECORE_DLL EAttribute : public virtual ::ecore::EStructuralFeature
+{
+public:
+    EAttribute();
 
-        virtual ~EAttribute();
+    virtual ~EAttribute();
 
-        virtual void _initialize();
+    virtual void _initialize();
 
-        // Operations
+    // Operations
 
+    // Attributes
+    virtual ::ecore::EBoolean isID () const;
+    virtual void setID (::ecore::EBoolean _iD);
 
-        // Attributes
-        ::ecore::EBoolean isID() const;
-        void setID(::ecore::EBoolean _iD);
+    // References
+    virtual ::ecore::EDataType_ptr getEAttributeType () const;
+    virtual void setEAttributeType (::ecore::EDataType_ptr _eAttributeType);
 
-        // References
-        ::ecore::EDataType_ptr getEAttributeType();
-        void setEAttributeType(::ecore::EDataType_ptr _eAttributeType);
+    /*PROTECTED REGION ID(EAttribute) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(EAttribute) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+    // EObjectImpl
+    virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+    virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+    virtual void eUnset ( ::ecore::EInt _featureID);
+    virtual ::ecore::EClass_ptr _eClass ();
+    virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+    virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        // EObjectImpl
-        virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                ::ecore::EBoolean _resolve);
-        virtual void eSet(::ecore::EInt _featureID,
-                ::ecore::EJavaObject const& _newValue);
-        virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-        virtual void eUnset(::ecore::EInt _featureID);
-        virtual ::ecore::EClass_ptr _eClass();
+    /*PROTECTED REGION ID(EAttributeImpl) START*/
+    // Please, enable the protected region if you add manually written code.
+    // To do this, add the keyword ENABLED before START.
+    /*PROTECTED REGION END*/
 
-        /*PROTECTED REGION ID(EAttributeImpl) START*/
-        // Please, enable the protected region if you add manually written code.
-        // To do this, add the keyword ENABLED before START.
-        /*PROTECTED REGION END*/
+protected:
+    EAttribute_ptr _this()
+    {   return EAttribute_ptr(this);}
 
-    protected:
-        // Attributes
+    // Attributes
 
-        ::ecore::EBoolean m_iD;
+    ::ecore::EBoolean m_iD;
 
-        // References
+    // References
 
-        ::ecore::EDataType_ptr m_eAttributeType;
+    ::ecore::EDataType_ptr m_eAttributeType;
 
-    };
+};
 
-} // ecore
+}
+ // ecore
 
 #endif // ECORE_EATTRIBUTE_HPP
+

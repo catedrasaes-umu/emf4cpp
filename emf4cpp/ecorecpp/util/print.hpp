@@ -23,15 +23,17 @@
 #include <ecore.hpp>
 #include <iostream>
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace util
 {
 
-void print_all(::ecore::EPackage_ptr pkg);
-void print(::ecore::EPackage_ptr pkg);
+void EXPORT_ECORECPP_DLL print_all(::ecore::EPackage_ptr pkg);
+void EXPORT_ECORECPP_DLL print(::ecore::EPackage_ptr pkg);
 
-void print(std::ostream& out, const ::ecore::EObject_ptr obj, int level = 0);
+void EXPORT_ECORECPP_DLL print(std::ostream& out, const ::ecore::EObject_ptr obj, int level = 0);
 
 } // util
 } // ecorecpp

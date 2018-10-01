@@ -21,27 +21,31 @@
 
 #include "../notify_forward.hpp"
 
+#include "../dllEcorecpp.hpp"
+
 namespace ecorecpp
 {
 namespace notify
 {
 
-//class Adapter
-//{
-//public:
-//
-//    virtual ~Adapter();
-//
-//    virtual void notifyChanged(Notification_ptr _notification) = 0;
-//
-//    Notifier_ptr getTarget();
-//
-//    void setTarget(Notifier_ptr _notifier);
-//
-//protected:
-//
-//    Notifier_ptr m_target;
-//};
+class EXPORT_ECORECPP_DLL Adapter
+{
+public:
+
+	Adapter() = default;
+
+	virtual ~Adapter();
+
+	virtual void notifyChanged(Notification_ptr _notification) = 0;
+
+	Notifier_ptr getTarget();
+
+	virtual void setTarget(Notifier_ptr _notifier);
+
+protected:
+
+	Notifier_ptr m_target;
+};
 
 } // notify
 } // ecorecpp

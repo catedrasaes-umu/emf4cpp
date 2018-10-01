@@ -2,6 +2,7 @@
 /*
  * tree/TreeFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -30,7 +31,6 @@ using namespace ::tree;
 
 TreeFactory::TreeFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr TreeFactory::create(::ecore::EClass_ptr _eClass)
@@ -71,14 +71,14 @@ TreeFactory::TreeFactory()
 
 TreeNode_ptr TreeFactory::createTreeNode()
 {
-    return new TreeNode();
+    return ::ecore::Ptr < TreeNode > (new TreeNode);
 }
 Leaf_ptr TreeFactory::createLeaf()
 {
-    return new Leaf();
+    return ::ecore::Ptr < Leaf > (new Leaf);
 }
 NonTerminal_ptr TreeFactory::createNonTerminal()
 {
-    return new NonTerminal();
+    return ::ecore::Ptr < NonTerminal > (new NonTerminal);
 }
 

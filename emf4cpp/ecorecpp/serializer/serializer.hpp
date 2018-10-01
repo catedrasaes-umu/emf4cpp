@@ -2,6 +2,7 @@
 /*
  * serializer/serializer.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -25,19 +26,24 @@
 #include "../mapping.hpp"
 #include "greedy_serializer.hpp"
 #include <ostream>
+#include <sstream>
+
+#include "../dllEcorecpp.hpp"
 
 namespace ecorecpp
 {
 namespace serializer
 {
 
-typedef ::ecorecpp::mapping::type_traits::string_t string_t;
+typedef ::ecorecpp::mapping::type_definitions::string_t string_t;
 
-class serializer
+class EXPORT_ECORECPP_DLL serializer
 {
 public:
 
-    serializer(std::ostream& _ostream);
+	enum class XmiIndentMode { NoIndentation, Indentation };
+    serializer(std::ostream& _ostream,
+			   XmiIndentMode = XmiIndentMode::NoIndentation);
 
     virtual ~serializer();
 
@@ -45,10 +51,10 @@ public:
 
 protected:
 
-    ::ecorecpp::mapping::type_traits::string_t get_type(
+    ::ecorecpp::mapping::type_definitions::string_t get_type(
             ::ecore::EObject_ptr obj) const;
 
-    ::ecorecpp::mapping::type_traits::string_t get_reference(
+    ::ecorecpp::mapping::type_definitions::string_t get_reference(
             ::ecore::EObject_ptr from, ::ecore::EObject_ptr to) const;
 
     void serialize_node(::ecore::EObject_ptr obj);
@@ -57,11 +63,15 @@ protected:
             ::ecore::EObject_ptr child_obj, ::ecore::EStructuralFeature_ptr ef);
 
     std::ostream& m_out;
+	XmiIndentMode m_mode;
+    std::ostringstream m_internalBuffer;
 
     int m_level; // current_level
     ::ecore::EObject_ptr m_root_obj;
 
     greedy_serializer m_ser;
+
+	std::vector<::ecore::EPackage_ptr> m_usedPackages;
 };
 
 } // serializer

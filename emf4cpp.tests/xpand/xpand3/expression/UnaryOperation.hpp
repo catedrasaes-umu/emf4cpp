@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/UnaryOperation.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef XPAND3_EXPRESSION_UNARYOPERATION_HPP
 #define XPAND3_EXPRESSION_UNARYOPERATION_HPP
 
-#include <xpand3/expression_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <xpand3/dllXpand3.hpp>
+#include <xpand3/expression_forward.hpp>
 
 #include <ecore_forward.hpp>
 #include <xpand3_forward.hpp>
 #include <xpand3/expression/AbstractExpression.hpp>
+
+#include "ExpressionPackage.hpp"
 
 /*PROTECTED REGION ID(UnaryOperation_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -37,59 +42,66 @@ namespace xpand3
     namespace expression
     {
 
-        class UnaryOperation: public virtual ::xpand3::expression::AbstractExpression
-        {
-        public:
-            UnaryOperation();
+    class EXPORT_XPAND3_DLL UnaryOperation : public virtual ::xpand3::expression::AbstractExpression
+    {
+    public:
+        UnaryOperation();
 
-            virtual ~UnaryOperation();
+        virtual ~UnaryOperation();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
+        // Attributes
 
-            // References
-            ::xpand3::Identifier_ptr getOperator();
-            void setOperator(::xpand3::Identifier_ptr _operator);
+        // References
+        virtual ::xpand3::Identifier_ptr getOperator () const;
+        virtual void setOperator (::xpand3::Identifier_ptr _operator);
 
-            ::xpand3::expression::AbstractExpression_ptr getOperand();
-            void setOperand(
-                    ::xpand3::expression::AbstractExpression_ptr _operand);
+        virtual ::xpand3::expression::AbstractExpression_ptr getOperand () const;
+        virtual void setOperand (::xpand3::expression::AbstractExpression_ptr _operand);
 
-            /*PROTECTED REGION ID(UnaryOperation) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = ExpressionPackage::UNARYOPERATION;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(UnaryOperation) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(UnaryOperationImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(UnaryOperationImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            // References
+    protected:
+        UnaryOperation_ptr _this()
+        {   return UnaryOperation_ptr(this);}
 
-            ::xpand3::Identifier_ptr m_operator;
+        // Attributes
 
-            ::xpand3::expression::AbstractExpression_ptr m_operand;
+        // References
 
-        };
+        ::xpand3::Identifier_ptr m_operator;
 
-    } // expression
-} // xpand3
+        ::xpand3::expression::AbstractExpression_ptr m_operand;
+
+    };
+
+}
+ // expression
+}// xpand3
 
 #endif // XPAND3_EXPRESSION_UNARYOPERATION_HPP
 

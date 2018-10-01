@@ -2,6 +2,7 @@
 /*
  * kdm/structure/StructureFactory.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -23,12 +24,14 @@
 #include <ecore/EFactory.hpp>
 #include <kdm/structure.hpp>
 
+#include <kdm/dllKdm.hpp>
+
 namespace kdm
 {
     namespace structure
     {
 
-        class StructureFactory: public virtual ::ecore::EFactory
+        class EXPORT_KDM_DLL StructureFactory : public virtual ::ecore::EFactory
         {
         public:
 
@@ -45,21 +48,121 @@ namespace kdm
             virtual ArchitectureView_ptr createArchitectureView();
             virtual StructureElement_ptr createStructureElement();
 
-            virtual ::ecore::EObject_ptr create(::ecore::EClass_ptr _eClass);
-            virtual ::ecore::EJavaObject createFromString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EString const& _literalValue);
-            virtual ::ecore::EString convertToString(
-                    ::ecore::EDataType_ptr _eDataType,
-                    ::ecore::EJavaObject const& _instanceValue);
+            virtual ::ecore::EObject_ptr create ( ::ecore::EClass_ptr _eClass);
+            virtual ::ecore::EJavaObject createFromString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EString const& _literalValue);
+            virtual ::ecore::EString convertToString ( ::ecore::EDataType_ptr _eDataType, ::ecore::EJavaObject const& _instanceValue);
 
         protected:
 
-            static std::auto_ptr< StructureFactory > s_instance;
+            static ::ecore::Ptr< StructureFactory > s_holder;
 
             StructureFactory();
 
         };
+
+        /** An object creation helper
+         *
+         * Usage (add namespaces as required):
+         *   auto p = create<MyClass>();
+         *
+         */
+        template< class T > inline ::ecore::Ptr< T > create()
+        {
+            return ::ecore::Ptr< T >();
+        }
+
+        template< > inline AbstractStructureElement_ptr create<
+                AbstractStructureElement >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createAbstractStructureElement();
+        }
+
+        template< > inline Subsystem_ptr create< Subsystem >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createSubsystem();
+        }
+
+        template< > inline Layer_ptr create< Layer >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createLayer();
+        }
+
+        template< > inline StructureModel_ptr create< StructureModel >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createStructureModel();
+        }
+
+        template< > inline Component_ptr create< Component >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createComponent();
+        }
+
+        template< > inline SoftwareSystem_ptr create< SoftwareSystem >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createSoftwareSystem();
+        }
+
+        template< > inline AbstractStructureRelationship_ptr create<
+                AbstractStructureRelationship >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createAbstractStructureRelationship();
+        }
+
+        template< > inline StructureRelationship_ptr create<
+                StructureRelationship >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createStructureRelationship();
+        }
+
+        template< > inline ArchitectureView_ptr create< ArchitectureView >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createArchitectureView();
+        }
+
+        template< > inline StructureElement_ptr create< StructureElement >()
+        {
+            auto eFactory =
+                    StructurePackage::_instance()->getEFactoryInstance();
+            auto packageFactory =
+                    dynamic_cast< StructureFactory* >(eFactory.get());
+            return packageFactory->createStructureElement();
+        }
 
     } // structure
 } // kdm

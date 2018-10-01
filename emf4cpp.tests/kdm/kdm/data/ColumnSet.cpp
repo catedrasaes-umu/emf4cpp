@@ -2,6 +2,7 @@
 /*
  * kdm/data/ColumnSet.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -41,6 +42,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ColumnSet.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::kdm::data;
 
 // Default constructor
@@ -48,8 +54,9 @@ ColumnSet::ColumnSet()
 {
 
     m_itemUnit.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::kdm::code::ItemUnit,
-                    -1, true, false >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl<
+                    ::kdm::code::ItemUnit_ptr, -1, true, false >(this,
+                    ::kdm::data::DataPackage::_instance()->getColumnSet__itemUnit()));
 
     /*PROTECTED REGION ID(ColumnSetImpl__ColumnSetImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -65,14 +72,16 @@ ColumnSet::~ColumnSet()
 {
 }
 
-/*PROTECTED REGION ID(ColumnSet.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::kdm::code::ItemUnit >& ColumnSet::getItemUnit()
+
+const ::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& ColumnSet::getItemUnit() const
+{
+    return *m_itemUnit;
+}
+
+::ecorecpp::mapping::EList< ::kdm::code::ItemUnit_ptr >& ColumnSet::getItemUnit()
 {
     return *m_itemUnit;
 }

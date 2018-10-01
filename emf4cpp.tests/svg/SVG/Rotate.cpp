@@ -2,6 +2,7 @@
 /*
  * SVG/Rotate.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(Rotate.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -49,12 +55,8 @@ Rotate::~Rotate()
 {
 }
 
-/*PROTECTED REGION ID(Rotate.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::Double Rotate::getAngle() const
 {
     return m_angle;
@@ -71,8 +73,8 @@ void Rotate::setAngle(::PrimitiveTypes::Double _angle)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRotate__angle(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRotate__angle(),
                 _old_angle,
                 m_angle
         );
@@ -97,8 +99,8 @@ void Rotate::setCx(::PrimitiveTypes::Double _cx)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRotate__cx(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRotate__cx(),
                 _old_cx,
                 m_cx
         );
@@ -123,8 +125,8 @@ void Rotate::setCy(::PrimitiveTypes::Double _cy)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getRotate__cy(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getRotate__cy(),
                 _old_cy,
                 m_cy
         );

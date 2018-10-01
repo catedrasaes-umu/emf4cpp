@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/AbstractStatementWithBody.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(AbstractStatementWithBody.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::statement;
 
 // Default constructor
@@ -36,8 +42,9 @@ AbstractStatementWithBody::AbstractStatementWithBody()
 
     m_body.reset(
             new ::ecorecpp::mapping::ReferenceEListImpl<
-                    ::xpand3::statement::AbstractStatement, -1, true, false >(
-                    this, NULL));
+                    ::xpand3::statement::AbstractStatement_ptr, -1, true, false >(
+                    this,
+                    ::xpand3::statement::StatementPackage::_instance()->getAbstractStatementWithBody__body()));
 
     /*PROTECTED REGION ID(AbstractStatementWithBodyImpl__AbstractStatementWithBodyImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -53,14 +60,16 @@ AbstractStatementWithBody::~AbstractStatementWithBody()
 {
 }
 
-/*PROTECTED REGION ID(AbstractStatementWithBody.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement >& AbstractStatementWithBody::getBody()
+
+const ::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& AbstractStatementWithBody::getBody() const
+{
+    return *m_body;
+}
+
+::ecorecpp::mapping::EList< ::xpand3::statement::AbstractStatement_ptr >& AbstractStatementWithBody::getBody()
 {
     return *m_body;
 }

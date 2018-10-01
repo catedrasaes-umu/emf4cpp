@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 #
 # emf4cpp.generator.sh
 # Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
@@ -22,9 +22,9 @@ GENERATOR_DIR=${BASEDIR}
 
 # Default options
 DEST_DIR="."
-ECORECPP_PATH="${GENERATOR_DIR}/../include/emf4cpp"
+ECORECPP_PATH="${GENERATOR_DIR}/.."
 
 
 # Go go go
-JAR="${BASEDIR}/org.csu.emf4cpp.generator_1.1.0.jar"
+JAR="${BASEDIR}/org.csu.emf4cpp.generator_2.0.0.jar"
 java -jar ${JAR} -e ${ECORECPP_PATH} -o ${DEST_DIR} $@

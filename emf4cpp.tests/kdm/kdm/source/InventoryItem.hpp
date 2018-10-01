@@ -2,6 +2,7 @@
 /*
  * kdm/source/InventoryItem.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -20,12 +21,16 @@
 #ifndef KDM_SOURCE_INVENTORYITEM_HPP
 #define KDM_SOURCE_INVENTORYITEM_HPP
 
-#include <kdm/source_forward.hpp>
 #include <ecorecpp/mapping_forward.hpp>
+
+#include <kdm/dllKdm.hpp>
+#include <kdm/source_forward.hpp>
 
 #include <kdm/kdm_forward.hpp>
 #include <kdm/core_forward.hpp>
 #include <kdm/source/AbstractInventoryElement.hpp>
+
+#include "SourcePackage.hpp"
 
 /*PROTECTED REGION ID(InventoryItem_pre) START*/
 // Please, enable the protected region if you add manually written code.
@@ -37,58 +42,66 @@ namespace kdm
     namespace source
     {
 
-        class InventoryItem: public virtual ::kdm::source::AbstractInventoryElement
-        {
-        public:
-            InventoryItem();
+    class EXPORT_KDM_DLL InventoryItem : public virtual ::kdm::source::AbstractInventoryElement
+    {
+    public:
+        InventoryItem();
 
-            virtual ~InventoryItem();
+        virtual ~InventoryItem();
 
-            virtual void _initialize();
+        virtual void _initialize();
 
-            // Operations
+        // Operations
 
-            // Attributes
-            ::kdm::core::String getVersion() const;
-            void setVersion(::kdm::core::String _version);
+        // Attributes
+        virtual ::kdm::core::String getVersion () const;
+        virtual void setVersion (::kdm::core::String _version);
 
-            ::kdm::core::String getPath() const;
-            void setPath(::kdm::core::String _path);
+        virtual ::kdm::core::String getPath () const;
+        virtual void setPath (::kdm::core::String _path);
 
-            // References
+        // References
 
-            /*PROTECTED REGION ID(InventoryItem) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        /* This is the same value as getClassifierId() returns, but as a static
+         * value it can be used in template expansions. */
+        static const int classifierId = SourcePackage::INVENTORYITEM;
 
-            // EObjectImpl
-            virtual ::ecore::EJavaObject eGet(::ecore::EInt _featureID,
-                    ::ecore::EBoolean _resolve);
-            virtual void eSet(::ecore::EInt _featureID,
-                    ::ecore::EJavaObject const& _newValue);
-            virtual ::ecore::EBoolean eIsSet(::ecore::EInt _featureID);
-            virtual void eUnset(::ecore::EInt _featureID);
-            virtual ::ecore::EClass_ptr _eClass();
+        /*PROTECTED REGION ID(InventoryItem) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            /*PROTECTED REGION ID(InventoryItemImpl) START*/
-            // Please, enable the protected region if you add manually written code.
-            // To do this, add the keyword ENABLED before START.
-            /*PROTECTED REGION END*/
+        // EObjectImpl
+        virtual ::ecore::EJavaObject eGet ( ::ecore::EInt _featureID, ::ecore::EBoolean _resolve);
+        virtual void eSet ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual ::ecore::EBoolean eIsSet ( ::ecore::EInt _featureID);
+        virtual void eUnset ( ::ecore::EInt _featureID);
+        virtual ::ecore::EClass_ptr _eClass ();
+        virtual void _inverseAdd ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _newValue);
+        virtual void _inverseRemove ( ::ecore::EInt _featureID, ::ecore::EJavaObject const& _oldValue);
 
-        protected:
-            // Attributes
+        /*PROTECTED REGION ID(InventoryItemImpl) START*/
+        // Please, enable the protected region if you add manually written code.
+        // To do this, add the keyword ENABLED before START.
+        /*PROTECTED REGION END*/
 
-            ::kdm::core::String m_version;
+    protected:
+        InventoryItem_ptr _this()
+        {   return InventoryItem_ptr(this);}
 
-            ::kdm::core::String m_path;
+        // Attributes
 
-            // References
+        ::kdm::core::String m_version;
 
-        };
+        ::kdm::core::String m_path;
 
-    } // source
-} // kdm
+        // References
+
+    };
+
+}
+ // source
+}// kdm
 
 #endif // KDM_SOURCE_INVENTORYITEM_HPP
 

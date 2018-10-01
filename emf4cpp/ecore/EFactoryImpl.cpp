@@ -2,6 +2,7 @@
 /*
  * ecore/EFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -32,19 +33,19 @@
 #include <ecore/EObject.hpp>
 #include <ecorecpp/mapping.hpp>
 
-using namespace ::ecore;
-
 /*PROTECTED REGION ID(EFactoryImpl.cpp) START*/
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
 /*PROTECTED REGION END*/
+
+using namespace ::ecore;
 
 void EFactory::_initialize()
 {
     // Supertypes
     ::ecore::EModelElement::_initialize();
 
-    // Rerefences
+    // References
 
     /*PROTECTED REGION ID(EFactoryImpl__initialize) START*/
     // Please, enable the protected region if you add manually written code.
@@ -93,12 +94,13 @@ void EFactory::_initialize()
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        _any = m_eAnnotations->asEListOf< ::ecore::EObject > ();
+        _any = m_eAnnotations->asEListOf< ::ecore::EObject_ptr >();
     }
         return _any;
     case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
     {
-        _any = static_cast< ::ecore::EObject* > (m_ePackage);
+        if (m_ePackage)
+            _any = ::ecore::as < ::ecore::EObject > (m_ePackage);
     }
         return _any;
 
@@ -113,18 +115,19 @@ void EFactory::eSet(::ecore::EInt _featureID,
     {
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
     {
-        ::ecorecpp::mapping::EList_ptr _t0 =
-                ::ecorecpp::mapping::any::any_cast<
-                        ::ecorecpp::mapping::EList_ptr >(_newValue);
+        ::ecorecpp::mapping::EList< ::ecore::EObject_ptr >::ptr_type _t0 =
+                ::ecorecpp::mapping::any::any_cast < ::ecorecpp::mapping::EList
+                        < ::ecore::EObject_ptr > ::ptr_type > (_newValue);
         ::ecore::EModelElement::getEAnnotations().clear();
         ::ecore::EModelElement::getEAnnotations().insert_all(*_t0);
     }
         return;
     case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
     {
-        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast<
-                ::ecore::EObject_ptr >(_newValue);
-        ::ecore::EPackage_ptr _t1 = dynamic_cast< ::ecore::EPackage_ptr > (_t0);
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EPackage_ptr _t1 =
+                dynamic_cast< ::ecore::EPackage* >(_t0.get()); /*/// std::dynamic_pointer_cast< ::ecore::EPackage >(_t0);*/
         ::ecore::EFactory::setEPackage(_t1);
     }
         return;
@@ -140,7 +143,7 @@ void EFactory::eSet(::ecore::EInt _featureID,
     case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
         return m_eAnnotations && m_eAnnotations->size();
     case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
-        return m_ePackage;
+        return (bool) m_ePackage;
 
     }
     throw "Error";
@@ -157,9 +160,83 @@ void EFactory::eUnset(::ecore::EInt _featureID)
 
 ::ecore::EClass_ptr EFactory::_eClass()
 {
-    static ::ecore::EClass_ptr
-            _eclass =
-                    dynamic_cast< ::ecore::EcorePackage_ptr > (::ecore::EcorePackage::_instance())->getEFactory();
+    static ::ecore::EClass_ptr _eclass =
+            dynamic_cast< ::ecore::EcorePackage* >(::ecore::EcorePackage::_instance().get())->getEFactory();
     return _eclass;
+}
+
+/** Set the local end of a reference with an EOpposite property.
+ */
+void EFactory::_inverseAdd(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _newValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicAdd(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_newValue);
+        ::ecore::EPackage_ptr _t1 =
+                dynamic_cast< ::ecore::EPackage* >(_t0.get());
+
+        // set reference
+        basicsetEPackage(_t1);
+    }
+        return;
+
+    }
+    throw "Error: _inverseAdd() does not handle this featureID";
+}
+
+/** Unset the local end of a reference with an EOpposite property.
+ */
+void EFactory::_inverseRemove(::ecore::EInt _featureID,
+        ::ecore::EJavaObject const& _oldValue)
+{
+    switch (_featureID)
+    {
+    case ::ecore::EcorePackage::EMODELELEMENT__EANNOTATIONS:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EAnnotation_ptr _t1 =
+                dynamic_cast< ::ecore::EAnnotation* >(_t0.get());
+
+        // add to a list
+        auto& container =
+                (::ecorecpp::mapping::ReferenceEListImpl<
+                        ::ecore::EAnnotation_ptr, -1, true, true >&) ::ecore::EModelElement::getEAnnotations();
+        container.basicRemove(_t1);
+    }
+        return;
+    case ::ecore::EcorePackage::EFACTORY__EPACKAGE:
+    {
+        ::ecore::EObject_ptr _t0 = ::ecorecpp::mapping::any::any_cast
+                < ::ecore::EObject_ptr > (_oldValue);
+        ::ecore::EPackage_ptr _t1 =
+                dynamic_cast< ::ecore::EPackage* >(_t0.get());
+
+        // set reference
+        if (basicgetEPackage() == _t1)
+            basicsetEPackage(nullptr);
+    }
+        return;
+
+    }
+    throw "Error: _inverseRemove() does not handle this featureID";
 }
 

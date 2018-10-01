@@ -2,6 +2,7 @@
 /*
  * kdm/core/CorePackage.hpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -22,188 +23,188 @@
 
 #include <ecore/EPackage.hpp>
 #include <kdm/core_forward.hpp>
+#include <ecorecpp/PackageDeleter.hpp>
+
+#include <kdm/dllKdm.hpp>
 
 namespace kdm
 {
     namespace core
     {
 
-        class CorePackage: public virtual ::ecore::EPackage
-        {
-        public:
+    class EXPORT_KDM_DLL CorePackage : public virtual ::ecore::EPackage
+    {
+    public:
 
-            static CorePackage_ptr _instance();
+        static CorePackage_ptr _instance();
+        static CorePackage_ptr _getInstanceAndRemoveOwnership();
 
-            // IDs for classifiers
+        // IDs for classifiers
 
-            static const int AGGREGATEDRELATIONSHIP = 0;
+        static const int AGGREGATEDRELATIONSHIP = 0;
 
-            static const int BOOLEAN = 1;
+        static const int BOOLEAN = 1;
 
-            static const int ELEMENT = 2;
+        static const int ELEMENT = 2;
 
-            static const int INTEGER = 3;
+        static const int INTEGER = 3;
 
-            static const int KDMENTITY = 4;
+        static const int KDMENTITY = 4;
 
-            static const int KDMRELATIONSHIP = 5;
+        static const int KDMRELATIONSHIP = 5;
 
-            static const int MODELELEMENT = 6;
+        static const int MODELELEMENT = 6;
 
-            static const int STRING = 7;
+        static const int STRING = 7;
 
-            static const int ELEMENT__ATTRIBUTE = 134;
+        static const int ELEMENT__ATTRIBUTE = 134;
 
-            static const int ELEMENT__ANNOTATION = 135;
+        static const int ELEMENT__ANNOTATION = 135;
 
-            static const int MODELELEMENT__STEREOTYPE = 136;
+        static const int MODELELEMENT__STEREOTYPE = 136;
 
-            static const int MODELELEMENT__TAGGEDVALUE = 137;
+        static const int MODELELEMENT__TAGGEDVALUE = 137;
 
-            static const int KDMENTITY__NAME = 138;
+        static const int KDMENTITY__NAME = 138;
 
-            static const int AGGREGATEDRELATIONSHIP__FROM = 139;
+        static const int AGGREGATEDRELATIONSHIP__FROM = 139;
 
-            static const int AGGREGATEDRELATIONSHIP__TO = 140;
+        static const int AGGREGATEDRELATIONSHIP__TO = 140;
 
-            static const int AGGREGATEDRELATIONSHIP__RELATION = 141;
+        static const int AGGREGATEDRELATIONSHIP__RELATION = 141;
 
-            static const int AGGREGATEDRELATIONSHIP__DENSITY = 142;
+        static const int AGGREGATEDRELATIONSHIP__DENSITY = 142;
 
-            // IDs for classifiers for class AggregatedRelationship 
+        // IDs for classifiers for class AggregatedRelationship 
 
-            static const int AGGREGATEDRELATIONSHIP__ATTRIBUTE =
-                    ELEMENT__ATTRIBUTE;
+        static const int AGGREGATEDRELATIONSHIP__ATTRIBUTE = ELEMENT__ATTRIBUTE;
 
-            static const int AGGREGATEDRELATIONSHIP__ANNOTATION =
-                    ELEMENT__ANNOTATION;
+        static const int AGGREGATEDRELATIONSHIP__ANNOTATION = ELEMENT__ANNOTATION;
 
-            static const int AGGREGATEDRELATIONSHIP__STEREOTYPE =
-                    MODELELEMENT__STEREOTYPE;
+        static const int AGGREGATEDRELATIONSHIP__STEREOTYPE = MODELELEMENT__STEREOTYPE;
 
-            static const int AGGREGATEDRELATIONSHIP__TAGGEDVALUE =
-                    MODELELEMENT__TAGGEDVALUE;
+        static const int AGGREGATEDRELATIONSHIP__TAGGEDVALUE = MODELELEMENT__TAGGEDVALUE;
 
-            // IDs for classifiers for class Element 
+        // IDs for classifiers for class Element 
 
-            // IDs for classifiers for class KDMEntity 
+        // IDs for classifiers for class KDMEntity 
 
-            static const int KDMENTITY__ATTRIBUTE = ELEMENT__ATTRIBUTE;
+        static const int KDMENTITY__ATTRIBUTE = ELEMENT__ATTRIBUTE;
 
-            static const int KDMENTITY__ANNOTATION = ELEMENT__ANNOTATION;
+        static const int KDMENTITY__ANNOTATION = ELEMENT__ANNOTATION;
 
-            static const int KDMENTITY__STEREOTYPE = MODELELEMENT__STEREOTYPE;
+        static const int KDMENTITY__STEREOTYPE = MODELELEMENT__STEREOTYPE;
 
-            static const int KDMENTITY__TAGGEDVALUE = MODELELEMENT__TAGGEDVALUE;
+        static const int KDMENTITY__TAGGEDVALUE = MODELELEMENT__TAGGEDVALUE;
 
-            // IDs for classifiers for class KDMRelationship 
+        // IDs for classifiers for class KDMRelationship 
 
-            static const int KDMRELATIONSHIP__ATTRIBUTE = ELEMENT__ATTRIBUTE;
+        static const int KDMRELATIONSHIP__ATTRIBUTE = ELEMENT__ATTRIBUTE;
 
-            static const int KDMRELATIONSHIP__ANNOTATION = ELEMENT__ANNOTATION;
+        static const int KDMRELATIONSHIP__ANNOTATION = ELEMENT__ANNOTATION;
 
-            static const int KDMRELATIONSHIP__STEREOTYPE =
-                    MODELELEMENT__STEREOTYPE;
+        static const int KDMRELATIONSHIP__STEREOTYPE = MODELELEMENT__STEREOTYPE;
 
-            static const int KDMRELATIONSHIP__TAGGEDVALUE =
-                    MODELELEMENT__TAGGEDVALUE;
+        static const int KDMRELATIONSHIP__TAGGEDVALUE = MODELELEMENT__TAGGEDVALUE;
 
-            // IDs for classifiers for class ModelElement 
+        // IDs for classifiers for class ModelElement 
 
-            static const int MODELELEMENT__ATTRIBUTE = ELEMENT__ATTRIBUTE;
+        static const int MODELELEMENT__ATTRIBUTE = ELEMENT__ATTRIBUTE;
 
-            static const int MODELELEMENT__ANNOTATION = ELEMENT__ANNOTATION;
+        static const int MODELELEMENT__ANNOTATION = ELEMENT__ANNOTATION;
 
-            // EClassifiers methods
+        // EClassifiers methods
 
-            virtual ::ecore::EClass_ptr getElement();
+        virtual ::ecore::EClass_ptr getElement();
 
-            virtual ::ecore::EClass_ptr getModelElement();
+        virtual ::ecore::EClass_ptr getModelElement();
 
-            virtual ::ecore::EClass_ptr getKDMEntity();
+        virtual ::ecore::EClass_ptr getKDMEntity();
 
-            virtual ::ecore::EClass_ptr getKDMRelationship();
+        virtual ::ecore::EClass_ptr getKDMRelationship();
 
-            virtual ::ecore::EClass_ptr getAggregatedRelationship();
+        virtual ::ecore::EClass_ptr getAggregatedRelationship();
 
-            virtual ::ecore::EDataType_ptr getString();
+        virtual ::ecore::EDataType_ptr getString();
 
-            virtual ::ecore::EDataType_ptr getInteger();
+        virtual ::ecore::EDataType_ptr getInteger();
 
-            virtual ::ecore::EDataType_ptr getBoolean();
+        virtual ::ecore::EDataType_ptr getBoolean();
 
-            // EStructuralFeatures methods
+        // EStructuralFeatures methods
 
-            virtual ::ecore::EReference_ptr getElement__attribute();
+        virtual ::ecore::EReference_ptr getElement__attribute();
 
-            virtual ::ecore::EReference_ptr getElement__annotation();
+        virtual ::ecore::EReference_ptr getElement__annotation();
 
-            virtual ::ecore::EReference_ptr getModelElement__stereotype();
+        virtual ::ecore::EReference_ptr getModelElement__stereotype();
 
-            virtual ::ecore::EReference_ptr getModelElement__taggedValue();
+        virtual ::ecore::EReference_ptr getModelElement__taggedValue();
 
-            virtual ::ecore::EAttribute_ptr getKDMEntity__name();
+        virtual ::ecore::EAttribute_ptr getKDMEntity__name();
 
-            virtual ::ecore::EReference_ptr getAggregatedRelationship__from();
+        virtual ::ecore::EReference_ptr getAggregatedRelationship__from();
 
-            virtual ::ecore::EReference_ptr getAggregatedRelationship__to();
+        virtual ::ecore::EReference_ptr getAggregatedRelationship__to();
 
-            virtual ::ecore::EReference_ptr getAggregatedRelationship__relation();
+        virtual ::ecore::EReference_ptr getAggregatedRelationship__relation();
 
-            virtual ::ecore::EAttribute_ptr getAggregatedRelationship__density();
+        virtual ::ecore::EAttribute_ptr getAggregatedRelationship__density();
 
-        protected:
+    protected:
 
-            static std::auto_ptr< CorePackage > s_instance;
+        static ::ecore::Ptr< CorePackage > s_instance;
 
-            CorePackage();
+        CorePackage();
+        void _initPackage();
 
-            // EClass instances 
+        // EClass instances 
 
-            ::ecore::EClass_ptr m_ElementEClass;
+        ::ecore::EClass_ptr m_ElementEClass;
 
-            ::ecore::EClass_ptr m_ModelElementEClass;
+        ::ecore::EClass_ptr m_ModelElementEClass;
 
-            ::ecore::EClass_ptr m_KDMEntityEClass;
+        ::ecore::EClass_ptr m_KDMEntityEClass;
 
-            ::ecore::EClass_ptr m_KDMRelationshipEClass;
+        ::ecore::EClass_ptr m_KDMRelationshipEClass;
 
-            ::ecore::EClass_ptr m_AggregatedRelationshipEClass;
+        ::ecore::EClass_ptr m_AggregatedRelationshipEClass;
 
-            // EEnuminstances 
+        // EEnuminstances 
 
-            // EDataType instances 
+        // EDataType instances 
 
-            ::ecore::EDataType_ptr m_StringEDataType;
+        ::ecore::EDataType_ptr m_StringEDataType;
 
-            ::ecore::EDataType_ptr m_IntegerEDataType;
+        ::ecore::EDataType_ptr m_IntegerEDataType;
 
-            ::ecore::EDataType_ptr m_BooleanEDataType;
+        ::ecore::EDataType_ptr m_BooleanEDataType;
 
-            // EStructuralFeatures instances
+        // EStructuralFeatures instances
 
-            ::ecore::EReference_ptr m_Element__attribute;
+        ::ecore::EReference_ptr m_Element__attribute;
 
-            ::ecore::EReference_ptr m_Element__annotation;
+        ::ecore::EReference_ptr m_Element__annotation;
 
-            ::ecore::EReference_ptr m_ModelElement__stereotype;
+        ::ecore::EReference_ptr m_ModelElement__stereotype;
 
-            ::ecore::EReference_ptr m_ModelElement__taggedValue;
+        ::ecore::EReference_ptr m_ModelElement__taggedValue;
 
-            ::ecore::EAttribute_ptr m_KDMEntity__name;
+        ::ecore::EAttribute_ptr m_KDMEntity__name;
 
-            ::ecore::EReference_ptr m_AggregatedRelationship__from;
+        ::ecore::EReference_ptr m_AggregatedRelationship__from;
 
-            ::ecore::EReference_ptr m_AggregatedRelationship__to;
+        ::ecore::EReference_ptr m_AggregatedRelationship__to;
 
-            ::ecore::EReference_ptr m_AggregatedRelationship__relation;
+        ::ecore::EReference_ptr m_AggregatedRelationship__relation;
 
-            ::ecore::EAttribute_ptr m_AggregatedRelationship__density;
+        ::ecore::EAttribute_ptr m_AggregatedRelationship__density;
 
-        };
+    };
 
-    } // core
-} // kdm
+}
+ // core
+}// kdm
 
 #endif // _KDM_COREPACKAGE_HPP
 

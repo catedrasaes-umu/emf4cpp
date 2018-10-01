@@ -35,6 +35,13 @@ String getCPP(EClassifier this) :
 		"::" + this.getFQN("::") + "_ptr"
 ;
 
+String getCPPOwnership(EClassifier this) :
+	if EDataType.isInstance(this) then
+		"::" + this.getFQN("::")
+	else
+		"::" + this.getFQN("::") + "_ptr"
+;
+
 String getCPP(List[EGenericType] this):
 	if isEmpty then
 		"" // TODO: assert

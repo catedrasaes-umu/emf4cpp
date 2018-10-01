@@ -2,6 +2,7 @@
 /*
  * xpand3/expression/UnaryOperation.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -29,6 +30,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(UnaryOperation.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::xpand3::expression;
 
 // Default constructor
@@ -50,26 +56,31 @@ UnaryOperation::~UnaryOperation()
 {
     if (m_operator)
     {
-        delete m_operator;
+        m_operator.reset();
     }
 }
 
-/*PROTECTED REGION ID(UnaryOperation.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 // References
-::xpand3::Identifier_ptr UnaryOperation::getOperator()
+
+::xpand3::Identifier_ptr UnaryOperation::getOperator() const
 {
     return m_operator;
 }
 
 void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
 {
-    ::xpand3::Identifier_ptr _old_operator = m_operator;
+    if (m_operator)
+        m_operator->_setEContainer(UnaryOperation_ptr(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
+    if (_operator)
+        _operator->_setEContainer(_this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator());
 
+#ifdef ECORECPP_NOTIFICATION_API
+    ::xpand3::Identifier_ptr _old_operator = m_operator;
+#endif
     m_operator = _operator;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -77,19 +88,17 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operator(),
                 _old_operator,
                 m_operator
         );
         eNotify(&notification);
     }
 #endif
-
-    delete _old_operator;
 }
 
-::xpand3::expression::AbstractExpression_ptr UnaryOperation::getOperand()
+::xpand3::expression::AbstractExpression_ptr UnaryOperation::getOperand() const
 {
     return m_operand;
 }
@@ -97,8 +106,9 @@ void UnaryOperation::setOperator(::xpand3::Identifier_ptr _operator)
 void UnaryOperation::setOperand(
         ::xpand3::expression::AbstractExpression_ptr _operand)
 {
+#ifdef ECORECPP_NOTIFICATION_API
     ::xpand3::expression::AbstractExpression_ptr _old_operand = m_operand;
-
+#endif
     m_operand = _operand;
 
 #ifdef ECORECPP_NOTIFICATION_API
@@ -106,14 +116,13 @@ void UnaryOperation::setOperand(
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operand(),
+                _this(),
+                ::xpand3::expression::ExpressionPackage::_instance()->getUnaryOperation__operand(),
                 _old_operand,
                 m_operand
         );
         eNotify(&notification);
     }
 #endif
-
 }
 

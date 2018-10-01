@@ -4,85 +4,140 @@ EMF4CPP (formerly Ecore2CPP) is a C++ implementation and type mapping for the Ec
 
 The current release allows to generate C++ code from Ecore metamodels, and to parse and serialize models and metamodels from and into XMI documents. Also, a partially implemented reflective API for generated metamodels is provided.
 
-EMF4CPP consists of two parts: a source code generator from Ecore metamodels to C++ and two runtime support libraries. One of the runtime support libraries implements the Ecore metamodel (libemf4cpp-ecore). The other one allows to parse and serialize modeles in XMI format (libemf4cpp-ecorecpp). The generator is currently implemented using Xpand and Xtend.
+EMF4CPP consists of two parts: a source code generator from Ecore metamodels to C++ and two runtime support libraries. One of the runtime support libraries implements the Ecore metamodel (libemf4cpp-ecore). The other one implements the type mapping, support algorithms, and allows to parse and serialize modeles in XMI format (libemf4cpp-ecorecpp). The generator is currently implemented using Xpand and Xtend.
 
 This is our first step at providing a set of tools for MDD (Model-Driven Development) in C++ as an alternative to the Java world offered by Eclipse tools. We would like to explore common C++ idioms, paradigms and tools (such as template metaprogramming or Boost.Spirit) to provide tools for managing models, writing Domain-Specific Languages (DSLs), and Model-to-Text (M2T), Model-to-Model (M2M), and Text-to-Model (T2M) transformations.
 
 Two direct advantages can be that C++ programmers can write their data model using Ecore and the Eclipse tools to finally generate code with EMF4CPP, and also, memory consumption and efficiency is usually better in EMF4CPP than in Java, as our preliminary results show.
 
+# Features #
+
+* Generates C++11 libraries from ecore metamodels - per ecore class one C++ class is generated.
+
+* Updates only source files which really change.
+
+* Object management via boost::intrusive_ptr<> - no more memory leaks.
+
+* Automatic handling of econtainment and eopposite relations - setting one side of a relation automatically sets the other side.
+
+* XMI serialization and deserialization of model instances - a resource framework allows splitting of serializations, including cross-resource containment.
+
+* Full support for reflection - inspect your metamodel at runtime, including sub-/super-class relations. Powerful enough to implement a generic tree copier.
+
+* A notification framework allows callbacks on model changes - useful in model-view-controller frameworks.
+
+* Creation of Qt5 based item providers - translate class and feature names to user visible strings, and provide pixmaps for a graphical user interface.
+
+* Extension hooks
+
+  * Insert your code into the generated code - protected regions at various places are kept by the code generator.
+
+  * Inject constructor methods into the generated factories - extend a generated class by inheritance and have your classes instantiated from the beginning on, including deserialization.
+
+* Includes support classes from EMF's EcoreUtil package, implemented in the namespace ecorecpp::util, starting with TreeIterator, CrossReferencer and Copier.
+
+* A dispatcher framework forwards calls to overloaded methods according to the best-match in the class hierarchy.
 
 # Installation #
 
-## Change Log ##
+## Requirements ##
 
-### 12/01/2010 ###
+* Boost C++ libraries (1.54 or greater)
 
-· Releases updated fixing an error at XMI parser.
+* G++ (4.8.5 or greater due to C++11)
 
-### 11/29/2010 ###
+* Java Runtime Environment (1.8 or greater)
 
-· Releases updated fixing an installation problem with the ECORECPP library's headers.
+* CMake (version 3.5 at least)
 
-## Requeriments ##
-
-· Boost C++ libraries (1.35 or greater)
-
-· G++ (3.4.3 or greater)
-
-· Java Runtime Environment (1.5 or greater)
-
-· CMake (version 2.6 at least)
+* Qt5 (5.6.2 or greater)
 
 
 ## Installation from binary distribution ##
 
-The EMF4CPP binary distribution contains the source code generator and the runtime libraries. To install it, you only have to extract the tarball file you can download from [here](https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/downloads/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz). Or simply, as follows:
-
-```
-wget https://raw.githubusercontent.com/catedrasaes-umu/emf4cpp/downloads/emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
-tar xzf emf4cpp-generator-0.0.2-Linux-x86_64.tar.gz
-```
+t.b.d.
 
 ## Installation from source distribution ##
 
-1. Download the latest snapshot from [here](https://github.com/catedrasaes-umu/emf4cpp/archive/master.zip).
+1. Checkout a clone of this repository
 
 ```
-wget https://github.com/catedrasaes-umu/emf4cpp/archive/master.zip
-unzip master.zip
+git clone https://github.com/catedrasaes-umu/emf4cpp.git
+cd emf4cpp
 ```
+2. Build the generator jar file in eclipse
 
-2. Create a build directory and run CMake as follows:
+* Start eclipse
+* Import generator project
+```
+Select File->Open Projects from File System...
+Select Import Source 'Directory': 'emf4cpp/org.csu.emf4cpp.generator'
+```
+* Generate Launch configuration
+```
+Select (from context menu): Run As->Java Application...
+Select 'Generator - org.csu.emf4cpp.generator'
+```
+* Export runnable jar
+```
+Select (from context menu): Export->Java->Runnable JAR file...
+Select Launch configuration: 'Generator - org.csu.emf4cpp.generator'
+Select Export destination: org.csu.emf4cpp.generator/org.csu.emf4cpp.generator_2.0.0.jar
+```
+3. Change to the build directory and run:
 
 ```
-mkdir build
 cd build
-cmake ../emf4cpp-source-1012011253 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/emf4cpp-0.0.2/
+./generator-release.sh
 ```
-
-3. Compile and install. EMF4CPP is installed by default at /opt/emf4cpp-0.0.2/
-
-```
-make
-sudo make install
-```
+This builds the library to sub-folder 'emf4cpp-generator-2.0.0'.
 
 ## EMF4CPP development distribution ##
 
-The EMF4CPP development distribution tarball file consists of four Eclipse projects: emf4cpp.generator,
-emf4cpp.tests, emf4cpp.xtext and emf4cpp.xtext2qi. The first one contains a C++ source code generator 
-from metamodels conforming to Ecore. The second one contains, as subdirectories, some metamodels we use
-to test our implementation, and some emf4cpp-based utilities we are developing. A relevant utility we 
-are developing is a Python interpreter, called PyEcore, that allows to use EMF4CPP from Python scripts.
-The third one is a bootstrap implementation of a ANTLR3 grammars generator from Xtext grammars. The last one is 
-an under development Boost Sprit Qi grammars generator from Xtext grammars.
+The EMF4CPP development project consists of four major components:
+org.csu.emf4cpp.generator, emf4cpp.tests, the emf4cpp-ecore library, and the
+emf4cpp-ecorecpp library.
 
-You can download the latest development snapshot from 
-[here](http://emf4cpp.googlecode.com/files/emf4cpp-snapshot-1012011253.tgz).
+Two additional components are contained:
+emf4cpp.xtext, which is a bootstrap implementation of a ANTLR3 grammars
+generator from Xtext grammars, and emf4cpp.xtext2qi, an under development
+Boost Sprit Qi grammars generator from Xtext grammars. These components have
+an additional requirement:
 
-There is an additional requeriment for this distribution:
+* Antlr v3 C runtime library (3.2 or greater, [download](http://www.antlr.org/download/C download))
 
-· Antlr v3 C runtime library (3.2 or greater, [download](http://www.antlr.org/download/C download))
+### org.csu.emf4cpp.generator ###
+
+This is a C++ source code generator from metamodels conforming to Ecore.
+
+Implemented as a model workflow it uses xpand to convert the ecore model into
+C++ source code. A small java driver accepts command line arguments and passes
+it to the workflow. Afterwards a CppBeautifier formats the code.
+
+If you change the xpand2 templates, you need to rebuild the code generator. To
+be on the safe side you should always regenerate the emf4cpp-ecore library and
+recompile the emf4cpp-ecorecpp library.
+
+### emf4cpp.tests ###
+
+We use some metamodels, distributed over subdirectories, to test our
+implementation, and some emf4cpp-based utilities we are developing. A relevant
+utility we are developing is a Python interpreter, called PyEcore, that allows
+to use EMF4CPP from Python scripts.
+
+### emf4cpp-ecore library ###
+
+This is the C++ implementation of the ecore metamodel itself. It is generated
+by emf4cpp from the reference ecore description (in
+org.csu.emf4cpp.generator/src/metamodel/Ecore.ecore).
+
+### emf4cpp-ecorecpp library ###
+
+The runtime library emf4cpp-ecorecpp contains the basic infrastructure, which
+is required to process instances of ecore metamodels. Aside of the required
+mapping from EMF datatypes to C++ datatypes this includes serialization and
+de-serialization, a resource framework, a notification framework, and utilities
+like a TreeIterator, a CrossReferencer and a Copier.
 
 ### Build workspace ###
 
@@ -187,7 +242,7 @@ In this example, we create the metamodel above using EMF4CPP.
 
 ```cpp
 #include <ecore.hpp> // Ecore metamodel
-#include <ecorecpp/ecorecpp.hpp> // EMF4CPP utils
+#include <ecorecpp.hpp> // EMF4CPP utils
 #include <iostream>
 
 using namespace ecore;
@@ -205,7 +260,7 @@ int main(int argc, char* argv[])
     EAttribute_ptr companyName = ecoreFactory->createEAttribute();
     companyName->setName("name");
     companyName->setEType(ecorePackage->getEString());
-    companyClass->addEStructuralFeatures(companyName);
+    companyClass->getEStructuralFeatures().push_back(companyName);
 
     // Create an Employee class
     EClass_ptr employeeClass = ecoreFactory->createEClass();
@@ -215,7 +270,7 @@ int main(int argc, char* argv[])
     EAttribute_ptr employeeName = ecoreFactory->createEAttribute();
     employeeName->setName("name");
     employeeName->setEType(ecorePackage->getEString());
-    employeeClass->addEStructuralFeatures(employeeName);
+    employeeClass->getEStructuralFeatures().push_back(employeeName);
 
     // Create a Departament class
     EClass_ptr departmentClass = ecoreFactory->createEClass();
@@ -225,7 +280,7 @@ int main(int argc, char* argv[])
     EAttribute_ptr departmentNumber = ecoreFactory->createEAttribute();
     departmentNumber->setName("number");
     departmentNumber->setEType(ecorePackage->getEInt());
-    departmentClass->addEStructuralFeatures(departmentNumber);
+    departmentClass->getEStructuralFeatures().push_back(departmentNumber);
 
     // Department class can contain reference to one or many employees
     EReference_ptr departmentEmployees = ecoreFactory->createEReference();
@@ -235,14 +290,14 @@ int main(int argc, char* argv[])
     // Specify that it could be zero or more employees
     departmentEmployees->setUpperBound(-1);
     departmentEmployees->setContainment(true);
-    departmentClass->addEStructuralFeatures(departmentEmployees);
+    departmentClass->getEStructuralFeatures().push_back(departmentEmployees);
 
     // One of the department employees must be the manager
     EReference_ptr departmentManager = ecoreFactory->createEReference();
     departmentManager->setName("manager");
     departmentManager->setEType(employeeClass);
     departmentManager->setLowerBound(1);
-    departmentClass->addEStructuralFeatures(departmentManager);
+    departmentClass->getEStructuralFeatures().push_back(departmentManager);
 
     // Company can contain reference to zero or more departments
     EReference_ptr companyDepartments = ecoreFactory->createEReference();
@@ -250,26 +305,26 @@ int main(int argc, char* argv[])
     companyDepartments->setEType(departmentClass);
     companyDepartments->setUpperBound(-1);
     companyDepartments->setContainment(true);
-    companyClass->addEStructuralFeatures(companyDepartments);
+    companyClass->getEStructuralFeatures().push_back(companyDepartments);
 
     // Create a package that represents company
     EPackage_ptr companyPackage = ecoreFactory->createEPackage();
     companyPackage->setName("company");
     companyPackage->setNsPrefix("company");
     companyPackage->setNsURI("http:///com.example.company.ecore");
-    companyPackage->addEClassifiers(employeeClass);
-    companyPackage->addEClassifiers(departmentClass);
-    companyPackage->addEClassifiers(companyClass);
+    companyPackage->getEClassifiers().push_back(employeeClass);
+    companyPackage->getEClassifiers().push_back(departmentClass);
+    companyPackage->getEClassifiers().push_back(companyClass);
 
     // Initialize the metamodel
     companyPackage->_initialize();
 
     // Serializing the metamodel
-    ::ecorecpp::serializer::serializer _ser("company.ecore"); // filename
+    std::ofstream stream("company.ecore"); // filename
+    ::ecorecpp::serializer::serializer _ser(
+        stream, ecorecpp::serializer::serializer::XmiIndentMode::Indentation);
     _ser.serialize(companyPackage);
-
-    // Delete the metamodel
-    delete companyPackage;
+    stream.close();
 
     //
     // Deserializing the serialized metamodel
@@ -278,24 +333,23 @@ int main(int argc, char* argv[])
     // Insert the ecore metamodel in the metamodel repository
     // Required for parsing models conforms to that metamodel
     ecorecpp::MetaModelRepository::_instance()->load(ecorePackage);
-    
+
     // Deserializing the serialized metamodel
     ::ecorecpp::parser::parser _par;
-    EPackage_ptr pkg = _par.load("company.ecore")->as< EPackage >(); // filename
+    EPackage_ptr pkg = ::ecore::as< EPackage >(_par.load("company.ecore")); // filename
 
     // Printing the metamodel
     std::cout << "EPackage: " << pkg->getName() << std::endl;
 
-    const std::vector< EClassifier_ptr >& classifiers = pkg->getEClassifiers();
+    const ::ecorecpp::mapping::EList< EClassifier_ptr >& classifiers = pkg->getEClassifiers();
     for (size_t i = 0; i < classifiers.size(); i++)
     {
         std::cout << "  EClassifier: " << classifiers[i]->getName()
-                  << " (" << classifiers[i]->eClass()->getName() 
+                  << " (" << classifiers[i]->eClass()->getName()
                   << ")" << std::endl;
     }
 
-    // Delete the parsed metamodel
-    delete pkg;
+    // All ecore pointers are smart pointers.
 }
 ```
 
@@ -328,7 +382,7 @@ EMF4CPP is released under the LGPL License.
 
 # Acknowledgements #
 
-· Till Steinbach for finding bugs.
+* Till Steinbach for finding bugs.
 
 # Related publications #
 

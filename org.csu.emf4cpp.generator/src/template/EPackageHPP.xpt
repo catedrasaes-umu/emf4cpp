@@ -1,6 +1,7 @@
 «REM»
 EPackageHPP.xpt
 Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
 
 EMF4CPP is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -32,6 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define «getHeaderDef()»_HPP
 
 #include "«name»_forward.hpp"
+#include <boost/intrusive_ptr.hpp>
 #include <ecorecpp/mapping.hpp>
 
 // EPackage
@@ -84,12 +86,44 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <«subpkg.getFQN("/")»_forward.hpp>
 «ENDFOREACH»
 
+«IF (boolean) GLOBALVAR bootstrap == false -»
 #include <ecore_forward.hpp> // for EDataTypes
+«ENDIF-»
 
 «EXPAND template::EClassHPP::namespaces_begin FOR this»
 
+«IF (boolean) GLOBALVAR bootstrap == true -»
+/** The default pointer type used by the generated EMF implementation. */
+template<class T>
+using Ptr = boost::intrusive_ptr<T>;
+
+/* A helper function to create objects and wrap them in the default pointer type. */
+template<class T, class... Args>
+Ptr<T> make(Args&&... args) {
+	return Ptr<T>(new T(args...));
+}
+
+template< typename T, typename S >
+inline T* as(S* _s)
+{
+    return dynamic_cast< T* >(_s);
+}
+
+template< typename T, typename S >
+inline Ptr< T > as(const Ptr<S>& _s)
+{
+    return Ptr< T > (dynamic_cast< T* >(_s.get()));
+}
+
+template<typename T, typename S>
+inline bool instanceOf(const Ptr<S>& _s)
+{
+    return (bool)dynamic_cast<T*>(_s.get());
+}
+«ENDIF-»
+
 // EDataType
-«FOREACH EClassifiers.typeSelect(EDataType).select(e|e.ETypeParameters.isEmpty) AS type-»
+«FOREACH EClassifiers.typeSelect(EDataType).select(e|e.ETypeParameters.isEmpty && !EEnum.isInstance(e)) AS type-»
 «PROTECT CSTART '/*' CEND '*/' ID type.getFQN("_") DISABLE»
 // Please, enable the protected region if you add manually written code.
 // To do this, add the keyword ENABLED before START.
@@ -101,20 +135,20 @@ typedef «getEDataTypeMap(type)» «type.name»;
 «FOREACH EClassifiers.typeSelect(EClass) AS class»
 // «class.name»
 class «class.name»;
-typedef «class.name»* «class.name»_ptr;
+using «class.name»_ptr = ::ecore::Ptr<«class.name»>;
+«ENDFOREACH»
+
+// EEnum
+«FOREACH EClassifiers.typeSelect(EEnum) AS enum»
+// «enum.name»
+enum class «enum.name»;
 «ENDFOREACH»
 
 // Package & Factory
 class «getFactoryName()»;
-typedef «getFactoryName()» * «getFactoryName()»_ptr;
+using «getFactoryName()»_ptr = ::ecore::Ptr<«getFactoryName()»>;
 class «getPackageName()»;
-typedef «getPackageName()» * «getPackageName()»_ptr;
-
-template<typename T, typename S>
-inline T* instanceOf(S* _s)
-{
-    return dynamic_cast<T*>(_s);
-}
+using «getPackageName()»_ptr = ::ecore::Ptr<«getPackageName()»>;
 
 «EXPAND template::EClassHPP::namespaces_end FOR this»
 

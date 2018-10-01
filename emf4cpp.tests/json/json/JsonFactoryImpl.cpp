@@ -2,6 +2,7 @@
 /*
  * json/JsonFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -35,7 +36,6 @@ using namespace ::json;
 
 JsonFactory::JsonFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr JsonFactory::create(::ecore::EClass_ptr _eClass)
@@ -86,34 +86,34 @@ JsonFactory::JsonFactory()
 
 ObjectValue_ptr JsonFactory::createObjectValue()
 {
-    return new ObjectValue();
+    return ::ecore::Ptr < ObjectValue > (new ObjectValue);
 }
 NVPair_ptr JsonFactory::createNVPair()
 {
-    return new NVPair();
+    return ::ecore::Ptr < NVPair > (new NVPair);
 }
 Value_ptr JsonFactory::createValue()
 {
-    return new Value();
+    return ::ecore::Ptr < Value > (new Value);
 }
 StringValue_ptr JsonFactory::createStringValue()
 {
-    return new StringValue();
+    return ::ecore::Ptr < StringValue > (new StringValue);
 }
 NumberValue_ptr JsonFactory::createNumberValue()
 {
-    return new NumberValue();
+    return ::ecore::Ptr < NumberValue > (new NumberValue);
 }
 BooleanValue_ptr JsonFactory::createBooleanValue()
 {
-    return new BooleanValue();
+    return ::ecore::Ptr < BooleanValue > (new BooleanValue);
 }
 ArrayValue_ptr JsonFactory::createArrayValue()
 {
-    return new ArrayValue();
+    return ::ecore::Ptr < ArrayValue > (new ArrayValue);
 }
 NullValue_ptr JsonFactory::createNullValue()
 {
-    return new NullValue();
+    return ::ecore::Ptr < NullValue > (new NullValue);
 }
 

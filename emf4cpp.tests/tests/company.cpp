@@ -7,9 +7,9 @@ using namespace ecore;
 int main(int argc, char* argv[])
 {
     EcoreFactory_ptr ecoreFactory =
-            EcoreFactory::_instance()->as< EcoreFactory > ();
+            EcoreFactory::_instance();
     EcorePackage_ptr ecorePackage =
-            EcorePackage::_instance()->as< EcorePackage > ();
+            EcorePackage::_instance();
 
     // Create a Company class
     EClass_ptr companyClass = ecoreFactory->createEClass();
@@ -83,6 +83,6 @@ int main(int argc, char* argv[])
     ::ecorecpp::serializer::serializer _ser(outfile);
     _ser.serialize(companyPackage);
 
-    delete companyPackage;
+    companyPackage.reset();
 }
 

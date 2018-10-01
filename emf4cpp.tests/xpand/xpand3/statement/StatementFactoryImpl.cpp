@@ -2,6 +2,7 @@
 /*
  * xpand3/statement/StatementFactoryImpl.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -38,7 +39,6 @@ using namespace ::xpand3::statement;
 
 StatementFactory::StatementFactory()
 {
-    s_instance.reset(this);
 }
 
 ::ecore::EObject_ptr StatementFactory::create(::ecore::EClass_ptr _eClass)
@@ -96,46 +96,47 @@ StatementFactory::StatementFactory()
 
 AbstractStatement_ptr StatementFactory::createAbstractStatement()
 {
-    return new AbstractStatement();
+    return ::ecore::Ptr < AbstractStatement > (new AbstractStatement);
 }
 ExpandStatement_ptr StatementFactory::createExpandStatement()
 {
-    return new ExpandStatement();
+    return ::ecore::Ptr < ExpandStatement > (new ExpandStatement);
 }
 ExpressionStatement_ptr StatementFactory::createExpressionStatement()
 {
-    return new ExpressionStatement();
+    return ::ecore::Ptr < ExpressionStatement > (new ExpressionStatement);
 }
 ErrorStatement_ptr StatementFactory::createErrorStatement()
 {
-    return new ErrorStatement();
+    return ::ecore::Ptr < ErrorStatement > (new ErrorStatement);
 }
 AbstractStatementWithBody_ptr StatementFactory::createAbstractStatementWithBody()
 {
-    return new AbstractStatementWithBody();
+    return ::ecore::Ptr < AbstractStatementWithBody
+            > (new AbstractStatementWithBody);
 }
 FileStatement_ptr StatementFactory::createFileStatement()
 {
-    return new FileStatement();
+    return ::ecore::Ptr < FileStatement > (new FileStatement);
 }
 ForEachStatement_ptr StatementFactory::createForEachStatement()
 {
-    return new ForEachStatement();
+    return ::ecore::Ptr < ForEachStatement > (new ForEachStatement);
 }
 IfStatement_ptr StatementFactory::createIfStatement()
 {
-    return new IfStatement();
+    return ::ecore::Ptr < IfStatement > (new IfStatement);
 }
 LetStatement_ptr StatementFactory::createLetStatement()
 {
-    return new LetStatement();
+    return ::ecore::Ptr < LetStatement > (new LetStatement);
 }
 ProtectStatement_ptr StatementFactory::createProtectStatement()
 {
-    return new ProtectStatement();
+    return ::ecore::Ptr < ProtectStatement > (new ProtectStatement);
 }
 TextStatement_ptr StatementFactory::createTextStatement()
 {
-    return new TextStatement();
+    return ::ecore::Ptr < TextStatement > (new TextStatement);
 }
 

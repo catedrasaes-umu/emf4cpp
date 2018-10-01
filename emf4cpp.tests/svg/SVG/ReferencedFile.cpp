@@ -2,6 +2,7 @@
 /*
  * SVG/ReferencedFile.cpp
  * Copyright (C) Cátedra SAES-UMU 2010 <andres.senac@um.es>
+ * Copyright (C) INCHRON GmbH 2016 <soeren.henning@inchron.com>
  *
  * EMF4CPP is free software: you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published
@@ -28,6 +29,11 @@
 #include <ecorecpp/notify.hpp>
 #endif
 
+/*PROTECTED REGION ID(ReferencedFile.cpp) START*/
+// Please, enable the protected region if you add manually written code.
+// To do this, add the keyword ENABLED before START.
+/*PROTECTED REGION END*/
+
 using namespace ::SVG;
 
 // Default constructor
@@ -35,8 +41,10 @@ ReferencedFile::ReferencedFile()
 {
 
     m_referer.reset(
-            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image, -1,
-                    false, true >(this, NULL));
+            new ::ecorecpp::mapping::ReferenceEListImpl< ::SVG::Image_ptr, -1,
+                    false, true >(this,
+                    ::SVG::SVGPackage::_instance()->getReferencedFile__referer(),
+                    ::SVG::SVGPackage::IMAGE__REFEREE));
 
     /*PROTECTED REGION ID(ReferencedFileImpl__ReferencedFileImpl) START*/
 // Please, enable the protected region if you add manually written code.
@@ -52,12 +60,8 @@ ReferencedFile::~ReferencedFile()
 {
 }
 
-/*PROTECTED REGION ID(ReferencedFile.cpp) START*/
-// Please, enable the protected region if you add manually written code.
-// To do this, add the keyword ENABLED before START.
-/*PROTECTED REGION END*/
-
 // Attributes
+
 ::PrimitiveTypes::String ReferencedFile::getName() const
 {
     return m_name;
@@ -74,8 +78,8 @@ void ReferencedFile::setName(::PrimitiveTypes::String _name)
     {
         ::ecorecpp::notify::Notification notification(
                 ::ecorecpp::notify::Notification::SET,
-                (::ecore::EObject_ptr) this,
-                (::ecore::EStructuralFeature_ptr) ::SVG::SVGPackage::_instance()->getReferencedFile__name(),
+                _this(),
+                ::SVG::SVGPackage::_instance()->getReferencedFile__name(),
                 _old_name,
                 m_name
         );
@@ -85,7 +89,13 @@ void ReferencedFile::setName(::PrimitiveTypes::String _name)
 }
 
 // References
-::ecorecpp::mapping::EList< ::SVG::Image >& ReferencedFile::getReferer()
+
+const ::ecorecpp::mapping::EList< ::SVG::Image_ptr >& ReferencedFile::getReferer() const
+{
+    return *m_referer;
+}
+
+::ecorecpp::mapping::EList< ::SVG::Image_ptr >& ReferencedFile::getReferer()
 {
     return *m_referer;
 }
