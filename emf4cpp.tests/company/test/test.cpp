@@ -67,7 +67,11 @@ int main(int argc, char* argv[])
     EObject_ptr eobj = _dser.load ("UMU.xmi");
 
     {
-		boost::intrusive_ptr<Company> umu (::ecore::as< Company >(eobj));
+		Company_ptr umu (::ecore::as< Company >(eobj));
+		const auto& departments = umu->getDepartments();
+		auto manager = departments[0]->getManager();
+		if (!manager)
+			std::cerr << "No reference to manager!" << std::endl;
     }
 }
 

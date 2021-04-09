@@ -318,7 +318,9 @@ void handler::resolveReferences()
 
             ref_parser::SemanticState ss;
             State< ref_parser::SemanticState > st(ss, s, size);
-            assert(ref_parser::grammar::references::match(st));
+            bool parsingSuccessful = ref_parser::grammar::references::match(st);
+            assert(parsingSuccessful);
+            (void)parsingSuccessful;
 
             ref_parser::references_t& _references = ss.get_references();
 
